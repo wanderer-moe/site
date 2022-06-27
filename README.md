@@ -1,5 +1,5 @@
 
-# gi.dromzeh.dev
+# wanderer.moe
 
 A fast, minimal & easy to use online website/database for Genshin Impact.
 - Repo for character 'parts': https://github.com/dromzeh/genshin-character-parts
