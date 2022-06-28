@@ -1,0 +1,154 @@
+{
+	"name": "Fischl",
+	"fullname": "Fischl",
+	"title": "Prinzessin der Verurteilung!",
+	"description": "A mysterious girl who calls herself \"Prinzessin der Verurteilung\" and travels with a night raven named Oz.",
+	"rarity": "4",
+	"element": "Electro",
+	"weapontype": "Bow",
+	"substat": "ATK",
+	"gender": "Female",
+	"body": "GIRL",
+	"association": "MONDSTADT",
+	"region": "Mondstadt",
+	"affiliation": "Adventurers' Guild",
+	"birthdaymmdd": "5/27",
+	"birthday": "May 27",
+	"constellation": "Corvus",
+	"cv": {
+		"english": "Brittany Cox & Ben Pronsky",
+		"chinese": "Mace & 赵悦程",
+		"japanese": "内田真礼 & 増谷康紀",
+		"korean": "Park Go-woon & Lee Hyeon"
+	},
+	"costs": {
+		"ascend1": [
+			{
+				"name": "Mora",
+				"count": 20000
+			},
+			{
+				"name": "Vajrada Amethyst Sliver",
+				"count": 1
+			},
+			{
+				"name": "Small Lamp Grass",
+				"count": 3
+			},
+			{
+				"name": "Firm Arrowhead",
+				"count": 3
+			}
+		],
+		"ascend2": [
+			{
+				"name": "Mora",
+				"count": 40000
+			},
+			{
+				"name": "Vajrada Amethyst Fragment",
+				"count": 3
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 2
+			},
+			{
+				"name": "Small Lamp Grass",
+				"count": 10
+			},
+			{
+				"name": "Firm Arrowhead",
+				"count": 15
+			}
+		],
+		"ascend3": [
+			{
+				"name": "Mora",
+				"count": 60000
+			},
+			{
+				"name": "Vajrada Amethyst Fragment",
+				"count": 6
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 4
+			},
+			{
+				"name": "Small Lamp Grass",
+				"count": 20
+			},
+			{
+				"name": "Sharp Arrowhead",
+				"count": 12
+			}
+		],
+		"ascend4": [
+			{
+				"name": "Mora",
+				"count": 80000
+			},
+			{
+				"name": "Vajrada Amethyst Chunk",
+				"count": 3
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 8
+			},
+			{
+				"name": "Small Lamp Grass",
+				"count": 30
+			},
+			{
+				"name": "Sharp Arrowhead",
+				"count": 18
+			}
+		],
+		"ascend5": [
+			{
+				"name": "Mora",
+				"count": 100000
+			},
+			{
+				"name": "Vajrada Amethyst Chunk",
+				"count": 6
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 12
+			},
+			{
+				"name": "Small Lamp Grass",
+				"count": 45
+			},
+			{
+				"name": "Weathered Arrowhead",
+				"count": 12
+			}
+		],
+		"ascend6": [
+			{
+				"name": "Mora",
+				"count": 120000
+			},
+			{
+				"name": "Vajrada Amethyst Gemstone",
+				"count": 6
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 20
+			},
+			{
+				"name": "Small Lamp Grass",
+				"count": 60
+			},
+			{
+				"name": "Weathered Arrowhead",
+				"count": 24
+			}
+		]
+	}
+}

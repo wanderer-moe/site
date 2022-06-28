@@ -1,0 +1,134 @@
+{
+	"name": "Aether",
+	"fullname": "Aether",
+	"title": "",
+	"description": "A traveler from another world who had their only kin taken away, forcing them to embark on a journey to find The Seven.",
+	"rarity": "5",
+	"element": "None",
+	"weapontype": "Sword",
+	"substat": "ATK",
+	"gender": "Male",
+	"body": "BOY",
+	"association": "MAINACTOR",
+	"region": "",
+	"affiliation": "",
+	"birthdaymmdd": "",
+	"birthday": "",
+	"constellation": "Viator",
+	"cv": {
+		"english": "Zach Aguilar & Corina Boettger",
+		"chinese": "鹿喑 & 多多poi",
+		"japanese": "堀江瞬 & 古賀葵",
+		"korean": "Lee Kyeong-tae & Kim Ka-ryoung"
+	},
+	"costs": {
+		"ascend1": [
+			{
+				"name": "Mora",
+				"count": 20000
+			},
+			{
+				"name": "Brilliant Diamond Sliver",
+				"count": 1
+			},
+			{
+				"name": "Windwheel Aster",
+				"count": 3
+			},
+			{
+				"name": "Damaged Mask",
+				"count": 3
+			}
+		],
+		"ascend2": [
+			{
+				"name": "Mora",
+				"count": 40000
+			},
+			{
+				"name": "Brilliant Diamond Fragment",
+				"count": 3
+			},
+			{
+				"name": "Windwheel Aster",
+				"count": 10
+			},
+			{
+				"name": "Damaged Mask",
+				"count": 15
+			}
+		],
+		"ascend3": [
+			{
+				"name": "Mora",
+				"count": 60000
+			},
+			{
+				"name": "Brilliant Diamond Fragment",
+				"count": 6
+			},
+			{
+				"name": "Windwheel Aster",
+				"count": 20
+			},
+			{
+				"name": "Stained Mask",
+				"count": 12
+			}
+		],
+		"ascend4": [
+			{
+				"name": "Mora",
+				"count": 80000
+			},
+			{
+				"name": "Brilliant Diamond Chunk",
+				"count": 3
+			},
+			{
+				"name": "Windwheel Aster",
+				"count": 30
+			},
+			{
+				"name": "Stained Mask",
+				"count": 18
+			}
+		],
+		"ascend5": [
+			{
+				"name": "Mora",
+				"count": 100000
+			},
+			{
+				"name": "Brilliant Diamond Chunk",
+				"count": 6
+			},
+			{
+				"name": "Windwheel Aster",
+				"count": 45
+			},
+			{
+				"name": "Ominous Mask",
+				"count": 12
+			}
+		],
+		"ascend6": [
+			{
+				"name": "Mora",
+				"count": 120000
+			},
+			{
+				"name": "Brilliant Diamond Gemstone",
+				"count": 6
+			},
+			{
+				"name": "Windwheel Aster",
+				"count": 60
+			},
+			{
+				"name": "Ominous Mask",
+				"count": 24
+			}
+		]
+	}
+}

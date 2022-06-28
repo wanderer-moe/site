@@ -1,0 +1,34 @@
+{
+	"name": "Lavawalker",
+	"rarity": [
+		"4",
+		"5"
+	],
+	"2pc": "Pyro RES increased by 40%.",
+	"4pc": "Increases DMG against opponents affected by Pyro by 35%.",
+	"flower": {
+		"name": "Lavawalker's Resolution",
+		"relictype": "Flower of Life",
+		"description": "A flower that blooms amidst burning flames. It is said that long ago, a sage once wore it as he walked into a sea of fire."
+	},
+	"plume": {
+		"name": "Lavawalker's Salvation",
+		"relictype": "Plume of Death",
+		"description": "The feather of a proud phoenix. You can almost hear the sound of its wings flapping in the scorching flames."
+	},
+	"sands": {
+		"name": "Lavawalker's Torment",
+		"relictype": "Sands of Eon",
+		"description": "Burning sand flows within this hourglass. Despite the intense heat, the sand leave no mark upon the vessel that houses it."
+	},
+	"goblet": {
+		"name": "Lavawalker's Epiphany",
+		"relictype": "Goblet of Eonothem",
+		"description": "A legendary goblet that can withstand extremely high temperatures. It still retains a degree of warmth even though it is now empty."
+	},
+	"circlet": {
+		"name": "Lavawalker's Wisdom",
+		"relictype": "Circlet of Logos",
+		"description": "The circlet of a sage who traversed a sea of fire. It once shone brightly from their ancient silhouette as they stood strong amidst the flames."
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"name": "Retracing Bolide",
+	"rarity": [
+		"4",
+		"5"
+	],
+	"2pc": "Increases Shield Strength by 35%.",
+	"4pc": "While protected by a shield, gain an additional 40% Normal and Charged Attack DMG.",
+	"flower": {
+		"name": "Summer Night's Bloom",
+		"relictype": "Flower of Life",
+		"description": "A man-made flower in eternal bloom. Who knows if there truly is life in there?"
+	},
+	"plume": {
+		"name": "Summer Night's Finale",
+		"relictype": "Plume of Death",
+		"description": "A well-crafted wooden dart. It will only stop once it has reached its destination."
+	},
+	"sands": {
+		"name": "Summer Night's Moment",
+		"relictype": "Sands of Eon",
+		"description": "A pocketwatch that has stopped at a certain point in time."
+	},
+	"goblet": {
+		"name": "Summer Night's Waterballoon",
+		"relictype": "Goblet of Eonothem",
+		"description": "Water balloons can be seen everywhere during the summer festival, but none are as finely-wrought as this one."
+	},
+	"circlet": {
+		"name": "Summer Night's Mask",
+		"relictype": "Circlet of Logos",
+		"description": "A popular mask cast in the image of a deity, as described in the legends."
+	}
+}

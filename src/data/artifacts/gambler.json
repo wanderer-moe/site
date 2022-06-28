@@ -1,0 +1,34 @@
+{
+	"name": "Gambler",
+	"rarity": [
+		"3",
+		"4"
+	],
+	"2pc": "Increases Elemental Skill DMG by 20%.",
+	"4pc": "Defeating an opponent has a 100% chance to remove Elemental Skill CD. Can only occur once every 15s.",
+	"flower": {
+		"name": "Gambler's Brooch",
+		"relictype": "Flower of Life",
+		"description": "A big, luxurious flower that can hide loaded dice."
+	},
+	"plume": {
+		"name": "Gambler's Feather Accessory",
+		"relictype": "Plume of Death",
+		"description": "The tail feather of a large bird. Perfect for discretely concealing a trump card."
+	},
+	"sands": {
+		"name": "Gambler's Pocket Watch",
+		"relictype": "Sands of Eon",
+		"description": "A shattered pocket watch that once took a lethal hit for its owner."
+	},
+	"goblet": {
+		"name": "Gambler's Dice Cup",
+		"relictype": "Goblet of Eonothem",
+		"description": "This vessel was specially made for a single purpose. It has absolutely no secret compartments built into it."
+	},
+	"circlet": {
+		"name": "Gambler's Earrings",
+		"relictype": "Circlet of Logos",
+		"description": "A pair of blue earrings that, when worn, calm the mind and encourage a rational assessment of risks."
+	}
+}

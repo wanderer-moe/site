@@ -1,0 +1,34 @@
+{
+	"name": "Brave Heart",
+	"rarity": [
+		"3",
+		"4"
+	],
+	"2pc": "ATK +18%.",
+	"4pc": "Increases DMG by 30% against opponents with more than 50% HP.",
+	"flower": {
+		"name": "Medal of the Brave",
+		"relictype": "Flower of Life",
+		"description": "A simple flower brooch that is a keepsake from someone's first adventure."
+	},
+	"plume": {
+		"name": "Prospect of the Brave",
+		"relictype": "Plume of Death",
+		"description": "A shimmering feather from a songbird that brings a nudge of courage to its wearer."
+	},
+	"sands": {
+		"name": "Fortitude of the Brave",
+		"relictype": "Sands of Eon",
+		"description": "A dated miniature hourglass that serves no practical purpose. It seems as elusive as time itself."
+	},
+	"goblet": {
+		"name": "Outset of the Brave",
+		"relictype": "Goblet of Eonothem",
+		"description": "A crude wooden vessel filled only with memories."
+	},
+	"circlet": {
+		"name": "Crown of the Brave",
+		"relictype": "Circlet of Logos",
+		"description": "A rough-and-ready laurel wreath that seems as precious as a king's golden crown."
+	}
+}

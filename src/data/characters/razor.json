@@ -1,0 +1,154 @@
+{
+	"name": "Razor",
+	"fullname": "Razor",
+	"title": "Wolf Boy",
+	"description": "A boy who lives among the wolves in Wolvendom of Mondstadt, away from human civilization. As agile as lightning.",
+	"rarity": "4",
+	"element": "Electro",
+	"weapontype": "Claymore",
+	"substat": "Physical DMG Bonus",
+	"gender": "Male",
+	"body": "BOY",
+	"association": "MONDSTADT",
+	"region": "Mondstadt",
+	"affiliation": "Wolvendom",
+	"birthdaymmdd": "9/9",
+	"birthday": "September 9",
+	"constellation": "Lupus Minor",
+	"cv": {
+		"english": "Todd Haberkorn",
+		"chinese": "周帅",
+		"japanese": "内山昂輝",
+		"korean": "Kim Seo-young"
+	},
+	"costs": {
+		"ascend1": [
+			{
+				"name": "Mora",
+				"count": 20000
+			},
+			{
+				"name": "Vajrada Amethyst Sliver",
+				"count": 1
+			},
+			{
+				"name": "Wolfhook",
+				"count": 3
+			},
+			{
+				"name": "Damaged Mask",
+				"count": 3
+			}
+		],
+		"ascend2": [
+			{
+				"name": "Mora",
+				"count": 40000
+			},
+			{
+				"name": "Vajrada Amethyst Fragment",
+				"count": 3
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 2
+			},
+			{
+				"name": "Wolfhook",
+				"count": 10
+			},
+			{
+				"name": "Damaged Mask",
+				"count": 15
+			}
+		],
+		"ascend3": [
+			{
+				"name": "Mora",
+				"count": 60000
+			},
+			{
+				"name": "Vajrada Amethyst Fragment",
+				"count": 6
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 4
+			},
+			{
+				"name": "Wolfhook",
+				"count": 20
+			},
+			{
+				"name": "Stained Mask",
+				"count": 12
+			}
+		],
+		"ascend4": [
+			{
+				"name": "Mora",
+				"count": 80000
+			},
+			{
+				"name": "Vajrada Amethyst Chunk",
+				"count": 3
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 8
+			},
+			{
+				"name": "Wolfhook",
+				"count": 30
+			},
+			{
+				"name": "Stained Mask",
+				"count": 18
+			}
+		],
+		"ascend5": [
+			{
+				"name": "Mora",
+				"count": 100000
+			},
+			{
+				"name": "Vajrada Amethyst Chunk",
+				"count": 6
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 12
+			},
+			{
+				"name": "Wolfhook",
+				"count": 45
+			},
+			{
+				"name": "Ominous Mask",
+				"count": 12
+			}
+		],
+		"ascend6": [
+			{
+				"name": "Mora",
+				"count": 120000
+			},
+			{
+				"name": "Vajrada Amethyst Gemstone",
+				"count": 6
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 20
+			},
+			{
+				"name": "Wolfhook",
+				"count": 60
+			},
+			{
+				"name": "Ominous Mask",
+				"count": 24
+			}
+		]
+	}
+}

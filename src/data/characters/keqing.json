@@ -1,0 +1,154 @@
+{
+	"name": "Keqing",
+	"fullname": "Keqing",
+	"title": "Driving Thunder",
+	"description": "The Yuheng of the Liyue Qixing. Keqing has much to say about Rex Lapis's unilateral approach to policymaking in Liyue — but in truth, gods admire skeptics such as her quite a lot.",
+	"rarity": "5",
+	"element": "Electro",
+	"weapontype": "Sword",
+	"substat": "CRIT DMG",
+	"gender": "Female",
+	"body": "GIRL",
+	"association": "LIYUE",
+	"region": "Liyue",
+	"affiliation": "Liyue Qixing",
+	"birthdaymmdd": "11/20",
+	"birthday": "November 20",
+	"constellation": "Trulla Cementarii",
+	"cv": {
+		"english": "Kayli Mills",
+		"chinese": "谢莹",
+		"japanese": "喜多村英梨",
+		"korean": "Lee Bo-hee"
+	},
+	"costs": {
+		"ascend1": [
+			{
+				"name": "Mora",
+				"count": 20000
+			},
+			{
+				"name": "Vajrada Amethyst Sliver",
+				"count": 1
+			},
+			{
+				"name": "Cor Lapis",
+				"count": 3
+			},
+			{
+				"name": "Whopperflower Nectar",
+				"count": 3
+			}
+		],
+		"ascend2": [
+			{
+				"name": "Mora",
+				"count": 40000
+			},
+			{
+				"name": "Vajrada Amethyst Fragment",
+				"count": 3
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 2
+			},
+			{
+				"name": "Cor Lapis",
+				"count": 10
+			},
+			{
+				"name": "Whopperflower Nectar",
+				"count": 15
+			}
+		],
+		"ascend3": [
+			{
+				"name": "Mora",
+				"count": 60000
+			},
+			{
+				"name": "Vajrada Amethyst Fragment",
+				"count": 6
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 4
+			},
+			{
+				"name": "Cor Lapis",
+				"count": 20
+			},
+			{
+				"name": "Shimmering Nectar",
+				"count": 12
+			}
+		],
+		"ascend4": [
+			{
+				"name": "Mora",
+				"count": 80000
+			},
+			{
+				"name": "Vajrada Amethyst Chunk",
+				"count": 3
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 8
+			},
+			{
+				"name": "Cor Lapis",
+				"count": 30
+			},
+			{
+				"name": "Shimmering Nectar",
+				"count": 18
+			}
+		],
+		"ascend5": [
+			{
+				"name": "Mora",
+				"count": 100000
+			},
+			{
+				"name": "Vajrada Amethyst Chunk",
+				"count": 6
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 12
+			},
+			{
+				"name": "Cor Lapis",
+				"count": 45
+			},
+			{
+				"name": "Energy Nectar",
+				"count": 12
+			}
+		],
+		"ascend6": [
+			{
+				"name": "Mora",
+				"count": 120000
+			},
+			{
+				"name": "Vajrada Amethyst Gemstone",
+				"count": 6
+			},
+			{
+				"name": "Lightning Prism",
+				"count": 20
+			},
+			{
+				"name": "Cor Lapis",
+				"count": 60
+			},
+			{
+				"name": "Energy Nectar",
+				"count": 24
+			}
+		]
+	}
+}

@@ -1,0 +1,154 @@
+{
+	"name": "Yoimiya",
+	"fullname": "Yoimiya",
+	"title": "Frolicking Flames",
+	"description": "Owner of Naganohara Fireworks. Known as the \"Queen of the Summer Festival,\" she excels in her craft of creating fireworks that symbolize people's hopes and dreams.",
+	"rarity": "5",
+	"element": "Pyro",
+	"weapontype": "Bow",
+	"substat": "CRIT Rate",
+	"gender": "Female",
+	"body": "GIRL",
+	"association": "INAZUMA",
+	"region": "Inazuma",
+	"affiliation": "Naganohara Fireworks",
+	"birthdaymmdd": "6/21",
+	"birthday": "June 21",
+	"constellation": "Carassius Auratus",
+	"cv": {
+		"english": "Jenny Yokobori",
+		"chinese": "金娜",
+		"japanese": "植田佳奈",
+		"korean": "Park Shin-hee"
+	},
+	"costs": {
+		"ascend1": [
+			{
+				"name": "Mora",
+				"count": 20000
+			},
+			{
+				"name": "Agnidus Agate Sliver",
+				"count": 1
+			},
+			{
+				"name": "Naku Weed",
+				"count": 3
+			},
+			{
+				"name": "Divining Scroll",
+				"count": 3
+			}
+		],
+		"ascend2": [
+			{
+				"name": "Mora",
+				"count": 40000
+			},
+			{
+				"name": "Agnidus Agate Fragment",
+				"count": 3
+			},
+			{
+				"name": "Smoldering Pearl",
+				"count": 2
+			},
+			{
+				"name": "Naku Weed",
+				"count": 10
+			},
+			{
+				"name": "Divining Scroll",
+				"count": 15
+			}
+		],
+		"ascend3": [
+			{
+				"name": "Mora",
+				"count": 60000
+			},
+			{
+				"name": "Agnidus Agate Fragment",
+				"count": 6
+			},
+			{
+				"name": "Smoldering Pearl",
+				"count": 4
+			},
+			{
+				"name": "Naku Weed",
+				"count": 20
+			},
+			{
+				"name": "Sealed Scroll",
+				"count": 12
+			}
+		],
+		"ascend4": [
+			{
+				"name": "Mora",
+				"count": 80000
+			},
+			{
+				"name": "Agnidus Agate Chunk",
+				"count": 3
+			},
+			{
+				"name": "Smoldering Pearl",
+				"count": 8
+			},
+			{
+				"name": "Naku Weed",
+				"count": 30
+			},
+			{
+				"name": "Sealed Scroll",
+				"count": 18
+			}
+		],
+		"ascend5": [
+			{
+				"name": "Mora",
+				"count": 100000
+			},
+			{
+				"name": "Agnidus Agate Chunk",
+				"count": 6
+			},
+			{
+				"name": "Smoldering Pearl",
+				"count": 12
+			},
+			{
+				"name": "Naku Weed",
+				"count": 45
+			},
+			{
+				"name": "Forbidden Curse Scroll",
+				"count": 12
+			}
+		],
+		"ascend6": [
+			{
+				"name": "Mora",
+				"count": 120000
+			},
+			{
+				"name": "Agnidus Agate Gemstone",
+				"count": 6
+			},
+			{
+				"name": "Smoldering Pearl",
+				"count": 20
+			},
+			{
+				"name": "Naku Weed",
+				"count": 60
+			},
+			{
+				"name": "Forbidden Curse Scroll",
+				"count": 24
+			}
+		]
+	}
+}
