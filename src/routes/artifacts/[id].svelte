@@ -21,6 +21,13 @@ export async function preload(page) {
 	let rarity = '⭐'.repeat(Math.max(...data.default.rarity));
 
 </script>
+<style>
+	img {
+		height: calc(100vh - 4rem);
+		max-height: 100px;
+		max-width: 100%;
+	}
+</style>
 <svelte:head>
     <title>{data.default.name} | wanderer.moe - a genshin database</title>
 </svelte:head>
@@ -51,7 +58,7 @@ export async function preload(page) {
 
 					<!-- order: flower, plume, sands, goblet, circlet -->
 
-					<div class = "bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "./images/artifacts/{id}/flower.png" alt = "flower from {data.default.name}">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.flower.name}</p>
@@ -60,7 +67,7 @@ export async function preload(page) {
 						</div>
 					</div>
 
-					<div class = "bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "./images/artifacts/{id}/plume.png" alt = "plume from {data.default.name}">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.plume.name}</p>
@@ -69,7 +76,7 @@ export async function preload(page) {
 						</div>
 					</div>
 
-					<div class = "bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "./images/artifacts/{id}/sands.png" alt = "sands from {data.default.name}">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.sands.name}</p>
@@ -78,7 +85,7 @@ export async function preload(page) {
 						</div>
 					</div>
 
-					<div class = "bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "./images/artifacts/{id}/goblet.png" alt = "goblet from {data.default.name}">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.goblet.name}</p>
@@ -87,7 +94,7 @@ export async function preload(page) {
 						</div>
 					</div>
 
-					<div class = "bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "./images/artifacts/{id}/circlet.png" alt = "circlet from {data.circlet.name}">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.circlet.name}</p>
