@@ -1,0 +1,56 @@
+{
+  "bundler": "rollup",
+  "shimport": "2.0.4",
+  "assets": {
+    "main": "client.ac88a3d9.js"
+  },
+  "css": {},
+  "dependencies": {
+    "index.svelte": [
+      "index.2b556e1d.js",
+      "index.b4082b9b.js",
+      "inject_styles.5607aec6.js",
+      "index-c977e76b.css"
+    ],
+    "characterparts/index.svelte": [
+      "index.95632e53.js",
+      "index.b4082b9b.js",
+      "inject_styles.5607aec6.js",
+      "index-30d2afed.css"
+    ],
+    "privacy-policy.svelte": [
+      "privacy-policy.7bd7ee9c.js",
+      "inject_styles.5607aec6.js"
+    ],
+    "characters/index.svelte": [
+      "index.db03521c.js",
+      "inject_styles.5607aec6.js"
+    ],
+    "characters/[id].svelte": [
+      "_id_.3eccf74d.js",
+      "inject_styles.5607aec6.js",
+      "_id_-08e1fb41.css"
+    ],
+    "artifacts/index.svelte": [
+      "index.03e0a61f.js",
+      "inject_styles.5607aec6.js"
+    ],
+    "artifacts/prayers-[id].svelte": [
+      "prayers-_id_.3c5a006c.js",
+      "inject_styles.5607aec6.js"
+    ],
+    "artifacts/[id].svelte": [
+      "_id_.7d5107ff.js",
+      "inject_styles.5607aec6.js"
+    ],
+    "splashart/index.svelte": [
+      "index.3aa869bd.js",
+      "index.b4082b9b.js",
+      "inject_styles.5607aec6.js"
+    ],
+    "info.svelte": [
+      "info.e7b14b11.js",
+      "inject_styles.5607aec6.js"
+    ]
+  }
+}
