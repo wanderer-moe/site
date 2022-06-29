@@ -58,7 +58,7 @@ export async function preload(page) {
 
 	
 	<div class = "flex items-center">
-	<img class = "w-8 h-8" src = "./images/elements/{data.element}.png" alt = "{data.element} symbol">
+	<img class = "w-8 h-8" src = "./images/elements/{data.element.toLowerCase()}.png" alt = "{data.element} symbol">
 	<p class = "text-white text-4xl font-semibold gifont"> {charactername}</p>
 	</div>
 
