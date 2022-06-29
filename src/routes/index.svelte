@@ -3,7 +3,7 @@ import { onMount } from "svelte";
 import axios from "axios";
 
 // gets current amount of online users in the discord server..
-  let onlineUsers = '.';
+  let onlineUsers = '?';
 
   async function getDiscordData() {
 	try {

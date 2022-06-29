@@ -27,7 +27,7 @@ let allArtifacts = [
     'Prayers for Wisdom',
     'Prayers to Springtime',
     'Resolution of Sojourner',
-    'Retracting Bolide',
+    'Retracing Bolide',
     'Scholar',
     'Shimenawas Reminiscence',
     'Tenacity of the Millelith',
