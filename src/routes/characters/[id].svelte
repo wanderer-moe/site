@@ -53,12 +53,12 @@ export async function preload(page) {
 	<div class="container px-4 mx-auto">
 
 	<!-- intro section -->
-	<img class = "characterImg hidden md:block bg-fixed" style = "float: right" src = "./images/splashartNoBg/{id}.png" alt = "{data.fullname}" loading = "lazy">
+	<img class = "characterImg hidden md:block bg-fixed" style = "float: right" src = "./images/splashartNoBg/{id}.png" alt = "{data.fullname}" loading = "lazy" />
 	<!-- todo: maybe move splash art location above text instead of removing it on smaller screens...? -->
 
 	
 	<div class = "flex items-center">
-	<img class = "w-8 h-8" src = "./images/elements/{data.element.toLowerCase()}.png" alt = "{data.element} symbol"  loading = "lazy">
+	<img class = "w-8 h-8" src = "./images/elements/{data.element.toLowerCase()}.png" alt = "{data.element} symbol"  loading = "lazy" />
 	<p class = "text-white text-4xl font-semibold gifont"> {charactername}</p>
 	</div>
 
@@ -80,7 +80,7 @@ export async function preload(page) {
 				<!-- container for data -->
 				<div class="grid gap-2">
 				
-					<img src = "./images/characters/{id}/namecard-bar.png" alt = "namecard of {data.fullname}" loading = "lazy">
+					<img src = "./images/characters/{id}/namecard-bar.png" alt = "namecard of {data.fullname}" loading = "lazy" />
 
 				<!-- container for cv -->
 				<div class = "bg-gray-800 hover:scale-105 shadow-md rounded-lg text-white p-5">
@@ -106,10 +106,10 @@ export async function preload(page) {
 					<span class = "font-semibold">Ascension Items</span><br>
 					<div class = "flex flex-wrap gap-10">
 						<!-- replace ' with nothing and replace spaces with - -->
-					<img class = "object-contain h-16 w-16" src = "./images/items/{data.costs.ascend5[1].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[1].name}"  loading = "lazy">
-					<img class = "object-contain h-16 w-16" src = "./images/items/{data.costs.ascend5[2].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[2].name}"  loading = "lazy">
-					<img class = "object-contain h-16 w-16" src = "./images/items/{data.costs.ascend5[3].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[3].name}"  loading = "lazy">
-					<img class = "object-contain h-16 w-16" src = "./images/items/{data.costs.ascend5[4].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[4].name}"  loading = "lazy">
+					<img class = "object-contain h-16 w-16" src = "./images/items/{data.costs.ascend5[1].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[1].name}"  loading = "lazy" />
+					<img class = "object-contain h-16 w-16" src = "./images/items/{data.costs.ascend5[2].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[2].name}"  loading = "lazy" />
+					<img class = "object-contain h-16 w-16" src = "./images/items/{data.costs.ascend5[3].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[3].name}"  loading = "lazy" />
+					<img class = "object-contain h-16 w-16" src = "./images/items/{data.costs.ascend5[4].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[4].name}"  loading = "lazy" />
 					</div>
 				</div>
 

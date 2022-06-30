@@ -49,7 +49,7 @@ export async function preload(page) {
 					<!-- circlet is the only present item in prayers-[id] artifacts. -->
 
 					<div class = "bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "./images/artifacts/prayers-{id}/circlet.png" alt = "circlet from {data.circlet.name}" loading = "lazy">
+						<img class = "object-left" src = "./images/artifacts/prayers-{id}/circlet.png" alt = "circlet from {data.circlet.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.circlet.name}</p>
 						<p class = "text-white text-left">"{data.circlet.relictype}"</p>

@@ -57,7 +57,7 @@ onMount(async () => {
 					</button>
 				</a>
 				<br>
-			  <img src="./images/splashart/{entry.path.toLowerCase()}" alt="character preview for {entry.path}" loading = "lazy"/>
+			  <img src="./images/splashart/{entry.path.toLowerCase()}" alt="character preview for {entry.path}" loading = "lazy" />
 			</div>
 			</div>
 		  </div>

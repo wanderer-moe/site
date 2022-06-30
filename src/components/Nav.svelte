@@ -8,7 +8,7 @@
 	<div class="container flex flex-wrap justify-between items-center mx-auto">
 
 	  <a href="/" target="_self" class="flex items-center">
-		  <img src="/favicon.png" alt="logo" class="h-8">
+		  <img src="/favicon.png" alt="logo" class="h-8" />
 		  <span class="self-center text-xl gifont text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300 hover:from-blue-400 hover:to-blue-200">wanderer.moe</span>
 	  </a>
 

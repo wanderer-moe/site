@@ -61,7 +61,7 @@ img {
 						</span>
 					</button>
 				</a>
-			  <img src="./images/characterparts/{entry.path.toLowerCase()}" width = "256" height = "256" alt="character part for {entry.path}" loading = "lazy"/>
+			  <img src="./images/characterparts/{entry.path.toLowerCase()}" width = "256" height = "256" alt="character part for {entry.path}" loading = "lazy" />
 			</div>
 			</div>
 		  </div>
