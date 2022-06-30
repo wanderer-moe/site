@@ -61,7 +61,7 @@ img {
 						</span>
 					</button>
 				</a>
-			  <img src="https://raw.githubusercontent.com/dromzeh/genshin-character-parts/main/{entry.path}" loading = "lazy" width = "256" height = "256" alt="character part for {entry.path}"/>
+			  <img src="./images/characterparts/{entry.path.toLowerCase()}" loading = "lazy" width = "256" height = "256" alt="character part for {entry.path}"/>
 			</div>
 			</div>
 		  </div>

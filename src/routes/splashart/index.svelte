@@ -57,7 +57,7 @@ onMount(async () => {
 					</button>
 				</a>
 				<br>
-			  <img src="https://raw.githubusercontent.com/dromzeh/genshin-splash-art/main/{entry.path}" loading = "lazy" alt="character preview for {entry.path}"/>
+			  <img src="./images/splashart/{entry.path.toLowerCase()}" loading = "lazy" alt="character preview for {entry.path}"/>
 			</div>
 			</div>
 		  </div>
