@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @font-face {
 	font-family: 'zhcn';
-	src: url("/fonts/zh-cn.ttf");
+	src: url("/fonts/genshinfont.woff") format("woff");
 }
 
 .gifont {
@@ -26,15 +26,6 @@ h1 {
 
 a {
 	color: inherit;
-}
-
-code {
-	font-family: menlo, inconsolata, monospace;
-	font-size: calc(1em - 2px);
-	color: #555;
-	background-color: #f0f0f0;
-	padding: 0.2em 0.4em;
-	border-radius: 2px;
 }
 
 @media (min-width: 400px) {
