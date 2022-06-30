@@ -14,6 +14,7 @@ h1, h2, h3, h4, h5, h6 {
 @font-face {
 	font-family: 'zhcn';
 	src: url("/fonts/genshinfont.woff") format("woff");
+	font-display: swap;
 }
 
 .gifont {

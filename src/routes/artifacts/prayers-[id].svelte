@@ -57,8 +57,6 @@ export async function preload(page) {
 						</div>
 					</div>
 
-
-
 				</div>
 				</div>
 			</div>
