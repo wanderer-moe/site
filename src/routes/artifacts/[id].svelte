@@ -59,7 +59,7 @@ export async function preload(page) {
 					<!-- order: flower, plume, sands, goblet, circlet -->
 
 					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "./images/artifacts/{id}/flower.png" alt = "flower from {data.default.name}">
+						<img class = "object-left" src = "./images/artifacts/{id}/flower.png" alt = "flower from {data.default.name}" loading = "lazy">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.flower.name}</p>
 						<p class = "text-white text-left">"{data.flower.relictype}"</p>
@@ -68,7 +68,7 @@ export async function preload(page) {
 					</div>
 
 					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "./images/artifacts/{id}/plume.png" alt = "plume from {data.default.name}">
+						<img class = "object-left" src = "./images/artifacts/{id}/plume.png" alt = "plume from {data.default.name}" loading = "lazy">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.plume.name}</p>
 						<p class = "text-white text-left">"{data.plume.relictype}"</p>
@@ -77,7 +77,7 @@ export async function preload(page) {
 					</div>
 
 					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "./images/artifacts/{id}/sands.png" alt = "sands from {data.default.name}">
+						<img class = "object-left" src = "./images/artifacts/{id}/sands.png" alt = "sands from {data.default.name}" loading = "lazy">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.sands.name}</p>
 						<p class = "text-white text-left">"{data.sands.relictype}"</p>
@@ -86,7 +86,7 @@ export async function preload(page) {
 					</div>
 
 					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "./images/artifacts/{id}/goblet.png" alt = "goblet from {data.default.name}">
+						<img class = "object-left" src = "./images/artifacts/{id}/goblet.png" alt = "goblet from {data.default.name}" loading = "lazy">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.goblet.name}</p>
 						<p class = "text-white text-left">"{data.goblet.relictype}"</p>
@@ -95,7 +95,7 @@ export async function preload(page) {
 					</div>
 
 					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "./images/artifacts/{id}/circlet.png" alt = "circlet from {data.circlet.name}">
+						<img class = "object-left" src = "./images/artifacts/{id}/circlet.png" alt = "circlet from {data.circlet.name}" loading = "lazy">
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.circlet.name}</p>
 						<p class = "text-white text-left">"{data.circlet.relictype}"</p>

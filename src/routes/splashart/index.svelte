@@ -48,7 +48,7 @@ onMount(async () => {
 		  <div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
 			<div class="mb-7">
 			  <h5 class="font-heading text-l mt-7 mb-7 text-white font-semibold">{entry.path}</h5>
-			  <a href = "https://raw.githubusercontent.com/dromzeh/genshin-splash-art/main/{entry.path}" target = "_blank">
+			  <a href = "https://raw.githubusercontent.com/dromzeh/genshin-splash-art/main/{entry.path}" loading = "lazy" target = "_blank">
 				<div class="text-right">
 					<button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-blue-400 to-blue-500 group-hover:from-blue-400 group-hover:to-blue-500 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
 						<span class="relative px-5 font-semibold py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
@@ -57,7 +57,7 @@ onMount(async () => {
 					</button>
 				</a>
 				<br>
-			  <img src="./images/splashart/{entry.path.toLowerCase()}" alt="character preview for {entry.path}"/>
+			  <img src="./images/splashart/{entry.path.toLowerCase()}" alt="character preview for {entry.path}" loading = "lazy"/>
 			</div>
 			</div>
 		  </div>

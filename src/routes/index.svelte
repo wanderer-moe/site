@@ -106,7 +106,7 @@ import axios from "axios";
 		  <div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
 			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
 			  <div class="mb-7">
-				  <img src = "./images/artifacts/previewCirclet.png" alt = "Character">
+				  <img src = "./images/artifacts/previewCirclet.png" loading = "lazy" alt = "Character">
 				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Artifacts</h5>
 				<p class="font-light text-white">View information, images & the set bonuses about artifact sets.</p>
 			  </div>
@@ -121,8 +121,6 @@ import axios from "axios";
 			  </div>
 			</div>
 		  </div>
-  
-
 	  </div>
 	</div>
   </section>

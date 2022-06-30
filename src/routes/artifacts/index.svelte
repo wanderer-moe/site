@@ -63,7 +63,7 @@ let allArtifacts = [
         {#each allArtifacts as artifact}
         <div class = "bg-gray-800 hover:scale-105 rounded-lg p-2 justify-center text-gray-400 font-semibold hover:text-white">
         <a href="/artifacts/{artifact.replace(/\s+/g, '-').toLowerCase()}">
-            <img class = "mx-auto h-32 w-32" src = "./images/artifacts/{artifact.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "image of an artifact from the artifact set {artifact}">
+            <img class = "mx-auto h-32 w-32" src = "./images/artifacts/{artifact.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "image of an artifact from the artifact set {artifact}" loading = "lazy">
             <p class = "text-sm text-center">{artifact}</p>
         </a>
         </div>
