@@ -5,6 +5,7 @@
 	segment = segment; // prevent warnings (https://github.com/sveltejs/sapper/issues/824#issuecomment-695624681)
 </script>
 
+
 <Nav {segment}/>
 
 <main>

@@ -1,7 +1,6 @@
 <script>
 import { onMount } from "svelte";
 import axios from "axios";
-
 // gets current amount of online users in the discord server..
   let onlineUsers = '?';
 
@@ -31,6 +30,7 @@ import axios from "axios";
 	height: 65px;
 }
 </style>
+
 
 <svelte:head>
 	<title>wanderer.moe - a genshin database</title>
