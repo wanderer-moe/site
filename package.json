@@ -3,8 +3,8 @@
   "description": "a genshin database",
   "version": "0.0.1",
   "scripts": {
-    "watch:tailwind": "npx tailwindcss -i static/_tailwind.css -o static/index.css",
-    "build:tailwind": "NODE_ENV=production postcss static/_tailwind.css -o static/index.css",
+    "watch:tailwind": "npx tailwindcss -i static/tailwind.css -o static/index.css",
+    "build:tailwind": "NODE_ENV=production postcss static/tailwind.css -o static/index.css",
     "build": "sapper build --legacy",
     "dev": "sapper dev",
     "export": "sapper export --legacy",

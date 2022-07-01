@@ -49,7 +49,7 @@ let splashArt = data.splashArt;
 					</button>
 				</a>
 				<br>
-			  <img src="./images/splashart/{entry.toLowerCase()}" alt="character preview for {entry}" loading = "lazy" />
+			  <img src="/images/splashart/{entry.toLowerCase()}" alt="character preview for {entry}" loading = "lazy" />
 			</div>
 			</div>
 		  </div>
