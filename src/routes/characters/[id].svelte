@@ -112,8 +112,6 @@ export async function preload(page) {
 					<img class = "object-contain h-16 w-16" src = "./images/items/{data.costs.ascend5[4].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[4].name}"  loading = "lazy" />
 					</div>
 				</div>
-
-
 				</div>	
 			</div>
 		</div>

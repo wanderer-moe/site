@@ -49,7 +49,7 @@ import axios from "axios";
 		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
 		  <div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
 			<div class="mb-7">
-				<img src = "./images/databasePreviewImages/characterparts.png" alt = "character parts" />
+				<img src = "./images/databasePreviewImages/characterparts.png" alt = "character parts" loading = "lazy" />
 			  <h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Character Parts</h5>
 			  <p class="font-light text-white">Download the character 'parts / sheets' from the preview pages.</p>
 			</div>
@@ -68,7 +68,7 @@ import axios from "axios";
 		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
 			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
 			  <div class="mb-7">
-				<img src = "./images/databasePreviewImages/splashart.png" alt = "splashart" />
+				<img src = "./images/databasePreviewImages/splashart.png" alt = "splashart"  loading = "lazy" />
 				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold" >Splash Art</h5>
 				<p class="font-light text-white">Download Splash Art for all playable characters, contains splash art from all versions.</p>
 			  </div>
@@ -87,7 +87,7 @@ import axios from "axios";
 		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
 			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
 			  <div class="mb-7">
-				  <img src = "./images/databasePreviewImages/character.png" alt = "characters" />
+				  <img src = "./images/databasePreviewImages/character.png" alt = "characters"  loading = "lazy" />
 				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Characters</h5>
 				<p class="font-light text-white">View information, level up materials & talents about all playable characters.</p>
 			  </div>
@@ -106,7 +106,7 @@ import axios from "axios";
 		  <div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
 			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
 			  <div class="mb-7">
-				  <img src = "./images/artifacts/previewCirclet.png" loading = "lazy" alt = "artifacts" />
+				  <img src = "./images/artifacts/previewCirclet.png" alt = "artifacts" loading = "lazy" />
 				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Artifacts</h5>
 				<p class="font-light text-white">View information, images & the set bonuses about artifact sets.</p>
 			  </div>
