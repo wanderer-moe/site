@@ -16,7 +16,6 @@
     "@rollup/plugin-json": "^4.1.0",
     "axios": "^0.27.2",
     "compression": "^1.7.1",
-    "flowbite": "^1.4.7",
     "fs": "^0.0.1-security",
     "page": "^1.11.6",
     "polka": "next",
