@@ -30,7 +30,7 @@
 			<a href="privacy-policy" target="_self" class="hidden w-full md:block md:w-auto py-2 pr-4 pl-3 text-white border-b hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 border-gray-700 font-semibold">Privacy</a>
 		  </li>
 		  <li>
-			<a href="https://discord.com/invite/659KAFfNd6" target="_blank" class="py-2 pr-4 pl-3 text-white hover:bg-gray-50 hover:bg-transparent hover:text-blue-500 p-0 font-semibold"><i class = "text-xl fab fa-discord"></i></a>
+			<a href="https://discord.com/invite/659KAFfNd6" target="_blank" class="py-2 pr-4 pl-3 text-white hover:bg-gray-50 hover:bg-transparent hover:text-blue-500 p-0 font-semibold"><i class = "text-xl fab fa-discord" title="discord logo"></i></a>
 		  </li>
 		</ul>
 	  </div>
