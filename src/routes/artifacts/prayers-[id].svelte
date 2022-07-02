@@ -20,6 +20,13 @@ export async function preload(page) {
 	let rarity = '⭐'.repeat(Math.max(...data.default.rarity));
 
 </script>
+<style>
+	img {
+		height: calc(100vh - 4rem);
+		max-height: 100px;
+		max-width: 100%;
+	}
+</style>
 <svelte:head>
     <title>{data.default.name} | wanderer.moe - a genshin database</title>
 </svelte:head>
