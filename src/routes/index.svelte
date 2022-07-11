@@ -89,7 +89,7 @@ import axios from "axios";
 			  <div class="mb-7">
 				  <img src = "/images/databasePreviewImages/character.png" alt = "characters"  loading = "lazy" />
 				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Characters</h5>
-				<p class="font-light text-white">View information, level up materials & talents about all playable characters.</p>
+				<p class="font-light text-white">View information and level up materials about all the playable characters.</p>
 			  </div>
 			  <div class="text-right">
 				  <a href = "/characters" target="_self">

@@ -35,7 +35,7 @@ export async function preload(page) {
 	<div class="container px-4 mx-auto">
 
 	<!-- intro section -->
-	<img class = "characterImg hidden md:block bg-fixed" style = "float: right" src = "/images/splashartNoBg/{id}.png" alt = "{data.fullname}" loading = "lazy" />
+	<img class = "characterImg hidden md:block bg-fixed" style = "float: right" src = "/images/splashart/{id}-nobg.png" alt = "{data.fullname}" loading = "lazy" />
 	<!-- todo: maybe move splash art location above text instead of removing it on smaller screens...? -->
 
 	
