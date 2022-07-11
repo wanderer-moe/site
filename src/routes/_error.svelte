@@ -17,7 +17,7 @@
 	<p class = "text-red-400 text-5xl font-semibold">{status}</p>
 	<p class = "text-white text-xl">{error.message}</p>
 	{#if status == '500' && !dev}
-		<p class = "text-gray-400 text-sm">Not supposed to be seeing this? If so, please report this error!</p>
+		<p class = "text-gray-400 text-sm">Not supposed to be seeing this? Check the <a href = "https://discord.gg/659KAFfNd6" class = "font-semibold text-white hover:text-blue-500">discord</a> server for more information.</p>
 	{/if}
 	<a href = "/" class = "text-gray-400 hover:text-blue-500">Go back..</a>
 	</div>
