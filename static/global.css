@@ -34,3 +34,18 @@ a {
 		font-size: 16px;
 	}
 }
+
+* {
+	scrollbar-width:thin;
+	scrollbar-color:#4D93F8 #1F2937
+}
+   ::-webkit-scrollbar {
+	width:8px
+}
+   ::-webkit-scrollbar-track {
+	background:#1F2937
+}
+   ::-webkit-scrollbar-thumb {
+	background:#4D93F8;
+	border-radius:8px
+}
