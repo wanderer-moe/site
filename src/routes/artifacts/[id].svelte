@@ -47,18 +47,18 @@ export async function preload(page) {
 				
 				<!-- container for artifact name -->
 				<div class = "grid gap-2 items-center">
-					<div class = "bg-gray-800 hover:scale-105 rounded-lg max-w-full text-gray-400 font-semibold">
+					<div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105 rounded-lg max-w-full text-gray-400 font-semibold">
 						<p class = "text-center"><span class = "text-white">2pc bonus:</span> {data.default['2pc']}</p>
 					</div>
 				
-					<div class = "bg-gray-800 hover:scale-105 rounded-lg max-w-full text-gray-400 font-semibold">
+					<div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105   rounded-lg max-w-full text-gray-400 font-semibold">
 						<p class = "text-center"><span class = "text-white">4pc bonus:</span> {data.default['4pc']}</p>
 					</div>
 				<div class="grid grid-cols-1 gap-2">
 
 					<!-- order: flower, plume, sands, goblet, circlet -->
 
-					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "/images/artifacts/{id}/flower.png" alt = "flower from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.flower.name}</p>
@@ -67,7 +67,7 @@ export async function preload(page) {
 						</div>
 					</div>
 
-					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "/images/artifacts/{id}/plume.png" alt = "plume from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.plume.name}</p>
@@ -76,7 +76,7 @@ export async function preload(page) {
 						</div>
 					</div>
 
-					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "/images/artifacts/{id}/sands.png" alt = "sands from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.sands.name}</p>
@@ -85,7 +85,7 @@ export async function preload(page) {
 						</div>
 					</div>
 
-					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "/images/artifacts/{id}/goblet.png" alt = "goblet from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.goblet.name}</p>
@@ -94,7 +94,7 @@ export async function preload(page) {
 						</div>
 					</div>
 
-					<div class = "p-3 bg-gray-800 hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-gray-800 transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left" src = "/images/artifacts/{id}/circlet.png" alt = "circlet from {data.circlet.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.circlet.name}</p>

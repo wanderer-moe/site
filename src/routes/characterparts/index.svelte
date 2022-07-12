@@ -43,7 +43,7 @@ img {
 
 		{#each characterParts as entry}
 		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-		  <div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
+		  <div class="h-full max-w-xs mx-auto p-12 bg-gray-800  transition duration-150 ease-in-out hover:scale-105 rounded-xl">
 			<div class="mb-7">
 			  <h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">{entry}</h5>
 			  <a href = "https://raw.githubusercontent.com/dromzeh/genshin-character-parts/main/{entry}" target = "_blank">

@@ -28,7 +28,7 @@ let allCharacters = data.characters;
     <!-- todo: change this layout maybe in the future? -->
     <div class="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-8 gap-3">
         {#each allCharacters as character}
-        <div class = "bg-gray-800 hover:scale-105 p-4 rounded-lg justify-center text-gray-400 font-semibold hover:text-white flex flex-row relative">
+        <div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105   p-4 rounded-lg justify-center text-gray-400 font-semibold hover:text-white flex flex-row relative">
         <a href="/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}">
             <img src="/images/elements/{character.element.toLowerCase()}.png" alt="{character.element} symbol" class="absolute w-8 top-1 left-1" loading = "lazy" />
             <img class = "h-32 w-32 align-center" src = "/images/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}/icon-front.png" alt = "Portrait image of {character.name}" loading = "lazy" />

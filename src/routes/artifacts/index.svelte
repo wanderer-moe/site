@@ -61,7 +61,7 @@ let allArtifacts = [
     <!-- todo: change this layout maybe in the future? -->
     <div class="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-8 gap-3">
         {#each allArtifacts as artifact}
-        <div class = "bg-gray-800 hover:scale-105 rounded-lg p-2 justify-center text-gray-400 font-semibold hover:text-white">
+        <div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 justify-center   text-gray-400 font-semibold hover:text-white">
         <a href="/artifacts/{artifact.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "image of an artifact from the artifact set {artifact}" loading = "lazy" />
             <p class = "text-sm text-center">{artifact}</p>

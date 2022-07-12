@@ -47,7 +47,7 @@ import axios from "axios";
 	  <div class="flex flex-wrap justify-center gap-3">
 
 		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-		  <div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
+		  <div class="h-full max-w-xs mx-auto p-12 bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-xl">
 			<div class="mb-7">
 				<img src = "/images/databasePreviewImages/characterparts.png" alt = "character parts" loading = "lazy" />
 			  <h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Character Parts</h5>
@@ -66,7 +66,7 @@ import axios from "axios";
 		</div>
 
 		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
+			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-xl">
 			  <div class="mb-7">
 				<img src = "/images/databasePreviewImages/splashart.png" alt = "splashart"  loading = "lazy" />
 				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold" >Splash Art</h5>
@@ -85,7 +85,7 @@ import axios from "axios";
 		  </div>
 
 		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
+			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-xl">
 			  <div class="mb-7">
 				  <img src = "/images/databasePreviewImages/character.png" alt = "characters"  loading = "lazy" />
 				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Characters</h5>
@@ -104,7 +104,7 @@ import axios from "axios";
 		  </div>
 
 		  <div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 rounded-xl">
+			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-xl">
 			  <div class="mb-7">
 				  <img src = "/images/artifacts/previewCirclet.png" alt = "artifacts" loading = "lazy" />
 				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Artifacts</h5>
