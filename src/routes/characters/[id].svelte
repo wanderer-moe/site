@@ -94,6 +94,15 @@ export async function preload(page) {
 					<img class = "object-contain h-16 w-16" src = "/images/items/{data.costs.ascend5[4].name.replace(/\s+/g, '-').replace("'",'').toLowerCase()}.png" alt = "{data.costs.ascend5[4].name}"  loading = "lazy" />
 					</div>
 				</div>
+
+				<div class = "bg-gray-800 hover:scale-105 shadow-md rounded-lg text-white p-5">
+					<span class = "font-semibold">Reccomended Artifact</span><br>
+				<div class = "flex items-center gap-10">
+					<img class = "object-left h-16 w-16" src = "/images/artifacts/{data.artifactSet.replace(/\s+/g, '-').replace("'",'').toLowerCase()}/flower.png" alt = "{data.artifactSet}"  loading = "lazy" />
+					<a href = "/artifacts/{data.artifactSet.replace(/\s+/g, '-').replace("'",'').toLowerCase()}"><p class = "hover:text-blue-500 text-white text-2xl gifont">{data.artifactSet}</p></a>
+				</div>
+				</div>
+
 				</div>	
 			</div>
 		</div>

@@ -8,7 +8,7 @@
 	"weapontype": "Catalyst",
 	"substat": "Anemo DMG Bonus",
 	"gender": "Male",
-	"body": "BOY",
+	"body": "MALE",
 	"association": "INAZUMA",
 	"region": "Inazuma",
 	"affiliation": "Tenryou Commission",
@@ -21,6 +21,7 @@
 		"japanese": "井口祐一",
 		"korean":  "Jung Eui-jin"
 	},
+	"artifactSet": "Viridescent Venerer",
 	"costs": {
 		"ascend1": [
 			{
