@@ -25,6 +25,7 @@
     <div class="container px-4 m-auto content-center">
         <p class = "text-white text-4xl font-semibold gifont text-center">Search for a Genshin User by UID</p>
         <p class = "text-gray-500 text-center">Enter a valid Genshin UID & make sure 'Show Character Details' is on.</p>
+        <p class = "text-gray-500 text-center">/users/uid e.g /users/717666757 may not work for you & this issue will be fixed ASAP.</p>
         <br>
 
         <div class = "flex items-center justify-center">
