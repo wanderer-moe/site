@@ -4,35 +4,32 @@
 <style>
 </style>
 
-<nav class="bg-[#111827] border-gray-200 px-2 sm:px-4 py-2.5">
-	<div class="container flex flex-wrap justify-between items-center mx-auto">
-
-	  <a href="/" target="_self" class="flex items-center">
-		  <img src="/favicon.png" alt="logo" class="h-8" loading = "lazy" />
-		  <span class="self-center text-xl gifont text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300 hover:from-blue-400 hover:to-blue-200">wanderer.moe</span>
-	  </a>
-
-	  <div id="menu">
-		<ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-		  <li>
-			<a href="characterparts" target="_self" class="hidden w-full md:block md:w-auto py-2 pr-4 pl-3 text-white border-b hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 border-gray-700 font-semibold">Character Parts</a>
-		  </li>
-		  <li>
-			<a href="splashart" target="_self" class="hidden w-full md:block md:w-auto py-2 pr-4 pl-3 text-white border-b hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 border-gray-700 font-semibold">Splash Art</a>
-		  </li>
-		  <li>
-			<a href="characters" target="_self" class="hidden w-full md:block md:w-auto py-2 pr-4 pl-3 text-white border-b hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 border-gray-700 font-semibold">Characters</a>
-		  </li>
-		  <li>
-			<a href="artifacts" target="_self" class="hidden w-full md:block md:w-auto py-2 pr-4 pl-3 text-white border-b hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 border-gray-700 font-semibold">Artifacts</a>
-		  </li>
-		  <li>
-			<a href="privacy-policy" target="_self" class="hidden w-full md:block md:w-auto py-2 pr-4 pl-3 text-white border-b hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 border-gray-700 font-semibold">Privacy</a>
-		  </li>
-		  <li>
-			<a href="https://discord.com/invite/659KAFfNd6" target="_blank" class="py-2 pr-4 pl-3 text-white hover:bg-gray-50 hover:bg-transparent hover:text-blue-500 p-0 font-semibold"><i class = "text-xl fab fa-discord" title="discord logo"></i></a>
-		  </li>
-		</ul>
-	  </div>
-	</div>
-</nav>
+<header>
+    <nav class= "px-4 lg:px-6 py-2.5">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+            <a href="/" class="flex items-center">
+                <span class="self-center text-white text-xl gifont whitespace-nowrap hover:text-blue-400">wanderer.moe</span>
+            </a>
+            <div class="flex items-center md:order-2">
+                <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
+                    <li>
+                        <a href="/characterparts/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Character Parts</a>
+                    </li>
+					<li>
+                        <a href="/splashart/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Splash Art</a>
+                    </li>
+                    <li>
+                        <a href="/users/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Users</a>
+                    </li>
+					<li>
+                        <a href="/artifacts/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Artifacts</a>
+                    </li>
+					<li>
+                        <a href="/characters/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Characters</a>
+                    </li>
+                </ul>
+				<a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-blue-400 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2"><i class = "fab fa-discord"></i></a>
+            </div>
+        </div>
+    </nav>
+</header>

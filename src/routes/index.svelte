@@ -4,11 +4,16 @@ import axios from "axios";
 // gets current amount of online users in the discord server..
   let onlineUsers = '?';
 
+  let timeEU;
+  let timeNA;
+  let timeAsia;
+
   async function getDiscordData() {
 	try {
 		// make get request to json of widget then get the presence count ( how many members online )
     let response = await axios.get('https://discord.com/api/guilds/982385887000272956/widget.json')
 	.then(function (response) {
+		console.log("request successful");
 		onlineUsers = response.data.presence_count;
 		//console.log(onlineUsers);
 	})
@@ -16,16 +21,100 @@ import axios from "axios";
     console.log('Error fetching data')
 	onlineUsers = '?';
   }
-
   }
-  onMount(() => {
+
+// the code following this is incredibly messy and I'm sorry, but it works. I'm sorry if you're seeing this.
+async function getdateEU() {
+  var start = new Date;
+  start.setHours(4, 0, 0); // 4am
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tickEU() {
+    var now = new Date;
+    if (now > start) { // if it's after 4am
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+    var ss = pad(remain % 60);
+
+    timeEU.innerHTML = hh + ":" + mm + ":" + ss;
+
+    setTimeout(tickEU, 1000);
+  }
+
+  tickEU();
+}
+
+async function getdateNA() {
+  var start = new Date;
+  start.setHours(10, 0, 0); // 10am
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tickNA() {
+    var now = new Date;
+    if (now > start) { // if it's after 10am
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+    var ss = pad(remain % 60);
+
+    timeNA.innerHTML = hh + ":" + mm + ":" + ss;
+
+    setTimeout(tickNA, 1000);
+  }
+
+  tickNA();
+}
+
+async function getdateAsia() {
+  var start = new Date;
+  start.setHours(21, 0, 0); // 9pm
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tickAsia() {
+    var now = new Date;
+    if (now > start) { // if it's after 9pm
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+    var ss = pad(remain % 60);
+
+    timeAsia.innerHTML = hh + ":" + mm + ":" + ss;
+
+    setTimeout(tickAsia, 1000);
+  }
+
+  tickAsia();
+}
+
+
+// runs when the page loads.
+onMount(() => {
     getDiscordData();
-  });
+	getdateEU();
+	getdateNA();
+	getdateAsia();
+});
 
 </script>
 
 <style>
-	img{
+img{ 
 	width: 65px;
 	height: 65px;
 }
@@ -36,91 +125,119 @@ import axios from "axios";
 	<title>wanderer.moe - a genshin database</title>
 </svelte:head>
 
+<div class = "flex flex-col min-h-screen">
 <section class="py-24 md:py-40">
-	<div class="container px-4 mx-auto">
-	  <p class = "text-white text-4xl font-semibold gifont text-center">wanderer.moe - a genshin database</p>
-	  <p class = "text-gray-400 text-xl text-center">A minimal & easy to use database for Genshin Impact</p>
-	  <p class = "text-gray-400 text-sm text-center">Redirected from wtf.dromzeh.dev? This is the new site, join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-blue-500">discord</a> ({onlineUsers} online) for more info.</p>
+	<div class="container px-2 mx-auto">
+	  <p class = "text-blue-400 gifont text-4xl text-left">wanderer.moe</p>
+	  <p class = "text-white gifont text-2xl text-left">A useful database for Genshin Impact</p>
+	  <p class = "text-white text-left">Get data about Characters, Artifacts, Character Image Files and view others Genshin Profiles</p>
+	  <br>
+	  <p class = "text-gray-400 text-sm text-left">Redirected from wtf.dromzeh.dev? This is the new site, join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-blue-400">discord</a> ({onlineUsers} online) for more info.</p>
  
 	  <br>
 
-	  <div class="flex flex-wrap justify-center gap-3">
 
-		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-		  <div class="h-full max-w-xs mx-auto p-12 bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-xl">
-			<div class="mb-7">
-				<img src = "/images/databasePreviewImages/characterparts.png" alt = "character parts" loading = "lazy" />
-			  <h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Character Parts</h5>
-			  <p class="font-light text-white">Download the character 'parts / sheets' from the preview pages.</p>
-			</div>
-			<div class="text-right">
-				<a href = "/characterparts" target="_self">
-				<button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-blue-400 to-blue-500 group-hover:from-blue-400 group-hover:to-blue-500 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-					<span class="relative px-5 font-semibold py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
-						Get Character Parts
-					</span>
-				</button>
+		<div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">Character Parts</p>
+				<br>
+				<p class = "text-sm text-left text-white">View and download character files / parts extracted from the official preview pages.</p>
+				<br>
+				<div class = "flex justify-center mt-auto">
+				<a href = "/characterparts">
+				<button class="bg-gray-900 font-semibold text-white p-0.5 rounded-lg text-center px-5 py-2.5 hover:bg-gray-500 focus:shadow focus:outline-none">View <i class="fa-solid fa-angles-right"></i></button>
 				</a>
+				</div>
 			</div>
-		  </div>
+
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">Splash Art</p>
+				<br>
+				<p class = "text-sm text-left text-white">View and download splash art of all playable characters, with & without the background.</p>
+				<br>
+				<div class = "flex justify-center mt-auto">
+				<a href = "/splashart">
+				<button class="bg-gray-900 font-semibold text-white p-0.5 rounded-lg text-center px-5 py-2.5 hover:bg-gray-500 focus:shadow focus:outline-none">View <i class="fa-solid fa-angles-right"></i></button>
+				</a>
+				</div>
+			</div>
+
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">User Profiles</p>
+				<br>
+				<p class = "text-sm text-left text-white">Find out & share information about yours and other's genshin profiles.</p>
+				<br>
+				<div class = "flex justify-center mt-auto">
+				<a href = "/users">
+				<button class="bg-gray-900 font-semibold text-white p-0.5 rounded-lg text-center px-5 py-2.5 hover:bg-gray-500 focus:shadow focus:outline-none">View <i class="fa-solid fa-angles-right"></i></button>
+				</a>
+				</div>
+			</div>
+
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">Artifacts</p>
+				<br>
+				<p class = "text-sm text-left text-white">Fetch information about artifacts, descriptions and all available artifact set bonuses.</p>
+				<br>
+				<div class = "flex justify-center mt-auto">
+				<a href = "/artifacts">
+				<button class="bg-gray-900 font-semibold text-white p-0.5 rounded-lg text-center px-5 py-2.5 hover:bg-gray-500 focus:shadow focus:outline-none">View <i class="fa-solid fa-angles-right"></i></button>
+				</a>
+				</div>
+			</div>
+
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">Characters</p>
+				<br>
+				<p class = "text-sm text-left text-white">Fetch information, stats and level up materials about all the playable characters.</p>
+				<br>
+				<div class = "flex justify-center mt-auto">
+				<a href = "/characters">
+				<button class="bg-gray-900 font-semibold text-white p-0.5 rounded-lg text-center px-5 py-2.5 hover:bg-gray-500 focus:shadow focus:outline-none">View <i class="fa-solid fa-angles-right"></i></button>
+				</a>
+				</div>
+			</div>
+
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">Discord Server</p>
+				<br>
+				<p class = "text-sm text-left text-white">Join the discord server to ask any questions or to just talk with others. ({onlineUsers} users online)</p>
+				<br>
+				<div class = "flex justify-center mt-auto">
+				<a href = "https://discord.com/invite/659KAFfNd6">
+				<button class="bg-gray-900 font-semibold text-white p-0.5 rounded-lg text-center px-5 py-2.5 hover:bg-gray-500 focus:shadow focus:outline-none">Join <i class="fa-solid fa-angles-right"></i></button>
+				</a>
+				</div>
+			</div>
+
 		</div>
 
-		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-xl">
-			  <div class="mb-7">
-				<img src = "/images/databasePreviewImages/splashart.png" alt = "splashart"  loading = "lazy" />
-				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold" >Splash Art</h5>
-				<p class="font-light text-white">Download Splash Art for all playable characters, contains splash art from all versions.</p>
-			  </div>
-			  <div class="text-right">
-				  <a href = "/splashart" target="_self">
-				  <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-blue-400 to-blue-500 group-hover:from-blue-400 group-hover:to-blue-500 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-					  <span class="relative px-5 font-semibold py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
-						  Get Splash Art
-					  </span>
-				  </button>
-				  </a>
-			  </div>
-			</div>
-		  </div>
+		<br>
+		<br>
+		<p class = "text-white gifont text-2xl text-left">Server Reset Countdown</p>
+		<br>
 
-		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-xl">
-			  <div class="mb-7">
-				  <img src = "/images/databasePreviewImages/character.png" alt = "characters"  loading = "lazy" />
-				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Characters</h5>
-				<p class="font-light text-white">View information and level up materials about all the playable characters.</p>
-			  </div>
-			  <div class="text-right">
-				  <a href = "/characters" target="_self">
-				  <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium  rounded-lg group bg-gradient-to-br from-blue-400 to-blue-500 group-hover:from-blue-400 group-hover:to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-					  <span class="relative px-5 font-semibold py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
-						  View Characters
-					  </span>
-				  </button>
-				  </a>
-			  </div>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">North America</p>
+				<p bind:this={timeNA} class = "text-sm text-center text-white">...</p>
 			</div>
-		  </div>
 
-		  <div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-			<div class="h-full max-w-xs mx-auto p-12 bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-xl">
-			  <div class="mb-7">
-				  <img src = "/images/artifacts/previewCirclet.png" alt = "artifacts" loading = "lazy" />
-				<h5 class="font-heading text-xl mt-7 mb-7 text-white font-semibold">Artifacts</h5>
-				<p class="font-light text-white">View information, images & the set bonuses about artifact sets.</p>
-			  </div>
-			  <div class="text-right">
-				  <a href = "/artifacts" target="_self">
-				  <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium  rounded-lg group bg-gradient-to-br from-blue-400 to-blue-500 group-hover:from-blue-400 group-hover:to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-					  <span class="relative px-5 font-semibold py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
-						  View Artifacts
-					  </span>
-				  </button>
-				  </a>
-			  </div>
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">Europe</p>
+				<p bind:this={timeEU} class = "text-sm text-center text-white">...</p>
 			</div>
-		  </div>
+
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">Asia</p>
+				<p bind:this={timeAsia}  class = "text-sm text-center text-white">...</p>
+			</div>
+
+
+
+		</div>
+
 	  </div>
-	</div>
   </section>
+</div>

@@ -46,7 +46,7 @@ export async function preload(page) {
 				
 				<!-- container for artifact name -->
 				<div class = "grid gap-2 items-center">
-					<div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105 rounded-lg   max-w-full text-gray-400 font-semibold">
+					<div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105 rounded-lg   max-w-full text-gray-400 font-semibold">
 						<p class = "text-center"><span class = "text-white">1pc bonus:</span> {data.default['1pc']}</p>
 					</div>
 				
@@ -54,8 +54,8 @@ export async function preload(page) {
 
 					<!-- circlet is the only present item in prayers-[id] artifacts. -->
 
-					<div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "/images/artifacts/prayers-{id}/circlet.png" alt = "circlet from {data.circlet.name}" loading = "lazy" />
+					<div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-gray-400 font-semibold flex items-center ">
+						<img class = "object-left" src = "/images/artifacts/prayers-{id}/circlet.png" alt = "{data.circlet.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.circlet.name}</p>
 						<p class = "text-white text-left">"{data.circlet.relictype}"</p>

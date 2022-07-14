@@ -65,7 +65,7 @@ export async function preload(page) {
 					<img src = "/images/characters/{id}/namecard-bar.png" alt = "namecard of {data.fullname}" loading = "lazy" />
 
 				<!-- container for cv -->
-				<div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
+				<div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
 					<span class = "font-semibold">EN</span>: {data.cv.english}<br>
 					<span class = "font-semibold">JP</span>: {data.cv.japanese}<br>
 					<span class = "font-semibold">CN</span>: {data.cv.chinese}<br>
@@ -73,7 +73,7 @@ export async function preload(page) {
 				</div>
 
 				<!-- container for basic stats -->
-				<div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
+				<div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
 					<span class = "font-semibold">Rarity</span>: {data.rarity}*<br>
 					<span class = "font-semibold">Element</span>: {data.element}<br>
 					<span class = "font-semibold">Weapon Type</span>: {data.weapontype}<br>	
@@ -84,7 +84,7 @@ export async function preload(page) {
 					<span class = "font-semibold">Birthday</span>: {data.birthday}<br>				
 				</div>
 
-				<div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
+				<div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
 					<span class = "font-semibold">Ascension Items</span><br>
 					<div class = "flex flex-wrap gap-10">
 						<!-- replace ' with nothing and replace spaces with - -->
@@ -95,7 +95,7 @@ export async function preload(page) {
 					</div>
 				</div>
 
-				<div class = "bg-gray-800 transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
+				<div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
 					<span class = "font-semibold">Reccomended Artifact</span><br>
 				<div class = "flex items-center gap-10">
 					<img class = "object-left h-16 w-16" src = "/images/artifacts/{data.artifactSet.replace(/\s+/g, '-').replace("'",'').toLowerCase()}/flower.png" alt = "{data.artifactSet}"  loading = "lazy" />
