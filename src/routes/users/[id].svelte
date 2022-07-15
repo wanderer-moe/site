@@ -1,5 +1,5 @@
 <script context="module">
-import { onMount } from "svelte";
+// import { onMount } from "svelte";
 import axios from "axios";
 
 let data = ''
@@ -7,6 +7,7 @@ let data = ''
 // https://sapper.svelte.dev/docs#Server_routes
 export async function preload(page) {
     const { id } = page.params; // get the parameters and search for the id.json..
+
     let response = await axios.get(`https://enka.shinshin.moe/u/${id}/__data.json`)
     .then(function (response) {
 		data = response.data;
@@ -97,7 +98,7 @@ export async function preload(page) {
                     </div>
 
                     <div class = "bg-[#2A303C] rounded-lg text-white p-5">
-                        <p><span class = "font-semibold text-blue-400 uppercase text-center">Achivements<br></span>{data.playerInfo.finishAchievementNum}</p>
+                        <p><span class = "font-semibold text-blue-400 uppercase text-center">Achievements<br></span>{data.playerInfo.finishAchievementNum}</p>
                     </div>
 
                 </div>
