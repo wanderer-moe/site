@@ -23,13 +23,95 @@ import axios from "axios";
   }
   }
 
+// the code following this is incredibly messy and I'm sorry, but it works. I'm sorry if you're seeing this.
+async function getdateEU() {
+  var start = new Date;
+  start.setHours(4, 0, 0); // 4am
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tickEU() {
+    var now = new Date;
+    if (now > start) { // if it's after 4am
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+    var ss = pad(remain % 60);
+
+    timeEU.innerHTML = hh + ":" + mm + ":" + ss;
+
+    setTimeout(tickEU, 1000);
+  }
+
+  tickEU();
+}
+
+async function getdateNA() {
+  var start = new Date;
+  start.setHours(10, 0, 0); // 10am
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tickNA() {
+    var now = new Date;
+    if (now > start) { // if it's after 10am
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+    var ss = pad(remain % 60);
+
+    timeNA.innerHTML = hh + ":" + mm + ":" + ss;
+
+    setTimeout(tickNA, 1000);
+  }
+
+  tickNA();
+}
+
+async function getdateAsia() {
+  var start = new Date;
+  start.setHours(21, 0, 0); // 9pm
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tickAsia() {
+    var now = new Date;
+    if (now > start) { // if it's after 9pm
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+    var ss = pad(remain % 60);
+
+    timeAsia.innerHTML = hh + ":" + mm + ":" + ss;
+
+    setTimeout(tickAsia, 1000);
+  }
+
+  tickAsia();
+}
+
+
 // runs when the page loads.
 onMount(() => {
     getDiscordData();
+	getdateEU();
+	getdateNA();
+	getdateAsia();
 });
 
 </script>
-
 
 <svelte:head>
 	<title>wanderer.moe - a genshin database</title>
@@ -40,7 +122,7 @@ onMount(() => {
 	<div class="container px-2 mx-auto">
 	  <p class = "text-blue-400 gifont text-4xl text-left">wanderer.moe</p>
 	  <p class = "text-white gifont text-2xl text-left">A useful database for Genshin Impact</p>
-	  <p class = "text-white text-left">Get data about Characters, Artifacts, Character Image Files and view others Genshin Profiles</p>
+	  <p class = "text-white text-left">Get data about Genshin Impact Characters, Artifacts and Character Image Files.</p>
 	  <br>
 	  <p class = "text-gray-400 text-sm text-left">Redirected from wtf.dromzeh.dev? This is the new site, join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-blue-400">discord</a> ({onlineUsers} online) for more info.</p>
  
@@ -73,17 +155,6 @@ onMount(() => {
 				</div>
 			</div>
 
-			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
-				<p class = "text-sm font-semibold uppercase text-center">User Profiles</p>
-				<br>
-				<p class = "text-sm text-left text-white">Find out & share information about yours and other's genshin profiles.</p>
-				<br>
-				<div class = "flex justify-center mt-auto">
-				<a href = "/users">
-				<button class="bg-gray-900 font-semibold text-white p-0.5 rounded-lg text-center px-5 py-2.5 hover:bg-gray-500 focus:shadow focus:outline-none">View <i class="fa-solid fa-angles-right"></i></button>
-				</a>
-				</div>
-			</div>
 
 			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
 				<p class = "text-sm font-semibold uppercase text-center">Artifacts</p>
@@ -120,6 +191,31 @@ onMount(() => {
 				</a>
 				</div>
 			</div>
+
+		</div>
+
+		<br>
+		<br>
+		<p class = "text-white gifont text-2xl text-left">Server Reset Countdown</p>
+		<br>
+
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">North America</p>
+				<p bind:this={timeNA} class = "text-sm text-center text-white">...</p>
+			</div>
+
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">Europe</p>
+				<p bind:this={timeEU} class = "text-sm text-center text-white">...</p>
+			</div>
+
+			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
+				<p class = "text-sm font-semibold uppercase text-center">Asia</p>
+				<p bind:this={timeAsia}  class = "text-sm text-center text-white">...</p>
+			</div>
+
+
 
 		</div>
 

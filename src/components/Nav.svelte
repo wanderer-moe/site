@@ -18,9 +18,6 @@
 					<li>
                         <a href="/splashart/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Splash Art</a>
                     </li>
-                    <li>
-                        <a href="/users/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Users</a>
-                    </li>
 					<li>
                         <a href="/artifacts/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Artifacts</a>
                     </li>
