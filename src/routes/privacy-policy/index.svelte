@@ -1,8 +1,3 @@
-<script>
-</script>
-
-<style>
-</style>
 <svelte:head>
 	<title>privacy | wanderer.moe - a genshin database</title>
 </svelte:head>
@@ -19,7 +14,6 @@
 	<p class = "text-white">• Google Adsense adverts are also used to help fund hosting for the website. You can opt out of personalised ads at anytime.</p>
 	<br>
 	<p class = "text-white">If you would like to exercise your rights, please let us know by getting in touch @ <a href = "mailto:admin@wanderer.moe" class = "font-semibold text-blue-500">admin@wanderer.moe</a> or <a href = "mailto:admin@dromzeh.dev" class = "font-semibold text-blue-500">admin@dromzeh.dev</a></p>
-
-</div>
+	</div>
 </section>
 </div>

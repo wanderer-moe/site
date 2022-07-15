@@ -1,8 +1,3 @@
-<script>
-</script>
-
-<style>
-</style>
 <svelte:head>
 	<title>info | wanderer.moe - a genshin database</title>
 </svelte:head>
@@ -19,7 +14,6 @@
 	<p class = "text-white">• <a href = "https://github.com/sveltejs/svelte" class = "font-semibold text-blue-500">sveltejs/svelte</a> - What this site was written in</p>
 	<p class = "text-white">• <a href = "https://github.com/frzyc/genshin-optimizer" class = "font-semibold text-blue-500">frzyc/genshin-optimizer</a> - Image Assets</p>
 	<br>
-
-</div>
+	</div>
 </section>
 </div>
