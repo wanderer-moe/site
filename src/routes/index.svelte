@@ -23,102 +23,12 @@ import axios from "axios";
   }
   }
 
-// the code following this is incredibly messy and I'm sorry, but it works. I'm sorry if you're seeing this.
-async function getdateEU() {
-  var start = new Date;
-  start.setHours(4, 0, 0); // 4am
-
-  function pad(num) {
-    return ("0" + parseInt(num)).substr(-2);
-  }
-
-  function tickEU() {
-    var now = new Date;
-    if (now > start) { // if it's after 4am
-      start.setDate(start.getDate() + 1);
-    }
-    var remain = ((start - now) / 1000);
-    var hh = pad((remain / 60 / 60) % 60);
-    var mm = pad((remain / 60) % 60);
-    var ss = pad(remain % 60);
-
-    timeEU.innerHTML = hh + ":" + mm + ":" + ss;
-
-    setTimeout(tickEU, 1000);
-  }
-
-  tickEU();
-}
-
-async function getdateNA() {
-  var start = new Date;
-  start.setHours(10, 0, 0); // 10am
-
-  function pad(num) {
-    return ("0" + parseInt(num)).substr(-2);
-  }
-
-  function tickNA() {
-    var now = new Date;
-    if (now > start) { // if it's after 10am
-      start.setDate(start.getDate() + 1);
-    }
-    var remain = ((start - now) / 1000);
-    var hh = pad((remain / 60 / 60) % 60);
-    var mm = pad((remain / 60) % 60);
-    var ss = pad(remain % 60);
-
-    timeNA.innerHTML = hh + ":" + mm + ":" + ss;
-
-    setTimeout(tickNA, 1000);
-  }
-
-  tickNA();
-}
-
-async function getdateAsia() {
-  var start = new Date;
-  start.setHours(21, 0, 0); // 9pm
-
-  function pad(num) {
-    return ("0" + parseInt(num)).substr(-2);
-  }
-
-  function tickAsia() {
-    var now = new Date;
-    if (now > start) { // if it's after 9pm
-      start.setDate(start.getDate() + 1);
-    }
-    var remain = ((start - now) / 1000);
-    var hh = pad((remain / 60 / 60) % 60);
-    var mm = pad((remain / 60) % 60);
-    var ss = pad(remain % 60);
-
-    timeAsia.innerHTML = hh + ":" + mm + ":" + ss;
-
-    setTimeout(tickAsia, 1000);
-  }
-
-  tickAsia();
-}
-
-
 // runs when the page loads.
 onMount(() => {
     getDiscordData();
-	getdateEU();
-	getdateNA();
-	getdateAsia();
 });
 
 </script>
-
-<style>
-img{ 
-	width: 65px;
-	height: 65px;
-}
-</style>
 
 
 <svelte:head>
@@ -210,31 +120,6 @@ img{
 				</a>
 				</div>
 			</div>
-
-		</div>
-
-		<br>
-		<br>
-		<p class = "text-white gifont text-2xl text-left">Server Reset Countdown</p>
-		<br>
-
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
-				<p class = "text-sm font-semibold uppercase text-center">North America</p>
-				<p bind:this={timeNA} class = "text-sm text-center text-white">...</p>
-			</div>
-
-			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
-				<p class = "text-sm font-semibold uppercase text-center">Europe</p>
-				<p bind:this={timeEU} class = "text-sm text-center text-white">...</p>
-			</div>
-
-			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
-				<p class = "text-sm font-semibold uppercase text-center">Asia</p>
-				<p bind:this={timeAsia}  class = "text-sm text-center text-white">...</p>
-			</div>
-
-
 
 		</div>
 
