@@ -26,7 +26,7 @@ import axios from "axios";
 // the code following this is incredibly messy and I'm sorry, but it works. I'm sorry if you're seeing this.
 async function getdateEU() {
   var start = new Date;
-  start.setHours(4, 0, 0); // 4am
+  start.setUTCHours(3, 0, 0); // 4am
 
   function pad(num) {
     return ("0" + parseInt(num)).substr(-2);
@@ -42,7 +42,7 @@ async function getdateEU() {
     var mm = pad((remain / 60) % 60);
     var ss = pad(remain % 60);
 
-    timeEU.innerHTML = hh + ":" + mm + ":" + ss;
+    timeEU.innerHTML = hh + "h " + mm + "m " + ss + "s";
 
     setTimeout(tickEU, 1000);
   }
@@ -52,7 +52,7 @@ async function getdateEU() {
 
 async function getdateNA() {
   var start = new Date;
-  start.setHours(10, 0, 0); // 10am
+  start.setUTCHours(9, 0, 0); // 10am
 
   function pad(num) {
     return ("0" + parseInt(num)).substr(-2);
@@ -68,7 +68,7 @@ async function getdateNA() {
     var mm = pad((remain / 60) % 60);
     var ss = pad(remain % 60);
 
-    timeNA.innerHTML = hh + ":" + mm + ":" + ss;
+    timeNA.innerHTML = hh + "h " + mm + "m " + ss + "s";
 
     setTimeout(tickNA, 1000);
   }
@@ -78,7 +78,7 @@ async function getdateNA() {
 
 async function getdateAsia() {
   var start = new Date;
-  start.setHours(21, 0, 0); // 9pm
+  start.setUTCHours(20, 0, 0); // 9pm 
 
   function pad(num) {
     return ("0" + parseInt(num)).substr(-2);
@@ -94,7 +94,7 @@ async function getdateAsia() {
     var mm = pad((remain / 60) % 60);
     var ss = pad(remain % 60);
 
-    timeAsia.innerHTML = hh + ":" + mm + ":" + ss;
+    timeAsia.innerHTML = hh + "h " + mm + "m " + ss + "s";
 
     setTimeout(tickAsia, 1000);
   }
