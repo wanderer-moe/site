@@ -129,7 +129,7 @@ onMount(() => {
 	  <br>
 
 
-		<div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+		<div class="grid grid-cols-1 md:grid-cols-6 gap-3">
 
 			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
 				<p class = "text-sm font-semibold uppercase text-center">Character Parts</p>
