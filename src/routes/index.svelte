@@ -42,7 +42,7 @@ async function getdateEU() {
     var mm = pad((remain / 60) % 60);
     var ss = pad(remain % 60);
 
-    timeEU.innerHTML = hh + "h " + mm + "m " + ss + "s";
+    timeEU = hh + "h " + mm + "m " + ss + "s";
 
     setTimeout(tickEU, 1000);
   }
@@ -68,7 +68,7 @@ async function getdateNA() {
     var mm = pad((remain / 60) % 60);
     var ss = pad(remain % 60);
 
-    timeNA.innerHTML = hh + "h " + mm + "m " + ss + "s";
+    timeNA = hh + "h " + mm + "m " + ss + "s";
 
     setTimeout(tickNA, 1000);
   }
@@ -94,7 +94,7 @@ async function getdateAsia() {
     var mm = pad((remain / 60) % 60);
     var ss = pad(remain % 60);
 
-    timeAsia.innerHTML = hh + "h " + mm + "m " + ss + "s";
+    timeAsia = hh + "h " + mm + "m " + ss + "s";
 
     setTimeout(tickAsia, 1000);
   }
@@ -202,17 +202,17 @@ onMount(() => {
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
 			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
 				<p class = "text-sm font-semibold uppercase text-center">North America</p>
-				<p bind:this={timeNA} class = "text-sm text-center text-white">...</p>
+				<p class = "text-sm text-center text-white">{timeNA}</p>
 			</div>
 
 			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
 				<p class = "text-sm font-semibold uppercase text-center">Europe</p>
-				<p bind:this={timeEU} class = "text-sm text-center text-white">...</p>
+				<p class = "text-sm text-center text-white">{timeEU}</p>
 			</div>
 
 			<div class = "bg-[#2a303c] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-400 hover:text-blue-500">
 				<p class = "text-sm font-semibold uppercase text-center">Asia</p>
-				<p bind:this={timeAsia}  class = "text-sm text-center text-white">...</p>
+				<p class = "text-sm text-center text-white">{timeAsia}</p>
 			</div>
 
 
