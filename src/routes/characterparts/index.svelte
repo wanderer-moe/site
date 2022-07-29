@@ -40,12 +40,11 @@ img {
 <section class="py-24 md:py-40">
 	<div class="container px-4 mx-auto">
 	<h1 class = "text-white font-semibold gifont">Character Parts</h1>
-	<p class = "text-white">Character parts extracted from the Genshin Preview Pages, if there's a file you can't find, download the <span class = "text-blue-500"><a href = "/splashart" class = "text-blue-500 hover:underline">splash art version</a></span> instead.</p>
 	<p class = "text-gray-400 text-sm">The preview images may take a while to load dependant on your internet connection. Clicking 'Download File' will take you to a new page where you can save, copy, or download the file.</p>
 	<br>
 
 	<div class = "flex items-center justify-center">
-		<input class="bg-[#2A303C] text-blue-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="Search">
+		<input class="bg-[#2A303C] text-blue-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
 	</div>
 	<br>
 
@@ -75,7 +74,7 @@ img {
 
 		  <!-- check if filteredCharacterParts is empty -->
 		  {#if filteredCharacterParts.length === 0}
-		  <p class = "text-white text-center">No results found for '{searchTerm}'</p>
+		  <p class = "text-gray-400 text-center">No results found for '{searchTerm}', you may be able to find the <span class = "text-blue-500"><a href = "/splashart" class = "font-semibold text-white hover:text-blue-400">splash art version</a></span> instead. <br>Think something should be here? Feel free to join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-blue-400">discord server</a> and ask!</p>
 		  {/if}
 		</div>
 	</div>
