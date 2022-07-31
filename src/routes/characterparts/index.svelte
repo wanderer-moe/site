@@ -39,18 +39,20 @@ img {
 <div class = "flex flex-col min-h-screen">
 <section class="py-24 md:py-40">
 	<div class="container px-4 mx-auto">
+
+	<div class="flex flex-wrap justify-between gap-4">
 	<h1 class = "text-white font-semibold gifont">Character Parts</h1>
+	<input class="bg-[#2A303C] text-blue-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
+	</div>
+
+	<br>
 	<p class = "text-gray-400 text-sm">The preview images may take a while to load dependant on your internet connection. Clicking 'Download File' will take you to a new page where you can save, copy, or download the file.</p>
 	<br>
 
-	<div class = "flex items-center justify-center">
-		<input class="bg-[#2A303C] text-blue-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
-	</div>
-	<br>
 
 	<div class = "text-right">
 	<a href = "https://github.com/dromzeh/genshin-character-parts/archive/refs/heads/main.zip">
-		<button class="bg-gray-900 font-semibold text-white p-0.5 mb-2 mr-2 rounded-lg text-center px-5 py-2.5 hover:bg-gray-600 focus:shadow focus:outline-none">Download All Files</button>
+		<button class="bg-blue-400 font-semibold text-white p-0.5 mb-2 mr-2 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">Download All Files</button>
 	</a>
 	</div>
 	<br>
@@ -60,12 +62,19 @@ img {
 		{#each filteredCharacterParts as entry}
 		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
 		  <div class="h-full max-w-xs mx-auto p-12 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105 rounded-xl">
-			<div class="mb-7">
-			  <p class="font-heading text-smp mt-7 mb-7 text-blue-400 uppercase font-semibold">{entry}</p>
+			<div class="mb-8">
+
+			  <p class="font-heading text-m text-blue-400 uppercase font-semibold">{entry}</p>
+
+			  <div class = "text-right">
 			  <a href = "https://raw.githubusercontent.com/dromzeh/genshin-character-parts/main/{entry}" target = "_blank">
-				<div class="text-right">
-					<button class="bg-gray-900 font-semibold text-white p-0.5 mb-2 mr-2 rounded-lg text-center px-5 py-2.5 hover:bg-gray-600 focus:shadow focus:outline-none">Download File</button>
-				</a>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 mb-2 mr-2 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">
+					<i class="fa-solid fa-download"></i>
+				</button>
+			  </a>
+			  </div>
+			  <br>
+
 			  <img src="/images/characterparts/{entry.toLowerCase()}" width = "256" height = "256" alt="character part for {entry}" loading = "lazy" />
 			</div>
 			</div>
