@@ -66,7 +66,7 @@ img {
 
 			  <div class = "align-center">
 				<p class="font-heading text-sm text-blue-400 uppercase font-semibold">{entry}</p>
-				<a href = "https://raw.githubusercontent.com/dromzeh/genshin-splash-art/main/{entry}" target = "_blank">
+				<a href = "https://raw.githubusercontent.com/dromzeh/genshin-character-parts/main/{entry}" target = "_blank">
 				  <button class="bg-blue-400 font-semibold text-white p-0.5 mb-2 mr-2 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">
 					  <i class="fa-solid fa-download"></i> Download
 				  </button>
