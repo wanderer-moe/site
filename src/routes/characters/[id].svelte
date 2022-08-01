@@ -1,13 +1,10 @@
 <script context="module">
-// https://sapper.svelte.dev/docs#Server_routes
-// import json file using @rollup/plugin-json..
+export async function load({ params, fetch }) {
+    const { id } = params;
+	const data = await import(`../../data/characters/${id}.json`);
 
-export async function preload(page) {
-    const { id } = page.params; // get the parameters and search for the id.json..
-    const data = await import(`../../data/characters/${id}.json`);
-
-    return { id, data }; // id will be returned for displaying images..
-  }
+	return { props: { id, data } }
+}
 </script>
 
 <script>
@@ -18,14 +15,6 @@ export async function preload(page) {
 	let rarity = '⭐'.repeat(data.rarity);
 </script>
 
-<style>
-.characterImg {
-    height: calc(100vh - 4rem);
-    max-height: 700px;
-    max-width: 100%;
-}
-
-</style>
 <svelte:head>
     <title>{data.fullname} | wanderer.moe - a genshin database</title>
 </svelte:head>

@@ -49,3 +49,16 @@ a {
 	background:#4D93F8;
 	border-radius:8px
 }
+
+.characterImg {
+    height: calc(100vh - 4rem);
+    max-height: 700px;
+    max-width: 100%;
+}
+
+.artifactImg {
+	height: calc(100vh - 4rem);
+	max-height: 100px;
+	max-width: 100%;
+}
+

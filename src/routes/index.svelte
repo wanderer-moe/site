@@ -102,7 +102,6 @@ async function getdateAsia() {
   tickAsia();
 }
 
-
 // runs when the page loads.
 onMount(() => {
     getDiscordData();

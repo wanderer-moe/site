@@ -1,12 +1,8 @@
-<script context="module">
-	export async function preload(page) {
-		const data = await import(`../../data/splashArts.json`);
-		return { data }; // id will be returned for displaying images..
-	}
+<script context = "module">
+	import data from '../../data/splashArts.json';
 </script>
 	
 <script>
-export let data;
 let splashArts = data.splashArts;
 
 let searchTerm = "";
@@ -24,8 +20,6 @@ let filteredSplashArts = [];
 
 </script>
 
-<style>
-</style>
 <svelte:head>
 	<title>splash art | wanderer.moe - a genshin database</title>
 </svelte:head>

@@ -1,14 +1,9 @@
-<script context="module">
-	export async function preload(page) {
-		const data = await import(`../../data/characterParts.json`);
-		return { data }; // id will be returned for displaying images..
-	}
+<script context = "module">
+import data from '../../data/characterParts.json';
 </script>
-	
-<script>
-export let data;
-let characterParts = data.characterParts;
 
+<script>
+let characterParts = data.characterParts;
 
 let searchTerm = "";
 let filteredCharacterParts = [];

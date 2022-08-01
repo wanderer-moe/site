@@ -1,50 +1,9 @@
-<script>
-let allArtifacts = [
-    'Adventurer',
-    'Archaic Petra',
-    'Berserker',
-    'Blizzard Strayer',
-    'Bloodstained Chivalry',
-    'Brave Heart',
-    'Crimson Witch of Flames',
-    'Defenders Will',
-    'Echoes of an Offering',
-    'Emblem of Severed Fate',
-    'Gambler',
-    'Gladiators Finale',
-    'Heart of Depth',
-    'Husk of Opulent Dreams',
-    'Instructor',
-    'Lavawalker',
-    'Lucky Dog',
-    'Maiden Beloved',
-    'Martial Artist',
-    'Noblesse Oblige',
-    'Ocean-Hued Clam',
-    'Pale Flame',
-    'Prayers for Destiny',
-    'Prayers for Illumination',
-    'Prayers for Wisdom',
-    'Prayers to Springtime',
-    'Resolution of Sojourner',
-    'Retracing Bolide',
-    'Scholar',
-    'Shimenawas Reminiscence',
-    'Tenacity of the Millelith',
-    'The Exile',
-    'Thundering Fury',
-    'Thundersoother',
-    'Tiny Miracle',
-    'Traveling Doctor',
-    'Vermillion Hereafter',
-    'Viridescent Venerer',
-    'Wanderers Troupe'
-]
-
+<script context = "module">
+import data from '../../data/allArtifacts.json';
 </script>
-
-<style>
-</style>
+<script>
+let allArtifacts = data.allArtifacts;
+</script>
 
 <svelte:head>
     <title>artifacts | wanderer.moe - a genshin database</title>

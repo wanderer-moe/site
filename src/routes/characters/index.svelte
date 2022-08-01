@@ -1,17 +1,10 @@
-<script context="module">
-export async function preload(page) {
-    const data = await import(`../../data/allCharacters.json`);
-    return { data }; // id will be returned for displaying images..
-}
+<script context = "module">
+import data from '../../data/allCharacters.json';
 </script>
 
 <script>
-export let data;
 let allCharacters = data.characters;
 </script>
-
-<style>
-</style>
 
 <svelte:head>
     <title>characters | wanderer.moe - a genshin database</title>

@@ -1,13 +1,10 @@
 <script context="module">
-// https://sapper.svelte.dev/docs#Server_routes
-// import json file using @rollup/plugin-json..
-export async function preload(page) {
-    const { id } = page.params; // get the parameters and search for the id.json..
-    const data = await import(`../../data/artifacts/prayers-${id}.json`);
-
-    return { id, data }; // id will be returned for displaying images..
-	// file not found: Unknown variable dynamic import...
-  }
+	export async function load({ params, fetch }) {
+		const { id } = params;
+		const data = await import(`../../data/artifacts/prayers-${id}.json`);
+	
+		return { props: { id, data } }
+	}
 </script>
 
 <script>
@@ -20,13 +17,7 @@ export async function preload(page) {
 	let rarity = '⭐'.repeat(Math.max(...data.default.rarity));
 
 </script>
-<style>
-	img {
-		height: calc(100vh - 4rem);
-		max-height: 100px;
-		max-width: 100%;
-	}
-</style>
+
 <svelte:head>
     <title>{data.default.name} | wanderer.moe - a genshin database</title>
 </svelte:head>
@@ -55,7 +46,7 @@ export async function preload(page) {
 					<!-- circlet is the only present item in prayers-[id] artifacts. -->
 
 					<div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "/images/artifacts/prayers-{id}/circlet.png" alt = "{data.circlet.name}" loading = "lazy" />
+						<img class = "object-left artifactImg" src = "/images/artifacts/prayers-{id}/circlet.png" alt = "{data.circlet.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.circlet.name}</p>
 						<p class = "text-white text-left">"{data.circlet.relictype}"</p>

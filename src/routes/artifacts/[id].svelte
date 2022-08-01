@@ -1,14 +1,10 @@
 <script context="module">
-// https://sapper.svelte.dev/docs#Server_routes
-// import json file using @rollup/plugin-json..
-
-export async function preload(page) {
-    const { id } = page.params; // get the parameters and search for the id.json..
-    const data = await import(`../../data/artifacts/${id}.json`);
-
-    return { id, data }; // id will be returned for displaying images..
-	// file not found: Unknown variable dynamic import...
-  }
+	export async function load({ params, fetch }) {
+		const { id } = params;
+		const data = await import(`../../data/artifacts/${id}.json`);
+	
+		return { props: { id, data } }
+	}
 </script>
 
 <script>
@@ -21,13 +17,6 @@ export async function preload(page) {
 	let rarity = '⭐'.repeat(Math.max(...data.default.rarity));
 
 </script>
-<style>
-	img {
-		height: calc(100vh - 4rem);
-		max-height: 100px;
-		max-width: 100%;
-	}
-</style>
 <svelte:head>
     <title>{data.default.name} | wanderer.moe - a genshin database</title>
 </svelte:head>
@@ -59,7 +48,7 @@ export async function preload(page) {
 					<!-- order: flower, plume, sands, goblet, circlet -->
 
 					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "/images/artifacts/{id}/flower.png" alt = "flower from {data.default.name}" loading = "lazy" />
+						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/flower.png" alt = "flower from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.flower.name}</p>
 						<p class = "text-white text-left">"{data.flower.relictype}"</p>
@@ -68,7 +57,7 @@ export async function preload(page) {
 					</div>
 
 					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "/images/artifacts/{id}/plume.png" alt = "plume from {data.default.name}" loading = "lazy" />
+						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/plume.png" alt = "plume from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.plume.name}</p>
 						<p class = "text-white text-left">"{data.plume.relictype}"</p>
@@ -77,7 +66,7 @@ export async function preload(page) {
 					</div>
 
 					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "/images/artifacts/{id}/sands.png" alt = "sands from {data.default.name}" loading = "lazy" />
+						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/sands.png" alt = "sands from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.sands.name}</p>
 						<p class = "text-white text-left">"{data.sands.relictype}"</p>
@@ -86,7 +75,7 @@ export async function preload(page) {
 					</div>
 
 					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "/images/artifacts/{id}/goblet.png" alt = "goblet from {data.default.name}" loading = "lazy" />
+						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/goblet.png" alt = "goblet from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.goblet.name}</p>
 						<p class = "text-white text-left">"{data.goblet.relictype}"</p>
@@ -95,7 +84,7 @@ export async function preload(page) {
 					</div>
 
 					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
-						<img class = "object-left" src = "/images/artifacts/{id}/circlet.png" alt = "circlet from {data.circlet.name}" loading = "lazy" />
+						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/circlet.png" alt = "circlet from {data.circlet.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.circlet.name}</p>
 						<p class = "text-white text-left">"{data.circlet.relictype}"</p>
