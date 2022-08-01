@@ -1,8 +1,13 @@
 
-<footer class="mt-auto p-4 bg-[#19191E] shadow md:flex md:items-center md:justify-between md:p-6">
-    <span class="text-sm sm:text-left text-gray-400">© 2022 - created & programmed by <a href="https://dromzeh.dev/" class="hover:underline">dromzeh</a>.
-        <br>Website is not affiliated with or endorsed by <a href="https://www.hoyoverse.com/en-us/" class="hover:underline">HoYoverse</a>.
-        <a href="/privacy-policy" class="hover:underline">Privacy Policy</a></span>
-    <!-- <div class="flex flex-wrap items-center mt-3 gap-3">
-    </div> -->
+<footer class="text-left lg:text-left bg-[#19191E] text-gray-400">
+    <div class="flex justify-center items-center lg:justify-between p-6">
+    <div class="mr-12">
+        <p>© 2022 - wanderer.moe. Created & programmed by <a href = "https://dromzeh.dev/" class = "font-semibold text-white hover:text-blue-400">dromzeh.</a></p>
+        <p>Website is not affiliated with or endorsed by <a href = "https://hoyoverse.com/en-us/" class = "font-semibold text-white hover:text-blue-400">HoYoverse</a>.</p>
+    </div>
+    
+    <div class="flex justify-center">
+        <a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-blue-400 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2"><i class = "fab fa-discord"></i></a>
+    </div>
+    </div>
 </footer>
