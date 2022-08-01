@@ -47,7 +47,7 @@ let filteredSplashArts = [];
 	
 	<div class = "text-right">
 	<a href = "https://github.com/dromzeh/genshin-splash-art/archive/refs/heads/main.zip">
-		<button class="bg-blue-400 font-semibold text-white p-0.5 mb-2 mr-2 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">Download All Files</button>
+		<button class="bg-blue-400 font-semibold text-white p-0.5 mb-2 mr-2 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download All Files</button>
 	</a>
 	</div>
 	<br>
@@ -56,20 +56,19 @@ let filteredSplashArts = [];
 
 	{#each filteredSplashArts as entry}
 		<div class="w-full md:w-1/3 xl:w-auto px-4 mb-8 md:mb-0">
-		  <div class="h-full max-w-xs mx-auto p-12 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105 rounded-xl">
+		  <div class="h-full max-w-xs mx-auto p-6 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105 rounded-xl">
 			<div class="mb-8">
 
-			  <p class="font-heading text-m text-blue-400 uppercase font-semibold">{entry}</p>
-
-			  <div class = "text-right">
+			  <div class = "align-center">
+			  <p class="font-heading text-sm text-blue-400 uppercase font-semibold">{entry}</p>
 			  <a href = "https://raw.githubusercontent.com/dromzeh/genshin-splash-art/main/{entry}" target = "_blank">
 				<button class="bg-blue-400 font-semibold text-white p-0.5 mb-2 mr-2 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">
-					<i class="fa-solid fa-download"></i>
+					<i class="fa-solid fa-download"></i> Download
 				</button>
 			  </a>
 			  </div>
-			  <br>
 
+			  <br>
 			  <img src="/images/splashart/{entry.toLowerCase()}" width = "256" height = "256" alt="character part for {entry}" loading = "lazy" />
 			</div>
 			</div>

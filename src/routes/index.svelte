@@ -133,9 +133,9 @@ onMount(() => {
 				<br>
 				<p class = "text-sm text-left text-white">View and download character "files/parts/sheets" extracted from the official preview pages.</p>
 				<br>
-				<div class = "flex justify-start mt-auto">
+				<div class = "text-right md:text-left">
 				<a href = "/characterparts">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">Download  <i class="fa-solid fa-angles-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download  <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
@@ -145,9 +145,9 @@ onMount(() => {
 				<br>
 				<p class = "text-sm text-left text-white">View and download splash art of all playable characters, with & without the background.</p>
 				<br>
-				<div class = "flex justify-start mt-auto">
+				<div class = "text-right md:text-left">
 				<a href = "/splashart">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">Download <i class="fa-solid fa-angles-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
@@ -158,9 +158,9 @@ onMount(() => {
 				<br>
 				<p class = "text-sm text-left text-white">Fetch information about artifacts, descriptions and all available artifact set bonuses.</p>
 				<br>
-				<div class = "flex justify-start mt-auto">
+				<div class = "text-right md:text-left">
 				<a href = "/artifacts">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">View Artifacts <i class="fa-solid fa-angles-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"> Artifacts <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
@@ -170,9 +170,9 @@ onMount(() => {
 				<br>
 				<p class = "text-sm text-left text-white">Fetch information, stats and level up materials about all the playable characters.</p>
 				<br>
-				<div class = "flex justify-start mt-auto">
+				<div class = "text-right md:text-left">
 				<a href = "/characters">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">View Characters <i class="fa-solid fa-angles-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"> Characters <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
@@ -182,9 +182,9 @@ onMount(() => {
 				<br>
 				<p class = "text-sm text-left text-white">Join the discord server to ask any questions or to just talk with others. ({onlineUsers} users online)</p>
 				<br>
-				<div class = "flex justify-start mt-auto">
+				<div class = "text-right md:text-left">
 				<a href = "https://discord.com/invite/659KAFfNd6">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">Join the Discord <i class="fa-solid fa-angles-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fab fa-discord"></i> Join <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
