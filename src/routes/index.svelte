@@ -125,9 +125,9 @@ onMount(() => {
 	  <br>
 
 
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
 			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
-				<p class = "text-sm font-semibold uppercase text-center">Character Parts / Sheets</p>
+				<p class = "text-sm font-semibold uppercase text-center">Character Parts</p>
 				<br>
 				<p class = "text-sm text-left text-white">View and download character "files/parts/sheets" extracted from the official preview pages.</p>
 				<br>
@@ -139,7 +139,7 @@ onMount(() => {
 			</div>
 
 			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
-				<p class = "text-sm font-semibold uppercase text-center">Character Splash Art</p>
+				<p class = "text-sm font-semibold uppercase text-center">Splash Art</p>
 				<br>
 				<p class = "text-sm text-left text-white">View and download splash art of all playable characters, with & without the background.</p>
 				<br>

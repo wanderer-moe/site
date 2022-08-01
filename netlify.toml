@@ -1,3 +1,9 @@
 [build]
   publish = "build"
   command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build"
+
+[[redirects]]
+  from = "/discord"
+  to = "https://discord.com/invite/659KAFfNd6"
+  status = 301
+  force = true
