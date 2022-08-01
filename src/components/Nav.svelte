@@ -1,4 +1,11 @@
 <script>
+    import { page } from "$app/stores";
+    const nav = [
+        { title: "Character Parts", path: "/characterparts"},
+        { title: "Splash Art", path: "/splashart"},
+        { title: "Artifacts", path: "/artifacts"},
+        { title: "Characters", path: "/characters"}
+    ]
 </script>
 
 <header>
@@ -9,21 +16,23 @@
             </a>
             <div class="flex items-center md:order-2">
                 <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
+
+                    {#each nav as item}
                     <li>
-                        <a href="/characterparts/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Character Parts</a>
+                        <a href="{item.path}" class:active={$page.url.pathname == item.path} class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">{item.title}</a>
                     </li>
-					<li>
-                        <a href="/splashart/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Splash Art</a>
-                    </li>
-					<li>
-                        <a href="/artifacts/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Artifacts</a>
-                    </li>
-					<li>
-                        <a href="/characters/" class="hidden w-full md:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">Characters</a>
-                    </li>
+                    {/each}
+
                 </ul>
-				<a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-blue-400 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2"><i class = "fab fa-discord"></i></a>
+				<p><a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-blue-400 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2"><i class = "fab fa-discord"></i></a></p>
+
             </div>
         </div>
     </nav>
 </header>
+
+<style lang="postcss">
+    .active {
+      @apply text-blue-400;
+    }
+</style>
