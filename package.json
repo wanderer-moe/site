@@ -2,7 +2,7 @@
   "type": "module",
   "name": "wanderer.moe",
   "description": "A (pretty) useful website/database for Genshin Impact assets.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "vite dev --port 1337",
     "build": "vite build",
@@ -15,10 +15,6 @@
     "autoprefixer": "^10.4.7",
     "chart.js": "^2.9.4",
     "dayjs": "^1.9.4",
-    "dotenv": "^8.2.0",
-    "exceljs": "^4.3.0",
-    "localforage": "^1.10.0",
-    "lodash.debounce": "^4.0.8",
     "postcss": "^8.4.14",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.7.1",
@@ -31,6 +27,7 @@
     "vite": "^3.0.2"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "lodash.debounce": "^4.0.8"
   }
 }
