@@ -126,8 +126,7 @@ onMount(() => {
 	  <br>
 
 
-		<div class="grid grid-cols-1 md:grid-cols-6 gap-3">
-
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
 			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
 				<p class = "text-sm font-semibold uppercase text-center">Character Parts / Sheets</p>
 				<br>
@@ -135,7 +134,7 @@ onMount(() => {
 				<br>
 				<div class = "text-right md:text-left">
 				<a href = "/characterparts">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download  <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download  <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
@@ -147,7 +146,7 @@ onMount(() => {
 				<br>
 				<div class = "text-right md:text-left">
 				<a href = "/splashart">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
@@ -160,7 +159,7 @@ onMount(() => {
 				<br>
 				<div class = "text-right md:text-left">
 				<a href = "/artifacts">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"> Artifacts <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"> Artifacts <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
@@ -172,7 +171,7 @@ onMount(() => {
 				<br>
 				<div class = "text-right md:text-left">
 				<a href = "/characters">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"> Characters <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"> Characters <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
@@ -184,11 +183,10 @@ onMount(() => {
 				<br>
 				<div class = "text-right md:text-left">
 				<a href = "https://discord.com/invite/659KAFfNd6">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 bg-opacity-75 rounded-lg text-center px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fab fa-discord"></i> Join <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm only:bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fab fa-discord"></i> Join <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
-
 		</div>
 
 		<br>
@@ -211,8 +209,6 @@ onMount(() => {
 				<p class = "text-sm font-semibold uppercase text-center">Asia</p>
 				<p class = "text-sm text-center text-white">{timeAsia}</p>
 			</div>
-
-
 
 		</div>
 
