@@ -2,7 +2,7 @@
   "type": "module",
   "name": "wanderer.moe",
   "description": "A (pretty) useful website/database for Genshin Impact assets.",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite dev --port 1337",
     "build": "vite build",
