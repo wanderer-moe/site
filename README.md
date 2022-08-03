@@ -19,7 +19,7 @@ Production:
 ```bash
   pnpm build
 ```
-Netlify is used for hosting the website in production, you can read netlify.toml for more information.
+Netlify is used for hosting the website in production & you can read 'netlify.toml' for more information..
 
 
 ## Support
