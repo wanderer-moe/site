@@ -12,6 +12,7 @@ specifiers:
   exceljs: ^4.3.0
   localforage: ^1.10.0
   lodash.debounce: ^4.0.8
+  nprogress: ^0.2.0
   postcss: ^8.4.14
   postcss-nested: ^5.0.6
   prettier: ^2.7.1
@@ -25,6 +26,7 @@ specifiers:
 
 dependencies:
   axios: 0.27.2
+  nprogress: 0.2.0
 
 devDependencies:
   '@mdi/js': 5.9.55
@@ -1200,6 +1202,10 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /object-hash/3.0.0:
     resolution: {integrity: sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==}
