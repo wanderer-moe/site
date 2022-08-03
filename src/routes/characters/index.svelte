@@ -1,22 +1,20 @@
 <script context = "module">
 import data from '../../data/allCharacters.json';
 </script>
-
+    
 <script>
 let allCharacters = data.characters;
 </script>
-
+    
 <svelte:head>
     <title>characters | wanderer.moe - a genshin database</title>
 </svelte:head>
-
+    
 <div class = "flex flex-col min-h-screen">
 <section class="py-24 md:py-40">
-	<div class="container px-4 mx-auto">
-	<h1 class = "text-white font-semibold gifont">Character Index</h1>
-    <p class = "text-gray-400">List of all Playable Characters</p>
-	<br>
-
+    <div class="container px-4 mx-auto">
+    <h1 class = "text-white font-semibold gifont">Character Index</h1>
+    
     <!-- character cards -->
     <!-- todo: change this layout maybe in the future? -->
     <div class="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-8 gap-3">
@@ -31,7 +29,7 @@ let allCharacters = data.characters;
         </div>
         {/each}
     </div>
-
+    
     </div>
 </section>
 </div>

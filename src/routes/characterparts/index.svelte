@@ -34,10 +34,9 @@ img {
 <div class = "flex flex-col min-h-screen">
 <section class="py-24 md:py-40">
 	<div class="container px-4 mx-auto">
-
 	<div class="flex flex-wrap justify-between gap-4">
 	<h1 class = "text-white font-semibold gifont">Character Parts</h1>
-	<input class="bg-[#2A303C] text-blue-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
+		<input class="bg-[#2A303C] text-blue-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
 	</div>
 
 	<br>

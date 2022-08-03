@@ -13,8 +13,6 @@ let allArtifacts = data.allArtifacts;
 <section class="py-24 md:py-40">
 	<div class="container px-4 mx-auto">
 	<h1 class = "text-white font-semibold gifont">Artifact Index</h1>
-    <p class = "text-gray-400">List of Artifacts</p>
-	<br>
 
     <!-- artifact cards -->
     <!-- todo: change this layout maybe in the future? -->
