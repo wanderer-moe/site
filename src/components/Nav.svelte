@@ -16,10 +16,12 @@
             mobilemenu.classList.add('visible');
 
             navBarButton.classList.replace('text-white', 'text-blue-400');
+            navBarButton.classList.replace('fa-bars', 'fa-xmark');
         } else {
             mobilemenu.classList.remove('visible');
             mobilemenu.classList.add('hidden');
             navBarButton.classList.replace('text-blue-400', 'text-white');
+            navBarButton.classList.replace('fa-xmark', 'fa-bars');
         }
     }
 </script>

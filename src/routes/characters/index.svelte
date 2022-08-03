@@ -17,7 +17,7 @@ let allCharacters = data.characters;
     
     <!-- character cards -->
     <!-- todo: change this layout maybe in the future? -->
-    <div class="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-8 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {#each allCharacters as character}
         <div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg justify-center text-gray-400 font-semibold hover:text-white flex flex-row relative">
         <a href="/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}">

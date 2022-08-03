@@ -124,7 +124,6 @@ onMount(() => {
 	  <p class = "text-gray-400 text-sm text-left">Redirected from wtf.dromzeh.dev or confused? You can join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-blue-400">discord server</a> ({onlineUsers} online) for more info & help.</p>
 	  <br>
 
-
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
 			<div class = "bg-[#2a303c] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
 				<p class = "text-sm font-semibold uppercase text-center">Character Parts</p>

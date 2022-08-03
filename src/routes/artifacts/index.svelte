@@ -16,7 +16,7 @@ let allArtifacts = data.allArtifacts;
 
     <!-- artifact cards -->
     <!-- todo: change this layout maybe in the future? -->
-    <div class="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-8 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {#each allArtifacts as artifact}
         <div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 justify-center text-gray-400 font-semibold hover:text-white">
         <a href="/artifacts/{artifact.replace(/\s+/g, '-').toLowerCase()}">

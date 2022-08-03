@@ -8,14 +8,14 @@
 - Repository for character splash art: https://github.com/dromzeh/genshin-splash-art
 
 
-## Running the App
+## Running the Website
 
-Development:
+In Development:
 ```bash
   pnpm dev
 ```
 
-Production:
+In Production:
 ```bash
   pnpm build
 ```
@@ -24,11 +24,10 @@ Netlify is used for hosting the website in production & you can read 'netlify.to
 
 ## Support
 
-For support / help, you join the [discord server]("659KAFfNd6").
+For support / general help, you join the [discord server](https://discord.gg/659KAFfNd6)...
 
 
 ## License
 
 Licensed under [MIT](https://mit.dromzeh.dev/).
-
-wanderer.moe is not affiliated with or endorsed by HoYoverse/MiHoYo, all asset files are properties of original owners.
+wanderer.moe is **not** affiliated with or endorsed by HoYoverse/MiHoYo, all asset files are properties of original owners.

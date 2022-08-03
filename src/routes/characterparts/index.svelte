@@ -20,13 +20,6 @@ $: {
 
 </script>
 	
-<style>
-img {
-	object-fit: cover;
-	height: 256px;	
-	width: 256px;	
-}
-</style>
 <svelte:head>
 	<title>character parts | wanderer.moe - a genshin database</title>
 </svelte:head>
@@ -67,7 +60,9 @@ img {
 				</a>
 				</div>
 
-			  <img src="/images/characterparts/{entry.toLowerCase()}" width = "256" height = "256" alt="character part for {entry}" loading = "lazy" />
+			
+			<img src="/images/characterparts/{entry.toLowerCase()}" width = "256" height = "256" alt="character part for {entry}" loading = "lazy" />
+
 			</div>
 			</div>
 		  </div>
@@ -82,3 +77,11 @@ img {
 
 </section>
 </div>
+
+<style lang="postcss">
+img {
+	object-fit: cover;
+	height: 256px;	
+	width: 256px;	
+}
+</style>
