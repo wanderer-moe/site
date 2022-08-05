@@ -28,7 +28,7 @@
 
 <header>
     <div class = "p-4">
-    <div class = "bg-[#19191E] p-4 rounded-lg shadow-lg">
+    <div class = "bg-[#1B1D2A] p-4 rounded-lg shadow-lg">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="/" class="flex items-center">
                 <span class="self-center text-white text-xl gifont whitespace-nowrap hover:text-blue-400">wanderer.moe</span>
@@ -60,8 +60,8 @@
             <!-- mobile navigation menu -->
 
 <div id = "mobilemenu" class = "p-4 hidden" bind:this={mobileMenu}>
-<div class = "bg-[#19191E] p-4 rounded-lg lg:hidden shadow-lg">
-    <ul class="flex mt-4 font-medium flex-col grid-cols-1 md:mt-0">
+<div class = "bg-[#1B1D2A] p-4 rounded-lg lg:hidden shadow-lg">
+    <ul class="flex font-medium flex-col grid-cols-1 q">
     {#each nav as item}
     <li>
         <a href="{item.path}" class:active={$page.url.pathname == item.path} class="w-full lg:hidden py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:bg-transparent lg:text-primary-700 lg:p-0 hover:text-blue-400">{item.title}</a>

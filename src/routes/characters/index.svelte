@@ -1,35 +1,32 @@
 <script context = "module">
-import data from '../../data/allCharacters.json';
-</script>
-    
-<script>
-let allCharacters = data.characters;
-</script>
-    
-<svelte:head>
-    <title>characters | wanderer.moe - a genshin database</title>
-</svelte:head>
-    
-<div class = "flex flex-col min-h-screen">
-<section class="py-24 md:py-40">
-    <div class="container px-4 mx-auto">
-    <h1 class = "text-white font-semibold gifont">Character Index</h1>
-    
-    <!-- character cards -->
-    <!-- todo: change this layout maybe in the future? -->
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        {#each allCharacters as character}
-        <div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg justify-center text-gray-400 font-semibold hover:text-white flex flex-row relative">
-        <a href="/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}">
-            <img src="/images/elements/{character.element.toLowerCase()}.png" alt="{character.element} symbol" class="absolute w-8 top-1 left-1" loading = "lazy" />
-            <img class = "h-32 w-32 align-center" src = "/images/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}/icon-front.png" alt = "Portrait image of {character.name}" loading = "lazy" />
-            <p class = "text-sm text-center">{character.name}</p>
-            <p class = "text-xs text-center">{'⭐'.repeat(character.rarity)}</p>
-        </a>
+    import data from '../../data/allCharacters.json';
+    </script>
+        
+    <script>
+    let allCharacters = data.characters;
+    </script>
+        
+    <svelte:head>
+        <title>characters | wanderer.moe</title>
+    </svelte:head>
+        
+    <div class = "flex flex-col min-h-screen">
+    <section class="py-24 md:py-40">
+        <div class="container px-4 mx-auto">
+        <h1 class = "text-white font-semibold gifont">Character Index</h1>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {#each allCharacters as character}
+            <div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg justify-center text-white font-semibold flex flex-row relative">
+            <a href="/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}">
+                <img src="/images/elements/{character.element.toLowerCase()}.png" alt="{character.element} symbol" class="absolute w-8 top-1 left-1" loading = "lazy" />
+                <img class = "h-32 w-32 align-center" src = "/images/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}/icon-front.png" alt = "Portrait image of {character.name}" loading = "lazy" />
+                <p class = "text-sm text-center">{character.name}</p>
+            </a>
+            </div>
+            {/each}
         </div>
-        {/each}
+        
+        </div>
+    </section>
     </div>
-    
-    </div>
-</section>
-</div>

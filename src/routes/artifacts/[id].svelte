@@ -18,7 +18,7 @@
 
 </script>
 <svelte:head>
-    <title>{data.default.name} | wanderer.moe - a genshin database</title>
+    <title>{data.default.name} | wanderer.moe</title>
 </svelte:head>
 
 <div class = "flex flex-col min-h-screen">
@@ -36,18 +36,18 @@
 				
 				<!-- container for artifact name -->
 				<div class = "grid gap-2 items-center">
-					<div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105 rounded-lg max-w-full text-gray-400 font-semibold">
+					<div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 rounded-lg max-w-full text-gray-400 font-semibold">
 						<p class = "text-center"><span class = "text-white">2pc bonus:</span> {data.default['2pc']}</p>
 					</div>
 				
-					<div class = "bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg max-w-full text-gray-400 font-semibold">
+					<div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105   rounded-lg max-w-full text-gray-400 font-semibold">
 						<p class = "text-center"><span class = "text-white">4pc bonus:</span> {data.default['4pc']}</p>
 					</div>
 				<div class="grid grid-cols-1 gap-2">
 
 					<!-- order: flower, plume, sands, goblet, circlet -->
 
-					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/flower.png" alt = "flower from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.flower.name}</p>
@@ -56,7 +56,7 @@
 						</div>
 					</div>
 
-					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/plume.png" alt = "plume from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.plume.name}</p>
@@ -65,7 +65,7 @@
 						</div>
 					</div>
 
-					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/sands.png" alt = "sands from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.sands.name}</p>
@@ -74,7 +74,7 @@
 						</div>
 					</div>
 
-					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/goblet.png" alt = "goblet from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.goblet.name}</p>
@@ -83,7 +83,7 @@
 						</div>
 					</div>
 
-					<div class = "p-3 bg-[#2A303C] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/circlet.png" alt = "circlet from {data.circlet.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.circlet.name}</p>

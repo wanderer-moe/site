@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@mdi/js': ^5.9.55
+  '@popperjs/core': ^2.11.5
   '@sveltejs/adapter-static': 1.0.0-next.37
   '@sveltejs/kit': ^1.0.0-next.379
   autoprefixer: ^10.4.7
@@ -19,12 +20,14 @@ specifiers:
   prettier-plugin-svelte: ^2.7.0
   svelte: ^3.17.3
   svelte-i18n: ^3.4.0
+  svelte-popperjs: ^1.2.11
   svelte-preprocess: ^4.10.7
   svelte-simple-modal: ^0.6.1
   tailwindcss: ^3.1.6
   vite: ^3.0.2
 
 dependencies:
+  '@popperjs/core': 2.11.5
   axios: 0.27.2
   nprogress: 0.2.0
 
@@ -45,6 +48,7 @@ devDependencies:
   prettier-plugin-svelte: 2.7.0_o3ioganyptcsrh6x4hnxvjkpqi
   svelte: 3.49.0
   svelte-i18n: 3.4.0_svelte@3.49.0
+  svelte-popperjs: 1.2.11_@popperjs+core@2.11.5
   svelte-preprocess: 4.10.7_nxvsp6sjiltnatqa6jdm4mr6zu
   svelte-simple-modal: 0.6.1_svelte@3.49.0
   tailwindcss: 3.1.6
@@ -133,6 +137,9 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: true
+
+  /@popperjs/core/2.11.5:
+    resolution: {integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==}
 
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -1526,6 +1533,14 @@ packages:
       sade: 1.8.1
       svelte: 3.49.0
       tiny-glob: 0.2.9
+    dev: true
+
+  /svelte-popperjs/1.2.11_@popperjs+core@2.11.5:
+    resolution: {integrity: sha512-m71aNmzssXB4Sm2qrwlPGNcrAp/eIG9sv+X04Lb4uspVH7kmYhUeq58m3wx8RVqu1Vl+/3Alosu9xgay4N8n1g==}
+    peerDependencies:
+      '@popperjs/core': 2.x
+    dependencies:
+      '@popperjs/core': 2.11.5
     dev: true
 
   /svelte-preprocess/4.10.7_nxvsp6sjiltnatqa6jdm4mr6zu:

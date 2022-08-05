@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>privacy | wanderer.moe - a genshin database</title>
+	<title>privacy | wanderer.moe</title>
 </svelte:head>
 
 <div class = "flex flex-col min-h-screen">

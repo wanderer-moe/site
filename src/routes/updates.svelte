@@ -1,0 +1,34 @@
+<script>
+    // i may change this into a JSON file soon, idk tho
+    const updatelist = [
+        { updateDate: "5th August, 2022", details : "Added In-Game emotes @ /emotes"},
+        { updateDate: "4th August, 2022", details: "Various UI changes around the site to help with scaling and theme consistency"},
+        { updateDate: "3rd August, 2022", details: "Added a Mobile Navbar to make the site easier to navigate on mobile."},
+        { updateDate: "24th July, 2022", details: "Added a search feature for /characterparts & /splashart, making it easier for you to search for whatever you need."},
+        { updateDate: "12th July, 2022", details: "Added reccomended artifacts for each character in /characters"},
+        { updateDate: "3rd July, 2022", details: "2.8 character parts are now available on /characterparts & added Heizou's data in /characters."}
+    ]
+</script>
+
+<svelte:head>
+	<title>update list | wanderer.moe</title>
+</svelte:head>
+
+<div class = "flex flex-col min-h-screen">
+<section class="py-24 md:py-40">
+	<div class="container px-4 mx-auto">
+	<h1 class = "text-white font-semibold gifont">Update List</h1>
+    <br>
+
+    <div class = "grid grid-cols-1 gap-4">
+    {#each updatelist as update}
+    <div>
+        <p class = "font-semibold text-white"> • {update.updateDate}</p>
+        <p class = "text-gray-400 indent-4">{update.details}</p>
+    </div>
+    {/each}
+
+    </div>
+	</div>
+</section>
+</div>
