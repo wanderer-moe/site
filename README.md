@@ -1,7 +1,6 @@
 
 # [wanderer.moe]("https://wanderer.moe")
 ![](https://img.shields.io/discord/982385887000272956) ![](https://img.shields.io/badge/license-MIT-blue)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/100584c6-179a-460b-832e-552770e8e972/deploy-status)](https://app.netlify.com/sites/dynamic-cactus-b1c387/deploys)
 
 **A (pretty) useful website/database for Genshin Impact assets.**
 - Repository for character 'parts': https://github.com/dromzeh/genshin-character-parts

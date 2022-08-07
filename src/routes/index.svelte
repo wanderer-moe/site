@@ -155,7 +155,6 @@ onMount(() => {
 				</div>
 			</div>
 
-
 			<div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-400 hover:text-blue-500">
 				<p class = "text-sm font-semibold uppercase text-center">Artifacts</p>
 				<p class = "text-sm text-left text-white">Fetch information about artifacts, descriptions and all available artifact set bonuses.</p>

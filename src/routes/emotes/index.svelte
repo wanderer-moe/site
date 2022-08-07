@@ -1,9 +1,9 @@
 <script context = "module">
-    import data from '../../data/allEmotes.json';
-    </script>
-    <script>
-    let allEmotes = data.allEmotes;
-    </script>
+import data from '../../data/allEmotes.json';
+</script>
+<script>
+let allEmotes = data.allEmotes;
+</script>
     
     <svelte:head>
         <title>in-game emotes | wanderer.moe</title>
