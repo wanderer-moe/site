@@ -21,6 +21,5 @@
 	<br>
 	<p class = "text-gray-400 text-m">You can view the update changelog <a href = "/updates" class = "font-semibold text-white  hover:text-blue-500">here</a>.</p>
 	</div>
-	
 </section>
 </div>

@@ -60,6 +60,7 @@ $: {
 		  {#if filteredCharacterParts.length === 0}
 		  	<p class = "text-gray-400 text-center">No results were found for '{searchTerm}', you may be able to find the <span class = "text-blue-500"><a href = "/splashart" class = "font-semibold text-white hover:text-blue-400">splash art version</a></span> instead. <br>Think something should be here? Feel free to join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-blue-400">discord server</a> and ask!</p>
 		  {/if}
+		  
 		</div>
 	</div>
 

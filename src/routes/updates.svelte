@@ -1,13 +1,15 @@
 <script>
     // i may change this into a JSON file soon, idk tho
     const updatelist = [
+        { updateDate: "13th August, 2022", details: "Changed /characters & /artifact pages & some other UI stuff."},
+        { updateDate: "8th August, 2022", details: "Some more UI changes"},
         { updateDate: "7th August, 2022", details: "Switched hosting Provider from Netlify to Cloudflare Pages"},
         { updateDate: "5th August, 2022", details : "Added In-Game emotes @ /emotes"},
         { updateDate: "4th August, 2022", details: "Various UI changes around the site to help with scaling and theme consistency"},
-        { updateDate: "3rd August, 2022", details: "Added a Mobile Navbar to make the site easier to navigate on mobile."},
-        { updateDate: "24th July, 2022", details: "Added a search feature for /characterparts & /splashart, making it easier for you to search for whatever you need."},
+        { updateDate: "3rd August, 2022", details: "Added a Mobile Navbar to make the site easier to navigate on mobile"},
+        { updateDate: "24th July, 2022", details: "Added a search feature for /characterparts & /splashart, making it easier for you to search for whatever you need"},
         { updateDate: "12th July, 2022", details: "Added reccomended artifacts for each character in /characters"},
-        { updateDate: "3rd July, 2022", details: "2.8 character parts are now available on /characterparts & added Heizou's data in /characters."}
+        { updateDate: "3rd July, 2022", details: "2.8 character parts are now available on /characterparts & added Heizou's data in /characters"}
     ]
 </script>
 

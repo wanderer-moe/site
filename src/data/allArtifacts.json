@@ -1,43 +1,160 @@
 {
-    "allArtifacts": [ 
-        "Adventurer",
-        "Archaic Petra",
-        "Berserker",
-        "Blizzard Strayer",
-        "Bloodstained Chivalry",
-        "Brave Heart",
-        "Crimson Witch of Flames",
-        "Defenders Will",
-        "Echoes of an Offering",
-        "Emblem of Severed Fate",
-        "Gambler",
-        "Gladiators Finale",
-        "Heart of Depth",
-        "Husk of Opulent Dreams",
-        "Instructor",
-        "Lavawalker",
-        "Lucky Dog",
-        "Maiden Beloved",
-        "Martial Artist",
-        "Noblesse Oblige",
-        "Ocean-Hued Clam",
-        "Pale Flame",
-        "Prayers for Destiny",
-        "Prayers for Illumination",
-        "Prayers for Wisdom",
-        "Prayers to Springtime",
-        "Resolution of Sojourner",
-        "Retracing Bolide",
-        "Scholar",
-        "Shimenawas Reminiscence",
-        "Tenacity of the Millelith",
-        "The Exile",
-        "Thundering Fury",
-        "Thundersoother",
-        "Tiny Miracle",
-        "Traveling Doctor",
-        "Vermillion Hereafter",
-        "Viridescent Venerer",
-        "Wanderers Troupe"
-    ] 
- }
+    "artifacts": [
+        {
+            "name": "Adventurer",
+            "rarity": [1, 2, 3]
+        },
+        {
+            "name": "Archaic Petra",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Berserker",
+            "rarity": [3, 4]
+        },
+        {
+            "name": "Blizzard Strayer",
+            "rarity": [4, 5]
+        },
+        {
+            "name":  "Bloodstained Chivalry",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Brave Heart",
+            "rarity": [3, 4]
+        },
+        {
+            "name":  "Crimson Witch of Flames",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Defenders Will",
+            "rarity": [3, 4]
+        },
+        {
+            "name": "Echoes of an Offering",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Emblem of Severed Fate",
+            "rarity": [4, 5]
+        },
+        {
+            "name":  "Gambler",
+            "rarity": [3, 4]
+        },
+        {
+            "name": "Gladiators Finale",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Heart of Depth",
+            "rarity": [4, 5]
+        },
+        {
+            "name":  "Husk of Opulent Dreams",
+            "rarity": [4, 5]
+        },
+        {
+            "name":  "Instructor",
+            "rarity": [3, 4]
+        },
+        {
+            "name": "Lavawalker",
+            "rarity": [4, 5]
+        },
+        {
+            "name":  "Lucky Dog",
+            "rarity": [1, 2, 3]
+        },
+        {
+            "name": "Maiden Beloved",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Martial Artist",
+            "rarity": [3, 4]
+        },
+        {
+            "name": "Noblesse Oblige",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Ocean-Hued Clam",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Pale Flame",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Prayers for Destiny",
+            "rarity": [3, 4]
+        },
+        {
+            "name": "Prayers for Illumination",
+            "rarity": [3, 4]
+        },
+        {
+            "name": "Prayers for Wisdom",
+            "rarity": [3, 4]
+        },
+        {
+            "name":  "Prayers to Springtime",
+            "rarity": [3, 4]
+        },
+        {
+            "name": "Resolution of Sojourner",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Retracing Bolide",
+            "rarity": [4, 5]
+        },
+        {
+            "name":  "Scholar",
+            "rarity": [3, 4]
+        },
+        {
+            "name": "Shimenawas Reminiscence",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Tenacity of the Millelith",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "The Exile",
+            "rarity": [3, 4]
+        },
+        {
+            "name":  "Thundering Fury",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Thundersoother",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Tiny Miracle",
+            "rarity": [3, 4]
+        },
+        {
+            "name":  "Traveling Doctor",
+            "rarity": [1, 2, 3]
+        },
+        {
+            "name": "Vermillion Hereafter",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Viridescent Venerer",
+            "rarity": [4, 5]
+        },
+        {
+            "name": "Wanderers Troupe",
+            "rarity": [4, 5]
+        }
+    ]
+}
