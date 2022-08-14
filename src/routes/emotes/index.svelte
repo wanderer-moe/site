@@ -14,22 +14,21 @@ let allEmotes = data.allEmotes;
         <div class="container px-4 mx-auto">
         <h1 class = "text-white font-semibold gifont">In-Game Emotes</h1>
 
-        <!-- emote cards -->
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            {#each allEmotes as emote}
-            <div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 align-center font-semibold text-white text-sm">
-                <img class = "mx-auto h-32 w-32" src = "/images/emotes/{emote.replace(/\s+/g, '-')}" alt = "{emote}" loading = "lazy" />
-                    <a href = "images/emotes/{emote}" target = "_blank">
-                        <div class = "text-center">
-                            <p class = "p-2">{emote.slice(3)}</p>
-                        <button class="bg-blue-400 bg-opacity-70 justify-right font-semibold text-white rounded-lg px-5 p-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">
-                            <i class="fa-solid fa-download"></i>
-                        </button>
-                        </div>
-                    </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {#each allEmotes as entry}
+            <div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center">
+                <img class = "object-left object-contain previewImg p-1" src = "/images/emotes/{entry}" alt = "{entry}" loading = "lazy" />
+            <div class = "">
+                <p class = "text-white text-m text-left">{entry}</p>
+                <a href = "/images/emotes/{entry}" target = "_blank">
+                    <button class="bg-blue-400 bg-opacity-70 justify-right font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </a>
+            </div>
             </div>
             {/each}
-        </div>
+        <div>
     
         </div>
     </section>

@@ -62,6 +62,12 @@ a {
 	max-width: 100%;
 }
 
+.previewImg {
+	max-height: 128px;
+	max-width: 128px;
+}
+
+
 html {
     scroll-behavior: smooth;
 }

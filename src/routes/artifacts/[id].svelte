@@ -74,7 +74,7 @@
 						</div>
 					</div>
 
-					<div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left artifactImg" src = "/images/artifacts/{id}/goblet.png" alt = "goblet from {data.default.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.goblet.name}</p>

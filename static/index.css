@@ -589,6 +589,18 @@ video {
   visibility: visible;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -612,6 +624,10 @@ video {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mt-auto {
+  margin-top: auto;
 }
 
 .flex {
@@ -650,6 +666,22 @@ video {
   height: 4rem;
 }
 
+.h-48 {
+  height: 12rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
+.h-64 {
+  height: 16rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -672,6 +704,18 @@ video {
 
 .w-16 {
   width: 4rem;
+}
+
+.w-24 {
+  width: 6rem;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .max-w-screen-xl {
@@ -808,9 +852,19 @@ video {
      object-fit: contain;
 }
 
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .object-left {
   -o-object-position: left;
      object-position: left;
+}
+
+.object-right {
+  -o-object-position: right;
+     object-position: right;
 }
 
 .p-6 {
@@ -1171,6 +1225,10 @@ video {
 
   .lg\:grid-cols-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:justify-between {
