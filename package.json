@@ -35,6 +35,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "axios": "^0.27.2",
-    "nprogress": "^0.2.0"
+    "nprogress": "^0.2.0",
+    "tiny-glob": "^0.2.9"
   }
 }

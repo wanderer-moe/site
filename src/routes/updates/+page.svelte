@@ -1,6 +1,8 @@
 <script>
     // i may change this into a JSON file soon, idk tho
     const updatelist = [
+        { updateDate: "22nd August, 2022", details: "Fixed Yun Jin's incorrect rarity & code rework."},
+        { updateDate: "14th August, 2022", details: "Added 3.0 preview page character parts."},
         { updateDate: "13th August, 2022", details: "Changed /characters & /artifact pages & some other UI stuff."},
         { updateDate: "8th August, 2022", details: "Some more UI changes"},
         { updateDate: "7th August, 2022", details: "Switched hosting Provider from Netlify to Cloudflare Pages"},
