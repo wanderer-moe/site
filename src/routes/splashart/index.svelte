@@ -1,5 +1,5 @@
 <script context = "module">
-	import data from '../../data/splashArts.json';
+import data from '../../data/splashArts.json';
 </script>
 	
 <script>

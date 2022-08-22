@@ -8,6 +8,7 @@ let epic = allArtifacts.filter(artifact => artifact.rarity.includes(4));
 let three = allArtifacts.filter(artifact => artifact.rarity.includes(3));
 let two = allArtifacts.filter(artifact => artifact.rarity.includes(2));
 let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
+
 </script>
 
 <svelte:head>
@@ -28,6 +29,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
+            <p class = "text-base text-center">{artifact.rarity}</p>
         </a>
         </div>
         {/each}
@@ -41,6 +43,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
+            <p class = "text-base text-center">{artifact.rarity}</p>
         </a>
         </div>
         {/each}
@@ -54,6 +57,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
+            <p class = "text-base text-center">{artifact.rarity}</p>
         </a>
         </div>
         {/each}
@@ -67,6 +71,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
+            <p class = "text-base text-center">{artifact.rarity}</p>
         </a>
         </div>
         {/each}
@@ -80,6 +85,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
+            <p class = "text-base text-center">{artifact.rarity}</p>
         </a>
         </div>
         {/each}
