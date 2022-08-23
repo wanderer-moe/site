@@ -14,7 +14,6 @@
         if (mobilemenu.classList.contains('hidden')) {
             mobilemenu.classList.remove('hidden');
             mobilemenu.classList.add('visible');
-
             navBarButton.classList.replace('text-white', 'text-blue-400');
             navBarButton.classList.replace('fa-bars', 'fa-xmark');
         } else {
@@ -45,7 +44,7 @@
                 
 				<p><a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-blue-400 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 bg-opacity-0 bg-white hover:bg-opacity-5 rounded"><i class = "fab fa-discord" alt = "discord"></i></a></p>
 
-                <!-- if on a device that isn't considered large.., show navigation button... -->
+                <!-- if on a device that isn't considered 'large' then show the navigation button... -->
                 <button class="lg:hidden px-4 lg:px-5 py-2 lg:py-2.5 lg:ml-auto lg:mr-0 lg:mt-4 lg:h-12 lg:w-12 focus:outline-none" on:click={mobileClick}>
                     <i bind:this={navBarButton} class="text-white hover:text-blue-400 cursor-pointer fa-solid fa-bars bg-opacity-0 bg-white hover:bg-opacity-5 rounded"></i>
                 </button>
@@ -58,7 +57,6 @@
 
 
 <!-- mobile navigation menu -->
-
 <div id = "mobilemenu" class = "p-4 hidden" bind:this={mobileMenu}>
 <div class = "bg-[#1B1D2A] p-4 rounded-lg lg:hidden shadow-lg">
     <ul class="flex font-medium flex-col grid-cols-1 gap-3">
