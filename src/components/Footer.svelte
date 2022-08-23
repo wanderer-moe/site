@@ -1,4 +1,3 @@
-
 <footer class="text-left lg:text-left bg-[#1B1D2A] text-gray-400">
     <div class="flex justify-center items-center lg:justify-between p-6">
 

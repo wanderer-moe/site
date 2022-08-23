@@ -1,8 +1,6 @@
 <script>
-
 import Nav from '../components/Nav.svelte';
 import Footer from '../components/Footer.svelte';
-
 
 import NProgress from 'nprogress';
 import { navigating } from '$app/stores';
@@ -27,12 +25,10 @@ $: {
 }
 </script>
 
-
 <Nav/>
 
 <main>
 	<slot></slot>
 </main>
-
 
 <Footer/>

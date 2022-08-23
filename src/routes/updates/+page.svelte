@@ -1,6 +1,7 @@
 <script context = "module">
 import data from '../../data/updateList.json';
 </script>
+
 <script>
     let updatelist = data.updates;
 </script>
