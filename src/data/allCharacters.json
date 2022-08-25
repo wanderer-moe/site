@@ -49,6 +49,12 @@
             "weaponType": "Claymore"
         },
         {
+            "name": "Collei",
+            "element": "Dendro",
+            "rarity": 4,
+            "weaponType": "Bow"
+        },
+        {
             "name": "Diluc",
             "element": "Pyro",
             "rarity": 5,
@@ -233,6 +239,12 @@
             "element": "Pyro",
             "rarity": 4,
             "weaponType": "Polearm"
+        },
+        {
+            "name": "Tighnari",
+            "element": "Dendro",
+            "rarity": 5,
+            "weaponType": "Bow"
         },
         {
             "name": "Venti",

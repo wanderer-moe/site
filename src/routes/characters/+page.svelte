@@ -23,7 +23,7 @@
         <h1 class = "text-white font-semibold gifont"><span class = "text-[#E2C96F]">5*</span> Characters</h1>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {#each legendary as character}
-            <div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold">
+            <div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold">
             <a href="/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}">
                 <img class = "h-32 w-32 mx-auto" src = "/images/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}/icon-front.png" alt = "Portrait image of {character.name}" loading = "lazy" />
                 <p class = "text-base text-center">{character.name}</p>
@@ -40,7 +40,7 @@
         <h1 class = "text-white font-semibold gifont"><span class = "text-[#84719D]">4*</span> Characters</h1>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {#each epic as character}
-            <div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold">
+            <div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold">
                 <a href="/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}">
                     <img class = "h-32 w-32 mx-auto" src = "/images/characters/{character.name.replace(/\s+/g, '-').toLowerCase()}/icon-front.png" alt = "Portrait image of {character.name}" loading = "lazy" />
                     <p class = "text-lg text-center">{character.name}</p>

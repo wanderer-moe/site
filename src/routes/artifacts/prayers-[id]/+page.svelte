@@ -26,7 +26,7 @@
 				
 				<!-- container for artifact name -->
 				<div class = "grid gap-2 items-center">
-					<div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 rounded-lg   max-w-full text-gray-400 font-semibold">
+					<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg   max-w-full text-gray-400 font-semibold">
 						<p class = "text-center"><span class = "text-white">1pc bonus:</span> {data.jsonFile.default['1pc']}</p>
 					</div>
 				
@@ -34,7 +34,7 @@
 
 					<!-- circlet is the only present item in prayers-[id] artifacts. -->
 
-					<div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-gray-400 font-semibold flex items-center ">
+					<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-gray-400 font-semibold flex items-center ">
 						<img class = "object-left artifactImg" src = "/images/artifacts/prayers-{id}/circlet.png" alt = "{data.jsonFile.circlet.name}" loading = "lazy" />
 						<div>
 						<p class = "text-white gifont text-xl text-left">{data.jsonFile.circlet.name}</p>

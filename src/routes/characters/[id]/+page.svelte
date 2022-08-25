@@ -46,7 +46,7 @@
 					<img src = "/images/characters/{id}/namecard-bar.png" alt = "namecard of {data.fullname}" loading = "lazy" />
 
 				<!-- container for cv -->
-				<div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
+				<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
 					<span class = "font-semibold">EN</span>: {data.jsonFile.cv.english}<br>
 					<span class = "font-semibold">JP</span>: {data.jsonFile.cv.japanese}<br>
 					<span class = "font-semibold">CN</span>: {data.jsonFile.cv.chinese}<br>
@@ -54,7 +54,7 @@
 				</div>
 
 				<!-- container for basic stats -->
-				<div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
+				<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
 					<span class = "font-semibold">Rarity</span>: {data.jsonFile.rarity}*<br>
 					<span class = "font-semibold">Element</span>: {data.jsonFile.element}<br>
 					<span class = "font-semibold">Weapon Type</span>: {data.jsonFile.weapontype}<br>	
@@ -65,7 +65,7 @@
 					<span class = "font-semibold">Birthday</span>: {data.jsonFile.birthday}<br>				
 				</div>
 
-				<div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
+				<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
 					<span class = "font-semibold">Ascension Items</span><br>
 					<div class = "flex flex-wrap gap-10">
 						<!-- replace ' with nothing and replace spaces with - -->
@@ -76,13 +76,15 @@
 					</div>
 				</div>
 
-				<div class = "bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
+				{#if data.jsonFile.artifactSet != "undefined"}
+				<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5">
 					<span class = "font-semibold">Reccomended Artifact</span><br>
 				<div class = "flex items-center gap-10">
 					<img class = "object-left h-16 w-16" src = "/images/artifacts/{data.jsonFile.artifactSet.replace(/\s+/g, '-').replace("'",'').toLowerCase()}/flower.png" alt = "{data.jsonFile.artifactSet}"  loading = "lazy" />
 					<a href = "/artifacts/{data.jsonFile.artifactSet.replace(/\s+/g, '-').replace("'",'').toLowerCase()}"><p class = "hover:text-blue-500 text-white text-2xl gifont">{data.jsonFile.artifactSet}</p></a>
 				</div>
 				</div>
+				{/if}
 
 				</div>	
 			</div>

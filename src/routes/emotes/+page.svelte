@@ -16,7 +16,7 @@ let allEmotes = data.allEmotes;
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {#each allEmotes as entry}
-            <div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center">
+            <div class = "p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center">
                 <img class = "object-left object-contain previewImg p-1" src = "/images/emotes/{entry}" alt = "{entry}" loading = "lazy" />
             <div class = "">
                 <p class = "text-white text-m text-left">{entry}</p>

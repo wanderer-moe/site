@@ -29,13 +29,13 @@ $: {
 	<div class="container px-4 mx-auto">
 	<div class="flex flex-wrap justify-between gap-4">
 	<h1 class = "text-white font-semibold gifont">Character Parts</h1>
-	<input class="bg-[#1B1D2A] text-blue-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
+	<input class="bg-[#1F1A1A] text-blue-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
 	</div>
 	<br>
 
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
 		{#each filteredCharacterParts as entry}
-		<div class = "p-3 bg-[#1B1D2A] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center">
+		<div class = "p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center">
 			<img class = "object-left object-contain previewImg p-1" src = "/images/characterparts/{entry}" alt = "{entry}" loading = "lazy" />
 		<div class = "">
 			<p class = "text-white text-m text-left">{entry}</p>
