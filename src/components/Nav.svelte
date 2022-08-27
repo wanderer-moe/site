@@ -42,10 +42,10 @@
                     {/each}
                 </ul>
                 
-				<p><a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-indigo-300 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 bg-opacity-0 bg-white hover:bg-opacity-5 rounded"><i class = "fab fa-discord" alt = "discord"></i></a></p>
+				<p><a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-indigo-300 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 bg-opacity-0 bg-white hover:bg-opacity-5 rounded" aria-label = "discord"><i class = "fab fa-discord" alt = "discord"></i></a></p>
 
                 <!-- if on a device that isn't considered 'large' then show the navigation button... -->
-                <button class="lg:hidden px-4 lg:px-5 py-2 lg:py-2.5 lg:ml-auto lg:mr-0 lg:mt-4 lg:h-12 lg:w-12 focus:outline-none" on:click={mobileClick}>
+                <button class="lg:hidden px-4 lg:px-5 py-2 lg:py-2.5 lg:ml-auto lg:mr-0 lg:mt-4 lg:h-12 lg:w-12 focus:outline-none" on:click={mobileClick} aria-label="menu">
                     <i bind:this={navBarButton} class="text-white hover:text-indigo-300 cursor-pointer fa-solid fa-bars bg-opacity-0 bg-white hover:bg-opacity-5 rounded"></i>
                 </button>
 
