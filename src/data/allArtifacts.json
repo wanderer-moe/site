@@ -29,6 +29,10 @@
             "rarity": [4, 5]
         },
         {
+            "name": "Deepwood Memories",
+            "rarity": [4, 5]
+        },
+        {
             "name": "Defenders Will",
             "rarity": [3, 4]
         },
@@ -43,6 +47,10 @@
         {
             "name":  "Gambler",
             "rarity": [3, 4]
+        },
+        {
+            "name": "Gilded Dreams",
+            "rarity": [4, 5]
         },
         {
             "name": "Gladiators Finale",
