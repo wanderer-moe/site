@@ -1,19 +1,18 @@
 {
     "updates": [
-        { "updateDate": "27th August, 2022", "details": "Website theme and layout has been changed for better consistency on all pages & added reccomended artifacts for 3.0 characters."},
-        { "updateDate": "27th August, 2022", "details": "Added 3.0 artifact sets & images now download properly on most browsers."},
+        { "updateDate": "27th August, 2022", "details": "Fixed bugs, website theme and layout has been redesigned and remaining 3.0 content has been added."},
         { "updateDate": "25th August, 2022", "details": "Added the first half of 3.0 characters (Tighnari and Collei) to /characters."},
         { "updateDate": "24th August, 2022", "details": "UI changes to help with theme consistency and overall website accessibility."},
         { "updateDate": "22nd August, 2022", "details": "Fixed Yun Jin's incorrect rarity & code rework."},
         { "updateDate": "14th August, 2022", "details": "Added 3.0 preview page character parts."},
         { "updateDate": "13th August, 2022", "details": "Changed /characters & /artifact pages & some other UI stuff."},
-        { "updateDate": "8th August, 2022", "details": "Some more UI changes."},
+        { "updateDate": "8th August, 2022", "details": "Some more minor UI changes."},
         { "updateDate": "7th August, 2022", "details": "Switched hosting Provider from Netlify to Cloudflare Pages."},
-        { "updateDate": "5th August, 2022", "details" : "Added In-Game emotes @ /emotes."},
+        { "updateDate": "5th August, 2022", "details" : "Added In-Game emotes (also known as 'stickers') @ /emotes."},
         { "updateDate": "4th August, 2022", "details": "Various UI changes around the site to help with scaling and theme consistency."},
         { "updateDate": "3rd August, 2022", "details": "Added a Mobile Navbar to make the site easier to navigate on mobile."},
         { "updateDate": "24th July, 2022", "details": "Added a search feature for /characterparts & /splashart, making it easier for you to search for whatever you need."},
-        { "updateDate": "12th July, 2022", "details": "Added reccomended artifacts for each character in /characters."},
+        { "updateDate": "12th July, 2022", "details": "Added reccomended artifacts for each character in /characters (chosen from multiple sources)."},
         { "updateDate": "3rd July, 2022", "details": "2.8 character parts are now available on /characterparts & added Heizou's data in /characters."}
     ]
 }

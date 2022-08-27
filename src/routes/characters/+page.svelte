@@ -17,7 +17,7 @@
     <section class="py-24 md:py-40">
         <div class="container px-4 mx-auto">
         <h1 class = "text-white font-semibold gifont">Character Index</h1>
-        <p class = "text-gray-400">Contains all playable characters from 1.0 to the current live version, beta versions are not included.</p>
+        <p class = "text-gray-400 text-sm">Contains all playable characters from 1.0 to the current live version, beta versions are not included.</p>
         
         <br>
         <h1 class = "text-white font-semibold gifont"><span class = "text-[#E2C96F]">5*</span> Characters</h1>

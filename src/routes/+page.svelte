@@ -126,7 +126,7 @@ let updatelist = data.updates.slice(0, 3);
 <section class="py-24 md:py-40">
 	<div class="container px-2 mx-auto">
 	  <p class = "text-white gifont text-4xl text-left">wanderer.moe</p>
-	  <p class = "text-white gifont text-xl text-left">A (pretty) useful website/database for Genshin Impact assets.</p>
+	  <p class = "text-white gifont text-xl text-left">A (pretty) useful website/database for Genshin Impact assets. <img class = "h-8 w-8 inline" src = "images/emotes/UI_EmotionIcon70.png" alt = "genshin emote" /></p>
 	  <p class = "text-gray-400 text-sm text-left">This website contains assets & content from the current live version of Genshin Impact. If you've been redirected from wtf.dromzeh.dev or need help, you can join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-indigo-300">discord server</a> ({onlineUsers} online)</p>
 	  <br>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -152,7 +152,7 @@ let updatelist = data.updates.slice(0, 3);
 
 			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">In Game Emotes</p>
-				<p class = "text-sm text-left text-white">View & download images of Genshin's in-game emotes, all with a transparent background.</p>
+				<p class = "text-sm text-left text-white">View & download images of Genshin's in-game emotes (stickers) with transparent backgrounds.</p>
 				<div class = "text-right md:text-left">
 				<a href = "/emotes">
 				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download <i class="fa-solid fa-chevron-right"></i></button>
@@ -165,7 +165,7 @@ let updatelist = data.updates.slice(0, 3);
 				<p class = "text-sm text-left text-white">Fetch information about artifacts, descriptions and all available artifact set bonuses.</p>
 				<div class = "text-right md:text-left">
 				<a href = "/artifacts">
-				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"> Artifacts <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"><img class = "h-5 w-5 inline" src = "images/icons/artifacticon.png" alt = "artifact icon" /> Artifacts <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
@@ -175,7 +175,7 @@ let updatelist = data.updates.slice(0, 3);
 				<p class = "text-sm text-left text-white">Fetch information, stats and level up materials about all the playable characters.</p>
 				<div class = "text-right md:text-left">
 				<a href = "/characters">
-				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"> Characters <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"><img class = "h-5 w-5 inline" src = "images/icons/charactericon.png" alt = "character icon" /> Characters <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
