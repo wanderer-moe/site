@@ -1,5 +1,6 @@
 {
     "updates": [
+        { "updateDate": "27th August, 2022", "details": "Added 3.0 Artifacts & changed how images are downloaded"},
         { "updateDate": "25th August, 2022", "details": "Added 3.0 Characters."},
         { "updateDate": "24th August, 2022", "details": "Mobile UI changes for easier accessibility"},
         { "updateDate": "22nd August, 2022", "details": "Fixed Yun Jin's incorrect rarity & code rework."},
