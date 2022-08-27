@@ -1,6 +1,6 @@
 {
     "updates": [
-        { "updateDate": "27th August, 2022", "details": "Website theme and layout has been changed for better consistency on all pages."},
+        { "updateDate": "27th August, 2022", "details": "Website theme and layout has been changed for better consistency on all pages & added reccomended artifacts for 3.0 characters."},
         { "updateDate": "27th August, 2022", "details": "Added 3.0 artifact sets & images now download properly on most browsers."},
         { "updateDate": "25th August, 2022", "details": "Added the first half of 3.0 characters (Tighnari and Collei) to /characters."},
         { "updateDate": "24th August, 2022", "details": "UI changes to help with theme consistency and overall website accessibility."},
