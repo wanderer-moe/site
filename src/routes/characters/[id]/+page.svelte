@@ -81,7 +81,7 @@
 					<span class = "font-semibold">Reccomended Artifact</span><br>
 				<div class = "flex items-center gap-10">
 					<img class = "object-left h-16 w-16" src = "/images/artifacts/{data.jsonFile.artifactSet.replace(/\s+/g, '-').replace("'",'').toLowerCase()}/flower.png" alt = "{data.jsonFile.artifactSet}"  loading = "lazy" />
-					<a href = "/artifacts/{data.jsonFile.artifactSet.replace(/\s+/g, '-').replace("'",'').toLowerCase()}"><p class = "hover:text-blue-500 text-white text-2xl gifont">{data.jsonFile.artifactSet}</p></a>
+					<a href = "/artifacts/{data.jsonFile.artifactSet.replace(/\s+/g, '-').replace("'",'').toLowerCase()}"><p class = "hover:text-indigo-500 text-white text-2xl gifont">{data.jsonFile.artifactSet}</p></a>
 				</div>
 				</div>
 				{/if}

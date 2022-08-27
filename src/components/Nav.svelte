@@ -14,12 +14,12 @@
         if (mobilemenu.classList.contains('hidden')) {
             mobilemenu.classList.remove('hidden');
             mobilemenu.classList.add('visible');
-            navBarButton.classList.replace('text-white', 'text-blue-300');
+            navBarButton.classList.replace('text-white', 'text-indigo-300');
             navBarButton.classList.replace('fa-bars', 'fa-xmark');
         } else {
             mobilemenu.classList.remove('visible');
             mobilemenu.classList.add('hidden');
-            navBarButton.classList.replace('text-blue-300', 'text-white');
+            navBarButton.classList.replace('text-indigo-300', 'text-white');
             navBarButton.classList.replace('fa-xmark', 'fa-bars');
         }
     }
@@ -30,23 +30,23 @@
     <div class = "bg-[#1F1A1A] p-4 rounded-lg shadow-lg">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="/" class="flex items-center">
-                <span class="self-center text-white text-xl gifont whitespace-nowrap hover:text-blue-300">wanderer.moe</span>
+                <span class="self-center text-white text-xl gifont whitespace-nowrap hover:text-indigo-300">wanderer.moe</span>
             </a>
 
             <div class="flex items-center md:order-2">
                 <ul class="flex mt-4 font-medium flex-row space-x-4 md:mt-0">
                     {#each nav as item}
                     <li>
-                        <a href="{item.path}" class:active={$page.url.pathname == item.path} class="hidden w-full lg:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:text-primary-700 p-1 hover:text-blue-300 bg-opacity-0 bg-white hover:bg-opacity-5">{item.title}</a>
+                        <a href="{item.path}" class:active={$page.url.pathname == item.path} class="hidden w-full lg:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:text-primary-700 p-1 hover:text-indigo-300 bg-opacity-0 bg-white hover:bg-opacity-5">{item.title}</a>
                     </li>
                     {/each}
                 </ul>
                 
-				<p><a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-blue-300 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 bg-opacity-0 bg-white hover:bg-opacity-5 rounded"><i class = "fab fa-discord" alt = "discord"></i></a></p>
+				<p><a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-indigo-300 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 bg-opacity-0 bg-white hover:bg-opacity-5 rounded"><i class = "fab fa-discord" alt = "discord"></i></a></p>
 
                 <!-- if on a device that isn't considered 'large' then show the navigation button... -->
                 <button class="lg:hidden px-4 lg:px-5 py-2 lg:py-2.5 lg:ml-auto lg:mr-0 lg:mt-4 lg:h-12 lg:w-12 focus:outline-none" on:click={mobileClick}>
-                    <i bind:this={navBarButton} class="text-white hover:text-blue-300 cursor-pointer fa-solid fa-bars bg-opacity-0 bg-white hover:bg-opacity-5 rounded"></i>
+                    <i bind:this={navBarButton} class="text-white hover:text-indigo-300 cursor-pointer fa-solid fa-bars bg-opacity-0 bg-white hover:bg-opacity-5 rounded"></i>
                 </button>
 
             </div>
@@ -62,7 +62,7 @@
     <ul class="flex font-medium flex-col grid-cols-1 gap-3">
     {#each nav as item}
     <li>
-        <a href="{item.path}" class:active={$page.url.pathname == item.path} class="w-full lg:hidden p-1 py-2 pr-4 pl-3 text-white rounded bg-opacity-0 bg-primary-700 font-semibold lg:text-primary-700 hover:text-blue-300 bg-white hover:bg-opacity-5">{item.title}</a>
+        <a href="{item.path}" class:active={$page.url.pathname == item.path} class="w-full lg:hidden p-1 py-2 pr-4 pl-3 text-white rounded bg-opacity-0 bg-primary-700 font-semibold lg:text-primary-700 hover:text-indigo-300 bg-white hover:bg-opacity-5">{item.title}</a>
     </li>
     {/each}
     </ul>
@@ -72,6 +72,6 @@
 
 <style lang="postcss">
     .active {
-      @apply text-blue-300;
+      @apply text-indigo-300;
     }
 </style>

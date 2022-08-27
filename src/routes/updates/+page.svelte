@@ -7,20 +7,22 @@ import data from '../../data/updateList.json';
 </script>
 
 <svelte:head>
-	<title>update list | wanderer.moe</title>
+	<title>changelog | wanderer.moe</title>
 </svelte:head>
 
 <div class = "flex flex-col min-h-screen">
 <section class="py-24 md:py-40">
 	<div class="container px-4 mx-auto">
-	<h1 class = "text-white font-semibold gifont">Update List</h1>
+	<h1 class = "text-white font-semibold gifont">Changelog</h1>
     <br>
 
-    <div class = "grid grid-cols-1 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
     {#each updatelist as update}
-    <div>
-        <p class = "font-semibold text-white"> • {update.updateDate}</p>
-        <p class = "text-gray-400 indent-4">{update.details}</p>
+        <div class = "bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300">
+            <p class = "text-sm font-semibold uppercase text-center">{update.updateDate}</p>
+            <p class = "text-sm text-left text-white">{update.details}</p>
+            <div class = "text-right md:text-left">
+            </div>
     </div>
     {/each}
 

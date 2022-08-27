@@ -1,3 +1,7 @@
+<script context = "module">
+import data from '../data/updateList.json';
+</script>
+
 <script>
 import { onMount } from "svelte";
 import axios from "axios";
@@ -110,6 +114,8 @@ onMount(() => {
 	getdateAsia();
 });
 
+let updatelist = data.updates.slice(0, 3);
+
 </script>
 
 <svelte:head>
@@ -119,70 +125,90 @@ onMount(() => {
 <div class = "flex flex-col min-h-screen">
 <section class="py-24 md:py-40">
 	<div class="container px-2 mx-auto">
-	  <p class = "text-white gifont text-4xl text-left">wanderer.<span class = "text-blue-200">moe</span></p>
-	  <p class = "text-white gifont text-2xl text-left">A (pretty) useful website/database for Genshin Impact assets.</p>
-	  <p class = "text-gray-400 text-sm text-left">Redirected from wtf.dromzeh.dev or confused? You can join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-blue-300">discord server</a> ({onlineUsers} online) for more info & help.</p>
+	  <p class = "text-white gifont text-4xl text-left">wanderer.moe</p>
+	  <p class = "text-white gifont text-xl text-left">A (pretty) useful website/database for Genshin Impact assets.</p>
+	  <p class = "text-gray-400 text-sm text-left">This website contains assets & content from the current live version of Genshin Impact. If you've been redirected from wtf.dromzeh.dev or need help, you can join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-indigo-300">discord server</a> ({onlineUsers} online)</p>
 	  <br>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-			<div class = "bg-[#1F1A1A] transition duration-150 lg:col-span-2 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-200 hover:text-blue-300">
+			<div class = "bg-[#1F1A1A] transition duration-150 lg:col-span-2 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">Character Parts</p>
 				<p class = "text-sm text-left text-white">View and download character "files/parts/sheets" extracted from the official preview pages. From versions 1.4 onwards.</p>
 				<div class = "text-right md:text-left">
 				<a href = "/characterparts">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download  <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download  <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
 
-			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-200 hover:text-blue-300">
+			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">Splash Art</p>
 				<p class = "text-sm text-left text-white">View and download splash art of all playable characters, with & without the background.</p>
 				<div class = "text-right md:text-left">
 				<a href = "/splashart">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
 
-			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-200 hover:text-blue-300">
+			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">In Game Emotes</p>
 				<p class = "text-sm text-left text-white">View & download images of Genshin's in-game emotes, all with a transparent background.</p>
 				<div class = "text-right md:text-left">
 				<a href = "/emotes">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"><i class="fa-solid fa-download"></i> Download <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
 
-			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-200 hover:text-blue-300">
+			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">Artifacts</p>
 				<p class = "text-sm text-left text-white">Fetch information about artifacts, descriptions and all available artifact set bonuses.</p>
 				<div class = "text-right md:text-left">
 				<a href = "/artifacts">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"> Artifacts <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"> Artifacts <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
 
-			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-200 hover:text-blue-300">
+			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">Characters</p>
 				<p class = "text-sm text-left text-white">Fetch information, stats and level up materials about all the playable characters.</p>
 				<div class = "text-right md:text-left">
 				<a href = "/characters">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"> Characters <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"> Characters <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
 
-			<div class = "bg-[#1F1A1A] lg:col-span-2 transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-blue-200 hover:text-blue-300">
+			<div class = "bg-[#1F1A1A] lg:col-span-2 transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">Discord Server</p>
 				<p class = "text-sm text-left text-white">({onlineUsers} users online) Join the discord server to hear about updates, get help with the website or to just speak to others.</p>
 				<div class = "text-right md:text-left">
 				<a href = "https://discord.com/invite/659KAFfNd6">
-				<button class="bg-blue-400 font-semibold text-white p-0.5 text-sm only:bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none"><i class="fab fa-discord"></i> Join <i class="fa-solid fa-chevron-right"></i></button>
+				<button class="bg-indigo-400 font-semibold text-white p-0.5 text-sm only:bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"><i class="fab fa-discord"></i> Join <i class="fa-solid fa-chevron-right"></i></button>
 				</a>
 				</div>
 			</div>
+		</div>
+
+		<br>
+		<br>
+		<p class = "text-white gifont text-2xl text-left"><i class = "fas fa-circle-info"></i> New Features</p>
+		<p class = "text-gray-400 text-sm text-left">View the full <a href = "updates" class = "font-semibold text-white hover:text-indigo-300">changelog</a> here.</p>
+
+		<br>
+
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+
+			{#each updatelist as update}
+			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300">
+				<p class = "text-sm font-semibold uppercase text-center">{update.updateDate}</p>
+				<p class = "text-sm text-left text-white">{update.details}</p>
+				<div class = "text-right md:text-left">
+				</div>
+			</div>
+			{/each}
+
 		</div>
 
 		<br>
@@ -191,23 +217,23 @@ onMount(() => {
 		<br>
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-200 hover:text-blue-300">
+			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">North America</p>
 				<p class = "text-sm text-center text-white">{timeNA}</p>
 			</div>
 
-			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-200 hover:text-blue-300">
+			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">Europe</p>
 				<p class = "text-sm text-center text-white">{timeEU}</p>
 			</div>
 
-			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-blue-200 hover:text-blue-300">
+			<div class = "bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300">
 				<p class = "text-sm font-semibold uppercase text-center">Asia</p>
 				<p class = "text-sm text-center text-white">{timeAsia}</p>
 			</div>
 
 		</div>
 
-	  </div>
+	</div>
   </section>
 </div>

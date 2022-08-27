@@ -29,7 +29,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
-            <p class = "text-base text-center">{artifact.rarity}</p>
+            <p class = "text-base text-center">★★★★★</p>
         </a>
         </div>
         {/each}
@@ -43,7 +43,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
-            <p class = "text-base text-center">{artifact.rarity}</p>
+            <p class = "text-base text-center">★★★★</p>
         </a>
         </div>
         {/each}
@@ -57,7 +57,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
-            <p class = "text-base text-center">{artifact.rarity}</p>
+            <p class = "text-base text-center">★★★</p>
         </a>
         </div>
         {/each}
@@ -71,7 +71,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
-            <p class = "text-base text-center">{artifact.rarity}</p>
+            <p class = "text-base text-center">★★</p>
         </a>
         </div>
         {/each}
@@ -85,7 +85,7 @@ let one = allArtifacts.filter(artifact => artifact.rarity.includes(1));
         <a href="/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}">
             <img class = "mx-auto h-32 w-32" src = "/images/artifacts/{artifact.name.replace(/\s+/g, '-').toLowerCase()}/flower.png" alt = "{artifact.name}" loading = "lazy" />
             <p class = "text-base text-center">{artifact.name}</p>
-            <p class = "text-base text-center">{artifact.rarity}</p>
+            <p class = "text-base text-center">★</p>
         </a>
         </div>
         {/each}

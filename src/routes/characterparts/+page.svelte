@@ -29,7 +29,7 @@ $: {
 	<div class="container px-4 mx-auto">
 	<div class="flex flex-wrap justify-between gap-4">
 	<h1 class = "text-white font-semibold gifont">Character Parts</h1>
-	<input class="bg-[#1F1A1A] text-blue-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
+	<input class="bg-[#1F1A1A] text-indigo-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
 	</div>
 	<br>
 
@@ -40,7 +40,7 @@ $: {
 		<div class = "">
 			<p class = "text-white text-m text-left">{entry}</p>
 			<a href = "/images/characterparts/{entry}" target = "_blank" download>
-				<button class="bg-blue-400 bg-opacity-70 justify-right font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">
+				<button class="bg-indigo-400 bg-opacity-70 justify-right font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none">
 					<i class="fa-solid fa-download"></i> Download
 				</button>
 			</a>
@@ -51,7 +51,7 @@ $: {
 
 		  <!-- check if filteredCharacterParts is empty -->
 		  {#if filteredCharacterParts.length === 0}
-		  	<p class = "text-gray-400">No results were found for '{searchTerm}', you may be able to find the <span class = "text-blue-500"><a href = "/splashart" class = "font-semibold text-white hover:text-blue-400">splash art version</a></span> instead. <br>Think something should be here? Feel free to join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-blue-400">discord server</a> and ask!</p>
+		  	<p class = "text-gray-400">No results were found for '{searchTerm}', you may be able to find the <span class = "text-indigo-500"><a href = "/splashart" class = "font-semibold text-white hover:text-indigo-400">splash art version</a></span> instead. <br>Think something should be here? Feel free to join the <a href = "https://discord.com/invite/659KAFfNd6" class = "font-semibold text-white hover:text-indigo-400">discord server</a> and ask!</p>
 		  {/if}
 		  
 		</div>

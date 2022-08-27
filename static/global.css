@@ -37,7 +37,7 @@ a {
 
 * {
 	scrollbar-width:thin;
-	scrollbar-color:#4D93F8 #1F2937
+	scrollbar-color:#6366F1 #1F2937
 }
    ::-webkit-scrollbar {
 	width:8px
@@ -46,7 +46,7 @@ a {
 	background:#1F2937
 }
    ::-webkit-scrollbar-thumb {
-	background:#4D93F8;
+	background:#6366F1;
 	border-radius:8px
 }
 
