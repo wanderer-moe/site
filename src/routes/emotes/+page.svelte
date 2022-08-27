@@ -20,7 +20,7 @@ let allEmotes = data.allEmotes;
                 <img class = "object-left object-contain previewImg p-1" src = "/images/emotes/{entry}" alt = "{entry}" loading = "lazy" />
             <div class = "">
                 <p class = "text-white text-m text-left">{entry}</p>
-                <a href = "/images/emotes/{entry}" target = "_blank">
+                <a href = "/images/emotes/{entry}" target = "_blank" download>
                     <button class="bg-blue-400 bg-opacity-70 justify-right font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-blue-500 focus:shadow focus:outline-none">
                         <i class="fa-solid fa-download"></i> Download
                     </button>

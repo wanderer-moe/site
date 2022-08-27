@@ -4,7 +4,7 @@
   "description": "A (pretty) useful website/database for Genshin Impact assets.",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite dev --port 1337",
+    "dev": "vite dev --port 1337 --host",
     "build": "vite build",
     "preview": "vite preview",
     "tailwind": "npx tailwindcss -i ./static/tailwind.css -o ./static/index.css --watch"
