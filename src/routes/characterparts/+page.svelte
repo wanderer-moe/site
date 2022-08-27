@@ -28,7 +28,8 @@ $: {
 <section class="py-24 md:py-40">
 	<div class="container px-4 mx-auto">
 	<div class="flex flex-wrap justify-between gap-4">
-	<h1 class = "text-white font-semibold gifont">Character Parts</h1>
+		<h1 class = "text-white font-semibold"><span class = "gifont">Character Parts</span><br><span class = "text-sm font-normal text-gray-400">You can download <a href = "https://codeload.github.com/dromzeh/genshin-character-parts/zip/refs/heads/main" class = "font-semibold text-white hover:text-indigo-400">all character parts here</a>.</span></h1>
+
 	<input class="bg-[#1F1A1A] text-indigo-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none" bind:value ={searchTerm} placeholder="🔎 Search for a File">
 	</div>
 	<br>
