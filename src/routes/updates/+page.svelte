@@ -23,10 +23,10 @@ import data from '../../data/updateList.json';
             <p class = "text-sm text-left text-white">{update.details}</p>
             <div class = "text-right md:text-left">
             </div>
-    </div>
+        </div>
     {/each}
-
     </div>
+    
 	</div>
 </section>
 </div>

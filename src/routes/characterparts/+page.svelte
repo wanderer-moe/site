@@ -34,6 +34,7 @@ $: {
 	</div>
 	<br>
 
+	<!-- grid section that contains (filtered) character parts -->
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
 		{#each filteredCharacterParts as entry}
 		<div class = "p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center">
@@ -50,7 +51,7 @@ $: {
 		{/each}
 	</div>
 
-		  <!-- check if filteredCharacterParts is empty -->
+		  <!-- checks  if filteredCharacterParts is empty -->
 		  {#if filteredCharacterParts.length === 0}
 		  <div class = "text-center">
 		  	<img class = "emote h-24 w-24 inline" src = "images/emotes/UI_EmotionIcon223.png" alt = "genshin emote" />

@@ -35,6 +35,7 @@ let filteredSplashArts = [];
 	<br>
 	
 
+	<!-- grid section that contains (filtered) splash art -->
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
 		{#each filteredSplashArts as entry}
 		<div class = "p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center">

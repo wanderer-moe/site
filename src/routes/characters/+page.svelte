@@ -6,7 +6,7 @@
     let allCharacters = data.characters;
 
     let legendary = allCharacters.filter(character => character.rarity === 5);
-    let epic = allCharacters.filter(character => character.rarity === 4);
+    let epic = allCharacters.filter(character => character.rarity === 4); // i don't know why i called it epic :skull:
 </script>
         
     <svelte:head>
