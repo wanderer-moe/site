@@ -1,5 +1,6 @@
 <script context = "module">
 import data from '../data/updateList.json';
+import Ads from '../components/Ads.svelte';
 </script>
 
 <script>

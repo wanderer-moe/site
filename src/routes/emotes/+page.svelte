@@ -1,5 +1,6 @@
 <script context = "module">
 import data from '../../data/allEmotes.json';
+import Ads from '../../components/Ads.svelte';
 </script>
 <script>
 let allEmotes = data.allEmotes;

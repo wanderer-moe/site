@@ -1,5 +1,6 @@
 <script context = "module">
 import data from '../../data/splashArts.json';
+import Ads from '../../components/Ads.svelte';
 </script>
 	
 <script>
@@ -61,7 +62,6 @@ let filteredSplashArts = [];
 		</div>
 		{/if}
 
-	
 	</div>
 
 </section>
