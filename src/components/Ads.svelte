@@ -1,11 +1,15 @@
 <script>
     import { onMount } from 'svelte';
-    onMount(() => {
+onMount(() => {
    (window.adsbygoogle = window.adsbygoogle || []).push({});
  });
 </script>
 
-<div class="ads-widget-container p-2">
+<style>
+
+</style>
+
+<div class="ads-widget-container">
     <ins class="adsbygoogle"
     style="display:block"
     data-ad-client="ca-pub-7772886196789799"

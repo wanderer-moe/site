@@ -67,6 +67,12 @@
             "weaponType": "Bow"
         },
         {
+            "name": "Dori",
+            "element": "Electro",
+            "rarity": 4,
+            "weaponType": "Claymore"
+        },
+        {
             "name": "Eula",
             "element": "Cryo",
             "rarity": 5,

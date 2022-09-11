@@ -15,7 +15,7 @@ import Ads from '../../components/Ads.svelte';
 <section class="py-24 md:py-40">
 	<div class="container px-4 mx-auto">
 	<h1 class = "text-white font-semibold gifont">Changelog</h1>
-    <br>
+    <br>    
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
     {#each updatelist as update}
