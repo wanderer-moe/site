@@ -3,10 +3,28 @@
 </script>
 
 <script>
+  import { writable } from "svelte/store";
+  import { browser } from "$app/environment";
+
+  let unreleasedContent;
+  /* check for unreleasedContent in localStorage */
+  if (browser) {
+    if (localStorage.getItem("unreleasedContent") === null) {
+      localStorage.setItem("unreleasedContent", "false");
+      unreleasedContent = false;
+    } else {
+      unreleasedContent = localStorage.getItem("unreleasedContent") === "true";
+    }
+  }
+
   let allArtifacts = data.artifacts;
-  let legendary = allArtifacts.filter((artifact) =>
-    artifact.rarity.includes(5)
-  );
+
+  /* if unreleasedContent is false, filter out unreleased artifacts */
+  if (!unreleasedContent) {
+    allArtifacts = allArtifacts.filter((artifact) => artifact.released);
+  }
+
+  let legendary = allArtifacts.filter((artifact) =>artifact.rarity.includes(5));
   let epic = allArtifacts.filter((artifact) => artifact.rarity.includes(4));
   let three = allArtifacts.filter((artifact) => artifact.rarity.includes(3));
   let two = allArtifacts.filter((artifact) => artifact.rarity.includes(2));

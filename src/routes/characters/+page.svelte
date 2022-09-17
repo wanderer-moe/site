@@ -3,7 +3,25 @@
 </script>
 
 <script>
+  import { writable } from "svelte/store";
+  import { browser } from "$app/environment";
+
+  let unreleasedContent;
+  /* check for unreleasedContent in localStorage */
+  if (browser) {
+    if (localStorage.getItem("unreleasedContent") === null) {
+      localStorage.setItem("unreleasedContent", "false");
+      unreleasedContent = false;
+    } else {
+      unreleasedContent = localStorage.getItem("unreleasedContent") === "true";
+    }
+  }
+
   let allCharacters = data.characters;
+  /* if unreleasedContent is false, filter out unreleased characters */
+  if (!unreleasedContent) {
+    allCharacters = allCharacters.filter((character) => character.released);
+  }
 
   let legendary = allCharacters.filter((character) => character.rarity === 5);
   let epic = allCharacters.filter((character) => character.rarity === 4); // i don't know why i called it epic :skull:

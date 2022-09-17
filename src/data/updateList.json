@@ -1,5 +1,6 @@
 {
     "updates": [
+        { "updateDate": "17th September, 2022", "details": "Added loads of character parts & site optimization. Now possible to toggle viewing unreleased content in /etc."},
         { "updateDate": "27th August, 2022", "details": "Fixed bugs, website theme and layout has been redesigned and remaining 3.0 content has been added."},
         { "updateDate": "25th August, 2022", "details": "Added the first half of 3.0 characters (Tighnari and Collei) to /characters."},
         { "updateDate": "24th August, 2022", "details": "UI changes to help with theme consistency and overall website accessibility."},

@@ -610,6 +610,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .inline {
   display: inline;
 }

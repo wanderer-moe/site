@@ -138,7 +138,7 @@
         />
       </p>
       <p class="text-gray-400 text-sm text-left">
-        This website contains assets & content from the current live version of
+        This website contains assets & content from
         Genshin Impact. If you've been redirected from wtf.dromzeh.dev or need
         help, you can join the <a
           href="https://discord.com/invite/659KAFfNd6"
