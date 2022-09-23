@@ -157,7 +157,7 @@
           </p>
           <p class="text-sm text-left text-white">
             View and download character "files/parts/sheets" extracted from the
-            official preview pages. From versions 1.4 onwards.
+            official preview pages (1.4+), web events, etc.
           </p>
           <div class="text-right md:text-left">
             <a href="/characterparts">
