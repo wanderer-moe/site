@@ -1,9 +1,12 @@
-<script context = "module">
-  import data from "../../data/characterParts.json";
-</script>
-
 <script>
+  import JSZip from 'jszip';
+  import saveAs from 'file-saver';
+  import Toastify from 'toastify-js'
+  import "toastify-js/src/toastify.css"
+  export let data;
+  
   let characterParts = data.characterParts;
+  characterParts = characterParts.map((part) => part.name + ".png");
 
   let searchTerm = "";
   let filteredCharacterParts = [];
@@ -19,6 +22,34 @@
       filteredCharacterParts = characterParts;
     }
   }
+
+  // function to download all character parts
+  async function downloadAll(){
+    console.log('downloading all character parts')
+
+    Toastify({
+        text: "Downloading all character parts, this can take a while dependant on your internet connection, please be patient! ☺️",
+        duration: 10000,
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        backgroundColor: "#6366F1",
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        onClick: function(){} // Callback after click
+      }).showToast();
+
+    const zip = new JSZip();
+    const folder = zip.folder("characterparts");
+    for (let i = 0; i < characterParts.length; i++) {
+      const response = await fetch(`/images/characterparts/${characterParts[i]}`);
+      const blob = await response.blob();
+      folder.file(characterParts[i], blob);
+    }
+    zip.generateAsync({type:"blob"}).then(function(content) {
+      saveAs(content, "characterparts.zip");
+    });
+  }
 </script>
 
 <svelte:head>
@@ -32,10 +63,10 @@
         <h1 class="text-white font-semibold">
           <span class="gifont">Character Parts</span><br /><span
             class="text-sm font-normal text-gray-400"
-            >You can download <a
-              href="https://codeload.github.com/dromzeh/genshin-character-parts/zip/refs/heads/main"
+            >You can download <button
+              on:click = {downloadAll}
               class="font-semibold text-white hover:text-indigo-400"
-              >all character parts (.zip) here</a
+              >all character parts (.zip) here</button
             >.</span
           >
         </h1>

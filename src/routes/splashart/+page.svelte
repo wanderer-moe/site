@@ -1,10 +1,12 @@
-<script context = "module">
-  import data from "../../data/splashArts.json";
-  import Ads from "../../components/Ads.svelte";
-</script>
-
 <script>
-  let splashArts = data.splashArts;
+  import JSZip from 'jszip';
+  import saveAs from 'file-saver';
+  import Toastify from 'toastify-js'
+  import "toastify-js/src/toastify.css"
+  export let data;
+
+  let splashArts = data.splashArt;
+  splashArts = splashArts.map((splash) => splash.name + ".png");
 
   let searchTerm = "";
   let filteredSplashArts = [];
@@ -20,6 +22,34 @@
       filteredSplashArts = splashArts;
     }
   }
+
+    // function to download all splashart
+    async function downloadAll(){
+      console.log('downloading all splashart')
+      // display toast message
+      Toastify({
+        text: "Downloading all splash art, this can take a while dependant on your internet connection, please be patient! ☺️",
+        duration: 10000,
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        backgroundColor: "#6366F1",
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        onClick: function(){} // Callback after click
+      }).showToast();
+
+      const zip = new JSZip();
+      const folder = zip.folder("splashart");
+      for (let i = 0; i < splashArts.length; i++) {
+        const response = await fetch(`/images/splashart/${splashArts[i]}`);
+        const blob = await response.blob();
+        folder.file(splashArts[i], blob);
+      }
+      zip.generateAsync({type:"blob"}).then(function(content) {
+        saveAs(content, "splashart.zip");
+      });
+    }
 </script>
 
 <svelte:head>
@@ -33,10 +63,10 @@
         <h1 class="text-white font-semibold">
           <span class="gifont">Splash Art</span><br /><span
             class="text-sm font-normal text-gray-400"
-            >You can download <a
-              href="https://codeload.github.com/dromzeh/genshin-splash-art/zip/refs/heads/main"
+            >You can download <button
+              on:click = {downloadAll}
               class="font-semibold text-white hover:text-indigo-400"
-              >all splash art (.zip) here</a
+              >all splash art (.zip) here</button
             >.</span
           >
         </h1>
