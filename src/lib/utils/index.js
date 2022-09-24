@@ -6,6 +6,9 @@ export const fetchImages = async (location) => {
     if (location == 'characterparts') {
         allImageFiles =
             import.meta.glob('/static/images/characterparts/*.png')
+    } else if (location == 'emotes') {
+        allImageFiles =
+            import.meta.glob('/static/images/emotes/*.png')
     } else if (location == 'splashart') {
         allImageFiles =
             import.meta.glob('/static/images/splashart/*.png')

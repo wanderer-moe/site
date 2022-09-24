@@ -70,3 +70,13 @@ a {
 html {
     scroll-behavior: smooth;
 }
+
+::-moz-selection {
+    color: rgb(255, 255, 255);
+    background: #6366f1;
+  }
+  
+  ::selection {
+    color: rgb(255, 255, 255);
+    background: #6366f1;
+  }

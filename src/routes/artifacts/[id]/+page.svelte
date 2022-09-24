@@ -27,7 +27,7 @@
             <!-- container for artifact name -->
             <div class="grid gap-2 items-center">
               <div
-                class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg max-w-full text-gray-400 font-semibold"
+                class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg max-w-full text-gray-400 font-semibold"
               >
                 <p class="text-center">
                   <span class="text-white">2pc bonus:</span>
@@ -36,7 +36,7 @@
               </div>
 
               <div
-                class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105   rounded-lg max-w-full text-gray-400 font-semibold"
+                class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105   rounded-lg max-w-full text-gray-400 font-semibold"
               >
                 <p class="text-center">
                   <span class="text-white">4pc bonus:</span>
@@ -47,7 +47,7 @@
                 <!-- order: flower, plume, sands, goblet, circlet -->
 
                 <div
-                  class="p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center "
+                  class="p-3 bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center "
                 >
                   <img
                     class="object-left artifactImg"
@@ -69,7 +69,7 @@
                 </div>
 
                 <div
-                  class="p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center "
+                  class="p-3 bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center "
                 >
                   <img
                     class="object-left artifactImg"
@@ -91,7 +91,7 @@
                 </div>
 
                 <div
-                  class="p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center "
+                  class="p-3 bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center "
                 >
                   <img
                     class="object-left artifactImg"
@@ -113,7 +113,7 @@
                 </div>
 
                 <div
-                  class="p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-gray-400 font-semibold flex items-center "
+                  class="p-3 bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-gray-400 font-semibold flex items-center "
                 >
                   <img
                     class="object-left artifactImg"
@@ -135,7 +135,7 @@
                 </div>
 
                 <div
-                  class="p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center "
+                  class="p-3 bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105   rounded-lg text-gray-400 font-semibold flex items-center "
                 >
                   <img
                     class="object-left artifactImg"

@@ -10,7 +10,7 @@
   <div class="m-auto text-center">
     <img
       class="h-16 w-16 inline"
-      src="/images/emotes/UI_EmotionIcon10.png"
+      src="./images/emotes/amber-2.png"
       alt="genshin emote"
     />
     <p class="text-red-400 text-5xl font-semibold">{$page.status}</p>

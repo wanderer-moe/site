@@ -1,77 +1,102 @@
 <script>
-    import { page } from "$app/stores";
-    const nav = [
-        { title: "Character Parts", path: "/characterparts"},
-        { title: "Splash Art", path: "/splashart"},
-        { title: "Artifacts", path: "/artifacts"},
-        { title: "Characters", path: "/characters"}
-    ]
+  import { page } from "$app/stores";
+  const nav = [
+    { title: "Character Parts", path: "/characterparts" },
+    { title: "Splash Art", path: "/splashart" },
+    { title: "Artifacts", path: "/artifacts" },
+    { title: "Characters", path: "/characters" },
+  ];
 
-    let mobileMenu; 
-    let navBarButton;
+  let mobileMenu;
+  let navBarButton;
 
-    function mobileClick(e) {
-        if (mobilemenu.classList.contains('hidden')) {
-            mobilemenu.classList.remove('hidden');
-            mobilemenu.classList.add('visible');
-            navBarButton.classList.replace('text-white', 'text-indigo-300');
-            navBarButton.classList.replace('fa-bars', 'fa-xmark');
-        } else {
-            mobilemenu.classList.remove('visible');
-            mobilemenu.classList.add('hidden');
-            navBarButton.classList.replace('text-indigo-300', 'text-white');
-            navBarButton.classList.replace('fa-xmark', 'fa-bars');
-        }
+  function mobileClick(e) {
+    if (mobilemenu.classList.contains("hidden")) {
+      mobilemenu.classList.remove("hidden");
+      mobilemenu.classList.add("visible");
+      navBarButton.classList.replace("text-white", "text-indigo-300");
+      navBarButton.classList.replace("fa-bars", "fa-xmark");
+    } else {
+      mobilemenu.classList.remove("visible");
+      mobilemenu.classList.add("hidden");
+      navBarButton.classList.replace("text-indigo-300", "text-white");
+      navBarButton.classList.replace("fa-xmark", "fa-bars");
     }
+  }
 </script>
 
 <header>
-    <div class = "p-4">
-    <div class = "bg-[#1F1A1A] p-4 rounded-lg shadow-lg">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <a href="/" class="flex items-center">
-                <span class="self-center text-white text-xl gifont whitespace-nowrap hover:text-indigo-300">wanderer.moe</span>
-            </a>
+  <div class="p-4">
+    <div class="bg-[#1E1E1E] p-4 rounded-lg shadow-lg">
+      <div
+        class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+      >
+        <a href="/" class="flex items-center">
+          <span
+            class="self-center text-white text-xl gifont whitespace-nowrap hover:text-indigo-300"
+            >wanderer.moe</span
+          >
+        </a>
 
-            <div class="flex items-center md:order-2">
-                <ul class="flex mt-4 font-medium flex-row space-x-4 md:mt-0">
-                    {#each nav as item}
-                    <li>
-                        <a href="{item.path}" class:active={$page.url.pathname == item.path} class="hidden w-full lg:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:text-primary-700 p-1 hover:text-indigo-300 bg-opacity-0 bg-white hover:bg-opacity-5">{item.title}</a>
-                    </li>
-                    {/each}
-                </ul>
-                
-				<p><a href="https://discord.com/invite/659KAFfNd6" class="text-white hover:text-indigo-300 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 bg-opacity-0 bg-white hover:bg-opacity-5 rounded" aria-label = "discord"><i class = "fab fa-discord" alt = "discord"></i></a></p>
+        <div class="flex items-center md:order-2">
+          <ul class="flex mt-4 font-medium flex-row space-x-4 md:mt-0">
+            {#each nav as item}
+              <li>
+                <a
+                  href={item.path}
+                  class:active={$page.url.pathname == item.path}
+                  class="hidden w-full lg:block py-2 pr-4 pl-3 text-white rounded bg-primary-700 font-semibold lg:text-primary-700 p-1 hover:text-indigo-300 bg-opacity-0 bg-white hover:bg-opacity-5"
+                  >{item.title}</a
+                >
+              </li>
+            {/each}
+          </ul>
 
-                <!-- if on a device that isn't considered 'large' then show the navigation button... -->
-                <button class="lg:hidden px-4 lg:px-5 py-2 lg:py-2.5 lg:ml-auto lg:mr-0 lg:mt-4 lg:h-12 lg:w-12 focus:outline-none" on:click={mobileClick} aria-label="menu">
-                    <i bind:this={navBarButton} class="text-white hover:text-indigo-300 cursor-pointer fa-solid fa-bars bg-opacity-0 bg-white hover:bg-opacity-5 rounded"></i>
-                </button>
+          <p>
+            <a
+              href="https://discord.com/invite/659KAFfNd6"
+              class="text-white hover:text-indigo-300 font-semibold text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 bg-opacity-0 bg-white hover:bg-opacity-5 rounded"
+              aria-label="discord"><i class="fab fa-discord" alt="discord" /></a
+            >
+          </p>
 
-            </div>
+          <!-- if on a device that isn't considered 'large' then show the navigation button... -->
+          <button
+            class="lg:hidden px-4 lg:px-5 py-2 lg:py-2.5 lg:ml-auto lg:mr-0 lg:mt-4 lg:h-12 lg:w-12 focus:outline-none"
+            on:click={mobileClick}
+            aria-label="menu"
+          >
+            <i
+              bind:this={navBarButton}
+              class="text-white hover:text-indigo-300 cursor-pointer fa-solid fa-bars bg-opacity-0 bg-white hover:bg-opacity-5 rounded"
+            />
+          </button>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </header>
 
-
 <!-- mobile navigation menu -->
-<div id = "mobilemenu" class = "p-4 hidden" bind:this={mobileMenu}>
-<div class = "bg-[#1F1A1A] p-4 rounded-lg lg:hidden shadow-lg">
+<div id="mobilemenu" class="p-4 hidden" bind:this={mobileMenu}>
+  <div class="bg-[#1E1E1E] p-4 rounded-lg lg:hidden shadow-lg">
     <ul class="flex font-medium flex-col grid-cols-1 gap-3">
-    {#each nav as item}
-    <li>
-        <a href="{item.path}" class:active={$page.url.pathname == item.path} class="w-full lg:hidden p-1 py-2 pr-4 pl-3 text-white rounded bg-opacity-0 bg-primary-700 font-semibold lg:text-primary-700 hover:text-indigo-300 bg-white hover:bg-opacity-5">{item.title}</a>
-    </li>
-    {/each}
+      {#each nav as item}
+        <li>
+          <a
+            href={item.path}
+            class:active={$page.url.pathname == item.path}
+            class="w-full lg:hidden p-1 py-2 pr-4 pl-3 text-white rounded bg-opacity-0 bg-primary-700 font-semibold lg:text-primary-700 hover:text-indigo-300 bg-white hover:bg-opacity-5"
+            >{item.title}</a
+          >
+        </li>
+      {/each}
     </ul>
+  </div>
 </div>
-</div>
-    
 
 <style lang="postcss">
-    .active {
-      @apply text-indigo-300;
-    }
+  .active {
+    @apply text-indigo-300;
+  }
 </style>

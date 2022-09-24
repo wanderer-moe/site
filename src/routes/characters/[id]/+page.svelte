@@ -63,7 +63,7 @@
 
             <!-- container for cv -->
             <div
-              class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
+              class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
             >
               <span class="font-semibold">EN</span>: {data.jsonFile.cv
                 .english}<br />
@@ -77,7 +77,7 @@
 
             <!-- container for basic stats -->
             <div
-              class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
+              class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
             >
               <span class="font-semibold">Rarity</span>: {data.jsonFile
                 .rarity}*<br />
@@ -98,7 +98,7 @@
             </div>
 
             <div
-              class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
+              class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
             >
               <span class="font-semibold">Ascension Items</span><br />
               <div class="flex flex-wrap gap-10">
@@ -144,7 +144,7 @@
 
             {#if data.jsonFile.artifactSet != "undefined"}
               <div
-                class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
+                class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
               >
                 <span class="font-semibold">Reccomended Artifact</span><br />
                 <div class="flex items-center gap-10">

@@ -133,14 +133,13 @@
       <p class="text-white gifont text-xl text-left">
         A (pretty) useful website/database for Genshin Impact assets. <img
           class="h-8 w-8 inline"
-          src="images/emotes/UI_EmotionIcon70.png"
+          src="./images/emotes/hu-tao-4.png"
           alt="genshin emote"
         />
       </p>
       <p class="text-gray-400 text-sm text-left">
-        This website contains assets & content from
-        Genshin Impact. If you've been redirected from wtf.dromzeh.dev or need
-        help, you can join the <a
+        This website contains assets & content from Genshin Impact. If you've
+        been redirected from wtf.dromzeh.dev or need help, you can join the <a
           href="https://discord.com/invite/659KAFfNd6"
           class="font-semibold text-white hover:text-indigo-300"
           >discord server</a
@@ -150,7 +149,7 @@
       <br />
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         <div
-          class="bg-[#1F1A1A] transition duration-150 lg:col-span-2 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
+          class="bg-[#1E1E1E] transition duration-150 lg:col-span-2 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
         >
           <p class="text-sm font-semibold uppercase text-center">
             Character Parts
@@ -171,7 +170,7 @@
         </div>
 
         <div
-          class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
+          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
         >
           <p class="text-sm font-semibold uppercase text-center">Splash Art</p>
           <p class="text-sm text-left text-white">
@@ -190,7 +189,7 @@
         </div>
 
         <div
-          class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
+          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
         >
           <p class="text-sm font-semibold uppercase text-center">
             In Game Emotes
@@ -211,7 +210,7 @@
         </div>
 
         <div
-          class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
+          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
         >
           <p class="text-sm font-semibold uppercase text-center">Artifacts</p>
           <p class="text-sm text-left text-white">
@@ -234,7 +233,7 @@
         </div>
 
         <div
-          class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
+          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
         >
           <p class="text-sm font-semibold uppercase text-center">Characters</p>
           <p class="text-sm text-left text-white">
@@ -257,7 +256,7 @@
         </div>
 
         <div
-          class="bg-[#1F1A1A] lg:col-span-2 transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
+          class="bg-[#1E1E1E] lg:col-span-2 transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300"
         >
           <p class="text-sm font-semibold uppercase text-center">
             Discord Server
@@ -295,7 +294,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
         {#each updatelist as update}
           <div
-            class="bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
+            class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
           >
             <p class="text-sm font-semibold uppercase text-center">
               {update.updateDate}
@@ -315,7 +314,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
         <div
-          class="bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
+          class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
         >
           <p class="text-sm font-semibold uppercase text-center">
             North America
@@ -324,14 +323,14 @@
         </div>
 
         <div
-          class="bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
+          class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
         >
           <p class="text-sm font-semibold uppercase text-center">Europe</p>
           <p class="text-sm text-center text-white">{timeEU}</p>
         </div>
 
         <div
-          class="bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
+          class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
         >
           <p class="text-sm font-semibold uppercase text-center">Asia</p>
           <p class="text-sm text-center text-white">{timeAsia}</p>

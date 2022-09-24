@@ -1,6 +1,5 @@
 {
-    "characters": [
-        {
+    "characters": [{
             "name": "Albedo",
             "element": "Geo",
             "rarity": 5,

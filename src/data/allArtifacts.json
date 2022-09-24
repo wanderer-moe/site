@@ -1,6 +1,5 @@
 {
-    "artifacts": [
-        {
+    "artifacts": [{
             "name": "Adventurer",
             "rarity": [1, 2, 3],
             "released": "true"
@@ -21,7 +20,7 @@
             "released": "true"
         },
         {
-            "name":  "Bloodstained Chivalry",
+            "name": "Bloodstained Chivalry",
             "rarity": [4, 5],
             "released": "true"
         },
@@ -31,7 +30,7 @@
             "released": "true"
         },
         {
-            "name":  "Crimson Witch of Flames",
+            "name": "Crimson Witch of Flames",
             "rarity": [4, 5],
             "released": "true"
         },
@@ -56,7 +55,7 @@
             "released": "true"
         },
         {
-            "name":  "Gambler",
+            "name": "Gambler",
             "rarity": [3, 4],
             "released": "true"
         },
@@ -76,12 +75,12 @@
             "released": "true"
         },
         {
-            "name":  "Husk of Opulent Dreams",
+            "name": "Husk of Opulent Dreams",
             "rarity": [4, 5],
             "released": "true"
         },
         {
-            "name":  "Instructor",
+            "name": "Instructor",
             "rarity": [3, 4],
             "released": "true"
         },
@@ -91,7 +90,7 @@
             "released": "true"
         },
         {
-            "name":  "Lucky Dog",
+            "name": "Lucky Dog",
             "rarity": [1, 2, 3],
             "released": "true"
         },
@@ -136,7 +135,7 @@
             "released": "true"
         },
         {
-            "name":  "Prayers to Springtime",
+            "name": "Prayers to Springtime",
             "rarity": [3, 4],
             "released": "true"
         },
@@ -151,7 +150,7 @@
             "released": "true"
         },
         {
-            "name":  "Scholar",
+            "name": "Scholar",
             "rarity": [3, 4],
             "released": "true"
         },
@@ -171,7 +170,7 @@
             "released": "true"
         },
         {
-            "name":  "Thundering Fury",
+            "name": "Thundering Fury",
             "rarity": [4, 5],
             "released": "true"
         },
@@ -186,7 +185,7 @@
             "released": "true"
         },
         {
-            "name":  "Traveling Doctor",
+            "name": "Traveling Doctor",
             "rarity": [1, 2, 3],
             "released": "true"
         },

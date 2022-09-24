@@ -51,7 +51,7 @@
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {#each legendary as artifact}
           <div
-            class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
+            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
           >
             <a
               href="/artifacts/{artifact.name
@@ -80,7 +80,7 @@
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {#each epic as artifact}
           <div
-            class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
+            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
           >
             <a
               href="/artifacts/{artifact.name
@@ -109,7 +109,7 @@
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {#each three as artifact}
           <div
-            class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
+            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
           >
             <a
               href="/artifacts/{artifact.name
@@ -138,7 +138,7 @@
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {#each two as artifact}
           <div
-            class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
+            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
           >
             <a
               href="/artifacts/{artifact.name
@@ -167,7 +167,7 @@
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {#each one as artifact}
           <div
-            class="bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
+            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
           >
             <a
               href="/artifacts/{artifact.name

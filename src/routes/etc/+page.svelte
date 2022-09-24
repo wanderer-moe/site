@@ -1,17 +1,18 @@
 <script>
-
-  import { writable } from 'svelte/store'
-  import { browser } from "$app/environment"
-
+  import { writable } from "svelte/store";
+  import { browser } from "$app/environment";
 
   const helpfulSites = [
     { url: "Dimbreath/GenshinData", details: "Overall Genshin Data." },
     { url: "theBowja/genshin-db", details: "Organized data from GenshinData" },
     { url: "tailwindlabs/tailwindcss", details: "CSS Framework used" },
     { url: "sveltejs/sveltekit", details: "What the website was built with" },
-    { url: "frzyc/genshin-optimizer", details: "Image Assets"},
+    { url: "frzyc/genshin-optimizer", details: "Image Assets" },
     { url: "genshin-impact.fandom.com", details: "Image Assets" },
-    { url: "genshin.hoyoverse.com", details: "Preview Pages - where the 'Character Parts' come from.." }
+    {
+      url: "genshin.hoyoverse.com",
+      details: "Preview Pages - where the 'Character Parts' come from..",
+    },
   ];
 
   let unreleasedContent;
@@ -40,7 +41,6 @@
   function toggleUnreleasedContent() {
     unreleasedContentStore.update((value) => !value);
   }
-
 </script>
 
 <svelte:head>
@@ -55,22 +55,26 @@
       <!-- checkbox -->
       <div class="flex flex-col">
         <label class="flex items-center">
-          <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-300" bind:checked={unreleasedContent} on:click={toggleUnreleasedContent}/>
+          <input
+            type="checkbox"
+            class="form-checkbox h-5 w-5 ml-2 accent-indigo-500 text-indigo-300"
+            bind:checked={unreleasedContent}
+            on:click={toggleUnreleasedContent}
+          />
           <span class="ml-2 text-white">View 'Unreleased Content'</span>
         </label>
       </div>
-      <br>
-
+      <br />
 
       <h1 class="text-white font-semibold gifont">Credits:</h1>
       <p class="text-gray-400">
-        This website was made thanks to the help of the following: 
+        This website was made thanks to the help of the following:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
         {#each helpfulSites as site}
           <div
-            class="bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
+            class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
           >
             <p class="text-sm font-semibold uppercase text-center">
               {site.url}
@@ -81,7 +85,7 @@
         {/each}
       </div>
 
-      <br>
+      <br />
       <p class="text-gray-400 text-m">
         You can view the changelog <a
           href="/updates"

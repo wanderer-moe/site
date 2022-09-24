@@ -20,7 +20,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
         {#each updatelist as update}
           <div
-            class="bg-[#1F1A1A] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
+            class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
           >
             <p class="text-sm font-semibold uppercase text-center">
               {update.updateDate}

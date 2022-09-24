@@ -1,15 +1,41 @@
 <script>
-  import JSZip from 'jszip';
-  import saveAs from 'file-saver';
-  import Toastify from 'toastify-js'
-  import "toastify-js/src/toastify.css"
+  import JSZip from "jszip";
+  import saveAs from "file-saver";
+  import Toastify from "toastify-js";
+  import "toastify-js/src/toastify.css";
   export let data;
+
+  let selectedItems = [];
 
   let splashArts = data.splashArt;
   splashArts = splashArts.map((splash) => splash.name + ".png");
 
   let searchTerm = "";
   let filteredSplashArts = [];
+
+  const errorToast = Toastify({
+    text: "Something went wrong while downloading the .zip, please send a screenshot of this message in the discord server.",
+    duration: 5000,
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    backgroundColor: "#F56565",
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    onClick: function () {}, // Callback after click
+  });
+
+  const downloadToast = Toastify({
+    text: "Downloading files into a .zip file, this can take a while - please be patient! ☺️",
+    duration: 15000,
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    backgroundColor: "#6366F1",
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    onClick: function () {}, // Callback after click
+  });
 
   $: {
     if (searchTerm) {
@@ -23,33 +49,67 @@
     }
   }
 
-    // function to download all splashart
-    async function downloadAll(){
-      console.log('downloading all splashart')
-      // display toast message
-      Toastify({
-        text: "Downloading all splash art, this can take a while dependant on your internet connection, please be patient! ☺️",
-        duration: 10000,
-        newWindow: true,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        backgroundColor: "#6366F1",
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        onClick: function(){} // Callback after click
-      }).showToast();
+  // function to download all splashart
+  async function downloadAll() {
+    console.log("downloading all splashart");
+    downloadToast.showToast();
 
-      const zip = new JSZip();
-      const folder = zip.folder("splashart");
-      for (let i = 0; i < splashArts.length; i++) {
-        const response = await fetch(`/images/splashart/${splashArts[i]}`);
-        const blob = await response.blob();
-        folder.file(splashArts[i], blob);
-      }
-      zip.generateAsync({type:"blob"}).then(function(content) {
-        saveAs(content, "splashart.zip");
-      });
+    const zip = new JSZip();
+    const folder = zip.folder("splashart");
+    for (let i = 0; i < splashArts.length; i++) {
+      const response = await fetch(`/images/splashart/${splashArts[i]}`);
+      const blob = await response.blob();
+      folder.file(splashArts[i], blob);
     }
+    try {
+      zip.generateAsync({ type: "blob" }).then(function (content) {
+        // try to save the zip file, if it doesn't work, show an error message
+        try {
+          saveAs(content, "splashart.zip");
+          setTimeout(() => {
+            downloadToast.hideToast();
+          }, 5000);
+        } catch (error) {
+          console.log(error);
+          errorToast.showToast();
+        }
+      });
+    } catch (error) {
+      console.log(error);
+      errorToast.showToast();
+    }
+  }
+
+  // download selected splash art
+  async function downloadSelected() {
+    console.log("downloading selected splashart");
+    downloadToast.showToast();
+
+    const zip = new JSZip();
+    const folder = zip.folder("splashart-selected");
+    for (let i = 0; i < selectedItems.length; i++) {
+      const response = await fetch(`/images/splashart/${selectedItems[i]}`);
+      const blob = await response.blob();
+      folder.file(selectedItems[i], blob);
+    }
+    try {
+      zip.generateAsync({ type: "blob" }).then(function (content) {
+        // try to save the zip file, if it doesn't work, show an error message
+        try {
+          saveAs(content, "splashart-selected.zip");
+          setTimeout(() => {
+            downloadToast.hideToast();
+          }, 5000);
+        } catch (error) {
+          console.log(error);
+          errorToast.showToast();
+        }
+      });
+    } catch (error) {
+      console.log(error);
+      errorToast.showToast();
+    }
+  }
 </script>
 
 <svelte:head>
@@ -64,15 +124,32 @@
           <span class="gifont">Splash Art</span><br /><span
             class="text-sm font-normal text-gray-400"
             >You can download <button
-              on:click = {downloadAll}
+              on:click={downloadAll}
               class="font-semibold text-white hover:text-indigo-400"
               >all splash art (.zip) here</button
             >.</span
           >
+
+          <!-- check if there are any entries inside the selectedItems array -->
+          {#if selectedItems.length > 0}
+            <span class="text-xs font-normal text-gray-400"
+              >You can also download <button
+                on:click={downloadSelected}
+                class="font-semibold text-white hover:text-indigo-400"
+                >selected splash art (.zip) here</button
+              >.</span
+            >
+
+            <!-- if there are no entries inside the selectedItems array -->
+          {:else}
+            <span class="text-xs font-normal text-gray-400"
+              >You can also select multiple splashart and download as .zip</span
+            >
+          {/if}
         </h1>
 
         <input
-          class="bg-[#1F1A1A] text-indigo-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none"
+          class="bg-[#1E1E1E] text-indigo-400 h-14 w-96 rounded text-center focus:shadow focus:outline-none"
           bind:value={searchTerm}
           placeholder="🔎 Search for a File"
         />
@@ -83,16 +160,34 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {#each filteredSplashArts as entry}
           <div
-            class="p-3 bg-[#1F1A1A] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center"
+            class="p-3 bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-gray-400 font-semibold flex items-center"
           >
             <img
               class="object-left object-contain previewImg p-1"
-              src="/images/splashart/{entry}"
+              src="./images/splashart/{entry}"
               alt={entry}
               loading="lazy"
             />
             <div>
-              <p class="text-white text-m text-left">{entry}</p>
+              <p class="text-white text-m">
+                {entry}
+                <!-- checkbox that will be checked if entry exists in selectedItems -->
+                <input
+                  type="checkbox"
+                  class="ml-2 accent-indigo-500"
+                  checked={selectedItems.includes(entry)}
+                  on:click={() => {
+                    if (selectedItems.includes(entry)) {
+                      selectedItems = selectedItems.filter(
+                        (item) => item !== entry
+                      );
+                    } else {
+                      selectedItems = [...selectedItems, entry];
+                    }
+                    console.log(selectedItems);
+                  }}
+                />
+              </p>
               <a href="/images/splashart/{entry}" target="_blank" download>
                 <button
                   class="bg-indigo-400 bg-opacity-70 justify-right font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
@@ -110,7 +205,7 @@
         <div class="text-center">
           <img
             class="emote h-24 w-24 inline"
-            src="images/emotes/UI_EmotionIcon223.png"
+            src="./images/emotes/xingqiu-3.png"
             alt="genshin emote"
           />
           <p class="text-gray-400">
@@ -132,11 +227,5 @@
   .emote {
     width: 64px !important;
     height: 64px !important;
-  }
-
-  img {
-    object-fit: fit;
-    height: 256px;
-    width: 256px;
   }
 </style>
