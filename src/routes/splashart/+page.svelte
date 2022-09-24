@@ -228,4 +228,9 @@
     width: 64px !important;
     height: 64px !important;
   }
+  img {
+    object-fit: fit;
+    height: 256px;
+    width: 256px;
+  }
 </style>
