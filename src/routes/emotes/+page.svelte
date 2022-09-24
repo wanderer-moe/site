@@ -259,7 +259,4 @@
     height: 256px;
     width: 256px;
   }
-  .active {
-    @apply text-indigo-500;
-  }
 </style>
