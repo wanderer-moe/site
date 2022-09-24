@@ -1,4 +1,4 @@
-<script context = "module">
+<script context "module">
   import data from "../data/updateList.json";
   import Ads from "../components/Ads.svelte";
 </script>
@@ -133,7 +133,7 @@
       <p class="text-white gifont text-xl text-left">
         A (pretty) useful website/database for Genshin Impact assets. <img
           class="h-8 w-8 inline"
-          src="./images/emotes/hu-tao-4.png"
+          src="/images/emotes/hu-tao-4.png"
           alt="genshin emote"
         />
       </p>
