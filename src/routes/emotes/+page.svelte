@@ -169,30 +169,21 @@
               loading="lazy"
             />
             <div class="">
-              <p
-                id={entry.replace(".png", "")}
-                class="text-white text-m text-left"
-                on:dblclick={() => {
-                  if (selectedItems) {
-                    // if the item is already selected, remove it from the array
-                    if (selectedItems.includes(entry)) {
-                      selectedItems = selectedItems.filter(
-                        (item) => item !== entry
-                      );
-                    } else {
-                      selectedItems.push(entry);
-                    }
-                  } else {
-                    selectedItems = [entry];
-                  }
-                  console.log(selectedItems);
-                }}
-              >
-                {entry}
+              <div class="">
+                <p class="text-white text-m text-left">
+                  {entry.replace(".png", "")}
+                </p>
+                <a href="/images/emotes/{entry}" target="_blank" download>
+                  <button
+                    class="bg-indigo-400 bg-opacity-70 font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
+                  >
+                    <i class="fa-solid fa-download" /> Download
+                  </button>
+                </a>
                 <!-- checkbox that will be checked if entry exists in selectedItems -->
                 <input
                   type="checkbox"
-                  class="ml-2 accent-indigo-500"
+                  class="ml-2 accent-indigo-500 w-6 h-6 p-1 justify-left"
                   checked={selectedItems.includes(entry)}
                   on:click={() => {
                     if (selectedItems.includes(entry)) {
@@ -205,14 +196,7 @@
                     console.log(selectedItems);
                   }}
                 />
-              </p>
-              <a href="/images/emotes/{entry}" target="_blank" download>
-                <button
-                  class="bg-indigo-400 bg-opacity-70 justify-right font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
-                >
-                  <i class="fa-solid fa-download" /> Download
-                </button>
-              </a>
+              </div>
             </div>
           </div>
         {/each}
@@ -227,16 +211,8 @@
             alt="genshin emote"
           />
           <p class="text-gray-400">
-            No results were found for '{searchTerm}', you may be able to find
-            the
-            <span class="text-indigo-500"
-              ><a
-                href="/splashart"
-                class="font-semibold text-white hover:text-indigo-400"
-                >splash art version</a
-              ></span
-            >
-            instead. <br />Think something should be here? Feel free to join the
+            No results were found for '{searchTerm}'.<br />Think something
+            should be here? Feel free to join the
             <a
               href="https://discord.com/invite/659KAFfNd6"
               class="font-semibold text-white hover:text-indigo-400"

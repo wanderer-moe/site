@@ -173,35 +173,32 @@
               loading="lazy"
             />
             <div class="">
-              <p
-                id={entry.replace(".png", "")}
-                class="text-white text-m text-left"
-              >
-                {entry}
-                <!-- checkbox that will be checked if entry exists in selectedItems -->
-                <input
-                  type="checkbox"
-                  class="ml-2 accent-indigo-500"
-                  checked={selectedItems.includes(entry)}
-                  on:click={() => {
-                    if (selectedItems.includes(entry)) {
-                      selectedItems = selectedItems.filter(
-                        (item) => item !== entry
-                      );
-                    } else {
-                      selectedItems = [...selectedItems, entry];
-                    }
-                    console.log(selectedItems);
-                  }}
-                />
+              <p class="text-white text-m text-left">
+                {entry.replace(".png", "")}
               </p>
               <a href="/images/characterparts/{entry}" target="_blank" download>
                 <button
-                  class="bg-indigo-400 bg-opacity-70 justify-right font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
+                  class="bg-indigo-400 bg-opacity-70 font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
                 >
                   <i class="fa-solid fa-download" /> Download
                 </button>
               </a>
+              <!-- checkbox that will be checked if entry exists in selectedItems -->
+              <input
+                type="checkbox"
+                class="ml-2 accent-indigo-500 w-6 h-6 p-1 justify-left"
+                checked={selectedItems.includes(entry)}
+                on:click={() => {
+                  if (selectedItems.includes(entry)) {
+                    selectedItems = selectedItems.filter(
+                      (item) => item !== entry
+                    );
+                  } else {
+                    selectedItems = [...selectedItems, entry];
+                  }
+                  console.log(selectedItems);
+                }}
+              />
             </div>
           </div>
         {/each}

@@ -1,5 +1,9 @@
 {
     "updates": [{
+            "updateDate": "26th September, 2022",
+            "details": "Added 2022 concert character parts from the Genshin Concert 2022 website."
+        },
+        {
             "updateDate": "24th September, 2022",
             "details": "Can now select multiple images (checkbox next to name of item) and download them as .zip, updated /emotes & website styling."
         },

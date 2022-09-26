@@ -170,23 +170,8 @@
             />
             <div>
               <p class="text-white text-m">
-                {entry}
+                {entry.replace(".png", "")}
                 <!-- checkbox that will be checked if entry exists in selectedItems -->
-                <input
-                  type="checkbox"
-                  class="ml-2 accent-indigo-500"
-                  checked={selectedItems.includes(entry)}
-                  on:click={() => {
-                    if (selectedItems.includes(entry)) {
-                      selectedItems = selectedItems.filter(
-                        (item) => item !== entry
-                      );
-                    } else {
-                      selectedItems = [...selectedItems, entry];
-                    }
-                    console.log(selectedItems);
-                  }}
-                />
               </p>
               <a href="/images/splashart/{entry}" target="_blank" download>
                 <button
@@ -195,6 +180,21 @@
                   <i class="fa-solid fa-download" /> Download
                 </button>
               </a>
+              <input
+                type="checkbox"
+                class="ml-2 accent-indigo-500  w-6 h-6 p-1 justify-left"
+                checked={selectedItems.includes(entry)}
+                on:click={() => {
+                  if (selectedItems.includes(entry)) {
+                    selectedItems = selectedItems.filter(
+                      (item) => item !== entry
+                    );
+                  } else {
+                    selectedItems = [...selectedItems, entry];
+                  }
+                  console.log(selectedItems);
+                }}
+              />
             </div>
           </div>
         {/each}
