@@ -1,5 +1,10 @@
 {
-    "updates": [{
+    "updates": [
+        {
+            "updateDate": "8th October, 2022",
+            "details": "Added extra assets from 3.1 web events (such as Nilou & Cyno's web events)."
+        },
+        {
             "updateDate": "26th September, 2022",
             "details": "Added 2022 concert character parts from the Genshin Concert 2022 website."
         },
