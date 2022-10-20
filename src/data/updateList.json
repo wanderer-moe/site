@@ -1,5 +1,8 @@
 {
-    "updates": [
+    "updates": [{
+            "updateDate": "20th October, 2022",
+            "details": "Added Nilou, Candance, Cyno & Razor emotes from the most recent HoYoLab update."
+        },
         {
             "updateDate": "8th October, 2022",
             "details": "Added extra assets from 3.1 web events (such as Nilou & Cyno's web events)."
