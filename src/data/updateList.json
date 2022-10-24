@@ -1,5 +1,10 @@
 {
-    "updates": [{
+    "updates": [
+        {
+            "updateDate": "24 October, 2022",
+            "details": "Added assets from the 3.2 preview page. (e.g Nahida & Layla). Old characters have been skipped even if there is a tiny difference."
+        },
+        {
             "updateDate": "20th October, 2022",
             "details": "Added Nilou, Candance, Cyno & Razor emotes from the most recent HoYoLab update."
         },
