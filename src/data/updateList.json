@@ -1,12 +1,16 @@
 {
     "updates": [
         {
+            "updateDate": "31st October, 2022",
+            "details": "Backend site optimizations, added new features, more character parts, UI changes & bug fixes."
+        },
+        {
             "updateDate": "24 October, 2022",
             "details": "Added assets from the 3.2 preview page. (e.g Nahida & Layla). Old characters have been skipped even if there is a tiny difference."
         },
         {
             "updateDate": "20th October, 2022",
-            "details": "Added Nilou, Candance, Cyno & Razor emotes from the most recent HoYoLab update."
+            "details": "Added Nilou, Candace, Cyno & Razor emotes from the most recent HoYoLab update."
         },
         {
             "updateDate": "8th October, 2022",

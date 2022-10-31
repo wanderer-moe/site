@@ -8,11 +8,6 @@
 
 <div class="flex h-screen">
   <div class="m-auto text-center">
-    <img
-      class="h-16 w-16 inline"
-      src="./images/emotes/amber-2.png"
-      alt="genshin emote"
-    />
     <p class="text-red-400 text-5xl font-semibold">{$page.status}</p>
     <p class="text-white text-xl">{$page.error.message}</p>
 

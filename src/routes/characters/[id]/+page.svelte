@@ -1,10 +1,16 @@
+<style lang="postcss">
+.iconImg {
+  max-width: none;
+}
+</style>
+
 <script>
-  /** @type {import('./$types').PageData} */
-  export let data;
+/** @type {import('./$types').PageData} */
+export let data;
 
-  let id = data.id;
+let id = data.id;
 
-  let rarity = "⭐".repeat(data.jsonFile.rarity);
+let rarity = "★".repeat(data.jsonFile.rarity);
 </script>
 
 <svelte:head>
@@ -12,168 +18,187 @@
 </svelte:head>
 
 <div class="flex flex-col min-h-screen">
-  <section class="py-24 md:py-40">
-    <div class="container px-4 mx-auto">
-      <!-- intro section -->
-      <img
-        class="characterImg hidden md:block bg-fixed"
-        style="float: right"
-        src="/images/splashart/{id}-nobg.png"
-        alt={data.jsonFile.fullname}
-        loading="lazy"
-      />
-      <!-- todo: maybe move splash art location above text instead of removing it on smaller screens...? -->
-
-      <div class="flex items-center">
-        <img
-          class="w-8 h-8"
-          src="/images/elements/{data.jsonFile.element.toLowerCase()}.png"
-          alt="{data.jsonFile.element} symbol"
-          loading="lazy"
-        />
-        <p class="text-white text-4xl font-semibold gifont">
-          {data.jsonFile.fullname}
-        </p>
-      </div>
-
-      {#if data.jsonFile.title != ""}
-        <p class="text-3xl gifont text-white">"{data.jsonFile.title}"</p>
-      {/if}
-
-      <br />
-      <p>{rarity}</p>
-      <p class="text-white text-2xl font-semibold">
-        {data.jsonFile.constellation}
-      </p>
-      <p class="text-gray-400">- {data.jsonFile.description}</p>
-      <br />
-
-      <!-- stats section -->
-      <div class="flex flex-wrap">
-        <div class="w-full md:w-1/2">
-          <div class="flex flex-col" />
-
-          <!-- container for data -->
-          <div class="grid gap-2">
+  <div class = "p-5">
+  <div class="relative">
+    <img
+      src="/images/characters/{id}/Banner.png"
+      class="absolute inset-0 object-cover w-full h-full"
+      alt="{data.jsonFile.fullname}" />
+    <div class="relative bg-[#1A1A1A] bg-opacity-10">
+      <div class="p-5">
+        <div class="flex flex-col flex-row">
+          <!-- -->
+          <div class="flex">
             <img
-              src="/images/characters/{id}/namecard-bar.png"
-              alt="namecard of {data.fullname}"
-              loading="lazy"
-            />
-
-            <!-- container for cv -->
+              class="w-48 h-48 iconImg hidden xl:block"
+              src="/images/characters/{id}/Icon.png"
+              alt="{data.jsonFile.fullname}" />
             <div
-              class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
-            >
-              <span class="font-semibold">EN</span>: {data.jsonFile.cv
-                .english}<br />
-              <span class="font-semibold">JP</span>: {data.jsonFile.cv
-                .japanese}<br />
-              <span class="font-semibold">CN</span>: {data.jsonFile.cv
-                .chinese}<br />
-              <span class="font-semibold">KR</span>: {data.jsonFile.cv
-                .korean}<br />
-            </div>
-
-            <!-- container for basic stats -->
-            <div
-              class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
-            >
-              <span class="font-semibold">Rarity</span>: {data.jsonFile
-                .rarity}*<br />
-              <span class="font-semibold">Element</span>: {data.jsonFile
-                .element}<br />
-              <span class="font-semibold">Weapon Type</span>: {data.jsonFile
-                .weapontype}<br />
-              <span class="font-semibold">Affiliation</span>: {data.jsonFile
-                .affiliation}<br />
-              <span class="font-semibold">Region</span>: {data.jsonFile
-                .region}<br />
-              <span class="font-semibold">Ascension Bonus</span>: {data.jsonFile
-                .substat}<br />
-              <span class="font-semibold">Constellation</span>: {data.jsonFile
-                .constellation}<br />
-              <span class="font-semibold">Birthday</span>: {data.jsonFile
-                .birthday}<br />
-            </div>
-
-            <div
-              class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
-            >
-              <span class="font-semibold">Ascension Items</span><br />
-              <div class="flex flex-wrap gap-10">
-                <!-- replace ' with nothing and replace spaces with - -->
-                <img
-                  class="object-contain h-16 w-16"
-                  src="/images/items/{data.jsonFile.costs.ascend5[1].name
-                    .replace(/\s+/g, '-')
-                    .replace("'", '')
-                    .toLowerCase()}.png"
-                  alt={data.jsonFile.costs.ascend5[1].name}
-                  loading="lazy"
-                />
-                <img
-                  class="object-contain h-16 w-16"
-                  src="/images/items/{data.jsonFile.costs.ascend5[2].name
-                    .replace(/\s+/g, '-')
-                    .replace("'", '')
-                    .toLowerCase()}.png"
-                  alt={data.jsonFile.costs.ascend5[2].name}
-                  loading="lazy"
-                />
-                <img
-                  class="object-contain h-16 w-16"
-                  src="/images/items/{data.jsonFile.costs.ascend5[3].name
-                    .replace(/\s+/g, '-')
-                    .replace("'", '')
-                    .toLowerCase()}.png"
-                  alt={data.jsonFile.costs.ascend5[3].name}
-                  loading="lazy"
-                />
-                <img
-                  class="object-contain h-16 w-16"
-                  src="/images/items/{data.jsonFile.costs.ascend5[4].name
-                    .replace(/\s+/g, '-')
-                    .replace("'", '')
-                    .toLowerCase()}.png"
-                  alt={data.jsonFile.costs.ascend5[4].name}
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            {#if data.jsonFile.artifactSet != "undefined"}
-              <div
-                class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-white p-5"
-              >
-                <span class="font-semibold">Reccomended Artifact</span><br />
-                <div class="flex items-center gap-10">
+              class="bg-[#1A1A1A] bg-opacity-70 text-white rounded shadow-2xl p-7 w-full">
+              <div class="flex items-center">
+                <div>
                   <img
-                    class="object-left h-16 w-16"
-                    src="/images/artifacts/{data.jsonFile.artifactSet
-                      .replace(/\s+/g, '-')
-                      .replace("'", '')
-                      .toLowerCase()}/flower.png"
-                    alt={data.jsonFile.artifactSet}
-                    loading="lazy"
-                  />
-                  <a
-                    href="/artifacts/{data.jsonFile.artifactSet
-                      .replace(/\s+/g, '-')
-                      .replace("'", '')
-                      .toLowerCase()}"
-                    ><p
-                      class="hover:text-indigo-500 text-white text-2xl gifont"
-                    >
-                      {data.jsonFile.artifactSet}
-                    </p></a
-                  >
+                    class="w-8 h-8"
+                    src="/images/elements/{data.jsonFile.element.toLowerCase()}.png"
+                    alt="{data.jsonFile.element} symbol"
+                    loading="lazy" />
                 </div>
+                <p class="text-white text-2xl gifont">
+                  {data.jsonFile.fullname}
+                </p>
               </div>
-            {/if}
+              <!-- <p class="text-xs">{rarity}</p> -->
+
+              <p class="text-white text-l gifont">
+                "{data.jsonFile.title}"
+                <span class="text-l justify-right align-right gifont"
+                  >{rarity}</span>
+              </p>
+
+              <hr class="text-white m-1 opacity-30" />
+
+              <p class="text-white gifont">
+                Constellation: {data.jsonFile.constellation}
+              </p>
+              <p class="text-white gifont">
+                Affiliation: {data.jsonFile.affiliation}
+              </p>
+              <p class="text-white gifont">
+                Birthday: {data.jsonFile.birthday}
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+    </div>
+  </div>
+
+  <div class="container px-2 mx-auto p-4">
+    <p class="text-white text-xl gifont">Ascension Materials</p>
+    <div
+      class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-2 rounded-lg max-w-full text-gray-400 font-semibold">
+      <div class="flex flex-wrap gap-10 justify-center">
+        <img
+          class="object-contain h-16 w-16"
+          src="/images/items/{data.jsonFile.costs.ascend5[1].name
+            .replace(/\s+/g, '-')
+            .replace("'", '')
+            .toLowerCase()}.png"
+          alt="{data.jsonFile.costs.ascend5[1].name}"
+          loading="lazy" />
+        <img
+          class="object-contain h-16 w-16"
+          src="/images/items/{data.jsonFile.costs.ascend5[2].name
+            .replace(/\s+/g, '-')
+            .replace("'", '')
+            .toLowerCase()}.png"
+          alt="{data.jsonFile.costs.ascend5[2].name}"
+          loading="lazy" />
+        <img
+          class="object-contain h-16 w-16"
+          src="/images/items/{data.jsonFile.costs.ascend5[3].name
+            .replace(/\s+/g, '-')
+            .replace("'", '')
+            .toLowerCase()}.png"
+          alt="{data.jsonFile.costs.ascend5[3].name}"
+          loading="lazy" />
+        <img
+          class="object-contain h-16 w-16"
+          src="/images/items/{data.jsonFile.costs.ascend5[4].name
+            .replace(/\s+/g, '-')
+            .replace("'", '')
+            .toLowerCase()}.png"
+          alt="{data.jsonFile.costs.ascend5[4].name}"
+          loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <div class="container px-2 mx-auto p-4">
+    <p class="text-white text-xl gifont">Stats</p>
+    <div
+      class="bg-[#1E1E1E] transition duration-150 container ease-in-out hover:scale-105 p-2 rounded-lg max-w-full text-gray-400">
+      <div>
+        <!-- table to store stats -->
+        <div class="overflow-x-auto relative">
+          <table class="w-full text-sm text-left text-white gifont">
+            <tbody>
+              <tr class="border-b border-opacity-5">
+                <th
+                  scope="row"
+                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  Ascension Substat
+                </th>
+                <td class="py-4 px-6 text-right"> {data.jsonFile.substat} </td>
+              </tr>
+              <tr class="border-b border-opacity-5">
+                <th
+                  scope="row"
+                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  Element
+                </th>
+                <td class="py-4 px-6 text-right"> {data.jsonFile.element} </td>
+              </tr>
+              <tr class="border-b border-opacity-5">
+                <th
+                  scope="row"
+                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  Weapon Type
+                </th>
+                <td class="py-4 px-6 text-right">
+                  {data.jsonFile.weapontype}
+                </td>
+              </tr>
+              <tr class="border-b border-opacity-5">
+                <th
+                  scope="row"
+                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  Region
+                </th>
+                <td class="py-4 px-6 text-right"> {data.jsonFile.region} </td>
+              </tr>
+              <tr class="border-opacity-5">
+                <th
+                  scope="row"
+                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  Gender
+                </th>
+                <td class="py-4 px-6 text-right">
+                  {data.jsonFile.gender}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {#if data.jsonFile.artifactSet}
+    <div class="container px-2 mx-auto p-4">
+      <p class="text-white text-xl gifont">Reccomended Artifact</p>
+      <div
+        class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-white p-5">
+        <div class="flex gap-10 justify-center items-center">
+          <img
+            class="object-left h-16 w-16"
+            src="/images/artifacts/{data.jsonFile.artifactSet
+              .replace(/\s+/g, '-')
+              .replace("'", '')
+              .toLowerCase()}/flower.png"
+            alt="{data.jsonFile.artifactSet}"
+            loading="lazy" />
+          <a
+            href="/artifacts/{data.jsonFile.artifactSet
+              .replace(/\s+/g, '-')
+              .replace("'", '')
+              .toLowerCase()}"
+            ><p class="hover:text-indigo-500 text-white text-2xl gifont">
+              {data.jsonFile.artifactSet}
+            </p></a>
+        </div>
+      </div>
+    </div>
+  {/if}
 </div>

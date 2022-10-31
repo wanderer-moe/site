@@ -1,4 +1,3 @@
-// src/routes/api/posts/+server.js
 import {
     fetchImages
 } from '$lib/utils'

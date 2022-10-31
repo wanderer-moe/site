@@ -1,34 +1,26 @@
-<script context = "module">
-  import data from "../../data/allArtifacts.json";
-</script>
-
 <script>
-  import { writable } from "svelte/store";
-  import { browser } from "$app/environment";
+export let data;
 
-  let unreleasedContent;
-  /* check for unreleasedContent in localStorage */
-  if (browser) {
-    if (localStorage.getItem("unreleasedContent") === null) {
-      localStorage.setItem("unreleasedContent", "false");
-      unreleasedContent = false;
-    } else {
-      unreleasedContent = localStorage.getItem("unreleasedContent") === "true";
-    }
+import { writable } from "svelte/store";
+import { browser } from "$app/environment";
+
+let unreleasedContent;
+/* check for unreleasedContent in localStorage */
+if (browser) {
+  if (localStorage.getItem("unreleasedContent") === null) {
+    localStorage.setItem("unreleasedContent", "false");
+    unreleasedContent = false;
+  } else {
+    unreleasedContent = localStorage.getItem("unreleasedContent") === "true";
   }
+}
 
-  let allArtifacts = data.artifacts;
+let allArtifacts = data.artifacts;
 
-  /* if unreleasedContent is false, filter out unreleased artifacts */
-  if (!unreleasedContent) {
-    allArtifacts = allArtifacts.filter((artifact) => artifact.released);
-  }
-
-  let legendary = allArtifacts.filter((artifact) =>artifact.rarity.includes(5));
-  let epic = allArtifacts.filter((artifact) => artifact.rarity.includes(4));
-  let three = allArtifacts.filter((artifact) => artifact.rarity.includes(3));
-  let two = allArtifacts.filter((artifact) => artifact.rarity.includes(2));
-  let one = allArtifacts.filter((artifact) => artifact.rarity.includes(1));
+/* if unreleasedContent is false, filter out unreleased artifacts */
+if (!unreleasedContent) {
+  allArtifacts = allArtifacts.filter((artifact) => artifact.released);
+}
 </script>
 
 <svelte:head>
@@ -40,150 +32,27 @@
     <div class="container px-4 mx-auto">
       <h1 class="text-white font-semibold gifont">Artifact Index</h1>
       <p class="text-gray-400 text-sm">
-        Contains all artifacts from 1.0 to the current live version, beta
-        versions are not included.
+        Contains all artifacts from 1.0+. You can toggle released and unreleased content in the settings.
       </p>
 
       <br />
-      <h1 class="text-white font-semibold gifont">
-        <span class="text-[#E2C96F]">5*</span> Artifacts
-      </h1>
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        {#each legendary as artifact}
+        {#each allArtifacts as artifact}
           <div
-            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
-          >
+            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold">
             <a
               href="/artifacts/{artifact.name
                 .replace(/\s+/g, '-')
-                .toLowerCase()}"
-            >
+                .toLowerCase()}">
               <img
                 class="mx-auto h-32 w-32"
                 src="/images/artifacts/{artifact.name
                   .replace(/\s+/g, '-')
                   .toLowerCase()}/flower.png"
-                alt={artifact.name}
-                loading="lazy"
-              />
+                alt="{artifact.name}"
+                loading="lazy" />
               <p class="text-base text-center">{artifact.name}</p>
               <p class="text-base text-center">★★★★★</p>
-            </a>
-          </div>
-        {/each}
-      </div>
-
-      <br />
-      <h1 class="text-white font-semibold gifont">
-        <span class="text-[#84719D]">4*</span> Artifacts
-      </h1>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        {#each epic as artifact}
-          <div
-            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
-          >
-            <a
-              href="/artifacts/{artifact.name
-                .replace(/\s+/g, '-')
-                .toLowerCase()}"
-            >
-              <img
-                class="mx-auto h-32 w-32"
-                src="/images/artifacts/{artifact.name
-                  .replace(/\s+/g, '-')
-                  .toLowerCase()}/flower.png"
-                alt={artifact.name}
-                loading="lazy"
-              />
-              <p class="text-base text-center">{artifact.name}</p>
-              <p class="text-base text-center">★★★★</p>
-            </a>
-          </div>
-        {/each}
-      </div>
-
-      <br />
-      <h1 class="text-white font-semibold gifont">
-        <span class="text-[#6c82d3]">3*</span> Artifacts
-      </h1>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        {#each three as artifact}
-          <div
-            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
-          >
-            <a
-              href="/artifacts/{artifact.name
-                .replace(/\s+/g, '-')
-                .toLowerCase()}"
-            >
-              <img
-                class="mx-auto h-32 w-32"
-                src="/images/artifacts/{artifact.name
-                  .replace(/\s+/g, '-')
-                  .toLowerCase()}/flower.png"
-                alt={artifact.name}
-                loading="lazy"
-              />
-              <p class="text-base text-center">{artifact.name}</p>
-              <p class="text-base text-center">★★★</p>
-            </a>
-          </div>
-        {/each}
-      </div>
-
-      <br />
-      <h1 class="text-white font-semibold gifont">
-        <span class="text-[#78bd6d]">2*</span> Artifacts
-      </h1>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        {#each two as artifact}
-          <div
-            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
-          >
-            <a
-              href="/artifacts/{artifact.name
-                .replace(/\s+/g, '-')
-                .toLowerCase()}"
-            >
-              <img
-                class="mx-auto h-32 w-32"
-                src="/images/artifacts/{artifact.name
-                  .replace(/\s+/g, '-')
-                  .toLowerCase()}/flower.png"
-                alt={artifact.name}
-                loading="lazy"
-              />
-              <p class="text-base text-center">{artifact.name}</p>
-              <p class="text-base text-center">★★</p>
-            </a>
-          </div>
-        {/each}
-      </div>
-
-      <br />
-      <h1 class="text-white font-semibold gifont">
-        <span class="text-[#c4c7c4]">1*</span> Artifacts
-      </h1>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        {#each one as artifact}
-          <div
-            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold"
-          >
-            <a
-              href="/artifacts/{artifact.name
-                .replace(/\s+/g, '-')
-                .toLowerCase()}"
-            >
-              <img
-                class="mx-auto h-32 w-32"
-                src="/images/artifacts/{artifact.name
-                  .replace(/\s+/g, '-')
-                  .toLowerCase()}/flower.png"
-                alt={artifact.name}
-                loading="lazy"
-              />
-              <p class="text-base text-center">{artifact.name}</p>
-              <p class="text-base text-center">★</p>
             </a>
           </div>
         {/each}

@@ -26,8 +26,8 @@
 </script>
 
 <header>
-  <div class="p-4">
-    <div class="bg-[#1E1E1E] p-4 rounded-lg shadow-lg">
+  <div class="">
+    <div class="bg-[#1E1E1E] shadow-lg p-5">
       <div
         class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
       >
@@ -79,7 +79,7 @@
 
 <!-- mobile navigation menu -->
 <div id="mobilemenu" class="p-4 hidden" bind:this={mobileMenu}>
-  <div class="bg-[#1E1E1E] p-4 rounded-lg lg:hidden shadow-lg">
+  <div class="bg-[#1E1E1E] p-4 lg:hidden">
     <ul class="flex font-medium flex-col grid-cols-1 gap-3">
       {#each nav as item}
         <li>
