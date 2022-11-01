@@ -1,5 +1,9 @@
 {
     "updates": [{
+            "updateDate": "1st November, 2022",
+            "details": "Added the 'Teyvat Times' Series Emojis: Vol. 5 to /emotes & some minor bugfixes."
+        },
+        {
             "updateDate": "31st October, 2022",
             "details": "Site optimizations, added new assets (more character parts & 3.3 character splash art) & UI changes."
         },
