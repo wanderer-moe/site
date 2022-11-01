@@ -17,7 +17,7 @@ specifiers:
   lodash.debounce: ^4.0.8
   nprogress: ^0.2.0
   postcss: ^8.4.18
-  postcss-nested: ^5.0.6
+  postcss-nested: ^6.0.0
   prettier: ^2.7.1
   prettier-plugin-svelte: ^2.8.0
   svelte: ^3.52.0
@@ -51,7 +51,7 @@ devDependencies:
   localforage: 1.10.0
   lodash.debounce: 4.0.8
   postcss: 8.4.18
-  postcss-nested: 5.0.6_postcss@8.4.18
+  postcss-nested: 6.0.0_postcss@8.4.18
   prettier: 2.7.1
   prettier-plugin-svelte: 2.8.0_lrllcp5xtrkmmdzifit4hd52ze
   svelte: 3.52.0
@@ -1284,16 +1284,6 @@ packages:
       lilconfig: 2.0.6
       postcss: 8.4.18
       yaml: 1.10.2
-    dev: true
-
-  /postcss-nested/5.0.6_postcss@8.4.18:
-    resolution: {integrity: sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==}
-    engines: {node: '>=12.0'}
-    peerDependencies:
-      postcss: ^8.2.14
-    dependencies:
-      postcss: 8.4.18
-      postcss-selector-parser: 6.0.10
     dev: true
 
   /postcss-nested/6.0.0_postcss@8.4.18:
