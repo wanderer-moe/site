@@ -4,7 +4,7 @@ specifiers:
   '@mdi/js': ^7.0.96
   '@popperjs/core': ^2.11.6
   '@sveltejs/adapter-static': 1.0.0-next.47
-  '@sveltejs/kit': 1.0.0-next.532
+  '@sveltejs/kit': 1.0.0-next.533
   autoprefixer: ^10.4.13
   axios: ^1.0.0
   chart.js: ^3.9.1
@@ -32,7 +32,7 @@ specifiers:
 
 dependencies:
   '@popperjs/core': 2.11.6
-  '@sveltejs/kit': 1.0.0-next.532_svelte@3.52.0+vite@3.2.2
+  '@sveltejs/kit': 1.0.0-next.533_svelte@3.52.0+vite@3.2.2
   axios: 1.1.3
   file-saver: 2.0.5
   jszip: 3.10.1
@@ -173,14 +173,14 @@ packages:
     resolution: {integrity: sha512-pYY9/FhJAIWB3BXnLoKXj5yMZjQjtD9ZsW8UOqKE51H5sbCNHu+wdBlh2CkW20ww4yhfYrlvLWioxij6DPRO9w==}
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.532_svelte@3.52.0+vite@3.2.2:
-    resolution: {integrity: sha512-g+t+dncoz/DBc1mfwSfBaIBqE5pl0caMUy7yZzjsnyw0WG3AevC04d2KfTOgtOMgXVDnSVqZxlTR+MM5tnKeyw==}
+  /@sveltejs/kit/1.0.0-next.533_svelte@3.52.0+vite@3.2.2:
+    resolution: {integrity: sha512-sE6XoKQ4kyJniYKBPm0ajHE30Wh+jBkTEemuhf6l0PzHxkDB3mvjVUXIINpLRbrt3ecdL6tEBLlNPIodaaqaFQ==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
     peerDependencies:
       svelte: ^3.44.0
-      vite: ^3.1.0
+      vite: ^3.2.0
     dependencies:
       '@sveltejs/vite-plugin-svelte': 1.1.0_svelte@3.52.0+vite@3.2.2
       '@types/cookie': 0.5.1
