@@ -18,59 +18,59 @@ let rarity = "★".repeat(data.jsonFile.rarity);
 </svelte:head>
 
 <div class="flex flex-col min-h-screen">
-  <div class = "p-5">
-  <div class="relative">
-    <img
-      src="/images/characters/{id}/Banner.png"
-      class="absolute inset-0 object-cover w-full h-full"
-      alt="{data.jsonFile.fullname}" />
-    <div class="relative bg-[#1A1A1A] bg-opacity-10">
-      <div class="p-5">
-        <div class="flex flex-col flex-row">
-          <!-- -->
-          <div class="flex">
-            <img
-              class="w-48 h-48 iconImg hidden xl:block"
-              src="/images/characters/{id}/Icon.png"
-              alt="{data.jsonFile.fullname}" />
-            <div
-              class="bg-[#1A1A1A] bg-opacity-70 text-white rounded shadow-2xl p-7 w-full">
-              <div class="flex items-center">
-                <div>
-                  <img
-                    class="w-8 h-8"
-                    src="/images/elements/{data.jsonFile.element.toLowerCase()}.png"
-                    alt="{data.jsonFile.element} symbol"
-                    loading="lazy" />
+  <div class="p-5">
+    <div class="relative">
+      <img
+        src="/images/characters/{id}/Banner.png"
+        class="absolute inset-0 object-cover w-full h-full"
+        alt="{data.jsonFile.fullname}" />
+      <div class="relative bg-[#1A1A1A] bg-opacity-10">
+        <div class="p-5">
+          <div class="flex flex-row">
+            <!-- -->
+            <div class="flex">
+              <img
+                class="w-48 h-48 iconImg hidden xl:block"
+                src="/images/characters/{id}/Icon.png"
+                alt="{data.jsonFile.fullname}" />
+              <div
+                class="bg-[#1A1A1A] bg-opacity-70 text-white rounded shadow-2xl p-7 w-full">
+                <div class="flex items-center">
+                  <div>
+                    <img
+                      class="w-8 h-8"
+                      src="/images/elements/{data.jsonFile.element.toLowerCase()}.png"
+                      alt="{data.jsonFile.element} symbol"
+                      loading="lazy" />
+                  </div>
+                  <p class="text-white text-2xl gifont">
+                    {data.jsonFile.fullname}
+                  </p>
                 </div>
-                <p class="text-white text-2xl gifont">
-                  {data.jsonFile.fullname}
+                <!-- <p class="text-xs">{rarity}</p> -->
+
+                <p class="text-white text-l gifont">
+                  "{data.jsonFile.title}"
+                  <span class="text-l justify-right align-right gifont"
+                    >{rarity}</span>
+                </p>
+
+                <hr class="text-white m-1 opacity-30" />
+
+                <p class="text-white gifont">
+                  Constellation: {data.jsonFile.constellation}
+                </p>
+                <p class="text-white gifont">
+                  Affiliation: {data.jsonFile.affiliation}
+                </p>
+                <p class="text-white gifont">
+                  Birthday: {data.jsonFile.birthday}
                 </p>
               </div>
-              <!-- <p class="text-xs">{rarity}</p> -->
-
-              <p class="text-white text-l gifont">
-                "{data.jsonFile.title}"
-                <span class="text-l justify-right align-right gifont"
-                  >{rarity}</span>
-              </p>
-
-              <hr class="text-white m-1 opacity-30" />
-
-              <p class="text-white gifont">
-                Constellation: {data.jsonFile.constellation}
-              </p>
-              <p class="text-white gifont">
-                Affiliation: {data.jsonFile.affiliation}
-              </p>
-              <p class="text-white gifont">
-                Birthday: {data.jsonFile.birthday}
-              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 
@@ -175,7 +175,7 @@ let rarity = "★".repeat(data.jsonFile.rarity);
     </div>
   </div>
 
-  {#if data.jsonFile.artifactSet}
+  {#if data.jsonFile.artifactSet != "undefined" || data.jsonFile.artifactSet}
     <div class="container px-2 mx-auto p-4">
       <p class="text-white text-xl gifont">Reccomended Artifact</p>
       <div

@@ -32,7 +32,8 @@ if (!unreleasedContent) {
     <div class="container px-4 mx-auto">
       <h1 class="text-white font-semibold gifont">Artifact Index</h1>
       <p class="text-gray-400 text-sm">
-        Contains all artifacts from 1.0+. You can toggle released and unreleased content in the settings.
+        Contains all artifacts. You can toggle released and unreleased content
+        in the settings.
       </p>
 
       <br />

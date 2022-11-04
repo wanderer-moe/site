@@ -133,6 +133,7 @@ async function downloadSelected() {
     <div class="container px-4 mx-auto">
       <div class="flex flex-wrap justify-between gap-4">
         <h1 class="text-white font-semibold">
+          <!-- TODO: Fix the layout/CSS for the title & search section. -->
           <span class="gifont">Character Parts</span><br /><span
             class="text-sm font-normal text-gray-400"
             >You can download <button

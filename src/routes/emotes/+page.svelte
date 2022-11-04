@@ -121,6 +121,7 @@
     <div class="container px-4 mx-auto">
       <div class="flex flex-wrap justify-between gap-4">
         <h1 class="text-white font-semibold">
+          <!-- TODO: Fix the layout/CSS for the title & search section. -->
           <span class="gifont">In-Game Emotes</span><br /><span
             class="text-sm font-normal text-gray-400"
             >You can download <button
@@ -173,7 +174,7 @@
                 <p class="text-white text-m text-left">
                   {entry.replace(".png", "")}
                 </p>
-                <a href="/images/emotes/{entry}" target="_blank" download>
+                <a href="/images/emotes/{entry}" rel="noreferrer" target="_blank" download>
                   <button
                     class="bg-indigo-400 bg-opacity-70 font-semibold text-white rounded-lg px-5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
                   >
