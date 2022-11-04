@@ -26,7 +26,7 @@ let rarity = "★".repeat(data.jsonFile.rarity);
         alt="{data.jsonFile.fullname}" />
       <div class="relative bg-[#1A1A1A] bg-opacity-10">
         <div class="p-5">
-          <div class="flex flex-row">
+          <div class="flex flex-col">
             <!-- -->
             <div class="flex">
               <img

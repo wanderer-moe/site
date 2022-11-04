@@ -23,4 +23,4 @@ You can view `netlify.toml` in the root of the repository to see the old netlify
 
 ## License
 Licensed under [MIT](https://mit.dromzeh.dev/).
-wanderer.moe is **not** affiliated with or endorsed by HoYoverse/MiHoYo, all asset files are properties of original owners.
+wanderer.moe is **not** affiliated with or endorsed by HoYoverse/MiHoYo, all asset files are properties of their original owners.
