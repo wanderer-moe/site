@@ -1,5 +1,9 @@
 {
     "updates": [{
+            "updateDate": "4th November, 2022",
+            "details": "Added a 'faq' section to the bottom of the /characterparts, /emotes and /splashart pages."
+        },
+        {
             "updateDate": "1st November, 2022",
             "details": "Added the 'Teyvat Times' Series Emojis: Vol. 5 to /emotes & some minor bugfixes."
         },
