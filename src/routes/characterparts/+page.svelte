@@ -15,6 +15,7 @@ import JSZip from "jszip";
 import saveAs from "file-saver";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
+import FAQ from "../../components/FAQ.svelte";
 export let data;
 
 let selectedItems = [];
@@ -233,6 +234,7 @@ async function downloadSelected() {
           </p>
         </div>
       {/if}
+      <FAQ />
     </div>
   </section>
 </div>
