@@ -1,5 +1,9 @@
 {
     "updates": [{
+            "updateDate": "6th November, 2022",
+            "details": "Missing Version 3.2 asset files are now available which includes splashart, items & character data."
+        },
+        {
             "updateDate": "4th November, 2022",
             "details": "Added a 'FAQ' section to the bottom of the /characterparts, /emotes and /splashart pages."
         },
