@@ -7,7 +7,7 @@ specifiers:
   '@sveltejs/kit': 1.0.0-next.545
   autoprefixer: ^10.4.13
   axios: ^1.0.0
-  chart.js: ^3.9.1
+  chart.js: ^4.0.0
   dayjs: ^1.11.6
   dotenv: ^16.0.3
   exceljs: ^4.3.0
@@ -44,7 +44,7 @@ devDependencies:
   '@mdi/js': 7.0.96
   '@sveltejs/adapter-static': 1.0.0-next.48
   autoprefixer: 10.4.13_postcss@8.4.18
-  chart.js: 3.9.1
+  chart.js: 4.0.1
   dayjs: 1.11.6
   dotenv: 16.0.3
   exceljs: 4.3.0
@@ -450,8 +450,9 @@ packages:
       traverse: 0.3.9
     dev: true
 
-  /chart.js/3.9.1:
-    resolution: {integrity: sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w==}
+  /chart.js/4.0.1:
+    resolution: {integrity: sha512-5/8/9eBivwBZK81mKvmIwTb2Pmw4D/5h1RK9fBWZLLZ8mCJ+kfYNmV9rMrGoa5Hgy2/wVDBMLSUDudul2/9ihA==}
+    engines: {pnpm: ^7.0.0}
     dev: true
 
   /chokidar/3.5.3:
