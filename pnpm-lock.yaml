@@ -4,7 +4,7 @@ specifiers:
   '@mdi/js': ^7.0.96
   '@popperjs/core': ^2.11.6
   '@sveltejs/adapter-static': 1.0.0-next.48
-  '@sveltejs/kit': 1.0.0-next.553
+  '@sveltejs/kit': 1.0.0-next.555
   autoprefixer: ^10.4.13
   axios: ^1.0.0
   chart.js: ^4.0.0
@@ -32,7 +32,7 @@ specifiers:
 
 dependencies:
   '@popperjs/core': 2.11.6
-  '@sveltejs/kit': 1.0.0-next.553_svelte@3.52.0+vite@3.2.2
+  '@sveltejs/kit': 1.0.0-next.555_svelte@3.52.0+vite@3.2.2
   axios: 1.1.3
   file-saver: 2.0.5
   jszip: 3.10.1
@@ -173,8 +173,8 @@ packages:
     resolution: {integrity: sha512-Z5Z+QZOav6D0KDeU3ReksGERJg/sX1k5OKWWXyQ11OwGErEEwSXHYRUyjaBmZEPeGzpVVGwwMUK8YWJlG/MKeA==}
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.553_svelte@3.52.0+vite@3.2.2:
-    resolution: {integrity: sha512-6gUPzmry+j/0uFJnGAJNru3lUpGY12We1Vsom5nDeRaG/Cs2wCwK8gMO2B5taZsHmryIB8zA+v0QCcu5kClmWA==}
+  /@sveltejs/kit/1.0.0-next.555_svelte@3.52.0+vite@3.2.2:
+    resolution: {integrity: sha512-hrxmS77sLe3l0G1VTRm2fhM+VgVBiW7fuxluB10dnb3p3e5QnjuMDDPyxYwobzGnNYcXRm/Wu3z7CmGHhHGmag==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
