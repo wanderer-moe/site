@@ -2,11 +2,7 @@
     "updates": [
         {
             "updateDate": "24th November, 2022",
-            "details": "Added collab stickers/emotes for Kazuha (Cadillac) and Hu Tao (OnePlus) & full splash art for Faruzan and Wanderer."
-        },
-        {
-            "updateDate": "24th November, 2022",
-            "details": "Added Paimon's Paintings XIX set of emotes to /emotes (Nahida, Layla, etc)."
+            "details": "Added Paimon's Paintings XIX emotes, Kazuha (Cadillac) & Hu Tao (OnePlus) collab emotes & full splash art of Faruzan and Wanderer."
         },
         {
             "updateDate": "6th November, 2022",
@@ -38,15 +34,11 @@
         },
         {
             "updateDate": "26th September, 2022",
-            "details": "Added 2022 concert character parts from the Genshin Concert 2022 website."
-        },
-        {
-            "updateDate": "24th September, 2022",
-            "details": "Can now select multiple images (checkbox next to name of item) and download them as .zip, updated /emotes & website styling."
+            "details": "Can now download multiple images at once, added 2022 concert character parts & added more emotes."
         },
         {
             "updateDate": "23rd September, 2022",
-            "details": "Automated how images are managed & the process for downloading all images is automatically updated :)"
+            "details": "Automated how images are managed & the process for downloading all images is automatically updated."
         },
         {
             "updateDate": "17th September, 2022",
@@ -66,27 +58,23 @@
         },
         {
             "updateDate": "22nd August, 2022",
-            "details": "Fixed Yun Jin's incorrect rarity & code rework."
+            "details": "Fixed Yun Jin's incorrect rarity (5* -> 4*) & backend code rework (site optimization)."
         },
         {
             "updateDate": "14th August, 2022",
-            "details": "Added 3.0 preview page character parts."
+            "details": "Added all assets and character parts that were found from the new 3.0 preview page."
         },
         {
             "updateDate": "13th August, 2022",
-            "details": "Changed /characters & /artifact pages & some other UI stuff."
-        },
-        {
-            "updateDate": "8th August, 2022",
-            "details": "Some more minor UI changes."
+            "details": "Changed /characters & /artifact pages & some other various UI changes."
         },
         {
             "updateDate": "7th August, 2022",
-            "details": "Switched hosting Provider from Netlify to Cloudflare Pages."
+            "details": "Switched hosting Provider from Netlify to Cloudflare Pages (site may be slower than usual for a while)."
         },
         {
             "updateDate": "5th August, 2022",
-            "details": "Added In-Game emotes (also known as 'stickers') @ /emotes."
+            "details": "Added In-Game emotes (also known as 'stickers') to wanderer.moe/emotes."
         },
         {
             "updateDate": "4th August, 2022",
@@ -94,7 +82,7 @@
         },
         {
             "updateDate": "3rd August, 2022",
-            "details": "Added a Navbar for smaller / medium screens, to help with overall site navigation."
+            "details": "Added a Navbar for smaller / medium screens to help with overall site navigation."
         },
         {
             "updateDate": "24th July, 2022",
