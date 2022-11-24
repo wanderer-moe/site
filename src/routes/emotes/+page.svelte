@@ -125,7 +125,7 @@ async function downloadSelected() {
 </script>
 
 <svelte:head>
-  <title>in-game emotes | wanderer.moe</title>
+  <title>emotes / stickers | wanderer.moe</title>
 </svelte:head>
 
 <div class="flex flex-col min-h-screen">
@@ -134,7 +134,7 @@ async function downloadSelected() {
       <div class="flex flex-wrap justify-between gap-4">
         <h1 class="text-white font-semibold">
           <!-- TODO: Fix the layout/CSS for the title & search section. -->
-          <span class="gifont">In-Game Emotes</span><br /><span
+          <span class="gifont">Emotes / Stickers</span><br /><span
             class="text-sm font-normal text-gray-400"
             >You can download <button
               on:click="{downloadAll}"
