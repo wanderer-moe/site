@@ -1,5 +1,10 @@
 {
-    "updates": [{
+    "updates": [
+        {
+            "updateDate": "24th November, 2022",
+            "details": "Added Paimon's Paintings XIX set of emotes to /emotes (Nahida, Layla, etc)."
+        },
+        {
             "updateDate": "6th November, 2022",
             "details": "Missing Version 3.2 asset files are now available which includes splashart, items & character data."
         },
