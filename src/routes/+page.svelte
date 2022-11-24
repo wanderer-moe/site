@@ -130,9 +130,10 @@ let updatelist = data.updates.slice(0, 3);
     <div class="container px-2 mx-auto">
       <p class="text-white gifont text-4xl text-left">wanderer.moe</p>
       <p class="text-white gifont text-xl text-left">
+        <!-- we call the ?v= tag to make sure it's pulling updated... -->
         A (pretty) useful website/database for Genshin Impact assets. <img
           class="h-8 w-8 inline"
-          src="/images/emotes/hu-tao-4.png"
+          src="/images/emotes/hu-tao-4.png?v=1"
           alt="genshin emote" />
       </p>
       <p class="text-gray-400 text-sm text-left">
