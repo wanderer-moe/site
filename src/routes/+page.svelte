@@ -156,7 +156,7 @@ let updatelist = data.updates.slice(0, 3);
           </p>
           <div class="text-right md:text-left">
             <a href="/characterparts">
-              <button
+              <button 
                 class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
                 ><i class="fa-solid fa-download"></i> Download
                 <i class="fa-solid fa-chevron-right"></i></button>
