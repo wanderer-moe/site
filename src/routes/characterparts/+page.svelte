@@ -50,14 +50,12 @@ const downloadToast = Toastify({
 });
 
 $: {
+  filteredCharacterParts = characterParts;
   if (searchTerm) {
+    searchTerm = searchTerm.toLowerCase().replace(" ", "-");
     filteredCharacterParts = characterParts.filter((characterPart) => {
-      return characterPart
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase().replace(" ", "-"));
+      return characterPart.toLowerCase().includes(searchTerm);
     });
-  } else {
-    filteredCharacterParts = characterParts;
   }
 }
 
@@ -69,9 +67,14 @@ async function downloadAll() {
   const zip = new JSZip();
   const folder = zip.folder("characterparts");
   for (let i = 0; i < characterParts.length; i++) {
-    const response = await fetch(`/images/characterparts/${characterParts[i]}`);
-    const blob = await response.blob();
-    folder.file(characterParts[i], blob);
+    try {
+      const response = await fetch(`/images/characterparts/${characterParts[i]}`);
+      const blob = await response.blob();
+      folder.file(characterParts[i], blob);
+    } catch (error) {
+      console.log(error);
+      errorToast.showToast();
+    }
   }
   try {
     zip.generateAsync({ type: "blob" }).then(function (content) {
@@ -99,11 +102,15 @@ async function downloadSelected() {
 
   const zip = new JSZip();
   const folder = zip.folder("characterparts-selected");
+
+  // Loop through all the selected items and download them
   for (let i = 0; i < selectedItems.length; i++) {
     const response = await fetch(`/images/characterparts/${selectedItems[i]}`);
     const blob = await response.blob();
     folder.file(`${selectedItems[i]}`, blob);
   }
+
+  // Try to save the zip file
   try {
     zip.generateAsync({ type: "blob" }).then(function (content) {
       // try to save the zip file, if it doesn't work, show an error message

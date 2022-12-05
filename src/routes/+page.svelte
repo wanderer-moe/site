@@ -132,7 +132,7 @@ let updatelist = data.updates.slice(0, 3);
       <p class="text-white gifont text-xl text-left">
         A (pretty) useful website/database for Genshin Impact assets. <img
           class="h-8 w-8 inline"
-          src="/images/emotes/hu-tao-4.png"
+          src="/images/emotes/kazuha-collab7.png"
           alt="genshin emote" />
       </p>
       <p class="text-gray-400 text-sm text-left">

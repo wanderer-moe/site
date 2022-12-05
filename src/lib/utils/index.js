@@ -12,17 +12,21 @@
 
 export const fetchImages = async (location) => {
     console.log('fetchImages', location)
+
     let allImageFiles = []
 
-    if (location == 'characterparts') {
-        allImageFiles =
-            import.meta.glob('/static/images/characterparts/*.png')
-    } else if (location == 'emotes') {
-        allImageFiles =
-            import.meta.glob('/static/images/emotes/*.png')
-    } else if (location == 'splashart') {
-        allImageFiles =
-            import.meta.glob('/static/images/splashart/*.png')
+    switch (location) {
+        case 'characterparts':
+            allImageFiles = import.meta.glob('/static/images/characterparts/*.png')
+            break
+        case 'emotes':
+            allImageFiles = import.meta.glob('/static/images/emotes/*.png')
+            break
+        case 'splashart':
+            allImageFiles = import.meta.glob('/static/images/splashart/*.png')
+            break
+        default:
+            throw new Error('Unrecognized image location')
     }
 
     const iterableImageFiles = Object.entries(allImageFiles)
@@ -89,9 +93,9 @@ export const fetchArtifactData = async (location) => {
 
     // if location is artifacts, then the path is /src/data/artifacts
     if (location == 'artifacts') {
-        allDataFilesArtifact =
-            import.meta.glob('/src/data/artifacts/*.json')
+        allDataFilesArtifact = import.meta.glob('/src/data/artifacts/*.json')
     }
+
     // get the name, rarity from each data file and return it as an array
     const iterableDataFiles = Object.entries(allDataFilesArtifact)
 
