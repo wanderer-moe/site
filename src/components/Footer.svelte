@@ -19,6 +19,13 @@
         >
       </p>
       <p class="text-xs">Website isn't affiliated with miHoYo / HoYoverse.</p>
+      <br>
+      <p class = "text-xs">If you would like to donate (all funds go directly towards development costs), you can do so <a
+          href="https://buymeacoffee.com/marcelmd"
+          class="font-semibold text-white hover:text-indigo-300"
+          >here</a
+        >.
+      </p>
     </div>
   </div>
 </footer>

@@ -151,8 +151,8 @@ let updatelist = data.updates.slice(0, 3);
             Character Parts
           </p>
           <p class="text-sm text-left text-white">
-            View and download character "files/parts/sheets" extracted from all
-            of the official preview pages & web events, etc.
+            Assets in a files/parts/sheets format extracted from all
+            of the official web events/preview pages including fanmade assets.
           </p>
           <div class="text-right md:text-left">
             <a href="/characterparts">
@@ -165,11 +165,27 @@ let updatelist = data.updates.slice(0, 3);
         </div>
 
         <div
+        class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
+        <p class="text-sm font-semibold uppercase text-center">Genius Invokation TCG</p>
+        <p class="text-sm text-left text-white">
+          Genius Invokation TCG assets that've been extracted from the game files. 
+        </p>
+        <div class="text-right md:text-left">
+          <a href="/tcg">
+            <button
+              class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
+              ><i class="fa-solid fa-download"></i> Download
+              <i class="fa-solid fa-chevron-right"></i></button>
+          </a>
+        </div>
+      </div>
+
+        <div
           class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
           <p class="text-sm font-semibold uppercase text-center">Splash Art</p>
           <p class="text-sm text-left text-white">
-            View and download splash art of all playable characters, with &
-            without the background.
+            Splash art of all 'playable' characters, with and
+            without their backgrounds.
           </p>
           <div class="text-right md:text-left">
             <a href="/splashart">
@@ -241,13 +257,12 @@ let updatelist = data.updates.slice(0, 3);
         </div>
 
         <div
-          class="bg-[#1E1E1E] lg:col-span-2 transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
+          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
           <p class="text-sm font-semibold uppercase text-center">
             Discord Server
           </p>
           <p class="text-sm text-left text-white">
-            ({onlineUsers} users online) Join the discord server to hear about updates,
-            get help with the website or to just speak to others.
+            ({onlineUsers} users online) Join the discord server to hear about updates, ask questions & talk to others.
           </p>
           <div class="text-right md:text-left">
             <a href="https://discord.com/invite/659KAFfNd6">

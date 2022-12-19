@@ -2,20 +2,26 @@
   import { writable } from "svelte/store";
   import { browser } from "$app/environment";
 
-  const helpfulSites = [
-    { url: "Dimbreath/GenshinData", details: "Overall Genshin Data." },
-    { url: "theBowja/genshin-db", details: "Organized data from GenshinData" },
-    { url: "tailwindlabs/tailwindcss", details: "CSS Framework used" },
-    { url: "sveltejs/sveltekit", details: "What the website was built with" },
-    { url: "frzyc/genshin-optimizer", details: "Image Assets" },
-    { url: "genshin-impact.fandom.com", details: "Image Assets" },
-    {
-      url: "genshin.hoyoverse.com",
-      details: "Preview Pages - where the 'Character Parts' come from..",
-    },
-  ];
-
   let unreleasedContent;
+
+  const contributors = [
+    {
+      "name": "dromzeh#1337",
+      "description": "Site creator and developer."
+    },
+    {
+      "name": "gothiccbiscuit#0802",
+      "description": "Created fanmade Character Sheets."
+    },
+    {
+      "name": "truck kun#3755",
+      "description": "Created fanmade Character Sheets."
+    },
+    {
+      "name": "Ms. Universe#6684",
+      "description": "Created fanmade Character Sheets."
+    }
+  ]
 
   /* check for unreleasedContent in localStorage */
   if (browser) {
@@ -66,28 +72,20 @@
       </div>
       <br />
 
-      <h1 class="text-white font-semibold gifont">Credits:</h1>
-      <p class="text-gray-400">
-        This website was made thanks to the help of the following:
-      </p>
+      <h1 class="text-white font-semibold gifont">Contributors:</h1>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-        {#each helpfulSites as site}
-          <div
-            class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300"
-          >
-            <p class="text-sm font-semibold uppercase text-center">
-              {site.url}
-            </p>
-            <p class="text-sm text-left text-white">{site.details}</p>
-            <div class="text-right md:text-left" />
-          </div>
-        {/each}
-      </div>
+        <ul class="list-disc list-inside">
+          {#each contributors as contributor}
+            <li class="text-gray-400 text-sm">
+              <span class="indent-5 font-semibold text-white">{contributor.name}</span> - {contributor.description}
+            </li>
+          {/each}
+        </ul>
 
+     
       <br />
       <p class="text-gray-400 text-m">
-        You can view the changelog <a
+        You can view the update changelog <a
           href="/updates"
           class="font-semibold text-white  hover:text-indigo-500">here</a
         >.

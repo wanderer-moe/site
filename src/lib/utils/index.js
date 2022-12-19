@@ -25,6 +25,9 @@ export const fetchImages = async (location) => {
         case 'splashart':
             allImageFiles = import.meta.glob('/static/images/splashart/*.png')
             break
+        case 'tcg':
+            allImageFiles = import.meta.glob('/static/images/tcg/*.png')
+            break
         default:
             throw new Error('Unrecognized image location')
     }
