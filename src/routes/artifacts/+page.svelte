@@ -27,33 +27,36 @@ if (!unreleasedContent) {
   <title>artifacts | wanderer.moe</title>
 </svelte:head>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex min-h-screen flex-col">
   <section class="py-24 md:py-40">
-    <div class="container px-4 mx-auto">
-      <h1 class="text-white font-semibold gifont">Artifact Index</h1>
-      <p class="text-gray-400 text-sm">
+    <div class="container mx-auto px-4">
+      <h1 class="gifont font-semibold text-white">Artifact Index</h1>
+      <p class="text-sm text-gray-400">
         Contains all artifacts. You can toggle released and unreleased content
         in the settings.
       </p>
 
       <br />
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+      <div class="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6">
         {#each allArtifacts as artifact}
           <div
-            class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg p-2 text-sm justify-center text-white font-semibold">
+            class="justify-center rounded-lg bg-[#1E1E1E] p-2 text-sm font-semibold text-white transition duration-150 ease-in-out hover:scale-105"
+          >
             <a
               href="/artifacts/{artifact.name
                 .replace(/\s+/g, '-')
-                .toLowerCase()}">
+                .toLowerCase()}"
+            >
               <img
                 class="mx-auto h-32 w-32"
                 src="/images/artifacts/{artifact.name
                   .replace(/\s+/g, '-')
                   .toLowerCase()}/flower.png"
                 alt="{artifact.name}"
-                loading="lazy" />
-              <p class="text-base text-center">{artifact.name}</p>
-              <p class="text-base text-center">★★★★★</p>
+                loading="lazy"
+              />
+              <p class="text-center text-base">{artifact.name}</p>
+              <p class="text-center text-base">★★★★★</p>
             </a>
           </div>
         {/each}

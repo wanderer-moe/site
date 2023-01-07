@@ -1,23 +1,23 @@
 <script>
-  /** @type {import('./$types').PageData} */
-  export let data;
+/** @type {import('./$types').PageData} */
+export let data;
 
-  let id = data.id;
+let id = data.id;
 
-  let rarity = "⭐".repeat(Math.max(...data.jsonFile.default.rarity));
+let rarity = "⭐".repeat(Math.max(...data.jsonFile.default.rarity));
 </script>
 
 <svelte:head>
   <title>{data.jsonFile.default.name} | wanderer.moe</title>
 </svelte:head>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex min-h-screen flex-col">
   <section class="py-24 md:py-40">
-    <div class="container px-4 mx-auto">
-      <p class="text-white text-4xl font-semibold">
+    <div class="container mx-auto px-4">
+      <p class="text-4xl font-semibold text-white">
         <span class="gifont">Artifact Set: {data.jsonFile.default.name}</span>
       </p>
-      <p class="text-white text-4xl">{rarity}</p>
+      <p class="text-4xl text-white">{rarity}</p>
       <br />
 
       <!-- stats section -->
@@ -25,9 +25,9 @@
         <div class="w-full">
           <div class="flex flex-col">
             <!-- container for artifact name -->
-            <div class="grid gap-2 items-center">
+            <div class="grid items-center gap-2">
               <div
-                class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg   max-w-full text-gray-400 font-semibold"
+                class="max-w-full rounded-lg bg-[#1E1E1E] font-semibold text-gray-400 transition   duration-150 ease-in-out hover:scale-105"
               >
                 <p class="text-center">
                   <span class="text-white">1pc bonus:</span>
@@ -39,22 +39,22 @@
                 <!-- circlet is the only present item in prayers-[id] artifacts. -->
 
                 <div
-                  class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105  rounded-lg text-gray-400 font-semibold flex items-center "
+                  class="flex items-center rounded-lg bg-[#1E1E1E] font-semibold  text-gray-400 transition duration-150 ease-in-out hover:scale-105 "
                 >
                   <img
-                    class="object-left artifactImg"
+                    class="artifactImg object-left"
                     src="/images/artifacts/prayers-{id}/circlet.png"
-                    alt={data.jsonFile.circlet.name}
+                    alt="{data.jsonFile.circlet.name}"
                     loading="lazy"
                   />
                   <div>
-                    <p class="text-white gifont text-xl text-left">
+                    <p class="gifont text-left text-xl text-white">
                       {data.jsonFile.circlet.name}
                     </p>
-                    <p class="text-white text-left">
+                    <p class="text-left text-white">
                       "{data.jsonFile.circlet.relictype}"
                     </p>
-                    <p class="text-gray-400 text-left italic">
+                    <p class="text-left italic text-gray-400">
                       "{data.jsonFile.circlet.description}"
                     </p>
                   </div>

@@ -17,53 +17,58 @@ let rarity = "★".repeat(data.jsonFile.rarity);
   <title>{data.jsonFile.fullname} | wanderer.moe</title>
 </svelte:head>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex min-h-screen flex-col">
   <div class="p-5">
     <div class="relative">
       <img
         src="/images/characters/{id}/Banner.png"
-        class="absolute inset-0 object-cover w-full h-full"
-        alt="{data.jsonFile.fullname}" />
+        class="absolute inset-0 h-full w-full object-cover"
+        alt="{data.jsonFile.fullname}"
+      />
       <div class="relative bg-[#1A1A1A] bg-opacity-10">
         <div class="p-5">
           <div class="flex flex-col">
             <!-- -->
             <div class="flex">
               <img
-                class="w-48 h-48 iconImg hidden xl:block"
+                class="iconImg hidden h-48 w-48 xl:block"
                 src="/images/characters/{id}/Icon.png"
-                alt="{data.jsonFile.fullname}" />
+                alt="{data.jsonFile.fullname}"
+              />
               <div
-                class="bg-[#1A1A1A] bg-opacity-70 text-white rounded shadow-2xl p-7 w-full">
+                class="w-full rounded bg-[#1A1A1A] bg-opacity-70 p-7 text-white shadow-2xl"
+              >
                 <div class="flex items-center">
                   <div>
                     <img
-                      class="w-8 h-8"
+                      class="h-8 w-8"
                       src="/images/elements/{data.jsonFile.element.toLowerCase()}.png"
                       alt="{data.jsonFile.element} symbol"
-                      loading="lazy" />
+                      loading="lazy"
+                    />
                   </div>
-                  <p class="text-white text-2xl gifont">
+                  <p class="gifont text-2xl text-white">
                     {data.jsonFile.fullname}
                   </p>
                 </div>
                 <!-- <p class="text-xs">{rarity}</p> -->
 
-                <p class="text-white text-l gifont">
+                <p class="text-l gifont text-white">
                   "{data.jsonFile.title}"
                   <span class="text-l justify-right align-right gifont"
-                    >{rarity}</span>
+                    >{rarity}</span
+                  >
                 </p>
 
-                <hr class="text-white m-1 opacity-30" />
+                <hr class="m-1 text-white opacity-30" />
 
-                <p class="text-white gifont">
+                <p class="gifont text-white">
                   Constellation: {data.jsonFile.constellation}
                 </p>
-                <p class="text-white gifont">
+                <p class="gifont text-white">
                   Affiliation: {data.jsonFile.affiliation}
                 </p>
-                <p class="text-white gifont">
+                <p class="gifont text-white">
                   Birthday: {data.jsonFile.birthday}
                 </p>
               </div>
@@ -74,60 +79,67 @@ let rarity = "★".repeat(data.jsonFile.rarity);
     </div>
   </div>
 
-  <div class="container px-2 mx-auto p-4">
-    <p class="text-white text-xl gifont">Ascension Materials</p>
+  <div class="container mx-auto p-4 px-2">
+    <p class="gifont text-xl text-white">Ascension Materials</p>
     <div
-      class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-2 rounded-lg max-w-full text-gray-400 font-semibold">
-      <div class="flex flex-wrap gap-10 justify-center">
+      class="max-w-full rounded-lg bg-[#1E1E1E] p-2 font-semibold text-gray-400 transition duration-150 ease-in-out hover:scale-105"
+    >
+      <div class="flex flex-wrap justify-center gap-10">
         <img
-          class="object-contain h-16 w-16"
+          class="h-16 w-16 object-contain"
           src="/images/items/{data.jsonFile.costs.ascend5[1].name
             .replace(/\s+/g, '-')
             .replace("'", '')
             .toLowerCase()}.png"
           alt="{data.jsonFile.costs.ascend5[1].name}"
-          loading="lazy" />
+          loading="lazy"
+        />
         <img
-          class="object-contain h-16 w-16"
+          class="h-16 w-16 object-contain"
           src="/images/items/{data.jsonFile.costs.ascend5[2].name
             .replace(/\s+/g, '-')
             .replace("'", '')
             .toLowerCase()}.png"
           alt="{data.jsonFile.costs.ascend5[2].name}"
-          loading="lazy" />
+          loading="lazy"
+        />
         <img
-          class="object-contain h-16 w-16"
+          class="h-16 w-16 object-contain"
           src="/images/items/{data.jsonFile.costs.ascend5[3].name
             .replace(/\s+/g, '-')
             .replace("'", '')
             .toLowerCase()}.png"
           alt="{data.jsonFile.costs.ascend5[3].name}"
-          loading="lazy" />
+          loading="lazy"
+        />
         <img
-          class="object-contain h-16 w-16"
+          class="h-16 w-16 object-contain"
           src="/images/items/{data.jsonFile.costs.ascend5[4].name
             .replace(/\s+/g, '-')
             .replace("'", '')
             .toLowerCase()}.png"
           alt="{data.jsonFile.costs.ascend5[4].name}"
-          loading="lazy" />
+          loading="lazy"
+        />
       </div>
     </div>
   </div>
 
-  <div class="container px-2 mx-auto p-4">
-    <p class="text-white text-xl gifont">Stats</p>
+  <div class="container mx-auto p-4 px-2">
+    <p class="gifont text-xl text-white">Stats</p>
     <div
-      class="bg-[#1E1E1E] transition duration-150 container ease-in-out hover:scale-105 p-2 rounded-lg max-w-full text-gray-400">
+      class="container max-w-full rounded-lg bg-[#1E1E1E] p-2 text-gray-400 transition duration-150 ease-in-out hover:scale-105"
+    >
       <div>
         <!-- table to store stats -->
-        <div class="overflow-x-auto relative">
-          <table class="w-full text-sm text-left text-white gifont">
+        <div class="relative overflow-x-auto">
+          <table class="gifont w-full text-left text-sm text-white">
             <tbody>
               <tr class="border-b border-opacity-5">
                 <th
                   scope="row"
-                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  class="whitespace-nowrap py-4 px-6 font-medium text-white"
+                >
                   Ascension Substat
                 </th>
                 <td class="py-4 px-6 text-right"> {data.jsonFile.substat} </td>
@@ -135,7 +147,8 @@ let rarity = "★".repeat(data.jsonFile.rarity);
               <tr class="border-b border-opacity-5">
                 <th
                   scope="row"
-                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  class="whitespace-nowrap py-4 px-6 font-medium text-white"
+                >
                   Element
                 </th>
                 <td class="py-4 px-6 text-right"> {data.jsonFile.element} </td>
@@ -143,7 +156,8 @@ let rarity = "★".repeat(data.jsonFile.rarity);
               <tr class="border-b border-opacity-5">
                 <th
                   scope="row"
-                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  class="whitespace-nowrap py-4 px-6 font-medium text-white"
+                >
                   Weapon Type
                 </th>
                 <td class="py-4 px-6 text-right">
@@ -153,7 +167,8 @@ let rarity = "★".repeat(data.jsonFile.rarity);
               <tr class="border-b border-opacity-5">
                 <th
                   scope="row"
-                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  class="whitespace-nowrap py-4 px-6 font-medium text-white"
+                >
                   Region
                 </th>
                 <td class="py-4 px-6 text-right"> {data.jsonFile.region} </td>
@@ -161,7 +176,8 @@ let rarity = "★".repeat(data.jsonFile.rarity);
               <tr class="border-opacity-5">
                 <th
                   scope="row"
-                  class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                  class="whitespace-nowrap py-4 px-6 font-medium text-white"
+                >
                   Gender
                 </th>
                 <td class="py-4 px-6 text-right">
@@ -176,27 +192,30 @@ let rarity = "★".repeat(data.jsonFile.rarity);
   </div>
 
   {#if data.jsonFile.artifactSet != "undefined" || data.jsonFile.artifactSet}
-    <div class="container px-2 mx-auto p-4">
-      <p class="text-white text-xl gifont">Reccomended Artifact</p>
+    <div class="container mx-auto p-4 px-2">
+      <p class="gifont text-xl text-white">Reccomended Artifact</p>
       <div
-        class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 rounded-lg text-white p-5">
-        <div class="flex gap-10 justify-center items-center">
+        class="rounded-lg bg-[#1E1E1E] p-5 text-white transition duration-150 ease-in-out hover:scale-105"
+      >
+        <div class="flex items-center justify-center gap-10">
           <img
-            class="object-left h-16 w-16"
+            class="h-16 w-16 object-left"
             src="/images/artifacts/{data.jsonFile.artifactSet
               .replace(/\s+/g, '-')
               .replace("'", '')
               .toLowerCase()}/flower.png"
             alt="{data.jsonFile.artifactSet}"
-            loading="lazy" />
+            loading="lazy"
+          />
           <a
             href="/artifacts/{data.jsonFile.artifactSet
               .replace(/\s+/g, '-')
               .replace("'", '')
               .toLowerCase()}"
-            ><p class="hover:text-indigo-500 text-white text-2xl gifont">
+            ><p class="gifont text-2xl text-white hover:text-indigo-500">
               {data.jsonFile.artifactSet}
-            </p></a>
+            </p></a
+          >
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 export async function load({ params, fetch }) {
-	const { id } = params;
-	const jsonFile = await import(`../../../data/artifacts/prayers-${id}.json`);
+  const { id } = params;
+  const jsonFile = await import(`../../../data/artifacts/prayers-${id}.json`);
 
-	return { id, jsonFile }
+  return { id, jsonFile };
 }

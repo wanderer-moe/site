@@ -1,7 +1,3 @@
-<script context = "module">
-import data from "../data/updateList.json";
-</script>
-
 <script>
 import { onMount } from "svelte";
 import axios from "axios";
@@ -11,6 +7,8 @@ let onlineUsers = "?";
 let timeEU;
 let timeNA;
 let timeAsia;
+
+export let data;
 
 async function getDiscordData() {
   try {
@@ -125,151 +123,173 @@ let updatelist = data.updates.slice(0, 3);
   <title>wanderer.moe</title>
 </svelte:head>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex min-h-screen flex-col">
   <section class="py-24 md:py-40">
-    <div class="container px-2 mx-auto">
-      <p class="text-white gifont text-4xl text-left">wanderer.moe</p>
-      <p class="text-white gifont text-xl text-left">
+    <div class="container mx-auto px-2">
+      <p class="gifont text-left text-4xl text-white">wanderer.moe</p>
+      <p class="gifont text-left text-xl text-white">
         A (pretty) useful website/database for Genshin Impact assets. <img
-          class="h-8 w-8 inline"
+          class="inline h-8 w-8"
           src="/images/emotes/kazuha-collab7.png"
-          alt="genshin emote" />
+          alt="genshin emote"
+        />
       </p>
-      <p class="text-gray-400 text-sm text-left">
+      <p class="text-left text-sm text-gray-400">
         This website contains assets & content from Genshin Impact. If you've
         been redirected from wtf.dromzeh.dev or need help, you can join the <a
           href="https://discord.com/invite/659KAFfNd6"
           class="font-semibold text-white hover:text-indigo-300"
-          >discord server</a>
+          >discord server</a
+        >
         ({onlineUsers} online)
       </p>
       <br />
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
         <div
-          class="bg-[#1E1E1E] transition duration-150 lg:col-span-2 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
-          <p class="text-sm font-semibold uppercase text-center">
+          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300 lg:col-span-2"
+        >
+          <p class="text-center text-sm font-semibold uppercase">
             Character Parts
           </p>
-          <p class="text-sm text-left text-white">
-            Assets in a files/parts/sheets format extracted from all
-            of the official web events/preview pages including fanmade assets.
+          <p class="text-left text-sm text-white">
+            Assets in a files/parts/sheets format extracted from all of the
+            official web events/preview pages including fanmade assets.
           </p>
           <div class="text-right md:text-left">
             <a href="/characterparts">
-              <button 
-                class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
+              <button
+                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
                 ><i class="fa-solid fa-download"></i> Download
-                <i class="fa-solid fa-chevron-right"></i></button>
+                <i class="fa-solid fa-chevron-right"></i></button
+              >
             </a>
           </div>
         </div>
 
         <div
-        class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
-        <p class="text-sm font-semibold uppercase text-center">Genius Invokation TCG</p>
-        <p class="text-sm text-left text-white">
-          Genius Invokation TCG assets that've been extracted from the game files. 
-        </p>
-        <div class="text-right md:text-left">
-          <a href="/tcg">
-            <button
-              class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
-              ><i class="fa-solid fa-download"></i> Download
-              <i class="fa-solid fa-chevron-right"></i></button>
-          </a>
+          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
+        >
+          <p class="text-center text-sm font-semibold uppercase">
+            Genius Invokation TCG
+          </p>
+          <p class="text-left text-sm text-white">
+            Genius Invokation TCG assets that've been extracted from the game
+            files.
+          </p>
+          <div class="text-right md:text-left">
+            <a href="/tcg">
+              <button
+                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                ><i class="fa-solid fa-download"></i> Download
+                <i class="fa-solid fa-chevron-right"></i></button
+              >
+            </a>
+          </div>
         </div>
-      </div>
 
         <div
-          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
-          <p class="text-sm font-semibold uppercase text-center">Splash Art</p>
-          <p class="text-sm text-left text-white">
-            Splash art of all 'playable' characters, with and
-            without their backgrounds.
+          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
+        >
+          <p class="text-center text-sm font-semibold uppercase">Splash Art</p>
+          <p class="text-left text-sm text-white">
+            Splash art of all 'playable' characters, with and without their
+            backgrounds.
           </p>
           <div class="text-right md:text-left">
             <a href="/splashart">
               <button
-                class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
+                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
                 ><i class="fa-solid fa-download"></i> Download
-                <i class="fa-solid fa-chevron-right"></i></button>
+                <i class="fa-solid fa-chevron-right"></i></button
+              >
             </a>
           </div>
         </div>
 
         <div
-          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
-          <p class="text-sm font-semibold uppercase text-center">
+          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
+        >
+          <p class="text-center text-sm font-semibold uppercase">
             In Game Emotes
           </p>
-          <p class="text-sm text-left text-white">
+          <p class="text-left text-sm text-white">
             View and download images of Genshin's in-game emotes (stickers) with
             transparent backgrounds.
           </p>
           <div class="text-right md:text-left">
             <a href="/emotes">
               <button
-                class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
+                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
                 ><i class="fa-solid fa-download"></i> Download
-                <i class="fa-solid fa-chevron-right"></i></button>
+                <i class="fa-solid fa-chevron-right"></i></button
+              >
             </a>
           </div>
         </div>
 
         <div
-          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
-          <p class="text-sm font-semibold uppercase text-center">Artifacts</p>
-          <p class="text-sm text-left text-white">
+          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
+        >
+          <p class="text-center text-sm font-semibold uppercase">Artifacts</p>
+          <p class="text-left text-sm text-white">
             Fetch information about artifacts, descriptions and all available
             artifact set bonuses.
           </p>
           <div class="text-right md:text-left">
             <a href="/artifacts">
               <button
-                class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
+                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
                 ><img
-                  class="h-5 w-5 inline"
+                  class="inline h-5 w-5"
                   src="images/icons/artifacticon.png"
-                  alt="artifact icon" />
-                Artifacts <i class="fa-solid fa-chevron-right"></i></button>
+                  alt="artifact icon"
+                />
+                Artifacts <i class="fa-solid fa-chevron-right"></i></button
+              >
             </a>
           </div>
         </div>
 
         <div
-          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
-          <p class="text-sm font-semibold uppercase text-center">Characters</p>
-          <p class="text-sm text-left text-white">
+          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
+        >
+          <p class="text-center text-sm font-semibold uppercase">Characters</p>
+          <p class="text-left text-sm text-white">
             Fetch information, stats and level up materials about all the
             playable characters.
           </p>
           <div class="text-right md:text-left">
             <a href="/characters">
               <button
-                class="bg-indigo-400 font-semibold text-white p-0.5 text-sm bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
+                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
                 ><img
-                  class="h-5 w-5 inline"
+                  class="inline h-5 w-5"
                   src="images/icons/charactericon.png"
-                  alt="character icon" />
-                Characters <i class="fa-solid fa-chevron-right"></i></button>
+                  alt="character icon"
+                />
+                Characters <i class="fa-solid fa-chevron-right"></i></button
+              >
             </a>
           </div>
         </div>
 
         <div
-          class="bg-[#1E1E1E] transition duration-150 ease-in-out hover:scale-105 p-4 rounded-lg flex flex-col gap-1 justify-center text-indigo-200 hover:text-indigo-300">
-          <p class="text-sm font-semibold uppercase text-center">
+          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
+        >
+          <p class="text-center text-sm font-semibold uppercase">
             Discord Server
           </p>
-          <p class="text-sm text-left text-white">
-            ({onlineUsers} users online) Join the discord server to hear about updates, ask questions & talk to others.
+          <p class="text-left text-sm text-white">
+            ({onlineUsers} users online) Join the discord server to hear about updates,
+            ask questions & talk to others.
           </p>
           <div class="text-right md:text-left">
             <a href="https://discord.com/invite/659KAFfNd6">
               <button
-                class="bg-indigo-400 font-semibold text-white p-0.5 text-sm only:bg-opacity-75 rounded-lg text-center px-2.5 py-2.5 hover:bg-indigo-500 focus:shadow focus:outline-none"
+                class="rounded-lg bg-indigo-400 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white only:bg-opacity-75 hover:bg-indigo-500 focus:shadow focus:outline-none"
                 ><i class="fab fa-discord"></i> Join
-                <i class="fa-solid fa-chevron-right"></i></button>
+                <i class="fa-solid fa-chevron-right"></i></button
+              >
             </a>
           </div>
         </div>
@@ -277,25 +297,27 @@ let updatelist = data.updates.slice(0, 3);
 
       <br />
       <br />
-      <p class="text-white gifont text-2xl text-left">
+      <p class="gifont text-left text-2xl text-white">
         <i class="fas fa-circle-info"></i> New Features
       </p>
-      <p class="text-gray-400 text-sm text-left">
+      <p class="text-left text-sm text-gray-400">
         View the full <a
           href="updates"
-          class="font-semibold text-white hover:text-indigo-300">changelog</a> here.
+          class="font-semibold text-white hover:text-indigo-300">changelog</a
+        > here.
       </p>
 
       <br />
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
         {#each updatelist as update}
           <div
-            class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300">
-            <p class="text-sm font-semibold uppercase text-center">
+            class="justify-center rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:text-indigo-300"
+          >
+            <p class="text-center text-sm font-semibold uppercase">
               {update.updateDate}
             </p>
-            <p class="text-sm text-left text-white">{update.details}</p>
+            <p class="text-left text-sm text-white">{update.details}</p>
             <div class="text-right md:text-left"></div>
           </div>
         {/each}
@@ -303,30 +325,33 @@ let updatelist = data.updates.slice(0, 3);
 
       <br />
       <br />
-      <p class="text-white gifont text-2xl text-left">
+      <p class="gifont text-left text-2xl text-white">
         <i class="fa fa-clock"></i> Server Reset Countdown
       </p>
       <br />
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
         <div
-          class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300">
-          <p class="text-sm font-semibold uppercase text-center">
+          class="justify-center rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:text-indigo-300"
+        >
+          <p class="text-center text-sm font-semibold uppercase">
             North America
           </p>
-          <p class="text-sm text-center text-white">{timeNA}</p>
+          <p class="text-center text-sm text-white">{timeNA}</p>
         </div>
 
         <div
-          class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300">
-          <p class="text-sm font-semibold uppercase text-center">Europe</p>
-          <p class="text-sm text-center text-white">{timeEU}</p>
+          class="justify-center rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:text-indigo-300"
+        >
+          <p class="text-center text-sm font-semibold uppercase">Europe</p>
+          <p class="text-center text-sm text-white">{timeEU}</p>
         </div>
 
         <div
-          class="bg-[#1E1E1E] transition duration-150 ease-in-out p-4 rounded-lg justify-center text-indigo-200 hover:text-indigo-300">
-          <p class="text-sm font-semibold uppercase text-center">Asia</p>
-          <p class="text-sm text-center text-white">{timeAsia}</p>
+          class="justify-center rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:text-indigo-300"
+        >
+          <p class="text-center text-sm font-semibold uppercase">Asia</p>
+          <p class="text-center text-sm text-white">{timeAsia}</p>
         </div>
       </div>
     </div>

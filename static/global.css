@@ -1,82 +1,87 @@
 body {
-	margin: 0;
-	font-family: 'Inter', -apple-system, BlinkMacSystemFont;
-	font-size: 14px;
-	line-height: 1.5;
-	color: #333;
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 0.5em 0;
-	font-weight: 400; 
-	line-height: 1.2;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em 0;
+  font-weight: 400;
+  line-height: 1.2;
 }
 @font-face {
-	font-family: 'zhcn';
-	src: url("/fonts/genshinfont.woff") format("woff");
-	font-display: swap;
+  font-family: "zhcn";
+  src: url("/fonts/genshinfont.woff") format("woff");
+  font-display: swap;
 }
 
 .gifont {
-	font-family: 'zhcn';
+  font-family: "zhcn";
 }
 
 h1 {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 a {
-	color: inherit;
+  color: inherit;
 }
 
 @media (min-width: 400px) {
-	body {
-		font-size: 16px;
-	}
+  body {
+    font-size: 16px;
+  }
 }
 
 * {
-	scrollbar-width:thin;
-	scrollbar-color:#6366F1 #1F2937
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 #1f2937;
 }
-   ::-webkit-scrollbar {
-	width:8px
+::-webkit-scrollbar {
+  width: 8px;
 }
-   ::-webkit-scrollbar-track {
-	background:#1F2937
+::-webkit-scrollbar-track {
+  background: #1f2937;
 }
-   ::-webkit-scrollbar-thumb {
-	background:#6366F1;
-	border-radius:8px
+::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 8px;
 }
 
 .characterImg {
-    height: calc(100vh - 4rem);
-    max-height: 700px;
-    max-width: 100%;
+  height: calc(100vh - 4rem);
+  max-height: 700px;
+  max-width: 100%;
 }
 
 .artifactImg {
-	height: calc(100vh - 4rem);
-	max-height: 100px;
-	max-width: 100%;
+  height: calc(100vh - 4rem);
+  max-height: 100px;
+  max-width: 100%;
 }
 
 .previewImg {
-	max-height: 128px;
-	max-width: 128px;
+  max-height: 128px;
+  max-width: 128px;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 ::-moz-selection {
-    color: rgb(255, 255, 255);
-    background: #6366f1;
-  }
-  
-  ::selection {
-    color: rgb(255, 255, 255);
-    background: #6366f1;
-  }
+  color: rgb(255, 255, 255);
+  background: #6366f1;
+}
+
+::selection {
+  color: rgb(255, 255, 255);
+  background: #6366f1;
+}

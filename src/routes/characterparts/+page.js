@@ -1,11 +1,9 @@
-export const load = async ({
-    fetch
-}) => {
-    const response = await fetch(`/api/characterparts`)
-    const characterParts = await response.json()
+export const load = async ({ fetch }) => {
+  const response = await fetch(`/api/characterparts`);
+  const characterParts = await response.json();
 
-    // return the character parts
-    return {
-        characterParts
-    }
-}
+  // return the character parts
+  return {
+    characterParts,
+  };
+};

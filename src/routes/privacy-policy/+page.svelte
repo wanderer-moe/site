@@ -2,12 +2,12 @@
   <title>privacy | wanderer.moe</title>
 </svelte:head>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex min-h-screen flex-col">
   <section class="py-24 md:py-40">
-    <div class="container px-4 mx-auto">
-      <h1 class="text-white font-semibold gifont">Privacy Policy</h1>
+    <div class="container mx-auto px-4">
+      <h1 class="gifont font-semibold text-white">Privacy Policy</h1>
       <br />
-      <p class="text-white font-semibold text-xl">
+      <p class="text-xl font-semibold text-white">
         Information this site collects:
       </p>
       <p class="text-white">
@@ -21,7 +21,7 @@
       </p>
       <p class="text-white">
         • If you would like to opt out of Google Analytics, there is an <span
-          class="text-indigo-500 font-semibold"
+          class="font-semibold text-indigo-500"
           ><a href="https://tools.google.com/dlpage/gaoptout">add-on</a></span
         > you can install.
       </p>
