@@ -1,6 +1,10 @@
 {
   "updates": [
     {
+      "updateDate": "8th January, 2023",
+      "details": "All image file sizes have been decreased (no quality change) and pages should now load significantly faster than before."
+    },
+    {
       "updateDate": "7th January, 2023",
       "details": "Assets from the 3.4 preview page (Alhaitham, Yaoyao, Ayaka & Lisa Skins) have been uploaded & Dehya and Mika splashart (nobg)."
     },

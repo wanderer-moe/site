@@ -149,11 +149,10 @@ let updatelist = data.updates.slice(0, 3);
           class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300 lg:col-span-2"
         >
           <p class="text-center text-sm font-semibold uppercase">
-            Character Parts
+            Character Sheets
           </p>
           <p class="text-left text-sm text-white">
-            Assets in a files/parts/sheets format extracted from all of the
-            official web events/preview pages including fanmade assets.
+            Assets in a files/parts/sheets format extracted from the Official Game Client(s), Web Events and Preview Pages - also includes fanmade assets.
           </p>
           <div class="text-right md:text-left">
             <a href="/characterparts">
@@ -173,8 +172,8 @@ let updatelist = data.updates.slice(0, 3);
             Genius Invokation TCG
           </p>
           <p class="text-left text-sm text-white">
-            Genius Invokation TCG assets that've been extracted from the game
-            files.
+            Genius Invokation TCG assets that've been extracted from the Game
+            Client and Web Events.
           </p>
           <div class="text-right md:text-left">
             <a href="/tcg">
