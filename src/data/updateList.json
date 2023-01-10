@@ -1,6 +1,10 @@
 {
   "updates": [
     {
+      "updateDate": "10th January, 2023",
+      "details": "Added 170+ new parts/sheets datamined from the 1.6-3.3 Genshin Clients. Sheets extracted from TCG are in /tcg."
+    },
+    {
       "updateDate": "8th January, 2023",
       "details": "All image file sizes have been decreased (no quality change) and pages should now load significantly faster than before."
     },
