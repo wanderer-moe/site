@@ -5,7 +5,7 @@ specifiers:
   '@mdi/js': ^7.1.96
   '@popperjs/core': ^2.11.6
   '@sveltejs/adapter-static': 1.0.1
-  '@sveltejs/kit': 1.0.7
+  '@sveltejs/kit': 1.0.11
   autoprefixer: ^10.4.13
   axios: ^1.2.2
   chart.js: ^4.1.2
@@ -35,7 +35,7 @@ specifiers:
 dependencies:
   '@jridgewell/sourcemap-codec': 1.4.14
   '@popperjs/core': 2.11.6
-  '@sveltejs/kit': 1.0.7_svelte@3.55.0+vite@4.0.4
+  '@sveltejs/kit': 1.0.11_svelte@3.55.0+vite@4.0.4
   axios: 1.2.2
   file-saver: 2.0.5
   jszip: 3.10.1
@@ -45,7 +45,7 @@ dependencies:
 
 devDependencies:
   '@mdi/js': 7.1.96
-  '@sveltejs/adapter-static': 1.0.1_@sveltejs+kit@1.0.7
+  '@sveltejs/adapter-static': 1.0.1_@sveltejs+kit@1.0.11
   autoprefixer: 10.4.13_postcss@8.4.21
   chart.js: 4.1.2
   dayjs: 1.11.7
@@ -339,16 +339,16 @@ packages:
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
 
-  /@sveltejs/adapter-static/1.0.1_@sveltejs+kit@1.0.7:
+  /@sveltejs/adapter-static/1.0.1_@sveltejs+kit@1.0.11:
     resolution: {integrity: sha512-lusMk8ckXuAK5W04/3P3UqVi+nyOyNRbgSfhzc+Wwy0WLMKQ/qxUAzc7BCFOPz0FrIkGYZmyGHC05SfhrrQleg==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.0.7_svelte@3.55.0+vite@4.0.4
+      '@sveltejs/kit': 1.0.11_svelte@3.55.0+vite@4.0.4
     dev: true
 
-  /@sveltejs/kit/1.0.7_svelte@3.55.0+vite@4.0.4:
-    resolution: {integrity: sha512-u8JS4aXFWlrnu/tjl+EhJ/FvBEjLYDyMaLe7EAU4sW+PfDqnqyHBAPg/IQi5JuBg6l+Z816F4WrTe+zplUTQDg==}
+  /@sveltejs/kit/1.0.11_svelte@3.55.0+vite@4.0.4:
+    resolution: {integrity: sha512-FcbR2/jlKtSfFBXwnqgpWnoOG54foLQB2esdkkdz7uei0+KnK5ulWZw0lJbMzXTy7kfxRvH1spxlXoBpPizUqg==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
