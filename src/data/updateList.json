@@ -1,6 +1,10 @@
 {
   "updates": [
     {
+      "updateDate": "13th January, 2023",
+      "details": "Added new sheets extracted from Alhaitham's web event: 'The Six Faces of Wisdom'."
+    },
+    {
       "updateDate": "10th January, 2023",
       "details": "Added 170+ new parts/sheets datamined from the 1.6-3.3 Genshin Clients. Sheets extracted from TCG are in /tcg."
     },
