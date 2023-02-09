@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@mdi/js": "^7.1.96",
-    "@sveltejs/adapter-static": "1.0.5",
+    "@sveltejs/adapter-static": "2.0.1",
     "autoprefixer": "^10.4.13",
     "chart.js": "^4.2.0",
     "dayjs": "^1.11.7",
