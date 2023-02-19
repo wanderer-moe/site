@@ -1,9 +1,10 @@
 body {
   margin: 0;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont;
   font-size: 14px;
   line-height: 1.5;
   color: #333;
+  /* overflow-x: hidden; */
 }
 
 h1,
@@ -23,7 +24,7 @@ h6 {
 }
 
 .gifont {
-  font-family: "zhcn";
+  font-family: "Palanquin Dark", sans-serif;
 }
 
 h1 {

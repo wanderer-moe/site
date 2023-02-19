@@ -17,16 +17,15 @@ import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 export let data;
 
+let searchTerm = "";
+let filteredassets = [];
 let selectedItems = [];
 
-let emotes = data.emotes;
-emotes = emotes.map((em) => em.name + ".png");
-
-let searchTerm = "";
-let filteredEmotes = [];
+let assets = data.emotes;
+assets = assets.map((part) => part.name + ".png");
 
 const errorToast = Toastify({
-  text: "Something went wrong while downloading the .zip, please send a screenshot of this message in the discord server.",
+  text: "Something went wrong while downloading the .zip.",
   duration: 5000,
   newWindow: true,
   close: true,
@@ -38,7 +37,7 @@ const errorToast = Toastify({
 });
 
 const downloadToast = Toastify({
-  text: "Downloading files into a .zip file, this can take a while - please be patient! ☺️",
+  text: "Downloading files into a .zip file, this can take a while - please be patient!",
   duration: 15000,
   newWindow: true,
   close: true,
@@ -50,28 +49,29 @@ const downloadToast = Toastify({
 });
 
 $: {
+  filteredassets = assets;
   if (searchTerm) {
-    filteredEmotes = emotes.filter((emote) => {
-      return emote
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase().replace(" ", "-"));
+    searchTerm = searchTerm.toLowerCase().replace(" ", "-");
+    filteredassets = assets.filter((asset) => {
+      return asset.toLowerCase().includes(searchTerm);
     });
-  } else {
-    filteredEmotes = emotes;
   }
 }
 
-// function to download all emotes
 async function downloadAll() {
-  console.log("downloading all emotes");
   downloadToast.showToast();
 
   const zip = new JSZip();
   const folder = zip.folder("emotes");
-  for (let i = 0; i < emotes.length; i++) {
-    const response = await fetch(`/images/emotes/${emotes[i]}`);
-    const blob = await response.blob();
-    folder.file(emotes[i], blob);
+  for (let i = 0; i < assets.length; i++) {
+    try {
+      const response = await fetch(`/images/emotes/${assets[i]}`);
+      const blob = await response.blob();
+      folder.file(assets[i], blob);
+    } catch (error) {
+      console.log(error);
+      errorToast.showToast();
+    }
   }
   try {
     zip.generateAsync({ type: "blob" }).then(function (content) {
@@ -92,18 +92,22 @@ async function downloadAll() {
   }
 }
 
-// function to download selected emotes
+// download selected character parts
 async function downloadSelected() {
-  console.log("downloading selected emotes");
+  console.log("downloading selected character parts");
   downloadToast.showToast();
 
   const zip = new JSZip();
   const folder = zip.folder("emotes-selected");
+
+  // Loop through all the selected items and download them
   for (let i = 0; i < selectedItems.length; i++) {
     const response = await fetch(`/images/emotes/${selectedItems[i]}`);
     const blob = await response.blob();
-    folder.file(selectedItems[i], blob);
+    folder.file(`${selectedItems[i]}`, blob);
   }
+
+  // Try to save the zip file
   try {
     zip.generateAsync({ type: "blob" }).then(function (content) {
       // try to save the zip file, if it doesn't work, show an error message
@@ -125,69 +129,74 @@ async function downloadSelected() {
 </script>
 
 <svelte:head>
-  <title>emotes / stickers | wanderer.moe</title>
+  <title>emotes | wanderer.moe</title>
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
-  <section class="py-24 md:py-40">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-wrap justify-between gap-4">
-        <h1 class="font-semibold text-white">
-          <!-- TODO: Fix the layout/CSS for the title & search section. -->
-          <span class="gifont">Emotes / Stickers</span><br /><span
-            class="text-sm font-normal text-gray-400"
-            >You can download <button
-              on:click="{downloadAll}"
-              class="font-semibold text-white hover:text-indigo-400"
-              >all emotes (.zip) here</button
-            >.</span
-          >
+  <section class="py-24">
+    <div class="container mx-auto bg-[#121212] px-4">
+      <div class="mb-6">
+        <h1 class="gifont font-semibold text-white">Emotes / Stickers</h1>
+        <p class="text-sm text-gray-400">
+          Emotes and Stickers extracted from Game Files and Hoyolab.
+        </p>
+        <p class="text-sm text-gray-400">
+          To download several assets at once, checkmark them and click the
+          'Download Selected' Files button.
+        </p>
+      </div>
 
-          <!-- check if there are any entries inside the selectedItems array -->
-          {#if selectedItems.length > 0}
-            <span class="text-xs font-normal text-gray-400"
-              >You can also download <button
-                on:click="{downloadSelected}"
-                class="font-semibold text-white hover:text-indigo-400"
-                >selected emotes (.zip)</button
-              >.</span
-            >
-
-            <!-- if there are no entries inside the selectedItems array -->
-          {:else}
-            <span class="text-xs font-normal text-gray-400"
-              >You can also select multiple emotes and download as .zip</span
-            >
-          {/if}
-        </h1>
-
+      <!-- filters box, box that spans across the whole section -->
+      <p class="text-xl font-semibold text-white">FILTERS</p>
+      <div class="mb-6 rounded-lg bg-[#1E1E1E] p-2 text-white">
         <input
-          class="h-14 w-96 rounded bg-[#1E1E1E] text-center text-indigo-400 focus:shadow focus:outline-none"
+          class="h-14 w-full rounded-lg bg-[#121212] text-center text-indigo-400 focus:shadow focus:outline-none"
           bind:value="{searchTerm}"
           placeholder="🔎 Search for a File"
         />
+        <div class="mt-2">
+          <!-- download all and download selected buttons -->
+          <div class="flex justify-start gap-3">
+            <button
+              class="h-10 w-1/2 rounded-lg bg-indigo-400 bg-opacity-70 px-5 text-left font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none md:w-auto"
+              on:click="{downloadAll}"
+            >
+              <i class="fas fa-download"></i>
+              All Files
+            </button>
+            {#if selectedItems.length > 0}
+              <button
+                class="h-10 w-1/2 rounded-lg bg-indigo-400 bg-opacity-70 px-5 text-left font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none md:w-auto"
+                on:click="{downloadSelected}"
+              >
+                <i class="fas fa-download"></i>
+                Selected Files
+              </button>
+            {/if}
+          </div>
+        </div>
       </div>
-      <br />
 
-      <!-- grid section that contains (filtered) emotes -->
-      <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-        {#each filteredEmotes as entry}
+      <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
+        {#each filteredassets as asset}
           <div
-            class="flex items-center rounded-lg bg-[#1E1E1E] p-3 font-semibold text-gray-400 transition duration-150 ease-in-out hover:scale-105"
+            class="relative flex items-center rounded-lg bg-[#1E1E1E] p-3 font-semibold text-gray-400"
           >
             <img
               class="previewImg object-contain object-left p-1"
-              src="/images/emotes/{entry}"
-              alt="{entry}"
+              src="/images/emotes/{asset}"
+              alt="{asset}"
               loading="lazy"
             />
             <div class="">
               <div class="">
-                <p class="text-m text-left text-white">
-                  {entry.replace(".png", "")}
-                </p>
+                <div class="whitespace-normal break-all">
+                  <p class="text-m text-left lowercase text-white">
+                    {asset.replace(".png", "")}
+                  </p>
+                </div>
                 <a
-                  href="/images/emotes/{entry}"
+                  href="/images/emotes/{asset}"
                   rel="noreferrer"
                   target="_blank"
                   download
@@ -198,18 +207,17 @@ async function downloadSelected() {
                     <i class="fa-solid fa-download"></i> Download
                   </button>
                 </a>
-                <!-- checkbox that will be checked if entry exists in selectedItems -->
                 <input
                   type="checkbox"
-                  class="justify-left ml-2 h-6 w-6 p-1 accent-indigo-500"
-                  checked="{selectedItems.includes(entry)}"
+                  class="absolute top-2 right-2 h-6 w-6 accent-indigo-500"
+                  checked="{selectedItems.includes(asset)}"
                   on:click="{() => {
-                    if (selectedItems.includes(entry)) {
+                    if (selectedItems.includes(asset)) {
                       selectedItems = selectedItems.filter(
-                        (item) => item !== entry
+                        (item) => item !== asset
                       );
                     } else {
-                      selectedItems = [...selectedItems, entry];
+                      selectedItems = [...selectedItems, asset];
                     }
                     console.log(selectedItems);
                   }}"
@@ -218,80 +226,6 @@ async function downloadSelected() {
             </div>
           </div>
         {/each}
-      </div>
-
-      <!-- checks  if filteredCharacterParts is empty -->
-      {#if filteredEmotes.length === 0}
-        <div class="text-center">
-          <img
-            class="emote inline h-24 w-24"
-            src="./images/emotes/xingqiu-3.png"
-            alt="genshin emote"
-          />
-          <p class="text-gray-400">
-            No results were found for '{searchTerm}'.<br />Think something
-            should be here? Feel free to join the
-            <a
-              href="https://discord.com/invite/659KAFfNd6"
-              class="font-semibold text-white hover:text-indigo-400"
-              >discord server</a
-            >
-            and ask or fill out the
-            <a
-              href="
-            https://forms.gle/mqnNngUnewL5QJ6f6"
-              class="font-semibold text-white hover:text-indigo-400"
-              >asset request form</a
-            >.
-          </p>
-        </div>
-      {/if}
-      <div class="faq">
-        <!-- faq box -->
-        <div class="mt-4 rounded-lg bg-[#1E1E1E] p-4">
-          <h2 class="font-semibold text-white">FAQ</h2>
-          <p class="text-white">
-            <span class="font-semibold">Q: </span>How do I download these?<br />
-            <span class="font-semibold">A: </span><span class="text-gray-400"
-              >You can download each file by clicking on the download button of
-              the specific file, it should automatically request to download. If
-              it doesn't and just opens the image in a new tab, right click /
-              hold down on the image and choose "Save image (as)"
-            </span><br />
-            <span class="font-semibold">Q: </span> How do I download all of the
-            files?<br />
-            <span class="font-semibold">A: </span><span class="text-gray-400"
-              >You can download all of the files by clicking on the 'download
-              all' text at the top of the page.</span
-            ><br />
-            <span class="font-semibold">Q: </span> How do I download selected
-            files?<br />
-            <span class="font-semibold">A: </span><span class="text-gray-400"
-              >Click on the 'download selected files' text at the top of the
-              page, after you have selected the files you want to download by
-              clicking on the checkbox on each file.</span
-            ><br />
-            <span class="font-semibold">Q: </span> When searching for a file,
-            the incorrect image shows?<br />
-            <span class="font-semibold">A: </span><span class="text-gray-400"
-              >This occurs when the image you search for hasn't finished
-              downloading so it shows a placeholder. Wait around 30-60 seconds,
-              refresh the page and search again.</span
-            ><br />
-            <span class="font-semibold">Q: </span> When downloading all /
-            selected files, it says it may take a while, I've waited for a
-            couple minutes and it hasn't done anything.<br />
-            <span class="font-semibold">A: </span><span class="text-gray-400"
-              >This can happen sometimes, allow time for every single image to
-              appear and then try downloading again, it then should be instant
-              as the image files are stored in your browser.</span
-            ><br />
-            <span class="text-sm italic text-gray-400"
-              >For help with anything else, join the discord server and check
-              #info-faq or ask in #general-en or dm me: dromzeh#1337.</span
-            >
-          </p>
-        </div>
       </div>
     </div>
   </section>

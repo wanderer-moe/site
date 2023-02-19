@@ -11,6 +11,7 @@ const nav = [
   { title: "Splash Art", path: "/splashart" },
   { title: "Artifacts", path: "/artifacts" },
   { title: "Characters", path: "/characters" },
+  { title: "OC Generator", path: "/oc-generator" },
 ];
 
 let mobileMenu;
@@ -38,10 +39,7 @@ function mobileClick(e) {
         class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between"
       >
         <a href="/" class="flex items-center">
-          <span
-            class="gifont self-center whitespace-nowrap text-xl text-white hover:text-indigo-300"
-            >wanderer.moe</span
-          >
+          <img src="/favicon.png" alt="logo" />
         </a>
 
         <div class="flex items-center md:order-2">
@@ -51,23 +49,13 @@ function mobileClick(e) {
                 <a
                   href="{item.path}"
                   class:active="{$page.url.pathname == item.path}"
-                  class="bg-primary-700 lg:text-primary-700 hidden w-full rounded bg-white bg-opacity-0 p-1 py-2 pr-4 pl-3 font-semibold text-white hover:bg-opacity-5 hover:text-indigo-300 lg:block"
+                  class="bg-primary-700 lg:text-primary-700 hidden w-full rounded  bg-opacity-0 p-1 py-2 pr-4 pl-3 font-semibold text-white hover:bg-opacity-5 hover:text-indigo-300 lg:block"
                   >{item.title}</a
                 >
               </li>
             {/each}
           </ul>
 
-          <p>
-            <a
-              href="https://discord.com/invite/659KAFfNd6"
-              class="mr-2 rounded bg-white bg-opacity-0 px-4 py-2 text-lg font-semibold text-white hover:bg-opacity-5 hover:text-indigo-300 lg:px-5 lg:py-2.5"
-              aria-label="discord"
-              ><i class="fab fa-discord" alt="discord"></i></a
-            >
-          </p>
-
-          <!-- if on a device that isn't considered 'large' then show the navigation button... -->
           <button
             class="px-4 py-2 focus:outline-none lg:ml-auto lg:mr-0 lg:mt-4 lg:hidden lg:h-12 lg:w-12 lg:px-5 lg:py-2.5"
             on:click="{mobileClick}"
@@ -75,7 +63,7 @@ function mobileClick(e) {
           >
             <i
               bind:this="{navBarButton}"
-              class="fa-solid fa-bars cursor-pointer rounded bg-white bg-opacity-0 text-white hover:bg-opacity-5 hover:text-indigo-300"
+              class="fa-solid fa-bars cursor-pointer rounded  bg-opacity-0 text-white hover:bg-opacity-5 hover:text-indigo-300"
             ></i>
           </button>
         </div>
@@ -84,8 +72,7 @@ function mobileClick(e) {
   </div>
 </header>
 
-<!-- mobile navigation menu -->
-<div id="mobilemenu" class="hidden p-4" bind:this="{mobileMenu}">
+<div id="mobilemenu" class="hidden" bind:this="{mobileMenu}">
   <div class="bg-[#1E1E1E] p-4 lg:hidden">
     <ul class="flex grid-cols-1 flex-col gap-3 font-medium">
       {#each nav as item}
@@ -93,7 +80,7 @@ function mobileClick(e) {
           <a
             href="{item.path}"
             class:active="{$page.url.pathname == item.path}"
-            class="bg-primary-700 lg:text-primary-700 w-full rounded bg-white bg-opacity-0 p-1 py-2 pr-4 pl-3 font-semibold text-white hover:bg-opacity-5 hover:text-indigo-300 lg:hidden"
+            class="bg-primary-700 lg:text-primary-700 w-full rounded  bg-opacity-0 p-1 py-2 pr-4 pl-3 font-semibold text-white hover:bg-opacity-5 hover:text-indigo-300 lg:hidden"
             >{item.title}</a
           >
         </li>

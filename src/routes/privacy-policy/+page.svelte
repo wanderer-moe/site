@@ -3,8 +3,8 @@
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
-  <section class="py-24 md:py-40">
-    <div class="container mx-auto px-4">
+  <section class="py-24">
+    <div class="container mx-auto bg-[#121212] px-4">
       <h1 class="gifont font-semibold text-white">Privacy Policy</h1>
       <br />
       <p class="text-xl font-semibold text-white">

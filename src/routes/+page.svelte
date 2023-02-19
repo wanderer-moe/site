@@ -26,6 +26,25 @@ async function getDiscordData() {
   }
 }
 
+const assetlinks = [
+  {
+    name: "Character Sheets / Parts",
+    url: "/characterparts",
+  },
+  {
+    name: "Splash Art",
+    url: "/splashart",
+  },
+  {
+    name: "Genius Invokation TCG",
+    url: "/tcg",
+  },
+  {
+    name: "Emotes / Stickers",
+    url: "/emotes",
+  },
+];
+
 // the code following this is incredibly messy and I'm sorry, but it works. I'm sorry if you're seeing this.
 async function getdateEU() {
   var start = new Date();
@@ -124,233 +143,152 @@ let updatelist = data.updates.slice(0, 3);
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
-  <section class="py-24 md:py-40">
-    <div class="container mx-auto px-2">
-      <p class="gifont text-left text-4xl text-white">wanderer.moe</p>
-      <p class="gifont text-left text-xl text-white">
-        A (pretty) useful website/database for Genshin Impact assets. <img
-          class="inline h-8 w-8"
-          src="/images/emotes/kazuha-collab7.png"
-          alt="genshin emote"
-        />
-      </p>
-      <p class="text-left text-sm text-gray-400">
-        This website contains assets & content from Genshin Impact. If you've
-        been redirected from wtf.dromzeh.dev or need help, you can join the <a
-          href="https://discord.com/invite/659KAFfNd6"
-          class="font-semibold text-white hover:text-indigo-300"
-          >discord server</a
-        >
-        ({onlineUsers} online)
-      </p>
-      <br />
-      <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
-        <div
-          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300 lg:col-span-2"
-        >
-          <p class="text-center text-sm font-semibold uppercase">
-            Character Sheets
-          </p>
-          <p class="text-left text-sm text-white">
-            Assets in a files/parts/sheets format extracted from the Official Game Client(s), Web Events and Preview Pages - also includes fanmade assets.
-          </p>
-          <div class="text-right md:text-left">
-            <a href="/characterparts">
-              <button
-                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
-                ><i class="fa-solid fa-download"></i> Download
-                <i class="fa-solid fa-chevron-right"></i></button
-              >
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
-        >
-          <p class="text-center text-sm font-semibold uppercase">
-            Genius Invokation TCG
-          </p>
-          <p class="text-left text-sm text-white">
-            Genius Invokation TCG assets that've been extracted from the Game
-            Client and Web Events.
-          </p>
-          <div class="text-right md:text-left">
-            <a href="/tcg">
-              <button
-                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
-                ><i class="fa-solid fa-download"></i> Download
-                <i class="fa-solid fa-chevron-right"></i></button
-              >
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
-        >
-          <p class="text-center text-sm font-semibold uppercase">Splash Art</p>
-          <p class="text-left text-sm text-white">
-            Splash art of all 'playable' characters, with and without their
-            backgrounds.
-          </p>
-          <div class="text-right md:text-left">
-            <a href="/splashart">
-              <button
-                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
-                ><i class="fa-solid fa-download"></i> Download
-                <i class="fa-solid fa-chevron-right"></i></button
-              >
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
-        >
-          <p class="text-center text-sm font-semibold uppercase">
-            In Game Emotes
-          </p>
-          <p class="text-left text-sm text-white">
-            View and download images of Genshin's in-game emotes (stickers) with
-            transparent backgrounds.
-          </p>
-          <div class="text-right md:text-left">
-            <a href="/emotes">
-              <button
-                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
-                ><i class="fa-solid fa-download"></i> Download
-                <i class="fa-solid fa-chevron-right"></i></button
-              >
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
-        >
-          <p class="text-center text-sm font-semibold uppercase">Artifacts</p>
-          <p class="text-left text-sm text-white">
-            Fetch information about artifacts, descriptions and all available
-            artifact set bonuses.
-          </p>
-          <div class="text-right md:text-left">
-            <a href="/artifacts">
-              <button
-                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
-                ><img
-                  class="inline h-5 w-5"
-                  src="images/icons/artifacticon.png"
-                  alt="artifact icon"
-                />
-                Artifacts <i class="fa-solid fa-chevron-right"></i></button
-              >
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
-        >
-          <p class="text-center text-sm font-semibold uppercase">Characters</p>
-          <p class="text-left text-sm text-white">
-            Fetch information, stats and level up materials about all the
-            playable characters.
-          </p>
-          <div class="text-right md:text-left">
-            <a href="/characters">
-              <button
-                class="rounded-lg bg-indigo-400 bg-opacity-75 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
-                ><img
-                  class="inline h-5 w-5"
-                  src="images/icons/charactericon.png"
-                  alt="character icon"
-                />
-                Characters <i class="fa-solid fa-chevron-right"></i></button
-              >
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col justify-center gap-1 rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:scale-105 hover:text-indigo-300"
-        >
-          <p class="text-center text-sm font-semibold uppercase">
-            Discord Server
-          </p>
-          <p class="text-left text-sm text-white">
-            ({onlineUsers} users online) Join the discord server to hear about updates,
-            ask questions & talk to others.
-          </p>
-          <div class="text-right md:text-left">
-            <a href="https://discord.com/invite/659KAFfNd6">
-              <button
-                class="rounded-lg bg-indigo-400 p-0.5 px-2.5 py-2.5 text-center text-sm font-semibold text-white only:bg-opacity-75 hover:bg-indigo-500 focus:shadow focus:outline-none"
-                ><i class="fab fa-discord"></i> Join
-                <i class="fa-solid fa-chevron-right"></i></button
-              >
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <br />
-      <br />
-      <p class="gifont text-left text-2xl text-white">
-        <i class="fas fa-circle-info"></i> New Features
-      </p>
-      <p class="text-left text-sm text-gray-400">
-        View the full <a
-          href="updates"
-          class="font-semibold text-white hover:text-indigo-300">changelog</a
-        > here.
-      </p>
-
-      <br />
-
-      <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
-        {#each updatelist as update}
-          <div
-            class="justify-center rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:text-indigo-300"
-          >
-            <p class="text-center text-sm font-semibold uppercase">
-              {update.updateDate}
+  <section class="py-24">
+    <div class="container mx-auto bg-[#121212] px-4">
+      <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-2 lg:px-0">
+        <div class="flex flex-col gap-4">
+          <div class="mb-6">
+            <p class="gifont text-left text-4xl text-white">wanderer.moe</p>
+            <p class="gifont text-left text-xl text-white">
+              A (pretty) useful website/database for Genshin Impact assets.
             </p>
-            <p class="text-left text-sm text-white">{update.details}</p>
-            <div class="text-right md:text-left"></div>
           </div>
-        {/each}
-      </div>
 
-      <br />
-      <br />
-      <p class="gifont text-left text-2xl text-white">
-        <i class="fa fa-clock"></i> Server Reset Countdown
-      </p>
-      <br />
+          <div>
+            <p class="text-xl font-semibold text-white">ASSET LINKS</p>
+            <div class="mb-6 rounded-lg bg-[#1E1E1E] p-2 text-white">
+              <div class="p-2">
+                <div class="grid grid-cols-1 gap-3">
+                  {#each assetlinks as assetlink}
+                    <a href="{assetlink.url}">
+                      <button
+                        class="h-10 w-full rounded-lg bg-indigo-400 bg-opacity-70 px-5 text-left font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                      >
+                        {assetlink.name}
+                      </button>
+                    </a>
+                  {/each}
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
-        <div
-          class="justify-center rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:text-indigo-300"
-        >
-          <p class="text-center text-sm font-semibold uppercase">
-            North America
-          </p>
-          <p class="text-center text-sm text-white">{timeNA}</p>
+          <div>
+            <p class="text-xl font-semibold text-white">OC GENERATOR</p>
+            <div class="mb-6 rounded-lg bg-[#1E1E1E] p-2 text-white">
+              <div class="p-2">
+                <p>
+                  Create your own OC using the OC generator! Generates
+                  Statistics and Characteristics for your character. You can
+                  lock certain stats and keep generating until you get the
+                  perfect character.
+                </p>
+
+                <a href="/oc-generator">
+                  <button
+                    class="mt-2 h-10 w-full rounded-lg bg-indigo-400 bg-opacity-70 px-5 text-left font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                  >
+                    Go to OC Generator
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xl font-semibold text-white">CHARACTERS</p>
+            <div class="mb-6 rounded-lg bg-[#1E1E1E] p-2 text-white">
+              <div class="p-2">
+                <p>
+                  Fetch information, stats and level up materials about all the
+                  current playable characters.
+                </p>
+
+                <a href="/characters">
+                  <button
+                    class="mt-2 h-10 w-full rounded-lg bg-indigo-400 bg-opacity-70 px-5 text-left font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                  >
+                    View Characters
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          
         </div>
+        <div class="flex flex-col gap-4">
+          <div>
+            <p class="text-xl font-semibold text-white">ARTIFACTS</p>
+            <div class="mb-6 rounded-lg bg-[#1E1E1E] p-2 text-white">
+              <div class="p-2">
+                <p>
+                  Fetch information about artifacts, descriptions and all
+                  available artifact set bonuses.
+                </p>
 
-        <div
-          class="justify-center rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:text-indigo-300"
-        >
-          <p class="text-center text-sm font-semibold uppercase">Europe</p>
-          <p class="text-center text-sm text-white">{timeEU}</p>
-        </div>
+                <a href="/artifacts">
+                  <button
+                    class="mt-2 h-10 w-full rounded-lg bg-indigo-400 bg-opacity-70 px-5 text-left font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                  >
+                    View Characters
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <p class="text-xl font-semibold text-white">DISCORD SERVER</p>
+            <div class="mb-6 rounded-lg bg-[#1E1E1E] p-2 text-white">
+              <div class="p-2">
+                <p>
+                  Join the discord server to hear about site updates, ask
+                  questions & talk to others about anything. ({onlineUsers} online)
+                </p>
 
-        <div
-          class="justify-center rounded-lg bg-[#1E1E1E] p-4 text-indigo-200 transition duration-150 ease-in-out hover:text-indigo-300"
-        >
-          <p class="text-center text-sm font-semibold uppercase">Asia</p>
-          <p class="text-center text-sm text-white">{timeAsia}</p>
+                <a href="https://discord.wanderer.moe/">
+                  <button
+                    class="mt-2 h-10 w-full rounded-lg bg-indigo-400 bg-opacity-70 px-5 text-left font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                  >
+                    Join Discord
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xl font-semibold text-white">UPDATES</p>
+            <div class="mb-6 rounded-lg bg-[#1E1E1E] p-2 text-white">
+              <div class="p-2">
+                {#each updatelist as update}
+                  <p class="m-2">
+                    <span class="font-semibold">{update.updateDate}</span> - {update.details}
+                  </p>
+                {/each}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xl font-semibold text-white">
+              SERVER RESET COUNTDOWN
+            </p>
+            <div class="mb-6 rounded-lg bg-[#1E1E1E] p-2 text-white">
+              <div class="p-2">
+                <p class="m-2">
+                  <span class="font-semibold">NA</span> - {timeNA}
+                </p>
+                <p class="m-2">
+                  <span class="font-semibold">EU</span> - {timeEU}
+                </p>
+                <p class="m-2">
+                  <span class="font-semibold">ASIA</span> - {timeAsia}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

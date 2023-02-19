@@ -2,7 +2,7 @@
 
 module.exports = {
     content: [
-      './src/**/*.{html,svelte}',
+      './src/**/*.{html,svelte,ts,js}',
     ],
     options: {
       whitelistPatterns: [/svelte-/],

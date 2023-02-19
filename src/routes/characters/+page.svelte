@@ -21,6 +21,7 @@ let allCharacters = data.characters;
 if (!unreleasedContent) {
   allCharacters = allCharacters.filter((character) => character.released);
 }
+
 </script>
 
 <svelte:head>
@@ -28,15 +29,13 @@ if (!unreleasedContent) {
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
-  <section class="py-24 md:py-40">
-    <div class="container mx-auto px-4">
+  <section class="py-24">
+    <div class="container mx-auto bg-[#121212] px-4">
       <h1 class="gifont font-semibold text-white">Character Index</h1>
-      <p class="text-sm text-gray-400">
-        Contains all playable characters. You can toggle released and unreleased
-        content in the settings.
+      <p class="text-sm text-gray-400">Contains all playable characters.</p>
+      <p class="mb-6 text-sm text-gray-400">
+        Click on a character to view their information.
       </p>
-
-      <br />
       <div class="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6">
         {#each allCharacters as character}
           <div

@@ -4,26 +4,49 @@ import { browser } from "$app/environment";
 
 let unreleasedContent;
 
-const contributors = [
+const developers = [
   {
     name: "dromzeh#1337",
-    description: "Site creator and developer.",
+    description: "Site Developer, Creator & Maintainer",
+  },
+];
+
+const contributors = [
+  {
+    name: "asfoxrye#9021",
+    description: "Contributor",
   },
   {
-    name: "gothiccbiscuit#0802",
-    description: "Created fanmade Character Sheets.",
+    name: "ambre ⦻#4959",
+    description: "Contributor",
   },
   {
-    name: "truck kun#3755",
-    description: "Created fanmade Character Sheets.",
+    name: "ben dover#3641",
+    description: "Contributor",
   },
   {
-    name: "Ms. Universe#6684",
-    description: "Created fanmade Character Sheets.",
+    name: "char#5541",
+    description: "Contributor",
   },
   {
-    name: "asfoxyre#9021",
-    description: "Contributed towards character parts / sheets.",
+    name: "genpro#0802",
+    description: "Contributor",
+  },
+  {
+    name: "lieke#0005",
+    description: "Contributor",
+  },
+  {
+    name: "genna#2005",
+    description: "Contributor",
+  },
+  {
+    name: "Shirayuki#4472",
+    description: "Contributor",
+  },
+  {
+    name: "𝘊𝘰𝘪𝘯 𝘖𝘱𝘦𝘳𝘢𝘵𝘦𝘥 𝘎𝘪𝘳𝘭 📎#3755",
+    description: "Contributor",
   },
 ];
 
@@ -58,8 +81,8 @@ function toggleUnreleasedContent() {
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
-  <section class="py-24 md:py-40">
-    <div class="container mx-auto px-4">
+  <section class="py-24">
+    <div class="container mx-auto bg-[#121212] px-4">
       <h1 class="gifont font-semibold text-white">Settings:</h1>
 
       <!-- checkbox -->
@@ -76,26 +99,44 @@ function toggleUnreleasedContent() {
       </div>
       <br />
 
-      <h1 class="gifont font-semibold text-white">Contributors:</h1>
+      <h1 class="gifont font-semibold text-white">Credits:</h1>
+      <h1 class="gifont text-xl font-semibold text-white">Developers</h1>
 
       <ul class="list-inside list-disc">
-        {#each contributors as contributor}
-          <li class="text-sm text-gray-400">
+        {#each developers as developer}
+          <p class="text-gray-400">
             <span class="indent-5 font-semibold text-white"
-              >{contributor.name}</span
+              >{developer.name}</span
             >
-            - {contributor.description}
-          </li>
+            {developer.description}
+          </p>
         {/each}
-      </ul>
+        <br />
 
-      <br />
-      <p class="text-m text-gray-400">
-        You can view the update changelog <a
-          href="/updates"
-          class="font-semibold text-white  hover:text-indigo-500">here</a
-        >.
-      </p>
+        <h1 class="gifont text-xl font-semibold text-white">Contributors</h1>
+        <ul class="list-inside list-disc">
+          {#each contributors as contributor}
+            <p class="text-gray-400">
+              <span class="indent-5 font-semibold text-white"
+                >{contributor.name}</span
+              >
+              {contributor.description}
+            </p>
+          {/each}
+        </ul>
+        <p class="text-sm italic text-gray-400">
+          A big thank you to all of the amazing people who have helped
+          contribute to the site <i class="fa fa-heart text-red-300"></i>
+        </p>
+
+        <br />
+        <p class="text-m text-gray-400">
+          You can view the update changelog <a
+            href="/updates"
+            class="font-semibold text-white  hover:text-indigo-500">here</a
+          >.
+        </p>
+      </ul>
     </div>
   </section>
 </div>
