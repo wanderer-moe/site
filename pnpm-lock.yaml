@@ -13,7 +13,7 @@ specifiers:
   dotenv: ^16.0.3
   exceljs: ^4.3.0
   file-saver: ^2.0.5
-  flowbite-svelte: ^0.29.13
+  flowbite-svelte: ^0.30.0
   jszip: ^3.10.1
   kutty: ^0.6.0
   localforage: ^1.10.0
@@ -41,7 +41,7 @@ dependencies:
   '@sveltejs/kit': 1.7.2_svelte@3.55.1+vite@4.1.2
   axios: 1.3.3
   file-saver: 2.0.5
-  flowbite-svelte: 0.29.13
+  flowbite-svelte: 0.30.3_u2a26nokcckqacvdxkzji6ia64
   jszip: 3.10.1
   kutty: 0.6.0_tailwindcss@3.2.7
   notyf: 3.10.0
@@ -916,13 +916,17 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
 
-  /flowbite-svelte/0.29.13:
-    resolution: {integrity: sha512-9MnJzdPyooPm4Gp6Fl+NrozNiL6eQiLQ7BdraKkH6Gh34VR4G6mFkJcG4CUptFQ84zSa0YHhF9MYcnsrK8nLsg==}
+  /flowbite-svelte/0.30.3_u2a26nokcckqacvdxkzji6ia64:
+    resolution: {integrity: sha512-tyPwC+7SqPlSs+LErukFXjsn8Zcm3R5lksY5iuarI6tTskisgjNwL5vatRVEnc+USkl/bcfCtFWKFRd9x53cXw==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
+    peerDependencies:
+      '@popperjs/core': ^2.11.6
+      svelte: ^3.55.1
     dependencies:
       '@popperjs/core': 2.11.6
       classnames: 2.3.2
       flowbite: 1.6.3
+      svelte: 3.55.1
     dev: false
 
   /flowbite/1.6.3:
