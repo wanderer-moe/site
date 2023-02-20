@@ -147,7 +147,7 @@ function randomiseStats() {
     weapon = weapons[Math.floor(Math.random() * weapons.length)];
   }
   if (!lockedElement) {
-    element = elements[Math.floor(Math.random() * weapons.length)];
+    element = elements[Math.floor(Math.random() * elements.length)];
   }
   if (!lockedGender) {
     gender = genders[Math.floor(Math.random() * genders.length)];
