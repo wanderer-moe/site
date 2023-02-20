@@ -214,8 +214,6 @@ let updatelist = data.updates.slice(0, 3);
               </div>
             </div>
           </div>
-
-          
         </div>
         <div class="flex flex-col gap-4">
           <div>
@@ -237,7 +235,7 @@ let updatelist = data.updates.slice(0, 3);
               </div>
             </div>
           </div>
-          
+
           <div>
             <p class="text-xl font-semibold text-white">DISCORD SERVER</p>
             <div class="mb-6 rounded-lg bg-[#1E1E1E] p-2 text-white">

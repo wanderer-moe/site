@@ -13,11 +13,11 @@ const developers = [
 
 const contributors = [
   {
-    name: "asfoxrye#9021",
+    name: "ambre ⦻#4959",
     description: "Contributor",
   },
   {
-    name: "ambre ⦻#4959",
+    name: "asfoxrye#9021",
     description: "Contributor",
   },
   {
@@ -29,11 +29,11 @@ const contributors = [
     description: "Contributor",
   },
   {
-    name: "genpro#0802",
+    name: "𝘊𝘰𝘪𝘯 𝘖𝘱𝘦𝘳𝘢𝘵𝘦𝘥 𝘎𝘪𝘳𝘭 📎#3755",
     description: "Contributor",
   },
   {
-    name: "lieke#0005",
+    name: "genpro#0802",
     description: "Contributor",
   },
   {
@@ -41,11 +41,11 @@ const contributors = [
     description: "Contributor",
   },
   {
-    name: "Shirayuki#4472",
+    name: "lieke#0005",
     description: "Contributor",
   },
   {
-    name: "𝘊𝘰𝘪𝘯 𝘖𝘱𝘦𝘳𝘢𝘵𝘦𝘥 𝘎𝘪𝘳𝘭 📎#3755",
+    name: "Shirayuki#4472",
     description: "Contributor",
   },
 ];

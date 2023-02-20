@@ -38,12 +38,12 @@ function mobileClick(e) {
       <div
         class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between"
       >
-      <div>
-        <a href="/" class="flex items-center">
-          <img src="/favicon.png" alt="logo" />
-          <span class="text-white font-semibold text-xl">wanderer.moe</span>
-        </a>
-      </div>
+        <div>
+          <a href="/" class="flex items-center">
+            <img src="/favicon.png" alt="logo" />
+            <span class="text-xl font-semibold text-white">wanderer.moe</span>
+          </a>
+        </div>
 
         <div class="flex items-center md:order-2">
           <ul class="mt-4 flex flex-row space-x-4 font-medium md:mt-0">

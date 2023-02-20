@@ -21,7 +21,6 @@ let allCharacters = data.characters;
 if (!unreleasedContent) {
   allCharacters = allCharacters.filter((character) => character.released);
 }
-
 </script>
 
 <svelte:head>
