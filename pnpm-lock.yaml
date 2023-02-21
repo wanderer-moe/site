@@ -5,7 +5,7 @@ specifiers:
   '@mdi/js': ^7.1.96
   '@popperjs/core': ^2.11.6
   '@sveltejs/adapter-static': 2.0.1
-  '@sveltejs/kit': 1.8.0
+  '@sveltejs/kit': 1.8.3
   autoprefixer: ^10.4.13
   axios: ^1.3.3
   chart.js: ^4.2.1
@@ -13,7 +13,6 @@ specifiers:
   dotenv: ^16.0.3
   exceljs: ^4.3.0
   file-saver: ^2.0.5
-  flowbite-svelte: ^0.30.3
   jszip: ^3.10.1
   kutty: ^0.6.0
   localforage: ^1.10.0
@@ -38,10 +37,9 @@ specifiers:
 dependencies:
   '@jridgewell/sourcemap-codec': 1.4.14
   '@popperjs/core': 2.11.6
-  '@sveltejs/kit': 1.8.0_svelte@3.55.1+vite@4.1.3
+  '@sveltejs/kit': 1.8.3_svelte@3.55.1+vite@4.1.3
   axios: 1.3.3
   file-saver: 2.0.5
-  flowbite-svelte: 0.30.3_u2a26nokcckqacvdxkzji6ia64
   jszip: 3.10.1
   kutty: 0.6.0_tailwindcss@3.2.7
   notyf: 3.10.0
@@ -51,7 +49,7 @@ dependencies:
 
 devDependencies:
   '@mdi/js': 7.1.96
-  '@sveltejs/adapter-static': 2.0.1_@sveltejs+kit@1.8.0
+  '@sveltejs/adapter-static': 2.0.1_@sveltejs+kit@1.8.3
   autoprefixer: 10.4.13_postcss@8.4.21
   chart.js: 4.2.1
   dayjs: 1.11.7
@@ -342,16 +340,16 @@ packages:
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
 
-  /@sveltejs/adapter-static/2.0.1_@sveltejs+kit@1.8.0:
+  /@sveltejs/adapter-static/2.0.1_@sveltejs+kit@1.8.3:
     resolution: {integrity: sha512-o5/q3YwD/ErxYCFlK1v3ydvldyNKk1lh3oeyxn4mhz+Pkbx/uuxhzmbOpytTlp5aVqNHDVsb04xadUzOFCDDzw==}
     peerDependencies:
       '@sveltejs/kit': ^1.5.0
     dependencies:
-      '@sveltejs/kit': 1.8.0_svelte@3.55.1+vite@4.1.3
+      '@sveltejs/kit': 1.8.3_svelte@3.55.1+vite@4.1.3
     dev: true
 
-  /@sveltejs/kit/1.8.0_svelte@3.55.1+vite@4.1.3:
-    resolution: {integrity: sha512-KHZ5PN9iBskH+bflSGno5bgVf01+MhFs/2jT40hdhTQkbEKrgf0kw/DXq41Bmws9pV29NS6mKEq6wAwgkM2pPQ==}
+  /@sveltejs/kit/1.8.3_svelte@3.55.1+vite@4.1.3:
+    resolution: {integrity: sha512-32tiLy5PPpt2lquK2p53/5wR+ghAXw0HymIBEezmwmwtzx7Xf36xw3RG3fDYQ9gyzon89T+JRweXgAv/qhhvSQ==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
@@ -566,7 +564,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001457
-      electron-to-chromium: 1.4.302
+      electron-to-chromium: 1.4.304
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -632,10 +630,6 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
-
-  /classnames/2.3.2:
-    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
-    dev: false
 
   /cli-color/2.0.3:
     resolution: {integrity: sha512-OkoZnxyC4ERN3zLzZaY9Emb7f/MhBOIpePv0Ycok0fJYT+Ouo00UBEIwsVsr0yoow++n5YWlSUgST9GKhNHiRQ==}
@@ -766,8 +760,8 @@ packages:
       readable-stream: 2.3.7
     dev: true
 
-  /electron-to-chromium/1.4.302:
-    resolution: {integrity: sha512-Uk7C+7aPBryUR1Fwvk9VmipBcN9fVsqBO57jV2ZjTm+IZ6BMNqu7EDVEg2HxCNufk6QcWlFsBkhQyQroB2VWKw==}
+  /electron-to-chromium/1.4.304:
+    resolution: {integrity: sha512-6c8M+ojPgDIXN2NyfGn8oHASXYnayj+gSEnGeLMKb9zjsySeVB/j7KkNAAG9yDcv8gNlhvFg5REa1N/kQU6pgA==}
     dev: true
 
   /end-of-stream/1.4.4:
@@ -915,26 +909,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       to-regex-range: 5.0.1
-
-  /flowbite-svelte/0.30.3_u2a26nokcckqacvdxkzji6ia64:
-    resolution: {integrity: sha512-tyPwC+7SqPlSs+LErukFXjsn8Zcm3R5lksY5iuarI6tTskisgjNwL5vatRVEnc+USkl/bcfCtFWKFRd9x53cXw==}
-    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
-    peerDependencies:
-      '@popperjs/core': ^2.11.6
-      svelte: ^3.55.1
-    dependencies:
-      '@popperjs/core': 2.11.6
-      classnames: 2.3.2
-      flowbite: 1.6.3
-      svelte: 3.55.1
-    dev: false
-
-  /flowbite/1.6.3:
-    resolution: {integrity: sha512-wTtAzZBLrUYqUBoTSNcMAeJrZNAcdx04EDgXWnkQ7gkKoAPFvLaq/H/Zw0JKZLVKFpKxqJ7PlvocfDApSHjhvw==}
-    dependencies:
-      '@popperjs/core': 2.11.6
-      mini-svg-data-uri: 1.4.4
-    dev: false
 
   /follow-redirects/1.15.2:
     resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
@@ -1255,11 +1229,6 @@ packages:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
     dev: true
-
-  /mini-svg-data-uri/1.4.4:
-    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
-    hasBin: true
-    dev: false
 
   /minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
