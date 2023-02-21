@@ -1,9 +1,10 @@
 https://wanderer.moe/
+https://wanderer.moe/oc-generator
+https://wanderer.moe/splashart
+https://wanderer.moe/emotes
 https://wanderer.moe/characterparts
 https://wanderer.moe/artifacts
 https://wanderer.moe/characters
-https://wanderer.moe/splashart
 https://wanderer.moe/privacy-policy
-https://wanderer.moe/info
+https://wanderer.moe/etc
 https://wanderer.moe/updates
-https://wanderer.moe/emotes
