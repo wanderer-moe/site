@@ -229,7 +229,7 @@ let updatelist = data.updates.slice(0, 3);
                   <button
                     class="mt-2 h-10 w-full rounded-lg bg-indigo-400 bg-opacity-70 px-5 text-left font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
                   >
-                    View Characters
+                    View Artifacts
                   </button>
                 </a>
               </div>
