@@ -5,7 +5,7 @@ specifiers:
   '@mdi/js': ^7.1.96
   '@popperjs/core': ^2.11.6
   '@sveltejs/adapter-static': 2.0.1
-  '@sveltejs/kit': 1.8.3
+  '@sveltejs/kit': 1.11.0
   autoprefixer: ^10.4.13
   axios: ^1.3.4
   chart.js: ^4.2.1
@@ -37,7 +37,7 @@ specifiers:
 dependencies:
   '@jridgewell/sourcemap-codec': 1.4.14
   '@popperjs/core': 2.11.6
-  '@sveltejs/kit': 1.8.3_svelte@3.55.1+vite@4.1.4
+  '@sveltejs/kit': 1.11.0_svelte@3.55.1+vite@4.1.4
   axios: 1.3.4
   file-saver: 2.0.5
   jszip: 3.10.1
@@ -49,7 +49,7 @@ dependencies:
 
 devDependencies:
   '@mdi/js': 7.1.96
-  '@sveltejs/adapter-static': 2.0.1_@sveltejs+kit@1.8.3
+  '@sveltejs/adapter-static': 2.0.1_@sveltejs+kit@1.11.0
   autoprefixer: 10.4.13_postcss@8.4.21
   chart.js: 4.2.1
   dayjs: 1.11.7
@@ -340,16 +340,16 @@ packages:
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
 
-  /@sveltejs/adapter-static/2.0.1_@sveltejs+kit@1.8.3:
+  /@sveltejs/adapter-static/2.0.1_@sveltejs+kit@1.11.0:
     resolution: {integrity: sha512-o5/q3YwD/ErxYCFlK1v3ydvldyNKk1lh3oeyxn4mhz+Pkbx/uuxhzmbOpytTlp5aVqNHDVsb04xadUzOFCDDzw==}
     peerDependencies:
       '@sveltejs/kit': ^1.5.0
     dependencies:
-      '@sveltejs/kit': 1.8.3_svelte@3.55.1+vite@4.1.4
+      '@sveltejs/kit': 1.11.0_svelte@3.55.1+vite@4.1.4
     dev: true
 
-  /@sveltejs/kit/1.8.3_svelte@3.55.1+vite@4.1.4:
-    resolution: {integrity: sha512-32tiLy5PPpt2lquK2p53/5wR+ghAXw0HymIBEezmwmwtzx7Xf36xw3RG3fDYQ9gyzon89T+JRweXgAv/qhhvSQ==}
+  /@sveltejs/kit/1.11.0_svelte@3.55.1+vite@4.1.4:
+    resolution: {integrity: sha512-PwViZcMoLgEU/jhLoSyjf5hSrHS67wvSm0ifBo4prP9irpGa5HuPOZeVDTL5tPDSBoKxtdYi1zlGdoiJfO86jA==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
@@ -363,7 +363,7 @@ packages:
       devalue: 4.3.0
       esm-env: 1.0.0
       kleur: 4.1.5
-      magic-string: 0.29.0
+      magic-string: 0.30.0
       mime: 3.0.0
       sade: 1.8.1
       set-cookie-parser: 2.5.1
@@ -1181,6 +1181,12 @@ packages:
 
   /magic-string/0.29.0:
     resolution: {integrity: sha512-WcfidHrDjMY+eLjlU+8OvwREqHwpgCeKVBUpQ3OhYYuvfaYCUgcbuBzappNzZvg/v8onU3oQj+BYpkOJe9Iw4Q==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.14
+
+  /magic-string/0.30.0:
+    resolution: {integrity: sha512-LA+31JYDJLs82r2ScLrlz1GjSgu66ZV518eyWT+S8VhyQn/JL0u9MeBOvQMGYiPk1DBiSN9DDMOcXvigJZaViQ==}
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.14
