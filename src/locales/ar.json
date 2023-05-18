@@ -68,19 +68,6 @@
     "issueNotFound": "لدي مشكلة لم يتم سردها هنا.",
     "issueNotFoundAnswer": "إذا كانت لديك مشكلة غير مدرجة هنا ، فيمكنك الانضمام إلى خادم Discord وطلب المساعدة هناك."
   },
-  "privacyPolicy": {
-    "title": "سياسة الخصوصية",
-    "whatIsCollected": "ما يجمعه wanderer.moe ولماذا",
-    "sentryTitle": "sentry.io information",
-    "sentryAnswer": "wanderer.moe uses sentry.io to collect statistics and errors that occur on the site. There is a select chance that your personally identifiable details may be collected, such as your IP address, web browser, device information and recordings on what you did on the site. This information is NOT shared with any third parties and is kept private under respect for your privacy.",
-    "analyticsTitle": "التحليلات",
-    "analyticsAnswer": "يستخدم wanderer.moe برنامج Google Analytics لجمع معلومات حول كيفية استخدام الموقع. تُستخدم هذه المعلومات لتحسين الموقع لمعرفة الميزات الأكثر استخدامًا حتى أتمكن من التركيز على تحسين تلك الميزات.",
-    "whatIsNotCollected": "ما لا يجمعه wanderer.moe",
-    "whatIsNotCollectedAnswer": "wanderer.moe does not collect information such as your name or email. wanderer.moe does also not collect any information about your browsing history, such as what sites you visit or what you search for. Data is not shared with any third parties.",
-    "advertisementTitle": "إعلان",
-    "advertisementAnswer": "wanderer.moe uses Google Adsense to display advertisements on the site, this is done to help pay for the costs of running the site, you can opt out of personalized ads anytime on the site.",
-    "contactInfo": "إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه ، اتصل بـ marcel@dromzeh.dev"
-  },
   "errors": {
     "404": "لم يتم العثور على الصفحة",
     "500": "خطأ في الخادم الداخلي",

@@ -68,19 +68,6 @@
     "issueNotFound": "Ho un problema che non è menzionato qui.",
     "issueNotFoundAnswer": "Se il problema che hai non è descritto qui puoi unirti al server Discord e chiedere aiuto là."
   },
-  "privacyPolicy": {
-    "title": "Informazioni sulla politica della privacy",
-    "whatIsCollected": "Cosa wanderer.moe colleziona e perché",
-    "sentryTitle": "informazione su sentry.io",
-    "sentryAnswer": "wanderer.moe usa sentry.io per collezionare statistiche ed errori che avvengono nel sito. C'è una minima possibilità che i tuoi dati personali possono essere collezionati, come il tuo IP, informazioni sul tuo dispositivo, web browser e cosa fai sul sito. Queste informazioni NON sono condivise con terze parti e sono mantenute private per rispetto della tua privacy.",
-    "analyticsTitle": "Analitiche",
-    "analyticsAnswer": "wanderer.moe utilizza Google Analytics per collezionare informazioni su come viene usato il sito. Queste informazioni vengono usate per migliorare il sito, per vedere ciò che viene usato di più così che io possa concentrarmi sul migliorare queste funzioni.",
-    "whatIsNotCollected": "Cosa wanderer.moe non colleziona",
-    "whatIsNotCollectedAnswer": "wanderer.moe non colleziona informazioni come nome ed email. wanderer.moe non colleziona alcuna informazione sulle tue ricerca e su quali siti visiti o cosa cerchi. Il data non è condiviso con alcuna terza parte.",
-    "advertisementTitle": "Pubblicità",
-    "advertisementAnswer": "wanderer.moe usa Google Adsense per condividere pubblicità sul sito, questo avviene per supportare il costo del sito, puoi decidere se togliere l'opzione per le pubblicità personalizzate in qualsiasi momento sul sito.",
-    "contactInfo": "Se hai altre domande su questa politica della privacy contatta marcel@dromzeh.dev"
-  },
   "errors": {
     "404": "Pagina Non Trovata",
     "500": "Errore Server Interno",

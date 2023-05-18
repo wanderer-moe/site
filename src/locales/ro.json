@@ -68,19 +68,6 @@
     "issueNotFound": "Am o problemă ce nu este prezentă aici.",
     "issueNotFoundAnswer": "Dacă problema ta nu se regăsește în QnA, poți să te alături server-ului de Discord și cere ajutor."
   },
-  "privacyPolicy": {
-    "title": "Politică de confidențialitate",
-    "whatIsCollected": "Ce colectează wanderer.moe și de ce",
-    "sentryTitle": "sentry.io informație",
-    "sentryAnswer": "wanderer.moe folosește serviciul sentry.io pentru a aduna statistici și erori ce se pot avea loc. Este o șansă oarecare ca datele personale să poată fi colectate, precum adresa ta IP, web browser-ul, informația dispozitivului și istoricul acțiunilor pe site. Această informație NU va fi distribuită cu nicio parte terțe și va fi păstrată discreția pentru a-ți respecta confidențialitatea.",
-    "analyticsTitle": "Statistici",
-    "analyticsAnswer": "wanderer.moe folosește Google Analytics pentru a colecta informația despre cum e utilizat site-ul. Această informație este utilizată pentru a îmbunătăți site-ul și observa ce funcții sunt folosite cel mai des, astfel pot să mă axez pe îmbunătățirea acestor caracteristici.",
-    "whatIsNotCollected": "Ce nu colectează wanderer.moe",
-    "whatIsNotCollectedAnswer": "wanderer.moe nu strânge informațiile ca numele sau adresa de email. wanderer.moe, de asemenea, nu colectează nici-un fel de date despre istoricul browser-ului, ca site-uri pe care le accesezi sau istoricul căutărilor. Datele nu sunt transmise părților terțe.",
-    "advertisementTitle": "Publicitate",
-    "advertisementAnswer": "wanderer.moe utilizează Google Adsense pentru a afișa reclame pe site, ca urmare aceasta ne-a ajuta să susținem financiar website-ul, oricând poți opta pentru conținut personalizat publicitar pe site.",
-    "contactInfo": "Dacă aveți întrebări legate de politica de confidențialitate, mă puteți contacta pe marcel@dromzeh.dev"
-  },
   "errors": {
     "404": "Pagină inexistentă",
     "500": "Eroare internă de server",
