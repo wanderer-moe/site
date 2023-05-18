@@ -9,47 +9,28 @@ import { t } from "svelte-i18n";
 <div class="min-h-screen">
   <div class="px-2 py-24 md:px-12 lg:px-24">
     <div class="mb-2">
-      <p class="sigfont text-left text-4xl text-white {$t('direction')}">
-        {$t("privacyPolicy.title")}
+      <p class="m-2 sigfont text-left text-4xl text-white font-semibold">
+        Privacy Policy
       </p>
       <div>
-        <p class="sigfont text-left text-xl text-white {$t('direction')}">
-          {$t("privacyPolicy.whatIsCollected")}:
-        </p>
-        <div class="m-2">
-          <p class="text-white {$t('direction')}">
-            {$t("privacyPolicy.sentryTitle")}
+        <div class="m-2 grid gap-3">
+          <p class="text-white">
+            <b>No data about what you download or what you specifically do on the site is collected for any reason</b>. Google Analytics is used to track page views, but no personally identifiable information is collected.
           </p>
-          <p class="text-gray-400 {$t('direction')}">
-            {$t("privacyPolicy.sentryAnswer")}
+          <p class = "text-white">
+            Your IP address <b>may be collected by Cloudflare for security purposes, but this is not stored by the site and no one has access to it.</b>
           </p>
-          <p class="text-white {$t('direction')}">
-            {$t("privacyPolicy.analyticsTitle")}
+          <p class = "text-white">
+            AdSense & Sentry were previously used on the site, but have since been removed, therefore everything you do on this site is <b>completely anonymous</b>.
           </p>
-          <p class="text-gray-400 {$t('direction')}">
-            {$t("privacyPolicy.analyticsAnswer")}
+          <p class = "text-white">
+            Any data collected by Google Analytics is not shared with anyone, and kept private out of respect for your privacy.
           </p>
+          <p class = "text-white">
+            If you have any questions, etc, feel free to contact <a class = "font-bold" href="mailto:privacy@wanderer.moe">privacy@wanderer.moe</a> and you'll recieve a response within 24 hours.
+            </p>
         </div>
       </div>
     </div>
-    <div>
-      <p class="sigfont text-left text-xl text-white">
-        {$t("privacyPolicy.whatIsNotCollected")}:
-      </p>
-      <div class="m-2">
-        <p class="text-gray-400">
-          {$t("privacyPolicy.whatIsNotCollectedAnswer")}
-        </p>
-        <p class="text-white">
-          {$t("privacyPolicy.advertisementTitle")}
-        </p>
-        <p class="text-gray-400">
-          {$t("privacyPolicy.advertisementAnswer")}
-        </p>
-      </div>
-    </div>
-    <p class="sigfont text-left text-xl text-white">
-      {$t("privacyPolicy.contactInfo")}
-    </p>
   </div>
 </div>
