@@ -68,19 +68,6 @@
     "issueNotFound": "I has an issue that isn't listed here.",
     "issueNotFoundAnswer": "If u has an issue dat isnt listd her, u can join teh discord servr an ask 4 help thar."
   },
-  "privacyPolicy": {
-    "title": "Privacy Policy",
-    "whatIsCollected": "Wut wanderer.moe collects an y",
-    "sentryTitle": "sentry.io informashun",
-    "sentryAnswer": "wanderer.moe usez sntry.io 2 collect statistics an dat occur on teh site. Thar is select chance dat ur personally identifiable details cud b collected, suhc as ur ip address, web browsr, device informashun an recordings on wut u did on teh site. Dis informashun iz NOT shared wif any third partiez and iz kept privated undr respect 4 ur privacy.",
-    "analyticsTitle": "Analytics",
-    "analyticsAnswer": "wanderer.moe usez google analytics 2 collect informashun bout how teh siet is usd. Dis information iz used 2 improov teh site 2 c wut featurz r used teh most so dat I can focus on improovin dose featurez.",
-    "whatIsNotCollected": "Wut wanderer.moe doez not collect",
-    "whatIsNotCollectedAnswer": "wanderer.moe doez not collect any personal informashun, such as ur naym or email. wanderer.moe doez not collect any informashun bout ur browsing history, such as wut sites u visit or wut u search 4. Data iz not shared wif any third partiez.",
-    "advertisementTitle": "Advertisements",
-    "advertisementAnswer": "wanderer.moe usez Google Adsense 2 display advertisements on th site, this iz done to hlp pay 4 th costs of running th site, you can opt out of personalizd ads anytime on th site.",
-    "contactInfo": "If u has any queshuns bout dis privacy policy, contact marcel@dromzeh.dev"
-  },
   "errors": {
     "404": "Paeg Not Findz",
     "500": "Internal Servr Error",
