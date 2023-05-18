@@ -1,0 +1,91 @@
+{
+  "home": {
+    "description": "Centraliserad databas med olika speltillgångar",
+    "discord": "(Gå med i discord-servern för uppdateringar till hemsidan, för flera delar som inte finns med på hemsidan och mer"
+  },
+  "nav": {
+    "discord": "Discord servern",
+    "giOCGen": "Genshin OC Generator",
+    "giFiles": "Genshin Filer"
+  },
+  "footer": {
+    "fanmadeNotice": "wanderer.moe är en fan-gjord hemsida. Alla filer tillhör ägarna som gjorde dem.",
+    "assetRequestForm": "Förslag för flera tillgångar och delar"
+  },
+  "contributors": {
+    "title": "Bidragsgivare",
+    "desc": "Stort tack till alla fantastiska personer som har hjälpt till med att bidra till webbsidan",
+    "gettingData": "Få bidragsgivare data..."
+  },
+  "game": {
+    "main": "{availableCategories} categories found for {game}",
+    "info": "Klicka på en sektion för att se dess innehåll.",
+    "other": "{fileCount} files ({fileSize})"
+  },
+  "asset": {
+    "main": "{filteredImagesCount}/{imagesCount} assets shown, {selectedItemsCount} selected",
+    "info": "Tap on an asset to select it, double tap an image to enlarge it.",
+    "downloadAll": "Ladda ner allt",
+    "downloadAllSize": "Download All ({size})",
+    "downloadSelected": "Nedladdning valt",
+    "downloadSelectedSize": "Download Selected ({size})",
+    "download": "Ladda ner",
+    "downloadSize": "Download ({size})",
+    "officialAsset": "Official Asset",
+    "fanmadeAsset": "Fanmade Asset",
+    "searchBar": "Search for an asset",
+    "nothingFound": "Nothing found for {query}",
+    "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form.",
+    "onMobile": "If you're having issues downloading, read the FAQ by pressing the info symbol next to the game's name."
+  },
+  "details": {
+    "lastUpdated": "Last Updated: {date}",
+    "sortBy": "Sort By",
+    "dateUploaded": "Uploaded: {date}",
+    "sortByAlphabetical": "Alphabetical (A-Z)",
+    "sortByAlphabeticalReverse": "Alphabetical (Z-A)",
+    "sortByUploaded": "Uploaded (Newest)",
+    "sortByUploadedReverse": "Uploaded (Oldest)",
+    "sortBySize": "File Size (Smallest)",
+    "sortBySizeReverse": "File Size (Largest)"
+  },
+  "globalSearch": {
+    "searchBar": "Search for a game or asset"
+  },
+  "viewImage": {
+    "closeText": "Click anywhere to close"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "purpose": "Vad är syftet med denna webbsida?",
+    "purposeAnswer": "wanderer.moe is a website that hosts a collection of assets from various games. The assets are organized by game and asset type, the sake of this website is to provide a centralized location for people to download assets from.",
+    "downloadMultipleOrAll": "How do I download multiple or all assets?",
+    "downloadMultipleOrAllAnswer": "To download multiple, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a zip file into your downloads folder.",
+    "downloadOnMobile": "How do I download assets on mobile?",
+    "downloadOnMobileAnswer": "Se till så att du inte är på sidan genom någon slags Social Media app, men i en inbyggd webbläsare på din telefon. Om du är på iPhone, rekommenderar jag att du använder Safari.",
+    "howToExtract": "How do I extract the zip file after downloading?",
+    "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the .zip file, open the folder it creates, select the images and then 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
+    "issueNotFound": "Jag har problem som inte står här.",
+    "issueNotFoundAnswer": "Om du har ett problem som inte står här, kan du gå med i discord-servern och fråga om hjälp där."
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "whatIsCollected": "What wanderer.moe collects and why",
+    "sentryTitle": "sentry.io information",
+    "sentryAnswer": "wanderer.moe uses sentry.io to collect statistics and errors that occur on the site. There is a select chance that your personally identifiable details may be collected, such as your IP address, web browser, device information and recordings on what you did on the site. This information is NOT shared with any third parties and is kept private under respect for your privacy.",
+    "analyticsTitle": "Analytiker",
+    "analyticsAnswer": "wanderer.moe uses Google Analytics to collect information about how the site is used. This information is used to improve the site to see what features are used the most so that I can focus on improving those features.",
+    "whatIsNotCollected": "Vad wanderer.moe inte samlar",
+    "whatIsNotCollectedAnswer": "wanderer.moe does not collect information such as your name or email. wanderer.moe does also not collect any information about your browsing history, such as what sites you visit or what you search for. Data is not shared with any third parties.",
+    "advertisementTitle": "Annons",
+    "advertisementAnswer": "wanderer.moe uses Google Adsense to display advertisements on the site, this is done to help pay for the costs of running the site, you can opt out of personalized ads anytime on the site.",
+    "contactInfo": "If you have any questions about this privacy policy, contact marcel@dromzeh.dev"
+  },
+  "errors": {
+    "404": "Page Not Found",
+    "500": "Internal Server Error",
+    "refresh": "Try refreshing the page or go back to the home page",
+    "apiError": "An error occurred while making a request to the API, try again or refresh the page."
+  },
+  "direction": "ltr"
+}

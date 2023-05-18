@@ -1,0 +1,91 @@
+{
+  "home": {
+    "description": "Bază de date compactă a resurselor de jocuri",
+    "discord": "({onlineCount} online) Alătură-te comunității de pe Discord pentru update-uri, resurse exclusive de pe server și altele"
+  },
+  "nav": {
+    "discord": "Server de Discord",
+    "giOCGen": "Generator Genshin OC",
+    "giFiles": "Fișiere Genshin"
+  },
+  "footer": {
+    "fanmadeNotice": "wanderer.moe este un website fanmade. Toate fișierele sunt proprietatea intelectuală ale proprietarilor respectivi.",
+    "assetRequestForm": "Formular de solicitare ale resurselor de jocuri"
+  },
+  "contributors": {
+    "title": "Contribuitori",
+    "desc": "Mulțumiri către toate persoanele ce m-au ajutat la contribuția site-ului",
+    "gettingData": "Găsirea datelor contribuitorilor..."
+  },
+  "game": {
+    "main": "{availableCategories} Categorii valabile pentru {game}",
+    "info": "Apasă pe una dintre secțiune pentru a vizualiza conținutul.",
+    "other": "{fileCount} fișiere ({fileSize})"
+  },
+  "asset": {
+    "main": "{filteredImagesCount}/{imagesCount} resurse afișate, {selectedItemsCount} selectate",
+    "info": "Apasă pe orice element pentru a-l selecta, apasă de 2 ori pe imagine pentru a lărgi.",
+    "downloadAll": "Descarcă tot",
+    "downloadAllSize": "Download All ({size})",
+    "downloadSelected": "Descarcă selectate",
+    "downloadSelectedSize": "Download Selected ({size})",
+    "download": "Descarcă",
+    "downloadSize": "Download ({size})",
+    "officialAsset": "Resurse Oficiale",
+    "fanmadeAsset": "Resurse Fanmade",
+    "searchBar": "Caută resurse din jocuri/active",
+    "nothingFound": "Nici-un rezultat pentru {query}",
+    "nothingFoundSuggestions": "Dacă este un anumit activ care dorești să fie adăugat, completează formular de solicitări.",
+    "onMobile": "If you're having issues downloading, read the FAQ by pressing the info symbol next to the game's name."
+  },
+  "details": {
+    "lastUpdated": "Last Updated: {date}",
+    "sortBy": "Sort By",
+    "dateUploaded": "Uploaded: {date}",
+    "sortByAlphabetical": "Alphabetical (A-Z)",
+    "sortByAlphabeticalReverse": "Alphabetical (Z-A)",
+    "sortByUploaded": "Uploaded (Newest)",
+    "sortByUploadedReverse": "Uploaded (Oldest)",
+    "sortBySize": "File Size (Smallest)",
+    "sortBySizeReverse": "File Size (Largest)"
+  },
+  "globalSearch": {
+    "searchBar": "Caută jocuri sau resurse"
+  },
+  "viewImage": {
+    "closeText": "Apasă oriunde pentru a închide"
+  },
+  "faq": {
+    "title": "Întrebări frecvente",
+    "purpose": "Care este rostul acestui website?",
+    "purposeAnswer": "wanderer.moe este un website ce conține o colecție de resurse din diferite jocuri. Aceste active/elemente de joc sunt organizate după tipul și proveniență a jocului. Rostul acestui website este de a facilita descărcarea acestor active/resurse.",
+    "downloadMultipleOrAll": "Cum descarc multiple resurse sau toate fișierele?",
+    "downloadMultipleOrAllAnswer": "Pentru a descărca multiple resurse, alege fișierele pe care vrei să le descarci și apasă pe ele, selectându-le. După, dă click pe butonul 'Descarcă Selectate'. Pentru a le descărca pe toate, apasă pe butonul 'Descarcă Toate'. Aceasta va salva resurse ca un fișier ZIP în folder-ul tău cu descărcări.",
+    "downloadOnMobile": "Cum descarc active/resurse pe mobil?",
+    "downloadOnMobileAnswer": "Asigură-te că nu previzualizezi website-ul prin intermediul aplicaților de Social Media, dar într-un browser încorporat pe telefonul tău. Dacă folosești un IPhone, recomand să folosești Safari.",
+    "howToExtract": "Cum extrag fișierele din ZIP după descărcare?",
+    "howToExtractAnswer": "Dacă folosești Windows, poți folosi 7ZIP pentru a extrage fișiere. Dacă ești pe Mac, poți folosi funcția încorporată Archive Utility. Pe IPhone, apasă pe fișierul .zip, deschide folder-ul cel creează, selectează imaginile și după 'Save to Photos/Salvați în poze'. Pe Android, poți folosi aplicația de management ale fișierelor pentru a extrage file-urile",
+    "issueNotFound": "Am o problemă ce nu este prezentă aici.",
+    "issueNotFoundAnswer": "Dacă problema ta nu se regăsește în QnA, poți să te alături server-ului de Discord și cere ajutor."
+  },
+  "privacyPolicy": {
+    "title": "Politică de confidențialitate",
+    "whatIsCollected": "Ce colectează wanderer.moe și de ce",
+    "sentryTitle": "sentry.io informație",
+    "sentryAnswer": "wanderer.moe folosește serviciul sentry.io pentru a aduna statistici și erori ce se pot avea loc. Este o șansă oarecare ca datele personale să poată fi colectate, precum adresa ta IP, web browser-ul, informația dispozitivului și istoricul acțiunilor pe site. Această informație NU va fi distribuită cu nicio parte terțe și va fi păstrată discreția pentru a-ți respecta confidențialitatea.",
+    "analyticsTitle": "Statistici",
+    "analyticsAnswer": "wanderer.moe folosește Google Analytics pentru a colecta informația despre cum e utilizat site-ul. Această informație este utilizată pentru a îmbunătăți site-ul și observa ce funcții sunt folosite cel mai des, astfel pot să mă axez pe îmbunătățirea acestor caracteristici.",
+    "whatIsNotCollected": "Ce nu colectează wanderer.moe",
+    "whatIsNotCollectedAnswer": "wanderer.moe nu strânge informațiile ca numele sau adresa de email. wanderer.moe, de asemenea, nu colectează nici-un fel de date despre istoricul browser-ului, ca site-uri pe care le accesezi sau istoricul căutărilor. Datele nu sunt transmise părților terțe.",
+    "advertisementTitle": "Publicitate",
+    "advertisementAnswer": "wanderer.moe utilizează Google Adsense pentru a afișa reclame pe site, ca urmare aceasta ne-a ajuta să susținem financiar website-ul, oricând poți opta pentru conținut personalizat publicitar pe site.",
+    "contactInfo": "Dacă aveți întrebări legate de politica de confidențialitate, mă puteți contacta pe marcel@dromzeh.dev"
+  },
+  "errors": {
+    "404": "Pagină inexistentă",
+    "500": "Eroare internă de server",
+    "refresh": "Încearcă reîncărcarea paginii sau revino la pagina principală",
+    "apiError": "An error occurred while making a request to the API, try again or refresh the page."
+  },
+  "direction": "ltr"
+}

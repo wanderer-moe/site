@@ -1,0 +1,91 @@
+{
+  "home": {
+    "description": "Gecentraliseerde databank van meerdere spel asset",
+    "discord": "({onlineCount} online) Kom bij de discord server voor website-updates, assets niet op de website, en meer"
+  },
+  "nav": {
+    "discord": "Discord Server",
+    "giOCGen": "Genshin OC Generator",
+    "giFiles": "Genshin Bestanden"
+  },
+  "footer": {
+    "fanmadeNotice": "wanderer.moe is een door fans gemaakte website. Alle bestanden zijn eigendommen van hun beheerders.",
+    "assetRequestForm": "Asset Aanvraag Formulier"
+  },
+  "contributors": {
+    "title": "Bijdragers",
+    "desc": "Veel dank aan al de geweldige mensen die hebben geholpen aan de bijdragen van de website",
+    "gettingData": "Gegevens van bijdragers ophalen..."
+  },
+  "game": {
+    "main": "{availableCategories} categorieën gevonden voor {game}",
+    "info": "Klik op een sectie om de inhoud te bekijken.",
+    "other": "{fileCount} Bestanden ({fileSize})"
+  },
+  "asset": {
+    "main": "{filteredImagesCount}/{imagesCount} assets getoond, {selectedItemsCount} geselecteerd",
+    "info": "Klik op een asset om het te selecteren, dubbel klik een afbeelding om het te vergroten.",
+    "downloadAll": "Installeer Alles",
+    "downloadAllSize": "Installeer Alles ({size})",
+    "downloadSelected": "Download Geselecteerd",
+    "downloadSelectedSize": "Download Geselecteerd ({size})",
+    "download": "Installeer",
+    "downloadSize": "Installeer ({size})",
+    "officialAsset": "Officiële Asset",
+    "fanmadeAsset": "Door Fans Gemaakte Activa",
+    "searchBar": "Zoek voor een asset",
+    "nothingFound": "Niks gevonden voor {query}",
+    "nothingFoundSuggestions": "Als er een asset is die je zoekt die je toegevoegd wilt hebben, vul de asset aanvraagformulier in.",
+    "onMobile": "Als je problemen hebt met het installeren, lees de FAQ door te klikken op het info symbool naast de naam van het spel."
+  },
+  "details": {
+    "lastUpdated": "Laatst Bijgewerkt: {date}",
+    "sortBy": "Sorteer Op",
+    "dateUploaded": "Geüpload: {date}",
+    "sortByAlphabetical": "Alfabetisch (A-Z)",
+    "sortByAlphabeticalReverse": "Alfabetisch (Z-A)",
+    "sortByUploaded": "Geüpload (Nieuwste)",
+    "sortByUploadedReverse": "Geüpload (Oudste)",
+    "sortBySize": "Bestandsgrootte (Kleinste)",
+    "sortBySizeReverse": "Bestandsgrootte (Grootste)"
+  },
+  "globalSearch": {
+    "searchBar": "Zoek voor een spel of asset"
+  },
+  "viewImage": {
+    "closeText": "Klik ergens om te sluiten"
+  },
+  "faq": {
+    "title": "Vaak Gevraagde Vragen",
+    "purpose": "Wat is het doel van deze website?",
+    "purposeAnswer": "wanderer.moe is een website waar gastheren een collectie van assets van meerdere spellen. De assets zijn geordend door spel en asset type, het belang van deze website is om te voorzien van een gecentraliseerde locatie voor mensen om assets van te installeren.",
+    "downloadMultipleOrAll": "Hoe installeer ik meerdere of alle assets?",
+    "downloadMultipleOrAllAnswer": "Om meerdere te installeren, selecteer de asset die je wilt installeren door op die te klikken. Dan klik de 'Downloaden Geselecteerd' knop. Om alle assets te installeren, klik op de 'Installeer Alles' knop. Dit bewaart het als zip bestand in jouw downloads folder.",
+    "downloadOnMobile": "Hoe installeer ik assets op mobiel?",
+    "downloadOnMobileAnswer": "Zorg ervoor dat je de website niet bekijkt via Sociale Media apps, maar inplaats daarvan een ingebouwde browser op jouw telefoon. Als je op iPhone bent, adviseer ik om Safari te gebruiken.",
+    "howToExtract": "Hoe extract ik de zip bestand na het installeren?",
+    "howToExtractAnswer": " Als je Windows gebruikt, kan je de 7zip gebruiken om de bestanden te extraheren. Als je Mac gebruikt, kan je de ingebouwde Archief Hulpprogramma gebruiken. Als je iPhone gebruikt, klik op de .zip bestand, open de folder dat het creëert, selecteer de afbeeldingen en dan 'Zet in Foto's'. Als je Android gebruikt, kan je gebruik maken van een bestand beheer om de bestanden te extraheren.",
+    "issueNotFound": "Ik heb een probleem dat hier niet wordt vermeld.",
+    "issueNotFoundAnswer": "Als je een probleem hebt dat hier niet wordt vermeld, dan kan je bij de discord server komen en daar om hulp vragen."
+  },
+  "privacyPolicy": {
+    "title": "Privacybeleid",
+    "whatIsCollected": "Wat wanderer.moe verzamelt en waarom",
+    "sentryTitle": "sentry.io informatie",
+    "sentryAnswer": "wanderer.moe gebruikt sentry.io om statistieken en problemen te verzamelen dat voorkomen op de website.  Er is een geselecteerde kans dat jouw persoonlijke identificeerbaar details worden verzameld, zoals jouw IP-adres, webbrowser, apparaat informatie en opnames van wat jij op de website deed. Deze informatie is NIET gedeeld met eventuele derde partijen en is privé gehouden onder respect van jouw privacy.",
+    "analyticsTitle": "Analyses",
+    "analyticsAnswer": "wanderer.moe gebruikt Google Analyses om informatie te verzamelen over hoe de website wordt gebruikt. Deze informatie wordt gebruikt om de website te verbeteren en om te zien wat voor functies het meeste gebruikt worden zodat ik kan focussen op het verbeteren van die functies.",
+    "whatIsNotCollected": "Wat wanderer.moe niet verzamelt",
+    "whatIsNotCollectedAnswer": "wanderer.moe verzamelt niet informatie zoals jouw naam of email. wanderer.moe verzamelt ook geen enkele informatie over jouw zoekgeschiedenis, zoals welke websites je hebt bezoekt of wat je voor zoekt. Data is niet gedeeld met eventuele derde partijen.",
+    "advertisementTitle": "Advertenties",
+    "advertisementAnswer": "wanderer.moe gebruikt Google AdSense om advertenties op de website te weergeven, dit wordt gedaan om te helpen bij het betalen van de kosten van het runnen van de website.",
+    "contactInfo": "Als je vragen hebt over deze privacybeleid, neem contact op met marcel@dromzeh.dev"
+  },
+  "errors": {
+    "404": "Pagina Niet Gevonden",
+    "500": "Internal Server Fout",
+    "refresh": "Probeer de pagina te verversen of ga terug naar de startpagina",
+    "apiError": "Een probleem vindt plaats tijdens het maken van een verzoek naar de API, probeer opnieuw of ververs de pagina."
+  },
+  "direction": "ltr"
+}

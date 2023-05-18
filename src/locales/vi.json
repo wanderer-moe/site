@@ -1,0 +1,91 @@
+{
+  "home": {
+    "description": "Cơ sở dữ liệu của nhiều tài sản trò chơi",
+    "discord": "({onlineCount} online) Nếu bạn tham gia máy chủ discord, bạn có thể nhìn nhật trang web, tài sản không có trên trang web và hơn thế nữa"
+  },
+  "nav": {
+    "discord": "Máy chủ Discord",
+    "giOCGen": "Phát ra Genshin OC",
+    "giFiles": "Các tập tin Genshin"
+  },
+  "footer": {
+    "fanmadeNotice": "wanderer.moe là một trang web do người hâm mộ tạo ra. Tất cả các tập tin là tài sản của chủ của họ.",
+    "assetRequestForm": "Form yêu cầu tài sản"
+  },
+  "contributors": {
+    "title": "Người giúp đỡ",
+    "desc": "Cảm ơn tất cả những người tuyệt vời đã giúp đóng góp cho trang web",
+    "gettingData": "Bắt dữ liệu người giúp đỡ..."
+  },
+  "game": {
+    "main": "{availableCategories} loại đã tìm thấy cho {game}",
+    "info": "Bấm vào một section để xem nội dung của nó.",
+    "other": "{fileCount} các tập tin {fileSize}"
+  },
+  "asset": {
+    "main": "{filteredImagesCount}/{imagesCount} tài sản cho xem, {selectedItemsCount} được chọn",
+    "info": "Chạm vào một tài sản để chọn nó, chạm hai lần vào một hình ảnh để phóng to nó.",
+    "downloadAll": "Tải xuống tất cả",
+    "downloadAllSize": "Download All ({size})",
+    "downloadSelected": "Tải xuống đã chọn",
+    "downloadSelectedSize": "Download Selected ({size})",
+    "download": "Tải xuống",
+    "downloadSize": "Download ({size})",
+    "officialAsset": "Tài sản chính thức",
+    "fanmadeAsset": "Tài sản Fan tạo ra",
+    "searchBar": "Tìm kiếm tài sản",
+    "nothingFound": "Không tìm thấy gì cho {query}",
+    "nothingFoundSuggestions": "Nếu bạn đang tìm kiếm một tài sản mà bạn muốn thêm vào, hãy điền vào form yêu cầu tài sản.",
+    "onMobile": "If you're having issues downloading, read the FAQ by pressing the info symbol next to the game's name."
+  },
+  "details": {
+    "lastUpdated": "Last Updated: {date}",
+    "sortBy": "Sort By",
+    "dateUploaded": "Uploaded: {date}",
+    "sortByAlphabetical": "Alphabetical (A-Z)",
+    "sortByAlphabeticalReverse": "Alphabetical (Z-A)",
+    "sortByUploaded": "Uploaded (Newest)",
+    "sortByUploadedReverse": "Uploaded (Oldest)",
+    "sortBySize": "File Size (Smallest)",
+    "sortBySizeReverse": "File Size (Largest)"
+  },
+  "globalSearch": {
+    "searchBar": "Tìm kiếm một trò chơi hoặc tài sản"
+  },
+  "viewImage": {
+    "closeText": "Nhấp vào bất cứ đâu để đóng"
+  },
+  "faq": {
+    "title": "Các câu hỏi thường gặp",
+    "purpose": "Mục đích của trang web này là gì?",
+    "purposeAnswer": "wanderer.moe là một trang web lưu trữ một bộ sưu tập tài sản từ các trò chơi. Tài sản được sắp xếp theo trò chơi và loại tài sản, mục đích của trang web này là cung cấp một vị trí tập trung để mọi người tải xuống nội dung từ đó.",
+    "downloadMultipleOrAll": "Làm cách nào để tải xuống nhiều hoặc tất cả tài sản?",
+    "downloadMultipleOrAllAnswer": "To download multiple, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a zip file into your downloads folder.",
+    "downloadOnMobile": "Làm cách nào để tải xuống tài sản trên thiết bị điện thoại?",
+    "downloadOnMobileAnswer": "Bạn đừng xem trang web wanderer. moe thông qua các ứng dụng Social Media mà thay vào đó là một trình duyệt tích hợp sẵn trên điện thoại của bạn. Nếu bạn đang dùng iPhone, tôi khuyên bạn nên sử dụng Safari.",
+    "howToExtract": "Làm cách nào để giải nén file zip sau khi tải xuống?",
+    "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the .zip file, open the folder it creates, select the images and then 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
+    "issueNotFound": "Tôi có một vấn đề không được viết xuống ở đây.",
+    "issueNotFoundAnswer": "Nếu bạn gặp vấn đề không được viết xuống ở đây, bạn có thể tham gia máy chủ discord và yêu cầu trợ giúp ở đó."
+  },
+  "privacyPolicy": {
+    "title": "Chính sách bảo mật",
+    "whatIsCollected": "Những gì wanderer.moe thu thập và tại sao",
+    "sentryTitle": "thông tin sentry.io",
+    "sentryAnswer": "wanderer.moe uses sentry.io to collect statistics and errors that occur on the site. There is a select chance that your personally identifiable details may be collected, such as your IP address, web browser, device information and recordings on what you did on the site. This information is NOT shared with any third parties and is kept private under respect for your privacy.",
+    "analyticsTitle": "Analytics",
+    "analyticsAnswer": "wanderer.moe sử dụng Google Analytics để thu thập thông tin về cách trang web được sử dụng. Thông tin này được sử dụng để cải thiện trang web để xem tính năng nào được sử dụng nhiều nhất để tôi có thể tập trung vào việc cải thiện các tính năng đó.",
+    "whatIsNotCollected": "Những gì wanderer.moe không thu thập",
+    "whatIsNotCollectedAnswer": "wanderer.moe does not collect information such as your name or email. wanderer.moe does also not collect any information about your browsing history, such as what sites you visit or what you search for. Data is not shared with any third parties.",
+    "advertisementTitle": "Quảng cáo",
+    "advertisementAnswer": "wanderer.moe uses Google Adsense to display advertisements on the site, this is done to help pay for the costs of running the site, you can opt out of personalized ads anytime on the site.",
+    "contactInfo": "Nếu bạn có câu hỏi nào về chính sách bảo mật này, hãy liên hệ với marcel@dromzeh.dev"
+  },
+  "errors": {
+    "404": "Không tìm thấy trang",
+    "500": "Lỗi máy chủ",
+    "refresh": "Thử làm mới trang hoặc quay lại trang chủ",
+    "apiError": "An error occurred while making a request to the API, try again or refresh the page."
+  },
+  "direction": "ltr"
+}

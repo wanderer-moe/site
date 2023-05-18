@@ -1,0 +1,35 @@
+{
+  "background_color": "#ffffff",
+  "theme_color": "#333333",
+  "name": "wanderer.moe",
+  "short_name": "wanderer.moe",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [{
+    "src": "favicon.png",
+    "sizes": "192x192",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }],
+  "scope": "/",
+  "shortcuts": [{
+      "name": "Genshin Character Sheets",
+      "short_name": "Genshin Character Sheets",
+      "description": "Character Sheets extracted from Game Clients & Web Events.",
+      "url": "/genshin-impact/character-sheets"
+    },
+    {
+      "name": "Genshin OC Generator",
+      "short_name": "Genshin OC Generator",
+      "description": "Generate your own Genshin Impact OC.",
+      "url": "/oc-generator/genshin-impact"
+    },
+    {
+      "name": "Honkai: Star Rail Assets",
+      "short_name": "Honkai: Star Rail Assets",
+      "description": "View and download assets from Honkai: Star Rail.",
+      "url": "/honkai-star-rail"
+    }
+  ],
+  "description": "Centralized database of various game assets. (previously wtf.dromzeh.dev)"
+}
