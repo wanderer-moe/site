@@ -68,19 +68,6 @@
     "issueNotFound": "Ik heb een probleem dat hier niet wordt vermeld.",
     "issueNotFoundAnswer": "Als je een probleem hebt dat hier niet wordt vermeld, dan kan je bij de discord server komen en daar om hulp vragen."
   },
-  "privacyPolicy": {
-    "title": "Privacybeleid",
-    "whatIsCollected": "Wat wanderer.moe verzamelt en waarom",
-    "sentryTitle": "sentry.io informatie",
-    "sentryAnswer": "wanderer.moe gebruikt sentry.io om statistieken en problemen te verzamelen dat voorkomen op de website.  Er is een geselecteerde kans dat jouw persoonlijke identificeerbaar details worden verzameld, zoals jouw IP-adres, webbrowser, apparaat informatie en opnames van wat jij op de website deed. Deze informatie is NIET gedeeld met eventuele derde partijen en is privé gehouden onder respect van jouw privacy.",
-    "analyticsTitle": "Analyses",
-    "analyticsAnswer": "wanderer.moe gebruikt Google Analyses om informatie te verzamelen over hoe de website wordt gebruikt. Deze informatie wordt gebruikt om de website te verbeteren en om te zien wat voor functies het meeste gebruikt worden zodat ik kan focussen op het verbeteren van die functies.",
-    "whatIsNotCollected": "Wat wanderer.moe niet verzamelt",
-    "whatIsNotCollectedAnswer": "wanderer.moe verzamelt niet informatie zoals jouw naam of email. wanderer.moe verzamelt ook geen enkele informatie over jouw zoekgeschiedenis, zoals welke websites je hebt bezoekt of wat je voor zoekt. Data is niet gedeeld met eventuele derde partijen.",
-    "advertisementTitle": "Advertenties",
-    "advertisementAnswer": "wanderer.moe gebruikt Google AdSense om advertenties op de website te weergeven, dit wordt gedaan om te helpen bij het betalen van de kosten van het runnen van de website.",
-    "contactInfo": "Als je vragen hebt over deze privacybeleid, neem contact op met marcel@dromzeh.dev"
-  },
   "errors": {
     "404": "Pagina Niet Gevonden",
     "500": "Internal Server Fout",

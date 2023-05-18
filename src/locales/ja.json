@@ -68,19 +68,6 @@
     "issueNotFound": "問題がこれぐらいませんだ．",
     "issueNotFoundAnswer": "問題がこれぐらいませんだなら､Discordサーバに参加して助けを求めてください."
   },
-  "privacyPolicy": {
-    "title": "プライバシーポリシー",
-    "whatIsCollected": "wanderer.moeの収集んだデータはなんだってとどうしてあるか？",
-    "sentryTitle": "sentry.ioインフォ",
-    "sentryAnswer": "wanderer.moeは､sentry.ioで統計とエラーを収集しますんです．もしかするとあなたのデータ（IP，ブラウザ，サイトでどしたことなど）は収集しますなら､データはこれこそ非公開にしますんでいます．いつも第三者へ出しないんだた．",
-    "analyticsTitle": "分折学",
-    "analyticsAnswer": "wanderer.moeはGoogle Analyticsでサイト使用の情報を収集してあるだ. その情報でサイトを向上します.",
-    "whatIsNotCollected": "wanderer.moeの収集しないなデータ",
-    "whatIsNotCollectedAnswer": "wanderer.moeは､名前とか電子メールなどのデータを全然収集しません．さらに､閲覧履歴とかサイトをどうしたことなどは全然収集しません．データは第三者へ決してに出しません．",
-    "advertisementTitle": "アドバタイズメント",
-    "advertisementAnswer": "サイトを支払いために､wanderer.moeはGoogle Adsenseでサイトにアドを見せらいます．サイトで､パーソナライズされたアドに身を引くできます．",
-    "contactInfo": "不明な点ございましたら､marcel@dromzeh.devをemailしてください．"
-  },
   "errors": {
     "404": "ページがありませんだ．",
     "500": "中にサーバエラー",
