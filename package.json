@@ -1,8 +1,8 @@
 {
   "type": "module",
   "name": "wanderer.moe",
-  "description": "View and download assets from Gacha and RPG games.",
-  "version": "3.0.0b",
+  "description": "Centralized database of various game assets",
+  "version": "3.1.0",
   "scripts": {
     "dev": "vite dev --port 1337 --host",
     "build": "vite build",
