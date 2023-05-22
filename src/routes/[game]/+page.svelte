@@ -26,20 +26,16 @@ let gameSplit = fixCasing(game);
       <img
         src="https://cdn.wanderer.moe/{game}/cover.png"
         class="absolute inset-0 h-64 w-full object-cover object-center transition ease-in-out"
-        alt=""
-      />
+        alt="" />
       <!-- bg gradient opacity from 0 to 100-->
       <div
-        class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50"
-      >
+        class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
         <div
-          class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20"
-        >
+          class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
           <div class="flex flex-col items-center justify-between xl:flex-row">
             <div class="">
               <h2
-                class="max-w-lg text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none"
-              >
+                class="max-w-lg text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                 {gameSplit}
               </h2>
               <p class="max-w-xl text-xl font-semibold text-white">
@@ -65,7 +61,7 @@ let gameSplit = fixCasing(game);
             <a href="/{game}/{folder.name}">
               <div class="rounded-lg bg-[#121212] p-4">
                 <p class="sigfont text-left text-2xl font-semibold text-white">
-                  <i class="fa fa-folder"></i>
+                  <i class="fa fa-folder mr-5"></i>
                   {fixCasing(folder.name)}
                 </p>
               </div>

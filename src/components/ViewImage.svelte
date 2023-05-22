@@ -36,8 +36,7 @@ export let closeImageView;
 <div class="image-holder fixed">
   <div
     in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
-    out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}"
-  >
+    out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
     <img src="{imageUrl}" class="object-contain" alt="full view" />
     <p class="sigfont text-center text-white">{$t("viewImage.closeText")}</p>
   </div>
@@ -46,5 +45,5 @@ export let closeImageView;
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
-  on:click="{closeImageView}"
-></div>
+  on:click="{closeImageView}">
+</div>

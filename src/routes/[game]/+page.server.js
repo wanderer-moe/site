@@ -1,13 +1,7 @@
-import {
-  error
-} from "@sveltejs/kit";
+import { error } from "@sveltejs/kit";
 
-export async function load({
-  params
-}) {
-  const {
-    game
-  } = params;
+export async function load({ params }) {
+  const { game } = params;
   try {
     const res = await fetch(`https://api.wanderer.moe/game/${game}`);
 
