@@ -89,19 +89,17 @@ function on_key_up(event) {
         <div class="flex items-center md:px-20">
           <ul class="mt-4 flex flex-row space-x-4 font-medium md:mt-0">
             <input
-              class="hidden px-4 py-2 lg:block h-14 w-72 rounded-lg bg-black text-center text-white text-xs {$t(
+              class="hidden h-14 w-72 rounded-lg bg-black px-4 py-2 text-center text-xs text-white lg:block {$t(
                 'direction'
               )}"
               readonly
               placeholder="{$t('globalSearch.searchBar')} (Ctrl + K)"
-              on:click="{toggleSearch}"
-            />
+              on:click="{toggleSearch}" />
             <button class="hidden px-4 py-2 focus:outline-none lg:hidden">
               <a
                 href="https://discord.wanderer.moe/"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 <i
                   class="fa-brands fa-discord cursor-pointer text-white hover:text-indigo-300"
                 ></i>
@@ -112,8 +110,7 @@ function on_key_up(event) {
           <button
             class="px-4 py-2 focus:outline-none lg:ml-auto lg:mr-0 lg:mt-4 lg:hidden lg:h-12 lg:w-12 lg:px-5 lg:py-2.5"
             on:click="{toggleSearch}"
-            aria-label="menu"
-          >
+            aria-label="menu">
             <i
               class="fa-solid fa-search cursor-pointer text-white hover:text-indigo-300"
             ></i>
@@ -122,8 +119,7 @@ function on_key_up(event) {
             <a
               href="https://discord.wanderer.moe/"
               target="_blank"
-              rel="noopener noreferrer"
-            >
+              rel="noopener noreferrer">
               <i
                 class="fa-brands fa-discord cursor-pointer text-white hover:text-indigo-300"
               ></i>

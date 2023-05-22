@@ -73,20 +73,16 @@ onMount(async () => {
       <img
         src="https://cdn.wanderer.moe/{game}/cover.png"
         class="absolute inset-0 h-64 w-full object-cover object-center transition ease-in-out"
-        alt=""
-      />
+        alt="" />
       <!-- bg gradient opacity from 0 to 100-->
       <div
-        class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50"
-      >
+        class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
         <div
-          class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20"
-        >
+          class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
           <div class="flex flex-col items-center justify-between xl:flex-row">
             <div class="">
               <h2
-                class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none"
-              >
+                class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                 <span class="mr-3">{gameSplit}</span>
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
               </h2>
@@ -108,14 +104,12 @@ onMount(async () => {
         <div class="mb-3 flex flex-wrap gap-2 text-sm">
           <button
             class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
-            on:click="{() => randomize()}"
-          >
+            on:click="{() => randomize()}">
             <i class="fa fa-random"></i> Randomize
           </button>
           <button
             class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
-            on:click="{copyToClipboard($options)}"
-          >
+            on:click="{copyToClipboard($options)}">
             <i class="fa-regular fa-clipboard"></i> Copy
           </button>
           <button
@@ -123,8 +117,7 @@ onMount(async () => {
             on:click="{() =>
               options.update((opts) =>
                 opts.map((opt) => ({ ...opt, locked: true }))
-              )}"
-          >
+              )}">
             <i class="fa fa-unlock"></i> Lock All
           </button>
           <button
@@ -132,8 +125,7 @@ onMount(async () => {
             on:click="{() =>
               options.update((opts) =>
                 opts.map((opt) => ({ ...opt, locked: false }))
-              )}"
-          >
+              )}">
             <i class="fa fa-lock"></i> Unlock All
           </button>
         </div>
@@ -146,8 +138,7 @@ onMount(async () => {
                   <div class="flex items-center">
                     <button
                       class="mr-2 rounded-lg bg-indigo-400 bg-opacity-70 p-1 px-2 py-1 pl-2 pr-2 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
-                      on:click="{() => toggleLock(option)}"
-                    >
+                      on:click="{() => toggleLock(option)}">
                       {#if option.locked}
                         <i class="fas fa-lock"></i>
                       {:else}
@@ -161,8 +152,7 @@ onMount(async () => {
                         ? 'text-red-500'
                         : 'text-indigo-400'} focus:shadow focus:outline-none"
                       value="{option.value}"
-                      readonly
-                    />
+                      readonly />
                   </div>
                 </div>
               {/each}

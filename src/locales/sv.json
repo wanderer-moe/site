@@ -68,19 +68,6 @@
     "issueNotFound": "Jag har problem som inte står här.",
     "issueNotFoundAnswer": "Om du har ett problem som inte står här, kan du gå med i discord-servern och fråga om hjälp där."
   },
-  "privacyPolicy": {
-    "title": "Privacy Policy",
-    "whatIsCollected": "What wanderer.moe collects and why",
-    "sentryTitle": "sentry.io information",
-    "sentryAnswer": "wanderer.moe uses sentry.io to collect statistics and errors that occur on the site. There is a select chance that your personally identifiable details may be collected, such as your IP address, web browser, device information and recordings on what you did on the site. This information is NOT shared with any third parties and is kept private under respect for your privacy.",
-    "analyticsTitle": "Analytiker",
-    "analyticsAnswer": "wanderer.moe uses Google Analytics to collect information about how the site is used. This information is used to improve the site to see what features are used the most so that I can focus on improving those features.",
-    "whatIsNotCollected": "Vad wanderer.moe inte samlar",
-    "whatIsNotCollectedAnswer": "wanderer.moe does not collect information such as your name or email. wanderer.moe does also not collect any information about your browsing history, such as what sites you visit or what you search for. Data is not shared with any third parties.",
-    "advertisementTitle": "Annons",
-    "advertisementAnswer": "wanderer.moe uses Google Adsense to display advertisements on the site, this is done to help pay for the costs of running the site, you can opt out of personalized ads anytime on the site.",
-    "contactInfo": "If you have any questions about this privacy policy, contact marcel@dromzeh.dev"
-  },
   "errors": {
     "404": "Page Not Found",
     "500": "Internal Server Error",

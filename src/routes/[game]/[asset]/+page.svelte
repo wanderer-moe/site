@@ -142,8 +142,7 @@ onMount(() => {
 {#if imageDoubleClicked}
   <ViewImage
     imageUrl="{imageUrl}"
-    closeImageView="{() => (imageDoubleClicked = false)}"
-  />
+    closeImageView="{() => (imageDoubleClicked = false)}" />
 {/if}
 
 <div class="min-h-screen">
@@ -152,20 +151,16 @@ onMount(() => {
       <img
         src="https://cdn.wanderer.moe/{game}/cover.png"
         class="absolute inset-0 h-64 w-full object-cover object-center transition ease-in-out"
-        alt=""
-      />
+        alt="" />
       <!-- bg gradient opacity from 0 to 100-->
       <div
-        class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50"
-      >
+        class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
         <div
-          class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20"
-        >
+          class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
           <div class="flex flex-col items-center justify-between xl:flex-row">
             <div class="">
               <h2
-                class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none"
-              >
+                class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                 {gameSplit}
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <i
@@ -190,8 +185,7 @@ onMount(() => {
           <p
             class="text-center text-sm font-semibold text-gray-400 {$t(
               'direction'
-            )}"
-          >
+            )}">
             {$t("asset.main", {
               values: {
                 filteredImagesCount: filteredImages.length,
@@ -220,8 +214,7 @@ onMount(() => {
           )}"
           placeholder="&#x1F50D; {$t('asset.searchBar')}"
           on:input="{handleInput}"
-          bind:value="{query}"
-        />
+          bind:value="{query}" />
       </div>
 
       <div class="mb-6 rounded-lg bg-[#141414] p-2 text-white">
@@ -230,8 +223,7 @@ onMount(() => {
             on:click="{downloadSelected}"
             class="rounded-lg bg-indigo-400 bg-opacity-70 px-5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
               'direction'
-            )}"
-          >
+            )}">
             <i class="fa-solid fa-download"></i>
             {#if selectedItems.length >= 1}
               {$t("asset.downloadSelectedSize", {
@@ -247,8 +239,7 @@ onMount(() => {
             on:click="{downloadAll}"
             class="rounded-lg bg-indigo-400 bg-opacity-70 px-5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
               'direction'
-            )}"
-          >
+            )}">
             <i class="fa-solid fa-download"></i>
             {$t("asset.downloadAllSize", {
               values: {
@@ -284,13 +275,11 @@ onMount(() => {
                   console.log(selectedItems);
                   console.log(selectedFilesSize);
                 }
-              }}"
-            >
+              }}">
               <Lazy
                 height="{128}"
                 placeholder="{LoadPlaceHolder}"
-                fadeOption="{{ delay: 100, duration: 1000 }}"
-              >
+                fadeOption="{{ delay: 100, duration: 1000 }}">
                 <img
                   id="assetimg"
                   class="previewImg object-contain object-left p-1"
@@ -299,8 +288,7 @@ onMount(() => {
                   on:dblclick="{() => {
                     imageDoubleClicked = true;
                     imageUrl = `${image.path}`;
-                  }}"
-                />
+                  }}" />
               </Lazy>
               <div class="p-2">
                 <div class="">
@@ -320,16 +308,14 @@ onMount(() => {
                     href="https://cdn.wanderer.moe/{game}/{asset}/{image.name}.png"
                     rel="noreferrer"
                     target="_blank"
-                    download
-                  >
+                    download>
                     <button
                       class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 px-5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
                         'direction'
                       )}"
                       onclick="{(event) => {
                         event.stopPropagation();
-                      }}"
-                    >
+                      }}">
                       <i class="fa-solid fa-download {$t('direction')}"></i>
                       {$t("asset.downloadSize", {
                         values: { size: bytesToFileSize(image.size) },
