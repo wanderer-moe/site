@@ -41,12 +41,10 @@ const faqEntries = [
   <div
     class="faqcontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
     in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
-    out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}"
-  >
+    out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
     <button
       class="close-button absolute right-0 top-[15px] rounded-lg bg-[#17171A] p-2 text-white"
-      on:click="{closeFAQ}">X</button
-    >
+      on:click="{closeFAQ}">X</button>
     <div class="mt-6 rounded-lg bg-[#141414] p-2 text-white">
       <div>
         <div class="flex justify-center">
@@ -54,8 +52,7 @@ const faqEntries = [
             <img
               src="https://cdn.wanderer.moe/genshin-impact/emotes/cyno-3.png"
               alt="cyno"
-              class="h-12 w-12"
-            />
+              class="h-12 w-12" />
             <p class="font-semibold">
               {$t("faq.title")}
             </p>
@@ -79,6 +76,6 @@ const faqEntries = [
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
-    on:click="{closeFAQ()}"
-  ></div>
+    on:click="{closeFAQ()}">
+  </div>
 </div>

@@ -12,8 +12,7 @@ import { page } from "$app/stores";
     <div class="p-1">
       <p class="p-2 text-5xl font-semibold">
         <span class="rounded-lg bg-red-400 pl-3 pr-3 text-[#17171A]"
-          >{$page.status}</span
-        >
+          >{$page.status}</span>
       </p>
     </div>
     {#if $page.status === 404}

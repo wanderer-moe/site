@@ -7,9 +7,9 @@ import { t } from "svelte-i18n";
 import { startClient } from "../i18n.js";
 import Nav from "../components/Nav.svelte";
 import Footer from "../components/Footer.svelte";
-// nprogress css
 import "nprogress/nprogress.css";
 import { derived } from "svelte/store";
+import "../app.css";
 
 NProgress.configure({
   // Full list: https://github.com/rstacruz/nprogress#configuration

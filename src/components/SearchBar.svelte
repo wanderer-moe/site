@@ -25,6 +25,7 @@
 </style>
 
 <script>
+import { fixCasing } from "../lib/utils/helpers";
 import { fly } from "svelte/transition";
 import { cubicOut, quintOut } from "svelte/easing";
 import { t } from "svelte-i18n";
@@ -40,7 +41,6 @@ async function getGames() {
   const response = await axios
     .get("https://api.wanderer.moe/games")
     .then((response) => {
-      console.log("request successful fr");
       allGames = response.data;
     });
 }
@@ -99,12 +99,10 @@ $: filteredGames = filterGames(allGames.games, query);
   <div
     class="search-bar fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
     in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
-    out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}"
-  >
+    out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
     <button
       class="close-button absolute right-0 top-0 rounded-lg bg-[#141414] p-2 text-white"
-      on:click="{closeSearchBar}">X</button
-    >
+      on:click="{closeSearchBar}">X</button>
     <div class="mb-2 rounded-lg bg-[#141414] p-2 text-white">
       <input
         disabled="{allGames.length == 0}"
@@ -113,44 +111,28 @@ $: filteredGames = filterGames(allGames.games, query);
         )}"
         placeholder="&#x1F50D; {$t('globalSearch.searchBar')}"
         bind:value="{query}"
-        bind:this="{inputElement}"
-      />
+        bind:this="{inputElement}" />
     </div>
     {#if filteredGames.length > 0}
       <div
         class="search-results-container rounded-lg bg-[#141414] p-2"
-        style="max-height: 300px; overflow-y: auto;"
-      >
+        style="max-height: 300px; overflow-y: auto;">
         <div class="search-results-list grid gap-1">
           {#each filteredGames as game}
             <div
-              class="rounded-lg bg-[#17171A] p-2 text-white hover:text-indigo-400"
-            >
+              class="rounded-lg bg-[#17171A] p-2 text-white hover:text-indigo-400">
               <!-- https://kit.svelte.dev/docs/link-options#data-sveltekit-reload -->
               <a
                 on:click="{closeSearchBar()}"
                 rel="external"
-                href="{`/${game.gameName.replace(' ', '-')}/${game.subfolder}`}"
-              >
+                href="{`/${game.gameName.replace(' ', '-')}/${
+                  game.subfolder
+                }`}">
                 <p class="text-sm">
-                  {game.gameName
-                    .split("-")
-                    .map(
-                      (word) =>
-                        word.charAt(0).toUpperCase() +
-                        word.slice(1).toLowerCase()
-                    )
-                    .join(" ")}
+                  {fixCasing(game.gameName)}
                 </p>
                 <p>
-                  {game.subfolder
-                    .split("-")
-                    .map(
-                      (word) =>
-                        word.charAt(0).toUpperCase() +
-                        word.slice(1).toLowerCase()
-                    )
-                    .join(" ")}
+                  {fixCasing(game.subfolder)}
                 </p>
               </a>
             </div>
@@ -160,10 +142,9 @@ $: filteredGames = filterGames(allGames.games, query);
     {/if}
   </div>
 
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
     on:click="{closeSearchBar()}"
-  ></div>
+    on:keypress="{closeSearchBar()}">
+  </div>
 </div>

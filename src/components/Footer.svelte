@@ -5,9 +5,15 @@
 </style>
 
 <script>
+import Contribute from "./Contribute.svelte";
 import { locale, t } from "svelte-i18n";
 let dropDownMenu;
+let contributeOpen = false;
 let menuOpen = false;
+
+function toggleContribute() {
+  contributeOpen = !contributeOpen;
+}
 
 const languages = [
   { id: "en", label: "English" },
@@ -23,7 +29,6 @@ const languages = [
 
 const navLinks = [
   { name: "Discord Server", url: "/discord" },
-  { name: "Donate", url: "/donate" },
   { name: "Privacy Policy", url: "/privacy-policy" },
   { name: "Asset Request Form", url: "/asset-request-form" },
 ];
@@ -54,17 +59,18 @@ function toggleLocaleDropdown() {
   <div class="flex flex-col justify-between sm:flex-row">
     <div class="justify-start">
       <p class="text-sm">
-        © 2022-2023 - <a
-          href="https://wanderer.moe/"
-          class="font-semibold text-white hover:text-indigo-300">wanderer.moe</a
-        >. Created and programmed by
+        © 2022-2023 - Created and programmed by
         <a
           href="https://dromzeh.dev/"
-          class="font-semibold text-white hover:text-indigo-300">dromzeh</a
-        >.
+          class="font-semibold text-white hover:text-indigo-300">dromzeh</a>
+        & powered by
+        <a href="https://cloudflare.com"
+          ><span class="text-[#EC8224]"
+            ><i class="fab fa-cloudflare"></i> Cloudflare<span></span></span
+          ></a>
       </p>
 
-      <p class="text-sm">
+      <p class="mt-1 text-sm">
         {$t("footer.fanmadeNotice")}
       </p>
 
@@ -74,53 +80,40 @@ function toggleLocaleDropdown() {
             href="{link.url}"
             target="_blank"
             class="mr-4 text-sm font-semibold text-white hover:text-indigo-300"
-            >{link.name}</a
-          >
+            >{link.name}</a>
         {/each}
+        <span
+          on:click="{toggleContribute}"
+          on:keypress="{toggleContribute}"
+          class="mr-4 animate-text cursor-pointer bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-sm font-bold text-transparent">
+          Contribute
+        </span>
       </div>
     </div>
-    <div class="p-03">
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="p-3">
       <div
         class="sigfont relative flex w-40 cursor-pointer items-center justify-center rounded-xl bg-black p-1"
-        on:click="{toggleLocaleDropdown}"
-      >
+        on:keypress="{toggleLocaleDropdown}"
+        on:click="{toggleLocaleDropdown}">
         <img
           class="mr-2 h-4 w-4 rounded-lg"
           alt="{currentLocale.label}"
-          src="https://cdn.wanderer.moe/locales/{currentLocale.id}.png"
-        />
-        <span class="text-white"
-          >{currentLocale.label}
-          <!--
-          {#if menuOpen}
-            <span class="text-white"
-              ><i class="fa-solid fa-chevron-up"></i></span
-            >
-          {:else}
-            <span class="text-white"
-              ><i class="fa-solid fa-chevron-down"></i></span
-            >
-          {/if}
-          -->
-        </span>
+          src="https://cdn.wanderer.moe/locales/{currentLocale.id}.png" />
+        <span class="text-white">{currentLocale.label} </span>
         <div class="locale-dropdown hidden" bind:this="{dropDownMenu}">
           <div class="mb-2 grid grid-cols-1 rounded-xl bg-black">
             {#each locales as locale}
-              <!-- svelte-ignore a11y-click-events-have-key-events -->
               <div
                 class="sigfont flex items-center justify-center p-1"
-                on:click="{() => changeLocale(locale.id)}"
-              >
+                on:keypress="{() => changeLocale(locale.id)}"
+                on:click="{() => changeLocale(locale.id)}">
                 <img
                   class="mr-2 h-4 w-4 rounded-lg"
                   alt="{locale.label}"
-                  src="https://cdn.wanderer.moe/locales/{locale.id}.png"
-                />
+                  src="https://cdn.wanderer.moe/locales/{locale.id}.png" />
                 <span
                   class="sigfont cursor-pointer text-gray-400 hover:text-white"
-                  >{locale.label}</span
-                >
+                  >{locale.label}</span>
               </div>
             {/each}
           </div>
@@ -129,3 +122,7 @@ function toggleLocaleDropdown() {
     </div>
   </div>
 </footer>
+
+{#if contributeOpen}
+  <Contribute closeContribute="{() => (contributeOpen = false)}" />
+{/if}
