@@ -13,17 +13,24 @@ import Lazy from "svelte-lazy";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import { t } from "svelte-i18n";
-import { bytesToFileSize, fixCasing } from "../../../lib/utils/helpers";
+import {
+  bytesToFileSize,
+  fixCasing,
+  formatDateReadable,
+  iso8601ToUnix,
+} from "../../../lib/utils/helpers";
 import Faq from "../../../components/Faq.svelte";
 import LoadPlaceHolder from "../../../components/LoadPlaceHolder.svelte";
 import ViewImage from "../../../components/ViewImage.svelte";
 let isFaqOpen = false;
+let sortOptionMenu;
+let sortMenuOpen = false;
+import { browser } from "$app/environment";
 
 function toggleFaq() {
   isFaqOpen = !isFaqOpen;
 }
 
-// process data
 export let data;
 const { game, asset, images } = data;
 console.log(game, asset);
@@ -42,10 +49,84 @@ let imageDoubleClicked = false;
 let totalImagesSizeHumanReadable = "?";
 let selectedFilesSize = 0;
 
+const sortingOptions = [
+  { name: "dateNewest", text: $t("details.sortByUploaded") },
+  { name: "dateOldest", text: $t("details.sortByUploadedReverse") },
+  { name: "fileSizeStoL", text: $t("details.sortBySize") },
+  { name: "fileSizeLtoS", text: $t("details.sortBySizeReverse") },
+  { name: "nameAtoZ", text: $t("details.sortByAlphabetical") },
+  { name: "nameZtoA", text: $t("details.sortByAlphabeticalReverse") },
+];
+
+let selectedSortingOption = sortingOptions[0];
+
+// check if selectedSortedOption exists in localstorage
+if (browser) {
+  if (localStorage.getItem("selectedSortingOption")) {
+    selectedSortingOption = JSON.parse(
+      localStorage.getItem("selectedSortingOption")
+    );
+    updateFilter();
+  } else {
+    localStorage.setItem(
+      "selectedSortingOption",
+      JSON.stringify(selectedSortingOption)
+    );
+    selectedSortingOption = sortingOptions[0];
+  }
+}
+
+function toggleSortDropdown() {
+  sortOptionMenu.classList.toggle("hidden");
+  sortMenuOpen =! sortMenuOpen;
+}
+
+function changeSort(option) {
+  selectedSortingOption = option;
+  if (browser) {
+    localStorage.setItem(
+      "selectedSortingOption",
+      JSON.stringify(selectedSortingOption)
+    );
+  }
+  updateFilter();
+}
+
 function updateFilter() {
   filteredImages = images.filter((image) => {
     return image.name.toLowerCase().includes(query.toLowerCase());
   });
+
+  switch (selectedSortingOption.name) {
+    case "fileSizeStoL":
+      filteredImages.sort((a, b) => a.size - b.size);
+      break;
+    case "fileSizeLtoS":
+      filteredImages.sort((a, b) => b.size - a.size);
+      break;
+    case "nameAtoZ":
+      filteredImages.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "nameZtoA":
+      filteredImages.sort((a, b) => b.name.localeCompare(a.name));
+      break;
+    case "dateNewest":
+      filteredImages.sort((a, b) => {
+        const dateA = iso8601ToUnix(a.uploaded);
+        const dateB = iso8601ToUnix(b.uploaded);
+        return dateB - dateA;
+      });
+      break;
+    case "dateOldest":
+      filteredImages.sort((a, b) => {
+        const dateA = iso8601ToUnix(a.uploaded);
+        const dateB = iso8601ToUnix(b.uploaded);
+        return dateA - dateB;
+      });
+      break;
+    default:
+      break;
+  }
 }
 
 function handleInput(event) {
@@ -152,7 +233,6 @@ onMount(() => {
         src="https://cdn.wanderer.moe/{game}/cover.png"
         class="absolute inset-0 h-64 w-full object-cover object-center transition ease-in-out"
         alt="cover" />
-      <!-- bg gradient opacity from 0 to 100-->
       <div
         class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
         <div
@@ -182,6 +262,30 @@ onMount(() => {
     <div class="px-2 md:px-12 lg:px-24">
       <div class="mb-2 rounded-lg bg-[#141414] p-2 text-white">
         <div>
+          <div
+            class="relative mb-2 flex w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1"
+            on:keypress="{toggleSortDropdown}"
+            on:click="{toggleSortDropdown}">
+            <span class="text-white">{$t('details.sortBy')}: {selectedSortingOption.text}</span>
+            <div
+              class="absolute bottom-8 hidden w-full"
+              bind:this="{sortOptionMenu}">
+              <div class="mb-2 grid grid-cols-1 rounded-xl bg-black">
+                {#each sortingOptions as sortingOption}
+                  <div
+                    class="flex items-center justify-center p-1"
+                    on:keypress="{() => changeSort(sortingOption)}"
+                    on:click="{() => changeSort(sortingOption)}">
+                    <span
+                      class="cursor-pointer hover:text-white {sortingOption ==
+                      selectedSortingOption
+                        ? 'text-white'
+                        : 'text-gray-400'}">{sortingOption.text}</span>
+                  </div>
+                {/each}
+              </div>
+            </div>
+          </div>
           <p
             class="text-center text-sm font-semibold text-gray-400 {$t(
               'direction'
@@ -218,10 +322,10 @@ onMount(() => {
       </div>
 
       <div class="mb-6 rounded-lg bg-[#141414] p-2 text-white">
-        <div class="flex flex-wrap gap-2 text-sm">
+        <div class="flex flex-wrap gap-1 text-sm">
           <button
             on:click="{downloadSelected}"
-            class="rounded-lg bg-indigo-400 bg-opacity-70 px-5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
+            class="rounded-lg bg-indigo-400 px-2.5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
               'direction'
             )}">
             <i class="fa-solid fa-download"></i>
@@ -237,7 +341,7 @@ onMount(() => {
           </button>
           <button
             on:click="{downloadAll}"
-            class="rounded-lg bg-indigo-400 bg-opacity-70 px-5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
+            class="rounded-lg bg-indigo-400 px-2.5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
               'direction'
             )}">
             <i class="fa-solid fa-download"></i>
@@ -299,10 +403,13 @@ onMount(() => {
                       </p>
                     </div>
                   </div>
-                  <p class="text-xs uppercase {$t('direction')}">
+                  <p class="text-xs font-bold uppercase {$t('direction')}">
                     {image.name.includes("fanmade")
                       ? `${$t("asset.fanmadeAsset")}`
                       : `${$t("asset.officialAsset")}`}
+                  </p>
+                  <p class="text-xs uppercase {$t('direction')}">
+                    {formatDateReadable(image.uploaded)}
                   </p>
                   <a
                     href="https://cdn.wanderer.moe/{game}/{asset}/{image.name}.png"
@@ -310,7 +417,7 @@ onMount(() => {
                     target="_blank"
                     download>
                     <button
-                      class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 px-5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
+                      class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
                         'direction'
                       )}"
                       onclick="{(event) => {
