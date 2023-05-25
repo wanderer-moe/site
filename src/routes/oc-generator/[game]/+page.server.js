@@ -7,14 +7,12 @@ export async function load({ params }) {
 
     if (res.ok) {
       const response = await res.json();
-      const jsonFile = response.json;
       return {
         game,
-        jsonFile,
+        jsonFile: response.json,
       };
     }
   } catch (err) {
-    // console.log(err);
     throw error(404, "API Error or Page Not Found");
   }
 }

@@ -151,7 +151,7 @@ onMount(() => {
       <img
         src="https://cdn.wanderer.moe/{game}/cover.png"
         class="absolute inset-0 h-64 w-full object-cover object-center transition ease-in-out"
-        alt="" />
+        alt="cover" />
       <!-- bg gradient opacity from 0 to 100-->
       <div
         class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
@@ -162,9 +162,9 @@ onMount(() => {
               <h2
                 class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                 {gameSplit}
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <i
                   class="fa fa-info-circle cursor-pointer text-sm"
+                  on:keypress="{toggleFaq}"
                   on:click="{toggleFaq}"></i>
               </h2>
 

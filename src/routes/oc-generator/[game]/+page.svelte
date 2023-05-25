@@ -84,7 +84,6 @@ onMount(async () => {
               <h2
                 class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                 <span class="mr-3">{gameSplit}</span>
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
               </h2>
               <p class="max-w-xl text-xl font-semibold text-white">
                 OC Generator
