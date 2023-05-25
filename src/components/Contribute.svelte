@@ -42,7 +42,10 @@ export let closeContribute;
               src="https://cdn.wanderer.moe/genshin-impact/emotes/cat.png"
               alt="cat"
               class="h-12 w-12" />
-            <p class="bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-lg font-semibold text-transparent">Contribute</p>
+            <p
+              class="bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-lg font-semibold text-transparent">
+              Contribute
+            </p>
           </div>
         </div>
         <div class="mt-2">
@@ -90,9 +93,9 @@ export let closeContribute;
       </div>
     </div>
   </div>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
-    on:click="{closeContribute()}">
+    on:click="{closeContribute()}"
+    on:keypress="{closeContribute()}">
   </div>
 </div>

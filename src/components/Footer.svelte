@@ -15,12 +15,13 @@ function toggleContribute() {
   contributeOpen = !contributeOpen;
 }
 
+// TODO: finish correct RTL arabic support
 const languages = [
   { id: "en", label: "English" },
   { id: "nl", label: "Nederlands" },
   { id: "ja", label: "日本語" },
   { id: "it", label: "Italiano" },
-  // { id: "ar", label: "العربية" },
+  // { id: "ar", label: "العربية" }
   { id: "ro", label: "Română" },
   { id: "sv", label: "Svenska" },
   { id: "vi", label: "Tiếng Việt" },

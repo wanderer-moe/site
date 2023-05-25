@@ -26,8 +26,7 @@ let gameSplit = fixCasing(game);
       <img
         src="https://cdn.wanderer.moe/{game}/cover.png"
         class="absolute inset-0 h-64 w-full object-cover object-center transition ease-in-out"
-        alt="" />
-      <!-- bg gradient opacity from 0 to 100-->
+        alt="{game} cover" />
       <div
         class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
         <div

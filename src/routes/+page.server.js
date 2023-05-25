@@ -1,16 +1,16 @@
 export const load = async () => {
-  const games = await fetch("https://api.wanderer.moe/games");
-  const gamesJson = await games.json();
-  const ocGenerators = await fetch("https://api.wanderer.moe/oc-generators");
-  const ocGeneratorsJson = await ocGenerators.json();
   try {
-    const allGames = gamesJson.games;
-    const allOCGenerators = ocGeneratorsJson;
+    const gamesResponse = await fetch("https://api.wanderer.moe/games");
+    const games = await gamesResponse.json();
+    const ocGeneratorsResponse = await fetch(
+      "https://api.wanderer.moe/oc-generators"
+    );
+    const ocGenerators = await ocGeneratorsResponse.json();
     return {
-      allGames,
-      allOCGenerators,
+      allGames: games.games,
+      allOCGenerators: ocGenerators,
     };
   } catch (err) {
-    throw error(500, "Error fetching data from API");
+    throw new Error("Error fetching data from API");
   }
 };

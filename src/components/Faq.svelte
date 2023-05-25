@@ -47,8 +47,8 @@ const faqEntries = [
       on:click="{closeFAQ}">X</button>
     <div class="mt-6 rounded-lg bg-[#141414] p-2 text-white">
       <div>
-        <div class="flex justify-center">
-          <div class="rtl flex items-center">
+        <div class="rtl flex justify-center">
+          <div class="flex items-center">
             <img
               src="https://cdn.wanderer.moe/genshin-impact/emotes/cyno-3.png"
               alt="cyno"
@@ -58,7 +58,7 @@ const faqEntries = [
             </p>
           </div>
         </div>
-        <div class="mt-2">
+        <div class="mt-2 {$t('direction')}">
           {#each faqEntries as entry}
             <div class="mb-2">
               <p class="text-sm font-semibold">
@@ -73,9 +73,9 @@ const faqEntries = [
       </div>
     </div>
   </div>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
-    on:click="{closeFAQ()}">
+    on:click="{closeFAQ()}"
+    on:keypress="{closeFAQ()}">
   </div>
 </div>
