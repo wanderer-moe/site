@@ -78,7 +78,7 @@ if (browser) {
 
 function toggleSortDropdown() {
   sortOptionMenu.classList.toggle("hidden");
-  sortMenuOpen =! sortMenuOpen;
+  sortMenuOpen = !sortMenuOpen;
 }
 
 function changeSort(option) {
@@ -266,7 +266,8 @@ onMount(() => {
             class="relative mb-2 flex w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1"
             on:keypress="{toggleSortDropdown}"
             on:click="{toggleSortDropdown}">
-            <span class="text-white">{$t('details.sortBy')}: {selectedSortingOption.text}</span>
+            <span class="text-white"
+              >{$t("details.sortBy")}: {selectedSortingOption.text}</span>
             <div
               class="absolute bottom-8 hidden w-full"
               bind:this="{sortOptionMenu}">

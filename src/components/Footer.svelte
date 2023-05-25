@@ -1,15 +1,14 @@
-<style lang="postcss">
-.locale-dropdown {
-  @apply absolute bottom-8 w-40;
-}
-</style>
-
 <script>
 import Contribute from "./Contribute.svelte";
 import { locale, t } from "svelte-i18n";
+import { onMount } from "svelte";
+import { getCommitRecent } from "../lib/utils/commit";
+import { formatDateReadable } from "../lib/utils/helpers";
 let dropDownMenu;
 let contributeOpen = false;
 let menuOpen = false;
+
+const currentYear = new Date().getFullYear();
 
 function toggleContribute() {
   contributeOpen = !contributeOpen;
@@ -54,26 +53,49 @@ function toggleLocaleDropdown() {
   dropDownMenu.classList.toggle("hidden");
   menuOpen = !menuOpen;
 }
+
+let recentCommitMsg = "";
+let shaSpliced = "";
+let sha = "";
+let authorInfo = [];
+
+onMount(async () => {
+  const {
+    recentCommitMsg: msg,
+    shaSpliced: spliced,
+    sha: shaValue,
+    authorInfo: author,
+  } = await getCommitRecent();
+  authorInfo = author;
+  recentCommitMsg = msg;
+  shaSpliced = spliced;
+  sha = shaValue;
+});
 </script>
 
 <footer class="bg-[#141414] p-3 text-left text-gray-400">
   <div class="flex flex-col justify-between sm:flex-row">
     <div class="justify-start">
       <p class="text-sm">
-        © 2022-2023 - Created and programmed by
+        © 2022-{currentYear} - Created and programmed by
         <a
           href="https://dromzeh.dev/"
-          class="font-semibold text-white hover:text-indigo-300">dromzeh</a>
-        & powered by
-        <a href="https://cloudflare.com"
-          ><span class="text-[#EC8224]"
-            ><i class="fab fa-cloudflare"></i> Cloudflare<span></span></span
-          ></a>
+          class="font-semibold text-white hover:text-indigo-300">dromzeh</a>.
       </p>
 
-      <p class="mt-1 text-sm">
+      <p class="text-sm">
         {$t("footer.fanmadeNotice")}
       </p>
+
+      {#if recentCommitMsg}
+        <a href="https://git.dromzeh.dev/wanderer.moe/commit/{sha}">
+          <p class="mt-1 text-xs text-gray-500">
+            <i class="fab fa-github"></i> Last updated {formatDateReadable(
+              authorInfo.date
+            )} by {authorInfo.name} ({authorInfo.username}): "{recentCommitMsg}"
+          </p>
+        </a>
+      {/if}
 
       <div class="mt-4">
         {#each navLinks as link}
@@ -93,7 +115,7 @@ function toggleLocaleDropdown() {
     </div>
     <div class="p-3">
       <div
-        class="sigfont relative flex w-40 cursor-pointer items-center justify-center rounded-xl bg-black p-1"
+        class="sigfont relative flex sm:w-40 w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1"
         on:keypress="{toggleLocaleDropdown}"
         on:click="{toggleLocaleDropdown}">
         <img
@@ -101,7 +123,7 @@ function toggleLocaleDropdown() {
           alt="{currentLocale.label}"
           src="https://cdn.wanderer.moe/locales/{currentLocale.id}.png" />
         <span class="text-white">{currentLocale.label} </span>
-        <div class="locale-dropdown hidden" bind:this="{dropDownMenu}">
+        <div class="absolute bottom-8 sm:w-40 w-full hidden" bind:this="{dropDownMenu}">
           <div class="mb-2 grid grid-cols-1 rounded-xl bg-black">
             {#each locales as locale}
               <div

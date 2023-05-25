@@ -12,6 +12,7 @@ header {
 import { t } from "svelte-i18n";
 import { page } from "$app/stores";
 import SearchBar from "./SearchBar.svelte";
+import { onMount } from "svelte";
 
 let isSearchOpen = false;
 

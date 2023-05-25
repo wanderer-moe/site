@@ -46,12 +46,7 @@ async function getGames() {
 }
 
 onMount(() => {
-  getGames().then(
-    // if successful, add visible class to the search bar
-    () => {
-      // allow for typing in inputelement
-    }
-  );
+  getGames();
 });
 
 const filterGames = (allGames, query) => {
