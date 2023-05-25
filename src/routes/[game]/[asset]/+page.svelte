@@ -409,7 +409,9 @@ onMount(() => {
                       : `${$t("asset.officialAsset")}`}
                   </p>
                   <p class="text-xs uppercase {$t('direction')}">
-                    {formatDateReadable(image.uploaded)}
+                    {$t("details.dateUploaded", {
+                      values: { date: formatDateReadable(image.uploaded) },
+                    })}
                   </p>
                   <a
                     href="https://cdn.wanderer.moe/{game}/{asset}/{image.name}.png"
