@@ -45,7 +45,7 @@
     "@sentry/svelte": "^7.52.1",
     "@svackages/sveltekit-hook-redirect": "^0.0.1",
     "@sveltejs/adapter-cloudflare": "^2.2.4",
-    "@sveltejs/kit": "1.18.0",
+    "@sveltejs/kit": "1.19.0",
     "axios": "^1.4.0",
     "file-saver": "^2.0.5",
     "glob": "^10.2.6",
