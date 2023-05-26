@@ -17,6 +17,7 @@
 
 <script>
 import { fixCasing } from "../lib/utils/helpers";
+import { filterGamesSearchBar as filterGames } from "../lib/utils/filterSearch";
 import { fly } from "svelte/transition";
 import { cubicOut, quintOut } from "svelte/easing";
 import { t } from "svelte-i18n";
@@ -35,45 +36,6 @@ async function getGames() {
       allGames = response.data;
     });
 }
-
-// TODO: rewrite this function (incorrect expected behaviour)
-const filterGames = (allGames, query) => {
-  if (!query || query.length < 1) {
-    return [];
-  }
-
-  const lowercaseQuery = query.toLowerCase();
-  const keywords = lowercaseQuery.split(" ").filter((kw) => kw.length > 0);
-
-  const filteredGames = [];
-  allGames.forEach((game) => {
-    const gameName = game.name.toLowerCase();
-    const subfolders = game.subfolders.map((subfolder) =>
-      subfolder.name.toLowerCase()
-    );
-    keywords.forEach((kw) => {
-      if (gameName.includes(kw)) {
-        subfolders.forEach((subfolder) => {
-          filteredGames.push({
-            gameName: game.name,
-            subfolder: subfolder,
-          });
-        });
-      } else {
-        subfolders.forEach((subfolder) => {
-          if (subfolder.includes(kw)) {
-            filteredGames.push({
-              gameName: game.name,
-              subfolder: subfolder,
-            });
-          }
-        });
-      }
-    });
-  });
-
-  return filteredGames;
-};
 
 onMount(() => {
   getGames().then(() => {
