@@ -207,6 +207,8 @@ onMount(() => {
   // convert the bytes value to a human readable format
   totalImagesSizeHumanReadable = bytesToFileSize(totalImagesSize);
   console.log(totalImagesSizeHumanReadable);
+
+  updateFilter();
 });
 
 //

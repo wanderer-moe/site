@@ -1,23 +1,3 @@
-<style lang="postcss">
-.contributecontainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 90%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-}
-
-.blackbg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
-</style>
-
 <script>
 import { t } from "svelte-i18n";
 let visible = "";
@@ -28,7 +8,7 @@ export let closeContribute;
 
 <div bind:this="{visible}">
   <div
-    class="contributecontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+    class="popupcontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
     in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
     out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
     <button
