@@ -45,10 +45,7 @@ async function getGames() {
     });
 }
 
-onMount(() => {
-  getGames();
-});
-
+// TODO: rewrite this function (incorrect expected behaviour)
 const filterGames = (allGames, query) => {
   if (!query || query.length < 1) {
     return [];
@@ -87,7 +84,14 @@ const filterGames = (allGames, query) => {
   return filteredGames;
 };
 
+onMount(() => {
+  getGames().then(() => {
+    // console.log(allGames.games);
+  });
+});
+
 $: filteredGames = filterGames(allGames.games, query);
+// $: console.log(filteredGames);
 </script>
 
 <div bind:this="{visible}">

@@ -80,7 +80,8 @@ onMount(async () => {
         © 2022-{currentYear} - Created and programmed by
         <a
           href="https://dromzeh.dev/"
-          class="font-semibold text-white hover:text-indigo-300">dromzeh</a>.
+          class="font-semibold text-white hover:text-indigo-300">dromzeh</a
+        >.
       </p>
 
       <p class="text-sm">
@@ -115,7 +116,7 @@ onMount(async () => {
     </div>
     <div class="p-3">
       <div
-        class="sigfont relative flex sm:w-40 w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1"
+        class="sigfont relative flex w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1 sm:w-40"
         on:keypress="{toggleLocaleDropdown}"
         on:click="{toggleLocaleDropdown}">
         <img
@@ -123,7 +124,9 @@ onMount(async () => {
           alt="{currentLocale.label}"
           src="https://cdn.wanderer.moe/locales/{currentLocale.id}.png" />
         <span class="text-white">{currentLocale.label} </span>
-        <div class="absolute bottom-8 sm:w-40 w-full hidden" bind:this="{dropDownMenu}">
+        <div
+          class="absolute bottom-8 hidden w-full sm:w-40"
+          bind:this="{dropDownMenu}">
           <div class="mb-2 grid grid-cols-1 rounded-xl bg-black">
             {#each locales as locale}
               <div

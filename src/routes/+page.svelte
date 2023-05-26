@@ -1,7 +1,6 @@
 <script>
 import axios from "axios";
 import { onMount } from "svelte";
-import Lazy from "svelte-lazy";
 import { t } from "svelte-i18n";
 import { fixCasing } from "../lib/utils/helpers.js";
 let onlineUsers = "???";
@@ -31,8 +30,7 @@ const { allGames, allOCGenerators } = data;
 const OCGeneratorsLocations = allOCGenerators.locations;
 console.log(OCGeneratorsLocations);
 
-// pick a random game from the list of games and get its name
-// const randomGame = allGames[Math.floor(Math.random() * allGames.length)].name;
+// allGames[Math.floor(Math.random() * allGames.length)].name;
 let hoveredImage = "wuthering-waves";
 
 $: console.log(hoveredImage);
@@ -48,7 +46,7 @@ $: console.log(hoveredImage);
       <img
         src="https://cdn.wanderer.moe/{hoveredImage}/cover.png"
         class="absolute inset-0 h-64 w-full object-cover object-center transition ease-in-out"
-        alt="" />
+        alt="{hoveredImage} cover" />
       <div
         class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
         <div
