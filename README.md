@@ -1,45 +1,62 @@
-<h1 align="center">wanderer.moe</h1>
-<p align="center">Centralized database of various game assets</p>
+# wanderer.moe
 
-<p align="center">
-  <a href="https://deepsource.io/gh/dromzeh/wanderer.moe/?ref=repository-badge}" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/dromzeh/wanderer.moe.svg/?label=active+issues&token=EzKEOHLDivZSRTyThM-VLLsH"/></a>
-  <a href="https://deepsource.io/gh/dromzeh/wanderer.moe/?ref=repository-badge}" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/dromzeh/wanderer.moe.svg/?label=resolved+issues&token=EzKEOHLDivZSRTyThM-VLLsH"/></a>
-  <a title="Crowdin" target="_blank" href="https://crowdin.com"><img src="https://badges.crowdin.net/wanderermoe/localized.svg"></a>
-</p>
+Source code for [wanderer.moe](https://wanderer.moe) - A centralized database of various game assets (and some other stuff)
 
-> ℹ️ Any contributions are welcome.
+This website is built by dromzeh using SvelteKit, Tailwind CSS, and Node.js, hosted with the Cloudflare Stack (Pages, Workers, R2).
 
-## Getting Started
+![wanderer.moe](https://badges.crowdin.net/wanderermoe/localized.svg)
+
+## Local Development & Build
 
 To run the website locally, follow these steps:
 
-1. Clone the repository
-2. Navigate to the project directory and run `pnpm install` to install the required dependencies
-3. Run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use)
-4. To build the website, run `pnpm run build`.
-5. After the build process is complete, run `pnpm run preview` to preview the built site at `http://localhost:5741`
+1. Read [API & CDN](#api--cdn)
+2. Clone the repository, either `main` or `development` branch dependant on your use case:
 
-## Deployment
-
-This website is deployed on Cloudflare Pages and uses Workers (api subdomain) & R2 (cdn subdomain)
-
-Previous versions of the website were deployed on Netlify - `netlify.toml` config file is still present in the repository for reference.
-
-**Cloudflare Configuration:**
-
+```bash
+git clone https://github.com/dromzeh/wanderer.moe -b main # or -b development
 ```
+
+3. Navigate to the project directory, run `pnpm install` to install the required dependencies
+4. Run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use)
+5. To build the website, run `pnpm run build`.
+6. After the build process is complete, run `pnpm run preview` to preview the built site at `http://localhost:5741`
+
+## API & CDN
+
+> **Note**:
+> There are currently CORS rules setup with if you are using wanderer.moe's cdn, you may need to create your own R2 instance and change the `cdn` subdomain to your own R2 instance, make sure to also clone & modify the api & update the URLs.
+
+The API and CDN have their own respective subdomains, `api` and `cdn`.
+
+The API is powered by Cloudflare Workers and the CDN is powered by Cloudflare R2, the api's code is available [here](https://git.dromzeh.dev/api.wanderer.moe)
+
+More details on setting up the API [here](https://github.com/dromzeh/api.wanderer.moe#usage).
+
+## Production Deployment & Configuration
+
+### Cloudflare Configuration:
+
+#### Build Command:
+
+```bash
 npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build
 ```
 
-This code installs the dependencies, builds the website.
+#### Build Output Directory
 
-## Credits
+```bash
+/.svelte-kit/cloudflare
+```
 
-This website was built by dromzeh using SvelteKit, Tailwind CSS, and Node.js, and is hosted with Cloudflare Stack.
-Redirects are done in `/src/hooks/hooks.server.js`
+## Developed By
+
+- [@dromzeh](https://github.com/dromzeh)
+
+## Contributors
 
 A list of contributors can be found [here](https://wanderer.moe/contributors)
 
 ## License
 
-This website is licensed under the [GPL-3 License](https://www.gnu.org/licenses/gpl-3.0.en.html)
+- [api.wanderer.moe](https://api.wanderer.moe) is licensed under [GNU Affero General Public License v3.0](LICENSE) - **You must state all significant changes made to the original software, make the source code available to the public with credit to the original author, original source, and use the same license.**
