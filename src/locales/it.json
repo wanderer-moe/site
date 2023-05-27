@@ -1,7 +1,21 @@
 {
   "home": {
     "description": "Database centralizzato di vari asseti di giochi",
-    "discord": "({onlineCount} online) Unisciti al server discord per aggiornamenti sul sito, assets che non sono sul sito, e molte altre cose"
+    "github": {
+      "desc": "For transparency, wanderer.moe is Open Source on GitHub. The code is available for anyone to view and contribute to.",
+      "webBtn": "Website Source Code",
+      "apiBtn": "API Source Code"
+    },
+    "donate": {
+      "title": "Donate",
+      "shortDesc": "Support the site",
+      "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance and development, consider donating."
+    },
+    "discord": {
+      "desc": "Join the discord server for site updates, assets not on the site, and more",
+      "shortDesc": "{onlineCount} users currently online",
+      "btn": "Join Server"
+    }
   },
   "nav": {
     "discord": "Server Discord",
