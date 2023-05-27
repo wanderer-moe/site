@@ -1,23 +1,3 @@
-<style lang="postcss">
-.faqcontainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 90%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-}
-
-.blackbg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
-</style>
-
 <script>
 import { t } from "svelte-i18n";
 let visible = "";
@@ -39,7 +19,7 @@ const faqEntries = [
 
 <div bind:this="{visible}">
   <div
-    class="faqcontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+    class="popupcontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
     in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
     out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
     <button
@@ -47,8 +27,8 @@ const faqEntries = [
       on:click="{closeFAQ}">X</button>
     <div class="mt-6 rounded-lg bg-[#141414] p-2 text-white">
       <div>
-        <div class="flex justify-center">
-          <div class="rtl flex items-center">
+        <div class="rtl flex justify-center">
+          <div class="flex items-center">
             <img
               src="https://cdn.wanderer.moe/genshin-impact/emotes/cyno-3.png"
               alt="cyno"
@@ -58,7 +38,7 @@ const faqEntries = [
             </p>
           </div>
         </div>
-        <div class="mt-2">
+        <div class="mt-2 {$t('direction')}">
           {#each faqEntries as entry}
             <div class="mb-2">
               <p class="text-sm font-semibold">
@@ -73,9 +53,9 @@ const faqEntries = [
       </div>
     </div>
   </div>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
-    on:click="{closeFAQ()}">
+    on:click="{closeFAQ()}"
+    on:keypress="{closeFAQ()}">
   </div>
 </div>

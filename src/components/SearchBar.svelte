@@ -13,19 +13,11 @@
   max-height: 350px; /* or any desired height */
   overflow-y: auto;
 }
-
-.blackbg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
 </style>
 
 <script>
 import { fixCasing } from "../lib/utils/helpers";
+import { filterGamesSearchBar as filterGames } from "../lib/utils/filterSearch";
 import { fly } from "svelte/transition";
 import { cubicOut, quintOut } from "svelte/easing";
 import { t } from "svelte-i18n";
@@ -46,53 +38,13 @@ async function getGames() {
 }
 
 onMount(() => {
-  getGames().then(
-    // if successful, add visible class to the search bar
-    () => {
-      // allow for typing in inputelement
-    }
-  );
+  getGames().then(() => {
+    // console.log(allGames.games);
+  });
 });
 
-const filterGames = (allGames, query) => {
-  if (!query || query.length < 1) {
-    return [];
-  }
-
-  const lowercaseQuery = query.toLowerCase();
-  const keywords = lowercaseQuery.split(" ").filter((kw) => kw.length > 0);
-
-  const filteredGames = [];
-  allGames.forEach((game) => {
-    const gameName = game.name.toLowerCase();
-    const subfolders = game.subfolders.map((subfolder) =>
-      subfolder.name.toLowerCase()
-    );
-    keywords.forEach((kw) => {
-      if (gameName.includes(kw)) {
-        subfolders.forEach((subfolder) => {
-          filteredGames.push({
-            gameName: game.name,
-            subfolder: subfolder,
-          });
-        });
-      } else {
-        subfolders.forEach((subfolder) => {
-          if (subfolder.includes(kw)) {
-            filteredGames.push({
-              gameName: game.name,
-              subfolder: subfolder,
-            });
-          }
-        });
-      }
-    });
-  });
-
-  return filteredGames;
-};
-
 $: filteredGames = filterGames(allGames.games, query);
+// $: console.log(filteredGames);
 </script>
 
 <div bind:this="{visible}">

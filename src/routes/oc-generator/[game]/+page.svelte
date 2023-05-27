@@ -72,11 +72,11 @@ onMount(async () => {
     <div class="relative">
       <img
         src="https://cdn.wanderer.moe/{game}/cover.png"
-        class="absolute inset-0 h-64 w-full object-cover object-center transition ease-in-out"
+        class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
         alt="" />
       <!-- bg gradient opacity from 0 to 100-->
       <div
-        class="relative h-64 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
+        class="relative h-48 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
         <div
           class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
           <div class="flex flex-col items-center justify-between xl:flex-row">
@@ -84,7 +84,6 @@ onMount(async () => {
               <h2
                 class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                 <span class="mr-3">{gameSplit}</span>
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
               </h2>
               <p class="max-w-xl text-xl font-semibold text-white">
                 OC Generator

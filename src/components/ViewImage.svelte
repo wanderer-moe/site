@@ -13,15 +13,6 @@ img {
   height: 256px;
   width: 256px;
 }
-
-.blackbg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
 </style>
 
 <script>
@@ -42,8 +33,8 @@ export let closeImageView;
   </div>
 </div>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
-  on:click="{closeImageView}">
+  on:click="{closeImageView}"
+  on:keypress="{closeImageView}">
 </div>

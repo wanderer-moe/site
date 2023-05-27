@@ -1,23 +1,3 @@
-<style lang="postcss">
-.contributecontainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 90%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-}
-
-.blackbg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
-</style>
-
 <script>
 import { t } from "svelte-i18n";
 let visible = "";
@@ -28,7 +8,7 @@ export let closeContribute;
 
 <div bind:this="{visible}">
   <div
-    class="contributecontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+    class="popupcontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
     in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
     out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
     <button
@@ -42,7 +22,10 @@ export let closeContribute;
               src="https://cdn.wanderer.moe/genshin-impact/emotes/cat.png"
               alt="cat"
               class="h-12 w-12" />
-            <p class="bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-lg font-semibold text-transparent">Contribute</p>
+            <p
+              class="bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-lg font-semibold text-transparent">
+              Contribute
+            </p>
           </div>
         </div>
         <div class="mt-2">
@@ -54,7 +37,8 @@ export let closeContribute;
               <a
                 href="https://buymeacoffee.com/marcelmd"
                 target="_blank"
-                class="font-semibold text-white">donating</a> to help keep it running.
+                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+                >donating</a> to help keep it running.
             </p>
             <p class="text-sm">
               All donations go directly towards server costs, maintenance, and
@@ -64,7 +48,7 @@ export let closeContribute;
             </p>
             <p class="text-sm">
               If you're interested in reading more, there is a <a
-                class="font-semibold text-white hover:text-indigo-400"
+                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                 target="_blank"
                 href="https://dromzeh.dev/posts/wanderer-moe-website-breakdown/"
                 >blog post here</a> about the website, breaking down the costs and
@@ -74,7 +58,7 @@ export let closeContribute;
               If you want to help Contribute by providing assets for other users
               of the site (datamined or fan-made!) or for translations, please
               join the <a
-                class="font-semibold text-white hover:text-indigo-400"
+                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                 target="_blank"
                 href="https://discord.wanderer.moe/">discord server</a> and contact
               me there, you will be credited for your contributions on the site and
@@ -82,7 +66,7 @@ export let closeContribute;
             </p>
             <p class="text-xs">
               and for any other inquires, <a
-                class="font-semibold text-white hover:text-indigo-400"
+                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                 href="mailto:marcel@wanderer.moe">send an email</a>
             </p>
           </div>
@@ -90,9 +74,9 @@ export let closeContribute;
       </div>
     </div>
   </div>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
-    on:click="{closeContribute()}">
+    on:click="{closeContribute()}"
+    on:keypress="{closeContribute()}">
   </div>
 </div>

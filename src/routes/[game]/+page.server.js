@@ -4,13 +4,12 @@ export async function load({ params }) {
   const { game } = params;
   try {
     const res = await fetch(`https://api.wanderer.moe/game/${game}`);
-
     if (res.ok) {
       const response = await res.json();
-      const subFolders = response.locations;
+      if (response.error) throw error(404, "API Error or Page Not Found");
       return {
         game,
-        subFolders,
+        subFolders: response.locations,
       };
     }
   } catch (err) {

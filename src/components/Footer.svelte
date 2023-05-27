@@ -1,36 +1,30 @@
-<style lang="postcss">
-.locale-dropdown {
-  @apply absolute bottom-8 w-40;
-}
-</style>
-
 <script>
 import Contribute from "./Contribute.svelte";
 import { locale, t } from "svelte-i18n";
+import { onMount } from "svelte";
+import { getCommitsRecent } from "../lib/utils/commit";
+import { formatDateReadable } from "../lib/utils/helpers";
 let dropDownMenu;
 let contributeOpen = false;
 let menuOpen = false;
+
+const currentYear = new Date().getFullYear();
 
 function toggleContribute() {
   contributeOpen = !contributeOpen;
 }
 
+// TODO: finish correct RTL arabic support
 const languages = [
   { id: "en", label: "English" },
   { id: "nl", label: "Nederlands" },
   { id: "ja", label: "日本語" },
   { id: "it", label: "Italiano" },
-  // { id: "ar", label: "العربية" },
+  // { id: "ar", label: "العربية" }
   { id: "ro", label: "Română" },
   { id: "sv", label: "Svenska" },
   { id: "vi", label: "Tiếng Việt" },
   { id: "lol", label: "LOLCAT" },
-];
-
-const navLinks = [
-  { name: "Discord Server", url: "/discord" },
-  { name: "Privacy Policy", url: "/privacy-policy" },
-  { name: "Asset Request Form", url: "/asset-request-form" },
 ];
 
 $: currentLocale =
@@ -53,69 +47,113 @@ function toggleLocaleDropdown() {
   dropDownMenu.classList.toggle("hidden");
   menuOpen = !menuOpen;
 }
+
+let commit = [];
+let commits = [];
+let authorInfo = {
+  username: "",
+  date: "",
+  name: "",
+};
+let recentCommitMsg = "";
+let sha;
+
+onMount(async () => {
+  commits = await getCommitsRecent(1);
+  try {
+    commit = commits[0];
+    authorInfo = commit.authorInfo;
+    recentCommitMsg = commit.commitMsg;
+    sha = commit.shaSpliced;
+  } catch (error) {
+    commit = [];
+  }
+});
 </script>
 
-<footer class="bg-[#141414] p-3 text-left text-gray-400">
-  <div class="flex flex-col justify-between sm:flex-row">
-    <div class="justify-start">
-      <p class="text-sm">
-        © 2022-2023 - Created and programmed by
-        <a
-          href="https://dromzeh.dev/"
-          class="font-semibold text-white hover:text-indigo-300">dromzeh</a>
-        & powered by
-        <a href="https://cloudflare.com"
-          ><span class="text-[#EC8224]"
-            ><i class="fab fa-cloudflare"></i> Cloudflare<span></span></span
-          ></a>
-      </p>
-
-      <p class="mt-1 text-sm">
-        {$t("footer.fanmadeNotice")}
-      </p>
-
-      <div class="mt-4">
-        {#each navLinks as link}
+<footer class="text-left text-gray-400">
+  <div class="flex items-center justify-center p-6 lg:justify-center">
+    <div class="px-3 text-center">
+      <div class="mb-3">
+        <div class="mb-3">
+          <p class="text-sm">
+            {$t("footer.fanmadeNotice")}
+          </p>
+          <p class="text-sm">
+            © 2022-{currentYear} - Created and programmed by
+            <a
+              href="https://dromzeh.dev/"
+              class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+              >dromzeh</a
+            >.
+          </p>
+        </div>
+        <div class="text-sm">
           <a
-            href="{link.url}"
-            target="_blank"
-            class="mr-4 text-sm font-semibold text-white hover:text-indigo-300"
-            >{link.name}</a>
-        {/each}
-        <span
-          on:click="{toggleContribute}"
-          on:keypress="{toggleContribute}"
-          class="mr-4 animate-text cursor-pointer bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-sm font-bold text-transparent">
-          Contribute
-        </span>
-      </div>
-    </div>
-    <div class="p-3">
-      <div
-        class="sigfont relative flex w-40 cursor-pointer items-center justify-center rounded-xl bg-black p-1"
-        on:keypress="{toggleLocaleDropdown}"
-        on:click="{toggleLocaleDropdown}">
-        <img
-          class="mr-2 h-4 w-4 rounded-lg"
-          alt="{currentLocale.label}"
-          src="https://cdn.wanderer.moe/locales/{currentLocale.id}.png" />
-        <span class="text-white">{currentLocale.label} </span>
-        <div class="locale-dropdown hidden" bind:this="{dropDownMenu}">
-          <div class="mb-2 grid grid-cols-1 rounded-xl bg-black">
-            {#each locales as locale}
-              <div
-                class="sigfont flex items-center justify-center p-1"
-                on:keypress="{() => changeLocale(locale.id)}"
-                on:click="{() => changeLocale(locale.id)}">
-                <img
-                  class="mr-2 h-4 w-4 rounded-lg"
-                  alt="{locale.label}"
-                  src="https://cdn.wanderer.moe/locales/{locale.id}.png" />
-                <span
-                  class="sigfont cursor-pointer text-gray-400 hover:text-white"
-                  >{locale.label}</span>
+            class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+            href="https://discord.wanderer.moe">Discord</a>
+          •
+          <a
+            class=" text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+            href="https://wanderer.moe/privacy-policy">Privacy</a>
+          •
+          <a
+            class=" text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+            href="https://wanderer.moe/asset-request-form/"
+            >Asset Request Form</a>
+          •
+          <a
+            class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+            href="https://git.dromzeh.dev/wanderer.moe/">GitHub</a>
+          •
+          <span
+            on:click="{toggleContribute}"
+            on:keypress="{toggleContribute}"
+            class="mr-4 animate-text cursor-pointer bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-sm text-transparent hover:font-bold">
+            Contribute
+          </span>
+        </div>
+
+        {#if authorInfo && recentCommitMsg && sha}
+          <a href="https://git.dromzeh.dev/wanderer.moe/commit/{sha}">
+            <p class="mt-4 text-xs text-gray-500">
+              <i class="fab fa-github"></i> Last updated on {formatDateReadable(
+                authorInfo.date
+              )} by @{authorInfo.username}: "{recentCommitMsg}"
+            </p>
+          </a>
+        {/if}
+
+        <div class="p-3">
+          <div
+            class="sigfont relative flex w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1"
+            on:keypress="{toggleLocaleDropdown}"
+            on:click="{toggleLocaleDropdown}">
+            <img
+              class="mr-2 h-4 w-4 rounded-lg"
+              alt="{currentLocale.label}"
+              src="https://cdn.wanderer.moe/locales/{currentLocale.id}.png" />
+            <span class="text-white">{currentLocale.label} </span>
+            <div
+              class="absolute bottom-8 hidden w-full"
+              bind:this="{dropDownMenu}">
+              <div class="mb-2 grid grid-cols-1 rounded-xl bg-black">
+                {#each locales as locale}
+                  <div
+                    class="sigfont flex items-center justify-center p-1"
+                    on:keypress="{() => changeLocale(locale.id)}"
+                    on:click="{() => changeLocale(locale.id)}">
+                    <img
+                      class="mr-2 h-4 w-4 rounded-lg"
+                      alt="{locale.label}"
+                      src="https://cdn.wanderer.moe/locales/{locale.id}.png" />
+                    <span
+                      class="sigfont cursor-pointer text-gray-400 hover:text-white"
+                      >{locale.label}</span>
+                  </div>
+                {/each}
               </div>
-            {/each}
+            </div>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ header {
 import { t } from "svelte-i18n";
 import { page } from "$app/stores";
 import SearchBar from "./SearchBar.svelte";
+import { onMount } from "svelte";
 
 let isSearchOpen = false;
 
@@ -20,60 +21,8 @@ function toggleSearch() {
   isSearchOpen = !isSearchOpen;
 }
 
-let is_ctrl_down = false;
-let is_k_down = false;
-
-function on_bind() {
-  toggleSearch();
-}
-
-function on_key_down(event) {
-  if (event.repeat) return;
-  // In the switch-case we're updating our boolean flags whenever the
-  // desired bound keys are pressed.
-  switch (event.key) {
-    case "Control":
-      is_ctrl_down = true;
-      // By using `preventDefault`, it tells the Browser not to handle the
-      // key stroke for its own shortcuts or text input.
-      event.preventDefault();
-      break;
-
-    case "k":
-      is_k_down = true;
-
-      event.preventDefault();
-      break;
-  }
-  // If both of boolean flags were truthy, that means our
-  // keybind can be activated.
-  if (is_ctrl_down && is_k_down) {
-    on_bind();
-  }
-}
-
-function on_key_up(event) {
-  // `keyup` is the reverse, it fires whenever the physical key was let.
-  // go after being held down
-  // Just like our `keydown` handler, we need to update the boolean
-  // flags, but in the opposite direction.
-  switch (event.key) {
-    case "Control":
-      is_ctrl_down = false;
-
-      event.preventDefault();
-      break;
-
-    case "k":
-      is_k_down = false;
-
-      event.preventDefault();
-      break;
-  }
-}
+// TODO: rewrite ctrl + k to search shortcut
 </script>
-
-<svelte:window on:keydown="{on_key_down}" on:keyup="{on_key_up}" />
 
 <header class="relative w-full">
   <div>
@@ -93,7 +42,7 @@ function on_key_up(event) {
                 'direction'
               )}"
               readonly
-              placeholder="{$t('globalSearch.searchBar')} (Ctrl + K)"
+              placeholder="{$t('globalSearch.searchBar')}"
               on:click="{toggleSearch}" />
             <button class="hidden px-4 py-2 focus:outline-none lg:hidden">
               <a
