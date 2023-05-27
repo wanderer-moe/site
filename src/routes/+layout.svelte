@@ -9,7 +9,7 @@ import Nav from "../components/Nav.svelte";
 import Footer from "../components/Footer.svelte";
 import "nprogress/nprogress.css";
 import { derived } from "svelte/store";
-import "../app.css";
+import "../app.css?v=27052023";
 
 NProgress.configure({
   // Full list: https://github.com/rstacruz/nprogress#configuration

@@ -37,7 +37,8 @@ export let closeContribute;
               <a
                 href="https://buymeacoffee.com/marcelmd"
                 target="_blank"
-                class="font-semibold text-white">donating</a> to help keep it running.
+                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+                >donating</a> to help keep it running.
             </p>
             <p class="text-sm">
               All donations go directly towards server costs, maintenance, and
@@ -47,7 +48,7 @@ export let closeContribute;
             </p>
             <p class="text-sm">
               If you're interested in reading more, there is a <a
-                class="font-semibold text-white hover:text-indigo-400"
+                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                 target="_blank"
                 href="https://dromzeh.dev/posts/wanderer-moe-website-breakdown/"
                 >blog post here</a> about the website, breaking down the costs and
@@ -57,7 +58,7 @@ export let closeContribute;
               If you want to help Contribute by providing assets for other users
               of the site (datamined or fan-made!) or for translations, please
               join the <a
-                class="font-semibold text-white hover:text-indigo-400"
+                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                 target="_blank"
                 href="https://discord.wanderer.moe/">discord server</a> and contact
               me there, you will be credited for your contributions on the site and
@@ -65,7 +66,7 @@ export let closeContribute;
             </p>
             <p class="text-xs">
               and for any other inquires, <a
-                class="font-semibold text-white hover:text-indigo-400"
+                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                 href="mailto:marcel@wanderer.moe">send an email</a>
             </p>
           </div>

@@ -32,7 +32,7 @@
           </p>
           <p class="text-white">
             If you have any questions, etc, feel free to contact <a
-              class="font-bold"
+              class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
               href="mailto:privacy@wanderer.moe">privacy@wanderer.moe</a> and you'll
             recieve a response within 24 hours.
           </p>
