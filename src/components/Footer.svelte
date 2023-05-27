@@ -2,7 +2,7 @@
 import Contribute from "./Contribute.svelte";
 import { locale, t } from "svelte-i18n";
 import { onMount } from "svelte";
-import { getCommitRecent } from "../lib/utils/commit";
+import { getCommitsRecent } from "../lib/utils/commit";
 import { formatDateReadable } from "../lib/utils/helpers";
 let dropDownMenu;
 let contributeOpen = false;
@@ -48,22 +48,26 @@ function toggleLocaleDropdown() {
   menuOpen = !menuOpen;
 }
 
+let commit = [];
+let commits = [];
+let authorInfo = {
+  username: "",
+  date: "",
+  name: "",
+};
 let recentCommitMsg = "";
-let shaSpliced = "";
-let sha = "";
-let authorInfo = [];
+let sha;
 
 onMount(async () => {
-  const {
-    recentCommitMsg: msg,
-    shaSpliced: spliced,
-    sha: shaValue,
-    authorInfo: author,
-  } = await getCommitRecent();
-  authorInfo = author;
-  recentCommitMsg = msg;
-  shaSpliced = spliced;
-  sha = shaValue;
+  commits = await getCommitsRecent(1);
+  try {
+    commit = commits[0];
+    authorInfo = commit.authorInfo;
+    recentCommitMsg = commit.commitMsg;
+    sha = commit.shaSpliced;
+  } catch (error) {
+    commit = [];
+  }
 });
 </script>
 
@@ -110,7 +114,7 @@ onMount(async () => {
           </span>
         </div>
 
-        {#if recentCommitMsg}
+        {#if authorInfo && recentCommitMsg && sha}
           <a href="https://git.dromzeh.dev/wanderer.moe/commit/{sha}">
             <p class="mt-4 text-xs text-gray-500">
               <i class="fab fa-github"></i> Last updated on {formatDateReadable(
@@ -119,6 +123,7 @@ onMount(async () => {
             </p>
           </a>
         {/if}
+
         <div class="p-3">
           <div
             class="sigfont relative flex w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1"

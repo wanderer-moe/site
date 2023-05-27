@@ -1,28 +1,31 @@
 import axios from "axios";
 
-export async function getCommitRecent() {
+export async function getCommitsRecent(perPage) {
   try {
+    // https://docs.github.com/en/rest/reference/repos#list-commits
     const response = await axios.get(
-      "https://api.github.com/repos/dromzeh/wanderer.moe/commits?per_page=1"
+      `https://api.github.com/repos/dromzeh/wanderer.moe/commits?per_page=${perPage}`
     );
-    let recentCommitMsg = response.data[0].commit.message;
-    const email = response.data[0].commit.author.email;
-    const name = response.data[0].commit.author.name;
-    const authorInfo = {
-      name: name,
-      username: email.split("+")[1].split("@")[0],
-      date: response.data[0].commit.author.date,
-    };
-    const sha = response.data[0].sha;
-    const shaSpliced = sha.substring(0, 7);
-
-    if (recentCommitMsg.includes("\n")) {
-      recentCommitMsg = recentCommitMsg.split("\n")[0];
-    }
-
-    return { recentCommitMsg, authorInfo, shaSpliced, sha };
+    const commits = response.data.map((commit) => {
+      let commitMsg = commit.commit.message;
+      if (commitMsg.includes("\n")) {
+        commitMsg = commitMsg.split("\n")[0];
+      }
+      const email = commit.commit.author.email;
+      const name = commit.commit.author.name;
+      const authorInfo = {
+        name: name,
+        username: email.split("+")[1].split("@")[0],
+        date: commit.commit.author.date,
+      };
+      const sha = commit.sha;
+      const shaSpliced = sha.substring(0, 7);
+      return { commitMsg, authorInfo, shaSpliced, sha };
+    });
+    return commits;
   } catch (error) {
-    console.error(error);
-    return { recentCommitMsg: "", authorInfo: "", shaSpliced: "", sha: "" };
+    // returns empty array
+    console.log(error);
+    return [];
   }
 }

@@ -4,27 +4,13 @@ import { onMount } from "svelte";
 import { t } from "svelte-i18n";
 import { fixCasing, formatDateReadable } from "../lib/utils/helpers.js";
 import { getDiscordData } from "../lib/utils/discord.js";
-import { getCommitRecent } from "../lib/utils/commit.js";
-let onlineusers = "?";
-let recentCommitMsg = "";
-let shaSpliced = "";
-let sha = "";
-let authorInfo = [];
+import { getCommitsRecent } from "../lib/utils/commit.js";
 
+let onlineusers;
 export let data;
 
 onMount(async () => {
   onlineusers = await getDiscordData();
-  const {
-    recentCommitMsg: msg,
-    shaSpliced: spliced,
-    sha: shaValue,
-    authorInfo: author,
-  } = await getCommitRecent();
-  authorInfo = author;
-  recentCommitMsg = msg;
-  shaSpliced = spliced;
-  sha = shaValue;
 });
 
 const { allGames, allOCGenerators } = data;
@@ -128,7 +114,8 @@ let hoveredImage = "goddess-of-victory-nikke";
           </div>
           <div class="grid gap-7">
             <div
-              class="bg-gradient-to-r from-[#5562EA]/30 to-[#141414] to-40% p-3 text-white transition ease-in-out hover:scale-105">
+              class="bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
+              style="background: linear-gradient(100deg, rgba(142,150,227,0.1) 0%, rgba(20,20,20,0.1) 49%);">
               <p class="font-white sigfont text-xl font-bold">
                 <i class="fa-brands fa-discord"></i> DISCORD SERVER
               </p>
@@ -152,7 +139,8 @@ let hoveredImage = "goddess-of-victory-nikke";
             </div>
 
             <div
-              class="bg-gradient-to-r from-[#ff3035]/30 to-[#141414] to-40% p-3 text-white transition ease-in-out hover:scale-105">
+              class="bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
+              style="background: linear-gradient(100deg, rgba(234,103,85,0.1) 0%, rgba(20,20,20,0.1) 49%);">
               <p class="font-white sigfont text-xl font-bold">
                 <i class="fa-solid fa-hand-holding-dollar"></i> DONATE
               </p>
@@ -178,7 +166,8 @@ let hoveredImage = "goddess-of-victory-nikke";
             </div>
 
             <div
-              class="bg-gradient-to-r from-white/30 to-[#141414] to-40% p-3 text-white transition ease-in-out hover:scale-105">
+              class="bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
+              style="background: linear-gradient(100deg, rgba(198,198,198,0.1) 0%, rgba(20,20,20,0.1) 49%);">
               <p class="font-white sigfont text-xl font-bold">
                 <i class="fa-brands fa-github"></i> GITHUB
               </p>
