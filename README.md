@@ -63,6 +63,8 @@ All contributions are welcome, please make all PRS to the `development` branch.
 
 Asset contributions or requesting access to the Crowdin project can be sent to me on discord (dromzeh#1337) or email: [marcel@dromzeh.dev](mailto:marcel@dromzeh.dev)
 
+A more detailed guide on contributing can be found [here](CONTRIBUTING.md)
+
 ## Contributors
 
 ### Developers
