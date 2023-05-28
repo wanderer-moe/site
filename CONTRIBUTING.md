@@ -1,4 +1,4 @@
-# Contribting
+# Contributing
 
 All types of contributions are welcome, if this includes to the website, API, CDN (assets) translations or maybe even something else.
 
