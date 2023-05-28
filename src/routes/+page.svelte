@@ -116,23 +116,22 @@ let hoveredImage = "goddess-of-victory-nikke";
             <div
               class="bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
               style="background: linear-gradient(100deg, rgba(142,150,227,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-              <p class="font-white sigfont text-xl font-bold">
-                <i class="fa-brands fa-discord"></i> DISCORD SERVER
+              <p class="font-white sigfont text-xl font-bold uppercase">
+                <i class="fa-brands fa-discord"></i> Discord
               </p>
               <p class="text-left text-gray-400">
-                {onlineusers} users currently online
+                {$t("home.discord.shortDesc", { values: {onlineCount: onlineusers}, })}
               </p>
 
               <p class="text-left text-gray-200">
-                Join the discord server for site updates, assets not on the
-                site, and more
+                {$t("home.discord.desc")}
               </p>
 
               <div class="mt-2">
                 <a href="https://discord.wanderer.moe/" target="_blank">
                   <button
                     class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
-                    Join Server
+                    {$t("home.discord.btn")}
                   </button>
                 </a>
               </div>
@@ -141,18 +140,13 @@ let hoveredImage = "goddess-of-victory-nikke";
             <div
               class="bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
               style="background: linear-gradient(100deg, rgba(234,103,85,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-              <p class="font-white sigfont text-xl font-bold">
-                <i class="fa-solid fa-hand-holding-dollar"></i> DONATE
+              <p class="font-white sigfont text-xl font-bold uppercase">
+                <i class="fa-solid fa-hand-holding-dollar"></i> {$t("home.donate.title")}
               </p>
-              <p class="text-left text-gray-400">Support the site</p>
+              <p class="text-left text-gray-400">{$t("home.donate.shortDesc")}</p>
 
               <p class="text-left text-gray-200">
-                wanderer.moe is ad-free and will always be <a
-                  href="https://dromzeh.dev/posts/wanderer-moe-website-breakdown/"
-                  target="_blank"
-                  class="text-white hover:font-bold">free to use</a
-                >. If you enjoy the site and want to help with server costs,
-                maintenance and development, consider donating.
+                {$t("home.donate.desc")}
               </p>
 
               <div class="mt-2" id="donate">
@@ -168,24 +162,20 @@ let hoveredImage = "goddess-of-victory-nikke";
             <div
               class="bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
               style="background: linear-gradient(100deg, rgba(198,198,198,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-              <p class="font-white sigfont text-xl font-bold">
-                <i class="fa-brands fa-github"></i> GITHUB
+              <p class="font-white sigfont text-xl font-bold uppercase">
+                <i class="fa-brands fa-github"></i> GitHub
               </p>
-              <p class="text-left text-gray-400">Website Source Code</p>
+              <p class="text-left text-gray-400">{$t("home.github.webBtn")}</p>
 
               <p class="text-left text-gray-200">
-                For transparency, wanderer.moe is <a
-                  href="https://en.wikipedia.org/wiki/Open-source_software"
-                  target="_blank"
-                  class="text-white hover:font-bold">Open Source</a> on GitHub. The
-                code is available for anyone to view and contribute to.
+                {$t("home.github.desc")}
               </p>
 
               <div class="mt-2 grid gap-1">
                 <a href="https://git.dromzeh.dev/wanderer.moe" target="_blank">
                   <button
                     class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
-                    Website Source Code
+                    {$t("home.github.webBtn")}
                   </button>
                 </a>
                 <a
@@ -193,7 +183,7 @@ let hoveredImage = "goddess-of-victory-nikke";
                   target="_blank">
                   <button
                     class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
-                    API Source Code
+                    {$t("home.github.apiBtn")}
                   </button>
                 </a>
               </div>

@@ -1,7 +1,21 @@
 {
   "home": {
     "description": "Centraliserad databas med olika speltillgångar",
-    "discord": "(Gå med i discord-servern för uppdateringar till hemsidan, för flera delar som inte finns med på hemsidan och mer"
+    "github": {
+      "desc": "For transparency, wanderer.moe is Open Source on GitHub. The code is available for anyone to view and contribute to.",
+      "webBtn": "Website Source Code",
+      "apiBtn": "API Source Code"
+    },
+    "donate": {
+      "title": "Donate",
+      "shortDesc": "Support the site",
+      "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance and development, consider donating."
+    },
+    "discord": {
+      "desc": "Join the discord server for site updates, assets not on the site, and more",
+      "shortDesc": "{onlineCount} users currently online",
+      "btn": "Join Server"
+    }
   },
   "nav": {
     "discord": "Discord servern",

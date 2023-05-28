@@ -22,7 +22,7 @@ let gameSplit = fixCasing(game);
 
 <div class="min-h-screen">
   <div class="mb-8">
-    <div class="relative">
+    <div class="relative z-0">
       <img
         src="https://cdn.wanderer.moe/{game}/cover.png"
         class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
@@ -53,7 +53,7 @@ let gameSplit = fixCasing(game);
         </div>
       </div>
     </div>
-    <div class="px-2 md:px-12 lg:px-24">
+    <div class="relative z-10 px-2 md:px-12 lg:px-24">
       <div id="games">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
           {#each subFolders as folder}
