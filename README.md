@@ -53,6 +53,16 @@ npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build
 /.svelte-kit/cloudflare
 ```
 
+## Contributing
+
+### Development
+
+All contributions are welcome, please make all PRS to the `development` branch.
+
+### Assets & Translations
+
+Asset contributions or requesting access to the Crowdin project can be sent to me on discord (dromzeh#1337) or email: [marcel@dromzeh.dev](mailto:marcel@dromzeh.dev)
+
 ## Contributors
 
 ### Developers
