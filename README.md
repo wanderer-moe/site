@@ -10,16 +10,16 @@ This website is built by dromzeh using SvelteKit, Tailwind CSS, and Node.js, hos
 
 To run the website locally, follow these steps:
 
-1. Read [API & CDN](#api--cdn)
-2. Clone the repository, either `main` or `development` branch dependant on your use case:
+1. Read [API & CDN](#api--cdn) first.
 
-```bash
-git clone https://github.com/dromzeh/wanderer.moe -b main # or -b development
-```
+2. Clone the repository, either `main` or `development` branch dependant on your use case: `git clone https://github.com/dromzeh/wanderer.moe (-b development)`
 
 3. Navigate to the project directory, run `pnpm install` to install the required dependencies
+
 4. Run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use)
+
 5. To build the website, run `pnpm run build`.
+
 6. After the build process is complete, run `pnpm run preview` to preview the built site at `http://localhost:5741`
 
 ## API & CDN
@@ -35,9 +35,13 @@ More details on setting up the API [here](https://github.com/dromzeh/api.wandere
 
 ## Production Deployment & Configuration
 
-### Cloudflare Configuration:
+### Redirects
 
-#### Build Command:
+View `src/hooks.server.ts` for the current redirects.
+
+### Cloudflare Configuration
+
+#### Build Command
 
 ```bash
 npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build
@@ -49,13 +53,19 @@ npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build
 /.svelte-kit/cloudflare
 ```
 
-## Developed By
-
-- [@dromzeh](https://github.com/dromzeh)
-
 ## Contributors
 
-A list of contributors can be found [here](https://wanderer.moe/contributors)
+### Developers
+
+- [@dromzeh](https://github.com/dromzeh) - Project Lead & Developer (Website, API & CDN)
+
+### Asset Contributors & Translators
+
+A full list can be found [here](https://wanderer.moe/contributors)
+
+### Translations
+
+Translations are managed on [Crowdin](https://crowdin.com/project/wanderermoe) and are automatically synced with the `src/locales/***.json` language files on the `development` branch, @ [l18n_development](https://github.com/dromzeh/wanderer.moe/tree/l18n_development)
 
 ## License
 
