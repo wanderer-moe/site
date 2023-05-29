@@ -14,7 +14,7 @@ const { game, jsonFile } = data;
 const gameSplit = fixCasing(game);
 
 function randomize() {
-  console.log("randomize");
+  // console.log("randomize");
   options.update((opts) => {
     return opts.map((option) => {
       if (!option.locked) {
@@ -48,9 +48,8 @@ function toggleLock(option) {
 
 onMount(async () => {
   response = await axios.get(jsonFile);
-  console.log(response.data.options);
+  // console.log(response.data.options);
   options.set(response.data.options);
-  // add 'None' to each option.value
   options.update((opts) => {
     return opts.map((opt) => {
       return { ...opt, value: "None" };
@@ -69,12 +68,11 @@ onMount(async () => {
 
 <div class="min-h-screen">
   <div class="mb-8">
-    <div class="relative">
+    <div class="relative z-0">
       <img
         src="https://cdn.wanderer.moe/{game}/cover.png"
         class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
-        alt="" />
-      <!-- bg gradient opacity from 0 to 100-->
+        alt="{game} cover" />
       <div
         class="relative h-48 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
         <div
@@ -98,7 +96,7 @@ onMount(async () => {
         </div>
       </div>
     </div>
-    <div class="px-2 md:px-12 lg:px-24">
+    <div class="relative z-10 px-2 md:px-12 lg:px-24">
       <div class="mb-2 rounded-lg bg-[#141414] p-2 text-white">
         <div class="mb-3 flex flex-wrap gap-2 text-sm">
           <button

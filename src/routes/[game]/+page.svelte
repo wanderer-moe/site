@@ -6,10 +6,10 @@ import { fixCasing } from "../../lib/utils/helpers.js";
 
 export let data;
 const { subFolders } = data;
-console.log(subFolders);
+// console.log(subFolders);
 
 const game = data.game;
-console.log(game);
+// console.log(game);
 
 const subFoldersCount = subFolders.length;
 

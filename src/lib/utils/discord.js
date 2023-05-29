@@ -8,7 +8,7 @@ export async function getDiscordData() {
     );
     onlineUsers = response.data.presence_count;
   } catch (e) {
-    console.log("Error fetching data");
+    console.log("Error fetching discord data");
     onlineUsers = "???";
   }
   return onlineUsers;
