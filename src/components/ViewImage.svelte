@@ -7,12 +7,16 @@ export let imageUrl
 export let closeImageView
 </script>
 
-<div class="fixed bg-blend-overlay top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[90%] max-h-[90%] z-[1000]">
+<div
+    class="fixed left-1/2 top-1/2 z-[1000] max-h-[90%] max-w-[90%] -translate-x-1/2 -translate-y-1/2 bg-blend-overlay">
     <div
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
-        <img src="{imageUrl}" class="object-contain w-64 h-64" alt="Full view" />
-        <p class="sigfont text-center text-white mt-4">
+        <img
+            src="{imageUrl}"
+            class="h-64 w-64 object-contain"
+            alt="Full view" />
+        <p class="sigfont mt-4 text-center text-white">
             {$t('viewImage.closeText')}
         </p>
     </div>

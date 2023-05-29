@@ -49,8 +49,9 @@ export let closeContribute
                         <p class="text-sm">
                             All donations go directly towards server costs,
                             maintenance, and development of new assets &
-                            features for wanderer.moe. This project will never be for-profit—our
-                            sole goal is to simply provide resources for this community.
+                            features for wanderer.moe. This project will never
+                            be for-profit—our sole goal is to simply provide
+                            resources for this community.
                         </p>
                         <p class="text-sm">
                             If you're interested in reading more, there's a
@@ -63,8 +64,8 @@ export let closeContribute
                         </p>
                         <p class="text-sm">
                             If you want to help contribute by providing assets
-                            for other users of the site (datamined/fan-made)
-                            or for translations, please join the
+                            for other users of the site (datamined/fan-made) or
+                            for translations, please join the
                             <a
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                                 target="_blank"
