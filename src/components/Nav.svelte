@@ -26,7 +26,7 @@ function toggleSearch() {
 
 <header class="relative w-full">
     <div>
-        <div class="bg-[#141414] p-2">
+        <div class="bg-[#141414] p-4">
             <div class="mx-auto flex flex-wrap items-center justify-between">
                 <div class="md:px-12 lg:px-16">
                     <a href="/" class="flex items-center" rel="external">
@@ -40,7 +40,7 @@ function toggleSearch() {
                     <ul
                         class="mt-4 flex flex-row space-x-4 font-medium md:mt-0">
                         <input
-                            class="hidden h-14 w-72 rounded-lg bg-black px-4 py-2 text-center text-xs text-white lg:block {$t(
+                            class="hidden h-8 w-72 rounded-lg bg-black px-4 py-2 text-center text-xs text-white lg:block {$t(
                                 'direction'
                             )}"
                             readonly
@@ -57,6 +57,28 @@ function toggleSearch() {
                                 ></i>
                             </a>
                         </button>
+                        <button
+                            class="hidden px-2 py-2 focus:outline-none lg:hidden">
+                            <a
+                                href="https://buymeacoffee.com/marcelmd"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <i
+                                    class="fa-solid fa-hand-holding-dollar cursor-pointer text-white hover:text-indigo-300"
+                                ></i>
+                            </a>
+                        </button>
+                        <button
+                            class="hidden px-4 py-2 focus:outline-none lg:hidden">
+                            <a
+                                href="https://git.dromzeh.dev/wanderer.moe"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <i
+                                    class="fa-brands fa-github cursor-pointer text-white hover:text-indigo-300"
+                                ></i>
+                            </a>
+                        </button>
                     </ul>
 
                     <button
@@ -67,13 +89,33 @@ function toggleSearch() {
                             class="fa-solid fa-search cursor-pointer text-white hover:text-indigo-300"
                         ></i>
                     </button>
-                    <button class="px-4 py-2 focus:outline-none lg:block">
+                    <button class="px-4 lg:pl-4 lg:pr-2 focus:outline-none lg:block">
                         <a
                             href="https://discord.wanderer.moe/"
                             target="_blank"
                             rel="noopener noreferrer">
                             <i
                                 class="fa-brands fa-discord cursor-pointer text-white hover:text-indigo-300"
+                            ></i>
+                        </a>
+                    </button>
+                    <button class="px-4 focus:outline-none lg:block">
+                        <a
+                            href="https://buymeacoffee.com/marcelmd"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <i
+                                class="fa-solid fa-hand-holding-dollar cursor-pointer text-white hover:text-indigo-300"
+                            ></i>
+                        </a>
+                    </button>
+                    <button class="px-4 lg:pl-2 lg:pr-4 focus:outline-none lg:block">
+                        <a
+                            href="https://git.dromzeh.dev/wanderer.moe"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <i
+                                class="fa-brands fa-github cursor-pointer text-white hover:text-indigo-300"
                             ></i>
                         </a>
                     </button>
