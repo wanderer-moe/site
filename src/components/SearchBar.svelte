@@ -1,60 +1,43 @@
-<style lang="postcss">
-.search-bar {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    transform: translate(-50%, -50%);
-    z-index: 1000; /* Increase this value until the search bar is on top */
-    /* Other styles */
-}
-
-.search-results-container {
-    max-height: 350px; /* or any desired height */
-    overflow-y: auto;
-}
-</style>
-
 <script>
-import { fixCasing } from "../lib/utils/helpers";
-import { filterGamesSearchBar as filterGames } from "../lib/utils/filterSearch";
-import { fly } from "svelte/transition";
-import { cubicOut, quintOut } from "svelte/easing";
-import { t } from "svelte-i18n";
-import axios from "axios";
-import { onMount } from "svelte";
-export let query = "";
-export let closeSearchBar;
-let inputElement;
-let visible = "";
-let allGames = [];
+import axios from 'axios'
+import { onMount } from 'svelte'
+import { t } from 'svelte-i18n'
+import { cubicOut, quintOut } from 'svelte/easing'
+import { fly } from 'svelte/transition'
+import { filterGamesSearchBar as filterGames } from '@/lib/utils/filterSearch'
+import { fixCasing } from '@/lib/utils/helpers'
+export let query = ''
+export let closeSearchBar
+let inputElement
+let visible = ''
+let allGames = []
 
 async function getGames() {
     const response = await axios
-        .get("https://api.wanderer.moe/games")
+        .get('https://api.wanderer.moe/games')
         .then((response) => {
-            allGames = response.data;
-        });
+            allGames = response.data
+        })
 }
 
 onMount(() => {
     getGames().then(() => {
         // console.log(allGames.games);
-    });
-});
+    })
+})
 
-$: filteredGames = filterGames(allGames.games, query);
+$: filteredGames = filterGames(allGames.games, query)
 // $: console.log(filteredGames);
 </script>
 
 <div bind:this="{visible}">
     <div
-        class="search-bar fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+        class="fixed left-1/2 top-1/2 z-[1000] w-3/4 -translate-x-1/2 -translate-y-1/2 transform"
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button
             class="close-button absolute right-0 top-0 rounded-lg bg-[#141414] p-2 text-white"
-            on:click="{closeSearchBar}">X</button>
+            on:click="{closeSearchBar}">✕</button>
         <div class="mb-2 rounded-lg bg-[#141414] p-2 text-white">
             <input
                 disabled="{allGames.length == 0}"
@@ -67,7 +50,7 @@ $: filteredGames = filterGames(allGames.games, query);
         </div>
         {#if filteredGames.length > 0}
             <div
-                class="search-results-container rounded-lg bg-[#141414] p-2"
+                class="max-h-[350px] overflow-y-auto rounded-lg bg-[#141414] p-2"
                 style="max-height: 300px; overflow-y: auto;">
                 <div class="search-results-list grid gap-1">
                     {#each filteredGames as game}

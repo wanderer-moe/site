@@ -1,63 +1,62 @@
 <script>
-import axios from "axios";
-import { onMount } from "svelte";
+import axios from 'axios'
+import { onMount } from 'svelte'
 // import { t } from "svelte-i18n"; todo: i18n support
-import { writable } from "svelte/store";
-import { fixCasing } from "../../../lib/utils/helpers.js";
+import { fixCasing } from '@/lib/utils/helpers.js'
+import { writable } from 'svelte/store'
 
-export let data;
-let response = "";
-let options = writable([]);
+export let data
+let response = ''
+let options = writable([])
 
-const { game, jsonFile } = data;
+const { game, jsonFile } = data
 
-const gameSplit = fixCasing(game);
+const gameSplit = fixCasing(game)
 
 function randomize() {
-    // console.log("randomize");
     options.update((opts) => {
         return opts.map((option) => {
             if (!option.locked) {
                 const randomIndex = Math.floor(
                     Math.random() * option.entries.length
-                );
-                return { ...option, value: option.entries[randomIndex] };
+                )
+                return { ...option, value: option.entries[randomIndex] }
             }
-            return option;
-        });
-    });
+            return option
+        })
+    })
 }
 
 function copyToClipboard(options) {
     const text = options
         .filter(({ value }) => value)
         .map(({ name, value }) => `${name} - ${value}`)
-        .join("\n");
-    const textWithPath = `${text}\n\n${window.location.href}`;
-    navigator.clipboard.writeText(textWithPath);
+        .join('\n')
+    const textWithPath = `${text}\n\n${window.location.href}`
+    navigator.clipboard.writeText(textWithPath)
 }
 
 function toggleLock(option) {
     options.update((opts) => {
         return opts.map((opt) => {
             if (opt.name === option.name) {
-                return { ...opt, locked: !opt.locked };
+                return { ...opt, locked: !opt.locked }
             }
-            return opt;
-        });
-    });
+            return opt
+        })
+    })
 }
 
 onMount(async () => {
-    response = await axios.get(jsonFile);
+    response = await axios.get(jsonFile)
     // console.log(response.data.options);
-    options.set(response.data.options);
+    options.set(response.data.options)
     options.update((opts) => {
         return opts.map((opt) => {
-            return { ...opt, value: "None" };
-        });
-    });
-});
+            return { ...opt, value: 'None' }
+        })
+    })
+})
 </script>
 
 <svelte:head>
@@ -76,7 +75,7 @@ onMount(async () => {
                 class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
                 alt="{game} cover" />
             <div
-                class="relative h-48 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
+                class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
                 <div
                     class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
                     <div
@@ -102,20 +101,20 @@ onMount(async () => {
             </div>
         </div>
         <div class="relative z-10 px-2 md:px-12 lg:px-24">
-            <div class="mb-2 rounded-lg bg-[#141414] p-2 text-white">
+            <div class="mb-2 rounded-lg bg-main-400 p-2 text-white">
                 <div class="mb-3 flex flex-wrap gap-2 text-sm">
                     <button
-                        class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                        class="mt-2 rounded-lg bg-accent-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
                         on:click="{() => randomize()}">
                         <i class="fa fa-random"></i> Randomize
                     </button>
                     <button
-                        class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                        class="mt-2 rounded-lg bg-accent-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
                         on:click="{copyToClipboard($options)}">
                         <i class="fa-regular fa-clipboard"></i> Copy
                     </button>
                     <button
-                        class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                        class="mt-2 rounded-lg bg-accent-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
                         on:click="{() =>
                             options.update((opts) =>
                                 opts.map((opt) => ({ ...opt, locked: true }))
@@ -123,7 +122,7 @@ onMount(async () => {
                         <i class="fa fa-unlock"></i> Lock All
                     </button>
                     <button
-                        class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                        class="mt-2 rounded-lg bg-accent-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
                         on:click="{() =>
                             options.update((opts) =>
                                 opts.map((opt) => ({ ...opt, locked: false }))
@@ -141,7 +140,7 @@ onMount(async () => {
                                     </p>
                                     <div class="flex items-center">
                                         <button
-                                            class="mr-2 rounded-lg bg-indigo-400 bg-opacity-70 p-1 px-2 py-1 pl-2 pr-2 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none"
+                                            class="mr-2 rounded-lg bg-accent-400 bg-opacity-70 p-1 px-2 py-1 pl-2 pr-2 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
                                             on:click="{() =>
                                                 toggleLock(option)}">
                                             {#if option.locked}
@@ -152,7 +151,7 @@ onMount(async () => {
                                         </button>
                                         <input
                                             type="text"
-                                            class="h-10 w-full rounded-lg bg-[#121212] text-center text-indigo-400 {option.value &&
+                                            class="h-10 w-full rounded-lg bg-main-600 text-center text-indigo-400 {option.value &&
                                             option.locked
                                                 ? 'text-red-500'
                                                 : 'text-indigo-400'} focus:shadow focus:outline-none"

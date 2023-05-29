@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: "Sofia Sans", -apple-system, BlinkMacSystemFont;
+    font-family: 'Sofia Sans', -apple-system, BlinkMacSystemFont;
     font-size: 14px;
     line-height: 1.5;
     color: #333;
@@ -19,7 +19,7 @@ h6 {
 }
 
 .sigfont {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -36,16 +36,14 @@ a {
     }
 }
 
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #6366f1 #1f2937;
-}
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-    background: #1f2937;
+    background: #2c2c2c;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #6366f1;
     border-radius: 8px;

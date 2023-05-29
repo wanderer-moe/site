@@ -1,36 +1,25 @@
-<style>
-.image-holder {
-    background-blend-mode: overlay;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    z-index: 1000;
-}
-
-img {
-    height: 256px;
-    width: 256px;
-}
-</style>
-
 <script>
-import { fly } from "svelte/transition";
-import { cubicOut, quintOut } from "svelte/easing";
-import { t } from "svelte-i18n";
+import { t } from 'svelte-i18n'
+import { cubicOut, quintOut } from 'svelte/easing'
+import { fly } from 'svelte/transition'
 
-export let imageUrl;
-export let closeImageView;
+export let imageUrl
+export let closeImageView
 </script>
 
-<div class="image-holder fixed">
+<div
+    class="fixed left-1/2 top-1/2 z-[1500] max-h-[90%] max-w-[90%] -translate-x-1/2 -translate-y-1/2 select-none bg-blend-overlay">
     <div
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
-        out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
-        <img src="{imageUrl}" class="object-contain" alt="full view" />
-        <p class="sigfont text-center text-white">
-            {$t("viewImage.closeText")}
+        out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}"
+        class="rounded-md bg-main-600 p-4 text-center">
+        <img
+            src="{imageUrl}"
+            class="h-[40vh] rounded-md border border-main-300 object-contain"
+            alt="Full view"
+            style="background-image: url(https://files.catbox.moe/qmjf27.png); background-size: contain;" />
+        <p class="mt-4 rounded-md bg-main-400 py-2 text-center text-white">
+            {$t('viewImage.closeText')}
         </p>
     </div>
 </div>
