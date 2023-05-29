@@ -5,6 +5,7 @@
   "singleQuote": false,
   "trailingComma":"es5",
   "endOfLine": "lf",
+  "tabWidth": 4,
   "htmlWhitespaceSensitivity": "css",
   "svelteAllowShorthand": true,
   "svelteIndentScriptAndStyle": false,
