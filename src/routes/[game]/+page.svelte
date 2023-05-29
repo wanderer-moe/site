@@ -1,16 +1,11 @@
 <script>
-import { onMount } from 'svelte'
-import Lazy from 'svelte-lazy'
+import { fixCasing } from '@/lib/utils/helpers.js'
 import { t } from 'svelte-i18n'
-import { fixCasing } from '../../lib/utils/helpers.js'
 
 export let data
+
 const { subFolders } = data
-// console.log(subFolders);
-
 const game = data.game
-// console.log(game);
-
 const subFoldersCount = subFolders.length
 
 let gameSplit = fixCasing(game)

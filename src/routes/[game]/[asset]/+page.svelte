@@ -7,25 +7,25 @@
 </style>
 
 <script>
-import axios from 'axios'
-import { onMount } from 'svelte'
-import Lazy from 'svelte-lazy'
-import JSZip from 'jszip'
-import { saveAs } from 'file-saver'
-import { t } from 'svelte-i18n'
+import { browser } from '$app/environment'
+import Faq from '@/components/Faq.svelte'
+import LoadPlaceHolder from '@/components/LoadPlaceHolder.svelte'
+import ViewImage from '@/components/ViewImage.svelte'
 import {
     bytesToFileSize,
     fixCasing,
     formatDateReadable,
     iso8601ToUnix,
-} from '../../../lib/utils/helpers'
-import Faq from '../../../components/Faq.svelte'
-import LoadPlaceHolder from '../../../components/LoadPlaceHolder.svelte'
-import ViewImage from '../../../components/ViewImage.svelte'
+} from '@/lib/utils/helpers'
+import { saveAs } from 'file-saver'
+import JSZip from 'jszip'
+import { onMount } from 'svelte'
+import { t } from 'svelte-i18n'
+import Lazy from 'svelte-lazy'
+
 let isFaqOpen = false
 let sortOptionMenu
 let sortMenuOpen = false
-import { browser } from '$app/environment'
 
 function toggleFaq() {
     isFaqOpen = !isFaqOpen
@@ -33,7 +33,6 @@ function toggleFaq() {
 
 export let data
 const { game, asset, images } = data
-// console.log(game, asset);
 
 let selectedItems = []
 let isMobile = false
@@ -206,12 +205,8 @@ onMount(() => {
     }, 0)
     // convert the bytes value to a human readable format
     totalImagesSizeHumanReadable = bytesToFileSize(totalImagesSize)
-    // console.log(totalImagesSizeHumanReadable);
-
     updateFilter()
 })
-
-//
 </script>
 
 <svelte:head>
@@ -246,7 +241,7 @@ onMount(() => {
                                 class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                                 {gameSplit}
                                 <i
-                                    class="fa fa-info-circle cursor-pointer text-sm"
+                                    class="fa fa-info-circle ml-2 cursor-pointer text-sm"
                                     on:keypress="{toggleFaq}"
                                     on:click="{toggleFaq}"></i>
                             </h2>

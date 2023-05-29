@@ -20,7 +20,7 @@ const faqEntries = [
 
 <div bind:this="{visible}">
     <div
-        class="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+        class="popupcontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button

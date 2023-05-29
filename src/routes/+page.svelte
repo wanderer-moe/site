@@ -1,10 +1,8 @@
 <script>
-// import axios from "axios";
+import { getDiscordData } from '@/lib/utils/discord.js'
+import { fixCasing } from '@/lib/utils/helpers.js'
 import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
-import { fixCasing, formatDateReadable } from '../lib/utils/helpers.js'
-import { getDiscordData } from '../lib/utils/discord.js'
-// import { getCommitsRecent } from "../lib/utils/commit.js";
 
 let onlineusers
 export let data
@@ -16,7 +14,6 @@ onMount(async () => {
 const { allGames, allOCGenerators } = data
 
 const OCGeneratorsLocations = allOCGenerators.locations
-// console.log(OCGeneratorsLocations);
 
 let hoveredImage = 'goddess-of-victory-nikke'
 </script>

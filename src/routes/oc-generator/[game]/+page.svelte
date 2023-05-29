@@ -2,8 +2,8 @@
 import axios from 'axios'
 import { onMount } from 'svelte'
 // import { t } from "svelte-i18n"; todo: i18n support
+import { fixCasing } from '@/lib/utils/helpers.js'
 import { writable } from 'svelte/store'
-import { fixCasing } from '../../../lib/utils/helpers.js'
 
 export let data
 let response = ''
@@ -14,7 +14,6 @@ const { game, jsonFile } = data
 const gameSplit = fixCasing(game)
 
 function randomize() {
-    // console.log("randomize");
     options.update((opts) => {
         return opts.map((option) => {
             if (!option.locked) {
