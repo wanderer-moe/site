@@ -66,15 +66,15 @@ A more detailed guide on contributing can be found [here][Contributing].
 
 ## Contributors
 
-**Developers**:
+#### Developers
 
 - [@dromzeh][Dromzeh] - Project Lead & Developer (Website, API & CDN)
 
-**Asset Contributors & Translators**:
+#### Asset Contributors and Translators
 
 A full list can be found [here][Contributors].
 
-### Translations
+## Translations
 
 Translations are managed on [Crowdin][Crowdin] and are automatically synced with the `src/locales/***.json` language files on the `development` branch, @ [l18n_development][l18n Development].
 
