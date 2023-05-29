@@ -1,17 +1,17 @@
 <script>
-import axios from "axios";
-import { onMount } from "svelte";
+import axios from 'axios'
+import { onMount } from 'svelte'
 // import { t } from "svelte-i18n"; todo: i18n support
-import { writable } from "svelte/store";
-import { fixCasing } from "../../../lib/utils/helpers.js";
+import { writable } from 'svelte/store'
+import { fixCasing } from '../../../lib/utils/helpers.js'
 
-export let data;
-let response = "";
-let options = writable([]);
+export let data
+let response = ''
+let options = writable([])
 
-const { game, jsonFile } = data;
+const { game, jsonFile } = data
 
-const gameSplit = fixCasing(game);
+const gameSplit = fixCasing(game)
 
 function randomize() {
     // console.log("randomize");
@@ -20,44 +20,44 @@ function randomize() {
             if (!option.locked) {
                 const randomIndex = Math.floor(
                     Math.random() * option.entries.length
-                );
-                return { ...option, value: option.entries[randomIndex] };
+                )
+                return { ...option, value: option.entries[randomIndex] }
             }
-            return option;
-        });
-    });
+            return option
+        })
+    })
 }
 
 function copyToClipboard(options) {
     const text = options
         .filter(({ value }) => value)
         .map(({ name, value }) => `${name} - ${value}`)
-        .join("\n");
-    const textWithPath = `${text}\n\n${window.location.href}`;
-    navigator.clipboard.writeText(textWithPath);
+        .join('\n')
+    const textWithPath = `${text}\n\n${window.location.href}`
+    navigator.clipboard.writeText(textWithPath)
 }
 
 function toggleLock(option) {
     options.update((opts) => {
         return opts.map((opt) => {
             if (opt.name === option.name) {
-                return { ...opt, locked: !opt.locked };
+                return { ...opt, locked: !opt.locked }
             }
-            return opt;
-        });
-    });
+            return opt
+        })
+    })
 }
 
 onMount(async () => {
-    response = await axios.get(jsonFile);
+    response = await axios.get(jsonFile)
     // console.log(response.data.options);
-    options.set(response.data.options);
+    options.set(response.data.options)
     options.update((opts) => {
         return opts.map((opt) => {
-            return { ...opt, value: "None" };
-        });
-    });
-});
+            return { ...opt, value: 'None' }
+        })
+    })
+})
 </script>
 
 <svelte:head>

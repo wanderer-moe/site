@@ -7,209 +7,209 @@
 </style>
 
 <script>
-import axios from "axios";
-import { onMount } from "svelte";
-import Lazy from "svelte-lazy";
-import JSZip from "jszip";
-import { saveAs } from "file-saver";
-import { t } from "svelte-i18n";
+import axios from 'axios'
+import { onMount } from 'svelte'
+import Lazy from 'svelte-lazy'
+import JSZip from 'jszip'
+import { saveAs } from 'file-saver'
+import { t } from 'svelte-i18n'
 import {
     bytesToFileSize,
     fixCasing,
     formatDateReadable,
     iso8601ToUnix,
-} from "../../../lib/utils/helpers";
-import Faq from "../../../components/Faq.svelte";
-import LoadPlaceHolder from "../../../components/LoadPlaceHolder.svelte";
-import ViewImage from "../../../components/ViewImage.svelte";
-let isFaqOpen = false;
-let sortOptionMenu;
-let sortMenuOpen = false;
-import { browser } from "$app/environment";
+} from '../../../lib/utils/helpers'
+import Faq from '../../../components/Faq.svelte'
+import LoadPlaceHolder from '../../../components/LoadPlaceHolder.svelte'
+import ViewImage from '../../../components/ViewImage.svelte'
+let isFaqOpen = false
+let sortOptionMenu
+let sortMenuOpen = false
+import { browser } from '$app/environment'
 
 function toggleFaq() {
-    isFaqOpen = !isFaqOpen;
+    isFaqOpen = !isFaqOpen
 }
 
-export let data;
-const { game, asset, images } = data;
+export let data
+const { game, asset, images } = data
 // console.log(game, asset);
 
-let selectedItems = [];
-let isMobile = false;
+let selectedItems = []
+let isMobile = false
 
-const gameSplit = fixCasing(game);
-let assetSplit = fixCasing(asset);
+const gameSplit = fixCasing(game)
+let assetSplit = fixCasing(asset)
 
-let filteredImages = images;
-let query = "";
-let imageUrl = "";
-let statusText = "";
-let imageDoubleClicked = false;
-let totalImagesSizeHumanReadable = "?";
-let selectedFilesSize = 0;
+let filteredImages = images
+let query = ''
+let imageUrl = ''
+let statusText = ''
+let imageDoubleClicked = false
+let totalImagesSizeHumanReadable = '?'
+let selectedFilesSize = 0
 
 const sortingOptions = [
-    { name: "dateNewest", text: $t("details.sortByUploaded") },
-    { name: "dateOldest", text: $t("details.sortByUploadedReverse") },
-    { name: "fileSizeStoL", text: $t("details.sortBySize") },
-    { name: "fileSizeLtoS", text: $t("details.sortBySizeReverse") },
-    { name: "nameAtoZ", text: $t("details.sortByAlphabetical") },
-    { name: "nameZtoA", text: $t("details.sortByAlphabeticalReverse") },
-];
+    { name: 'dateNewest', text: $t('details.sortByUploaded') },
+    { name: 'dateOldest', text: $t('details.sortByUploadedReverse') },
+    { name: 'fileSizeStoL', text: $t('details.sortBySize') },
+    { name: 'fileSizeLtoS', text: $t('details.sortBySizeReverse') },
+    { name: 'nameAtoZ', text: $t('details.sortByAlphabetical') },
+    { name: 'nameZtoA', text: $t('details.sortByAlphabeticalReverse') },
+]
 
-let selectedSortingOption = sortingOptions[0];
+let selectedSortingOption = sortingOptions[0]
 
 // check if selectedSortedOption exists in localstorage
 if (browser) {
-    if (localStorage.getItem("selectedSortingOption")) {
+    if (localStorage.getItem('selectedSortingOption')) {
         selectedSortingOption = JSON.parse(
-            localStorage.getItem("selectedSortingOption")
-        );
-        updateFilter();
+            localStorage.getItem('selectedSortingOption')
+        )
+        updateFilter()
     } else {
         localStorage.setItem(
-            "selectedSortingOption",
+            'selectedSortingOption',
             JSON.stringify(selectedSortingOption)
-        );
-        selectedSortingOption = sortingOptions[0];
+        )
+        selectedSortingOption = sortingOptions[0]
     }
 }
 
 function toggleSortDropdown() {
-    sortOptionMenu.classList.toggle("hidden");
-    sortMenuOpen = !sortMenuOpen;
+    sortOptionMenu.classList.toggle('hidden')
+    sortMenuOpen = !sortMenuOpen
 }
 
 function changeSort(option) {
-    selectedSortingOption = option;
+    selectedSortingOption = option
     if (browser) {
         localStorage.setItem(
-            "selectedSortingOption",
+            'selectedSortingOption',
             JSON.stringify(selectedSortingOption)
-        );
+        )
     }
-    updateFilter();
+    updateFilter()
 }
 
 function updateFilter() {
     filteredImages = images.filter((image) => {
-        return image.name.toLowerCase().includes(query.toLowerCase());
-    });
+        return image.name.toLowerCase().includes(query.toLowerCase())
+    })
 
     switch (selectedSortingOption.name) {
-        case "fileSizeStoL":
-            filteredImages.sort((a, b) => a.size - b.size);
-            break;
-        case "fileSizeLtoS":
-            filteredImages.sort((a, b) => b.size - a.size);
-            break;
-        case "nameAtoZ":
-            filteredImages.sort((a, b) => a.name.localeCompare(b.name));
-            break;
-        case "nameZtoA":
-            filteredImages.sort((a, b) => b.name.localeCompare(a.name));
-            break;
-        case "dateNewest":
+        case 'fileSizeStoL':
+            filteredImages.sort((a, b) => a.size - b.size)
+            break
+        case 'fileSizeLtoS':
+            filteredImages.sort((a, b) => b.size - a.size)
+            break
+        case 'nameAtoZ':
+            filteredImages.sort((a, b) => a.name.localeCompare(b.name))
+            break
+        case 'nameZtoA':
+            filteredImages.sort((a, b) => b.name.localeCompare(a.name))
+            break
+        case 'dateNewest':
             filteredImages.sort((a, b) => {
-                const dateA = iso8601ToUnix(a.uploaded);
-                const dateB = iso8601ToUnix(b.uploaded);
-                return dateB - dateA;
-            });
-            break;
-        case "dateOldest":
+                const dateA = iso8601ToUnix(a.uploaded)
+                const dateB = iso8601ToUnix(b.uploaded)
+                return dateB - dateA
+            })
+            break
+        case 'dateOldest':
             filteredImages.sort((a, b) => {
-                const dateA = iso8601ToUnix(a.uploaded);
-                const dateB = iso8601ToUnix(b.uploaded);
-                return dateA - dateB;
-            });
-            break;
+                const dateA = iso8601ToUnix(a.uploaded)
+                const dateB = iso8601ToUnix(b.uploaded)
+                return dateA - dateB
+            })
+            break
         default:
-            break;
+            break
     }
 }
 
 function handleInput(event) {
-    query = event.target.value;
-    updateFilter();
+    query = event.target.value
+    updateFilter()
 }
 
-if (assetSplit === "Character Sheets") {
-    assetSplit = "Character Sheets (Parts)";
-} else if (assetSplit === "Tcg") {
-    assetSplit = "Genius Invokation TCG";
+if (assetSplit === 'Character Sheets') {
+    assetSplit = 'Character Sheets (Parts)'
+} else if (assetSplit === 'Tcg') {
+    assetSplit = 'Genius Invokation TCG'
 }
 
 async function downloadSelected() {
-    let zip = new JSZip();
-    let folder = zip.folder(`${game}-${asset}-selected`);
-    let selectedProgress = 0;
+    let zip = new JSZip()
+    let folder = zip.folder(`${game}-${asset}-selected`)
+    let selectedProgress = 0
     for (const item of selectedItems) {
         try {
             const response = await fetch(
                 `https://cdn.wanderer.moe/${game}/${asset}/${item.name}.png`
-            );
-            const blob = await response.blob();
-            folder.file(`${item.name}.png`, blob);
-            selectedProgress += 1;
-            statusText = `Downloading selected files... ${selectedProgress}/${selectedItems.length}`;
+            )
+            const blob = await response.blob()
+            folder.file(`${item.name}.png`, blob)
+            selectedProgress += 1
+            statusText = `Downloading selected files... ${selectedProgress}/${selectedItems.length}`
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
     }
 
     try {
-        const content = await zip.generateAsync({ type: "blob" });
-        saveAs(content, `${game}-${asset}-selected.zip`);
-        statusText = "Downloaded selected files as a zip file.";
+        const content = await zip.generateAsync({ type: 'blob' })
+        saveAs(content, `${game}-${asset}-selected.zip`)
+        statusText = 'Downloaded selected files as a zip file.'
     } catch (error) {
-        console.log(error);
-        statusText = "Error downloading selected files as a zip file.";
+        console.log(error)
+        statusText = 'Error downloading selected files as a zip file.'
     }
 }
 
 async function downloadAll() {
-    let zip = new JSZip();
-    let folder = zip.folder(`${game}-${asset}-all`);
-    let allProgress = 0;
+    let zip = new JSZip()
+    let folder = zip.folder(`${game}-${asset}-all`)
+    let allProgress = 0
     for (const item of images) {
         try {
             const response = await fetch(
                 `https://cdn.wanderer.moe/${game}/${asset}/${item.name}.png`
-            );
-            const blob = await response.blob();
-            folder.file(`${item.name}.png`, blob);
-            allProgress += 1;
-            statusText = `Downloading all files... ${allProgress}/${images.length}`;
+            )
+            const blob = await response.blob()
+            folder.file(`${item.name}.png`, blob)
+            allProgress += 1
+            statusText = `Downloading all files... ${allProgress}/${images.length}`
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
     }
 
     try {
-        const content = await zip.generateAsync({ type: "blob" });
-        saveAs(content, `${game}-${asset}-all.zip`);
-        statusText = "Downloaded all files as a zip file.";
+        const content = await zip.generateAsync({ type: 'blob' })
+        saveAs(content, `${game}-${asset}-all.zip`)
+        statusText = 'Downloaded all files as a zip file.'
     } catch (error) {
-        console.log(error);
-        statusText = "Error downloading all files as a zip file.";
+        console.log(error)
+        statusText = 'Error downloading all files as a zip file.'
     }
 }
 
 onMount(() => {
     if (window.innerWidth < 500) {
-        isMobile = true;
+        isMobile = true
     }
     // get the bytes value of each image and add set it to 'totalImagesSize'
     const totalImagesSize = images.reduce((acc, image) => {
-        return acc + image.size;
-    }, 0);
+        return acc + image.size
+    }, 0)
     // convert the bytes value to a human readable format
-    totalImagesSizeHumanReadable = bytesToFileSize(totalImagesSize);
+    totalImagesSizeHumanReadable = bytesToFileSize(totalImagesSize)
     // console.log(totalImagesSizeHumanReadable);
 
-    updateFilter();
-});
+    updateFilter()
+})
 
 //
 </script>
@@ -257,7 +257,7 @@ onMount(() => {
                             </p>
                             <p
                                 class="max-w-xl text-sm font-semibold text-white">
-                                {$t("asset.info")}
+                                {$t('asset.info')}
                             </p>
                         </div>
                     </div>
@@ -272,7 +272,7 @@ onMount(() => {
                         on:keypress="{toggleSortDropdown}"
                         on:click="{toggleSortDropdown}">
                         <span class="text-white"
-                            >{$t("details.sortBy")}: {selectedSortingOption.text}</span>
+                            >{$t('details.sortBy')}: {selectedSortingOption.text}</span>
                         <div
                             class="absolute bottom-8 hidden w-full"
                             bind:this="{sortOptionMenu}">
@@ -300,7 +300,7 @@ onMount(() => {
                         class="text-center text-sm font-semibold text-gray-400 {$t(
                             'direction'
                         )}">
-                        {$t("asset.main", {
+                        {$t('asset.main', {
                             values: {
                                 filteredImagesCount: filteredImages.length,
                                 imagesCount: images.length,
@@ -313,10 +313,10 @@ onMount(() => {
                             class="mt-2 text-center text-sm text-red-100 {$t(
                                 'direction'
                             )}">
-                            {$t("asset.onMobile")}
+                            {$t('asset.onMobile')}
                         </p>
                     {/if}
-                    {#if statusText !== ""}
+                    {#if statusText !== ''}
                         <p
                             class="mt-2 text-center text-sm text-gray-400 {$t(
                                 'direction'
@@ -346,13 +346,13 @@ onMount(() => {
                         )}">
                         <i class="fa-solid fa-download"></i>
                         {#if selectedItems.length >= 1}
-                            {$t("asset.downloadSelectedSize", {
+                            {$t('asset.downloadSelectedSize', {
                                 values: {
                                     size: bytesToFileSize(selectedFilesSize),
                                 },
                             })}
                         {:else}
-                            {$t("asset.downloadSelected")}
+                            {$t('asset.downloadSelected')}
                         {/if}
                     </button>
                     <button
@@ -361,7 +361,7 @@ onMount(() => {
                             'direction'
                         )}">
                         <i class="fa-solid fa-download"></i>
-                        {$t("asset.downloadAllSize", {
+                        {$t('asset.downloadAllSize', {
                             values: {
                                 size: totalImagesSizeHumanReadable,
                             },
@@ -384,16 +384,16 @@ onMount(() => {
                                 if (!event.target.closest('button')) {
                                     // check if the click was on the download button
                                     if (selectedItems.includes(image)) {
-                                        selectedFilesSize -= image.size;
+                                        selectedFilesSize -= image.size
                                         selectedItems = selectedItems.filter(
                                             (item) => item !== image
-                                        );
+                                        )
                                     } else {
                                         selectedItems = [
                                             ...selectedItems,
                                             image,
-                                        ];
-                                        selectedFilesSize += image.size;
+                                        ]
+                                        selectedFilesSize += image.size
                                     }
                                     // console.log(selectedItems);
                                     // console.log(selectedFilesSize);
@@ -409,8 +409,8 @@ onMount(() => {
                                     src="{image.path}"
                                     alt="{image.name}"
                                     on:dblclick="{() => {
-                                        imageDoubleClicked = true;
-                                        imageUrl = `${image.path}`;
+                                        imageDoubleClicked = true
+                                        imageUrl = `${image.path}`
                                     }}" />
                             </Lazy>
                             <div class="p-2">
@@ -419,7 +419,7 @@ onMount(() => {
                                         <div class="flex items-center">
                                             <p
                                                 class="mr-2 text-left text-sm lowercase text-white">
-                                                {image.name.replace(".png", "")}
+                                                {image.name.replace('.png', '')}
                                             </p>
                                         </div>
                                     </div>
@@ -427,15 +427,15 @@ onMount(() => {
                                         class="text-xs font-bold uppercase {$t(
                                             'direction'
                                         )}">
-                                        {image.name.includes("fanmade")
-                                            ? `${$t("asset.fanmadeAsset")}`
-                                            : `${$t("asset.officialAsset")}`}
+                                        {image.name.includes('fanmade')
+                                            ? `${$t('asset.fanmadeAsset')}`
+                                            : `${$t('asset.officialAsset')}`}
                                     </p>
                                     <p
                                         class="text-xs uppercase {$t(
                                             'direction'
                                         )}">
-                                        {$t("details.dateUploaded", {
+                                        {$t('details.dateUploaded', {
                                             values: {
                                                 date: formatDateReadable(
                                                     image.uploaded
@@ -453,13 +453,13 @@ onMount(() => {
                                                 'direction'
                                             )}"
                                             onclick="{(event) => {
-                                                event.stopPropagation();
+                                                event.stopPropagation()
                                             }}">
                                             <i
                                                 class="fa-solid fa-download {$t(
                                                     'direction'
                                                 )}"></i>
-                                            {$t("asset.downloadSize", {
+                                            {$t('asset.downloadSize', {
                                                 values: {
                                                     size: bytesToFileSize(
                                                         image.size
@@ -477,10 +477,10 @@ onMount(() => {
                 {#if filteredImages.length == 0}
                     <div class="flex flex-col items-center justify-center">
                         <p class="text-2xl text-white">
-                            {$t("asset.nothingFound", { values: { query } })}
+                            {$t('asset.nothingFound', { values: { query } })}
                         </p>
                         <p class="text-sm text-gray-400">
-                            {$t("asset.nothingFoundSuggestions")}
+                            {$t('asset.nothingFoundSuggestions')}
                         </p>
                     </div>
                 {/if}

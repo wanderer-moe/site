@@ -1,9 +1,9 @@
 <script>
-import { t } from "svelte-i18n";
-let visible = "";
-import { fly } from "svelte/transition";
-import { cubicOut, quintOut } from "svelte/easing";
-export let closeContribute;
+import { cubicOut, quintOut } from 'svelte/easing'
+import { fly } from 'svelte/transition'
+
+let visible = ''
+export let closeContribute
 </script>
 
 <div bind:this="{visible}">
@@ -13,7 +13,9 @@ export let closeContribute;
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button
             class="close-button absolute right-0 top-[15px] rounded-lg bg-[#17171A] p-2 text-white"
-            on:click="{closeContribute}">X</button>
+            on:click="{closeContribute}">
+            X
+        </button>
         <div class="mt-6 rounded-lg bg-[#141414] p-2 text-gray-400">
             <div>
                 <div class="flex justify-center">
@@ -31,7 +33,8 @@ export let closeContribute;
                 <div class="mt-2">
                     <div class="mb-2 grid gap-3">
                         <p class="text-sm">
-                            wanderer.moe <span class="font-semibold text-white"
+                            wanderer.moe
+                            <span class="font-semibold text-white"
                                 >will always be free to use, untracked, and
                                 (mostly) ad-free.</span>
                             If you like this website, please consider contributing
@@ -40,39 +43,42 @@ export let closeContribute;
                                 href="https://buymeacoffee.com/marcelmd"
                                 target="_blank"
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
-                                >donating</a> to help keep it running.
+                                >donating</a>
+                            to help keep it running.
                         </p>
                         <p class="text-sm">
                             All donations go directly towards server costs,
                             maintenance, and development of new assets &
-                            features for wanderer.moe, this project is not and
-                            won't ever be to gain profit, but to provide for the
-                            communities who use this website.
+                            features for wanderer.moe. This project will never be for-profit—our
+                            sole goal is to simply provide resources for this community.
                         </p>
                         <p class="text-sm">
-                            If you're interested in reading more, there is a <a
+                            If you're interested in reading more, there's a
+                            <a
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                                 target="_blank"
                                 href="https://dromzeh.dev/posts/wanderer-moe-website-breakdown/"
-                                >blog post here</a> about the website, breaking down
-                            the costs and how it works.
+                                >blog post here</a>
+                            about the website, breaking down both cost and functionality.
                         </p>
                         <p class="text-sm">
-                            If you want to help Contribute by providing assets
-                            for other users of the site (datamined or fan-made!)
-                            or for translations, please join the <a
+                            If you want to help contribute by providing assets
+                            for other users of the site (datamined/fan-made)
+                            or for translations, please join the
+                            <a
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                                 target="_blank"
                                 href="https://discord.wanderer.moe/"
-                                >discord server</a> and contact me there, you will
-                            be credited for your contributions on the site and on
-                            the discord.
+                                >Discord server</a>
+                            and contact me there. You will be credited for your contributions
+                            on the site and within the Discord.
                         </p>
                         <p class="text-xs">
-                            and for any other inquires, <a
+                            For any other inquires,
+                            <a
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                                 href="mailto:marcel@wanderer.moe"
-                                >send an email</a>
+                                >send an email!</a>
                         </p>
                     </div>
                 </div>

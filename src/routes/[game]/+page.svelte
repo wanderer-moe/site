@@ -1,19 +1,19 @@
 <script>
-import { onMount } from "svelte";
-import Lazy from "svelte-lazy";
-import { t } from "svelte-i18n";
-import { fixCasing } from "../../lib/utils/helpers.js";
+import { onMount } from 'svelte'
+import Lazy from 'svelte-lazy'
+import { t } from 'svelte-i18n'
+import { fixCasing } from '../../lib/utils/helpers.js'
 
-export let data;
-const { subFolders } = data;
+export let data
+const { subFolders } = data
 // console.log(subFolders);
 
-const game = data.game;
+const game = data.game
 // console.log(game);
 
-const subFoldersCount = subFolders.length;
+const subFoldersCount = subFolders.length
 
-let gameSplit = fixCasing(game);
+let gameSplit = fixCasing(game)
 </script>
 
 <svelte:head>
@@ -40,7 +40,7 @@ let gameSplit = fixCasing(game);
                             </h2>
                             <p
                                 class="max-w-xl text-xl font-semibold text-white">
-                                {$t("game.main", {
+                                {$t('game.main', {
                                     values: {
                                         game: gameSplit,
                                         availableCategories: subFoldersCount,
@@ -49,7 +49,7 @@ let gameSplit = fixCasing(game);
                             </p>
                             <p
                                 class="max-w-xl text-sm font-semibold text-white">
-                                {$t("game.info")}
+                                {$t('game.info')}
                             </p>
                         </div>
                     </div>
