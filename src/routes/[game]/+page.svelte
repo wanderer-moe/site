@@ -56,7 +56,7 @@ let gameSplit = fixCasing(game)
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                     {#each subFolders as folder}
                         <a href="/{game}/{folder.name}">
-                            <div class="rounded-lg bg-[#121212] p-4">
+                            <div class="rounded-md bg-[#121212] p-4">
                                 <p
                                     class="sigfont text-left text-2xl font-semibold text-white">
                                     <i class="fa fa-folder mr-5"></i>
