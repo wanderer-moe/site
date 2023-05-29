@@ -1,24 +1,24 @@
 <script>
 // import axios from "axios";
-import { onMount } from "svelte";
-import { t } from "svelte-i18n";
-import { fixCasing, formatDateReadable } from "../lib/utils/helpers.js";
-import { getDiscordData } from "../lib/utils/discord.js";
+import { onMount } from 'svelte'
+import { t } from 'svelte-i18n'
+import { fixCasing, formatDateReadable } from '../lib/utils/helpers.js'
+import { getDiscordData } from '../lib/utils/discord.js'
 // import { getCommitsRecent } from "../lib/utils/commit.js";
 
-let onlineusers;
-export let data;
+let onlineusers
+export let data
 
 onMount(async () => {
-    onlineusers = await getDiscordData();
-});
+    onlineusers = await getDiscordData()
+})
 
-const { allGames, allOCGenerators } = data;
+const { allGames, allOCGenerators } = data
 
-const OCGeneratorsLocations = allOCGenerators.locations;
+const OCGeneratorsLocations = allOCGenerators.locations
 // console.log(OCGeneratorsLocations);
 
-let hoveredImage = "goddess-of-victory-nikke";
+let hoveredImage = 'goddess-of-victory-nikke'
 </script>
 
 <svelte:head>
@@ -45,7 +45,7 @@ let hoveredImage = "goddess-of-victory-nikke";
                             </h2>
                             <p
                                 class="mb-2 max-w-xl text-xl font-semibold text-white">
-                                {$t("home.description")}
+                                {$t('home.description')}
                             </p>
                         </div>
                     </div>
@@ -124,13 +124,13 @@ let hoveredImage = "goddess-of-victory-nikke";
                                 <i class="fa-brands fa-discord"></i> Discord
                             </p>
                             <p class="text-left text-gray-400">
-                                {$t("home.discord.shortDesc", {
+                                {$t('home.discord.shortDesc', {
                                     values: { onlineCount: onlineusers },
                                 })}
                             </p>
 
                             <p class="text-left text-gray-200">
-                                {$t("home.discord.desc")}
+                                {$t('home.discord.desc')}
                             </p>
 
                             <div class="mt-2">
@@ -139,7 +139,7 @@ let hoveredImage = "goddess-of-victory-nikke";
                                     target="_blank">
                                     <button
                                         class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
-                                        {$t("home.discord.btn")}
+                                        {$t('home.discord.btn')}
                                     </button>
                                 </a>
                             </div>
@@ -151,14 +151,14 @@ let hoveredImage = "goddess-of-victory-nikke";
                             <p
                                 class="font-white sigfont text-xl font-bold uppercase">
                                 <i class="fa-solid fa-hand-holding-dollar"></i>
-                                {$t("home.donate.title")}
+                                {$t('home.donate.title')}
                             </p>
                             <p class="text-left text-gray-400">
-                                {$t("home.donate.shortDesc")}
+                                {$t('home.donate.shortDesc')}
                             </p>
 
                             <p class="text-left text-gray-200">
-                                {$t("home.donate.desc")}
+                                {$t('home.donate.desc')}
                             </p>
 
                             <div class="mt-2" id="donate">
@@ -181,11 +181,11 @@ let hoveredImage = "goddess-of-victory-nikke";
                                 <i class="fa-brands fa-github"></i> GitHub
                             </p>
                             <p class="text-left text-gray-400">
-                                {$t("home.github.webBtn")}
+                                {$t('home.github.webBtn')}
                             </p>
 
                             <p class="text-left text-gray-200">
-                                {$t("home.github.desc")}
+                                {$t('home.github.desc')}
                             </p>
 
                             <div class="mt-2 grid gap-1">
@@ -194,7 +194,7 @@ let hoveredImage = "goddess-of-victory-nikke";
                                     target="_blank">
                                     <button
                                         class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
-                                        {$t("home.github.webBtn")}
+                                        {$t('home.github.webBtn')}
                                     </button>
                                 </a>
                                 <a
@@ -202,7 +202,7 @@ let hoveredImage = "goddess-of-victory-nikke";
                                     target="_blank">
                                     <button
                                         class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
-                                        {$t("home.github.apiBtn")}
+                                        {$t('home.github.apiBtn')}
                                     </button>
                                 </a>
                             </div>

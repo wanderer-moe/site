@@ -1,23 +1,11 @@
-<style lang="postcss">
-.active {
-    @apply text-indigo-300;
-}
-
-header {
-    z-index: 500;
-}
-</style>
-
 <script>
-import { t } from "svelte-i18n";
-import { page } from "$app/stores";
-import SearchBar from "./SearchBar.svelte";
-import { onMount } from "svelte";
+import { t } from 'svelte-i18n'
+import SearchBar from './SearchBar.svelte'
 
-let isSearchOpen = false;
+let isSearchOpen = false
 
 function toggleSearch() {
-    isSearchOpen = !isSearchOpen;
+    isSearchOpen = !isSearchOpen
 }
 </script>
 

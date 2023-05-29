@@ -1,25 +1,26 @@
 <script>
-import { t } from "svelte-i18n";
-let visible = "";
-import { fly } from "svelte/transition";
-import { cubicOut, quintOut } from "svelte/easing";
-export let closeFAQ;
+import { t } from 'svelte-i18n'
+import { cubicOut, quintOut } from 'svelte/easing'
+import { fly } from 'svelte/transition'
+
+let visible = ''
+export let closeFAQ
 
 const faqEntries = [
-    { question: "faq.purpose", answer: "faq.purposeAnswer" },
+    { question: 'faq.purpose', answer: 'faq.purposeAnswer' },
     {
-        question: "faq.downloadMultipleOrAll",
-        answer: "faq.downloadMultipleOrAllAnswer",
+        question: 'faq.downloadMultipleOrAll',
+        answer: 'faq.downloadMultipleOrAllAnswer',
     },
-    { question: "faq.downloadOnMobile", answer: "faq.downloadOnMobileAnswer" },
-    { question: "faq.howToExtract", answer: "faq.howToExtractAnswer" },
-    { question: "faq.issueNotFound", answer: "faq.issueNotFoundAnswer" },
-];
+    { question: 'faq.downloadOnMobile', answer: 'faq.downloadOnMobileAnswer' },
+    { question: 'faq.howToExtract', answer: 'faq.howToExtractAnswer' },
+    { question: 'faq.issueNotFound', answer: 'faq.issueNotFoundAnswer' },
+]
 </script>
 
 <div bind:this="{visible}">
     <div
-        class="popupcontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+        class="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button
@@ -34,7 +35,7 @@ const faqEntries = [
                             alt="cyno"
                             class="h-12 w-12" />
                         <p class="font-semibold">
-                            {$t("faq.title")}
+                            {$t('faq.title')}
                         </p>
                     </div>
                 </div>
