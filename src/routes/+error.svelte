@@ -11,7 +11,7 @@ import { page } from '$app/stores'
     <div class="m-auto text-center">
         <div class="p-1">
             <p class="p-2 text-5xl font-semibold">
-                <span class="rounded-lg bg-red-400 pl-3 pr-3 text-[#17171A]"
+                <span class="rounded-lg bg-red-400 pl-3 pr-3 text-main-400"
                     >{$page.status}</span>
             </p>
         </div>
