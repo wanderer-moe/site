@@ -24,12 +24,12 @@ const faqEntries = [
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button
-            class="close-button absolute right-0 top-[15px] rounded-lg bg-[#17171A] p-2 text-white"
-            on:click="{closeFAQ}">X</button>
-        <div class="mt-6 rounded-lg bg-[#141414] p-2 text-white">
+            class="close-button absolute right-0 top-6 rounded-lg p-4 text-white"
+            on:click="{closeFAQ}">✕</button>
+        <div class="mt-6 rounded-lg bg-main-600 p-2 text-white p-8">
             <div>
                 <div class="rtl flex justify-center">
-                    <div class="flex items-center">
+                    <div class="flex flex-col gap-2 items-center">
                         <img
                             src="https://cdn.wanderer.moe/genshin-impact/emotes/cyno-3.png"
                             alt="cyno"
@@ -39,14 +39,14 @@ const faqEntries = [
                         </p>
                     </div>
                 </div>
-                <div class="mt-2 {$t('direction')}">
+                <div class="flex flex-col lg:flex-row break-words hyphens-auto gap-4 mt-4 {$t('direction')}">
                     {#each faqEntries as entry}
-                        <div class="mb-2">
+                        <div class="flex-1 mb-2">
                             <p class="text-sm font-semibold">
-                                {$t(entry.question)}
+                                Q. {$t(entry.question)}
                             </p>
                             <p class="text-sm text-gray-400">
-                                {$t(entry.answer)}
+                                A. {$t(entry.answer)}
                             </p>
                         </div>
                     {/each}
