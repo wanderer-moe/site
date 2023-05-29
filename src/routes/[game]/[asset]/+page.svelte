@@ -1,11 +1,3 @@
-<style lang="postcss">
-#assetimg {
-    object-fit: fit;
-    height: 256px;
-    width: 256px;
-}
-</style>
-
 <script>
 import { browser } from '$app/environment'
 import Faq from '@/components/Faq.svelte'
@@ -260,7 +252,7 @@ onMount(() => {
             </div>
         </div>
         <div class="px-2 md:px-12 lg:px-24">
-            <div class="mb-2 rounded-lg bg-[#141414] p-2 text-white">
+            <div class="mb-2 rounded-md bg-[#141414] p-2 text-white">
                 <div>
                     <div
                         class="relative mb-2 flex w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1"
@@ -322,9 +314,9 @@ onMount(() => {
                 </div>
             </div>
 
-            <div class="mb-2 rounded-lg bg-[#141414] p-2 text-white">
+            <div class="mb-2 rounded-md bg-[#141414] p-2 text-white">
                 <input
-                    class="h-14 w-full rounded-lg bg-[#17171A] text-center text-indigo-400 focus:shadow focus:outline-none {$t(
+                    class="h-14 w-full rounded-md bg-[#17171A] text-center text-indigo-400 focus:shadow focus:outline-none {$t(
                         'direction'
                     )}"
                     placeholder="&#x1F50D; {$t('asset.searchBar')}"
@@ -332,11 +324,11 @@ onMount(() => {
                     bind:value="{query}" />
             </div>
 
-            <div class="mb-6 rounded-lg bg-[#141414] p-2 text-white">
+            <div class="mb-6 rounded-md bg-[#141414] p-2 text-white">
                 <div class="flex flex-wrap gap-1 text-sm">
                     <button
                         on:click="{downloadSelected}"
-                        class="rounded-lg bg-indigo-400 px-2.5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
+                        class="rounded-md bg-indigo-400 px-2.5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
                             'direction'
                         )}">
                         <i class="fa-solid fa-download"></i>
@@ -352,7 +344,7 @@ onMount(() => {
                     </button>
                     <button
                         on:click="{downloadAll}"
-                        class="rounded-lg bg-indigo-400 px-2.5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
+                        class="rounded-md bg-indigo-400 px-2.5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
                             'direction'
                         )}">
                         <i class="fa-solid fa-download"></i>
@@ -370,7 +362,7 @@ onMount(() => {
                     {#each filteredImages as image}
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <div
-                            class="relative flex cursor-pointer items-center rounded-lg border-[3px] bg-[#141414] p-3 font-semibold text-gray-400 transition-colors duration-150 {selectedItems.includes(
+                            class="relative flex cursor-pointer items-center rounded-md border-[3px] bg-[#141414] p-3 font-semibold text-gray-400 transition-colors duration-150 {selectedItems.includes(
                                 image
                             )
                                 ? 'border-indigo-400'
@@ -400,7 +392,7 @@ onMount(() => {
                                 fadeOption="{{ delay: 100, duration: 1000 }}">
                                 <img
                                     id="assetimg"
-                                    class="previewImg object-contain object-left p-1"
+                                    class="previewImg h-64 w-64 object-contain object-left p-1"
                                     src="{image.path}"
                                     alt="{image.name}"
                                     on:dblclick="{() => {
@@ -444,7 +436,7 @@ onMount(() => {
                                         target="_blank"
                                         download>
                                         <button
-                                            class="mt-2 rounded-lg bg-indigo-400 bg-opacity-70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
+                                            class="mt-2 rounded-md bg-indigo-400 bg-opacity-70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
                                                 'direction'
                                             )}"
                                             onclick="{(event) => {

@@ -82,7 +82,7 @@ onMount(async () => {
                         {$t('footer.fanmadeNotice')}
                     </p>
                     <p class="text-sm">
-                        © 2022-{currentYear} - Created and programmed by
+                        © 2022-{currentYear} — Created and programmed by
                         <a
                             href="https://dromzeh.dev/"
                             class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
@@ -111,7 +111,7 @@ onMount(async () => {
                     <span
                         on:click="{toggleContribute}"
                         on:keypress="{toggleContribute}"
-                        class="mr-4 animate-text cursor-pointer bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-sm text-transparent hover:font-bold">
+                        class="animate-text cursor-pointer bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-sm text-transparent hover:font-bold">
                         Contribute
                     </span>
                 </div>
@@ -126,9 +126,9 @@ onMount(async () => {
                     </a>
                 {/if}
 
-                <div class="p-3">
+                <div class="select-none p-3">
                     <div
-                        class="sigfont relative flex w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1"
+                        class="relative flex w-full cursor-pointer select-none items-center justify-center rounded-xl bg-black p-1"
                         on:keypress="{toggleLocaleDropdown}"
                         on:click="{toggleLocaleDropdown}">
                         <img

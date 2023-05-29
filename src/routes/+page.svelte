@@ -12,7 +12,6 @@ onMount(async () => {
 })
 
 const { allGames, allOCGenerators } = data
-
 const OCGeneratorsLocations = allOCGenerators.locations
 
 let hoveredImage = 'goddess-of-victory-nikke'
@@ -61,7 +60,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                             {#each allGames as game}
                                 <a href="/{game.name}">
                                     <div
-                                        class="relative flex h-40 items-center justify-center overflow-hidden bg-cover bg-center text-white transition ease-in-out hover:scale-105"
+                                        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center text-white transition ease-in-out hover:scale-105"
                                         style="background-image: url('https://cdn.wanderer.moe/{game.name}/cover.png')">
                                         <div
                                             class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/60 to-black/50">
@@ -87,7 +86,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                             {#each OCGeneratorsLocations as ocgen}
                                 <a href="/oc-generator/{ocgen.name}">
                                     <div
-                                        class="relative flex h-40 items-center justify-center overflow-hidden bg-cover bg-center text-white transition ease-in-out hover:scale-105"
+                                        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center text-white transition ease-in-out hover:scale-105"
                                         style="background-image: url('https://cdn.wanderer.moe/{ocgen.name}/cover.png')">
                                         <div
                                             class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/50">
@@ -105,16 +104,16 @@ let hoveredImage = 'goddess-of-victory-nikke'
                     </div>
                 </div>
                 <div class="col-span-2 gap-4 sm:col-span-1">
-                    <div id="other">
+                    <div id="about">
                         <p
                             class="sigfont mb-4 text-3xl font-semibold text-white"
-                            id="other">
-                            Other
+                            id="about">
+                            About
                         </p>
                     </div>
                     <div class="grid gap-7">
                         <div
-                            class="bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
+                            class="rounded-md bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(142,150,227,0.1) 0%, rgba(20,20,20,0.1) 49%);">
                             <p
                                 class="font-white sigfont text-xl font-bold uppercase">
@@ -135,7 +134,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                     href="https://discord.wanderer.moe/"
                                     target="_blank">
                                     <button
-                                        class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
+                                        class="w-full rounded-md bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
                                         {$t('home.discord.btn')}
                                     </button>
                                 </a>
@@ -143,7 +142,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                         </div>
 
                         <div
-                            class="bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
+                            class="rounded-md bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(234,103,85,0.1) 0%, rgba(20,20,20,0.1) 49%);">
                             <p
                                 class="font-white sigfont text-xl font-bold uppercase">
@@ -163,7 +162,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                     href="https://buymeacoffee.com/marcelmd"
                                     target="_blank">
                                     <button
-                                        class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
+                                        class="w-full rounded-md bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
                                         Buy Me a Coffee
                                     </button>
                                 </a>
@@ -171,14 +170,14 @@ let hoveredImage = 'goddess-of-victory-nikke'
                         </div>
 
                         <div
-                            class="bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
+                            class="rounded-md bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(198,198,198,0.1) 0%, rgba(20,20,20,0.1) 49%);">
                             <p
                                 class="font-white sigfont text-xl font-bold uppercase">
                                 <i class="fa-brands fa-github"></i> GitHub
                             </p>
                             <p class="text-left text-gray-400">
-                                {$t('home.github.webBtn')}
+                                {$t('home.github.shortDesc')}
                             </p>
 
                             <p class="text-left text-gray-200">
@@ -190,7 +189,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                     href="https://git.dromzeh.dev/wanderer.moe"
                                     target="_blank">
                                     <button
-                                        class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
+                                        class="w-full rounded-md bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
                                         {$t('home.github.webBtn')}
                                     </button>
                                 </a>
@@ -198,7 +197,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                     href="https://git.dromzeh.dev/api.wanderer.moe"
                                     target="_blank">
                                     <button
-                                        class="w-full rounded-lg bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
+                                        class="w-full rounded-md bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
                                         {$t('home.github.apiBtn')}
                                     </button>
                                 </a>
