@@ -12,14 +12,14 @@ export let closeContribute
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button
-            class="close-button absolute right-0 top-[15px] rounded-lg bg-[#17171A] p-2 text-white"
+            class="close-button absolute right-0 top-6 rounded-lg p-4 text-white"
             on:click="{closeContribute}">
-            X
+            ✕
         </button>
-        <div class="mt-6 rounded-lg bg-[#141414] p-2 text-gray-400">
+        <div class="mt-6 rounded-lg bg-main-600 p-8 text-gray-400">
             <div>
                 <div class="flex justify-center">
-                    <div class="rtl flex items-center">
+                    <div class="rtl flex flex-col gap-2 items-center">
                         <img
                             src="https://cdn.wanderer.moe/genshin-impact/emotes/cat.png"
                             alt="cat"
@@ -31,7 +31,7 @@ export let closeContribute
                     </div>
                 </div>
                 <div class="mt-2">
-                    <div class="mb-2 grid gap-3">
+                    <div class="mb-2 text-center grid gap-3">
                         <p class="text-sm">
                             wanderer.moe
                             <span class="font-semibold text-white"
