@@ -39,7 +39,7 @@
     },
     "asset": {
         "main": "{filteredImagesCount}/{imagesCount} assets getoond, {selectedItemsCount} geselecteerd",
-        "info": "Klik op een asset om het te selecteren, dubbel klik een afbeelding om het te vergroten.",
+        "info": "Tap on an asset to select it. Double tap an image to enlarge it.",
         "downloadAll": "Installeer Alles",
         "downloadAllSize": "Installeer Alles ({size})",
         "downloadSelected": "Download Geselecteerd",
@@ -48,9 +48,9 @@
         "downloadSize": "Installeer ({size})",
         "officialAsset": "Officiële Asset",
         "fanmadeAsset": "Door Fans Gemaakte Activa",
-        "searchBar": "Zoek voor een asset",
+        "searchBar": "Search for an asset...",
         "nothingFound": "Niks gevonden voor {query}",
-        "nothingFoundSuggestions": "Als er een asset is die je zoekt die je toegevoegd wilt hebben, vul de asset aanvraagformulier in.",
+        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form!",
         "onMobile": "Als je problemen hebt met het installeren, lees de FAQ door te klikken op het info symbool naast de naam van het spel."
     },
     "details": {
@@ -65,7 +65,7 @@
         "sortBySizeReverse": "Bestandsgrootte (Grootste)"
     },
     "globalSearch": {
-        "searchBar": "Zoek voor een spel of asset"
+        "searchBar": "Search for a game or asset..."
     },
     "viewImage": {
         "closeText": "Klik ergens om te sluiten"
@@ -73,15 +73,15 @@
     "faq": {
         "title": "Vaak Gevraagde Vragen",
         "purpose": "Wat is het doel van deze website?",
-        "purposeAnswer": "wanderer.moe is een website waar gastheren een collectie van assets van meerdere spellen. De assets zijn geordend door spel en asset type, het belang van deze website is om te voorzien van een gecentraliseerde locatie voor mensen om assets van te installeren.",
+        "purposeAnswer": "wanderer.moe is a website that hosts a collection of assets from various games. The assets are organized by game and asset type. The sake of this website is to provide a centralized location for people to download assets from.",
         "downloadMultipleOrAll": "Hoe installeer ik meerdere of alle assets?",
-        "downloadMultipleOrAllAnswer": "Om meerdere te installeren, selecteer de asset die je wilt installeren door op die te klikken. Dan klik de 'Downloaden Geselecteerd' knop. Om alle assets te installeren, klik op de 'Installeer Alles' knop. Dit bewaart het als zip bestand in jouw downloads folder.",
+        "downloadMultipleOrAllAnswer": "To download multiple assets, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a ZIP file in your Downloads folder.",
         "downloadOnMobile": "Hoe installeer ik assets op mobiel?",
-        "downloadOnMobileAnswer": "Zorg ervoor dat je de website niet bekijkt via Sociale Media apps, maar inplaats daarvan een ingebouwde browser op jouw telefoon. Als je op iPhone bent, adviseer ik om Safari te gebruiken.",
-        "howToExtract": "Hoe extract ik de zip bestand na het installeren?",
-        "howToExtractAnswer": " Als je Windows gebruikt, kan je de 7zip gebruiken om de bestanden te extraheren. Als je Mac gebruikt, kan je de ingebouwde Archief Hulpprogramma gebruiken. Als je iPhone gebruikt, klik op de .zip bestand, open de folder dat het creëert, selecteer de afbeeldingen en dan 'Zet in Foto's'. Als je Android gebruikt, kan je gebruik maken van een bestand beheer om de bestanden te extraheren.",
-        "issueNotFound": "Ik heb een probleem dat hier niet wordt vermeld.",
-        "issueNotFoundAnswer": "Als je een probleem hebt dat hier niet wordt vermeld, dan kan je bij de discord server komen en daar om hulp vragen."
+        "downloadOnMobileAnswer": "Make sure that you are not viewing the website through social media applications and that you're using a dedicated browser. If you are on an iPhone, I recommend using Safari.",
+        "howToExtract": "How do I extract a ZIP file after downloading?",
+        "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the ZIP file, open the folder it creates, select the images and then tap 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
+        "issueNotFound": "I have an issue that isn't listed here!",
+        "issueNotFoundAnswer": "If you have an issue that isn't listed here, you can join the Discord server and ask for help there!"
     },
     "errors": {
         "404": "Pagina Niet Gevonden",
