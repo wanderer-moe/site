@@ -16,7 +16,7 @@ onMount(async () => {
 const { allGames, allOCGenerators } = data;
 
 const OCGeneratorsLocations = allOCGenerators.locations;
-console.log(OCGeneratorsLocations);
+// console.log(OCGeneratorsLocations);
 
 let hoveredImage = "goddess-of-victory-nikke";
 </script>

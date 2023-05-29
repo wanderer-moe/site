@@ -17,7 +17,7 @@ import { onMount } from "svelte";
 let isSearchOpen = false;
 
 function toggleSearch() {
-  console.log("toggleSearch");
+  // console.log("toggleSearch");
   isSearchOpen = !isSearchOpen;
 }
 

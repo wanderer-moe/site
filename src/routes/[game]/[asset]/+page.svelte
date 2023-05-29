@@ -33,7 +33,7 @@ function toggleFaq() {
 
 export let data;
 const { game, asset, images } = data;
-console.log(game, asset);
+// console.log(game, asset);
 
 let selectedItems = [];
 let isMobile = false;
@@ -206,7 +206,7 @@ onMount(() => {
   }, 0);
   // convert the bytes value to a human readable format
   totalImagesSizeHumanReadable = bytesToFileSize(totalImagesSize);
-  console.log(totalImagesSizeHumanReadable);
+  // console.log(totalImagesSizeHumanReadable);
 
   updateFilter();
 });
@@ -379,8 +379,8 @@ onMount(() => {
                     selectedItems = [...selectedItems, image];
                     selectedFilesSize += image.size;
                   }
-                  console.log(selectedItems);
-                  console.log(selectedFilesSize);
+                  // console.log(selectedItems);
+                  // console.log(selectedFilesSize);
                 }
               }}">
               <Lazy
