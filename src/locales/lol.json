@@ -1,18 +1,19 @@
 {
     "home": {
-        "description": "Centrulized databez of varioz game assets",
+        "description": "A centralized database of various game assets",
         "github": {
-            "desc": "For transparency, wanderer.moe is Open Source on GitHub. The code is available for anyone to view and contribute to.",
+            "desc": "For transparency, wanderer.moe is open source on GitHub. The code is available for anyone to view and contribute to!",
+            "shortDesc": "Website source code",
             "webBtn": "Website Source Code",
             "apiBtn": "API Source Code"
         },
         "donate": {
             "title": "Donate",
             "shortDesc": "Support the site",
-            "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance and development, consider donating."
+            "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance, and development, consider donating!"
         },
         "discord": {
-            "desc": "Join the discord server for site updates, assets not on the site, and more",
+            "desc": "Join the Discord server for updates, assets outside the site, and more!",
             "shortDesc": "{onlineCount} users currently online",
             "btn": "Join Server"
         }
