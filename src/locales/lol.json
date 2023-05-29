@@ -1,92 +1,92 @@
 {
-  "home": {
-    "description": "Centrulized databez of varioz game assets",
-    "github": {
-      "desc": "For transparency, wanderer.moe is Open Source on GitHub. The code is available for anyone to view and contribute to.",
-      "webBtn": "Website Source Code",
-      "apiBtn": "API Source Code"
+    "home": {
+        "description": "Centrulized databez of varioz game assets",
+        "github": {
+            "desc": "For transparency, wanderer.moe is Open Source on GitHub. The code is available for anyone to view and contribute to.",
+            "webBtn": "Website Source Code",
+            "apiBtn": "API Source Code"
+        },
+        "donate": {
+            "title": "Donate",
+            "shortDesc": "Support the site",
+            "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance and development, consider donating."
+        },
+        "discord": {
+            "desc": "Join the discord server for site updates, assets not on the site, and more",
+            "shortDesc": "{onlineCount} users currently online",
+            "btn": "Join Server"
+        }
     },
-    "donate": {
-      "title": "Donate",
-      "shortDesc": "Support the site",
-      "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance and development, consider donating."
+    "nav": {
+        "discord": "Discord Server",
+        "giOCGen": "Genshin OC Generatur",
+        "giFiles": "Genshin Filez"
     },
-    "discord": {
-      "desc": "Join the discord server for site updates, assets not on the site, and more",
-      "shortDesc": "{onlineCount} users currently online",
-      "btn": "Join Server"
-    }
-  },
-  "nav": {
-    "discord": "Discord Server",
-    "giOCGen": "Genshin OC Generatur",
-    "giFiles": "Genshin Filez"
-  },
-  "footer": {
-    "fanmadeNotice": "wanderer.moe iz a fanmade website. All filez r propertiez of their ownerz.",
-    "assetRequestForm": "Asset Requezt Form"
-  },
-  "contributors": {
-    "title": "Contributoorz",
-    "desc": "A big thank yoo to all of teh amazin' peeps who haz helpd contribute to teh site :3",
-    "gettingData": "Gettin th contributor data..."
-  },
-  "game": {
-    "main": "{availableCategories} categoriez found fer {game}",
-    "info": "Click on a section 2 view its contentz.",
-    "other": "{fileCount} filez ({fileSize})"
-  },
-  "asset": {
-    "main": "{filteredImagesCount}/{imagesCount} assetz shown, {selectedItemsCount} selected",
-    "info": "Tap on an asset 2 select it, double tap an image 2 enlarge it.",
-    "downloadAll": "Downld All",
-    "downloadAllSize": "Downld All ({size})",
-    "downloadSelected": "Downld Selectd",
-    "downloadSelectedSize": "Downld Selectd ({size})",
-    "download": "Downld",
-    "downloadSize": "Downld ({size})",
-    "officialAsset": "Offishul Asset",
-    "fanmadeAsset": "Fanmade Asset",
-    "searchBar": "Search 4 an asset",
-    "nothingFound": "Nothing findz 4 {query}",
-    "nothingFoundSuggestions": "If thars an asset ure looking 4 that u wants add, fill out teh asset request form.",
-    "onMobile": "If ure havin issuez downloadin, read teh FAQ by pressin teh info symbl nxt 2 teh gamez naym :3"
-  },
-  "details": {
-    "lastUpdated": "Last Updatd: {date}",
-    "sortBy": "Sort By",
-    "dateUploaded": "Uploadd: {date}",
-    "sortByAlphabetical": "Alfabetical (A-Z)",
-    "sortByAlphabeticalReverse": "Alfabetical (Z-A)",
-    "sortByUploaded": "Uploadd (Newest)",
-    "sortByUploadedReverse": "Uploadd (Oldest)",
-    "sortBySize": "Fiel Size (Smallest)",
-    "sortBySizeReverse": "Fiel Size (Largest)"
-  },
-  "globalSearch": {
-    "searchBar": "Search 4 game or asset"
-  },
-  "viewImage": {
-    "closeText": "Click anywhere 2 close"
-  },
-  "faq": {
-    "title": "Frequently Askd Queshuns",
-    "purpose": "Wut iz teh purpose ov dis siet?",
-    "purposeAnswer": "wanderer.moe iz websiet dat hosts collecshun ov assets frum various gamez. Teh assets r organizd by game an asset type, teh saek ov dis websiet iz 2 provide sentralizd locashun 4 peeps 2 download assets frum.",
-    "downloadMultipleOrAll": "How do I downld multiple or all assets?",
-    "downloadMultipleOrAllAnswer": "2 download multiple, select teh assets u wants 2 download by clickin/tappin on them. Den click teh 'download selectd' butn. 2 download all assets, click teh 'download all' butn. Dis will save as zip file into ur downloadz foldr.",
-    "downloadOnMobile": "How 2 downld assets on mobile?",
-    "downloadOnMobileAnswer": "Mak sure dat u r not viewin teh websiet thru soshul media apps, but instead built in browsr on ur fone. If u r on ifone, I recommend usin Safari.",
-    "howToExtract": "How 2 extract teh zip file aftr downloadin?",
-    "howToExtractAnswer": " If u r on windows, u can use 7zip 2 extract teh filez. If u r on mac, u can use teh built in archiv utility. If u r on ifone, tap on teh .zip file, open teh foldr it createz, select teh imagez an den save 2 fotos. If u r on android, u can use file managr app 2 extract teh filez.",
-    "issueNotFound": "I has an issue that isn't listed here.",
-    "issueNotFoundAnswer": "If u has an issue dat isnt listd her, u can join teh discord servr an ask 4 help thar."
-  },
-  "errors": {
-    "404": "Paeg Not Findz",
-    "500": "Internal Servr Error",
-    "refresh": "Try refreshin teh paeg or go bak 2 th home paeg",
-    "apiError": "An error occurrd while makin request 2 teh api, try again or refresh th paeg."
-  },
-  "direction": "ltr"
+    "footer": {
+        "fanmadeNotice": "wanderer.moe iz a fanmade website. All filez r propertiez of their ownerz.",
+        "assetRequestForm": "Asset Requezt Form"
+    },
+    "contributors": {
+        "title": "Contributoorz",
+        "desc": "A big thank yoo to all of teh amazin' peeps who haz helpd contribute to teh site :3",
+        "gettingData": "Gettin th contributor data..."
+    },
+    "game": {
+        "main": "{availableCategories} categoriez found fer {game}",
+        "info": "Click on a section 2 view its contentz.",
+        "other": "{fileCount} filez ({fileSize})"
+    },
+    "asset": {
+        "main": "{filteredImagesCount}/{imagesCount} assetz shown, {selectedItemsCount} selected",
+        "info": "Tap on an asset 2 select it, double tap an image 2 enlarge it.",
+        "downloadAll": "Downld All",
+        "downloadAllSize": "Downld All ({size})",
+        "downloadSelected": "Downld Selectd",
+        "downloadSelectedSize": "Downld Selectd ({size})",
+        "download": "Downld",
+        "downloadSize": "Downld ({size})",
+        "officialAsset": "Offishul Asset",
+        "fanmadeAsset": "Fanmade Asset",
+        "searchBar": "Search 4 an asset",
+        "nothingFound": "Nothing findz 4 {query}",
+        "nothingFoundSuggestions": "If thars an asset ure looking 4 that u wants add, fill out teh asset request form.",
+        "onMobile": "If ure havin issuez downloadin, read teh FAQ by pressin teh info symbl nxt 2 teh gamez naym :3"
+    },
+    "details": {
+        "lastUpdated": "Last Updatd: {date}",
+        "sortBy": "Sort By",
+        "dateUploaded": "Uploadd: {date}",
+        "sortByAlphabetical": "Alfabetical (A-Z)",
+        "sortByAlphabeticalReverse": "Alfabetical (Z-A)",
+        "sortByUploaded": "Uploadd (Newest)",
+        "sortByUploadedReverse": "Uploadd (Oldest)",
+        "sortBySize": "Fiel Size (Smallest)",
+        "sortBySizeReverse": "Fiel Size (Largest)"
+    },
+    "globalSearch": {
+        "searchBar": "Search 4 game or asset"
+    },
+    "viewImage": {
+        "closeText": "Click anywhere 2 close"
+    },
+    "faq": {
+        "title": "Frequently Askd Queshuns",
+        "purpose": "Wut iz teh purpose ov dis siet?",
+        "purposeAnswer": "wanderer.moe iz websiet dat hosts collecshun ov assets frum various gamez. Teh assets r organizd by game an asset type, teh saek ov dis websiet iz 2 provide sentralizd locashun 4 peeps 2 download assets frum.",
+        "downloadMultipleOrAll": "How do I downld multiple or all assets?",
+        "downloadMultipleOrAllAnswer": "2 download multiple, select teh assets u wants 2 download by clickin/tappin on them. Den click teh 'download selectd' butn. 2 download all assets, click teh 'download all' butn. Dis will save as zip file into ur downloadz foldr.",
+        "downloadOnMobile": "How 2 downld assets on mobile?",
+        "downloadOnMobileAnswer": "Mak sure dat u r not viewin teh websiet thru soshul media apps, but instead built in browsr on ur fone. If u r on ifone, I recommend usin Safari.",
+        "howToExtract": "How 2 extract teh zip file aftr downloadin?",
+        "howToExtractAnswer": " If u r on windows, u can use 7zip 2 extract teh filez. If u r on mac, u can use teh built in archiv utility. If u r on ifone, tap on teh .zip file, open teh foldr it createz, select teh imagez an den save 2 fotos. If u r on android, u can use file managr app 2 extract teh filez.",
+        "issueNotFound": "I has an issue that isn't listed here.",
+        "issueNotFoundAnswer": "If u has an issue dat isnt listd her, u can join teh discord servr an ask 4 help thar."
+    },
+    "errors": {
+        "404": "Paeg Not Findz",
+        "500": "Internal Servr Error",
+        "refresh": "Try refreshin teh paeg or go bak 2 th home paeg",
+        "apiError": "An error occurrd while makin request 2 teh api, try again or refresh th paeg."
+    },
+    "direction": "ltr"
 }

@@ -1,92 +1,92 @@
 {
-  "home": {
-    "description": "قاعدة بيانات مركزية لمختلف أصول اللعبة",
-    "github": {
-      "desc": "For transparency, wanderer.moe is Open Source on GitHub. The code is available for anyone to view and contribute to.",
-      "webBtn": "Website Source Code",
-      "apiBtn": "API Source Code"
+    "home": {
+        "description": "قاعدة بيانات مركزية لمختلف أصول اللعبة",
+        "github": {
+            "desc": "For transparency, wanderer.moe is Open Source on GitHub. The code is available for anyone to view and contribute to.",
+            "webBtn": "Website Source Code",
+            "apiBtn": "API Source Code"
+        },
+        "donate": {
+            "title": "Donate",
+            "shortDesc": "Support the site",
+            "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance and development, consider donating."
+        },
+        "discord": {
+            "desc": "Join the discord server for site updates, assets not on the site, and more",
+            "shortDesc": "{onlineCount} users currently online",
+            "btn": "Join Server"
+        }
     },
-    "donate": {
-      "title": "Donate",
-      "shortDesc": "Support the site",
-      "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance and development, consider donating."
+    "nav": {
+        "discord": "خادم Discord",
+        "giOCGen": "مولد شخصية Genshin Impact",
+        "giFiles": "ملفات Genshin Impact"
     },
-    "discord": {
-      "desc": "Join the discord server for site updates, assets not on the site, and more",
-      "shortDesc": "{onlineCount} users currently online",
-      "btn": "Join Server"
-    }
-  },
-  "nav": {
-    "discord": "خادم Discord",
-    "giOCGen": "مولد شخصية Genshin Impact",
-    "giFiles": "ملفات Genshin Impact"
-  },
-  "footer": {
-    "fanmadeNotice": "wanderer.moe هو موقع إلكتروني من صنع المعجبين. جميع الملفات هي ملك لأصحابها.",
-    "assetRequestForm": "نموذج طلب الأصول"
-  },
-  "contributors": {
-    "title": "المساهمين",
-    "desc": "شكراً جزيلاً لكل الأشخاص الرائعين الذين ساعدوا في المساهمة في الموقع",
-    "gettingData": "جاري الحصول على بيانات المساهم..."
-  },
-  "game": {
-    "main": "{availableCategories} فئات وجدت ل{game}",
-    "info": "انقر فوق أحد الأقسام لعرض محتوياته.",
-    "other": "{fileCount} files ({fileSize})"
-  },
-  "asset": {
-    "main": "{filteredImagesCount}/{imagesCount} الأصول المعروضة، {selectedItemsCount} المحدد",
-    "info": "انقر فوق أحد الأصول لتحديده ، انقر نقرًا مزدوجًا فوق صورة لتكبيرها.",
-    "downloadAll": "تحميل الكل",
-    "downloadAllSize": "Download All ({size})",
-    "downloadSelected": "تنزيل المحدد",
-    "downloadSelectedSize": "Download Selected ({size})",
-    "download": "تحميل",
-    "downloadSize": "Download ({size})",
-    "officialAsset": "الأصول الرسمية",
-    "fanmadeAsset": "الأصول المصنوعة من المروحية",
-    "searchBar": "ابحث عن أحد الأصول",
-    "nothingFound": "وجدت شيئا ل{query}",
-    "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form.",
-    "onMobile": "If you're having issues downloading, read the FAQ by pressing the info symbol next to the game's name."
-  },
-  "details": {
-    "lastUpdated": "Last Updated: {date}",
-    "sortBy": "Sort By",
-    "dateUploaded": "Uploaded: {date}",
-    "sortByAlphabetical": "Alphabetical (A-Z)",
-    "sortByAlphabeticalReverse": "Alphabetical (Z-A)",
-    "sortByUploaded": "Uploaded (Newest)",
-    "sortByUploadedReverse": "Uploaded (Oldest)",
-    "sortBySize": "File Size (Smallest)",
-    "sortBySizeReverse": "File Size (Largest)"
-  },
-  "globalSearch": {
-    "searchBar": "ابحث عن لعبة أو أصل"
-  },
-  "viewImage": {
-    "closeText": "Click anywhere to close"
-  },
-  "faq": {
-    "title": "أسئلة وأجوبة متكررة",
-    "purpose": "ما الهدف من هذا الموقع؟",
-    "purposeAnswer": "wanderer.moe هو موقع ويب يستضيف مجموعة من الأصول من ألعاب مختلفة. يتم تنظيم الأصول حسب اللعبة ونوع الأصل ، والهدف من موقع الويب هذا هو توفير موقع مركزي للأشخاص لتنزيل الأصول منه.",
-    "downloadMultipleOrAll": "كيف أقوم بتنزيل العديد من الأصول أو جميعها؟",
-    "downloadMultipleOrAllAnswer": "لتنزيل العديد من العناصر ، حدد الأصول التي تريد تنزيلها بالنقر عليها. ثم انقر فوق الزر \"تنزيل المحدد\". لتنزيل جميع الأصول ، انقر فوق الزر \"تنزيل الكل\". سيؤدي هذا إلى حفظ كملف مضغوط في مجلد التنزيلات.",
-    "downloadOnMobile": "كيف يمكنني تنزيل الأصول على الهاتف المحمول؟",
-    "downloadOnMobileAnswer": "تأكد من أنك لا تشاهد موقع الويب من خلال تطبيقات الوسائط الاجتماعية ، ولكن بدلاً من ذلك ، متصفح مضمن على هاتفك. إذا كنت تستخدم iPhone ، فإنني أوصي باستخدام Safari.",
-    "howToExtract": "كيف يمكنني استخراج ملف مضغوط بعد التنزيل؟",
-    "howToExtractAnswer": " إذا كنت تستخدم نظام التشغيل Windows ، فيمكنك استخدام 7zip لاستخراج الملفات. إذا كنت تستخدم نظام Mac ، فيمكنك استخدام أداة الأرشفة المضمنة. إذا كنت تستخدم iPhone ، فانقر فوق ملف .zip ، وافتح المجلد الذي ينشئه ، وحدد الصور ثم \"حفظ في الصور\". إذا كنت تستخدم نظام Android ، فيمكنك استخدام تطبيق مدير الملفات لاستخراج الملفات.",
-    "issueNotFound": "لدي مشكلة لم يتم سردها هنا.",
-    "issueNotFoundAnswer": "إذا كانت لديك مشكلة غير مدرجة هنا ، فيمكنك الانضمام إلى خادم Discord وطلب المساعدة هناك."
-  },
-  "errors": {
-    "404": "لم يتم العثور على الصفحة",
-    "500": "خطأ في الخادم الداخلي",
-    "refresh": "حاول تحديث الصفحة أو العودة إلى الصفحة الرئيسية",
-    "apiError": "An error occurred while making a request to the API, try again or refresh the page."
-  },
-  "direction": "rtl"
+    "footer": {
+        "fanmadeNotice": "wanderer.moe هو موقع إلكتروني من صنع المعجبين. جميع الملفات هي ملك لأصحابها.",
+        "assetRequestForm": "نموذج طلب الأصول"
+    },
+    "contributors": {
+        "title": "المساهمين",
+        "desc": "شكراً جزيلاً لكل الأشخاص الرائعين الذين ساعدوا في المساهمة في الموقع",
+        "gettingData": "جاري الحصول على بيانات المساهم..."
+    },
+    "game": {
+        "main": "{availableCategories} فئات وجدت ل{game}",
+        "info": "انقر فوق أحد الأقسام لعرض محتوياته.",
+        "other": "{fileCount} files ({fileSize})"
+    },
+    "asset": {
+        "main": "{filteredImagesCount}/{imagesCount} الأصول المعروضة، {selectedItemsCount} المحدد",
+        "info": "انقر فوق أحد الأصول لتحديده ، انقر نقرًا مزدوجًا فوق صورة لتكبيرها.",
+        "downloadAll": "تحميل الكل",
+        "downloadAllSize": "Download All ({size})",
+        "downloadSelected": "تنزيل المحدد",
+        "downloadSelectedSize": "Download Selected ({size})",
+        "download": "تحميل",
+        "downloadSize": "Download ({size})",
+        "officialAsset": "الأصول الرسمية",
+        "fanmadeAsset": "الأصول المصنوعة من المروحية",
+        "searchBar": "ابحث عن أحد الأصول",
+        "nothingFound": "وجدت شيئا ل{query}",
+        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form.",
+        "onMobile": "If you're having issues downloading, read the FAQ by pressing the info symbol next to the game's name."
+    },
+    "details": {
+        "lastUpdated": "Last Updated: {date}",
+        "sortBy": "Sort By",
+        "dateUploaded": "Uploaded: {date}",
+        "sortByAlphabetical": "Alphabetical (A-Z)",
+        "sortByAlphabeticalReverse": "Alphabetical (Z-A)",
+        "sortByUploaded": "Uploaded (Newest)",
+        "sortByUploadedReverse": "Uploaded (Oldest)",
+        "sortBySize": "File Size (Smallest)",
+        "sortBySizeReverse": "File Size (Largest)"
+    },
+    "globalSearch": {
+        "searchBar": "ابحث عن لعبة أو أصل"
+    },
+    "viewImage": {
+        "closeText": "Click anywhere to close"
+    },
+    "faq": {
+        "title": "أسئلة وأجوبة متكررة",
+        "purpose": "ما الهدف من هذا الموقع؟",
+        "purposeAnswer": "wanderer.moe هو موقع ويب يستضيف مجموعة من الأصول من ألعاب مختلفة. يتم تنظيم الأصول حسب اللعبة ونوع الأصل ، والهدف من موقع الويب هذا هو توفير موقع مركزي للأشخاص لتنزيل الأصول منه.",
+        "downloadMultipleOrAll": "كيف أقوم بتنزيل العديد من الأصول أو جميعها؟",
+        "downloadMultipleOrAllAnswer": "لتنزيل العديد من العناصر ، حدد الأصول التي تريد تنزيلها بالنقر عليها. ثم انقر فوق الزر \"تنزيل المحدد\". لتنزيل جميع الأصول ، انقر فوق الزر \"تنزيل الكل\". سيؤدي هذا إلى حفظ كملف مضغوط في مجلد التنزيلات.",
+        "downloadOnMobile": "كيف يمكنني تنزيل الأصول على الهاتف المحمول؟",
+        "downloadOnMobileAnswer": "تأكد من أنك لا تشاهد موقع الويب من خلال تطبيقات الوسائط الاجتماعية ، ولكن بدلاً من ذلك ، متصفح مضمن على هاتفك. إذا كنت تستخدم iPhone ، فإنني أوصي باستخدام Safari.",
+        "howToExtract": "كيف يمكنني استخراج ملف مضغوط بعد التنزيل؟",
+        "howToExtractAnswer": " إذا كنت تستخدم نظام التشغيل Windows ، فيمكنك استخدام 7zip لاستخراج الملفات. إذا كنت تستخدم نظام Mac ، فيمكنك استخدام أداة الأرشفة المضمنة. إذا كنت تستخدم iPhone ، فانقر فوق ملف .zip ، وافتح المجلد الذي ينشئه ، وحدد الصور ثم \"حفظ في الصور\". إذا كنت تستخدم نظام Android ، فيمكنك استخدام تطبيق مدير الملفات لاستخراج الملفات.",
+        "issueNotFound": "لدي مشكلة لم يتم سردها هنا.",
+        "issueNotFoundAnswer": "إذا كانت لديك مشكلة غير مدرجة هنا ، فيمكنك الانضمام إلى خادم Discord وطلب المساعدة هناك."
+    },
+    "errors": {
+        "404": "لم يتم العثور على الصفحة",
+        "500": "خطأ في الخادم الداخلي",
+        "refresh": "حاول تحديث الصفحة أو العودة إلى الصفحة الرئيسية",
+        "apiError": "An error occurred while making a request to the API, try again or refresh the page."
+    },
+    "direction": "rtl"
 }

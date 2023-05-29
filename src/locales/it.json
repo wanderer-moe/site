@@ -1,92 +1,92 @@
 {
-  "home": {
-    "description": "Database centralizzato di vari asseti di giochi",
-    "github": {
-      "desc": "For transparency, wanderer.moe is Open Source on GitHub. The code is available for anyone to view and contribute to.",
-      "webBtn": "Website Source Code",
-      "apiBtn": "API Source Code"
+    "home": {
+        "description": "Database centralizzato di vari asseti di giochi",
+        "github": {
+            "desc": "For transparency, wanderer.moe is Open Source on GitHub. The code is available for anyone to view and contribute to.",
+            "webBtn": "Website Source Code",
+            "apiBtn": "API Source Code"
+        },
+        "donate": {
+            "title": "Donate",
+            "shortDesc": "Support the site",
+            "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance and development, consider donating."
+        },
+        "discord": {
+            "desc": "Join the discord server for site updates, assets not on the site, and more",
+            "shortDesc": "{onlineCount} users currently online",
+            "btn": "Join Server"
+        }
     },
-    "donate": {
-      "title": "Donate",
-      "shortDesc": "Support the site",
-      "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance and development, consider donating."
+    "nav": {
+        "discord": "Server Discord",
+        "giOCGen": "Generatore OC di Genshin",
+        "giFiles": "File di Genshin"
     },
-    "discord": {
-      "desc": "Join the discord server for site updates, assets not on the site, and more",
-      "shortDesc": "{onlineCount} users currently online",
-      "btn": "Join Server"
-    }
-  },
-  "nav": {
-    "discord": "Server Discord",
-    "giOCGen": "Generatore OC di Genshin",
-    "giFiles": "File di Genshin"
-  },
-  "footer": {
-    "fanmadeNotice": "wanderer.moe è un sito web fanmade. Tutti i file sono di proprietà dei loro creatori.",
-    "assetRequestForm": "Modulo per la richiesta di assetti"
-  },
-  "contributors": {
-    "title": "Contributori",
-    "desc": "Un grande ringraziamento per tutte le persone che hanno contribuito alla formazione del sito",
-    "gettingData": "Ricavando i data dei contributori..."
-  },
-  "game": {
-    "main": "{availableCategories} categorie trovate per {game}",
-    "info": "Schiaccia su una sezione per vedere i suoi contenuti.",
-    "other": "{fileCount} file ({fileSize})"
-  },
-  "asset": {
-    "main": "{filteredImagesCount}/{imagesCount} asset mostrati, {selectedItemsCount} selezionato",
-    "info": "Schiaccia su un asset per selezionarlo, schiaccia due volte per ingrandire l'immagine.",
-    "downloadAll": "Download tutto",
-    "downloadAllSize": "Scarica Tutto ({size})",
-    "downloadSelected": "Scarica selezionati",
-    "downloadSelectedSize": "Scarica selezionati ({size})",
-    "download": "Scarica",
-    "downloadSize": "Scarica ({size})",
-    "officialAsset": "Asset ufficiale",
-    "fanmadeAsset": "Asset fanmade",
-    "searchBar": "Cerca un asset",
-    "nothingFound": "Nulla trovato per {query}",
-    "nothingFoundSuggestions": "Se c'è un asset che cerchi che vuoi aggiunto sul sito, riempi il modulo di richiesta degli asset.",
-    "onMobile": "Se stai avendo difficoltà con i download, leggi il FAQ premendo il simbolo delle informazioni di fianco al nome del gioco."
-  },
-  "details": {
-    "lastUpdated": "Ultimi Aggiornati: {date}",
-    "sortBy": "Ordina Per",
-    "dateUploaded": "Caricato il: {date}",
-    "sortByAlphabetical": "Alfabetico (A-Z)",
-    "sortByAlphabeticalReverse": "Alfabetico (Z-A)",
-    "sortByUploaded": "Caricato (Più Recente)",
-    "sortByUploadedReverse": "Caricato (Più Vecchio)",
-    "sortBySize": "Grandezza Del File (Più Piccolo)",
-    "sortBySizeReverse": "Grandezza Del File (Più Grande)"
-  },
-  "globalSearch": {
-    "searchBar": "Cerca un gioco o un asset"
-  },
-  "viewImage": {
-    "closeText": "Clicca in qualsiasi punto per chiudere"
-  },
-  "faq": {
-    "title": "Domande Chieste Spesso",
-    "purpose": "Qual è lo scopo di questo sito?",
-    "purposeAnswer": "wanderer.moe è un sito web che ospita una collezione di assetti da vari giochi. Gli asset sono organizzati per gioco e tipo di asset, lo scopo di questo sito web è di provvedere un luogo centrale da cui le persone possono scaricare gli asset di cui hanno bisogno.",
-    "downloadMultipleOrAll": "Come scarico più o molti asset?",
-    "downloadMultipleOrAllAnswer": "Per scaricare molteplici asset, selezionate l'asset che volete scaricare, schiacciando sui gli asset desiderati. Poi usare \"Scarica Selezionati\" per scaricare ciò che si è scelto. Invece, per scaricare tutti i file basta schiacciare su \"Scarica Tutti\". Questi verranno salvati come zip file sul tuo folder per i download.",
-    "downloadOnMobile": "Come scarico gli asset su mobile?",
-    "downloadOnMobileAnswer": "Assicurati che non stai visitando il sito tramite app social, ma invece un browser sul tuo telefono. Se sei su iPhone consiglio di usare Safari.",
-    "howToExtract": "Come estraggo lo zip file dopo averlo scaricato?",
-    "howToExtractAnswer": " Se sei su Windows, puoi usare 7zip per estrarre i file. Se sei su Mac, puoi usare l'Archive Utility che già sta. Se sei su iPhone, schiaccia sul file .zip, apri il folder che esso crea, seleziona le immagini e poi \"Salva in foto\". Se sei su Android puoi l'app per gestire i file per estrarre i file.",
-    "issueNotFound": "Ho un problema che non è menzionato qui.",
-    "issueNotFoundAnswer": "Se il problema che hai non è descritto qui puoi unirti al server Discord e chiedere aiuto là."
-  },
-  "errors": {
-    "404": "Pagina Non Trovata",
-    "500": "Errore Server Interno",
-    "refresh": "Prova a ripristinare la pagina o ritorna alla pagina home",
-    "apiError": "È avvenuto un errore durante la richiesta all'API, prova di nuovo o ricarica la pagina."
-  },
-  "direction": "ltr"
+    "footer": {
+        "fanmadeNotice": "wanderer.moe è un sito web fanmade. Tutti i file sono di proprietà dei loro creatori.",
+        "assetRequestForm": "Modulo per la richiesta di assetti"
+    },
+    "contributors": {
+        "title": "Contributori",
+        "desc": "Un grande ringraziamento per tutte le persone che hanno contribuito alla formazione del sito",
+        "gettingData": "Ricavando i data dei contributori..."
+    },
+    "game": {
+        "main": "{availableCategories} categorie trovate per {game}",
+        "info": "Schiaccia su una sezione per vedere i suoi contenuti.",
+        "other": "{fileCount} file ({fileSize})"
+    },
+    "asset": {
+        "main": "{filteredImagesCount}/{imagesCount} asset mostrati, {selectedItemsCount} selezionato",
+        "info": "Schiaccia su un asset per selezionarlo, schiaccia due volte per ingrandire l'immagine.",
+        "downloadAll": "Download tutto",
+        "downloadAllSize": "Scarica Tutto ({size})",
+        "downloadSelected": "Scarica selezionati",
+        "downloadSelectedSize": "Scarica selezionati ({size})",
+        "download": "Scarica",
+        "downloadSize": "Scarica ({size})",
+        "officialAsset": "Asset ufficiale",
+        "fanmadeAsset": "Asset fanmade",
+        "searchBar": "Cerca un asset",
+        "nothingFound": "Nulla trovato per {query}",
+        "nothingFoundSuggestions": "Se c'è un asset che cerchi che vuoi aggiunto sul sito, riempi il modulo di richiesta degli asset.",
+        "onMobile": "Se stai avendo difficoltà con i download, leggi il FAQ premendo il simbolo delle informazioni di fianco al nome del gioco."
+    },
+    "details": {
+        "lastUpdated": "Ultimi Aggiornati: {date}",
+        "sortBy": "Ordina Per",
+        "dateUploaded": "Caricato il: {date}",
+        "sortByAlphabetical": "Alfabetico (A-Z)",
+        "sortByAlphabeticalReverse": "Alfabetico (Z-A)",
+        "sortByUploaded": "Caricato (Più Recente)",
+        "sortByUploadedReverse": "Caricato (Più Vecchio)",
+        "sortBySize": "Grandezza Del File (Più Piccolo)",
+        "sortBySizeReverse": "Grandezza Del File (Più Grande)"
+    },
+    "globalSearch": {
+        "searchBar": "Cerca un gioco o un asset"
+    },
+    "viewImage": {
+        "closeText": "Clicca in qualsiasi punto per chiudere"
+    },
+    "faq": {
+        "title": "Domande Chieste Spesso",
+        "purpose": "Qual è lo scopo di questo sito?",
+        "purposeAnswer": "wanderer.moe è un sito web che ospita una collezione di assetti da vari giochi. Gli asset sono organizzati per gioco e tipo di asset, lo scopo di questo sito web è di provvedere un luogo centrale da cui le persone possono scaricare gli asset di cui hanno bisogno.",
+        "downloadMultipleOrAll": "Come scarico più o molti asset?",
+        "downloadMultipleOrAllAnswer": "Per scaricare molteplici asset, selezionate l'asset che volete scaricare, schiacciando sui gli asset desiderati. Poi usare \"Scarica Selezionati\" per scaricare ciò che si è scelto. Invece, per scaricare tutti i file basta schiacciare su \"Scarica Tutti\". Questi verranno salvati come zip file sul tuo folder per i download.",
+        "downloadOnMobile": "Come scarico gli asset su mobile?",
+        "downloadOnMobileAnswer": "Assicurati che non stai visitando il sito tramite app social, ma invece un browser sul tuo telefono. Se sei su iPhone consiglio di usare Safari.",
+        "howToExtract": "Come estraggo lo zip file dopo averlo scaricato?",
+        "howToExtractAnswer": " Se sei su Windows, puoi usare 7zip per estrarre i file. Se sei su Mac, puoi usare l'Archive Utility che già sta. Se sei su iPhone, schiaccia sul file .zip, apri il folder che esso crea, seleziona le immagini e poi \"Salva in foto\". Se sei su Android puoi l'app per gestire i file per estrarre i file.",
+        "issueNotFound": "Ho un problema che non è menzionato qui.",
+        "issueNotFoundAnswer": "Se il problema che hai non è descritto qui puoi unirti al server Discord e chiedere aiuto là."
+    },
+    "errors": {
+        "404": "Pagina Non Trovata",
+        "500": "Errore Server Interno",
+        "refresh": "Prova a ripristinare la pagina o ritorna alla pagina home",
+        "apiError": "È avvenuto un errore durante la richiesta all'API, prova di nuovo o ricarica la pagina."
+    },
+    "direction": "ltr"
 }
