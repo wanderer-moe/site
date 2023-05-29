@@ -14,7 +14,7 @@ onMount(async () => {
 const { allGames, allOCGenerators } = data
 const OCGeneratorsLocations = allOCGenerators.locations
 
-let hoveredImage = 'goddess-of-victory-nikke'
+let focusedImage = 'goddess-of-victory-nikke'
 </script>
 
 <svelte:head>
@@ -25,9 +25,9 @@ let hoveredImage = 'goddess-of-victory-nikke'
     <div class="mb-8">
         <div class="relative">
             <img
-                src="https://cdn.wanderer.moe/{hoveredImage}/cover.png"
+                src="https://cdn.wanderer.moe/{focusedImage}/cover.png"
                 class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
-                alt="{hoveredImage} cover" />
+                alt="{focusedImage} cover" />
             <div
                 class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
                 <div
@@ -61,7 +61,9 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                 <a href="/{game.name}">
                                     <div
                                         class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center text-white transition ease-in-out hover:scale-105"
-                                        style="background-image: url('https://cdn.wanderer.moe/{game.name}/cover.png')">
+                                        style="background-image: url('https://cdn.wanderer.moe/{game.name}/cover.png')"
+                                        on:mouseover="{() => (focusedImage = game.name)}"
+                                        on:focus="{() => (focusedImage = game.name)}">
                                         <div
                                             class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/60 to-black/50">
                                         </div>
@@ -87,7 +89,9 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                 <a href="/oc-generator/{ocgen.name}">
                                     <div
                                         class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center text-white transition ease-in-out hover:scale-105"
-                                        style="background-image: url('https://cdn.wanderer.moe/{ocgen.name}/cover.png')">
+                                        style="background-image: url('https://cdn.wanderer.moe/{ocgen.name}/cover.png')"
+                                        on:mouseover="{() => (focusedImage = ocgen.name)}"
+                                        on:focus="{() => (focusedImage = ocgen.name)}">
                                         <div
                                             class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/50">
                                         </div>
