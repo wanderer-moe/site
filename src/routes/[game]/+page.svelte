@@ -23,7 +23,7 @@ let gameSplit = fixCasing(game)
                 class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
                 alt="{game} cover" />
             <div
-                class="relative h-48 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
+                class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
                 <div
                     class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
                     <div
@@ -53,10 +53,10 @@ let gameSplit = fixCasing(game)
         </div>
         <div class="relative z-10 px-2 md:px-12 lg:px-24">
             <div id="games">
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div class="grid grid-cols-1 gap-4 pt-8 md:grid-cols-2">
                     {#each subFolders as folder}
                         <a href="/{game}/{folder.name}">
-                            <div class="rounded-md bg-[#121212] p-4">
+                            <div class="rounded-md bg-main-500 p-4">
                                 <p
                                     class="sigfont text-left text-2xl font-semibold text-white">
                                     <i class="fa fa-folder mr-5"></i>

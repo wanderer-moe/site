@@ -29,7 +29,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                 class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
                 alt="{hoveredImage} cover" />
             <div
-                class="relative h-48 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
+                class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
                 <div
                     class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
                     <div
@@ -113,7 +113,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                     </div>
                     <div class="grid gap-7">
                         <div
-                            class="rounded-md bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
+                            class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(142,150,227,0.1) 0%, rgba(20,20,20,0.1) 49%);">
                             <p
                                 class="font-white sigfont text-xl font-bold uppercase">
@@ -134,7 +134,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                     href="https://discord.wanderer.moe/"
                                     target="_blank">
                                     <button
-                                        class="w-full rounded-md bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
+                                        class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
                                         {$t('home.discord.btn')}
                                     </button>
                                 </a>
@@ -142,7 +142,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                         </div>
 
                         <div
-                            class="rounded-md bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
+                            class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(234,103,85,0.1) 0%, rgba(20,20,20,0.1) 49%);">
                             <p
                                 class="font-white sigfont text-xl font-bold uppercase">
@@ -162,7 +162,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                     href="https://buymeacoffee.com/marcelmd"
                                     target="_blank">
                                     <button
-                                        class="w-full rounded-md bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
+                                        class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
                                         Buy Me a Coffee
                                     </button>
                                 </a>
@@ -170,7 +170,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                         </div>
 
                         <div
-                            class="rounded-md bg-[#141414] p-3 text-white transition ease-in-out hover:scale-105"
+                            class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(198,198,198,0.1) 0%, rgba(20,20,20,0.1) 49%);">
                             <p
                                 class="font-white sigfont text-xl font-bold uppercase">
@@ -189,7 +189,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                     href="https://git.dromzeh.dev/wanderer.moe"
                                     target="_blank">
                                     <button
-                                        class="w-full rounded-md bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
+                                        class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
                                         {$t('home.github.webBtn')}
                                     </button>
                                 </a>
@@ -197,7 +197,7 @@ let hoveredImage = 'goddess-of-victory-nikke'
                                     href="https://git.dromzeh.dev/api.wanderer.moe"
                                     target="_blank">
                                     <button
-                                        class="w-full rounded-md bg-[#313B4E]/50 p-2 font-semibold text-white hover:bg-[#474f5f]/50">
+                                        class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
                                         {$t('home.github.apiBtn')}
                                     </button>
                                 </a>

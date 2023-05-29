@@ -180,10 +180,10 @@ async function downloadAll() {
     try {
         const content = await zip.generateAsync({ type: 'blob' })
         saveAs(content, `${game}-${asset}-all.zip`)
-        statusText = 'Downloaded all files as a zip file.'
+        statusText = 'Downloaded all files as a ZIP.'
     } catch (error) {
         console.log(error)
-        statusText = 'Error downloading all files as a zip file.'
+        statusText = 'Error downloading all files as a ZIP.'
     }
 }
 
@@ -223,7 +223,7 @@ onMount(() => {
                 class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
                 alt="cover" />
             <div
-                class="relative h-48 bg-gradient-to-t from-[#17171A] to-[#17171A]/50">
+                class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
                 <div
                     class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
                     <div
@@ -252,10 +252,11 @@ onMount(() => {
             </div>
         </div>
         <div class="px-2 md:px-12 lg:px-24">
-            <div class="mb-2 rounded-md bg-[#141414] p-2 text-white">
-                <div>
+            <div
+                class="mt-8 flex w-full flex-col items-center justify-center gap-4 rounded-md bg-main-500 p-4">
+                <div class="w-full rounded-md text-white">
                     <div
-                        class="relative mb-2 flex w-full cursor-pointer items-center justify-center rounded-xl bg-black p-1"
+                        class="relative mb-2 flex h-14 w-full cursor-pointer select-none items-center justify-center rounded-xl bg-main-400"
                         on:keypress="{toggleSortDropdown}"
                         on:click="{toggleSortDropdown}">
                         <span class="text-white"
@@ -264,10 +265,10 @@ onMount(() => {
                             class="absolute bottom-8 hidden w-full"
                             bind:this="{sortOptionMenu}">
                             <div
-                                class="mb-2 grid grid-cols-1 rounded-xl bg-black">
+                                class="mb-2 mb-6 grid grid-cols-1 rounded-xl bg-main-600">
                                 {#each sortingOptions as sortingOption}
                                     <div
-                                        class="flex items-center justify-center p-1"
+                                        class="flex items-center justify-center"
                                         on:keypress="{() =>
                                             changeSort(sortingOption)}"
                                         on:click="{() =>
@@ -312,48 +313,51 @@ onMount(() => {
                         </p>
                     {/if}
                 </div>
-            </div>
 
-            <div class="mb-2 rounded-md bg-[#141414] p-2 text-white">
-                <input
-                    class="h-14 w-full rounded-md bg-[#17171A] text-center text-indigo-400 focus:shadow focus:outline-none {$t(
-                        'direction'
-                    )}"
-                    placeholder="&#x1F50D; {$t('asset.searchBar')}"
-                    on:input="{handleInput}"
-                    bind:value="{query}" />
-            </div>
-
-            <div class="mb-6 rounded-md bg-[#141414] p-2 text-white">
-                <div class="flex flex-wrap gap-1 text-sm">
-                    <button
-                        on:click="{downloadSelected}"
-                        class="rounded-md bg-indigo-400 px-2.5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
+                <div class="w-full rounded-md text-white">
+                    <input
+                        class="h-14 w-full rounded-md bg-main-400 text-center text-accent-400 focus:shadow focus:outline-none {$t(
                             'direction'
-                        )}">
-                        <i class="fa-solid fa-download"></i>
-                        {#if selectedItems.length >= 1}
-                            {$t('asset.downloadSelectedSize', {
+                        )}"
+                        placeholder="&#x1F50D; {$t('asset.searchBar')}"
+                        on:input="{handleInput}"
+                        bind:value="{query}" />
+                </div>
+
+                <div class="w-full rounded-md text-white">
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-1 text-sm">
+                        <button
+                            on:click="{downloadSelected}"
+                            class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
+                                'direction'
+                            )}">
+                            <i class="fa-solid fa-download"></i>
+                            {#if selectedItems.length >= 1}
+                                {$t('asset.downloadSelectedSize', {
+                                    values: {
+                                        size: bytesToFileSize(
+                                            selectedFilesSize
+                                        ),
+                                    },
+                                })}
+                            {:else}
+                                {$t('asset.downloadSelected')}
+                            {/if}
+                        </button>
+                        <button
+                            on:click="{downloadAll}"
+                            class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
+                                'direction'
+                            )}">
+                            <i class="fa-solid fa-download"></i>
+                            {$t('asset.downloadAllSize', {
                                 values: {
-                                    size: bytesToFileSize(selectedFilesSize),
+                                    size: totalImagesSizeHumanReadable,
                                 },
                             })}
-                        {:else}
-                            {$t('asset.downloadSelected')}
-                        {/if}
-                    </button>
-                    <button
-                        on:click="{downloadAll}"
-                        class="rounded-md bg-indigo-400 px-2.5 py-2.5 font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
-                            'direction'
-                        )}">
-                        <i class="fa-solid fa-download"></i>
-                        {$t('asset.downloadAllSize', {
-                            values: {
-                                size: totalImagesSizeHumanReadable,
-                            },
-                        })}
-                    </button>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- asset containers -->
@@ -362,11 +366,11 @@ onMount(() => {
                     {#each filteredImages as image}
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <div
-                            class="relative flex cursor-pointer items-center rounded-md border-[3px] bg-[#141414] p-3 font-semibold text-gray-400 transition-colors duration-150 {selectedItems.includes(
+                            class="relative flex cursor-pointer items-center rounded-md rounded-md border-[3px] bg-main-500 p-3 font-semibold text-gray-400 transition-colors duration-150 hover:border-main-300 {selectedItems.includes(
                                 image
                             )
-                                ? 'border-indigo-400'
-                                : 'border-[#141414]'}"
+                                ? '!border-accent-400'
+                                : 'border-main-400'}"
                             on:click="{(event) => {
                                 if (!event.target.closest('button')) {
                                     // check if the click was on the download button
@@ -436,7 +440,7 @@ onMount(() => {
                                         target="_blank"
                                         download>
                                         <button
-                                            class="mt-2 rounded-md bg-indigo-400 bg-opacity-70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 focus:shadow focus:outline-none {$t(
+                                            class="mt-2 rounded-md bg-accent-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
                                                 'direction'
                                             )}"
                                             onclick="{(event) => {
