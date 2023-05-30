@@ -36,12 +36,12 @@ $: filteredGames = filterGames(allGames.games, query)
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button
-            class="close-button absolute right-0 top-0 rounded-lg bg-[#141414] p-2 text-white"
+            class="close-button absolute right-0 top-0 rounded-lg p-2 text-white"
             on:click="{closeSearchBar}">✕</button>
-        <div class="mb-2 rounded-lg bg-[#141414] p-2 text-white">
+        <div class="mb-2 rounded-lg bg-main-500 p-2 text-white">
             <input
                 disabled="{allGames.length == 0}"
-                class="h-14 w-full rounded-lg bg-[#17171A] text-center text-indigo-400 focus:shadow focus:outline-none {$t(
+                class="h-14 w-full rounded-lg bg-main-500 text-center text-accent-100 focus:shadow focus:outline-none {$t(
                     'direction'
                 )}"
                 placeholder="&#x1F50D; {$t('globalSearch.searchBar')}"
@@ -49,13 +49,11 @@ $: filteredGames = filterGames(allGames.games, query)
                 bind:this="{inputElement}" />
         </div>
         {#if filteredGames.length > 0}
-            <div
-                class="max-h-[350px] overflow-y-auto rounded-lg bg-[#141414] p-2"
-                style="max-height: 300px; overflow-y: auto;">
+            <div class="max-h-[350px] overflow-y-auto rounded-lg bg-main-500 p-2">
                 <div class="search-results-list grid gap-1">
                     {#each filteredGames as game}
                         <div
-                            class="rounded-lg bg-[#17171A] p-2 text-white hover:text-indigo-400">
+                            class="rounded-lg bg-main-600 p-2 text-white hover:text-accent-100">
                             <!-- https://kit.svelte.dev/docs/link-options#data-sveltekit-reload -->
                             <a
                                 on:click="{closeSearchBar()}"

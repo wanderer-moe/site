@@ -10,12 +10,12 @@ function toggleSearch() {
 </script>
 
 <header class="relative z-50 w-full">
-    <div class="bg-main-400 p-4">
+    <div class="bg-main-400 p-2">
         <div class="mx-auto flex flex-wrap items-center justify-between">
             <div class="md:px-12 lg:px-16">
-                <a href="/" class="flex items-center" rel="external">
-                    <img src="/favicon.png" alt="logo" class="h-10 w-10" />
-                    <span class="text font-semibold text-white"
+                <a href="/" class="flex gap-1 items-center" rel="external">
+                    <img src="/logo.png" alt="logo" class="h-12 w-12" />
+                    <span class="text font-semibold text-white text-xl"
                         >wanderer.moe</span>
                 </a>
             </div>

@@ -19,8 +19,8 @@
         },
         "ocGen": {
             "title": "OC Generators",
-            "desc": "Generate game-related information about your OCs, such as personality traits and appearance.",
-            "shortDesc": "Randomly generated original characters"
+            "shortDesc": "Randomly generated OCs",
+            "desc": "Generate game-related information about your original characters, (e.g. personality traits and appearance)!"
         }
     },
     "nav": {
