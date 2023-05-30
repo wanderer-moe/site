@@ -40,10 +40,11 @@ $: filteredGames = filterGames(allGames.games, query)
                     'direction'
                 )}"
                 placeholder="&#x1F50D; {$t('globalSearch.searchBar')}"
-                bind:value="{query}"/>
+                bind:value="{query}" />
         </div>
         {#if filteredGames.length > 0}
-            <div class="max-h-[350px] overflow-y-auto rounded-lg bg-main-500 p-2">
+            <div
+                class="max-h-[350px] overflow-y-auto rounded-lg bg-main-500 p-2">
                 <div class="search-results-list grid gap-1">
                     {#each filteredGames as game}
                         <div

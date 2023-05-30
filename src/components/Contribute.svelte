@@ -70,8 +70,8 @@ export let closeContribute
                                 target="_blank"
                                 href="https://discord.wanderer.moe/"
                                 >Discord server</a>
-                            / send a dm to dromzeh#1337. You will be credited for your contributions
-                            on the site and within the Discord.
+                            / send a dm to dromzeh#1337. You will be credited for
+                            your contributions on the site and within the Discord.
                         </p>
                         <p class="text-xs">
                             For any other inquires,

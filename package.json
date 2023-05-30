@@ -7,7 +7,6 @@
         "dev": "vite dev --port 1337 --host",
         "build": "vite build",
         "preview": "vite preview",
-        "tailwind": "npx tailwindcss -i ./static/tailwind.css -o ./static/index.css --watch",
         "prettier": "prettier --write --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
         "lint": "eslint --ext .js,.svelte src"
     },

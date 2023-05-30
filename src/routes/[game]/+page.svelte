@@ -4,15 +4,11 @@ import { t } from 'svelte-i18n'
 
 export let data
 
-const { subFolders } = data
-const game = data.game
-const subFoldersCount = subFolders.length
-
-let gameSplit = fixCasing(game)
+const { subFolders, game } = data
 </script>
 
 <svelte:head>
-    <title>{gameSplit} | wanderer.moe</title>
+    <title>{fixCasing(game)} | wanderer.moe</title>
 </svelte:head>
 
 <div class="min-h-screen">
@@ -32,14 +28,14 @@ let gameSplit = fixCasing(game)
                         <div class="">
                             <h2
                                 class="max-w-lg text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                {gameSplit}
+                                {fixCasing(game)}
                             </h2>
                             <p
                                 class="max-w-xl text-xl font-semibold text-white">
                                 {$t('game.main', {
                                     values: {
-                                        game: gameSplit,
-                                        availableCategories: subFoldersCount,
+                                        game: fixCasing(game),
+                                        availableCategories: subFolders.length,
                                     },
                                 })}
                             </p>

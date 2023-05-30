@@ -1,18 +1,17 @@
 <script>
 import axios from 'axios'
 import { onMount } from 'svelte'
-// import { t } from "svelte-i18n"; todo: i18n support
 import { fixCasing } from '@/lib/utils/helpers.js'
 import { writable } from 'svelte/store'
+// import { t } from "svelte-i18n"; TODO: i18n support maybe?
 
 export let data
+const { game, jsonFile } = data
+
 let response = ''
 let options = writable([])
 
-const { game, jsonFile } = data
-
-const gameSplit = fixCasing(game)
-
+// randomizes all unlocked options
 function randomize() {
     options.update((opts) => {
         return opts.map((option) => {
@@ -27,6 +26,7 @@ function randomize() {
     })
 }
 
+// copies to clipboard for easy sharing
 function copyToClipboard(options) {
     const text = options
         .filter(({ value }) => value)
@@ -36,6 +36,7 @@ function copyToClipboard(options) {
     navigator.clipboard.writeText(textWithPath)
 }
 
+// toggles the lock on an option
 function toggleLock(option) {
     options.update((opts) => {
         return opts.map((opt) => {
@@ -49,7 +50,6 @@ function toggleLock(option) {
 
 onMount(async () => {
     response = await axios.get(jsonFile)
-    // console.log(response.data.options);
     options.set(response.data.options)
     options.update((opts) => {
         return opts.map((opt) => {
@@ -60,11 +60,7 @@ onMount(async () => {
 </script>
 
 <svelte:head>
-    {#if response.data}
-        <title>OC Generator ({gameSplit}) | wanderer.moe</title>
-    {:else}
-        <title>wanderer.moe</title>
-    {/if}
+    <title>OC Generator ({fixCasing(game)}) | wanderer.moe</title>
 </svelte:head>
 
 <div class="min-h-screen">
@@ -84,7 +80,7 @@ onMount(async () => {
                         <div class="">
                             <h2
                                 class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                <span class="mr-3">{gameSplit}</span>
+                                <span class="mr-3">{fixCasing(game)}</span>
                             </h2>
                             <p
                                 class="max-w-xl text-xl font-semibold text-white">

@@ -9,9 +9,9 @@ let isSearchOpen = false
     <div class="bg-main-400 p-2">
         <div class="mx-auto flex flex-wrap items-center justify-between">
             <div class="md:px-12 lg:px-16">
-                <a href="/" class="flex gap-1 items-center" rel="external">
+                <a href="/" class="flex items-center gap-1" rel="external">
                     <img src="/logo.png" alt="logo" class="h-12 w-12" />
-                    <span class="text font-semibold text-white text-xl"
+                    <span class="text text-xl font-semibold text-white"
                         >wanderer.moe</span>
                 </a>
             </div>
@@ -24,7 +24,7 @@ let isSearchOpen = false
                         )}"
                         readonly
                         placeholder="{$t('globalSearch.searchBar')}"
-                        on:click="{() => isSearchOpen = !isSearchOpen}" />
+                        on:click="{() => (isSearchOpen = !isSearchOpen)}" />
                     <button
                         class="hidden px-4 py-2 focus:outline-none lg:hidden">
                         <a
@@ -62,7 +62,7 @@ let isSearchOpen = false
 
                 <button
                     class="px-4 py-2 focus:outline-none lg:ml-auto lg:mr-0 lg:mt-4 lg:hidden lg:h-12 lg:w-12 lg:px-5 lg:py-2.5"
-                    on:click="{() => isSearchOpen = !isSearchOpen}"
+                    on:click="{() => (isSearchOpen = !isSearchOpen)}"
                     aria-label="menu">
                     <i
                         class="fa-solid fa-search cursor-pointer text-white hover:text-indigo-300"

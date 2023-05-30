@@ -15,6 +15,8 @@ import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
 import Lazy from 'svelte-lazy'
 
+// TODO: this is a mess, clean it up
+
 // destructure data object
 export let data
 const { game, asset, images } = data
@@ -33,6 +35,7 @@ let imageDoubleClicked = false
 let totalImagesSizeHumanReadable = '?'
 let selectedFilesSize = 0
 
+// sorting options
 const sortingOptions = [
     { name: 'dateNewest', text: $t('details.sortByUploaded') },
     { name: 'dateOldest', text: $t('details.sortByUploadedReverse') },
@@ -41,24 +44,24 @@ const sortingOptions = [
     { name: 'nameAtoZ', text: $t('details.sortByAlphabetical') },
     { name: 'nameZtoA', text: $t('details.sortByAlphabeticalReverse') },
 ]
-
-// set default sorting option
 let selectedSortingOption = sortingOptions[0]
 
 // check if selectedSortedOption exists in localstorage
 if (browser) {
     const storedOption = localStorage.getItem('selectedSortingOption')
-    selectedSortingOption = storedOption ? JSON.parse(storedOption) : sortingOptions[0]
+    selectedSortingOption = storedOption
+        ? JSON.parse(storedOption)
+        : sortingOptions[0]
     updateFilter()
 }
 
-// Toggle sort dropdown
+// toggle sort dropdown
 function toggleSortDropdown() {
     sortOptionMenu.classList.toggle('hidden')
     sortMenuOpen = !sortMenuOpen
 }
 
-// Change sorting option
+// change sorting option
 function changeSort(option) {
     selectedSortingOption = option
     if (browser) {
@@ -70,62 +73,76 @@ function changeSort(option) {
     updateFilter()
 }
 
-// Update filtered images based on search query and sorting option
-function updateFilter() {
-    filteredImages = images.filter((image) => {
-        return image.name.toLowerCase().includes(query.toLowerCase())
-    })
+// sort images based on selected sorting option
+function sortImages(images) {
     switch (selectedSortingOption.name) {
         case 'fileSizeStoL':
-            filteredImages.sort((a, b) => a.size - b.size)
-            break
+            return images.sort((a, b) => a.size - b.size)
         case 'fileSizeLtoS':
-            filteredImages.sort((a, b) => b.size - a.size)
-            break
+            return images.sort((a, b) => b.size - a.size)
         case 'nameAtoZ':
-            filteredImages.sort((a, b) => a.name.localeCompare(b.name))
-            break
+            return images.sort((a, b) => a.name.localeCompare(b.name))
         case 'nameZtoA':
-            filteredImages.sort((a, b) => b.name.localeCompare(a.name))
-            break
+            return images.sort((a, b) => b.name.localeCompare(a.name))
         case 'dateNewest':
-            filteredImages.sort((a, b) => {
+            return images.sort((a, b) => {
                 const dateA = iso8601ToUnix(a.uploaded)
                 const dateB = iso8601ToUnix(b.uploaded)
                 return dateB - dateA
             })
-            break
         case 'dateOldest':
-            filteredImages.sort((a, b) => {
+            return images.sort((a, b) => {
                 const dateA = iso8601ToUnix(a.uploaded)
                 const dateB = iso8601ToUnix(b.uploaded)
                 return dateA - dateB
             })
-            break
         default:
-            break
+            return images
     }
 }
 
-// Handle search input
+// update filtered images based on search query and sorting option
+function updateFilter() {
+    filteredImages = images.filter((image) => {
+        return image.name.toLowerCase().includes(query.toLowerCase())
+    })
+    filteredImages = sortImages(filteredImages)
+}
+
+// handle search input
 function handleInput(event) {
     query = event.target.value
     updateFilter()
 }
 
-async function downloadSelected() {
+// handling multiple files
+async function downloadFiles(selected = false) {
     let zip = new JSZip()
-    let folder = zip.folder(`${game}-${asset}-selected`)
-    let selectedProgress = 0
-    for (const item of selectedItems) {
+    let folder = zip.folder(`${game}-${asset}-${selected ? 'selected' : 'all'}`)
+    let progress = 0
+    let startTime = performance.now()
+    let totalSize = 0
+    let items = selected ? selectedItems : images
+    for (const item of items) {
         try {
             const response = await fetch(
                 `https://cdn.wanderer.moe/${game}/${asset}/${item.name}.png`
             )
             const blob = await response.blob()
             folder.file(`${item.name}.png`, blob)
-            selectedProgress += 1
-            statusText = `Downloading selected files... ${selectedProgress}/${selectedItems.length}`
+            progress += 1
+            totalSize += item.size
+            let elapsedTime = (performance.now() - startTime) / 1000
+            let speed = totalSize / elapsedTime
+            let speeds = []
+            speeds.push(speed)
+            if (speeds.length > 5) {
+                speeds.shift()
+            }
+            speed = speeds.reduce((a, b) => a + b, 0) / speeds.length
+            statusText = `Downloaded ${progress}/${
+                items.length
+            } files @ ${bytesToFileSize(speed)}/s`
         } catch (error) {
             console.log(error)
         }
@@ -133,39 +150,15 @@ async function downloadSelected() {
 
     try {
         const content = await zip.generateAsync({ type: 'blob' })
-        saveAs(content, `${game}-${asset}-selected.zip`)
-        statusText = 'Downloaded selected files as a zip file.'
+        saveAs(content, `${game}-${asset}-${selected ? 'selected' : 'all'}.zip`)
+        statusText = `Downloaded ${
+            selected ? 'selected' : 'all'
+        } files as a ZIP.`
     } catch (error) {
         console.log(error)
-        statusText = 'Error downloading selected files as a zip file.'
-    }
-}
-
-async function downloadAll() {
-    let zip = new JSZip()
-    let folder = zip.folder(`${game}-${asset}-all`)
-    let allProgress = 0
-    for (const item of images) {
-        try {
-            const response = await fetch(
-                `https://cdn.wanderer.moe/${game}/${asset}/${item.name}.png`
-            )
-            const blob = await response.blob()
-            folder.file(`${item.name}.png`, blob)
-            allProgress += 1
-            statusText = `Downloading all files... ${allProgress}/${images.length}`
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    try {
-        const content = await zip.generateAsync({ type: 'blob' })
-        saveAs(content, `${game}-${asset}-all.zip`)
-        statusText = 'Downloaded all files as a ZIP.'
-    } catch (error) {
-        console.log(error)
-        statusText = 'Error downloading all files as a ZIP.'
+        statusText = `Error downloading ${
+            selected ? 'selected' : 'all'
+        } files as a ZIP.`
     }
 }
 
@@ -217,8 +210,10 @@ onMount(() => {
                                 {fixCasing(game)}
                                 <i
                                     class="fa fa-info-circle ml-2 cursor-pointer text-sm"
-                                    on:keypress="{() => isFaqOpen = !isFaqOpen}"
-                                    on:click="{() => isFaqOpen = !isFaqOpen}"></i>
+                                    on:keypress="{() =>
+                                        (isFaqOpen = !isFaqOpen)}"
+                                    on:click="{() => (isFaqOpen = !isFaqOpen)}"
+                                ></i>
                             </h2>
 
                             <p
@@ -283,7 +278,7 @@ onMount(() => {
                     <div
                         class="flex flex-wrap items-center justify-center gap-1 text-sm">
                         <button
-                            on:click="{downloadSelected}"
+                            on:click="{() => downloadFiles(true)}"
                             class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
                                 'direction'
                             )}">
@@ -301,7 +296,7 @@ onMount(() => {
                             {/if}
                         </button>
                         <button
-                            on:click="{downloadAll}"
+                            on:click="{() => downloadFiles(false)}"
                             class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
                                 'direction'
                             )}">
@@ -379,7 +374,7 @@ onMount(() => {
                                 fadeOption="{{ delay: 100, duration: 1000 }}">
                                 <img
                                     id="assetimg"
-                                    class="h-32 w-32 max-h-32 max-w-32 object-contain object-left p-1"
+                                    class="max-w-32 h-32 max-h-32 w-32 object-contain object-left p-1"
                                     src="{image.path}"
                                     alt="{image.name}"
                                     on:dblclick="{() => {
