@@ -26,7 +26,7 @@ const faqEntries = [
         <button
             class="close-button absolute right-0 top-6 rounded-lg p-4 text-white"
             on:click="{closeFAQ}">✕</button>
-        <div class="mt-6 rounded-lg bg-main-600 p-2 p-8 text-white">
+        <div class="rounded-lg bg-main-600 p-8 text-white">
             <div>
                 <div class="rtl flex justify-center">
                     <div class="flex flex-col items-center gap-2">
@@ -40,7 +40,7 @@ const faqEntries = [
                     </div>
                 </div>
                 <div
-                    class="mt-4 flex flex-col gap-4 hyphens-auto break-words lg:flex-row {$t(
+                    class="mt-4 flex max-h-[70vh] flex-col gap-4 overflow-y-auto hyphens-auto break-words p-2 lg:flex-row {$t(
                         'direction'
                     )}">
                     {#each faqEntries as entry}
