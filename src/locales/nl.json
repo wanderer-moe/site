@@ -80,13 +80,13 @@
         "purpose": "Wat is het doel van deze website?",
         "purposeAnswer": "wanderer.moe is een website dat een collectie van assets beschikt van meerdere spellen.",
         "downloadMultipleOrAll": "Hoe installeer ik meerdere of alle assets?",
-        "downloadMultipleOrAllAnswer": "To download multiple assets, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a ZIP file in your Downloads folder.",
+        "downloadMultipleOrAllAnswer": "Om meerdere assets te installeren, selecteer de assets die je wilt installeren door erop te klikken. Daarna klik je de 'Download Geselecteerd' knop. Om alle assets te installeren, klik op de 'Installeer Alles' knop. Dit zal het bewaren als een ZIP bestand in jouw Downloads folder.",
         "downloadOnMobile": "Hoe installeer ik assets op mobiel?",
-        "downloadOnMobileAnswer": "Make sure that you are not viewing the website through social media applications and that you're using a dedicated browser. If you are on an iPhone, I recommend using Safari.",
-        "howToExtract": "How do I extract a ZIP file after downloading?",
-        "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the ZIP file, open the folder it creates, select the images and then tap 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
-        "issueNotFound": "I have an issue that isn't listed here!",
-        "issueNotFoundAnswer": "If you have an issue that isn't listed here, you can join the Discord server and ask for help there!"
+        "downloadOnMobileAnswer": "Zorg ervoor dat je niet de website bekijkt via sociale media applicaties en dat je gebruik maakt van een toegewijde browser. Als je een iPhone gebruikt, adviseer ik om gebruik te maken van Safari. ",
+        "howToExtract": "Hoe extract ik een ZIP bestand na het installeren?",
+        "howToExtractAnswer": "Als je gebruik maakt van Windows, kun je 7zip gebruiken om het bestand te extraheren. Als je gebruik je gebruik maakt van Mac, kun je de ingebouwde Archief Utility gebruiken. Als je gebruik maakt van iPhone, klik op het ZIP bestand, open de folder dat het creëert, selecteer de afbeeldingen en klik op 'Bewaar in Foto's'. Als je gebruik maakt van Android, kan je gebruik maken van de bestand manager app om de bestanden te extraheren. ",
+        "issueNotFound": "Ik heb een probleem dat hier niet is vermeld!",
+        "issueNotFoundAnswer": "Als je een probleem hebt dat hier niet is vermeld, kan je bij de Discord server komen en daar om hulp vragen!"
     },
     "errors": {
         "404": "Pagina Niet Gevonden",
