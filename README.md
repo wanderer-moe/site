@@ -21,9 +21,9 @@ To run the website locally, follow these steps:
 2. Clone the repository (either `main` or `development` branch, dependant on your use case), and run either:
 
    ```bash
-   git clone https://github.com/dromzeh/wanderer.moe
+   git clone https://github.com/wanderer-moe/site
    # OR
-   git clone https://github.com/dromzeh/wanderer.moe -b development
+   git clone https://github.com/wanderer-moe/site -b development
    ```
 
 3. Navigate to the project directory. Run `pnpm install` to install the required dependencies.
@@ -57,10 +57,12 @@ View `src/hooks.server.ts` for the current redirects.
     /.svelte-kit/cloudflare
     ```
 
+All pushes to the `development` branch is deployed to the `beta` subdomain [here](https://beta.wanderer.moe).
+
 ## Contributing
 
 - **Development**: All contributions are welcome. Please make all pull requests to the `development` branch!
-- **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent to me on Discord (dromzeh#1337) or email: [marcel@dromzeh.dev][mail].
+- **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent on Discord (dromzeh#1337) or email: [marcel@dromzeh.dev][mail].
 
 A more detailed guide on contributing can be found [here][Contributing].
 
@@ -76,7 +78,7 @@ A full list can be found [here][Contributors].
 
 ## Translations
 
-Translations are managed on [Crowdin][Crowdin] and are automatically synced with the `src/locales/***.json` language files on the `development` branch, @ [l18n_development][l18n Development].
+Translations are managed on [Crowdin][Crowdin] and are automatically synced with the `src/locales/***.json` language files on the `development` branch, @ [i18n_development][i18n Development].
 
 ## License
 
@@ -93,6 +95,6 @@ Translations are managed on [Crowdin][Crowdin] and are automatically synced with
 [Dromzeh]: https://github.com/dromzeh
 [Contributors]: https://wanderer.moe/contributors
 [Crowdin]: https://crowdin.com/project/wanderermoe
-[l18n Development]: https://github.com/wanderer-moe/site/tree/l18n_development
+[i18n Development]: https://github.com/wanderer-moe/site/tree/i18n_development
 [wanderer.moe]: https://wanderer.moe
 [License]: LICENSE
