@@ -257,7 +257,7 @@ onMount(() => {
                 class="mt-8 flex w-full flex-col items-center justify-center gap-4 rounded-md bg-main-500 p-4">
                 <div class="w-full rounded-md text-white">
                     <div
-                        class="relative mb-2 flex h-14 w-full cursor-pointer select-none items-center justify-center rounded-xl bg-main-400"
+                        class="relative flex h-14 w-full cursor-pointer select-none items-center justify-center rounded-xl bg-main-400"
                         on:keypress="{toggleSortDropdown}"
                         on:click="{toggleSortDropdown}">
                         <span class="text-white"
@@ -266,7 +266,7 @@ onMount(() => {
                             class="absolute bottom-8 hidden w-full"
                             bind:this="{sortOptionMenu}">
                             <div
-                                class="mb-2 mb-6 grid grid-cols-1 rounded-xl bg-main-600">
+                                class="mb-2 mb-6 grid grid-cols-1 rounded-xl bg-main-600 py-2">
                                 {#each sortingOptions as sortingOption}
                                     <div
                                         class="flex items-center justify-center"
@@ -285,34 +285,6 @@ onMount(() => {
                             </div>
                         </div>
                     </div>
-                    <p
-                        class="text-center text-sm font-semibold text-gray-400 {$t(
-                            'direction'
-                        )}">
-                        {$t('asset.main', {
-                            values: {
-                                filteredImagesCount: filteredImages.length,
-                                imagesCount: images.length,
-                                selectedItemsCount: selectedItems.length,
-                            },
-                        })}
-                    </p>
-                    {#if isMobile}
-                        <p
-                            class="mt-2 text-center text-sm text-red-100 {$t(
-                                'direction'
-                            )}">
-                            {$t('asset.onMobile')}
-                        </p>
-                    {/if}
-                    {#if statusText !== ''}
-                        <p
-                            class="mt-2 text-center text-sm text-gray-400 {$t(
-                                'direction'
-                            )}">
-                            {statusText}
-                        </p>
-                    {/if}
                 </div>
 
                 <div class="w-full rounded-md text-white">
@@ -359,6 +331,36 @@ onMount(() => {
                             })}
                         </button>
                     </div>
+                </div>
+                <div class="w-full rounded-md">
+                    <p
+                        class="text-center text-sm font-semibold text-gray-400 {$t(
+                            'direction'
+                        )}">
+                        {$t('asset.main', {
+                            values: {
+                                filteredImagesCount: filteredImages.length,
+                                imagesCount: images.length,
+                                selectedItemsCount: selectedItems.length,
+                            },
+                        })}
+                    </p>
+                    {#if isMobile}
+                        <p
+                            class="mt-2 text-center text-sm text-red-100 {$t(
+                                'direction'
+                            )}">
+                            {$t('asset.onMobile')}
+                        </p>
+                    {/if}
+                    {#if statusText !== ''}
+                        <p
+                            class="mt-2 text-center text-sm text-gray-400 {$t(
+                                'direction'
+                            )}">
+                            {statusText}
+                        </p>
+                    {/if}
                 </div>
             </div>
             <!-- asset containers -->

@@ -49,7 +49,7 @@ let focusedImage = 'goddess-of-victory-nikke'
                 </div>
             </div>
         </div>
-        <div class="px-2 md:px-12 lg:px-24">
+        <div class="mt-8 px-2 md:px-12 lg:px-24">
             <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
                 <div class="col-span-2 gap-4">
                     <div id="games" class="mb-8">
