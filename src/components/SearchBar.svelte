@@ -8,8 +8,6 @@ import { filterGamesSearchBar as filterGames } from '@/lib/utils/filterSearch'
 import { fixCasing } from '@/lib/utils/helpers'
 export let query = ''
 export let closeSearchBar
-let inputElement
-let visible = ''
 let allGames = []
 
 async function getGames() {
@@ -21,16 +19,13 @@ async function getGames() {
 }
 
 onMount(() => {
-    getGames().then(() => {
-        // console.log(allGames.games);
-    })
+    getGames()
 })
 
 $: filteredGames = filterGames(allGames.games, query)
-// $: console.log(filteredGames);
 </script>
 
-<div bind:this="{visible}">
+<div>
     <div
         class="fixed left-1/2 top-1/2 z-[1000] w-3/4 -translate-x-1/2 -translate-y-1/2 transform"
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
@@ -45,8 +40,7 @@ $: filteredGames = filterGames(allGames.games, query)
                     'direction'
                 )}"
                 placeholder="&#x1F50D; {$t('globalSearch.searchBar')}"
-                bind:value="{query}"
-                bind:this="{inputElement}" />
+                bind:value="{query}"/>
         </div>
         {#if filteredGames.length > 0}
             <div class="max-h-[350px] overflow-y-auto rounded-lg bg-main-500 p-2">

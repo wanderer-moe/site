@@ -11,10 +11,6 @@ let menuOpen = false
 
 const currentYear = new Date().getFullYear()
 
-function toggleContribute() {
-    contributeOpen = !contributeOpen
-}
-
 // TODO: finish correct RTL arabic support
 // { id: "ar", label: "العربية" }
 
@@ -31,8 +27,7 @@ const languages = [
 
 $: currentLocale =
     $locale !== null
-        ? languages.find((e) => e.id === $locale.substring(0, 3)) || {
-              // Allows for lolcat
+        ? languages.find((e) => e.id === $locale.substring(0, 3)) || { // substring 3 allows for lolcat
               id: 'en',
               label: 'English',
           }
@@ -109,8 +104,8 @@ onMount(async () => {
                         href="https://git.wanderer.moe/">GitHub</a>
                     •
                     <span
-                        on:click="{toggleContribute}"
-                        on:keypress="{toggleContribute}"
+                        on:click="{() => contributeOpen = !contributeOpen}"
+                        on:keypress="{() => contributeOpen = !contributeOpen}"
                         class="animate-text cursor-pointer bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-sm text-transparent hover:font-bold">
                         Contribute
                     </span>

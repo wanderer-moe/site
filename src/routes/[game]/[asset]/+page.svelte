@@ -15,23 +15,16 @@ import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
 import Lazy from 'svelte-lazy'
 
-let isFaqOpen = false
-let sortOptionMenu
-let sortMenuOpen = false
-
-function toggleFaq() {
-    isFaqOpen = !isFaqOpen
-}
-
+// destructure data object
 export let data
 const { game, asset, images } = data
 
+// initialize variables
+let isFaqOpen = false
+let sortOptionMenu
+let sortMenuOpen = false
 let selectedItems = []
 let isMobile = false
-
-const gameSplit = fixCasing(game)
-let assetSplit = fixCasing(asset)
-
 let filteredImages = images
 let query = ''
 let imageUrl = ''
@@ -49,29 +42,23 @@ const sortingOptions = [
     { name: 'nameZtoA', text: $t('details.sortByAlphabeticalReverse') },
 ]
 
+// set default sorting option
 let selectedSortingOption = sortingOptions[0]
 
 // check if selectedSortedOption exists in localstorage
 if (browser) {
-    if (localStorage.getItem('selectedSortingOption')) {
-        selectedSortingOption = JSON.parse(
-            localStorage.getItem('selectedSortingOption')
-        )
-        updateFilter()
-    } else {
-        localStorage.setItem(
-            'selectedSortingOption',
-            JSON.stringify(selectedSortingOption)
-        )
-        selectedSortingOption = sortingOptions[0]
-    }
+    const storedOption = localStorage.getItem('selectedSortingOption')
+    selectedSortingOption = storedOption ? JSON.parse(storedOption) : sortingOptions[0]
+    updateFilter()
 }
 
+// Toggle sort dropdown
 function toggleSortDropdown() {
     sortOptionMenu.classList.toggle('hidden')
     sortMenuOpen = !sortMenuOpen
 }
 
+// Change sorting option
 function changeSort(option) {
     selectedSortingOption = option
     if (browser) {
@@ -83,11 +70,11 @@ function changeSort(option) {
     updateFilter()
 }
 
+// Update filtered images based on search query and sorting option
 function updateFilter() {
     filteredImages = images.filter((image) => {
         return image.name.toLowerCase().includes(query.toLowerCase())
     })
-
     switch (selectedSortingOption.name) {
         case 'fileSizeStoL':
             filteredImages.sort((a, b) => a.size - b.size)
@@ -120,15 +107,10 @@ function updateFilter() {
     }
 }
 
+// Handle search input
 function handleInput(event) {
     query = event.target.value
     updateFilter()
-}
-
-if (assetSplit === 'Character Sheets') {
-    assetSplit = 'Character Sheets (Parts)'
-} else if (assetSplit === 'Tcg') {
-    assetSplit = 'Genius Invokation TCG'
 }
 
 async function downloadSelected() {
@@ -191,11 +173,11 @@ onMount(() => {
     if (window.innerWidth < 500) {
         isMobile = true
     }
-    // get the bytes value of each image and add set it to 'totalImagesSize'
+
     const totalImagesSize = images.reduce((acc, image) => {
         return acc + image.size
     }, 0)
-    // convert the bytes value to a human readable format
+
     totalImagesSizeHumanReadable = bytesToFileSize(totalImagesSize)
     updateFilter()
 })
@@ -203,7 +185,7 @@ onMount(() => {
 
 <svelte:head>
     {#if images.length > 0}
-        <title>{assetSplit} ({gameSplit}) | wanderer.moe</title>
+        <title>{fixCasing(asset)} ({fixCasing(game)}) | wanderer.moe</title>
     {:else}
         <title>wanderer.moe</title>
     {/if}
@@ -232,16 +214,16 @@ onMount(() => {
                         <div class="">
                             <h2
                                 class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                {gameSplit}
+                                {fixCasing(game)}
                                 <i
                                     class="fa fa-info-circle ml-2 cursor-pointer text-sm"
-                                    on:keypress="{toggleFaq}"
-                                    on:click="{toggleFaq}"></i>
+                                    on:keypress="{() => isFaqOpen = !isFaqOpen}"
+                                    on:click="{() => isFaqOpen = !isFaqOpen}"></i>
                             </h2>
 
                             <p
                                 class="max-w-xl text-xl font-semibold text-white">
-                                {assetSplit}
+                                {fixCasing(asset)}
                             </p>
                             <p
                                 class="max-w-xl text-sm font-semibold text-white">
@@ -266,7 +248,7 @@ onMount(() => {
                             class="absolute bottom-8 hidden w-full"
                             bind:this="{sortOptionMenu}">
                             <div
-                                class="mb-2 mb-6 grid grid-cols-1 rounded-xl bg-main-600 py-2">
+                                class="mb-6 grid grid-cols-1 rounded-xl bg-main-600 py-2">
                                 {#each sortingOptions as sortingOption}
                                     <div
                                         class="flex items-center justify-center"
@@ -369,7 +351,7 @@ onMount(() => {
                     {#each filteredImages as image}
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <div
-                            class="relative flex cursor-pointer items-center rounded-md rounded-md border-[3px] bg-main-500 p-3 font-semibold text-gray-400 transition-colors duration-150 hover:border-main-300 {selectedItems.includes(
+                            class="relative flex cursor-pointer items-center rounded-md border-[3px] bg-main-500 p-3 font-semibold text-gray-400 transition-colors duration-150 hover:border-main-300 {selectedItems.includes(
                                 image
                             )
                                 ? '!border-accent-400'
@@ -397,7 +379,7 @@ onMount(() => {
                                 fadeOption="{{ delay: 100, duration: 1000 }}">
                                 <img
                                     id="assetimg"
-                                    class="h-64 w-64 max-h-64 max-w-64 object-contain object-left p-1"
+                                    class="h-32 w-32 max-h-32 max-w-32 object-contain object-left p-1"
                                     src="{image.path}"
                                     alt="{image.name}"
                                     on:dblclick="{() => {

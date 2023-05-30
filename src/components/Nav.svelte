@@ -3,10 +3,6 @@ import { t } from 'svelte-i18n'
 import SearchBar from './SearchBar.svelte'
 
 let isSearchOpen = false
-
-function toggleSearch() {
-    isSearchOpen = !isSearchOpen
-}
 </script>
 
 <header class="relative z-50 w-full">
@@ -28,7 +24,7 @@ function toggleSearch() {
                         )}"
                         readonly
                         placeholder="{$t('globalSearch.searchBar')}"
-                        on:click="{toggleSearch}" />
+                        on:click="{() => isSearchOpen = !isSearchOpen}" />
                     <button
                         class="hidden px-4 py-2 focus:outline-none lg:hidden">
                         <a
@@ -66,7 +62,7 @@ function toggleSearch() {
 
                 <button
                     class="px-4 py-2 focus:outline-none lg:ml-auto lg:mr-0 lg:mt-4 lg:hidden lg:h-12 lg:w-12 lg:px-5 lg:py-2.5"
-                    on:click="{toggleSearch}"
+                    on:click="{() => isSearchOpen = !isSearchOpen}"
                     aria-label="menu">
                     <i
                         class="fa-solid fa-search cursor-pointer text-white hover:text-indigo-300"

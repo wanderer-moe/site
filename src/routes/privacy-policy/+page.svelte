@@ -1,7 +1,3 @@
-<script>
-// import { t } from "svelte-i18n"
-</script>
-
 <svelte:head>
     <title>Privacy Policy | wanderer.moe</title>
 </svelte:head>
@@ -26,8 +22,7 @@
                     <p class="text-white">
                         Your IP address <b
                             >may be collected by Cloudflare for security
-                            purposes, but this is not stored by the site and no
-                            one has access to it.</b>
+                            purposes, but this is not stored by the site.</b>
                     </p>
                     <p class="text-white">
                         Any data collected by Google Analytics is not shared

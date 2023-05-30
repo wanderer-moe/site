@@ -3,7 +3,6 @@ import { t } from 'svelte-i18n'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { fly } from 'svelte/transition'
 
-let visible = ''
 export let closeFAQ
 
 const faqEntries = [
@@ -18,7 +17,7 @@ const faqEntries = [
 ]
 </script>
 
-<div bind:this="{visible}">
+<div>
     <div
         class="fixed left-1/2 top-1/2 z-[60] w-3/4 -translate-x-1/2 -translate-y-1/2 transform"
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
