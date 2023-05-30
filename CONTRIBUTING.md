@@ -28,7 +28,7 @@ All contributions to the website are welcome, such as bug fixes, code improvemen
 
 ## Contributing to the API
 
-The API is built with [Cloudflare Workers](https://workers.cloudflare.com/) and is available at [api.wanderer.moe](https://api.wanderer.moe/), the API's code is available [here](https://git.dromzeh.dev/api.wanderer.moe).
+The API is built with [Cloudflare Workers](https://workers.cloudflare.com/) and is available at [api.wanderer.moe](https://api.wanderer.moe/), the API's code is available [here](https://git.wanderer.moe/api).
 
 Please read the README for more information on how to setup the API locally, etc.
 
@@ -64,6 +64,6 @@ feat: add x to y
 
 As stated if you want to contribute to the website, please open a PR to the `development` branch.
 
-Please use the [API repo](https://git.dromzeh.dev/api.wanderer.moe) for API contributions or API related issues. API PRs are to be made to the `main` branch.
+Please use the [API repo](https://git.wanderer.moe/api) for API contributions or API related issues. API PRs are to be made to the `main` branch.
 
 Translation PRs will not be accepted, please use Crowdin for translations, read [Contributing to Translations](#contributing-to-translations) for more information on how to contribute to translations.
