@@ -26,7 +26,8 @@ let focusedImage = 'goddess-of-victory-nikke'
         <div class="relative">
             <img
                 src="https://cdn.wanderer.moe/{focusedImage}/cover.png"
-                class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
+                class="absolute inset-0 h-48 w-full object-cover transition ease-in-out"
+                style="object-position: 50% 20%;"
                 alt="{focusedImage} cover" />
             <div
                 class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
@@ -59,8 +60,8 @@ let focusedImage = 'goddess-of-victory-nikke'
                             {#each allGames as game}
                                 <a href="/{game.name}">
                                     <div
-                                        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center bg-top text-white transition ease-in-out hover:scale-105"
-                                        style="background-image: url('https://cdn.wanderer.moe/{game.name}/cover.png');"
+                                        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover text-white transition ease-in-out hover:scale-105"
+                                        style="background-image: url('https://cdn.wanderer.moe/{game.name}/cover.png'); background-position: 50% 20%;"
                                         on:mouseover="{() =>
                                             (focusedImage = game.name)}"
                                         on:focus="{() =>
