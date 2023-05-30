@@ -12,7 +12,7 @@ import { browser } from '$app/environment'
 import en from '../../locales/en.json'
 
 const INIT_OPTIONS = {
-    fallbackLocale: 'en', 
+    fallbackLocale: 'en',
     initialLocale: 'en',
 }
 
