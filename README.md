@@ -29,7 +29,7 @@ To run the website locally, follow these steps:
 
 The API and CDN have their own respective subdomains, `api` and `cdn`.
 
-The API is powered by Cloudflare Workers and the CDN is powered by Cloudflare R2, the api's code is available [here](https://git.dromzeh.dev/api.wanderer.moe)
+The API is powered by Cloudflare Workers and the CDN is powered by Cloudflare R2, the api's code is available [here](https://git.wanderer.moe/api)
 
 More details on setting up the API [here](https://github.com/dromzeh/api.wanderer.moe#usage).
 

@@ -54,7 +54,7 @@ function toggleSearch() {
                     <button
                         class="hidden px-4 py-2 focus:outline-none lg:hidden">
                         <a
-                            href="https://git.dromzeh.dev/wanderer.moe"
+                            href="https://git.wanderer.moe/"
                             target="_blank"
                             rel="noopener noreferrer">
                             <i
@@ -96,7 +96,7 @@ function toggleSearch() {
                 <button
                     class="px-4 focus:outline-none lg:block lg:pl-2 lg:pr-4">
                     <a
-                        href="https://git.dromzeh.dev/wanderer.moe"
+                        href="https://git.wanderer.moe/"
                         target="_blank"
                         rel="noopener noreferrer">
                         <i

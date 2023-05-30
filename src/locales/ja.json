@@ -39,7 +39,7 @@
     },
     "asset": {
         "main": "{filteredImagesCount}/{imagesCount} 個アセットは見えるんです． {selectedItemsCount} 個はセレクトしたんです.",
-        "info": "アセットをセレクトすることために､タップをします．イメージをズームしますために､ダブルタップします．",
+        "info": "Tap on an asset to select it. Double tap an image to enlarge it.",
         "downloadAll": "全てダウンロード",
         "downloadAllSize": "全てダウンロード ({size})",
         "downloadSelected": "セレクトダウンロード",
@@ -48,9 +48,9 @@
         "downloadSize": "ダウンロード ({size})",
         "officialAsset": "公式ゲームアセット",
         "fanmadeAsset": "ファンメイドゲームアセット",
-        "searchBar": "アセットを検索",
+        "searchBar": "Search for an asset...",
         "nothingFound": "{query} に一致する情報は見つかりませんだった．",
-        "nothingFoundSuggestions": "どうかなアセットを探すことなら､アセットリクエストフォームをしてください",
+        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form!",
         "onMobile": "ダウンロードしてのができないから､ゲームの名と隣にインフォアイコンをタップしてでFAQを見てください．"
     },
     "details": {
@@ -65,7 +65,7 @@
         "sortBySizeReverse": "ファイルサイズ（最大が上）"
     },
     "globalSearch": {
-        "searchBar": "ゲームやアセットなりを探す"
+        "searchBar": "Search for a game or asset..."
     },
     "viewImage": {
         "closeText": "何こをクリックでクロースください."
@@ -73,15 +73,15 @@
     "faq": {
         "title": "FAQ",
         "purpose": "サイトの目的は何？",
-        "purposeAnswer": "wanderer.moeとは､様々なゲームアセットを入りサイトだ､ゲームとアセットタイプで選り分けた. 目的はアセットダウンロードを出すんです.",
+        "purposeAnswer": "wanderer.moe is a website that hosts a collection of assets from various games. The assets are organized by game and asset type. The sake of this website is to provide a centralized location for people to download assets from.",
         "downloadMultipleOrAll": "全てか多くのアセットダウンロードはどうやってか？",
-        "downloadMultipleOrAllAnswer": "多くのアセットダウンロードをやってように､アセットをタップかクリックしてでセレクトして. それから､「セレクトダウンロード」をクリックしてください. 全てのアセットダウンロードをやってように､「全てダウンロード」をクリックしてください. ZIPファイルでDownloads Folderにセーブしてがある.",
+        "downloadMultipleOrAllAnswer": "To download multiple assets, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a ZIP file in your Downloads folder.",
         "downloadOnMobile": "スマホでアセットダウンロードはどうやってか？",
-        "downloadOnMobileAnswer": "サイトをアプリブラウザ(そのようでDiscordとRedditとか) で見りませんください. そうしないで､SafariなりGoogle Chromeなりで見えてください．",
-        "howToExtract": "ZIPファイルを解凍はどうやってか？",
-        "howToExtractAnswer": " Windowsであるなら､7zipで解凍していいです. Macであるなら､Archive Utilityで解凍してください. iPhoneであるなら､ZIPファイルをタップして.それから､フォルダを開けて. イメージをセレクトしてすると､「フォートにセーブ」してください. Androidであるなら､ファイルマネージャーアプリで解凍ください.",
-        "issueNotFound": "問題がこれぐらいませんだ．",
-        "issueNotFoundAnswer": "問題がこれぐらいませんだなら､Discordサーバに参加して助けを求めてください."
+        "downloadOnMobileAnswer": "Make sure that you are not viewing the website through social media applications and that you're using a dedicated browser. If you are on an iPhone, I recommend using Safari.",
+        "howToExtract": "How do I extract a ZIP file after downloading?",
+        "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the ZIP file, open the folder it creates, select the images and then tap 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
+        "issueNotFound": "I have an issue that isn't listed here!",
+        "issueNotFoundAnswer": "If you have an issue that isn't listed here, you can join the Discord server and ask for help there!"
     },
     "errors": {
         "404": "ページがありませんだ．",

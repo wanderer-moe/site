@@ -39,7 +39,7 @@
     },
     "asset": {
         "main": "{filteredImagesCount}/{imagesCount} الأصول المعروضة، {selectedItemsCount} المحدد",
-        "info": "انقر فوق أحد الأصول لتحديده ، انقر نقرًا مزدوجًا فوق صورة لتكبيرها.",
+        "info": "Tap on an asset to select it. Double tap an image to enlarge it.",
         "downloadAll": "تحميل الكل",
         "downloadAllSize": "Download All ({size})",
         "downloadSelected": "تنزيل المحدد",
@@ -48,9 +48,9 @@
         "downloadSize": "Download ({size})",
         "officialAsset": "الأصول الرسمية",
         "fanmadeAsset": "الأصول المصنوعة من المروحية",
-        "searchBar": "ابحث عن أحد الأصول",
+        "searchBar": "Search for an asset...",
         "nothingFound": "وجدت شيئا ل{query}",
-        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form.",
+        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form!",
         "onMobile": "If you're having issues downloading, read the FAQ by pressing the info symbol next to the game's name."
     },
     "details": {
@@ -65,7 +65,7 @@
         "sortBySizeReverse": "File Size (Largest)"
     },
     "globalSearch": {
-        "searchBar": "ابحث عن لعبة أو أصل"
+        "searchBar": "Search for a game or asset..."
     },
     "viewImage": {
         "closeText": "Click anywhere to close"
@@ -73,15 +73,15 @@
     "faq": {
         "title": "أسئلة وأجوبة متكررة",
         "purpose": "ما الهدف من هذا الموقع؟",
-        "purposeAnswer": "wanderer.moe هو موقع ويب يستضيف مجموعة من الأصول من ألعاب مختلفة. يتم تنظيم الأصول حسب اللعبة ونوع الأصل ، والهدف من موقع الويب هذا هو توفير موقع مركزي للأشخاص لتنزيل الأصول منه.",
+        "purposeAnswer": "wanderer.moe is a website that hosts a collection of assets from various games. The assets are organized by game and asset type. The sake of this website is to provide a centralized location for people to download assets from.",
         "downloadMultipleOrAll": "كيف أقوم بتنزيل العديد من الأصول أو جميعها؟",
-        "downloadMultipleOrAllAnswer": "لتنزيل العديد من العناصر ، حدد الأصول التي تريد تنزيلها بالنقر عليها. ثم انقر فوق الزر \"تنزيل المحدد\". لتنزيل جميع الأصول ، انقر فوق الزر \"تنزيل الكل\". سيؤدي هذا إلى حفظ كملف مضغوط في مجلد التنزيلات.",
+        "downloadMultipleOrAllAnswer": "To download multiple assets, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a ZIP file in your Downloads folder.",
         "downloadOnMobile": "كيف يمكنني تنزيل الأصول على الهاتف المحمول؟",
-        "downloadOnMobileAnswer": "تأكد من أنك لا تشاهد موقع الويب من خلال تطبيقات الوسائط الاجتماعية ، ولكن بدلاً من ذلك ، متصفح مضمن على هاتفك. إذا كنت تستخدم iPhone ، فإنني أوصي باستخدام Safari.",
-        "howToExtract": "كيف يمكنني استخراج ملف مضغوط بعد التنزيل؟",
-        "howToExtractAnswer": " إذا كنت تستخدم نظام التشغيل Windows ، فيمكنك استخدام 7zip لاستخراج الملفات. إذا كنت تستخدم نظام Mac ، فيمكنك استخدام أداة الأرشفة المضمنة. إذا كنت تستخدم iPhone ، فانقر فوق ملف .zip ، وافتح المجلد الذي ينشئه ، وحدد الصور ثم \"حفظ في الصور\". إذا كنت تستخدم نظام Android ، فيمكنك استخدام تطبيق مدير الملفات لاستخراج الملفات.",
-        "issueNotFound": "لدي مشكلة لم يتم سردها هنا.",
-        "issueNotFoundAnswer": "إذا كانت لديك مشكلة غير مدرجة هنا ، فيمكنك الانضمام إلى خادم Discord وطلب المساعدة هناك."
+        "downloadOnMobileAnswer": "Make sure that you are not viewing the website through social media applications and that you're using a dedicated browser. If you are on an iPhone, I recommend using Safari.",
+        "howToExtract": "How do I extract a ZIP file after downloading?",
+        "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the ZIP file, open the folder it creates, select the images and then tap 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
+        "issueNotFound": "I have an issue that isn't listed here!",
+        "issueNotFoundAnswer": "If you have an issue that isn't listed here, you can join the Discord server and ask for help there!"
     },
     "errors": {
         "404": "لم يتم العثور على الصفحة",

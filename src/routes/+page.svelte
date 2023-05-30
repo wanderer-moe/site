@@ -194,7 +194,7 @@ let focusedImage = 'goddess-of-victory-nikke'
 
                             <div class="mt-2 grid gap-1">
                                 <a
-                                    href="https://git.dromzeh.dev/wanderer.moe"
+                                    href="https://git.wanderer.moe/site"
                                     target="_blank">
                                     <button
                                         class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
@@ -202,7 +202,7 @@ let focusedImage = 'goddess-of-victory-nikke'
                                     </button>
                                 </a>
                                 <a
-                                    href="https://git.dromzeh.dev/api.wanderer.moe"
+                                    href="https://git.wanderer.moe/api"
                                     target="_blank">
                                     <button
                                         class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
