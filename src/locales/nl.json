@@ -1,26 +1,26 @@
 {
     "home": {
-        "description": "A centralized database of various game assets",
+        "description": "Gecentraliseerde databank van meerdere spel asset",
         "github": {
-            "desc": "For transparency, wanderer.moe is open source on GitHub. The code is available for anyone to view and contribute to!",
-            "shortDesc": "Website source code",
-            "webBtn": "Website Source Code",
-            "apiBtn": "API Source Code"
+            "desc": "Voor transparantie, wanderer.moe is nu een open bron op GiftHub. De code is toegankelijk voor iedereen om te zien en bijdragen! ",
+            "shortDesc": "Website bron code",
+            "webBtn": "Website Bron Code",
+            "apiBtn": "API Bron Code"
         },
         "donate": {
-            "title": "Donate",
-            "shortDesc": "Support the site",
-            "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance, and development, consider donating!"
+            "title": "Doneer",
+            "shortDesc": "Steun de website",
+            "desc": "wanderer.moe is een advertentie vrij en zal altijd gratis zijn om te gebruiken. Als je de website leuk vindt en wilt helpen met server kosten, onderhoud en ontwikkeling, overweeg doneren! "
         },
         "discord": {
-            "desc": "Join the Discord server for updates, assets outside the site, and more!",
-            "shortDesc": "{onlineCount} users currently online",
-            "btn": "Join Server"
+            "desc": "Kom bij de Discord server voor updates, assets buiten de website, en meer! ",
+            "shortDesc": "{onlineCount} gebruikers momenteel online",
+            "btn": "Kom Bij De Server"
         },
         "ocGen": {
             "title": "OC Generators",
-            "shortDesc": "Randomly generated OCs",
-            "desc": "Generate game-related information about your original characters (e.g. personality traits and appearance)!"
+            "shortDesc": "Willekeurig Gegenereerde OCs",
+            "desc": "Genereer spel-gerelateerde informatie over jouw originele karakter (bv karakter eigenschappen en uiterlijk)!"
         }
     },
     "nav": {
@@ -44,7 +44,7 @@
     },
     "asset": {
         "main": "{filteredImagesCount}/{imagesCount} assets getoond, {selectedItemsCount} geselecteerd",
-        "info": "Tap on an asset to select it. Double tap an image to enlarge it.",
+        "info": "Klik op een asset om het te selecteren. Dubbel klik een afbeelding op het te vergroten. ",
         "downloadAll": "Installeer Alles",
         "downloadAllSize": "Installeer Alles ({size})",
         "downloadSelected": "Download Geselecteerd",
@@ -53,9 +53,9 @@
         "downloadSize": "Installeer ({size})",
         "officialAsset": "Officiële Asset",
         "fanmadeAsset": "Door Fans Gemaakte Activa",
-        "searchBar": "Search for an asset...",
+        "searchBar": "Zoek voor een asset...",
         "nothingFound": "Niks gevonden voor {query}",
-        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form!",
+        "nothingFoundSuggestions": "Als er een asset is waarvoor je zoekt dat je toegevoegd wilt hebben, vul in de asset aanvraagformulier!",
         "onMobile": "Als je problemen hebt met het installeren, lees de FAQ door te klikken op het info symbool naast de naam van het spel."
     },
     "details": {
@@ -70,7 +70,7 @@
         "sortBySizeReverse": "Bestandsgrootte (Grootste)"
     },
     "globalSearch": {
-        "searchBar": "Search for a game or asset..."
+        "searchBar": "Zoek voor een spel of asset..."
     },
     "viewImage": {
         "closeText": "Klik ergens om te sluiten"
@@ -78,7 +78,7 @@
     "faq": {
         "title": "Vaak Gevraagde Vragen",
         "purpose": "Wat is het doel van deze website?",
-        "purposeAnswer": "wanderer.moe is a website that hosts a collection of assets from various games. The assets are organized by game and asset type. The sake of this website is to provide a centralized location for people to download assets from.",
+        "purposeAnswer": "wanderer.moe is een website dat een collectie van assets beschikt van meerdere spellen.",
         "downloadMultipleOrAll": "Hoe installeer ik meerdere of alle assets?",
         "downloadMultipleOrAllAnswer": "To download multiple assets, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a ZIP file in your Downloads folder.",
         "downloadOnMobile": "Hoe installeer ik assets op mobiel?",
