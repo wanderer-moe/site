@@ -91,7 +91,7 @@ let focusedImage = 'goddess-of-victory-nikke'
                                 <a href="/oc-generator/{ocgen.name}">
                                     <div
                                         class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center bg-top text-white transition ease-in-out hover:scale-105"
-                                        style="background-image: url('https://cdn.wanderer.moe/{ocgen.name}/cover.png')"
+                                        style="background-image: url('https://cdn.wanderer.moe/{ocgen.name}/cover.png'); background-position: 50% 20%;"
                                         on:mouseover="{() =>
                                             (focusedImage = ocgen.name)}"
                                         on:focus="{() =>
