@@ -39,7 +39,7 @@
     },
     "asset": {
         "main": "{filteredImagesCount}/{imagesCount} resurse afișate, {selectedItemsCount} selectate",
-        "info": "Apasă pe orice element pentru a-l selecta, apasă de 2 ori pe imagine pentru a lărgi.",
+        "info": "Tap on an asset to select it. Double tap an image to enlarge it.",
         "downloadAll": "Descarcă tot",
         "downloadAllSize": "Download All ({size})",
         "downloadSelected": "Descarcă selectate",
@@ -48,9 +48,9 @@
         "downloadSize": "Download ({size})",
         "officialAsset": "Resurse Oficiale",
         "fanmadeAsset": "Resurse Fanmade",
-        "searchBar": "Caută resurse din jocuri/active",
+        "searchBar": "Search for an asset...",
         "nothingFound": "Nici-un rezultat pentru {query}",
-        "nothingFoundSuggestions": "Dacă este un anumit activ care dorești să fie adăugat, completează formular de solicitări.",
+        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form!",
         "onMobile": "If you're having issues downloading, read the FAQ by pressing the info symbol next to the game's name."
     },
     "details": {
@@ -65,7 +65,7 @@
         "sortBySizeReverse": "File Size (Largest)"
     },
     "globalSearch": {
-        "searchBar": "Caută jocuri sau resurse"
+        "searchBar": "Search for a game or asset..."
     },
     "viewImage": {
         "closeText": "Apasă oriunde pentru a închide"
@@ -73,15 +73,15 @@
     "faq": {
         "title": "Întrebări frecvente",
         "purpose": "Care este rostul acestui website?",
-        "purposeAnswer": "wanderer.moe este un website ce conține o colecție de resurse din diferite jocuri. Aceste active/elemente de joc sunt organizate după tipul și proveniență a jocului. Rostul acestui website este de a facilita descărcarea acestor active/resurse.",
+        "purposeAnswer": "wanderer.moe is a website that hosts a collection of assets from various games. The assets are organized by game and asset type. The sake of this website is to provide a centralized location for people to download assets from.",
         "downloadMultipleOrAll": "Cum descarc multiple resurse sau toate fișierele?",
-        "downloadMultipleOrAllAnswer": "Pentru a descărca multiple resurse, alege fișierele pe care vrei să le descarci și apasă pe ele, selectându-le. După, dă click pe butonul 'Descarcă Selectate'. Pentru a le descărca pe toate, apasă pe butonul 'Descarcă Toate'. Aceasta va salva resurse ca un fișier ZIP în folder-ul tău cu descărcări.",
+        "downloadMultipleOrAllAnswer": "To download multiple assets, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a ZIP file in your Downloads folder.",
         "downloadOnMobile": "Cum descarc active/resurse pe mobil?",
-        "downloadOnMobileAnswer": "Asigură-te că nu previzualizezi website-ul prin intermediul aplicaților de Social Media, dar într-un browser încorporat pe telefonul tău. Dacă folosești un IPhone, recomand să folosești Safari.",
-        "howToExtract": "Cum extrag fișierele din ZIP după descărcare?",
-        "howToExtractAnswer": "Dacă folosești Windows, poți folosi 7ZIP pentru a extrage fișiere. Dacă ești pe Mac, poți folosi funcția încorporată Archive Utility. Pe IPhone, apasă pe fișierul .zip, deschide folder-ul cel creează, selectează imaginile și după 'Save to Photos/Salvați în poze'. Pe Android, poți folosi aplicația de management ale fișierelor pentru a extrage file-urile",
-        "issueNotFound": "Am o problemă ce nu este prezentă aici.",
-        "issueNotFoundAnswer": "Dacă problema ta nu se regăsește în QnA, poți să te alături server-ului de Discord și cere ajutor."
+        "downloadOnMobileAnswer": "Make sure that you are not viewing the website through social media applications and that you're using a dedicated browser. If you are on an iPhone, I recommend using Safari.",
+        "howToExtract": "How do I extract a ZIP file after downloading?",
+        "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the ZIP file, open the folder it creates, select the images and then tap 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
+        "issueNotFound": "I have an issue that isn't listed here!",
+        "issueNotFoundAnswer": "If you have an issue that isn't listed here, you can join the Discord server and ask for help there!"
     },
     "errors": {
         "404": "Pagină inexistentă",

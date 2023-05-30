@@ -39,7 +39,7 @@
     },
     "asset": {
         "main": "{filteredImagesCount}/{imagesCount} tài sản cho xem, {selectedItemsCount} được chọn",
-        "info": "Chạm vào một tài sản để chọn nó, chạm hai lần vào một hình ảnh để phóng to nó.",
+        "info": "Tap on an asset to select it. Double tap an image to enlarge it.",
         "downloadAll": "Tải xuống tất cả",
         "downloadAllSize": "Download All ({size})",
         "downloadSelected": "Tải xuống đã chọn",
@@ -48,9 +48,9 @@
         "downloadSize": "Download ({size})",
         "officialAsset": "Tài sản chính thức",
         "fanmadeAsset": "Tài sản Fan tạo ra",
-        "searchBar": "Tìm kiếm tài sản",
+        "searchBar": "Search for an asset...",
         "nothingFound": "Không tìm thấy gì cho {query}",
-        "nothingFoundSuggestions": "Nếu bạn đang tìm kiếm một tài sản mà bạn muốn thêm vào, hãy điền vào form yêu cầu tài sản.",
+        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form!",
         "onMobile": "If you're having issues downloading, read the FAQ by pressing the info symbol next to the game's name."
     },
     "details": {
@@ -65,7 +65,7 @@
         "sortBySizeReverse": "File Size (Largest)"
     },
     "globalSearch": {
-        "searchBar": "Tìm kiếm một trò chơi hoặc tài sản"
+        "searchBar": "Search for a game or asset..."
     },
     "viewImage": {
         "closeText": "Nhấp vào bất cứ đâu để đóng"
@@ -73,15 +73,15 @@
     "faq": {
         "title": "Các câu hỏi thường gặp",
         "purpose": "Mục đích của trang web này là gì?",
-        "purposeAnswer": "wanderer.moe là một trang web lưu trữ một bộ sưu tập tài sản từ các trò chơi. Tài sản được sắp xếp theo trò chơi và loại tài sản, mục đích của trang web này là cung cấp một vị trí tập trung để mọi người tải xuống nội dung từ đó.",
+        "purposeAnswer": "wanderer.moe is a website that hosts a collection of assets from various games. The assets are organized by game and asset type. The sake of this website is to provide a centralized location for people to download assets from.",
         "downloadMultipleOrAll": "Làm cách nào để tải xuống nhiều hoặc tất cả tài sản?",
-        "downloadMultipleOrAllAnswer": "To download multiple, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a zip file into your downloads folder.",
+        "downloadMultipleOrAllAnswer": "To download multiple assets, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a ZIP file in your Downloads folder.",
         "downloadOnMobile": "Làm cách nào để tải xuống tài sản trên thiết bị điện thoại?",
-        "downloadOnMobileAnswer": "Bạn đừng xem trang web wanderer. moe thông qua các ứng dụng Social Media mà thay vào đó là một trình duyệt tích hợp sẵn trên điện thoại của bạn. Nếu bạn đang dùng iPhone, tôi khuyên bạn nên sử dụng Safari.",
-        "howToExtract": "Làm cách nào để giải nén file zip sau khi tải xuống?",
-        "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the .zip file, open the folder it creates, select the images and then 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
-        "issueNotFound": "Tôi có một vấn đề không được viết xuống ở đây.",
-        "issueNotFoundAnswer": "Nếu bạn gặp vấn đề không được viết xuống ở đây, bạn có thể tham gia máy chủ discord và yêu cầu trợ giúp ở đó."
+        "downloadOnMobileAnswer": "Make sure that you are not viewing the website through social media applications and that you're using a dedicated browser. If you are on an iPhone, I recommend using Safari.",
+        "howToExtract": "How do I extract a ZIP file after downloading?",
+        "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the ZIP file, open the folder it creates, select the images and then tap 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
+        "issueNotFound": "I have an issue that isn't listed here!",
+        "issueNotFoundAnswer": "If you have an issue that isn't listed here, you can join the Discord server and ask for help there!"
     },
     "errors": {
         "404": "Không tìm thấy trang",
