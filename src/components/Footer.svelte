@@ -82,7 +82,7 @@ onMount(async () => {
                         {$t('footer.fanmadeNotice')}
                     </p>
                     <p class="text-sm">
-                        © 2022-{currentYear} — Created and programmed by
+                        © 2022-{currentYear} — wanderer.moe by
                         <a
                             href="https://dromzeh.dev/"
                             class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
