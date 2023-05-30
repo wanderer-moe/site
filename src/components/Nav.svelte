@@ -10,7 +10,7 @@ function toggleSearch() {
 </script>
 
 <header class="relative z-50 w-full">
-    <div class="bg-[#141414] p-4">
+    <div class="bg-main-400 p-4">
         <div class="mx-auto flex flex-wrap items-center justify-between">
             <div class="md:px-12 lg:px-16">
                 <a href="/" class="flex items-center" rel="external">
