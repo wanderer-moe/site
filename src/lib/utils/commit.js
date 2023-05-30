@@ -4,18 +4,17 @@ export async function getCommitsRecent(perPage) {
     try {
         // https://docs.github.com/en/rest/reference/repos#list-commits
         const response = await axios.get(
-            `https://api.github.com/repos/dromzeh/wanderer.moe/commits?per_page=${perPage}`
+            `https://api.github.com/repos/wanderer-moe/site/commits?per_page=${perPage}`
         )
         const commits = response.data.map((commit) => {
             let commitMsg = commit.commit.message
             if (commitMsg.includes('\n')) {
                 commitMsg = commitMsg.split('\n')[0]
             }
-            const email = commit.commit.author.email
-            const name = commit.commit.author.name
+            
             const authorInfo = {
-                name: name,
-                username: email.split('+')[1].split('@')[0],
+                name: commit.commit.author.name,
+                username: commit.author.login,
                 date: commit.commit.author.date,
             }
             const sha = commit.sha
