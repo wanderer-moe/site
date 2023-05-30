@@ -53,9 +53,9 @@ function toggleLocaleDropdown() {
 let commit = []
 let commits = []
 let authorInfo = {
-    username: '',
     date: '',
     name: '',
+    username: '',
 }
 let recentCommitMsg = ''
 let sha
@@ -121,7 +121,7 @@ onMount(async () => {
                         <p class="mt-4 text-xs text-gray-500">
                             <i class="fab fa-github"></i> Last updated on {formatDateReadable(
                                 authorInfo.date
-                            )} by @{authorInfo.username}: "{recentCommitMsg}"
+                            )} by {authorInfo.username} ({authorInfo.name}) : "{recentCommitMsg}"
                         </p>
                     </a>
                 {/if}
