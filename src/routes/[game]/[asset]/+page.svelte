@@ -220,7 +220,8 @@ onMount(() => {
         <div class="relative">
             <img
                 src="https://cdn.wanderer.moe/{game}/cover.png"
-                class="absolute inset-0 h-48 w-full object-cover object-center transition ease-in-out"
+                class="absolute inset-0 h-48 w-full object-cover transition ease-in-out"
+                style="object-position: 50% 20%;"
                 alt="cover" />
             <div
                 class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
