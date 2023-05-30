@@ -8,7 +8,7 @@ export let closeContribute
 
 <div bind:this="{visible}">
     <div
-        class="popupcontainer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+        class="fixed left-1/2 top-1/2 z-[60] w-3/4 -translate-x-1/2 -translate-y-1/2 transform"
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button
@@ -87,7 +87,7 @@ export let closeContribute
         </div>
     </div>
     <div
-        class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
+        class="fixed left-0 top-0 z-50 h-full w-full backdrop-blur-sm backdrop-filter"
         on:click="{closeContribute()}"
         on:keypress="{closeContribute()}">
     </div>

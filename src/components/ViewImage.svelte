@@ -25,7 +25,7 @@ export let closeImageView
 </div>
 
 <div
-    class="blackbg fixed left-0 top-0 h-full w-full backdrop-blur-sm backdrop-filter"
+    class="fixed left-0 top-0 z-50 h-full w-full backdrop-blur-sm backdrop-filter"
     on:click="{closeImageView}"
     on:keypress="{closeImageView}">
 </div>

@@ -389,8 +389,6 @@ onMount(() => {
                                         ]
                                         selectedFilesSize += image.size
                                     }
-                                    // console.log(selectedItems);
-                                    // console.log(selectedFilesSize);
                                 }
                             }}">
                             <Lazy
@@ -399,7 +397,7 @@ onMount(() => {
                                 fadeOption="{{ delay: 100, duration: 1000 }}">
                                 <img
                                     id="assetimg"
-                                    class="previewImg h-64 w-64 object-contain object-left p-1"
+                                    class="h-64 w-64 max-h-64 max-w-64 object-contain object-left p-1"
                                     src="{image.path}"
                                     alt="{image.name}"
                                     on:dblclick="{() => {
