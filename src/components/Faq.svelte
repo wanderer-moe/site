@@ -26,10 +26,10 @@ const faqEntries = [
         <button
             class="close-button absolute right-0 top-6 rounded-lg p-4 text-white"
             on:click="{closeFAQ}">✕</button>
-        <div class="mt-6 rounded-lg bg-main-600 p-2 text-white p-8">
+        <div class="mt-6 rounded-lg bg-main-600 p-2 p-8 text-white">
             <div>
                 <div class="rtl flex justify-center">
-                    <div class="flex flex-col gap-2 items-center">
+                    <div class="flex flex-col items-center gap-2">
                         <img
                             src="https://cdn.wanderer.moe/genshin-impact/emotes/cyno-3.png"
                             alt="cyno"
@@ -39,9 +39,12 @@ const faqEntries = [
                         </p>
                     </div>
                 </div>
-                <div class="flex flex-col lg:flex-row break-words hyphens-auto gap-4 mt-4 {$t('direction')}">
+                <div
+                    class="mt-4 flex flex-col gap-4 hyphens-auto break-words lg:flex-row {$t(
+                        'direction'
+                    )}">
                     {#each faqEntries as entry}
-                        <div class="flex-1 mb-2">
+                        <div class="mb-2 flex-1">
                             <p class="text-sm font-semibold">
                                 Q. {$t(entry.question)}
                             </p>

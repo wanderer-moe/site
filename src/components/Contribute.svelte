@@ -19,7 +19,7 @@ export let closeContribute
         <div class="mt-6 rounded-lg bg-main-600 p-8 text-gray-400">
             <div>
                 <div class="flex justify-center">
-                    <div class="rtl flex flex-col gap-2 items-center">
+                    <div class="rtl flex flex-col items-center gap-2">
                         <img
                             src="https://cdn.wanderer.moe/genshin-impact/emotes/cat.png"
                             alt="cat"
@@ -31,7 +31,7 @@ export let closeContribute
                     </div>
                 </div>
                 <div class="mt-2">
-                    <div class="mb-2 text-center grid gap-3">
+                    <div class="mb-2 grid gap-3 text-center">
                         <p class="text-sm">
                             wanderer.moe
                             <span class="font-semibold text-white"

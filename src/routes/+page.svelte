@@ -52,24 +52,25 @@ let focusedImage = 'goddess-of-victory-nikke'
             <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
                 <div class="col-span-2 gap-4">
                     <div id="games" class="mb-8">
-                        <p
-                            class="sigfont mb-4 text-3xl font-semibold text-white">
+                        <p class="mb-4 text-3xl font-bold text-white">
                             Game Assets
                         </p>
                         <div class="grid grid-cols-1 gap-7 md:grid-cols-2">
                             {#each allGames as game}
                                 <a href="/{game.name}">
                                     <div
-                                        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center text-white transition ease-in-out hover:scale-105"
-                                        style="background-image: url('https://cdn.wanderer.moe/{game.name}/cover.png')"
-                                        on:mouseover="{() => (focusedImage = game.name)}"
-                                        on:focus="{() => (focusedImage = game.name)}">
+                                        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center bg-top text-white transition ease-in-out hover:scale-105"
+                                        style="background-image: url('https://cdn.wanderer.moe/{game.name}/cover.png');"
+                                        on:mouseover="{() =>
+                                            (focusedImage = game.name)}"
+                                        on:focus="{() =>
+                                            (focusedImage = game.name)}">
                                         <div
                                             class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/60 to-black/50">
                                         </div>
                                         <div class="align-center absolute">
                                             <p
-                                                class="sigfont mt-2 text-center text-3xl font-semibold text-white">
+                                                class="mt-2 text-center text-3xl font-bold text-white">
                                                 {fixCasing(game.name)}
                                             </p>
                                         </div>
@@ -80,7 +81,7 @@ let focusedImage = 'goddess-of-victory-nikke'
                     </div>
                     <div id="oc-generators" class="mb-8">
                         <p
-                            class="sigfont mb-4 text-3xl font-semibold text-white"
+                            class="mb-4 text-3xl font-bold text-white"
                             id="oc-generators">
                             OC Generators
                         </p>
@@ -88,16 +89,18 @@ let focusedImage = 'goddess-of-victory-nikke'
                             {#each OCGeneratorsLocations as ocgen}
                                 <a href="/oc-generator/{ocgen.name}">
                                     <div
-                                        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center text-white transition ease-in-out hover:scale-105"
+                                        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center bg-top text-white transition ease-in-out hover:scale-105"
                                         style="background-image: url('https://cdn.wanderer.moe/{ocgen.name}/cover.png')"
-                                        on:mouseover="{() => (focusedImage = ocgen.name)}"
-                                        on:focus="{() => (focusedImage = ocgen.name)}">
+                                        on:mouseover="{() =>
+                                            (focusedImage = ocgen.name)}"
+                                        on:focus="{() =>
+                                            (focusedImage = ocgen.name)}">
                                         <div
                                             class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/50">
                                         </div>
                                         <div class="align-center absolute">
                                             <p
-                                                class="sigfont mt-2 text-center text-3xl font-semibold text-white shadow-black text-shadow-lg">
+                                                class="mt-2 text-center text-3xl font-semibold text-white shadow-black text-shadow-lg">
                                                 {fixCasing(ocgen.name)}
                                             </p>
                                         </div>
@@ -110,7 +113,7 @@ let focusedImage = 'goddess-of-victory-nikke'
                 <div class="col-span-2 gap-4 sm:col-span-1">
                     <div id="about">
                         <p
-                            class="sigfont mb-4 text-3xl font-semibold text-white"
+                            class="mb-4 text-3xl font-bold text-white"
                             id="about">
                             About
                         </p>
