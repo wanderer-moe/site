@@ -106,7 +106,7 @@ onMount(async () => {
                     •
                     <a
                         class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
-                        href="https://git.dromzeh.dev/wanderer.moe/">GitHub</a>
+                        href="https://git.wanderer.moe/">GitHub</a>
                     •
                     <span
                         on:click="{toggleContribute}"
@@ -117,7 +117,7 @@ onMount(async () => {
                 </div>
 
                 {#if authorInfo && recentCommitMsg && sha}
-                    <a href="https://git.dromzeh.dev/wanderer.moe/commit/{sha}">
+                    <a href="https://git.wanderer.moe/site/commit/{sha}">
                         <p class="mt-4 text-xs text-gray-500">
                             <i class="fab fa-github"></i> Last updated on {formatDateReadable(
                                 authorInfo.date
