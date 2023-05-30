@@ -16,6 +16,11 @@
             "desc": "Join the Discord server for updates, assets outside the site, and more!",
             "shortDesc": "{onlineCount} users currently online",
             "btn": "Join Server"
+        },
+        "ocGen": {
+            "title": "OC Generators",
+            "shortDesc": "Randomly generated OCs",
+            "desc": "Generate game-related information about your original characters (e.g. personality traits and appearance)!"
         }
     },
     "nav": {

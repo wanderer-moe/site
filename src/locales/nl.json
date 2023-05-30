@@ -1,21 +1,26 @@
 {
     "home": {
-        "description": "A centralized database of various game assets",
+        "description": "Gecentraliseerde databank van meerdere spel asset",
         "github": {
-            "desc": "For transparency, wanderer.moe is open source on GitHub. The code is available for anyone to view and contribute to!",
-            "shortDesc": "Website source code",
-            "webBtn": "Website Source Code",
-            "apiBtn": "API Source Code"
+            "desc": "Voor transparantie, wanderer.moe is nu een open bron op GiftHub. De code is toegankelijk voor iedereen om te zien en bijdragen! ",
+            "shortDesc": "Website bron code",
+            "webBtn": "Website Bron Code",
+            "apiBtn": "API Bron Code"
         },
         "donate": {
-            "title": "Donate",
-            "shortDesc": "Support the site",
-            "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance, and development, consider donating!"
+            "title": "Doneer",
+            "shortDesc": "Steun de website",
+            "desc": "wanderer.moe is een advertentie vrij en zal altijd gratis zijn om te gebruiken. Als je de website leuk vindt en wilt helpen met server kosten, onderhoud en ontwikkeling, overweeg doneren! "
         },
         "discord": {
-            "desc": "Join the Discord server for updates, assets outside the site, and more!",
-            "shortDesc": "{onlineCount} users currently online",
-            "btn": "Join Server"
+            "desc": "Kom bij de Discord server voor updates, assets buiten de website, en meer! ",
+            "shortDesc": "{onlineCount} gebruikers momenteel online",
+            "btn": "Kom Bij De Server"
+        },
+        "ocGen": {
+            "title": "OC Generators",
+            "shortDesc": "Willekeurig Gegenereerde OCs",
+            "desc": "Genereer spel-gerelateerde informatie over jouw originele karakter (bv karakter eigenschappen en uiterlijk)!"
         }
     },
     "nav": {
@@ -39,7 +44,7 @@
     },
     "asset": {
         "main": "{filteredImagesCount}/{imagesCount} assets getoond, {selectedItemsCount} geselecteerd",
-        "info": "Tap on an asset to select it. Double tap an image to enlarge it.",
+        "info": "Klik op een asset om het te selecteren. Dubbel klik een afbeelding op het te vergroten. ",
         "downloadAll": "Installeer Alles",
         "downloadAllSize": "Installeer Alles ({size})",
         "downloadSelected": "Download Geselecteerd",
@@ -48,9 +53,9 @@
         "downloadSize": "Installeer ({size})",
         "officialAsset": "Officiële Asset",
         "fanmadeAsset": "Door Fans Gemaakte Activa",
-        "searchBar": "Search for an asset...",
+        "searchBar": "Zoek voor een asset...",
         "nothingFound": "Niks gevonden voor {query}",
-        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form!",
+        "nothingFoundSuggestions": "Als er een asset is waarvoor je zoekt dat je toegevoegd wilt hebben, vul in de asset aanvraagformulier!",
         "onMobile": "Als je problemen hebt met het installeren, lees de FAQ door te klikken op het info symbool naast de naam van het spel."
     },
     "details": {
@@ -65,7 +70,7 @@
         "sortBySizeReverse": "Bestandsgrootte (Grootste)"
     },
     "globalSearch": {
-        "searchBar": "Search for a game or asset..."
+        "searchBar": "Zoek voor een spel of asset..."
     },
     "viewImage": {
         "closeText": "Klik ergens om te sluiten"
@@ -73,15 +78,15 @@
     "faq": {
         "title": "Vaak Gevraagde Vragen",
         "purpose": "Wat is het doel van deze website?",
-        "purposeAnswer": "wanderer.moe is a website that hosts a collection of assets from various games. The assets are organized by game and asset type. The sake of this website is to provide a centralized location for people to download assets from.",
+        "purposeAnswer": "wanderer.moe is een website dat een collectie van assets beschikt van meerdere spellen.",
         "downloadMultipleOrAll": "Hoe installeer ik meerdere of alle assets?",
-        "downloadMultipleOrAllAnswer": "To download multiple assets, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a ZIP file in your Downloads folder.",
+        "downloadMultipleOrAllAnswer": "Om meerdere assets te installeren, selecteer de assets die je wilt installeren door erop te klikken. Daarna klik je de 'Download Geselecteerd' knop. Om alle assets te installeren, klik op de 'Installeer Alles' knop. Dit zal het bewaren als een ZIP bestand in jouw Downloads folder.",
         "downloadOnMobile": "Hoe installeer ik assets op mobiel?",
-        "downloadOnMobileAnswer": "Make sure that you are not viewing the website through social media applications and that you're using a dedicated browser. If you are on an iPhone, I recommend using Safari.",
-        "howToExtract": "How do I extract a ZIP file after downloading?",
-        "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the ZIP file, open the folder it creates, select the images and then tap 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
-        "issueNotFound": "I have an issue that isn't listed here!",
-        "issueNotFoundAnswer": "If you have an issue that isn't listed here, you can join the Discord server and ask for help there!"
+        "downloadOnMobileAnswer": "Zorg ervoor dat je niet de website bekijkt via sociale media applicaties en dat je gebruik maakt van een toegewijde browser. Als je een iPhone gebruikt, adviseer ik om gebruik te maken van Safari. ",
+        "howToExtract": "Hoe extract ik een ZIP bestand na het installeren?",
+        "howToExtractAnswer": "Als je gebruik maakt van Windows, kun je 7zip gebruiken om het bestand te extraheren. Als je gebruik je gebruik maakt van Mac, kun je de ingebouwde Archief Utility gebruiken. Als je gebruik maakt van iPhone, klik op het ZIP bestand, open de folder dat het creëert, selecteer de afbeeldingen en klik op 'Bewaar in Foto's'. Als je gebruik maakt van Android, kan je gebruik maken van de bestand manager app om de bestanden te extraheren. ",
+        "issueNotFound": "Ik heb een probleem dat hier niet is vermeld!",
+        "issueNotFoundAnswer": "Als je een probleem hebt dat hier niet is vermeld, kan je bij de Discord server komen en daar om hulp vragen!"
     },
     "errors": {
         "404": "Pagina Niet Gevonden",
