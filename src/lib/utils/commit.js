@@ -11,7 +11,7 @@ export async function getCommitsRecent(perPage) {
             if (commitMsg.includes('\n')) {
                 commitMsg = commitMsg.split('\n')[0]
             }
-            
+
             const authorInfo = {
                 name: commit.commit.author.name,
                 username: commit.author.login,

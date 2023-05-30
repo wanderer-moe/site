@@ -2,7 +2,7 @@
     "type": "module",
     "name": "wanderer.moe",
     "description": "Centralized database of various game assets",
-    "version": "3.2.5",
+    "version": "3.3",
     "scripts": {
         "dev": "vite dev --port 1337 --host",
         "build": "vite build",

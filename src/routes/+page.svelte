@@ -80,46 +80,44 @@ let focusedImage = 'goddess-of-victory-nikke'
                             {/each}
                         </div>
                     </div>
-                    <div id="oc-generators" class="mb-8">
-                        <p
-                            class="mb-4 text-3xl font-bold text-white"
-                            id="oc-generators">
-                            OC Generators
-                        </p>
-                        <div class="grid grid-cols-1 gap-7 md:grid-cols-2">
-                            {#each OCGeneratorsLocations as ocgen}
-                                <a href="/oc-generator/{ocgen.name}">
-                                    <div
-                                        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover bg-center bg-top text-white transition ease-in-out hover:scale-105"
-                                        style="background-image: url('https://cdn.wanderer.moe/{ocgen.name}/cover.png')"
-                                        on:mouseover="{() =>
-                                            (focusedImage = ocgen.name)}"
-                                        on:focus="{() =>
-                                            (focusedImage = ocgen.name)}">
-                                        <div
-                                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/50">
-                                        </div>
-                                        <div class="align-center absolute">
-                                            <p
-                                                class="mt-2 text-center text-3xl font-semibold text-white shadow-black text-shadow-lg">
-                                                {fixCasing(ocgen.name)}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            {/each}
-                        </div>
-                    </div>
                 </div>
                 <div class="col-span-2 gap-4 sm:col-span-1">
-                    <div id="about">
+                    <div id="other">
                         <p
                             class="mb-4 text-3xl font-bold text-white"
-                            id="about">
-                            About
+                            id="other">
+                            Other
                         </p>
                     </div>
                     <div class="grid gap-7">
+                        <div
+                            class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
+                            style="background: linear-gradient(100deg, rgba(200,157,245,0.1) 0%, rgba(20,20,20,0.1) 49%);">
+                            <p
+                                class="font-white sigfont text-xl font-bold uppercase">
+                                <i class="fa-solid fa-dice-d20"></i>
+                                {$t('home.ocGen.title')}
+                            </p>
+                            <p class="text-left text-gray-400">
+                                {$t('home.ocGen.shortDesc')}
+                            </p>
+
+                            <p class="text-left text-gray-200">
+                                {$t('home.ocGen.desc')}
+                            </p>
+
+                            {#each OCGeneratorsLocations as ocgen}
+                                <div class="mt-2 grid gap-1">
+                                    <a href="/oc-generator/{ocgen.name}">
+                                        <button
+                                            class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
+                                            {fixCasing(ocgen.name)}
+                                        </button>
+                                    </a>
+                                </div>
+                            {/each}
+                        </div>
+
                         <div
                             class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(142,150,227,0.1) 0%, rgba(20,20,20,0.1) 49%);">
