@@ -3,7 +3,7 @@
 ![Banner]
 
 [![Discord Badge]](https://discord.wanderer.moe/)
-![Stars Badge]
+![Release Badge]
 ![Svelte Badge]
 
 [**wanderer.moe**](https://wanderer.moe) is a **centralized database** of various game assets — built using [**SvelteKit**](https://kit.svelte.dev/), [**TailwindCSS**](https://tailwindcss.com/), and [**Node.js**](https://nodejs.org/en) (powered with [**Cloudflare**](https://www.cloudflare.com/) Pages, Workers, R2 & D1).
@@ -91,7 +91,7 @@ Translations are managed on [Crowdin][Crowdin]. All translations can be found on
 
 [Banner]: https://files.catbox.moe/qoyuka.svg
 [Discord Badge]: https://img.shields.io/discord/982385887000272956?color=323379&label=discord&logo=discord&logoColor=fff&style=for-the-badge
-[Stars Badge]: https://img.shields.io/github/stars/wanderer-moe/site?color=3b3d91&logo=github&logoColor=fff&style=for-the-badge
+[Release Badge]: https://img.shields.io/github/v/release/wanderer-moe/site?color=%233b3d91&label=latest%20release&logo=github&logoColor=fff&style=for-the-badge
 [Svelte Badge]: https://img.shields.io/github/package-json/dependency-version/wanderer-moe/site/dev/svelte?color=4547a9&logo=svelte&logoColor=fff&style=for-the-badge
 [api.wanderer.moe]: https://git.wanderer.moe/api
 [api.wanderer.moe Usage]: https://git.wanderer.moe/api#usage
