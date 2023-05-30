@@ -12,6 +12,7 @@
         "lint": "eslint --ext .js,.svelte src"
     },
     "devDependencies": {
+        "@babel/eslint-parser": "^7.21.8",
         "@beyonk/svelte-notifications": "^4.2.0",
         "@mdi/js": "^7.2.96",
         "@sveltejs/adapter-static": "2.0.2",
