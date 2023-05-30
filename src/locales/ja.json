@@ -1,6 +1,6 @@
 {
     "home": {
-        "description": "A centralized database of various game assets",
+        "description": "様々のゲームアセットのデータベース",
         "github": {
             "desc": "For transparency, wanderer.moe is open source on GitHub. The code is available for anyone to view and contribute to!",
             "shortDesc": "Website source code",
