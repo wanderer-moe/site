@@ -31,15 +31,13 @@ let isSearchOpen = false
                             on:click="{() => (isSearchOpen = !isSearchOpen)}"
                             on:keypress="{() =>
                                 (isSearchOpen = !isSearchOpen)}">
-                            <div class = "flex justify-between items-center">
-                                <div>
+                            <div>
                                     <i class="fa fa-search mr-2"></i>{$t(
                                         'globalSearch.searchBar'
                                     )}
                                     <span
                                         class="rounded-lg border border-main-500 bg-main-600 px-2 py-1 text-xs font-semibold text-gray-100"
                                         >Ctrl + K</span>
-                                </div>
                             </div>
                         </div>
                     </div>

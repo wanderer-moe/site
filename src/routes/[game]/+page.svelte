@@ -58,9 +58,11 @@ const { subFolders, game } = data
                                 <i class="fa fa-folder mr-5"></i>
                                 {fixCasing(folder.name)}
                             </p>
-                            <p class="text-right text-lg text-white">
-                                {folder.fileCount} Files
-                            </p>
+                            <div class="text-right text-lg text-white">
+                                <p class="text-lg">
+                                    {folder.fileCount} Files
+                                </p>
+                            </div>
                         </div>
                     </a>
                     {/each}

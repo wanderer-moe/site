@@ -2,9 +2,11 @@ import axios from 'axios'
 
 export async function getCommitsRecent(perPage) {
     try {
+        const branch = window.location.href.startsWith('https://wanderer.moe/') ? 'main' : 'development' // shows main branch on production, development branch on other environments
+
         // https://docs.github.com/en/rest/reference/repos#list-commits
         const response = await axios.get(
-            `https://api.github.com/repos/wanderer-moe/site/commits?per_page=${perPage}`
+            `https://api.github.com/repos/wanderer-moe/site/commits?per_page=${perPage}&sha=${branch}`
         )
         const commits = response.data.map((commit) => {
             let commitMsg = commit.commit.message
