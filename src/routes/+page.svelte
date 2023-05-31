@@ -69,7 +69,7 @@ function handleImageChange(newImage) {
             <div
                 class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
                 <div
-                    class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
+                    class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
                     <div
                         class="flex flex-col items-center justify-between xl:flex-row">
                         <div>
