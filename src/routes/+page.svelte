@@ -1,9 +1,16 @@
+<style lang="postcss">
+.fade-out {
+    @apply opacity-0;
+}
+</style>
+
 <script>
 import { getDiscordData } from '@/lib/utils/discord.js'
 import { fixCasing } from '@/lib/utils/helpers.js'
 import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
 
+let focusedImageElement
 let onlineusers
 export let data
 
@@ -15,6 +22,15 @@ const { allGames, allOCGenerators } = data
 const OCGeneratorsLocations = allOCGenerators.locations
 
 let focusedImage = 'goddess-of-victory-nikke'
+let isFading = false
+
+function handleImageChange(newImage) {
+    isFading = true
+    setTimeout(() => {
+        focusedImage = newImage
+        isFading = false
+    }, 100)
+}
 </script>
 
 <svelte:head>
@@ -26,9 +42,15 @@ let focusedImage = 'goddess-of-victory-nikke'
         <div class="relative">
             <img
                 src="https://cdn.wanderer.moe/{focusedImage}/cover.png"
-                class="absolute inset-0 h-48 w-full object-cover transition ease-in-out"
+                class="fade-in-out absolute inset-0 h-48 w-full object-cover transition-opacity ease-in-out"
                 style="object-position: 50% 20%;"
-                alt="{focusedImage} cover" />
+                bind:this="{focusedImageElement}"
+                alt="{focusedImage} cover"
+                class:fade-out="{isFading}"
+                on:transitionend="{() => {
+                    if (isFading)
+                        focusedImageElement.classList.remove('fade-out')
+                }}" />
             <div
                 class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
                 <div
@@ -62,10 +84,11 @@ let focusedImage = 'goddess-of-victory-nikke'
                                     <div
                                         class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover text-white transition ease-in-out hover:scale-105"
                                         style="background-image: url('https://cdn.wanderer.moe/{game.name}/cover.png'); background-position: 50% 20%;"
-                                        on:mouseover="{() =>
-                                            (focusedImage = game.name)}"
-                                        on:focus="{() =>
-                                            (focusedImage = game.name)}">
+                                        on:mouseover="{() => {
+                                            if (focusedImage !== game.name) {
+                                                handleImageChange(game.name)
+                                            }
+                                        }}">
                                         <div
                                             class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/60 to-black/50">
                                         </div>
