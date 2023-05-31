@@ -2,7 +2,6 @@ import dayjs from 'dayjs'
 import {
     register,
     addMessages,
-    dictionary,
     init,
     getLocaleFromNavigator,
     locale as $locale,

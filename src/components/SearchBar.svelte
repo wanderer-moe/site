@@ -3,7 +3,7 @@ import axios from 'axios'
 import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
 import { cubicOut, quintOut } from 'svelte/easing'
-import { fly } from 'svelte/transition'
+import { fly, fade } from 'svelte/transition'
 import { filterGamesSearchBar as filterGames } from '@/lib/utils/filterSearch'
 import { fixCasing } from '@/lib/utils/helpers'
 export let query = ''
@@ -72,6 +72,8 @@ $: filteredGames = filterGames(allGames.games, query)
 
     <div
         class="fixed left-0 top-0 z-50 h-full w-full backdrop-blur-sm backdrop-filter"
+        in:fade="{{ easing: quintOut, duration: 750 }}"
+        out:fade="{{ easing: cubicOut, duration: 300 }}"
         on:click="{closeSearchBar()}"
         on:keypress="{closeSearchBar()}">
     </div>

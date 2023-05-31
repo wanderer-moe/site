@@ -1,6 +1,6 @@
 <script>
 import { navigating, page } from '$app/stores'
-import '@/app.css?v=30052023'
+import '@/app.css?v=31052023'
 import Footer from '@/components/Footer.svelte'
 import Nav from '@/components/Nav.svelte'
 import { startClient } from '@/lib/utils/i18n.js'
