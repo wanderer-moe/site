@@ -88,6 +88,11 @@ function handleImageChange(newImage) {
                                             if (focusedImage !== game.name) {
                                                 handleImageChange(game.name)
                                             }
+                                        }}"
+                                        on:focus="{() => {
+                                            if (focusedImage !== game.name) {
+                                                handleImageChange(game.name)
+                                            }
                                         }}">
                                         <div
                                             class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/60 to-black/50">
