@@ -52,15 +52,17 @@ const { subFolders, game } = data
             <div id="games">
                 <div class="grid grid-cols-1 gap-4 pt-8 md:grid-cols-2">
                     {#each subFolders as folder}
-                        <a href="/{game}/{folder.name}">
-                            <div class="rounded-md bg-main-500 p-4">
-                                <p
-                                    class="sigfont text-left text-2xl font-semibold text-white">
-                                    <i class="fa fa-folder mr-5"></i>
-                                    {fixCasing(folder.name)}
-                                </p>
-                            </div>
-                        </a>
+                    <a href="/{game}/{folder.name}">
+                        <div class="rounded-md bg-main-500 p-4 flex justify-between border-[3px] transition-colors duration-150 border-main-400 hover:border-main-300">
+                            <p class="text-left text-2xl font-semibold text-white">
+                                <i class="fa fa-folder mr-5"></i>
+                                {fixCasing(folder.name)}
+                            </p>
+                            <p class="text-right text-lg text-white">
+                                {folder.fileCount} Files
+                            </p>
+                        </div>
+                    </a>
                     {/each}
                 </div>
             </div>

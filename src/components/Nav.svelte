@@ -12,7 +12,7 @@ let isSearchOpen = false
         bindCalled: () => (isSearchOpen = !isSearchOpen),
     }}" />
 <header class="sticky top-0 z-50 w-full">
-    <div class="bg-main-400 p-2">
+    <div class="bg-main-500 p-2 border-main-300 border-b-2">
         <div class="mx-auto flex flex-wrap items-center justify-between">
             <div class="md:px-12 lg:px-16">
                 <a href="/" class="flex items-center gap-1" rel="external">

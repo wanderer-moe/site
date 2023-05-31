@@ -124,7 +124,7 @@ onMount(async () => {
 
                 <div class="select-none p-3">
                     <div
-                        class="relative flex w-full cursor-pointer select-none items-center justify-center rounded-xl bg-black p-1"
+                        class="relative flex w-full cursor-pointer select-none items-center justify-center rounded-xl bg-main-700 p-1"
                         on:keypress="{toggleLocaleDropdown}"
                         on:click="{toggleLocaleDropdown}">
                         <img
@@ -136,10 +136,10 @@ onMount(async () => {
                             class="absolute bottom-8 hidden w-full"
                             bind:this="{dropDownMenu}">
                             <div
-                                class="mb-2 grid grid-cols-1 rounded-xl bg-black">
+                                class="mb-2 grid grid-cols-1 rounded-xl bg-main-700">
                                 {#each locales as locale}
                                     <div
-                                        class="sigfont flex items-center justify-center p-1"
+                                        class="flex items-center justify-center p-1"
                                         on:keypress="{() =>
                                             changeLocale(locale.id)}"
                                         on:click="{() =>

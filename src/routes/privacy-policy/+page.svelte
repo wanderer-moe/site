@@ -5,7 +5,7 @@
 <div class="min-h-screen">
     <div class="px-2 py-24 md:px-12 lg:px-24">
         <div class="mb-2">
-            <p class="sigfont m-2 text-left text-4xl font-semibold text-white">
+            <p class="m-2 text-left text-4xl font-semibold text-white">
                 Privacy Policy
             </p>
             <div>
