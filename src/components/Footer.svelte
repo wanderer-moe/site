@@ -1,8 +1,8 @@
 <script>
 import { onMount } from 'svelte'
 import { locale, t } from 'svelte-i18n'
-import { getCommitsRecent } from '../lib/utils/commit'
-import { formatDateReadable } from '../lib/utils/helpers'
+import { getCommitsRecent } from '@/lib/utils/github'
+import { formatDateReadable } from '@/lib/utils/helpers'
 import Contribute from './Contribute.svelte'
 
 let dropDownMenu
