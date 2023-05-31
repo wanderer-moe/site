@@ -1,6 +1,15 @@
 <style lang="postcss">
-.fade-out {
-    @apply opacity-0;
+.fade-in {
+    animation: fadeIn 0.2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 </style>
 
@@ -23,13 +32,12 @@ const OCGeneratorsLocations = allOCGenerators.locations
 
 let focusedImage = 'goddess-of-victory-nikke'
 let isFading = false
+let nextImage = ''
 
 function handleImageChange(newImage) {
+    nextImage = newImage
+    focusedImageElement.src = `https://cdn.wanderer.moe/${newImage}/cover.png`
     isFading = true
-    setTimeout(() => {
-        focusedImage = newImage
-        isFading = false
-    }, 100)
 }
 </script>
 
@@ -42,14 +50,21 @@ function handleImageChange(newImage) {
         <div class="relative">
             <img
                 src="https://cdn.wanderer.moe/{focusedImage}/cover.png"
-                class="fade-in-out absolute inset-0 h-48 w-full object-cover transition-opacity ease-in-out"
+                class="absolute inset-0 h-48 w-full object-cover"
+                style="object-position: 50% 20%;"
+                alt="{focusedImage} cover" />
+            <img
+                src=""
+                class="absolute inset-0 h-48 w-full object-cover opacity-0"
                 style="object-position: 50% 20%;"
                 bind:this="{focusedImageElement}"
-                alt="{focusedImage} cover"
-                class:fade-out="{isFading}"
-                on:transitionend="{() => {
-                    if (isFading)
-                        focusedImageElement.classList.remove('fade-out')
+                alt=""
+                class:fade-in="{isFading}"
+                on:animationend="{() => {
+                    if (isFading) {
+                        focusedImage = nextImage
+                        isFading = false
+                    }
                 }}" />
             <div
                 class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
