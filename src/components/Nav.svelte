@@ -12,7 +12,7 @@ let isSearchOpen = false
         bindCalled: () => (isSearchOpen = !isSearchOpen),
     }}" />
 <header class="sticky top-0 z-50 w-full">
-    <div class="bg-main-500 p-2 border-main-300 border-b-2">
+    <div class="border-b-2 border-main-300 bg-main-500 p-2">
         <div class="mx-auto flex flex-wrap items-center justify-between">
             <div class="md:px-12 lg:px-16">
                 <a href="/" class="flex items-center gap-1" rel="external">
@@ -25,19 +25,23 @@ let isSearchOpen = false
             <div class="flex items-center md:px-20">
                 <ul class="mt-4 flex flex-row space-x-4 font-medium md:mt-0">
                     <div
-                        class="rounded-lg border-[2px] border-main-400 transition-colors duration-150 hover:border-main-300"> <!-- hover:animate-pulse ? -->
+                        class="rounded-lg border-[2px] border-main-400 transition-colors duration-150 hover:border-main-300">
+                        <!-- hover:animate-pulse ? -->
                         <div
-                            class="hidden h-8 w-72 rounded-lg bg-main-700 px-4 py-2 text-xs text-gray-400 lg:block"
+                            class="hidden h-8 w-72 rounded-lg bg-main-700 px-4 text-xs text-gray-400 lg:block"
                             on:click="{() => (isSearchOpen = !isSearchOpen)}"
                             on:keypress="{() =>
                                 (isSearchOpen = !isSearchOpen)}">
-                            <div>
+                            <div
+                                class="flex h-full items-center justify-between">
+                                <span>
                                     <i class="fa fa-search mr-2"></i>{$t(
                                         'globalSearch.searchBar'
                                     )}
-                                    <span
-                                        class="rounded-lg border border-main-500 bg-main-600 px-2 py-1 text-xs font-semibold text-gray-100"
-                                        >Ctrl + K</span>
+                                </span>
+                                <span
+                                    class="rounded-lg border border-main-500 bg-main-600 px-2 py-1 text-xs font-semibold text-gray-100"
+                                    >Ctrl + K</span>
                             </div>
                         </div>
                     </div>

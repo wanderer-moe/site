@@ -3,7 +3,9 @@ import axios from 'axios'
 // gets the latest commits
 export async function getCommitsRecent(perPage) {
     try {
-        const branch = window.location.href.startsWith('https://wanderer.moe/') ? 'main' : 'development' // shows main branch on production, development branch on other environments
+        const branch = window.location.href.startsWith('https://wanderer.moe/')
+            ? 'main'
+            : 'development' // shows main branch on production, development branch on other environments
 
         // https://docs.github.com/en/rest/reference/repos#list-commits
         const response = await axios.get(
@@ -47,8 +49,9 @@ export async function getReleases(releaseCount) {
                 body: release.body ? release.body : '',
                 author: release.author.login,
             }
-            if (release.published_at) { // if release is published
-                releaseInfo.date = release.published_at;
+            if (release.published_at) {
+                // if release is published
+                releaseInfo.date = release.published_at
             }
             return releaseInfo
         })

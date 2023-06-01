@@ -136,8 +136,7 @@ function handleImageChange(newImage) {
                         <div
                             class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(200,157,245,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-                            <p
-                                class="font-white text-xl font-bold uppercase">
+                            <p class="font-white text-xl font-bold uppercase">
                                 <i class="fa-solid fa-dice-d20"></i>
                                 {$t('home.ocGen.title')}
                             </p>
@@ -164,8 +163,7 @@ function handleImageChange(newImage) {
                         <div
                             class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(142,150,227,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-                            <p
-                                class="font-white  text-xl font-bold uppercase">
+                            <p class="font-white text-xl font-bold uppercase">
                                 <i class="fa-brands fa-discord"></i> Discord
                             </p>
                             <p class="text-left text-gray-400">
@@ -193,8 +191,7 @@ function handleImageChange(newImage) {
                         <div
                             class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(234,103,85,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-                            <p
-                                class="font-white  text-xl font-bold uppercase">
+                            <p class="font-white text-xl font-bold uppercase">
                                 <i class="fa-solid fa-hand-holding-dollar"></i>
                                 {$t('home.donate.title')}
                             </p>
@@ -221,8 +218,7 @@ function handleImageChange(newImage) {
                         <div
                             class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
                             style="background: linear-gradient(100deg, rgba(198,198,198,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-                            <p
-                                class="font-white  text-xl font-bold uppercase">
+                            <p class="font-white text-xl font-bold uppercase">
                                 <i class="fa-brands fa-github"></i> GitHub
                             </p>
                             <p class="text-left text-gray-400">
