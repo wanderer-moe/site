@@ -1,6 +1,6 @@
 {
     "home": {
-        "description": "A centrulized databez of varioz game assets",
+        "description": "A centralized database of various game assets",
         "github": {
             "desc": "For transparency, wanderer.moe is open source on GitHub. The code is available for anyone to view and contribute to!",
             "shortDesc": "Website source code",
@@ -34,8 +34,7 @@
     },
     "contributors": {
         "title": "Contributoorz",
-        "desc": "A big thank yoo to all of teh amazin' peeps who haz helpd contribute to teh site :3",
-        "gettingData": "Gettin th contributor data..."
+        "desc": "A big thank you to all of the amazing people who have helped contribute to the site!"
     },
     "game": {
         "main": "{availableCategories} categoriez found fer {game}",
