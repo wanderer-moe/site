@@ -54,7 +54,7 @@ const { subFolders, game } = data
                     {#each subFolders as folder}
                         <a href="/{game}/{folder.name}">
                             <div
-                                class="flex justify-between items-center rounded-md border-[3px] border-main-400 bg-main-500 p-4 transition-colors duration-150 hover:border-main-300">
+                                class="flex items-center justify-between rounded-md border-[3px] border-main-400 bg-main-500 p-4 transition-colors duration-150 hover:border-main-300">
                                 <p
                                     class="text-left text-2xl font-semibold text-white">
                                     <i class="fa fa-folder mr-5"></i>

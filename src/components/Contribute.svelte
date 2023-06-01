@@ -32,8 +32,7 @@ export let closeContribute
                 <div class="mt-2">
                     <div class="mb-2 grid gap-3 text-center">
                         <p class="text-sm">
-                            wanderer.moe
-                            <span class="font-semibold text-white"
+                            wanderer.moe <span class="font-semibold text-white"
                                 >will always be free to use, untracked, and
                                 (mostly) ad-free.</span>
                             If you like this website, please consider contributing
@@ -42,8 +41,7 @@ export let closeContribute
                                 href="https://buymeacoffee.com/marcelmd"
                                 target="_blank"
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
-                                >donating</a>
-                            to help keep it running.
+                                >donating</a> to help keep it running.
                         </p>
                         <p class="text-sm">
                             All donations go directly towards server costs,
@@ -53,29 +51,27 @@ export let closeContribute
                             resources for this community.
                         </p>
                         <p class="text-sm">
-                            If you're interested in reading more, there's a
-                            <a
+                            If you're interested in reading more, there's a <a
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                                 target="_blank"
                                 href="https://dromzeh.dev/posts/wanderer-moe-website-breakdown/"
-                                >blog post here</a>
-                            about the website, breaking down both cost and functionality.
+                                >blog post here</a> about the website, breaking down
+                            both cost and functionality.
                         </p>
                         <p class="text-sm">
                             If you want to help contribute by providing assets
                             for other users of the site (datamined/fan-made) or
-                            for translations, please join the
-                            <a
+                            for translations, please join the <a
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                                 target="_blank"
                                 href="https://discord.wanderer.moe/"
-                                >Discord server</a>
-                            / send a dm to dromzeh#1337. You will be credited for
-                            your contributions on the site and within the Discord.
+                                >Discord server</a
+                            >/send a DM to dromzeh#1337. You will be credited
+                            for your contributions on the site and within the
+                            Discord.
                         </p>
                         <p class="text-xs">
-                            For any other inquires,
-                            <a
+                            For any other inquires, <a
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                                 href="mailto:marcel@wanderer.moe"
                                 >send an email!</a>
