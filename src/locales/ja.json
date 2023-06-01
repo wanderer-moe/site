@@ -2,24 +2,24 @@
     "home": {
         "description": "様々のゲームアセットのデータベース",
         "github": {
-            "desc": "For transparency, wanderer.moe is open source on GitHub. The code is available for anyone to view and contribute to!",
-            "shortDesc": "Website source code",
-            "webBtn": "Website Source Code",
-            "apiBtn": "API Source Code"
+            "desc": "透明度のために､wanderer.moeがGitHubでオーペンソースです. コードが誰でも見えると資するんだ．",
+            "shortDesc": "サイトのソースコード",
+            "webBtn": "サイトのソースコード",
+            "apiBtn": "APIのソースコード"
         },
         "donate": {
-            "title": "Donate",
-            "shortDesc": "Support the site",
-            "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance, and development, consider donating!"
+            "title": "恵めて",
+            "shortDesc": "サイトを裏づけて",
+            "desc": "wanderer.moeがアドフリーと常に使用料不要. サイトを楽しむからサーバコスト､保守､制作などに裏づけたいすれば、サイトに寄付を考えてください．"
         },
         "discord": {
-            "desc": "Join the Discord server for updates, assets outside the site, and more!",
-            "shortDesc": "{onlineCount} users currently online",
-            "btn": "Join Server"
+            "desc": "ニュース､サイトにあれないのアセットなどのため、Discordサーバーに参加してください！",
+            "shortDesc": "今､{onlineCount}がオンラインです．",
+            "btn": "Discordサーバに参加して"
         },
         "ocGen": {
-            "title": "OC Generators",
-            "shortDesc": "Randomly generated OCs",
+            "title": "オリキャラメーカー",
+            "shortDesc": "ランダム生成なオリキャラ",
             "desc": "Generate game-related information about your original characters (e.g. personality traits and appearance)!"
         }
     },
