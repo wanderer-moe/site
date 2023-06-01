@@ -20,7 +20,7 @@
         "ocGen": {
             "title": "オリキャラメーカー",
             "shortDesc": "ランダム生成なオリキャラ",
-            "desc": "Generate game-related information about your original characters (e.g. personality traits and appearance)!"
+            "desc": "オリキャラのゲーム関連なインフォをジェネレートする！(例えば人物下知とか人相風体など)"
         }
     },
     "nav": {
@@ -34,7 +34,7 @@
     },
     "contributors": {
         "title": "支持者",
-        "desc": "A big thank you to all of the amazing people who have helped contribute to the site!"
+        "desc": "サイトを助っ人にありがとうございました！"
     },
     "game": {
         "main": "「{game} 」は{availableCategories} 件見つかりました",
@@ -43,7 +43,7 @@
     },
     "asset": {
         "main": "{filteredImagesCount}/{imagesCount} 個アセットは見えるんです． {selectedItemsCount} 個はセレクトしたんです.",
-        "info": "Tap on an asset to select it. Double tap an image to enlarge it.",
+        "info": "アセットをタップして選択します。イメジをダブルタップして拡大します．",
         "downloadAll": "全てダウンロード",
         "downloadAllSize": "全てダウンロード ({size})",
         "downloadSelected": "セレクトダウンロード",
@@ -52,9 +52,9 @@
         "downloadSize": "ダウンロード ({size})",
         "officialAsset": "公式ゲームアセット",
         "fanmadeAsset": "ファンメイドゲームアセット",
-        "searchBar": "Search for an asset...",
+        "searchBar": "アセットを検索...",
         "nothingFound": "{query} に一致する情報は見つかりませんだった．",
-        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form!",
+        "nothingFoundSuggestions": "何かお探しのアセットがあれば､アセットリクエストフォームをしてきください．",
         "onMobile": "ダウンロードしてのができないから､ゲームの名と隣にインフォアイコンをタップしてでFAQを見てください．"
     },
     "details": {
@@ -69,7 +69,7 @@
         "sortBySizeReverse": "ファイルサイズ（最大が上）"
     },
     "globalSearch": {
-        "searchBar": "Search for a game or asset..."
+        "searchBar": "アセットやゲームを検索..."
     },
     "viewImage": {
         "closeText": "何こをクリックでクロースください."
