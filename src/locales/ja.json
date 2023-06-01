@@ -34,8 +34,7 @@
     },
     "contributors": {
         "title": "支持者",
-        "desc": "サイトを支持た良い人へ大きなありがとうございました！",
-        "gettingData": "支持者データを集まれる…"
+        "desc": "A big thank you to all of the amazing people who have helped contribute to the site!"
     },
     "game": {
         "main": "「{game} 」は{availableCategories} 件見つかりました",
