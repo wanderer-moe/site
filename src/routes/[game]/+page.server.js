@@ -7,10 +7,11 @@ export async function load({ params }) {
         if (res.ok) {
             const response = await res.json()
             if (response.error) throw error(404, 'API Error or Page Not Found')
-            return {
+            const data = {
                 game,
                 subFolders: response.locations,
             }
+            return data
         }
     } catch (err) {
         throw error(404, 'API Error or Page Not Found')

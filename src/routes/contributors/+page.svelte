@@ -10,24 +10,33 @@ onMount(async () => {
 })
 
 const categories = {
-    Development: ['Project Lead', 'Developer'],
-    Administration: ['Admin', 'Senior Moderator', 'Moderator'],
-    Contributors: ['Translator', 'Contributor'],
+    Development: {
+        description: 'Managing and developing the project codebase',
+        roles: ['Project Lead', 'Developer'],
+    },
+    Staff: {
+        description: 'Moderating and managing the community',
+        roles: ['Admin', 'Senior Moderator', 'Moderator'],
+    },
+    Contributors: {
+        description: 'Contributing assets and translations towards the project',
+        roles: ['Translator', 'Contributor'],
+    },
 }
 
 const roleColors = {
-    'Project Lead': 'bg-accent-100',
-    Developer: 'bg-accent-200',
-    Admin: 'bg-accent-300',
-    'Senior Moderator': 'bg-accent-400',
-    Moderator: 'bg-accent-500',
-    Staff: 'bg-accent-600',
-    Translator: 'bg-accent-700',
-    Contributor: 'bg-accent-800',
+    'Project Lead': 'bg-indigo-300',
+    Developer: 'bg-indigo-200',
+    Admin: 'bg-blue-300',
+    'Senior Moderator': 'bg-purple-300',
+    Moderator: 'bg-purple-200',
+    Staff: 'bg-pink-300',
+    Translator: 'bg-violet-100',
+    Contributor: 'bg-violet-200',
 }
 
 function getTopmostCategory(contributor) {
-    for (const [category, roles] of Object.entries(categories)) {
+    for (const [category, { roles }] of Object.entries(categories)) {
         if (roles.some((role) => contributor.roles.includes(role))) {
             return category
         }
@@ -70,10 +79,13 @@ function getTopmostCategory(contributor) {
         <div class="relative z-10 mt-8 px-2 md:px-12 lg:px-24">
             <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
                 <div class="col-span-3 gap-4">
-                    {#each Object.entries(categories) as [category, roles]}
+                    {#each Object.entries(categories) as [category, { description, roles }]}
                         <div id="{category}" class="mb-8">
-                            <p class="mb-4 text-3xl font-bold text-white">
+                            <p class="mb-2 text-3xl font-bold text-white">
                                 {category}
+                            </p>
+                            <p class="text-md mb-2 font-semibold text-white">
+                                {description}
                             </p>
                             <div
                                 class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">

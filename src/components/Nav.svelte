@@ -28,7 +28,7 @@ let isSearchOpen = false
                         class="rounded-lg border-[2px] border-main-400 transition-colors duration-150 hover:border-main-300">
                         <!-- hover:animate-pulse ? -->
                         <div
-                            class="hidden h-8 w-72 rounded-lg bg-main-700 px-4 text-xs text-gray-400 lg:block"
+                            class="hidden h-8 w-72 rounded-lg bg-main-700 px-4 text-xs text-gray-400 hover:bg-main-400 lg:block"
                             on:click="{() => (isSearchOpen = !isSearchOpen)}"
                             on:keypress="{() =>
                                 (isSearchOpen = !isSearchOpen)}">

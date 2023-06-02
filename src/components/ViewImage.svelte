@@ -2,9 +2,9 @@
 import { t } from 'svelte-i18n'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { fly, fade } from 'svelte/transition'
+import { bytesToFileSize } from '@/lib/utils/helpers'
 
-export let imageUrl
-export let closeImageView
+export let imageUrl, imageTitle, closeImageView, imageFileSize
 </script>
 
 <div
@@ -18,9 +18,12 @@ export let closeImageView
             class="h-[40vh] rounded-md border border-main-300 object-contain"
             alt="Full view"
             style="background-image: url(https://files.catbox.moe/qmjf27.png); background-size: contain;" />
-        <p class="mt-4 rounded-md bg-main-400 py-2 text-center text-white">
-            {$t('viewImage.closeText')}
-        </p>
+        <div class="mt-4 rounded-md bg-main-400 py-2 text-center text-white">
+            <p class="font-semibold">
+                {imageTitle} ({bytesToFileSize(imageFileSize)})
+            </p>
+            <p class="text-xs">{$t('viewImage.closeText')}</p>
+        </div>
     </div>
 </div>
 

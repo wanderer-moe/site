@@ -1,15 +1,18 @@
 // lib/utils/helpers.js
 
+// e.g 'a-b-c' -> 'A B C'
 export function fixCasing(word) {
     const formattedWord = word.replace(/-/g, ' ')
     return formattedWord.replace(/\b\w/g, (l) => l.toUpperCase())
 }
 
+// convert bytes to human readable file size
 export function bytesToFileSize(bytes) {
     const sizes = ['B', 'KB', 'MB', 'GB', 'TB']
     if (bytes === 0) return '0 B'
     const i = Math.floor(Math.log2(bytes) / 10)
-    return `${(bytes / 1024 ** i).toFixed(1)} ${sizes[i]}`
+    const size = (bytes / 1024 ** i).toFixed(1)
+    return `${size} ${sizes[i]}`
 }
 
 // ISO 8601 -> DD/Suffix Month YYYY, HH:MM:SS

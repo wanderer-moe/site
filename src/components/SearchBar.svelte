@@ -1,5 +1,10 @@
+<style lang="postcss">
+.fa-spin {
+    animation: fa-spin 1s infinite linear;
+}
+</style>
+
 <script>
-import axios from 'axios'
 import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
 import { cubicOut, quintOut } from 'svelte/easing'
@@ -8,23 +13,38 @@ import { filterGamesSearchBar as filterGames } from '@/lib/utils/filterSearch'
 import { fixCasing } from '@/lib/utils/helpers'
 export let query = ''
 export let closeSearchBar
+let searchInput
 let allGames = []
 
 async function getGames() {
-    const response = await axios
-        .get('https://api.wanderer.moe/games')
-        .then((response) => {
-            allGames = response.data
-        })
+    try {
+        const res = await fetch('https://api.wanderer.moe/games')
+        if (res.ok) {
+            const data = await res.json()
+            allGames = data
+        } else {
+            console.error('Error fetching games:', res.status)
+        }
+    } catch (err) {
+        console.error('Error fetching games:', err)
+    }
 }
 
 onMount(() => {
-    getGames()
+    getGames().then(() => {
+        searchInput.focus()
+    })
 })
 
 $: filteredGames = filterGames(allGames.games, query)
 </script>
 
+<svelte:window
+    on:keydown="{(e) => {
+        if (e.key === 'Escape') {
+            closeSearchBar()
+        }
+    }}" />
 <div>
     <div
         class="fixed left-1/2 top-1/2 z-[1000] w-3/4 -translate-x-1/2 -translate-y-1/2 transform"
@@ -33,13 +53,23 @@ $: filteredGames = filterGames(allGames.games, query)
         <button
             class="close-button absolute right-0 top-0 rounded-lg p-2 text-white"
             on:click="{closeSearchBar}">✕</button>
-        <div class="mb-2 rounded-lg bg-main-500 p-2 text-white">
+        <div
+            class="mb-2 flex items-center rounded-lg bg-main-500 p-2 text-white">
+            <div
+                class="mr-2 flex h-14 items-center justify-center rounded-lg bg-main-600 p-2">
+                {#if allGames.length === 0}
+                    <i class="fa-solid fa-circle-notch fa-spin"></i>
+                {:else}
+                    <i class="fas fa-search"></i>
+                {/if}
+            </div>
             <input
-                disabled="{allGames.length == 0}"
-                class="h-14 w-full rounded-lg bg-main-500 text-center text-accent-100 focus:shadow focus:outline-none {$t(
+                disabled="{allGames.length === 0}"
+                class="h-14 w-full rounded-lg bg-main-600 pl-2 text-accent-100 focus:shadow focus:outline-none {$t(
                     'direction'
                 )}"
-                placeholder="&#x1F50D; {$t('globalSearch.searchBar')}"
+                placeholder="{$t('globalSearch.searchBar')}"
+                bind:this="{searchInput}"
                 bind:value="{query}" />
         </div>
         {#if filteredGames.length > 0}

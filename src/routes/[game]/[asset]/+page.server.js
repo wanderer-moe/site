@@ -9,12 +9,13 @@ export async function load({ params }) {
         if (res.ok) {
             const response = await res.json()
             if (response.error) throw error(404, 'API Error or Page Not Found')
-            return {
+            const data = {
                 response,
                 game,
                 asset,
                 images: response.images,
             }
+            return data
         }
     } catch (err) {
         throw error(404, 'API Error or Page Not Found')

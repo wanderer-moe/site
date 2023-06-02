@@ -1,16 +1,21 @@
-export const load = async () => {
+import { getReleases } from '@/lib/utils/github.js'
+
+export async function load({ fetch }) {
     try {
-        const gamesResponse = await fetch('https://api.wanderer.moe/games')
+        const [gamesResponse, ocGeneratorsResponse, releases] =
+            await Promise.all([
+                fetch('https://api.wanderer.moe/games'),
+                fetch('https://api.wanderer.moe/oc-generators'),
+                getReleases(3),
+            ])
         const games = await gamesResponse.json()
-        const ocGeneratorsResponse = await fetch(
-            'https://api.wanderer.moe/oc-generators'
-        )
         const ocGenerators = await ocGeneratorsResponse.json()
         return {
             allGames: games.games,
             allOCGenerators: ocGenerators,
+            releases,
         }
     } catch (err) {
-        throw new Error('Error fetching data from API')
+        throw new Error(500, 'Error fetching data from API')
     }
 }

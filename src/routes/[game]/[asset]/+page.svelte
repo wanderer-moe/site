@@ -25,13 +25,15 @@ const { game, asset, images } = data
 let isFaqOpen = false
 let sortOptionMenu
 let sortMenuOpen = false
-let selectedItems = []
 let isMobile = false
+let imageDoubleClicked = false
+let selectedItems = []
 let filteredImages = images
 let query = ''
 let imageUrl = ''
+let imageTitle = ''
+let imageFileSize = ''
 let statusText = ''
-let imageDoubleClicked = false
 let totalImagesSizeHumanReadable = '?'
 let selectedFilesSize = 0
 
@@ -103,8 +105,9 @@ function sortImages(images) {
 
 // update filtered images based on search query and sorting option
 function updateFilter() {
+    const hyphenatedQuery = query.toLowerCase().replace(/\s+/g, '-')
     filteredImages = images.filter((image) => {
-        return image.name.toLowerCase().includes(query.toLowerCase())
+        return image.name.toLowerCase().includes(hyphenatedQuery)
     })
     filteredImages = sortImages(filteredImages)
 }
@@ -187,6 +190,8 @@ onMount(() => {
 {#if imageDoubleClicked}
     <ViewImage
         imageUrl="{imageUrl}"
+        imageTitle="{imageTitle}"
+        imageFileSize="{imageFileSize}"
         closeImageView="{() => (imageDoubleClicked = false)}" />
 {/if}
 
@@ -380,6 +385,8 @@ onMount(() => {
                                     on:dblclick="{() => {
                                         imageDoubleClicked = true
                                         imageUrl = `${image.path}`
+                                        imageTitle = `${image.name}`
+                                        imageFileSize = `${image.size}`
                                     }}" />
                             </Lazy>
                             <div class="p-2">
