@@ -34,8 +34,7 @@
     },
     "contributors": {
         "title": "Người giúp đỡ",
-        "desc": "Cảm ơn tất cả những người tuyệt vời đã giúp đóng góp cho trang web",
-        "gettingData": "Bắt dữ liệu người giúp đỡ..."
+        "desc": "A big thank you to all of the amazing people who have helped contribute to the site!"
     },
     "game": {
         "main": "{availableCategories} loại đã tìm thấy cho {game}",

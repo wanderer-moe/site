@@ -34,8 +34,7 @@
     },
     "contributors": {
         "title": "Contributors",
-        "desc": "A big thank you to all of the amazing people who have helped contribute to the site",
-        "gettingData": "Getting contributor data..."
+        "desc": "A big thank you to all of the amazing people who have helped contribute to the site!"
     },
     "game": {
         "main": "{availableCategories} categories found for {game}",

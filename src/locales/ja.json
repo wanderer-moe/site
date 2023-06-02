@@ -2,25 +2,25 @@
     "home": {
         "description": "様々のゲームアセットのデータベース",
         "github": {
-            "desc": "For transparency, wanderer.moe is open source on GitHub. The code is available for anyone to view and contribute to!",
-            "shortDesc": "Website source code",
-            "webBtn": "Website Source Code",
-            "apiBtn": "API Source Code"
+            "desc": "透明度のために､wanderer.moeがGitHubでオーペンソースです. コードが誰でも見えると資するんだ．",
+            "shortDesc": "サイトのソースコード",
+            "webBtn": "サイトのソースコード",
+            "apiBtn": "APIのソースコード"
         },
         "donate": {
-            "title": "Donate",
-            "shortDesc": "Support the site",
-            "desc": "wanderer.moe is ad-free and will always be free to use. If you enjoy the site and want to help with server costs, maintenance, and development, consider donating!"
+            "title": "恵めて",
+            "shortDesc": "サイトを裏づけて",
+            "desc": "wanderer.moeがアドフリーと常に使用料不要. サイトを楽しむからサーバコスト､保守､制作などに裏づけたいすれば、サイトに寄付を考えてください．"
         },
         "discord": {
-            "desc": "Join the Discord server for updates, assets outside the site, and more!",
-            "shortDesc": "{onlineCount} users currently online",
-            "btn": "Join Server"
+            "desc": "ニュース､サイトにあれないのアセットなどのため、Discordサーバーに参加してください！",
+            "shortDesc": "今､{onlineCount}がオンラインです．",
+            "btn": "Discordサーバに参加して"
         },
         "ocGen": {
-            "title": "OC Generators",
-            "shortDesc": "Randomly generated OCs",
-            "desc": "Generate game-related information about your original characters (e.g. personality traits and appearance)!"
+            "title": "オリキャラメーカー",
+            "shortDesc": "ランダム生成なオリキャラ",
+            "desc": "オリキャラのゲーム関連なインフォをジェネレートする！(例えば人物下知とか人相風体など)"
         }
     },
     "nav": {
@@ -34,8 +34,7 @@
     },
     "contributors": {
         "title": "支持者",
-        "desc": "サイトを支持た良い人へ大きなありがとうございました！",
-        "gettingData": "支持者データを集まれる…"
+        "desc": "サイトを助っ人にありがとうございました！"
     },
     "game": {
         "main": "「{game} 」は{availableCategories} 件見つかりました",
@@ -44,7 +43,7 @@
     },
     "asset": {
         "main": "{filteredImagesCount}/{imagesCount} 個アセットは見えるんです． {selectedItemsCount} 個はセレクトしたんです.",
-        "info": "Tap on an asset to select it. Double tap an image to enlarge it.",
+        "info": "アセットをタップして選択します。イメジをダブルタップして拡大します．",
         "downloadAll": "全てダウンロード",
         "downloadAllSize": "全てダウンロード ({size})",
         "downloadSelected": "セレクトダウンロード",
@@ -53,9 +52,9 @@
         "downloadSize": "ダウンロード ({size})",
         "officialAsset": "公式ゲームアセット",
         "fanmadeAsset": "ファンメイドゲームアセット",
-        "searchBar": "Search for an asset...",
+        "searchBar": "アセットを検索...",
         "nothingFound": "{query} に一致する情報は見つかりませんだった．",
-        "nothingFoundSuggestions": "If there's an asset you're looking for that you want added, fill out the asset request form!",
+        "nothingFoundSuggestions": "何かお探しのアセットがあれば､アセットリクエストフォームをしてきください．",
         "onMobile": "ダウンロードしてのができないから､ゲームの名と隣にインフォアイコンをタップしてでFAQを見てください．"
     },
     "details": {
@@ -70,7 +69,7 @@
         "sortBySizeReverse": "ファイルサイズ（最大が上）"
     },
     "globalSearch": {
-        "searchBar": "Search for a game or asset..."
+        "searchBar": "アセットやゲームを検索..."
     },
     "viewImage": {
         "closeText": "何こをクリックでクロースください."

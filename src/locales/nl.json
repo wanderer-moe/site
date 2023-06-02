@@ -34,8 +34,7 @@
     },
     "contributors": {
         "title": "Bijdragers",
-        "desc": "Veel dank aan al de geweldige mensen die hebben geholpen aan de bijdragen van de website",
-        "gettingData": "Gegevens van bijdragers ophalen..."
+        "desc": "Heel erg bedankt aan alle geweldige mensen die hebben bijgedragen aan de website!"
     },
     "game": {
         "main": "{availableCategories} categorieën gevonden voor {game}",

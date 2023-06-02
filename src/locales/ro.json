@@ -34,8 +34,7 @@
     },
     "contributors": {
         "title": "Contribuitori",
-        "desc": "Mulțumiri către toate persoanele ce m-au ajutat la contribuția site-ului",
-        "gettingData": "Găsirea datelor contribuitorilor..."
+        "desc": "A big thank you to all of the amazing people who have helped contribute to the site!"
     },
     "game": {
         "main": "{availableCategories} Categorii valabile pentru {game}",

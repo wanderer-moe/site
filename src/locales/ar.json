@@ -34,8 +34,7 @@
     },
     "contributors": {
         "title": "المساهمين",
-        "desc": "شكراً جزيلاً لكل الأشخاص الرائعين الذين ساعدوا في المساهمة في الموقع",
-        "gettingData": "جاري الحصول على بيانات المساهم..."
+        "desc": "A big thank you to all of the amazing people who have helped contribute to the site!"
     },
     "game": {
         "main": "{availableCategories} فئات وجدت ل{game}",
