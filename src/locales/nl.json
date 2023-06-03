@@ -60,11 +60,11 @@
     "details": {
         "lastUpdated": "Laatst Bijgewerkt: {date}",
         "sortBy": "Sorteer Op",
-        "dateUploaded": "Geüpload: {date}",
+        "dateUploaded": "Updated: {date}",
         "sortByAlphabetical": "Alfabetisch (A-Z)",
         "sortByAlphabeticalReverse": "Alfabetisch (Z-A)",
-        "sortByUploaded": "Geüpload (Nieuwste)",
-        "sortByUploadedReverse": "Geüpload (Oudste)",
+        "sortByUploaded": "Updated (Newest)",
+        "sortByUploadedReverse": "Updated (Oldest)",
         "sortBySize": "Bestandsgrootte (Kleinste)",
         "sortBySizeReverse": "Bestandsgrootte (Grootste)"
     },
