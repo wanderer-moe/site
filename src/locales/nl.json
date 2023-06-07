@@ -60,11 +60,11 @@
     "details": {
         "lastUpdated": "Laatst Bijgewerkt: {date}",
         "sortBy": "Sorteer Op",
-        "dateUploaded": "Updated: {date}",
+        "dateUploaded": "Bijgewerkt: {date}",
         "sortByAlphabetical": "Alfabetisch (A-Z)",
         "sortByAlphabeticalReverse": "Alfabetisch (Z-A)",
-        "sortByUploaded": "Updated (Newest)",
-        "sortByUploadedReverse": "Updated (Oldest)",
+        "sortByUploaded": "Bijgewerkt (Nieuwste)",
+        "sortByUploadedReverse": "Bijgewerkt (Oudste)",
         "sortBySize": "Bestandsgrootte (Kleinste)",
         "sortBySizeReverse": "Bestandsgrootte (Grootste)"
     },
@@ -72,7 +72,8 @@
         "searchBar": "Zoek voor een spel of asset..."
     },
     "viewImage": {
-        "closeText": "Klik ergens om te sluiten"
+        "closeText": "Klik ergens om te sluiten",
+        "resolution": "Oplossing: {resolution}"
     },
     "faq": {
         "title": "Vaak Gevraagde Vragen",

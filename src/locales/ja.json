@@ -72,7 +72,8 @@
         "searchBar": "アセットやゲームを検索..."
     },
     "viewImage": {
-        "closeText": "何こをクリックでクロースください."
+        "closeText": "何こをクリックでクロースください.",
+        "resolution": "Resolution: {resolution}"
     },
     "faq": {
         "title": "FAQ",
