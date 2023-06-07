@@ -60,11 +60,11 @@
     "details": {
         "lastUpdated": "Ultimi Aggiornati: {date}",
         "sortBy": "Ordina Per",
-        "dateUploaded": "Caricato il: {date}",
+        "dateUploaded": "Updated: {date}",
         "sortByAlphabetical": "Alfabetico (A-Z)",
         "sortByAlphabeticalReverse": "Alfabetico (Z-A)",
-        "sortByUploaded": "Caricato (Più Recente)",
-        "sortByUploadedReverse": "Caricato (Più Vecchio)",
+        "sortByUploaded": "Updated (Newest)",
+        "sortByUploadedReverse": "Updated (Oldest)",
         "sortBySize": "Grandezza Del File (Più Piccolo)",
         "sortBySizeReverse": "Grandezza Del File (Più Grande)"
     },

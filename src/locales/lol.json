@@ -60,11 +60,11 @@
     "details": {
         "lastUpdated": "Last Updatd: {date}",
         "sortBy": "Sort By",
-        "dateUploaded": "Uploadd: {date}",
+        "dateUploaded": "Updated: {date}",
         "sortByAlphabetical": "Alfabetical (A-Z)",
         "sortByAlphabeticalReverse": "Alfabetical (Z-A)",
-        "sortByUploaded": "Uploadd (Newest)",
-        "sortByUploadedReverse": "Uploadd (Oldest)",
+        "sortByUploaded": "Updated (Newest)",
+        "sortByUploadedReverse": "Updated (Oldest)",
         "sortBySize": "Fiel Size (Smallest)",
         "sortBySizeReverse": "Fiel Size (Largest)"
     },
