@@ -13,6 +13,7 @@ export async function load({ params }) {
                 response,
                 game,
                 asset,
+                lastUploaded: response.lastUploaded,
                 images: response.images,
             }
             return data

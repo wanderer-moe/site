@@ -19,7 +19,7 @@ import Lazy from 'svelte-lazy'
 
 // destructure data object
 export let data
-const { game, asset, images } = data
+const { game, asset, images, lastUploaded } = data
 
 // initialize variables
 let isFaqOpen = false
@@ -180,11 +180,7 @@ onMount(() => {
 </script>
 
 <svelte:head>
-    {#if images.length > 0}
-        <title>{fixCasing(asset)} ({fixCasing(game)}) | wanderer.moe</title>
-    {:else}
-        <title>wanderer.moe</title>
-    {/if}
+    <title>{fixCasing(asset)} ({fixCasing(game)}) | wanderer.moe</title>
 </svelte:head>
 
 {#if imageDoubleClicked}
@@ -206,25 +202,36 @@ onMount(() => {
             <div
                 class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
                 <div
-                    class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+                    class="mx-auto px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
                     <div
                         class="flex flex-col items-center justify-between xl:flex-row">
                         <div class="">
-                            <h2
-                                class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                {fixCasing(game)}
-                                <i
-                                    class="fa fa-info-circle ml-2 cursor-pointer text-sm"
-                                    on:keypress="{() =>
-                                        (isFaqOpen = !isFaqOpen)}"
-                                    on:click="{() => (isFaqOpen = !isFaqOpen)}"
-                                ></i>
-                            </h2>
-
-                            <p
-                                class="max-w-xl text-xl font-semibold text-white">
-                                {fixCasing(asset)}
-                            </p>
+                            <div class="mb-4">
+                                <p
+                                    class="max-w-xl text-sm font-semibold text-white">
+                                    {$t('details.lastUpdated', {
+                                        values: {
+                                            date: formatDateReadable(
+                                                lastUploaded.uploaded
+                                            ),
+                                        },
+                                    })}
+                                </p>
+                                <p
+                                    class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
+                                    {fixCasing(game)}
+                                    <i
+                                        class="fa fa-info-circle ml-2 cursor-pointer text-sm"
+                                        on:keypress="{() =>
+                                            (isFaqOpen = !isFaqOpen)}"
+                                        on:click="{() =>
+                                            (isFaqOpen = !isFaqOpen)}"></i>
+                                </p>
+                                <p
+                                    class="max-w-xl text-xl font-semibold text-white">
+                                    {fixCasing(asset)}
+                                </p>
+                            </div>
                             <p
                                 class="max-w-xl text-sm font-semibold text-white">
                                 {$t('asset.info')}
