@@ -72,7 +72,8 @@
         "searchBar": "Zoek voor een spel of asset..."
     },
     "viewImage": {
-        "closeText": "Klik ergens om te sluiten"
+        "closeText": "Klik ergens om te sluiten",
+        "resolution": "Resolution: {resolution}"
     },
     "faq": {
         "title": "Vaak Gevraagde Vragen",
