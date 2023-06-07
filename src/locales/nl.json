@@ -60,11 +60,11 @@
     "details": {
         "lastUpdated": "Laatst Bijgewerkt: {date}",
         "sortBy": "Sorteer Op",
-        "dateUploaded": "Updated: {date}",
+        "dateUploaded": "Bijgewerkt: {date}",
         "sortByAlphabetical": "Alfabetisch (A-Z)",
         "sortByAlphabeticalReverse": "Alfabetisch (Z-A)",
-        "sortByUploaded": "Updated (Newest)",
-        "sortByUploadedReverse": "Updated (Oldest)",
+        "sortByUploaded": "Bijgewerkt (Nieuwste)",
+        "sortByUploadedReverse": "Bijgewerkt (Oudste)",
         "sortBySize": "Bestandsgrootte (Kleinste)",
         "sortBySizeReverse": "Bestandsgrootte (Grootste)"
     },
@@ -73,7 +73,7 @@
     },
     "viewImage": {
         "closeText": "Klik ergens om te sluiten",
-        "resolution": "Resolution: {resolution}"
+        "resolution": "Oplossing: {resolution}"
     },
     "faq": {
         "title": "Vaak Gevraagde Vragen",
