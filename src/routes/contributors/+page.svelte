@@ -26,7 +26,6 @@ const roleColors = {
     Admin: 'bg-blue-300',
     'Senior Moderator': 'bg-purple-300',
     Moderator: 'bg-purple-200',
-    Staff: 'bg-pink-300',
     Translator: 'bg-violet-100',
     Contributor: 'bg-violet-200',
 }

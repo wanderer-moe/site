@@ -18,6 +18,7 @@ import { getDiscordData } from '@/lib/utils/discord.js'
 import { fixCasing } from '@/lib/utils/helpers.js'
 import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
+import HomeSidebar from '../components/HomeSidebar.svelte'
 
 let focusedImageElement
 let onlineusers
@@ -124,132 +125,9 @@ function handleImageChange(newImage) {
                         </div>
                     </div>
                 </div>
-                <div class="col-span-2 gap-4 sm:col-span-1">
-                    <div id="other">
-                        <p
-                            class="mb-4 text-3xl font-bold text-white"
-                            id="other">
-                            Other
-                        </p>
-                    </div>
-                    <div class="grid gap-7">
-                        <div
-                            class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
-                            style="background: linear-gradient(100deg, rgba(200,157,245,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-                            <p class="font-white text-xl font-bold uppercase">
-                                <i class="fa-solid fa-dice-d20"></i>
-                                {$t('home.ocGen.title')}
-                            </p>
-                            <p class="text-left text-gray-400">
-                                {$t('home.ocGen.shortDesc')}
-                            </p>
-
-                            <p class="text-left text-gray-200">
-                                {$t('home.ocGen.desc')}
-                            </p>
-
-                            {#each OCGeneratorsLocations as ocgen}
-                                <div class="mt-2 grid gap-1">
-                                    <a href="/oc-generator/{ocgen.name}">
-                                        <button
-                                            class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
-                                            {fixCasing(ocgen.name)}
-                                        </button>
-                                    </a>
-                                </div>
-                            {/each}
-                        </div>
-
-                        <div
-                            class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
-                            style="background: linear-gradient(100deg, rgba(142,150,227,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-                            <p class="font-white text-xl font-bold uppercase">
-                                <i class="fa-brands fa-discord"></i> Discord
-                            </p>
-                            <p class="text-left text-gray-400">
-                                {$t('home.discord.shortDesc', {
-                                    values: { onlineCount: onlineusers },
-                                })}
-                            </p>
-
-                            <p class="text-left text-gray-200">
-                                {$t('home.discord.desc')}
-                            </p>
-
-                            <div class="mt-2">
-                                <a
-                                    href="https://discord.wanderer.moe/"
-                                    target="_blank">
-                                    <button
-                                        class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
-                                        {$t('home.discord.btn')}
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
-                            style="background: linear-gradient(100deg, rgba(234,103,85,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-                            <p class="font-white text-xl font-bold uppercase">
-                                <i class="fa-solid fa-hand-holding-dollar"></i>
-                                {$t('home.donate.title')}
-                            </p>
-                            <p class="text-left text-gray-400">
-                                {$t('home.donate.shortDesc')}
-                            </p>
-
-                            <p class="text-left text-gray-200">
-                                {$t('home.donate.desc')}
-                            </p>
-
-                            <div class="mt-2" id="donate">
-                                <a
-                                    href="https://buymeacoffee.com/marcelmd"
-                                    target="_blank">
-                                    <button
-                                        class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
-                                        Buy Me a Coffee
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div
-                            class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
-                            style="background: linear-gradient(100deg, rgba(198,198,198,0.1) 0%, rgba(20,20,20,0.1) 49%);">
-                            <p class="font-white text-xl font-bold uppercase">
-                                <i class="fa-brands fa-github"></i> GitHub
-                            </p>
-                            <p class="text-left text-gray-400">
-                                {$t('home.github.shortDesc')}
-                            </p>
-
-                            <p class="text-left text-gray-200">
-                                {$t('home.github.desc')}
-                            </p>
-
-                            <div class="mt-2 grid gap-1">
-                                <a
-                                    href="https://git.wanderer.moe/site"
-                                    target="_blank">
-                                    <button
-                                        class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
-                                        {$t('home.github.webBtn')}
-                                    </button>
-                                </a>
-                                <a
-                                    href="https://git.wanderer.moe/api"
-                                    target="_blank">
-                                    <button
-                                        class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
-                                        {$t('home.github.apiBtn')}
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <HomeSidebar
+                    onlineusers="{onlineusers}"
+                    OCGeneratorsLocations="{OCGeneratorsLocations}" />
             </div>
         </div>
     </div>
