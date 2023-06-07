@@ -65,9 +65,7 @@ $: filteredGames = filterGames(allGames.games, query)
             </div>
             <input
                 disabled="{allGames.length === 0}"
-                class="h-14 w-full rounded-lg bg-main-600 pl-2 text-accent-100 focus:shadow focus:outline-none {$t(
-                    'direction'
-                )}"
+                class="h-14 w-full rounded-lg bg-main-600 pl-2 text-accent-100 focus:shadow focus:outline-none"
                 placeholder="{$t('globalSearch.searchBar')}"
                 bind:this="{searchInput}"
                 bind:value="{query}" />

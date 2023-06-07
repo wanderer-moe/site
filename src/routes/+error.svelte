@@ -15,7 +15,7 @@ import { page } from '$app/stores'
                     >{$page.status}</span>
             </p>
         </div>
-        <div class="{$t('direction')}">
+        <div>
             {#if $page.status === 404}
                 <p class="text-2xl font-semibold text-white">
                     {$t('errors.404')}

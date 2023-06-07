@@ -278,9 +278,7 @@ onMount(() => {
 
                 <div class="w-full rounded-md text-white">
                     <input
-                        class="h-14 w-full rounded-md bg-main-400 text-center text-accent-400 focus:shadow focus:outline-none {$t(
-                            'direction'
-                        )}"
+                        class="h-14 w-full rounded-md bg-main-400 text-center text-accent-400 focus:shadow focus:outline-none"
                         placeholder="&#x1F50D; {$t('asset.searchBar')}"
                         on:input="{handleInput}"
                         bind:value="{query}" />
@@ -291,9 +289,7 @@ onMount(() => {
                         class="flex flex-wrap items-center justify-center gap-1 text-sm">
                         <button
                             on:click="{() => downloadFiles(true)}"
-                            class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
-                                'direction'
-                            )}">
+                            class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none">
                             <i class="fa-solid fa-download"></i>
                             {#if selectedItems.length >= 1}
                                 {$t('asset.downloadSelectedSize', {
@@ -309,9 +305,7 @@ onMount(() => {
                         </button>
                         <button
                             on:click="{() => downloadFiles(false)}"
-                            class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
-                                'direction'
-                            )}">
+                            class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none">
                             <i class="fa-solid fa-download"></i>
                             {$t('asset.downloadAllSize', {
                                 values: {
@@ -323,9 +317,7 @@ onMount(() => {
                 </div>
                 <div class="w-full rounded-md">
                     <p
-                        class="text-center text-sm font-semibold text-gray-400 {$t(
-                            'direction'
-                        )}">
+                        class="text-center text-sm font-semibold text-gray-400">
                         {$t('asset.main', {
                             values: {
                                 filteredImagesCount: filteredImages.length,
@@ -336,17 +328,13 @@ onMount(() => {
                     </p>
                     {#if isMobile}
                         <p
-                            class="mt-2 text-center text-sm text-red-100 {$t(
-                                'direction'
-                            )}">
+                            class="mt-2 text-center text-sm text-red-100">
                             {$t('asset.onMobile')}
                         </p>
                     {/if}
                     {#if statusText !== ''}
                         <p
-                            class="mt-2 text-center text-sm text-gray-400 {$t(
-                                'direction'
-                            )}">
+                            class="mt-2 text-center text-sm text-gray-400">
                             {statusText}
                         </p>
                     {/if}
@@ -407,17 +395,13 @@ onMount(() => {
                                         </div>
                                     </div>
                                     <p
-                                        class="text-xs font-bold uppercase {$t(
-                                            'direction'
-                                        )}">
+                                        class="text-xs font-bold uppercase">
                                         {image.name.includes('fanmade')
                                             ? `${$t('asset.fanmadeAsset')}`
                                             : `${$t('asset.officialAsset')}`}
                                     </p>
                                     <p
-                                        class="text-xs uppercase {$t(
-                                            'direction'
-                                        )}">
+                                        class="text-xs uppercase">
                                         {$t('details.dateUploaded', {
                                             values: {
                                                 date: formatDateReadable(
@@ -432,16 +416,12 @@ onMount(() => {
                                         target="_blank"
                                         download>
                                         <button
-                                            class="mt-2 rounded-md bg-accent-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
-                                                'direction'
-                                            )}"
+                                            class="mt-2 rounded-md bg-accent-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none"
                                             onclick="{(event) => {
                                                 event.stopPropagation()
                                             }}">
                                             <i
-                                                class="fa-solid fa-download {$t(
-                                                    'direction'
-                                                )}"></i>
+                                                class="fa-solid fa-download"></i>
                                             {$t('asset.downloadSize', {
                                                 values: {
                                                     size: bytesToFileSize(

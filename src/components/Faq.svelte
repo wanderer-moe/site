@@ -39,9 +39,7 @@ const faqEntries = [
                     </div>
                 </div>
                 <div
-                    class="mt-4 flex max-h-[70vh] flex-col gap-4 overflow-y-auto hyphens-auto break-words p-2 lg:flex-row {$t(
-                        'direction'
-                    )}">
+                    class="mt-4 flex max-h-[70vh] flex-col gap-4 overflow-y-auto hyphens-auto break-words p-2 lg:flex-row">
                     {#each faqEntries as entry}
                         <div class="mb-2 flex-1">
                             <p class="text-sm font-semibold">
