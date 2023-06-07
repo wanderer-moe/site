@@ -72,7 +72,8 @@
         "searchBar": "Search for a game or asset..."
     },
     "viewImage": {
-        "closeText": "Click anywhere to close"
+        "closeText": "Click anywhere to close",
+        "resolution": "Resolution: {resolution}"
     },
     "faq": {
         "title": "أسئلة وأجوبة متكررة",
