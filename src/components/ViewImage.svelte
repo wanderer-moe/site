@@ -4,6 +4,16 @@ import { cubicOut, quintOut } from 'svelte/easing'
 import { fly, fade } from 'svelte/transition'
 import { bytesToFileSize } from '@/lib/utils/helpers'
 
+let resolution = 'Unknown'
+
+async function getImageResolution(image) {
+    if (!image) return 'Unknown'
+    const img = typeof image === 'string' ? new Image() : image
+    img.src = typeof image === 'string' ? image : image.src
+    await new Promise((resolve) => img.addEventListener('load', resolve))
+    return `${img.naturalWidth} x ${img.naturalHeight}`
+}
+
 export let imageUrl, imageTitle, closeImageView, imageFileSize
 </script>
 
@@ -17,12 +27,19 @@ export let imageUrl, imageTitle, closeImageView, imageFileSize
             src="{imageUrl}"
             class="h-[40vh] rounded-md border border-main-300 object-contain"
             alt="Full view"
-            style="background-image: url(https://files.catbox.moe/qmjf27.png); background-size: contain;" />
+            style="background-image: url(https://files.catbox.moe/qmjf27.png); background-size: contain;"
+            on:load="{async () => {
+                resolution = await getImageResolution(imageUrl)
+            }}" />
         <div class="mt-4 rounded-md bg-main-400 py-2 text-center text-white">
             <p class="font-semibold">
                 {imageTitle} ({bytesToFileSize(imageFileSize)})
             </p>
-            <p class="text-xs">{$t('viewImage.closeText')}</p>
+            <p class="font-semibold">
+                <!-- Resolution: {resolution} -->
+                {$t('viewImage.resolution', { values: { resolution } })}
+            </p>
+            <p class="mt-2 text-xs">{$t('viewImage.closeText')}</p>
         </div>
     </div>
 </div>
