@@ -2,12 +2,8 @@
 import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
 
-let contributors = []
-
-onMount(async () => {
-    const res = await fetch('/contributors.json')
-    contributors = await res.json()
-})
+export let data
+const { contributors } = data
 
 const categories = {
     Development: {

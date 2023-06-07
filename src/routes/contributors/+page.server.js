@@ -1,6 +1,18 @@
-// return 503, under construction
-// import { error } from '@sveltejs/kit'
+import { error } from '@sveltejs/kit'
 
-// export const load = async () => {
-//     throw error(503, 'Page Temporarily Unavailable (Under Construction)')
-// }
+export async function load() {
+    try {
+        const res = await fetch(
+            `https://api.wanderer.moe/discord/contributors`
+        )
+        if (res.ok) {
+            const response = await res.json()
+            const data = {
+                contributors: response.contributors,
+            }
+            return data
+        }
+    } catch (err) {
+        throw error(500, 'API Error')
+    }
+}
