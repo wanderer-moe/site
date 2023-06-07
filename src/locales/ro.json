@@ -72,7 +72,8 @@
         "searchBar": "Search for a game or asset..."
     },
     "viewImage": {
-        "closeText": "Apasă oriunde pentru a închide"
+        "closeText": "Apasă oriunde pentru a închide",
+        "resolution": "Resolution: {resolution}"
     },
     "faq": {
         "title": "Întrebări frecvente",
