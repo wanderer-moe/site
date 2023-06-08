@@ -83,7 +83,12 @@ onMount(async () => {
                             href="https://dromzeh.dev/"
                             class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                             >dromzeh</a
-                        >. Powered by <a href="https://cloudflare.com" class="text-[#EC8224]" target="_blank"><i class="fab fa-cloudflare"></i> Cloudflare</a>
+                        >. Powered by
+                        <a
+                            href="https://cloudflare.com"
+                            class="text-[#EC8224]"
+                            target="_blank"
+                            ><i class="fab fa-cloudflare"></i> Cloudflare</a>
                     </p>
                 </div>
                 <div class="text-sm">

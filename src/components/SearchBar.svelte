@@ -36,6 +36,7 @@ onMount(() => {
     })
 })
 
+// $: console.log(allGames.games)
 $: filteredGames = filterGames(allGames.games, query)
 </script>
 
@@ -82,13 +83,13 @@ $: filteredGames = filterGames(allGames.games, query)
                                 on:click="{closeSearchBar()}"
                                 rel="external"
                                 href="{`/${game.gameName.replace(' ', '-')}/${
-                                    game.subfolder
+                                    game.locationName
                                 }`}">
                                 <p class="text-sm">
                                     {fixCasing(game.gameName)}
                                 </p>
                                 <p>
-                                    {fixCasing(game.subfolder)}
+                                    {fixCasing(game.locationName)}
                                 </p>
                             </a>
                         </div>

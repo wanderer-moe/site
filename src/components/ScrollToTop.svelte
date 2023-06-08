@@ -29,7 +29,7 @@ function scrollToTop() {
         in:fade="{{ duration: 150 }}"
         out:fade="{{ duration: 150 }}">
         <button
-            class="rounded-full bg-main-600 px-4 py-2 font-bold text-white hover:bg-main-700 transition-colors"
+            class="rounded-full bg-main-600 px-4 py-2 font-bold text-white transition-colors hover:bg-main-700"
             on:click="{scrollToTop}">
             <i class="fas fa-arrow-up text-lg"></i>
         </button>
