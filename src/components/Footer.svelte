@@ -4,47 +4,11 @@ import { locale, t } from 'svelte-i18n'
 import { getCommitsRecent } from '@/lib/utils/github'
 import { formatDateReadable } from '@/lib/utils/helpers'
 import Contribute from './Contribute.svelte'
+import LocaleDropdown from './LocaleDropdown.svelte'
 
-let dropDownMenu
 let contributeOpen = false
-let menuOpen = false
 
 const currentYear = new Date().getFullYear()
-
-// TODO: finish correct RTL arabic support
-// { id: "ar", label: "العربية" }
-
-const languages = [
-    { id: 'en', label: 'English' },
-    { id: 'nl', label: 'Nederlands' },
-    { id: 'ja', label: '日本語' },
-    { id: 'it', label: 'Italiano' },
-    { id: 'ro', label: 'Română' },
-    { id: 'sv', label: 'Svenska' },
-    { id: 'vi', label: 'Tiếng Việt' },
-    { id: 'lol', label: 'LOLCAT' },
-]
-
-$: currentLocale =
-    $locale !== null
-        ? languages.find((e) => e.id === $locale.substring(0, 3)) || {
-              // substring 3 allows for lolcat
-              id: 'en',
-              label: 'English',
-          }
-        : ''
-
-$: locales = languages.filter((e) => e.id !== currentLocale.id)
-
-function changeLocale(lang) {
-    locale.set(lang)
-    console.log('Locale changed to ' + lang)
-}
-
-function toggleLocaleDropdown() {
-    dropDownMenu.classList.toggle('hidden')
-    menuOpen = !menuOpen
-}
 
 let commit = []
 let commits = []
@@ -69,8 +33,8 @@ onMount(async () => {
 })
 </script>
 
-<footer class="text-left text-gray-400">
-    <div class="flex items-center justify-center p-6 lg:justify-center">
+<footer class="mb-2 text-left text-gray-400">
+    <div class="flex items-center justify-center lg:justify-center">
         <div class="px-3 text-center">
             <div class="mb-3">
                 <div class="mb-3">
@@ -98,7 +62,7 @@ onMount(async () => {
                     •
                     <a
                         class=" text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
-                        href="https://wanderer.moe/privacy-policy">Privacy</a>
+                        href="/privacy-policy">Privacy</a>
                     •
                     <a
                         class=" text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
@@ -126,43 +90,8 @@ onMount(async () => {
                         </p>
                     </a>
                 {/if}
-
-                <div class="select-none p-3">
-                    <div
-                        class="relative flex w-full cursor-pointer select-none items-center justify-center rounded-xl bg-main-700 p-1"
-                        on:keypress="{toggleLocaleDropdown}"
-                        on:click="{toggleLocaleDropdown}">
-                        <img
-                            class="mr-2 h-4 w-4 rounded-lg"
-                            alt="{currentLocale.label}"
-                            src="https://cdn.wanderer.moe/locales/{currentLocale.id}.png" />
-                        <span class="text-white">{currentLocale.label}</span>
-                        <div
-                            class="absolute bottom-8 hidden w-full"
-                            bind:this="{dropDownMenu}">
-                            <div
-                                class="mb-2 grid grid-cols-1 rounded-xl bg-main-700">
-                                {#each locales as locale}
-                                    <div
-                                        class="flex items-center justify-center p-1"
-                                        on:keypress="{() =>
-                                            changeLocale(locale.id)}"
-                                        on:click="{() =>
-                                            changeLocale(locale.id)}">
-                                        <img
-                                            class="mr-2 h-4 w-4 rounded-lg"
-                                            alt="{locale.label}"
-                                            src="https://cdn.wanderer.moe/locales/{locale.id}.png" />
-                                        <span
-                                            class="cursor-pointer text-gray-400 hover:text-white"
-                                            >{locale.label}</span>
-                                    </div>
-                                {/each}
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <LocaleDropdown />
         </div>
     </div>
 </footer>

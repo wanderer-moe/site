@@ -1,0 +1,80 @@
+<script>
+import { onMount } from 'svelte'
+import { fly } from 'svelte/transition'
+import { cubicOut, quintOut } from 'svelte/easing'
+import { t, locale } from 'svelte-i18n'
+
+let menuOpen = false
+
+// TODO: finish correct RTL arabic support
+// { id: "ar", label: "العربية" }
+
+const languages = [
+    { id: 'en', label: 'English' },
+    { id: 'nl', label: 'Nederlands' },
+    { id: 'ja', label: '日本語' },
+    { id: 'it', label: 'Italiano' },
+    { id: 'ro', label: 'Română' },
+    { id: 'sv', label: 'Svenska' },
+    { id: 'vi', label: 'Tiếng Việt' },
+    { id: 'lol', label: 'LOLCAT' },
+]
+
+$: currentLocale =
+    $locale !== null
+        ? languages.find((e) => e.id === $locale.substring(0, 3)) || {
+              // substring 3 allows for lolcat
+              id: 'en',
+              label: 'English',
+          }
+        : ''
+
+$: locales = languages
+
+function changeLocale(lang) {
+    locale.set(lang)
+    console.log('Locale changed to ' + lang)
+}
+</script>
+
+<div class="select-none p-3">
+    <div
+        class="relative mx-auto flex w-80 cursor-pointer select-none items-center justify-center rounded-xl">
+        <div
+            on:keypress="{() => (menuOpen = !menuOpen)}"
+            on:click="{() => (menuOpen = !menuOpen)}"
+            class="flex w-full items-center justify-center rounded-xl border border-main-400 bg-main-700 p-1 transition-colors duration-150 hover:border-main-300 hover:bg-main-600">
+            <img
+                class="mr-2 h-4 w-4 rounded-md"
+                alt="{currentLocale.label}"
+                src="https://cdn.wanderer.moe/locales/{currentLocale.id}.png" />
+            <span class="text-white">{currentLocale.label}</span>
+        </div>
+        {#if menuOpen}
+            <div
+                in:fly="{{ y: 20, easing: quintOut, duration: 200 }}"
+                out:fly="{{ y: 20, easing: cubicOut, duration: 200 }}"
+                class="absolute bottom-8 z-20 mb-2 w-full">
+                <div
+                    class=" grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-700 p-1 transition-colors duration-150 sm:grid-cols-2">
+                    {#each locales as locale}
+                        <div
+                            class="flex items-center p-1 text-left {locale.id ===
+                            currentLocale.id
+                                ? 'bg-main-500 hover:bg-main-400'
+                                : 'hover:bg-main-600'} rounded-lg transition-colors duration-200"
+                            on:keypress="{() => changeLocale(locale.id)}"
+                            on:click="{() => changeLocale(locale.id)}">
+                            <img
+                                class="mr-2 h-4 w-4 rounded-md"
+                                alt="{locale.label}"
+                                src="https://cdn.wanderer.moe/locales/{locale.id}.png" />
+                            <span class="cursor-pointer text-gray-400"
+                                >{locale.label}</span>
+                        </div>
+                    {/each}
+                </div>
+            </div>
+        {/if}
+    </div>
+</div>

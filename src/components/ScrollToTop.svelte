@@ -25,13 +25,13 @@ function scrollToTop() {
 
 {#if buttonVisible}
     <div
-        class="fixed bottom-0 right-0 z-50 mb-4 mr-4"
+        class="fixed bottom-0 right-0 z-50 mb-9 mr-7"
         in:fade="{{ duration: 150 }}"
         out:fade="{{ duration: 150 }}">
         <button
-            class="rounded-full bg-main-600 px-4 py-2 font-bold text-white transition-colors hover:bg-main-700"
+            class="rounded-full bg-main-600 px-3 py-2 font-bold text-white transition-colors hover:bg-main-700"
             on:click="{scrollToTop}">
-            <i class="fas fa-arrow-up text-lg"></i>
+            <i class="fas fa-chevron-up text-lg"></i>
         </button>
     </div>
 {/if}
