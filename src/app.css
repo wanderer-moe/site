@@ -30,6 +30,10 @@
         @apply text-current;
     }
 
+    .btn {
+        @apply rounded-md bg-accent-300 p-1 text-white transition-colors duration-150 hover:bg-accent-200 focus:bg-accent-200;
+    }
+
     @screen sm {
         body {
             @apply text-base;

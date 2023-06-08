@@ -100,18 +100,16 @@ onMount(async () => {
         <div class="relative z-10 px-2 md:px-12 lg:px-24">
             <div class="mb-2 rounded-lg bg-main-400 p-2 text-white">
                 <div class="mb-3 flex flex-wrap gap-2 text-sm">
-                    <button
-                        class="mt-2 rounded-lg bg-accent-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
-                        on:click="{() => randomize()}">
+                    <button class="btn p-2" on:click="{() => randomize()}">
                         <i class="fa fa-random"></i> Randomize
                     </button>
                     <button
-                        class="mt-2 rounded-lg bg-accent-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
+                        class="btn p-2"
                         on:click="{copyToClipboard($options)}">
                         <i class="fa-regular fa-clipboard"></i> Copy
                     </button>
                     <button
-                        class="mt-2 rounded-lg bg-accent-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
+                        class="btn p-2"
                         on:click="{() =>
                             options.update((opts) =>
                                 opts.map((opt) => ({ ...opt, locked: true }))
@@ -119,7 +117,7 @@ onMount(async () => {
                         <i class="fa fa-unlock"></i> Lock All
                     </button>
                     <button
-                        class="mt-2 rounded-lg bg-accent-400 bg-opacity-70 p-2.5 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
+                        class="btn p-2"
                         on:click="{() =>
                             options.update((opts) =>
                                 opts.map((opt) => ({ ...opt, locked: false }))
@@ -137,7 +135,7 @@ onMount(async () => {
                                     </p>
                                     <div class="flex items-center">
                                         <button
-                                            class="mr-2 rounded-lg bg-accent-400 bg-opacity-70 p-1 px-2 py-1 pl-2 pr-2 font-semibold text-white hover:bg-accent-500 focus:shadow focus:outline-none"
+                                            class="btn mr-2 p-2"
                                             on:click="{() =>
                                                 toggleLock(option)}">
                                             {#if option.locked}
@@ -151,7 +149,7 @@ onMount(async () => {
                                             class="h-10 w-full rounded-lg bg-main-600 text-center text-indigo-400 {option.value &&
                                             option.locked
                                                 ? 'text-red-500'
-                                                : 'text-indigo-400'} focus:shadow focus:outline-none"
+                                                : 'text-accent-500'} focus:shadow focus:outline-none"
                                             value="{option.value}"
                                             readonly />
                                     </div>

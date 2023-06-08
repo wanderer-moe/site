@@ -73,7 +73,7 @@ const currentYear = new Date().getFullYear()
                         class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                         href="https://git.wanderer.moe/">GitHub</a>
                     •
-                    <a 
+                    <a
                         href="/contributors"
                         class="animate-text cursor-pointer bg-gradient-to-tr from-accent-300 to-accent-100 bg-clip-text text-sm text-transparent hover:font-bold">
                         Contributors

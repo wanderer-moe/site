@@ -40,7 +40,7 @@ If you have assets to share, please fill out the [Asset Request Form](https://wa
 
 ## Contributing to Translations
 
-Translations are handled by [Crowdin](https://crowdin.com/), you will need to create an account on Crowdin and send me a message on discord (dromzeh#1337) or email: [marcel@dromzeh.dev](marcel@dromzeh.dev) for access.
+Translations are handled by [Crowdin](https://crowdin.com/), you will need to create an account on Crowdin and send me a message on discord (@dromzeh) or email: [marcel@dromzeh.dev](marcel@dromzeh.dev) for access.
 
 ## Commit Message Guidelines
 

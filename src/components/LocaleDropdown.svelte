@@ -39,7 +39,7 @@ function changeLocale(lang) {
 
 <div class="select-none p-3">
     <div
-        class="relative mx-auto flex w-80 cursor-pointer select-none items-center justify-center rounded-xl">
+        class="relative z-20 mx-auto flex w-80 cursor-pointer select-none items-center justify-center rounded-xl">
         <div
             on:keypress="{() => (menuOpen = !menuOpen)}"
             on:click="{() => (menuOpen = !menuOpen)}"
@@ -52,8 +52,8 @@ function changeLocale(lang) {
         </div>
         {#if menuOpen}
             <div
-                in:fly="{{ y: 20, easing: quintOut, duration: 200 }}"
-                out:fly="{{ y: 20, easing: cubicOut, duration: 200 }}"
+                in:fly="{{ y: 15, easing: quintOut, duration: 200 }}"
+                out:fly="{{ y: 10, easing: cubicOut, duration: 200 }}"
                 class="absolute bottom-8 z-20 mb-2 w-full">
                 <div
                     class=" grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-700 p-1 transition-colors duration-150 sm:grid-cols-2">
@@ -74,7 +74,7 @@ function changeLocale(lang) {
                         </div>
                     {/each}
                     <div
-                        class="col-span-1 mt-1 flex items-center justify-center rounded-lg bg-accent-400 p-1 transition-colors duration-200 hover:bg-accent-300 sm:col-span-2">
+                        class="btn col-span-1 mt-1 flex items-center justify-center p-1 sm:col-span-2">
                         <a
                             href="https://github.com/wanderer-moe/site/blob/development/CONTRIBUTING.md#contributing-to-translations">
                             <span class=" text-white">
@@ -87,3 +87,11 @@ function changeLocale(lang) {
         {/if}
     </div>
 </div>
+
+{#if menuOpen}
+    <div
+        class="fixed left-0 top-0 z-10 h-full w-full"
+        on:click="{() => (menuOpen = false)}"
+        on:keypress="{() => (menuOpen = false)}">
+    </div>
+{/if}

@@ -1,6 +1,6 @@
 <script>
-import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
+import { fade } from 'svelte/transition'
 
 export let data
 const { contributors } = data
@@ -75,7 +75,10 @@ function getTopmostCategory(contributor) {
             <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
                 <div class="col-span-3 gap-4">
                     {#each Object.entries(categories) as [category, { description, roles }]}
-                        <div id="{category}" class="mb-8">
+                        <div
+                            id="{category}"
+                            class="mb-8"
+                            in:fade="{{ duration: 300 }}">
                             <p class="mb-2 text-3xl font-bold text-white">
                                 {category}
                             </p>
@@ -87,14 +90,25 @@ function getTopmostCategory(contributor) {
                                 {#each contributors.filter((contributor) => roles.some( (role) => contributor.roles.includes(role) ) && getTopmostCategory(contributor) === category) as contributor}
                                     <div
                                         class="relative flex flex-col items-center justify-center overflow-hidden rounded-md bg-main-500 bg-cover p-2 text-white transition ease-in-out hover:scale-105">
-                                        <img
-                                            src="{contributor.avatar}"
-                                            alt="{contributor.username} avatar"
-                                            class="mb-1 h-16 w-16 rounded-full" />
+                                        <a
+                                            href="https://discord.com/users/{contributor.id}"
+                                            target="_blank">
+                                            <img
+                                                src="{contributor.avatar}"
+                                                alt="{contributor.username} avatar"
+                                                class="mb-1 h-16 w-16 rounded-full object-left" />
+                                        </a>
                                         <p
                                             class="mb-1 text-center text-sm font-bold text-white">
                                             {contributor.username}
+                                            {#if contributor.globalname && contributor.globalname !== contributor.username}
+                                                <span
+                                                    class="mb-1 text-center text-xs font-semibold text-gray-400">
+                                                    aka "{contributor.globalname}"
+                                                </span>
+                                            {/if}
                                         </p>
+
                                         <div
                                             class="flex flex-wrap justify-center gap-x-1 gap-y-1">
                                             {#each contributor.roles as role}

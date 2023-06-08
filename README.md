@@ -62,7 +62,7 @@ All pushes to the `development` branch is deployed to the `beta` subdomain [here
 ## Contributing
 
 - **Development**: All contributions are welcome. Please make all pull requests to the `development` branch!
-- **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent on Discord (dromzeh#1337) or email: [marcel@dromzeh.dev][mail].
+- **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent on Discord (@dromzeh) or email: [marcel@dromzeh.dev][mail].
 
 A more detailed guide on contributing can be found [here][Contributing].
 
