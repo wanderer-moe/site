@@ -47,7 +47,7 @@ export let closeContribute
                             All donations go directly towards server costs,
                             maintenance, and development of new assets &
                             features for wanderer.moe. This project will never
-                            be for-profit—our sole goal is to simply provide
+                            be for-profit - our sole goal is to simply provide
                             resources for this community.
                         </p>
                         <p class="text-sm">
@@ -55,8 +55,8 @@ export let closeContribute
                                 class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                                 target="_blank"
                                 href="https://dromzeh.dev/posts/wanderer-moe-website-breakdown/"
-                                >blog post here</a> about the website, breaking down
-                            both cost and functionality.
+                                >blog post here</a> breaking down how the site is
+                            built, maintained and hosted.
                         </p>
                         <p class="text-sm">
                             If you want to help contribute by providing assets

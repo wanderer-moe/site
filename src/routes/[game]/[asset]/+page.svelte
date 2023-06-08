@@ -316,8 +316,7 @@ onMount(() => {
                     </div>
                 </div>
                 <div class="w-full rounded-md">
-                    <p
-                        class="text-center text-sm font-semibold text-gray-400">
+                    <p class="text-center text-sm font-semibold text-gray-400">
                         {$t('asset.main', {
                             values: {
                                 filteredImagesCount: filteredImages.length,
@@ -327,14 +326,12 @@ onMount(() => {
                         })}
                     </p>
                     {#if isMobile}
-                        <p
-                            class="mt-2 text-center text-sm text-red-100">
+                        <p class="mt-2 text-center text-sm text-red-100">
                             {$t('asset.onMobile')}
                         </p>
                     {/if}
                     {#if statusText !== ''}
-                        <p
-                            class="mt-2 text-center text-sm text-gray-400">
+                        <p class="mt-2 text-center text-sm text-gray-400">
                             {statusText}
                         </p>
                     {/if}
@@ -394,14 +391,12 @@ onMount(() => {
                                             </p>
                                         </div>
                                     </div>
-                                    <p
-                                        class="text-xs font-bold uppercase">
+                                    <p class="text-xs font-bold uppercase">
                                         {image.name.includes('fanmade')
                                             ? `${$t('asset.fanmadeAsset')}`
                                             : `${$t('asset.officialAsset')}`}
                                     </p>
-                                    <p
-                                        class="text-xs uppercase">
+                                    <p class="text-xs uppercase">
                                         {$t('details.dateUploaded', {
                                             values: {
                                                 date: formatDateReadable(
@@ -420,8 +415,7 @@ onMount(() => {
                                             onclick="{(event) => {
                                                 event.stopPropagation()
                                             }}">
-                                            <i
-                                                class="fa-solid fa-download"></i>
+                                            <i class="fa-solid fa-download"></i>
                                             {$t('asset.downloadSize', {
                                                 values: {
                                                     size: bytesToFileSize(

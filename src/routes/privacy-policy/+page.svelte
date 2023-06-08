@@ -12,8 +12,18 @@
                 <div class="m-2 grid gap-3">
                     <p class="text-white">
                         Cloudflare Web Analytics is used to collect analytics
-                        data, but is anonymized and not traceable back to any
-                        specific user.
+                        data, but is <span class="font-semibold"
+                            >anonymized and not traceable back to any specific
+                            user.</span>
+                    </p>
+                    <p class="text-white">
+                        As of 8th June 2023, anonymized data about requests made
+                        to the Website's API will be collected.
+                        <span class="font-semibold"
+                            >It is impossible to trace this data back to any
+                            specific user.</span>
+                        This is used to store most popular games and assets pages,
+                        to sort by popularity.
                     </p>
                     <p class="text-white">
                         Your IP address <b
