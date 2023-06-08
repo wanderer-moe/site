@@ -1,36 +1,36 @@
 <script>
-import { onMount } from 'svelte'
+// import { onMount } from 'svelte'
 import { locale, t } from 'svelte-i18n'
-import { getCommitsRecent } from '@/lib/utils/github'
+// import { getCommitsRecent } from '@/lib/utils/github'
 import { formatDateReadable } from '@/lib/utils/helpers'
-import Contribute from './Contribute.svelte'
+// import Contribute from './Contribute.svelte'
 import LocaleDropdown from './LocaleDropdown.svelte'
 
-let contributeOpen = false
+// let contributeOpen = false
 
 const currentYear = new Date().getFullYear()
 
-let commit = []
-let commits = []
-let authorInfo = {
-    date: '',
-    name: '',
-    username: '',
-}
-let recentCommitMsg = ''
-let sha
+// let commit = []
+// let commits = []
+// let authorInfo = {
+//     date: '',
+//     name: '',
+//     username: '',
+// }
+// let recentCommitMsg = ''
+// let sha
 
-onMount(async () => {
-    commits = await getCommitsRecent(1)
-    try {
-        commit = commits[0]
-        authorInfo = commit.authorInfo
-        recentCommitMsg = commit.commitMsg
-        sha = commit.shaSpliced
-    } catch (error) {
-        commit = []
-    }
-})
+// onMount(async () => {
+//     commits = await getCommitsRecent(1)
+//     try {
+//         commit = commits[0]
+//         authorInfo = commit.authorInfo
+//         recentCommitMsg = commit.commitMsg
+//         sha = commit.shaSpliced
+//     } catch (error) {
+//         commit = []
+//     }
+// })
 </script>
 
 <footer class="mb-2 text-left text-gray-400">
@@ -73,15 +73,14 @@ onMount(async () => {
                         class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
                         href="https://git.wanderer.moe/">GitHub</a>
                     •
-                    <span
-                        on:click="{() => (contributeOpen = !contributeOpen)}"
-                        on:keypress="{() => (contributeOpen = !contributeOpen)}"
-                        class="animate-text cursor-pointer bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-sm text-transparent hover:font-bold">
-                        Contribute
-                    </span>
+                    <a 
+                        href="/contributors"
+                        class="animate-text cursor-pointer bg-gradient-to-tr from-accent-300 to-accent-100 bg-clip-text text-sm text-transparent hover:font-bold">
+                        Contributors
+                    </a>
                 </div>
 
-                {#if authorInfo && recentCommitMsg && sha}
+                <!-- {#if authorInfo && recentCommitMsg && sha}
                     <a href="https://git.wanderer.moe/site/commit/{sha}">
                         <p class="mt-4 text-xs text-gray-500">
                             <i class="fab fa-github"></i> Last updated on {formatDateReadable(
@@ -89,13 +88,13 @@ onMount(async () => {
                             )} by {authorInfo.username} ({authorInfo.name}) : "{recentCommitMsg}"
                         </p>
                     </a>
-                {/if}
+                {/if} -->
             </div>
             <LocaleDropdown />
         </div>
     </div>
 </footer>
 
-{#if contributeOpen}
+<!-- {#if contributeOpen}
     <Contribute closeContribute="{() => (contributeOpen = false)}" />
-{/if}
+{/if} -->

@@ -10,6 +10,7 @@ export async function load({ params }) {
             const data = {
                 game,
                 subFolders: response.locations,
+                lastUploaded: response.lastUploaded,
             }
             return data
         }

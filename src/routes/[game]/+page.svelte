@@ -1,10 +1,10 @@
 <script>
-import { fixCasing } from '@/lib/utils/helpers.js'
+import { fixCasing, formatDateReadable } from '@/lib/utils/helpers.js'
 import { t } from 'svelte-i18n'
 
 export let data
 
-const { subFolders, game } = data
+const { subFolders, game, lastUploaded } = data
 </script>
 
 <svelte:head>
@@ -22,23 +22,36 @@ const { subFolders, game } = data
             <div
                 class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
                 <div
-                    class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+                    class="mx-auto px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
                     <div
                         class="flex flex-col items-center justify-between xl:flex-row">
                         <div>
-                            <h2
-                                class="max-w-lg text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                {fixCasing(game)}
-                            </h2>
-                            <p
-                                class="max-w-xl text-xl font-semibold text-white">
-                                {$t('game.main', {
-                                    values: {
-                                        game: fixCasing(game),
-                                        availableCategories: subFolders.length,
-                                    },
-                                })}
-                            </p>
+                            <div class="mb-4">
+                                <p
+                                    class="max-w-xl text-sm font-semibold text-white">
+                                    {$t('details.lastUpdated', {
+                                        values: {
+                                            date: formatDateReadable(
+                                                lastUploaded
+                                            ),
+                                        },
+                                    })}
+                                </p>
+                                <p
+                                    class="max-w-lg text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
+                                    {fixCasing(game)}
+                                </p>
+                                <p
+                                    class="max-w-xl text-xl font-semibold text-white">
+                                    {$t('game.main', {
+                                        values: {
+                                            game: fixCasing(game),
+                                            availableCategories:
+                                                subFolders.length,
+                                        },
+                                    })}
+                                </p>
+                            </div>
                             <p
                                 class="max-w-xl text-sm font-semibold text-white">
                                 {$t('game.info')}
