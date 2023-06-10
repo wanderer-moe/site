@@ -18,20 +18,20 @@ const categories = {
         description: 'Contributing with assets and translations',
         roles: ['Translator', 'Contributor'],
     },
-    Supporters:{
+    Supporters: {
         description: 'Really cool people',
         roles: ['Server Booster'],
-    }
+    },
 }
 
 const roleColors = {
     'Project Lead': 'bg-indigo-300',
-    'Developer': 'bg-indigo-200',
-    'Admin': 'bg-blue-300',
+    Developer: 'bg-indigo-200',
+    Admin: 'bg-blue-300',
     'Senior Moderator': 'bg-purple-300',
-    'Moderator': 'bg-purple-200',
-    'Translator': 'bg-violet-100',
-    'Contributor': 'bg-violet-200',
+    Moderator: 'bg-purple-200',
+    Translator: 'bg-violet-100',
+    Contributor: 'bg-violet-200',
     'Server Booster': 'bg-yellow-200',
 }
 

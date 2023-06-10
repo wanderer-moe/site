@@ -6,7 +6,7 @@
 ![Stars Badge]
 ![Svelte Badge]
 
-[**wanderer.moe**](https://wanderer.moe) is a **centralized database** of various game assets — built using [**SvelteKit**](https://kit.svelte.dev/), [**TailwindCSS**](https://tailwindcss.com/), and [**Node.js**](https://nodejs.org/en) (hosted with [**Cloudflare**](https://www.cloudflare.com/) Pages, Workers, and R2).
+[**wanderer.moe**](https://wanderer.moe) is a **centralized database** of various game assets — built using [**SvelteKit**](https://kit.svelte.dev/), [**TailwindCSS**](https://tailwindcss.com/), and [**Node.js**](https://nodejs.org/en) (powered with [**Cloudflare**](https://www.cloudflare.com/) Pages, Workers, R2 & D1).
 
 </div>
 
@@ -51,6 +51,7 @@ View `src/hooks.server.ts` for the current redirects.
     ```bash
     npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build
     ```
+
 - **Build Output Directory**:
 
     ```bash
