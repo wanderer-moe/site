@@ -34,9 +34,13 @@ const delayedPreloading = derived(navigating, (_, set) => {
 startClient()
 
 $: segment = $page.url.pathname.substring(1).split('/')[0] // gets the first segment of the URL (e.g. /blog/1 => blog)
+// $: console.log(segment)
 </script>
 
-<ScrollToTop />
+{#if segment}
+    <!-- scroll to top button only appears when there is a segment in the URL -->
+    <ScrollToTop />
+{/if}
 <Nav />
 <main>
     <slot />

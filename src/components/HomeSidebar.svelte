@@ -1,8 +1,15 @@
 <script>
 import { t } from 'svelte-i18n'
 import { fixCasing } from '@/lib/utils/helpers.js'
+import { getDiscordData } from '@/lib/utils/discord.js'
+import { onMount } from 'svelte'
+let onlineusers = '???'
 
-export let onlineusers, OCGeneratorsLocations
+onMount(async () => {
+    onlineusers = await getDiscordData()
+})
+
+export let OCGeneratorsLocations
 
 const sideBarEntries = [
     {

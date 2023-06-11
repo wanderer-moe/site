@@ -14,19 +14,12 @@
 </style>
 
 <script>
-import { getDiscordData } from '@/lib/utils/discord.js'
 import { fixCasing } from '@/lib/utils/helpers.js'
-import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
 import HomeSidebar from '../components/HomeSidebar.svelte'
 
 let focusedImageElement
-let onlineusers
 export let data
-
-onMount(async () => {
-    onlineusers = await getDiscordData()
-})
 
 const { allGames, allOCGenerators } = data
 const OCGeneratorsLocations = allOCGenerators.locations
@@ -125,9 +118,7 @@ function handleImageChange(newImage) {
                         </div>
                     </div>
                 </div>
-                <HomeSidebar
-                    onlineusers="{onlineusers}"
-                    OCGeneratorsLocations="{OCGeneratorsLocations}" />
+                <HomeSidebar OCGeneratorsLocations="{OCGeneratorsLocations}" />
             </div>
         </div>
     </div>
