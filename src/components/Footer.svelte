@@ -1,36 +1,6 @@
 <script>
-// import { onMount } from 'svelte'
-import { locale, t } from 'svelte-i18n'
-// import { getCommitsRecent } from '@/lib/utils/github'
-import { formatDateReadable } from '@/lib/utils/helpers'
-// import Contribute from './Contribute.svelte'
-import LocaleDropdown from './LocaleDropdown.svelte'
-
-// let contributeOpen = false
-
+import { t } from 'svelte-i18n'
 const currentYear = new Date().getFullYear()
-
-// let commit = []
-// let commits = []
-// let authorInfo = {
-//     date: '',
-//     name: '',
-//     username: '',
-// }
-// let recentCommitMsg = ''
-// let sha
-
-// onMount(async () => {
-//     commits = await getCommitsRecent(1)
-//     try {
-//         commit = commits[0]
-//         authorInfo = commit.authorInfo
-//         recentCommitMsg = commit.commitMsg
-//         sha = commit.shaSpliced
-//     } catch (error) {
-//         commit = []
-//     }
-// })
 </script>
 
 <footer class="border-t border-main-300 bg-main-500 p-3 text-gray-400">

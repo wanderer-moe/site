@@ -1,6 +1,5 @@
 <script>
 import { onMount } from 'svelte'
-// import { cubicOut, quintOut } from "svelte/easing"
 import { fade } from 'svelte/transition'
 
 let buttonVisible = false

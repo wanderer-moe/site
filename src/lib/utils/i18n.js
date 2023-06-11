@@ -25,12 +25,10 @@ const htmlLocaleCode = {
     ro: 'ro',
     sv: 'sv',
     vi: 'vi',
-    // fr: "fr",
 }
 
 const dayjsLocales = {
     en: () => import('dayjs/locale/en'),
-    // fr: () => import("dayjs/locale/fr"),
     nl: () => import('dayjs/locale/de'),
     ja: () => import('dayjs/locale/ja'),
     lol: () => import('dayjs/locale/en'),
