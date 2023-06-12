@@ -3,10 +3,14 @@ import { t } from 'svelte-i18n'
 import { fixCasing } from '@/lib/utils/helpers.js'
 import { getDiscordData } from '@/lib/utils/discord.js'
 import { onMount } from 'svelte'
-let onlineusers = '???'
+import { writable } from 'svelte/store'
+
+let onlineusers = writable('???')
 
 onMount(async () => {
-    onlineusers = await getDiscordData()
+    const data = await getDiscordData()
+    // console.log(data)
+    onlineusers.set(data)
 })
 
 export let OCGeneratorsLocations
@@ -29,9 +33,6 @@ const sideBarEntries = [
         name: 'Discord',
         accentRGBA: 'rgba(121, 133, 216, 0.1)',
         iconClass: 'fa-brands fa-discord',
-        shortDesc: $t('home.discord.shortDesc', {
-            values: { onlineCount: onlineusers },
-        }),
         desc: $t('home.discord.desc'),
         buttons: [
             {
@@ -71,6 +72,10 @@ const sideBarEntries = [
         ],
     },
 ]
+
+$: discordShortDesc = $t('home.discord.shortDesc', {
+    values: { onlineCount: $onlineusers },
+})
 </script>
 
 <div class="col-span-2 gap-4 sm:col-span-1">
@@ -86,9 +91,15 @@ const sideBarEntries = [
                     <i class="{entry.iconClass}"></i>
                     {entry.name}
                 </p>
-                <p class="text-left text-gray-400">
-                    {entry.shortDesc}
-                </p>
+                {#if entry.shortDesc}
+                    <p class="text-left text-gray-400">
+                        {entry.shortDesc}
+                    </p>
+                {:else}
+                    <p class="text-left text-gray-400">
+                        {discordShortDesc}
+                    </p>
+                {/if}
                 <p class="text-left text-gray-200">
                     {entry.desc}
                 </p>
