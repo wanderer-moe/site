@@ -61,7 +61,7 @@ const currentYear = new Date().getFullYear()
                                 class="hover:font-semibold hover:text-white"
                                 >Asset Request Form</a>
                         </li>
-                        <li>
+                        <li class="mb-4">
                             <a
                                 href="/contributors"
                                 class="hover:font-semibold hover:text-white"
@@ -73,9 +73,22 @@ const currentYear = new Date().getFullYear()
         </div>
         <hr class="my-6 border-main-300 sm:mx-auto lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm sm:text-center"
-                >© 2022-{currentYear} — {$t('footer.fanmadeNotice')}
-            </span>
+            <div>
+                <p class="text-sm">
+                    © 2022-{currentYear} — {$t('footer.fanmadeNotice')}
+                </p>
+                <p class="text-xs">
+                    Created with <i class="fas fa-heart text-red-500"></i> by
+                    <a
+                        href="https://dromzeh.dev/?ref=wanderer.moe"
+                        class="hover:font-semibold hover:text-white">dromzeh</a
+                    >, powered by
+                    <a
+                        href="https://cloudflare.com/"
+                        class="hover:font-semibold hover:text-white"
+                        >Cloudflare</a>
+                </p>
+            </div>
             <div class="mt-4 flex justify-center">
                 <LocaleDropdown />
             </div>
