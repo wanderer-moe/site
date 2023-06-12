@@ -24,12 +24,14 @@ onMount(async () => {
 </script>
 
 <a href="https://status.wanderer.moe/">
-    <div
-        class="mt-4 flex w-full items-center rounded-xl p-2 text-sm transition-colors duration-150 hover:cursor-pointer hover:bg-main-600">
-        <span class="mr-2"> Status: </span>
-        <span class="{responseColours[$success]} transition-colors">
-            <i class="fas fa-circle"></i>
-            {successText[$success]}
-        </span>
+    <div class="mx-auto flex w-80">
+        <div
+            class="flex w-full cursor-pointer items-center justify-center rounded-xl border border-main-400 bg-main-700 p-1 transition-colors duration-150 hover:border-main-300 hover:bg-main-600">
+            <span class="mr-2"> Status: </span>
+            <span class="{responseColours[$success]} transition-colors">
+                <i class="fas fa-circle"></i>
+                {successText[$success]}
+            </span>
+        </div>
     </div>
 </a>

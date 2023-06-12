@@ -37,7 +37,7 @@ function changeLocale(lang) {
 }
 </script>
 
-<div class="select-none p-3">
+<div class="select-none">
     <div
         class="relative z-20 mx-auto flex w-80 cursor-pointer select-none items-center justify-center rounded-xl">
         <div

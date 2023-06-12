@@ -18,7 +18,10 @@ let contributeOpen = false
                     <span class="text text-xl font-semibold text-white"
                         >wanderer.moe</span
                     ></a>
-                <Status />
+                <div class="mt-2 grid gap-2">
+                    <LocaleDropdown />
+                    <Status />
+                </div>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
                 <div>
@@ -72,6 +75,7 @@ let contributeOpen = false
                         </li>
                         <li class="mb-4">
                             <p
+                                on:keypress="{() => (contributeOpen = true)}"
                                 on:click="{() => (contributeOpen = true)}"
                                 class="cursor-pointer hover:font-semibold hover:text-white">
                                 How to Contribute
@@ -82,7 +86,7 @@ let contributeOpen = false
             </div>
         </div>
         <hr class="my-6 border-main-300 sm:mx-auto lg:my-8" />
-        <div class="sm:flex sm:items-center sm:justify-between">
+        <div class="text-center">
             <div>
                 <p class="text-sm">
                     © 2022-{currentYear} — {$t('footer.fanmadeNotice')}
@@ -98,9 +102,6 @@ let contributeOpen = false
                         class="hover:font-semibold hover:text-white"
                         >Cloudflare</a>
                 </p>
-            </div>
-            <div class="mt-4 flex justify-center">
-                <LocaleDropdown />
             </div>
         </div>
     </div>
