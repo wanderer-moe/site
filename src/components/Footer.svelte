@@ -1,6 +1,7 @@
 <script>
 import { t } from 'svelte-i18n'
 import LocaleDropdown from '@/components/LocaleDropdown.svelte'
+import Status from '@/components/Status.svelte'
 const currentYear = new Date().getFullYear()
 </script>
 
@@ -14,6 +15,7 @@ const currentYear = new Date().getFullYear()
                     <span class="text text-xl font-semibold text-white"
                         >wanderer.moe</span
                     ></a>
+                <Status />
             </div>
             <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
                 <div>
