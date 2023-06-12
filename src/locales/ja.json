@@ -60,10 +60,10 @@
     "details": {
         "lastUpdated": "最新のアップデートは{date}",
         "sortBy": "順にソート",
-        "dateUploaded": "Updated: {date}",
+        "dateUploaded": "直近アップデート: {date}",
         "sortByAlphabetical": "欧字で順 (A-Z)",
         "sortByAlphabeticalReverse": "逆欧字で順 (Z-A)",
-        "sortByUploaded": "Updated (Newest)",
+        "sortByUploaded": "直近アップデート順",
         "sortByUploadedReverse": "Updated (Oldest)",
         "sortBySize": "ファイルサイズ（最小が上）",
         "sortBySizeReverse": "ファイルサイズ（最大が上）"
