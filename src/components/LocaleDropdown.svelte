@@ -18,6 +18,7 @@ const languages = [
     { id: 'sv', label: 'Svenska' },
     { id: 'vi', label: 'Tiếng Việt' },
     { id: 'lol', label: 'LOLCAT' },
+    { id: 'ar', label: 'العربية' },
 ]
 
 $: currentLocale =

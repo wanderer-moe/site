@@ -25,6 +25,7 @@ const htmlLocaleCode = {
     ro: 'ro',
     sv: 'sv',
     vi: 'vi',
+    ar: 'ar',
 }
 
 const dayjsLocales = {
