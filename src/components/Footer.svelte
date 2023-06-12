@@ -31,7 +31,7 @@ const currentYear = new Date().getFullYear()
                             <a
                                 href="https://discord.wanderer.moe/"
                                 class="hover:font-semibold hover:text-white"
-                                >Discord</a>
+                                >Discord Server</a>
                         </li>
                     </ul>
                 </div>
@@ -43,6 +43,12 @@ const currentYear = new Date().getFullYear()
                                 href="/privacy-policy"
                                 class="hover:font-semibold hover:text-white"
                                 >Privacy Policy</a>
+                        </li>
+                        <li class="mb-4">
+                            <a
+                                href="/terms-of-service"
+                                class="hover:font-semibold hover:text-white"
+                                >Terms of Service</a>
                         </li>
                     </ul>
                 </div>
