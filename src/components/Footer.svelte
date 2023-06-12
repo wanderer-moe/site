@@ -2,7 +2,10 @@
 import { t } from 'svelte-i18n'
 import LocaleDropdown from '@/components/LocaleDropdown.svelte'
 import Status from '@/components/Status.svelte'
+import Contribute from '@/components/Contribute.svelte'
 const currentYear = new Date().getFullYear()
+
+let contributeOpen = false
 </script>
 
 <footer
@@ -67,6 +70,13 @@ const currentYear = new Date().getFullYear()
                                 class="hover:font-semibold hover:text-white"
                                 >Contributors</a>
                         </li>
+                        <li class="mb-4">
+                            <p
+                                on:click="{() => (contributeOpen = true)}"
+                                class="cursor-pointer hover:font-semibold hover:text-white">
+                                How to Contribute
+                            </p>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -95,3 +105,7 @@ const currentYear = new Date().getFullYear()
         </div>
     </div>
 </footer>
+
+{#if contributeOpen}
+    <Contribute closeContribute="{() => (contributeOpen = false)}" />
+{/if}
