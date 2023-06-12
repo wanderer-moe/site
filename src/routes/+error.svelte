@@ -26,9 +26,7 @@ import { page } from '$app/stores'
                 </p>
             {/if}
             <p class=" text-gray-400">
-                <a
-                    href="/"
-                    class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+                <a href="/" class="hover:font-semibold hover:text-white"
                     >{$t('errors.refresh')}
                 </a>
             </p>

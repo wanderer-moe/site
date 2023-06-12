@@ -40,7 +40,7 @@ export let closeContribute
                             <a
                                 href="https://buymeacoffee.com/marcelmd"
                                 target="_blank"
-                                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+                                class="hover:font-semibold hover:text-white"
                                 >donating</a> to help keep it running.
                         </p>
                         <p class="text-sm">
@@ -52,7 +52,7 @@ export let closeContribute
                         </p>
                         <p class="text-sm">
                             If you're interested in reading more, there's a <a
-                                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+                                class="hover:font-semibold hover:text-white"
                                 target="_blank"
                                 href="https://dromzeh.dev/posts/wanderer-moe-website-breakdown/"
                                 >blog post here</a> breaking down how the site is
@@ -62,17 +62,17 @@ export let closeContribute
                             If you want to help contribute by providing assets
                             for other users of the site (datamined/fan-made) or
                             for translations, please join the <a
-                                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+                                class="hover:font-semibold hover:text-white"
                                 target="_blank"
                                 href="https://discord.wanderer.moe/"
-                                >Discord server</a
+                                >discord server</a
                             >/send a DM to @dromzeh. You will be credited for
                             your contributions on the site and within the
                             Discord.
                         </p>
                         <p class="text-xs">
                             For any other inquires, <a
-                                class="text-neutral-100/80 hover:font-bold hover:text-neutral-100/90"
+                                class="hover:font-semibold hover:text-white"
                                 href="mailto:marcel@wanderer.moe"
                                 >send an email!</a>
                         </p>
