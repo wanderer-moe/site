@@ -64,7 +64,7 @@
         "sortByAlphabetical": "欧字で順 (A-Z)",
         "sortByAlphabeticalReverse": "逆欧字で順 (Z-A)",
         "sortByUploaded": "直近アップデート順",
-        "sortByUploadedReverse": "Updated (Oldest)",
+        "sortByUploadedReverse": "最古アップデート順",
         "sortBySize": "ファイルサイズ（最小が上）",
         "sortBySizeReverse": "ファイルサイズ（最大が上）"
     },
@@ -73,7 +73,7 @@
     },
     "viewImage": {
         "closeText": "何こをクリックでクロースください.",
-        "resolution": "Resolution: {resolution}"
+        "resolution": "解像度: {resolution}"
     },
     "faq": {
         "title": "FAQ",
@@ -83,9 +83,9 @@
         "downloadMultipleOrAllAnswer": "To download multiple assets, select the assets you want to download by clicking/tapping on them. Then click the 'Download Selected' button. To download all assets, click the 'Download All' button. This will save as a ZIP file in your Downloads folder.",
         "downloadOnMobile": "スマホでアセットダウンロードはどうやってか？",
         "downloadOnMobileAnswer": "Make sure that you are not viewing the website through social media applications and that you're using a dedicated browser. If you are on an iPhone, I recommend using Safari.",
-        "howToExtract": "How do I extract a ZIP file after downloading?",
+        "howToExtract": "ダウンロードした後に､どうし方でZIPファイルを解凍するの？",
         "howToExtractAnswer": " If you are on Windows, you can use 7zip to extract the files. If you are on Mac, you can use the built in Archive Utility. If you are on iPhone, tap on the ZIP file, open the folder it creates, select the images and then tap 'Save to Photos'. If you are on Android, you can use a file manager app to extract the files.",
-        "issueNotFound": "I have an issue that isn't listed here!",
+        "issueNotFound": "私の課題がここにありません！",
         "issueNotFoundAnswer": "If you have an issue that isn't listed here, you can join the Discord server and ask for help there!"
     },
     "errors": {
