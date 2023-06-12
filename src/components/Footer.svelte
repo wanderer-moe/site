@@ -19,8 +19,8 @@ let contributeOpen = false
                         >wanderer.moe</span
                     ></a>
                 <div class="mt-2 grid gap-2">
-                    <LocaleDropdown />
                     <Status />
+                    <LocaleDropdown />
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
@@ -78,7 +78,7 @@ let contributeOpen = false
                                 on:keypress="{() => (contributeOpen = true)}"
                                 on:click="{() => (contributeOpen = true)}"
                                 class="cursor-pointer hover:font-semibold hover:text-white">
-                                How to Contribute
+                                Contribute
                             </p>
                         </li>
                     </ul>

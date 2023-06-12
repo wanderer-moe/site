@@ -39,13 +39,14 @@ function changeLocale(lang) {
 
 <div class="select-none">
     <div
-        class="relative z-20 mx-auto flex w-80 cursor-pointer select-none items-center justify-center rounded-xl">
+        class="relative z-50 mx-auto flex w-80 cursor-pointer select-none items-center justify-center rounded-xl">
         <div
             on:keypress="{() => (menuOpen = !menuOpen)}"
             on:click="{() => (menuOpen = !menuOpen)}"
             class="flex w-full items-center justify-center rounded-xl border border-main-400 bg-main-700 p-1 transition-colors duration-150 hover:border-main-300 hover:bg-main-600">
+            <!-- <span>Language</span> -->
             <img
-                class="mr-2 h-4 w-4 rounded-md"
+                class="ml-2 mr-1 h-4 w-4 rounded-md"
                 alt="{currentLocale.label}"
                 src="https://cdn.wanderer.moe/locales/{currentLocale.id}.png" />
             <span class="text-white">{currentLocale.label}</span>
@@ -54,7 +55,7 @@ function changeLocale(lang) {
             <div
                 in:fly="{{ y: 15, easing: quintOut, duration: 200 }}"
                 out:fly="{{ y: 10, easing: cubicOut, duration: 200 }}"
-                class="absolute bottom-8 z-20 mb-2 w-full">
+                class="absolute bottom-8 z-50 mb-2 w-full">
                 <div
                     class=" grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-700 p-1 transition-colors duration-150 sm:grid-cols-2">
                     {#each locales as locale}
@@ -73,7 +74,7 @@ function changeLocale(lang) {
                                 >{locale.label}</span>
                         </div>
                     {/each}
-                    <div
+                    <!-- <div
                         class="btn col-span-1 mt-1 flex items-center justify-center p-1 sm:col-span-2">
                         <a
                             href="https://github.com/wanderer-moe/site/blob/development/CONTRIBUTING.md#contributing-to-translations">
@@ -81,7 +82,7 @@ function changeLocale(lang) {
                                 <i class="fas fa-external-link-alt text-sm"></i>
                                 Contribute towards translations
                             </span></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         {/if}
