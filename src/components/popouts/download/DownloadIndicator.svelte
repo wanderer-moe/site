@@ -16,7 +16,7 @@ let downloadCancelled = false
 
 export let game, asset, selectedItems, selected, images, closeDownload
 
-// TODO: seperate function into downloadFIles.js
+// TODO: seperate function into downloadFiles.js
 // handling multiple files
 async function downloadFiles(selected = false) {
     let zip = new JSZip()
@@ -62,14 +62,14 @@ async function downloadFiles(selected = false) {
             game
         )} files as a ZIP.`
         minimized = false
-        setTimeout(closeDownload, 5000) // automatically close after 5s
+        // setTimeout(closeDownload, 5000) // automatically close after 5s
     } catch (error) {
         console.error(error)
         statusText = `Error downloading ${fixCasing(game)} ${
             selected ? 'selected' : 'all'
         } files as a ZIP.`
         minimized = false
-        setTimeout(closeDownload, 5000) // close after 5s
+        // setTimeout(closeDownload, 5000) // close after 5s
     }
 }
 
@@ -89,23 +89,15 @@ onMount(async () => {
 
 {#if !minimized}
     <!-- TODO: fix scaling -->
-    <div
-        class="fixed bottom-0 left-0 z-30 ml-7"
-        in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
-        out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
+    <div class="fixed bottom-0 z-30 w-full sm:w-auto">
         <div class="relative z-50">
             <div
-                class="relative transform overflow-hidden rounded-lg bg-main-500 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                <div class="bg-main-500 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                class="relative m-2 transform overflow-hidden rounded-md border border-main-300 bg-main-500 text-left transition-all">
+                <div class="bg-main-500 p-4">
                     <div class="sm:flex sm:items-start">
-                        <div
-                            class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-accent-100/50 sm:mx-0 sm:h-10 sm:w-10">
-                            <i class="fa fa-download text-accent-300"></i>
-                        </div>
-                        <div
-                            class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                        <div class="text-center sm:text-left">
                             <p
-                                class="text-lg font-semibold leading-6 text-white">
+                                class="pt-4 text-lg font-semibold leading-6 text-white">
                                 {statusText}
                             </p>
                             <div
