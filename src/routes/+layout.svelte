@@ -7,7 +7,7 @@ import { startClient } from '@/lib/utils/i18n.js'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { derived } from 'svelte/store'
-import ScrollToTop from '@/components/nav/ScrollToTop.svelte'
+// import ScrollToTop from '@/components/nav/ScrollToTop.svelte'
 
 NProgress.configure({
     // https://github.com/rstacruz/nprogress#configuration
@@ -37,10 +37,6 @@ $: segment = $page.url.pathname.substring(1).split('/')[0] // gets the first seg
 // $: console.log(segment)
 </script>
 
-<!-- TODO: figure out location w/ downloadprogress component -->
-{#if segment}
-    <ScrollToTop />
-{/if}
 <Nav />
 <main>
     <slot />
