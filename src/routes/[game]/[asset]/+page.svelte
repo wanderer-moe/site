@@ -191,24 +191,26 @@ $: console.log(selectedItems)
                             <div
                                 class="flex flex-wrap items-center justify-center gap-1 text-sm">
                                 <!-- TODO: placement, hide downloadselected if no images are selected -->
-                                <button
-                                    on:click="{() => downloadFiles(true)}"
-                                    class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
-                                        'direction'
-                                    )}">
-                                    <i class="fa-solid fa-download"></i>
-                                    {#if selectedItems.length >= 1}
-                                        {$t('asset.downloadSelectedSize', {
-                                            values: {
-                                                size: bytesToFileSize(
-                                                    selectedFilesSize
-                                                ),
-                                            },
-                                        })}
-                                    {:else}
-                                        {$t('asset.downloadSelected')}
-                                    {/if}
-                                </button>
+                                {#if selectedItems.length >= 1}
+                                    <button
+                                        on:click="{() => downloadFiles(true)}"
+                                        class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
+                                            'direction'
+                                        )}">
+                                        <i class="fa-solid fa-download"></i>
+                                        {#if selectedItems.length >= 1}
+                                            {$t('asset.downloadSelectedSize', {
+                                                values: {
+                                                    size: bytesToFileSize(
+                                                        selectedFilesSize
+                                                    ),
+                                                },
+                                            })}
+                                        {:else}
+                                            {$t('asset.downloadSelected')}
+                                        {/if}
+                                    </button>
+                                {/if}
                                 <button
                                     on:click="{() => downloadFiles(false)}"
                                     class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
