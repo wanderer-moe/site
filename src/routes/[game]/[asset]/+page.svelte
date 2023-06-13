@@ -37,6 +37,7 @@ let imageFileSize = ''
 let totalImagesSizeHumanReadable = '?'
 let selectedFilesSize = 0
 
+// TODO: seperate sorting into its own component
 export const sortingOptions = [
     { name: 'dateNewest', text: $t('details.sortByUploaded') },
     { name: 'dateOldest', text: $t('details.sortByUploadedReverse') },
@@ -68,6 +69,7 @@ function changeSort(option) {
     updateFilter()
 }
 
+// TODO: seperate filtering functions
 // update filtered images based on search query and sorting option
 function updateFilter() {
     const hyphenatedQuery = query.toLowerCase().replace(/\s+/g, '-')
@@ -188,6 +190,7 @@ $: console.log(selectedItems)
                         <div class="w-full rounded-md text-white">
                             <div
                                 class="flex flex-wrap items-center justify-center gap-1 text-sm">
+                                <!-- TODO: placement, hide downloadselected if no images are selected -->
                                 <button
                                     on:click="{() => downloadFiles(true)}"
                                     class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
@@ -238,6 +241,7 @@ $: console.log(selectedItems)
             <div class="mt-8">
                 {#if filteredImages.length > 0}
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <!-- TODO: limit how many files are shown at once before more are displayed.. -->
                         {#each filteredImages as image}
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <div

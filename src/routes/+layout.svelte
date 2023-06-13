@@ -37,6 +37,7 @@ $: segment = $page.url.pathname.substring(1).split('/')[0] // gets the first seg
 // $: console.log(segment)
 </script>
 
+<!-- TODO: figure out location w/ downloadprogress component -->
 {#if segment}
     <ScrollToTop />
 {/if}

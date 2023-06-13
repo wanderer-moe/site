@@ -19,6 +19,7 @@ export async function load({ params }) {
             return data
         }
     } catch (err) {
+        // TODO: return correct code dependant on API error or page not found
         throw error(404, 'API Error or Page Not Found')
     }
 }

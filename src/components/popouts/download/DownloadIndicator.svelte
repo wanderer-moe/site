@@ -6,15 +6,17 @@ import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
 import { saveAs } from 'file-saver'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
 import JSZip from 'jszip'
+// import { downloadFiles } from '@lib/utils/downloadFiles.js'
 
 let statusText = ''
 let downloadProgress = ''
 let minimized = false
 let progressPercentage = 0
-let downloadCancelled = false // New variable to track download cancellation
+let downloadCancelled = false
 
 export let game, asset, selectedItems, selected, images, closeDownload
 
+// TODO: seperate function into downloadFIles.js
 // handling multiple files
 async function downloadFiles(selected = false) {
     let zip = new JSZip()
@@ -60,14 +62,14 @@ async function downloadFiles(selected = false) {
             game
         )} files as a ZIP.`
         minimized = false
-        setTimeout(closeDownload, 5000)
+        setTimeout(closeDownload, 5000) // automatically close after 5s
     } catch (error) {
         console.log(error)
         statusText = `Error downloading ${fixCasing(game)} ${
             selected ? 'selected' : 'all'
         } files as a ZIP.`
         minimized = false
-        setTimeout(closeDownload, 5000)
+        setTimeout(closeDownload, 5000) // close after 5s
     }
 }
 
@@ -88,7 +90,7 @@ onMount(async () => {
 {#if !minimized}
     <!-- TODO: fix scaling -->
     <div
-        class="fixed bottom-0 left-0 z-50 ml-7"
+        class="fixed bottom-0 left-0 z-30 ml-7"
         in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <div class="relative z-50">
@@ -106,7 +108,8 @@ onMount(async () => {
                                 class="text-lg font-semibold leading-6 text-white">
                                 {statusText}
                             </p>
-                            <div class="absolute right-2 top-2 text-white">
+                            <div
+                                class="absolute right-2 top-2 flex flex-row gap-2 text-white">
                                 <button on:click="{toggleMinimize}">
                                     <i class="fa fa-minus"></i>
                                 </button>

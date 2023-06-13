@@ -128,7 +128,7 @@ onMount(async () => {
                 <div>
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                         {#if $options}
-                            {#each $options as option, i}
+                            {#each $options as option}
                                 <div class="">
                                     <p class="font-semibold text-white">
                                         {option.name}
