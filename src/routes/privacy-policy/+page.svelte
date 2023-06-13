@@ -8,15 +8,16 @@
             <p class="m-2 text-left text-4xl font-semibold text-white">
                 Privacy Policy
             </p>
+            <p class="m-2 text-white">Last updated: 12th June 2023</p>
             <div>
-                <div class="m-2 grid gap-3">
-                    <p class="text-white">
+                <div class="m-2 mt-4 grid gap-3">
+                    <p class="text-gray-400">
                         Cloudflare Web Analytics is used to collect analytics
-                        data, but is <span class="font-semibold"
+                        data, but is <span class="font-semibold text-white"
                             >anonymized and not traceable back to any specific
                             user.</span>
                     </p>
-                    <p class="text-white">
+                    <p class="text-gray-400">
                         As of 8th June 2023, anonymized data about requests made
                         to the Website's API will be collected.
                         <span class="font-semibold"
@@ -25,14 +26,14 @@
                         This is used to store most popular games and assets pages,
                         to sort by popularity.
                     </p>
-                    <p class="text-white">
-                        Your IP address <b
+                    <p class="text-gray-400">
+                        Your IP address <span class="font-semibold text-white"
                             >may also be collected by Cloudflare for security
-                            purposes, but this is not stored by the site.</b>
+                            purposes, but this is not stored by the site.</span>
                     </p>
-                    <p class="text-white">
+                    <p class="mt-4 text-gray-400">
                         If you have any questions, etc, feel free to contact <a
-                            class="hover:font-semibold hover:text-white"
+                            class="text-white hover:font-semibold"
                             href="mailto:privacy@wanderer.moe"
                             >privacy@wanderer.moe</a> and you'll recieve a response
                         within 24 hours.
