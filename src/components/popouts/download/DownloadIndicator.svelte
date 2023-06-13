@@ -25,7 +25,9 @@ async function downloadFiles(selected = false) {
     let startTime = performance.now()
     let totalSize = 0
     let items = selected ? selectedItems : images
-    statusText = `Downloading ${fixCasing(game)} ${fixCasing(asset)} files`
+    statusText = `Downloading ${selected ? 'selected' : 'all'} ${fixCasing(
+        game
+    )} ${fixCasing(asset)} files.`
 
     for (const item of items) {
         if (downloadCancelled) return
@@ -60,14 +62,14 @@ async function downloadFiles(selected = false) {
         saveAs(content, `${game}-${asset}-${selected ? 'selected' : 'all'}.zip`)
         statusText = `Downloaded ${selected ? 'selected' : 'all'} ${fixCasing(
             game
-        )} files as a ZIP.`
+        )} ${fixCasing(asset)} files.`
         minimized = false
         // setTimeout(closeDownload, 5000) // automatically close after 5s
     } catch (error) {
         console.error(error)
         statusText = `Error downloading ${fixCasing(game)} ${
             selected ? 'selected' : 'all'
-        } files as a ZIP.`
+        } files.`
         minimized = false
         // setTimeout(closeDownload, 5000) // close after 5s
     }
@@ -88,7 +90,6 @@ onMount(async () => {
 </script>
 
 {#if !minimized}
-    <!-- TODO: fix scaling -->
     <div class="fixed bottom-0 z-30 w-full sm:w-auto">
         <div class="relative z-50">
             <div
@@ -96,8 +97,7 @@ onMount(async () => {
                 <div class="bg-main-500 p-4">
                     <div class="sm:flex sm:items-start">
                         <div class="text-center sm:text-left">
-                            <p
-                                class="pt-4 text-lg font-semibold leading-6 text-white">
+                            <p class="pt-4 font-semibold text-white">
                                 {statusText}
                             </p>
                             <div
@@ -109,13 +109,16 @@ onMount(async () => {
                                     <i class="fas fa-xmark"></i>
                                 </button>
                             </div>
-                            <p
-                                class="text-sm font-semibold leading-6 text-gray-400">
+                            <p class="text-xs font-semibold text-gray-400">
                                 {downloadProgress}
+                            </p>
+                            <p class="my-2 text-xs font-semibold text-red-200">
+                                Don't leave this page while files are
+                                downloading, or the download will be cancelled!
                             </p>
                             <div class="mt-2">
                                 <div
-                                    class="h-2.5 w-full rounded-full bg-gray-700">
+                                    class="mt-1 h-2.5 w-full rounded-full bg-gray-700">
                                     <div
                                         class="h-2.5 rounded-full bg-accent-200"
                                         style="width: {progressPercentage}%">
