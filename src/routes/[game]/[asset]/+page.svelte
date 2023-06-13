@@ -9,8 +9,6 @@ import {
     formatDateReadable,
     formatTimeAgo,
 } from '@/lib/helpers/timeConvertion/isoFormat.js'
-import { saveAs } from 'file-saver'
-import JSZip from 'jszip'
 import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
 import Lazy from 'svelte-lazy'
@@ -95,8 +93,9 @@ onMount(() => {
 })
 
 function downloadFiles(selectedOpt) {
+    // console.log(downloadFiles)
     downloadingMultiple = true
-    seleted = selectedOpt
+    selected = selectedOpt
 }
 
 $: console.log(selectedItems)

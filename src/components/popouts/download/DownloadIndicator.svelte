@@ -62,7 +62,7 @@ async function downloadFiles(selected = false) {
 
 // onmount async, download all FIles
 onMount(async () => {
-    downloadFiles(game, asset, selectedItems, selected)
+    downloadFiles(selected)
 })
 </script>
 
