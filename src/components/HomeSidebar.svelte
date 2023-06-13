@@ -9,7 +9,6 @@ let onlineusers = writable('???')
 
 onMount(async () => {
     const data = await getDiscordData()
-    // console.log(data)
     onlineusers.set(data)
 })
 

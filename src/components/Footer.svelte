@@ -1,6 +1,6 @@
 <script>
 import { t } from 'svelte-i18n'
-import LocaleDropdown from '@/components/LocaleDropdown.svelte'
+import LocaleDropdown from '@/components/dropdowns/LocaleDropdown.svelte'
 import Status from '@/components/Status.svelte'
 import Contribute from '@/components/popouts/Contribute.svelte'
 const currentYear = new Date().getFullYear()

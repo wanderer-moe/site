@@ -2,7 +2,7 @@
 import { onMount } from 'svelte'
 import { fly } from 'svelte/transition'
 import { cubicOut, quintOut } from 'svelte/easing'
-import { t, locale } from 'svelte-i18n'
+import { locale } from 'svelte-i18n'
 
 let menuOpen = false
 
