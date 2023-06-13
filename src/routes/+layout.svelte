@@ -38,7 +38,6 @@ $: segment = $page.url.pathname.substring(1).split('/')[0] // gets the first seg
 </script>
 
 {#if segment}
-    <!-- scroll to top button only appears when there is a segment in the URL -->
     <ScrollToTop />
 {/if}
 <Nav />

@@ -16,8 +16,9 @@ import { t } from 'svelte-i18n'
 import Lazy from 'svelte-lazy'
 import { fade } from 'svelte/transition'
 import { sortAssets } from '@/lib/utils/sort/sortAssets'
+import DownloadIndicator from '@/components/popouts/download/DownloadIndicator.svelte'
 
-// TODO: this is a mess, clean it up
+// TODO: clean up, e.g. seperate dropdown & download into its own components...
 
 // destructure data object
 export let data
@@ -26,15 +27,15 @@ const { game, asset, images, lastUploaded } = data
 // initialize variables
 let isFaqOpen = false
 let sortOptionMenu
-let isMobile = false
 let imageDoubleClicked = false
 let selectedItems = []
 let filteredImages = images
 let query = ''
+let selected = false
+let downloadingMultiple = false
 let imageUrl = ''
 let imageTitle = ''
 let imageFileSize = ''
-let statusText = ''
 let totalImagesSizeHumanReadable = '?'
 let selectedFilesSize = 0
 
@@ -84,58 +85,7 @@ function handleInput(event) {
     updateFilter()
 }
 
-// handling multiple files
-async function downloadFiles(selected = false) {
-    let zip = new JSZip()
-    let folder = zip.folder(`${game}-${asset}-${selected ? 'selected' : 'all'}`)
-    let progress = 0
-    let startTime = performance.now()
-    let totalSize = 0
-    let items = selected ? selectedItems : images
-    for (const item of items) {
-        try {
-            const response = await fetch(
-                `https://cdn.wanderer.moe/${game}/${asset}/${item.name}.png`
-            )
-            const blob = await response.blob()
-            folder.file(`${item.name}.png`, blob)
-            progress += 1
-            totalSize += item.size
-            let elapsedTime = (performance.now() - startTime) / 1000
-            let speed = totalSize / elapsedTime
-            let speeds = []
-            speeds.push(speed)
-            if (speeds.length > 5) {
-                speeds.shift()
-            }
-            speed = speeds.reduce((a, b) => a + b, 0) / speeds.length
-            statusText = `Downloaded ${progress}/${
-                items.length
-            } files @ ${bytesToFileSize(speed)}/s`
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    try {
-        const content = await zip.generateAsync({ type: 'blob' })
-        saveAs(content, `${game}-${asset}-${selected ? 'selected' : 'all'}.zip`)
-        statusText = `Downloaded ${
-            selected ? 'selected' : 'all'
-        } files as a ZIP.`
-    } catch (error) {
-        console.log(error)
-        statusText = `Error downloading ${
-            selected ? 'selected' : 'all'
-        } files as a ZIP.`
-    }
-}
-
 onMount(() => {
-    if (window.innerWidth < 500) {
-        isMobile = true
-    }
-
     const totalImagesSize = images.reduce((acc, image) => {
         return acc + image.size
     }, 0)
@@ -143,6 +93,13 @@ onMount(() => {
     totalImagesSizeHumanReadable = bytesToFileSize(totalImagesSize)
     updateFilter()
 })
+
+function downloadFiles(selectedOpt) {
+    downloadingMultiple = true
+    seleted = selectedOpt
+}
+
+$: console.log(selectedItems)
 </script>
 
 <svelte:head>
@@ -155,6 +112,16 @@ onMount(() => {
         imageTitle="{imageTitle}"
         imageFileSize="{imageFileSize}"
         closeImageView="{() => (imageDoubleClicked = false)}" />
+{/if}
+
+{#if downloadingMultiple}
+    <DownloadIndicator
+        game="{game}"
+        asset="{asset}"
+        images="{images}"
+        selectedItems="{selectedItems}"
+        selected="{selected}"
+        closeDownload="{() => (downloadingMultiple = false)}" />
 {/if}
 
 <div class="min-h-screen">
@@ -218,6 +185,42 @@ onMount(() => {
                                 placeholder="&#x1F50D; {$t('asset.searchBar')}"
                                 on:input="{handleInput}"
                                 bind:value="{query}" />
+                        </div>
+
+                        <div class="w-full rounded-md text-white">
+                            <div
+                                class="flex flex-wrap items-center justify-center gap-1 text-sm">
+                                <button
+                                    on:click="{() => downloadFiles(true)}"
+                                    class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
+                                        'direction'
+                                    )}">
+                                    <i class="fa-solid fa-download"></i>
+                                    {#if selectedItems.length >= 1}
+                                        {$t('asset.downloadSelectedSize', {
+                                            values: {
+                                                size: bytesToFileSize(
+                                                    selectedFilesSize
+                                                ),
+                                            },
+                                        })}
+                                    {:else}
+                                        {$t('asset.downloadSelected')}
+                                    {/if}
+                                </button>
+                                <button
+                                    on:click="{() => downloadFiles(false)}"
+                                    class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
+                                        'direction'
+                                    )}">
+                                    <i class="fa-solid fa-download"></i>
+                                    {$t('asset.downloadAllSize', {
+                                        values: {
+                                            size: totalImagesSizeHumanReadable,
+                                        },
+                                    })}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
