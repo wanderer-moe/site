@@ -2,7 +2,7 @@
 import { t } from 'svelte-i18n'
 import LocaleDropdown from '@/components/LocaleDropdown.svelte'
 import Status from '@/components/Status.svelte'
-import Contribute from '@/components/Contribute.svelte'
+import Contribute from '@/components/popouts/Contribute.svelte'
 const currentYear = new Date().getFullYear()
 
 let contributeOpen = false

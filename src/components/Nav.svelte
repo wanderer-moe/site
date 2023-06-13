@@ -1,6 +1,6 @@
 <script>
 import { t } from 'svelte-i18n'
-import SearchBar from './SearchBar.svelte'
+import SearchBar from '@/components/popouts/SearchBar.svelte'
 import { keybindHandler } from '@/lib/utils/keybinds'
 
 let isSearchOpen = false

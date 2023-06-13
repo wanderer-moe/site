@@ -1,8 +1,8 @@
 <script>
 import { browser } from '$app/environment'
-import Faq from '@/components/Faq.svelte'
+import Faq from '@/components/popouts/Faq.svelte'
 import LoadPlaceHolder from '@/components/LoadPlaceHolder.svelte'
-import ViewImage from '@/components/ViewImage.svelte'
+import ViewImage from '@/components/popouts/ViewImage.svelte'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
 import {
