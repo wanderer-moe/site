@@ -6,7 +6,6 @@ import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
 import { saveAs } from 'file-saver'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
 import JSZip from 'jszip'
-// import { downloadFiles } from '@lib/utils/downloadFiles.js'
 
 let statusText = ''
 let downloadProgress = ''
@@ -16,7 +15,9 @@ let downloadCancelled = false
 
 export let game, asset, selectedItems, selected, images, closeDownload
 
-// TODO: seperate function into downloadFiles.js
+let failedItems = []
+
+// TODO: separate function into downloadFiles.js
 // handling multiple files
 async function downloadFiles(selected = false) {
     let zip = new JSZip()
@@ -64,14 +65,14 @@ async function downloadFiles(selected = false) {
             game
         )} ${fixCasing(asset)} files.`
         minimized = false
-        // setTimeout(closeDownload, 5000) // automatically close after 5s
+        setTimeout(closeDownload, 10000) // automatically close after 5s
     } catch (error) {
         console.error(error)
         statusText = `Error downloading ${fixCasing(game)} ${
             selected ? 'selected' : 'all'
         } files.`
         minimized = false
-        // setTimeout(closeDownload, 5000) // close after 5s
+        setTimeout(closeDownload, 10000) // close after 5s
     }
 }
 
