@@ -14,7 +14,7 @@
 </style>
 
 <script>
-import { fixCasing } from '@/lib/utils/helpers.js'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
 import { t } from 'svelte-i18n'
 import HomeSidebar from '../components/HomeSidebar.svelte'
 

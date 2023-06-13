@@ -1,5 +1,5 @@
 // sort images based on selected sorting option
-import { iso8601ToUnix } from '../helpers.js'
+import { iso8601ToUnix } from '../../helpers/timeConvertion/isoFormat.js'
 
 export function sortAssets(images, selectedSortingOption) {
     switch (selectedSortingOption.name) {

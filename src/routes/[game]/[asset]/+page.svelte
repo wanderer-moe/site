@@ -3,11 +3,12 @@ import { browser } from '$app/environment'
 import Faq from '@/components/Faq.svelte'
 import LoadPlaceHolder from '@/components/LoadPlaceHolder.svelte'
 import ViewImage from '@/components/ViewImage.svelte'
+import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
 import {
-    bytesToFileSize,
-    fixCasing,
     formatDateReadable,
-} from '@/lib/utils/helpers'
+    formatTimeAgo,
+} from '@/lib/helpers/timeConvertion/isoFormat.js'
 import { saveAs } from 'file-saver'
 import JSZip from 'jszip'
 import { onMount } from 'svelte'
@@ -299,7 +300,7 @@ onMount(() => {
                                         <p class="text-xs uppercase">
                                             {$t('details.dateUploaded', {
                                                 values: {
-                                                    date: formatDateReadable(
+                                                    date: formatTimeAgo(
                                                         image.uploaded
                                                     ),
                                                 },

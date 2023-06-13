@@ -1,20 +1,30 @@
-// lib/utils/helpers.js
+export function formatTimeAgo(isoTimestamp) {
+    const now = new Date();
+    const timestamp = new Date(isoTimestamp);
+    const elapsedMilliseconds = now - timestamp;
+    const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+  
+    if (elapsedSeconds < 60) {
+      return `${elapsedSeconds}s ago`;
+    }
+  
+    const elapsedMinutes = Math.floor(elapsedSeconds / 60);
+  
+    if (elapsedMinutes < 60) {
+      return `${elapsedMinutes}m ago`;
+    }
+  
+    const elapsedHours = Math.floor(elapsedMinutes / 60);
+  
+    if (elapsedHours < 24) {
+      return `${elapsedHours}h ago`;
+    }
+  
+    const elapsedDays = Math.floor(elapsedHours / 24);
+    return `${elapsedDays}d ago`;
+  }
 
-// e.g 'a-b-c' -> 'A B C'
-export function fixCasing(word) {
-    const formattedWord = word.replace(/-/g, ' ')
-    return formattedWord.replace(/\b\w/g, (l) => l.toUpperCase())
-}
-
-// convert bytes to human readable file size
-export function bytesToFileSize(bytes) {
-    const sizes = ['B', 'KB', 'MB', 'GB', 'TB']
-    if (bytes === 0) return '0 B'
-    const i = Math.floor(Math.log2(bytes) / 10)
-    const size = (bytes / 1024 ** i).toFixed(1)
-    return `${size} ${sizes[i]}`
-}
-
+  
 // ISO 8601 -> DD/Suffix Month YYYY, HH:MM:SS
 export function formatDateReadable(dateString) {
     const date = new Date(dateString)

@@ -2,17 +2,10 @@
 import { t } from 'svelte-i18n'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { fly, fade } from 'svelte/transition'
-import { bytesToFileSize } from '@/lib/utils/helpers'
+import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
+import { getImageResolution } from '@/lib/helpers/asset/getImageResolution.js'
 
 let resolution = 'Unknown'
-
-async function getImageResolution(image) {
-    if (!image) return 'Unknown'
-    const img = typeof image === 'string' ? new Image() : image
-    img.src = typeof image === 'string' ? image : image.src
-    await new Promise((resolve) => img.addEventListener('load', resolve))
-    return `${img.naturalWidth} x ${img.naturalHeight}`
-}
 
 export let imageUrl, imageTitle, closeImageView, imageFileSize
 </script>
