@@ -1,13 +1,13 @@
 <script>
 import { navigating, page } from '$app/stores'
 import '@/app.css?v=31052023'
-import Footer from '@/components/Footer.svelte'
-import Nav from '@/components/Nav.svelte'
+import Footer from '@/components/nav/Footer.svelte'
+import Nav from '@/components/nav/Nav.svelte'
 import { startClient } from '@/lib/utils/i18n.js'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { derived } from 'svelte/store'
-import ScrollToTop from '../components/ScrollToTop.svelte'
+import ScrollToTop from '@/components/nav/ScrollToTop.svelte'
 
 NProgress.configure({
     // https://github.com/rstacruz/nprogress#configuration

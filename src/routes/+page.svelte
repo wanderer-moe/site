@@ -16,7 +16,7 @@
 <script>
 import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
 import { t } from 'svelte-i18n'
-import HomeSidebar from '../components/HomeSidebar.svelte'
+import HomeSidebar from '@/components/nav/HomeSidebar.svelte'
 
 let focusedImageElement
 export let data
