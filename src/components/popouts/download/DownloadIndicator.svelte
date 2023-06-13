@@ -8,6 +8,7 @@ import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
 import JSZip from 'jszip'
 
 let statusText = ''
+let downloadProgress = ''
 let progressPercentage = 0
 
 export let game, asset, selectedItems, selected, images, closeDownload
@@ -20,6 +21,7 @@ async function downloadFiles(selected = false) {
     let startTime = performance.now()
     let totalSize = 0
     let items = selected ? selectedItems : images
+    statusText = `Downloading ${fixCasing(game)} ${fixCasing(asset)} files`
     for (const item of items) {
         try {
             const response = await fetch(item.path)
@@ -36,7 +38,7 @@ async function downloadFiles(selected = false) {
             }
             speed = speeds.reduce((a, b) => a + b, 0) / speeds.length
             progressPercentage = (progress / items.length) * 100
-            statusText = `Downloaded ${fixCasing(game)} ${progress}/${
+            downloadProgress = `Downloaded ${progress}/${
                 items.length
             } files @ ${bytesToFileSize(speed)}/s`
         } catch (error) {
@@ -60,7 +62,6 @@ async function downloadFiles(selected = false) {
     }
 }
 
-// onmount async, download all FIles
 onMount(async () => {
     downloadFiles(selected)
 })
@@ -80,14 +81,15 @@ onMount(async () => {
                         <i class="fa fa-download text-accent-300"></i>
                     </div>
                     <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                        <h3
-                            class="text-base font-semibold leading-6 text-white"
-                            id="modal-title">
+                        <p class="text-lg font-semibold leading-6 text-white">
                             {statusText}
-                        </h3>
+                        </p>
+                        <p
+                            class="text-sm font-semibold leading-6 text-gray-400">
+                            {downloadProgress}
+                        </p>
                         <div class="mt-2">
-                            <div
-                                class="h-2.5 w-full rounded-full bg-gray-200 dark:bg-gray-700">
+                            <div class="h-2.5 w-full rounded-full bg-gray-700">
                                 <div
                                     class="h-2.5 rounded-full bg-accent-200"
                                     style="width: {progressPercentage}%">

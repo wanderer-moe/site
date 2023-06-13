@@ -93,7 +93,6 @@ onMount(() => {
 })
 
 function downloadFiles(selectedOpt) {
-    // console.log(downloadFiles)
     downloadingMultiple = true
     selected = selectedOpt
 }
