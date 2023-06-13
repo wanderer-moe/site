@@ -49,7 +49,7 @@ async function downloadFiles(selected = false) {
                 items.length
             } files @ ${bytesToFileSize(speed)}/s`
         } catch (error) {
-            console.log(error)
+            console.error(error)
         }
     }
 
@@ -64,7 +64,7 @@ async function downloadFiles(selected = false) {
         minimized = false
         setTimeout(closeDownload, 5000) // automatically close after 5s
     } catch (error) {
-        console.log(error)
+        console.error(error)
         statusText = `Error downloading ${fixCasing(game)} ${
             selected ? 'selected' : 'all'
         } files as a ZIP.`

@@ -99,7 +99,7 @@ function downloadFiles(selectedOpt) {
     selected = selectedOpt
 }
 
-$: console.log(selectedItems)
+// $: console.log(selectedItems)
 </script>
 
 <svelte:head>

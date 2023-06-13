@@ -36,7 +36,7 @@ export async function getCommitsRecent(perPage) {
         )
         return commits
     } catch (error) {
-        console.log(error)
+        console.error(error)
         return []
     }
 }
@@ -64,7 +64,7 @@ export async function getReleases(releaseCount) {
         )
         return releases.filter(Boolean)
     } catch (error) {
-        console.log(error)
+        console.error(error)
         return []
     }
 }
