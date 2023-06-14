@@ -21,7 +21,6 @@ const htmlLocaleCode = {
     ja: 'ja',
     lol: 'lol',
     it: 'it',
-    ar: 'ar',
     ro: 'ro',
     sv: 'sv',
     vi: 'vi',
