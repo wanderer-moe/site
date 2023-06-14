@@ -24,7 +24,7 @@ function scrollToTop() {
 
 {#if buttonVisible}
     <div
-        class="fixed bottom-0 right-0 z-50 mb-9 mr-7"
+        class="fixed bottom-0 right-0 z-[29] mb-9 mr-7"
         in:fade="{{ duration: 150 }}"
         out:fade="{{ duration: 150 }}">
         <button
