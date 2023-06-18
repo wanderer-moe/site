@@ -8,7 +8,7 @@ import {
 } from 'svelte-i18n'
 import { browser } from '$app/environment'
 
-import en from '../../i18n/site/en.json'
+import en from '@/i18n/site/en.json'
 
 const INIT_OPTIONS = {
     fallbackLocale: 'en',
@@ -65,14 +65,14 @@ const supportedLanguage = [
 ]
 addMessages('en', en)
 
-register('nl', () => import('../../i18n/site/nl.json'))
-register('ja', () => import('../../i18n/site/ja.json'))
-register('lol', () => import('../../i18n/site/lol.json'))
-register('it', () => import('../../i18n/site/it.json'))
-register('ar', () => import('../../i18n/site/ar.json'))
-register('ro', () => import('../../i18n/site/ro.json'))
-register('sv', () => import('../../i18n/site/sv.json'))
-register('vi', () => import('../../i18n/site/vi.json'))
+register('nl', () => import('@/i18n/site/nl.json'))
+register('ja', () => import('@/i18n/site/ja.json'))
+register('lol', () => import('@/i18n/site/lol.json'))
+register('it', () => import('@/i18n/site/it.json'))
+register('ar', () => import('@/i18n/site/ar.json'))
+register('ro', () => import('@/i18n/site/ro.json'))
+register('sv', () => import('@/i18n/site/sv.json'))
+register('vi', () => import('@/i18n/site/vi.json'))
 
 export async function startClient() {
     init({
