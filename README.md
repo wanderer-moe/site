@@ -26,11 +26,15 @@ To run the website locally, follow these steps:
    git clone https://github.com/wanderer-moe/site -b development
    ```
 
-3. Navigate to the project directory. Run `pnpm install` to install the required dependencies.
+    You also want to initialize the (i18n) submodules:
 
-4. Run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use).
+   ```bash
+   git submodule update --init --recursive
+   ```
 
-5. To build the website, run `pnpm run build`. After the build process is complete, run `pnpm run preview` to preview the site at `http://localhost:5741`.
+3. Install dependencies & run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use).
+
+4. To build the website, run `pnpm run build`. After the build process is complete, run `pnpm run preview` to preview the site at `http://localhost:5741`.
 
 ## API & CDN
 
