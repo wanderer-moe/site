@@ -1,17 +1,13 @@
 <script>
 import { browser } from '$app/environment'
 import Faq from '@/components/popouts/Faq.svelte'
-import LoadPlaceHolder from '@/components/LoadPlaceHolder.svelte'
 import ViewImage from '@/components/popouts/ViewImage.svelte'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
-import {
-    formatDateReadable,
-    formatTimeAgo,
-} from '@/lib/helpers/timeConvertion/isoFormat.js'
+import AssetItem from '@/components/AssetItem.svelte'
+import { formatDateReadable } from '@/lib/helpers/timeConvertion/isoFormat.js'
 import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
-import Lazy from 'svelte-lazy'
 import { fade } from 'svelte/transition'
 import { sortAssets } from '@/lib/utils/sort/sortAssets'
 import DownloadIndicator from '@/components/popouts/download/DownloadIndicator.svelte'
@@ -238,102 +234,22 @@ function downloadFiles(selectedOpt) {
                 </div>
             </div>
 
-            <!-- asset containers -->
-
             <div class="mt-8">
                 {#if filteredImages.length > 0}
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <!-- TODO: limit how many files are shown at once before more are displayed.. -->
                         {#each filteredImages as image}
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
-                            <div
-                                class="relative flex cursor-pointer items-center rounded-md border-[3px] bg-main-500 p-3 font-semibold text-gray-400 transition-colors duration-150 hover:border-main-300 {selectedItems.includes(
-                                    image
-                                )
-                                    ? '!border-accent-400'
-                                    : 'border-main-400'}"
-                                on:click="{(event) => {
-                                    if (!event.target.closest('button')) {
-                                        // check if the click was on the download button
-                                        if (selectedItems.includes(image)) {
-                                            selectedFilesSize -= image.size
-                                            selectedItems =
-                                                selectedItems.filter(
-                                                    (item) => item !== image
-                                                )
-                                        } else {
-                                            selectedItems = [
-                                                ...selectedItems,
-                                                image,
-                                            ]
-                                            selectedFilesSize += image.size
-                                        }
-                                    }
-                                }}">
-                                <Lazy
-                                    height="{128}"
-                                    placeholder="{LoadPlaceHolder}"
-                                    fadeOption="{{
-                                        delay: 100,
-                                        duration: 1000,
-                                    }}">
-                                    <img
-                                        id="assetimg"
-                                        class="max-w-32 h-32 max-h-32 w-32 object-contain object-left p-1"
-                                        src="{image.path}"
-                                        alt="{image.name}"
-                                        on:dblclick="{() => {
-                                            imageDoubleClicked = true
-                                            imageUrl = `${image.path}`
-                                            imageTitle = `${image.name}`
-                                            imageFileSize = `${image.size}`
-                                        }}" />
-                                </Lazy>
-                                <div class="p-2">
-                                    <div class="whitespace-normal break-all">
-                                        <div class="my-1">
-                                            <!-- <p class="text-xs mb-1 font-bold">
-                                                {image.name.includes('fanmade')
-                                                    ? `${$t('asset.fanmadeAsset')}`
-                                                    : `${$t(
-                                                          'asset.officialAsset'
-                                                      )}`}
-                                            </p> -->
-                                            <p
-                                                class="text-sm lowercase text-white">
-                                                {image.name.replace('.png', '')}
-                                            </p>
-                                            <p class="text-xs">
-                                                Uploaded {formatTimeAgo(
-                                                    image.uploaded
-                                                )}
-                                            </p>
-                                        </div>
-                                        <a
-                                            href="https://cdn.wanderer.moe/{game}/{asset}/{image.name}.png"
-                                            rel="noreferrer"
-                                            target="_blank"
-                                            download>
-                                            <button
-                                                class="btn mt-2 p-2"
-                                                onclick="{(event) => {
-                                                    event.stopPropagation()
-                                                }}">
-                                                <i
-                                                    class="fa-solid fa-download mr-1"
-                                                ></i>
-                                                {$t('asset.downloadSize', {
-                                                    values: {
-                                                        size: bytesToFileSize(
-                                                            image.size
-                                                        ),
-                                                    },
-                                                })}
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <AssetItem
+                                game="{game}"
+                                asset="{asset}"
+                                image="{image}"
+                                bind:selectedItems="{selectedItems}"
+                                bind:selectedFilesSize="{selectedFilesSize}"
+                                bind:imageDoubleClicked="{imageDoubleClicked}"
+                                bind:imageUrl="{imageUrl}"
+                                bind:imageTitle="{imageTitle}"
+                                bind:imageFileSize="{imageFileSize}" />
                         {/each}
                     </div>
                 {/if}
