@@ -2,8 +2,17 @@
 import { t } from 'svelte-i18n'
 import SearchBar from '@/components/popouts/SearchBar.svelte'
 import { keybindHandler } from '@/lib/utils/keybinds'
+import { getCommitsRecent } from '@/lib/utils/github'
+import { onMount } from 'svelte'
 
 let isSearchOpen = false
+let commitSha = ''
+
+onMount(async () => {
+    const commits = await getCommitsRecent()
+    commitSha = commits[0].shaSpliced
+    console.log(commitSha)
+})
 </script>
 
 <svelte:window
@@ -17,8 +26,13 @@ let isSearchOpen = false
         <div class="md:px-12 lg:px-16">
             <a href="/" class="flex items-center gap-1" rel="external">
                 <img src="/logo.png" alt="logo" class="h-12 w-12" />
-                <span class="text text-xl font-semibold text-white"
-                    >wanderer.moe</span>
+                <div class="flex flex-col">
+                    <span class="text text-xl font-semibold text-white"
+                        >wanderer.moe</span>
+                    <!-- {#if commitSha}
+                <span class="text text-xs font-semibold text-gray-400">{commitSha}</span>
+              {/if} -->
+                </div>
             </a>
         </div>
 
@@ -53,16 +67,6 @@ let isSearchOpen = false
                         ></i>
                     </a>
                 </button>
-                <button class="hidden px-2 py-2 focus:outline-none lg:hidden">
-                    <a
-                        href="https://buymeacoffee.com/marcelmd"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <i
-                            class="fa-solid fa-hand-holding-dollar cursor-pointer text-white hover:text-indigo-300"
-                        ></i>
-                    </a>
-                </button>
                 <button class="hidden px-4 py-2 focus:outline-none lg:hidden">
                     <a
                         href="https://git.wanderer.moe/"
@@ -90,16 +94,6 @@ let isSearchOpen = false
                     rel="noopener noreferrer">
                     <i
                         class="fa-brands fa-discord cursor-pointer text-white hover:text-indigo-300"
-                    ></i>
-                </a>
-            </button>
-            <button class="px-4 focus:outline-none lg:block">
-                <a
-                    href="https://buymeacoffee.com/marcelmd"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <i
-                        class="fa-solid fa-hand-holding-dollar cursor-pointer text-white hover:text-indigo-300"
                     ></i>
                 </a>
             </button>

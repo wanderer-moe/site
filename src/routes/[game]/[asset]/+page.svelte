@@ -291,35 +291,31 @@ function downloadFiles(selectedOpt) {
                                 </Lazy>
                                 <div class="p-2">
                                     <div class="whitespace-normal break-all">
-                                        <div class="flex items-center">
+                                        <div class="my-1">
+                                            <!-- <p class="text-xs mb-1 font-bold">
+                                                {image.name.includes('fanmade')
+                                                    ? `${$t('asset.fanmadeAsset')}`
+                                                    : `${$t(
+                                                          'asset.officialAsset'
+                                                      )}`}
+                                            </p> -->
                                             <p
-                                                class="mr-2 text-left text-sm lowercase text-white">
+                                                class="text-sm lowercase text-white">
                                                 {image.name.replace('.png', '')}
                                             </p>
+                                            <p class="text-xs">
+                                                Uploaded {formatTimeAgo(
+                                                    image.uploaded
+                                                )}
+                                            </p>
                                         </div>
-                                        <p class="text-xs font-bold uppercase">
-                                            {image.name.includes('fanmade')
-                                                ? `${$t('asset.fanmadeAsset')}`
-                                                : `${$t(
-                                                      'asset.officialAsset'
-                                                  )}`}
-                                        </p>
-                                        <p class="text-xs uppercase">
-                                            {$t('details.dateUploaded', {
-                                                values: {
-                                                    date: formatTimeAgo(
-                                                        image.uploaded
-                                                    ),
-                                                },
-                                            })}
-                                        </p>
                                         <a
                                             href="https://cdn.wanderer.moe/{game}/{asset}/{image.name}.png"
                                             rel="noreferrer"
                                             target="_blank"
                                             download>
                                             <button
-                                                class="btn p-2"
+                                                class="btn mt-2 p-2"
                                                 onclick="{(event) => {
                                                     event.stopPropagation()
                                                 }}">
