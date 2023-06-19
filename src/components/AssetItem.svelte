@@ -14,6 +14,7 @@ export let selectedFilesSize
 export let imageDoubleClicked
 export let imageUrl
 export let imageTitle
+export let downloadingMultiple
 export let imageFileSize
 
 function toggleSelection(event) {
@@ -73,7 +74,11 @@ function toggleSelection(event) {
                 target="_blank"
                 download>
                 <button
-                    class="btn mt-2 p-2"
+                    disabled="{downloadingMultiple}"
+                    class="btn mt-2 w-full p-2.5 font-semibold transition md:w-auto
+                    {downloadingMultiple
+                        ? 'cursor-not-allowed opacity-50'
+                        : ''}"
                     onclick="{(event) => {
                         event.stopPropagation()
                     }}">

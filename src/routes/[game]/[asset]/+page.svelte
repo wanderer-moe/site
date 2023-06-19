@@ -185,8 +185,12 @@ function downloadFiles(selectedOpt) {
                         <div class="w-full rounded-md text-white">
                             <div class="flex flex-wrap items-center gap-1">
                                 <button
+                                    disabled="{downloadingMultiple}"
                                     on:click="{() => downloadFiles(false)}"
-                                    class="btn w-full p-2.5 font-semibold md:w-auto">
+                                    class="btn w-full p-2.5 font-semibold transition md:w-auto
+                                    {downloadingMultiple
+                                        ? 'cursor-not-allowed opacity-50'
+                                        : ''}">
                                     <i class="fa-solid fa-download"></i>
                                     {$t('asset.downloadAllSize', {
                                         values: {
@@ -197,10 +201,11 @@ function downloadFiles(selectedOpt) {
                                 <button
                                     on:click="{() => downloadFiles(true)}"
                                     class="btn w-full p-2.5 font-semibold transition md:w-auto {selectedItems.length ==
-                                    0
+                                        0 || downloadingMultiple
                                         ? 'cursor-not-allowed opacity-50'
                                         : ''}"
-                                    disabled="{selectedItems.length == 0}">
+                                    disabled="{selectedItems.length == 0 ||
+                                        downloadingMultiple}">
                                     <i class="fa-solid fa-download"></i>
                                     {#if selectedItems.length >= 1}
                                         {$t('asset.downloadSelectedSize', {
@@ -238,6 +243,7 @@ function downloadFiles(selectedOpt) {
                                 game="{game}"
                                 asset="{asset}"
                                 image="{image}"
+                                downloadingMultiple="{downloadingMultiple}"
                                 bind:selectedItems="{selectedItems}"
                                 bind:selectedFilesSize="{selectedFilesSize}"
                                 bind:imageDoubleClicked="{imageDoubleClicked}"
