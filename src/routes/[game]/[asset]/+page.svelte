@@ -189,7 +189,7 @@ function downloadFiles(selectedOpt) {
                                     on:click="{() => downloadFiles(false)}"
                                     class="btn w-full p-2.5 font-semibold transition md:w-auto
                                     {downloadingMultiple
-                                        ? 'cursor-not-allowed opacity-50'
+                                        ? 'cursor-not-allowed opacity-70'
                                         : ''}">
                                     <i class="fa-solid fa-download"></i>
                                     {$t('asset.downloadAllSize', {
@@ -202,7 +202,7 @@ function downloadFiles(selectedOpt) {
                                     on:click="{() => downloadFiles(true)}"
                                     class="btn w-full p-2.5 font-semibold transition md:w-auto {selectedItems.length ==
                                         0 || downloadingMultiple
-                                        ? 'cursor-not-allowed opacity-50'
+                                        ? 'cursor-not-allowed opacity-70'
                                         : ''}"
                                     disabled="{selectedItems.length == 0 ||
                                         downloadingMultiple}">

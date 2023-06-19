@@ -77,7 +77,7 @@ function toggleSelection(event) {
                     disabled="{downloadingMultiple}"
                     class="btn mt-2 w-full p-2.5 font-semibold transition md:w-auto
                     {downloadingMultiple
-                        ? 'cursor-not-allowed opacity-50'
+                        ? 'cursor-not-allowed opacity-70'
                         : ''}"
                     onclick="{(event) => {
                         event.stopPropagation()
