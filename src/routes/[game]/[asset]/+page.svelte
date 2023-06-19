@@ -11,6 +11,8 @@ import { t } from 'svelte-i18n'
 import { fade } from 'svelte/transition'
 import { sortAssets } from '@/lib/utils/sort/sortAssets'
 import DownloadIndicator from '@/components/popouts/download/DownloadIndicator.svelte'
+import { cubicOut, quintOut } from 'svelte/easing'
+import { fly } from 'svelte/transition'
 
 // TODO: clean up, e.g. seperate dropdown & download into its own components...
 
@@ -20,8 +22,8 @@ const { game, asset, images, lastUploaded } = data
 
 // initialize variables
 let isFaqOpen = false
-let sortOptionMenu
 let imageDoubleClicked = false
+let sortMenuOpen = false
 let selectedItems = []
 let filteredImages = images
 let query = ''
@@ -94,8 +96,6 @@ function downloadFiles(selectedOpt) {
     downloadingMultiple = true
     selected = selectedOpt
 }
-
-// $: console.log(selectedItems)
 </script>
 
 <svelte:head>
@@ -183,6 +183,46 @@ function downloadFiles(selectedOpt) {
                                 bind:value="{query}" />
                         </div>
 
+                        <div
+                            class="relative flex h-14 w-full items-center justify-center rounded-lg border border-main-400 bg-main-700 p-1 transition-colors duration-150 hover:cursor-pointer hover:border-main-300 hover:bg-main-600"
+                            on:keypress="{() => (sortMenuOpen = !sortMenuOpen)}"
+                            on:click="{() => (sortMenuOpen = !sortMenuOpen)}">
+                            <span class="text-white"
+                                >{$t('details.sortBy')}: {selectedSortingOption.text}</span>
+                            {#if sortMenuOpen}
+                                <div
+                                    in:fly="{{
+                                        y: 15,
+                                        easing: quintOut,
+                                        duration: 200,
+                                    }}"
+                                    out:fly="{{
+                                        y: 10,
+                                        easing: cubicOut,
+                                        duration: 200,
+                                    }}"
+                                    class="absolute bottom-8 z-50 mb-6 w-full">
+                                    <div
+                                        class="grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-700 p-1 transition-colors duration-150">
+                                        {#each sortingOptions as sortingOption}
+                                            <div
+                                                class="flex items-center justify-center text-gray-400 hover:cursor-pointer"
+                                                on:keypress="{() =>
+                                                    changeSort(sortingOption)}"
+                                                on:click="{() =>
+                                                    changeSort(sortingOption)}">
+                                                <span
+                                                    class="flex items-center p-1 px-2 text-left {sortingOption ===
+                                                    selectedSortingOption
+                                                        ? 'bg-main-500 hover:bg-main-400'
+                                                        : 'hover:bg-main-600'} rounded-lg transition-colors duration-200"
+                                                    >{sortingOption.text}</span>
+                                            </div>
+                                        {/each}
+                                    </div>
+                                </div>
+                            {/if}
+                        </div>
                         <div class="w-full rounded-md text-white">
                             <div
                                 class="flex flex-wrap items-center justify-center gap-1 text-sm">

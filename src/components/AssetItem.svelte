@@ -30,6 +30,7 @@ function toggleSelection(event) {
 }
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
     class="relative flex cursor-pointer items-center rounded-md border-[3px] bg-main-500 p-3 font-semibold text-gray-400 transition-colors duration-150 hover:border-main-300 {selectedItems.includes(
         image
