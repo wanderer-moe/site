@@ -9,6 +9,11 @@ let sortMenuOpen = false
 export let selectedSortingOption
 export let changeSort
 export let sortingOptions
+
+function updateSort(sortingOption) {
+    changeSort(sortingOption)
+    sortMenuOpen = !sortMenuOpen
+}
 </script>
 
 <div class="select-none">
@@ -38,8 +43,8 @@ export let sortingOptions
                     {#each sortingOptions as sortingOption}
                         <div
                             class="flex items-center justify-center text-gray-400 hover:cursor-pointer"
-                            on:keypress="{() => changeSort(sortingOption)}"
-                            on:click="{() => changeSort(sortingOption)}">
+                            on:keypress="{() => updateSort(sortingOption)}"
+                            on:click="{() => updateSort(sortingOption)}">
                             <span
                                 class="flex items-center p-1 px-2 text-left {sortingOption ===
                                 selectedSortingOption

@@ -172,7 +172,7 @@ function downloadFiles(selectedOpt) {
                         class="mb-2 flex w-full flex-col items-center justify-center gap-4">
                         <div class="grid w-full gap-1 rounded-md text-white">
                             <input
-                                class="h-14 w-full rounded-md border border-main-400 bg-main-700 p-1 text-accent-500 transition-colors duration-150 hover:border-main-300 hover:bg-main-600 focus:bg-main-600"
+                                class="h-14 w-full rounded-md border border-main-400 bg-main-700 p-1 text-accent-300 transition-colors duration-150 hover:border-main-300 hover:bg-main-600 focus:bg-main-600"
                                 placeholder="&#x1F50D; {$t('asset.searchBar')}"
                                 on:input="{handleInput}"
                                 bind:value="{query}" />

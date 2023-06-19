@@ -149,7 +149,7 @@ onMount(async () => {
                                             class="h-10 w-full rounded-lg bg-main-600 text-center text-indigo-400 {option.value &&
                                             option.locked
                                                 ? 'text-red-500'
-                                                : 'text-accent-500'} focus:shadow focus:outline-none"
+                                                : 'text-accent-300'} focus:shadow focus:outline-none"
                                             value="{option.value}"
                                             readonly />
                                     </div>

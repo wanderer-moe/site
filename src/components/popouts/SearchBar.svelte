@@ -66,7 +66,7 @@ $: filteredGames = filterGames(allGames.games, query)
             </div>
             <input
                 disabled="{allGames.length === 0}"
-                class="h-14 w-full rounded-lg bg-main-600 pl-2 text-accent-500 focus:shadow focus:outline-none"
+                class="h-14 w-full rounded-lg bg-main-600 pl-2 text-accent-300 focus:shadow focus:outline-none"
                 placeholder="{$t('globalSearch.searchBar')}"
                 bind:this="{searchInput}"
                 bind:value="{query}" />
@@ -77,7 +77,7 @@ $: filteredGames = filterGames(allGames.games, query)
                 <div class="search-results-list grid gap-1">
                     {#each filteredGames as game}
                         <div
-                            class="rounded-lg bg-main-600 p-2 text-white hover:text-accent-500">
+                            class="rounded-lg bg-main-600 p-2 text-white hover:text-accent-300">
                             <!-- https://kit.svelte.dev/docs/link-options#data-sveltekit-reload -->
                             <a
                                 on:click="{closeSearchBar()}"
