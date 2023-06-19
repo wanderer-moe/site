@@ -11,8 +11,7 @@ import { t } from 'svelte-i18n'
 import { fade } from 'svelte/transition'
 import { sortAssets } from '@/lib/utils/sort/sortAssets'
 import DownloadIndicator from '@/components/popouts/download/DownloadIndicator.svelte'
-import { cubicOut, quintOut } from 'svelte/easing'
-import { fly } from 'svelte/transition'
+import AssetSortDropdown from '@/components/dropdowns/AssetSortDropdown.svelte'
 
 // TODO: clean up, e.g. seperate dropdown & download into its own components...
 
@@ -23,7 +22,6 @@ const { game, asset, images, lastUploaded } = data
 // initialize variables
 let isFaqOpen = false
 let imageDoubleClicked = false
-let sortMenuOpen = false
 let selectedItems = []
 let filteredImages = images
 let query = ''
@@ -67,8 +65,6 @@ function changeSort(option) {
     updateFilter()
 }
 
-// TODO: seperate filtering functions
-// update filtered images based on search query and sorting option
 function updateFilter() {
     const hyphenatedQuery = query.toLowerCase().replace(/\s+/g, '-')
     filteredImages = images.filter((image) => {
@@ -77,7 +73,6 @@ function updateFilter() {
     filteredImages = sortAssets(filteredImages, selectedSortingOption)
 }
 
-// handle search input
 function handleInput(event) {
     query = event.target.value
     updateFilter()
@@ -175,58 +170,33 @@ function downloadFiles(selectedOpt) {
                 <div class="mb-2 rounded-md bg-main-500 p-4">
                     <div
                         class="mb-2 flex w-full flex-col items-center justify-center gap-4">
-                        <div class="w-full rounded-md text-white">
+                        <div class="grid w-full gap-1 rounded-md text-white">
                             <input
                                 class="h-14 w-full rounded-md border border-main-400 bg-main-700 p-1 text-accent-500 transition-colors duration-150 hover:border-main-300 hover:bg-main-600 focus:bg-main-600"
                                 placeholder="&#x1F50D; {$t('asset.searchBar')}"
                                 on:input="{handleInput}"
                                 bind:value="{query}" />
+                            <AssetSortDropdown
+                                bind:selectedSortingOption="{selectedSortingOption}"
+                                changeSort="{changeSort}"
+                                sortingOptions="{sortingOptions}" />
                         </div>
 
-                        <div
-                            class="relative flex h-14 w-full items-center justify-center rounded-lg border border-main-400 bg-main-700 p-1 transition-colors duration-150 hover:cursor-pointer hover:border-main-300 hover:bg-main-600"
-                            on:keypress="{() => (sortMenuOpen = !sortMenuOpen)}"
-                            on:click="{() => (sortMenuOpen = !sortMenuOpen)}">
-                            <span class="text-white"
-                                >{$t('details.sortBy')}: {selectedSortingOption.text}</span>
-                            {#if sortMenuOpen}
-                                <div
-                                    in:fly="{{
-                                        y: 15,
-                                        easing: quintOut,
-                                        duration: 200,
-                                    }}"
-                                    out:fly="{{
-                                        y: 10,
-                                        easing: cubicOut,
-                                        duration: 200,
-                                    }}"
-                                    class="absolute bottom-8 z-50 mb-6 w-full">
-                                    <div
-                                        class="grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-700 p-1 transition-colors duration-150">
-                                        {#each sortingOptions as sortingOption}
-                                            <div
-                                                class="flex items-center justify-center text-gray-400 hover:cursor-pointer"
-                                                on:keypress="{() =>
-                                                    changeSort(sortingOption)}"
-                                                on:click="{() =>
-                                                    changeSort(sortingOption)}">
-                                                <span
-                                                    class="flex items-center p-1 px-2 text-left {sortingOption ===
-                                                    selectedSortingOption
-                                                        ? 'bg-main-500 hover:bg-main-400'
-                                                        : 'hover:bg-main-600'} rounded-lg transition-colors duration-200"
-                                                    >{sortingOption.text}</span>
-                                            </div>
-                                        {/each}
-                                    </div>
-                                </div>
-                            {/if}
-                        </div>
                         <div class="w-full rounded-md text-white">
                             <div
-                                class="flex flex-wrap items-center justify-center gap-1 text-sm">
-                                <!-- TODO: placement, hide downloadselected if no images are selected -->
+                                class="justify-left flex flex-wrap items-center gap-1 text-sm">
+                                <button
+                                    on:click="{() => downloadFiles(false)}"
+                                    class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
+                                        'direction'
+                                    )}">
+                                    <i class="fa-solid fa-download"></i>
+                                    {$t('asset.downloadAllSize', {
+                                        values: {
+                                            size: totalImagesSizeHumanReadable,
+                                        },
+                                    })}
+                                </button>
                                 {#if selectedItems.length >= 1}
                                     <button
                                         on:click="{() => downloadFiles(true)}"
@@ -247,18 +217,6 @@ function downloadFiles(selectedOpt) {
                                         {/if}
                                     </button>
                                 {/if}
-                                <button
-                                    on:click="{() => downloadFiles(false)}"
-                                    class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
-                                        'direction'
-                                    )}">
-                                    <i class="fa-solid fa-download"></i>
-                                    {$t('asset.downloadAllSize', {
-                                        values: {
-                                            size: totalImagesSizeHumanReadable,
-                                        },
-                                    })}
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -279,7 +237,6 @@ function downloadFiles(selectedOpt) {
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <!-- TODO: limit how many files are shown at once before more are displayed.. -->
                         {#each filteredImages as image}
-                            <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <AssetItem
                                 game="{game}"
                                 asset="{asset}"
