@@ -21,7 +21,19 @@ export function formatTimeAgo(isoTimestamp) {
     }
 
     const elapsedDays = Math.floor(elapsedHours / 24)
-    return `${elapsedDays}d ago`
+
+    if (elapsedDays < 7) {
+        return `${elapsedDays}d ago`
+    }
+
+    const elapsedWeeks = Math.floor(elapsedDays / 7)
+
+    if (elapsedWeeks < 4) {
+        return `${elapsedWeeks}w ago`
+    }
+
+    const elapsedMonths = Math.floor(elapsedDays / 30)
+    return `${elapsedMonths}mo ago`
 }
 
 // ISO 8601 -> DD/Suffix Month YYYY, HH:MM:SS

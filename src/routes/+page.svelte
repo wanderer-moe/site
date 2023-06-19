@@ -15,6 +15,7 @@
 
 <script>
 import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
+import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat.js'
 import { t } from 'svelte-i18n'
 import HomeSidebar from '@/components/nav/HomeSidebar.svelte'
 
@@ -110,6 +111,11 @@ function handleImageChange(newImage) {
                                             <p
                                                 class="mt-2 text-center text-3xl font-bold text-white">
                                                 {fixCasing(game.name)}
+                                            </p>
+                                            <p class="text-center text-white">
+                                                Updated {formatTimeAgo(
+                                                    game.lastUploaded
+                                                )}
                                             </p>
                                         </div>
                                     </div>
