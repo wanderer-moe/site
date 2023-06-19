@@ -65,14 +65,14 @@ async function downloadFiles(selected = false) {
             game
         )} ${fixCasing(asset)} files.`
         minimized = false
-        setTimeout(closeDownload, 10000)
+        setTimeout(closeDownload, 5000)
     } catch (error) {
         console.error(error)
         statusText = `Error downloading ${fixCasing(game)} ${
             selected ? 'selected' : 'all'
         } files.`
         minimized = false
-        setTimeout(closeDownload, 10000)
+        setTimeout(closeDownload, 5000)
     }
 }
 
@@ -138,8 +138,8 @@ onMount(async () => {
 {/if}
 
 {#if minimized}
-    <div class="fixed bottom-0 z-30">
-        <div class="rounded-l-md rounded-r-md bg-main-500 p-2">
+    <div class="fixed bottom-0 z-30 ml-2">
+        <div class="rounded-t-md border border-main-300 bg-main-500 p-2">
             <button on:click="{toggleMinimize}">
                 <i class="fa fa-arrow-up text-white"></i>
             </button>
