@@ -183,13 +183,10 @@ function downloadFiles(selectedOpt) {
                         </div>
 
                         <div class="w-full rounded-md text-white">
-                            <div
-                                class="justify-left flex flex-wrap items-center gap-1 text-sm">
+                            <div class="flex flex-wrap items-center gap-1">
                                 <button
                                     on:click="{() => downloadFiles(false)}"
-                                    class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
-                                        'direction'
-                                    )}">
+                                    class="btn w-full p-2.5 font-semibold md:w-auto">
                                     <i class="fa-solid fa-download"></i>
                                     {$t('asset.downloadAllSize', {
                                         values: {
@@ -197,26 +194,26 @@ function downloadFiles(selectedOpt) {
                                         },
                                     })}
                                 </button>
-                                {#if selectedItems.length >= 1}
-                                    <button
-                                        on:click="{() => downloadFiles(true)}"
-                                        class="rounded-md bg-accent-500 px-2.5 py-2.5 font-semibold text-white hover:bg-accent-600 focus:shadow focus:outline-none {$t(
-                                            'direction'
-                                        )}">
-                                        <i class="fa-solid fa-download"></i>
-                                        {#if selectedItems.length >= 1}
-                                            {$t('asset.downloadSelectedSize', {
-                                                values: {
-                                                    size: bytesToFileSize(
-                                                        selectedFilesSize
-                                                    ),
-                                                },
-                                            })}
-                                        {:else}
-                                            {$t('asset.downloadSelected')}
-                                        {/if}
-                                    </button>
-                                {/if}
+                                <button
+                                    on:click="{() => downloadFiles(true)}"
+                                    class="btn w-full p-2.5 font-semibold transition md:w-auto {selectedItems.length ==
+                                    0
+                                        ? 'cursor-not-allowed opacity-50'
+                                        : ''}"
+                                    disabled="{selectedItems.length == 0}">
+                                    <i class="fa-solid fa-download"></i>
+                                    {#if selectedItems.length >= 1}
+                                        {$t('asset.downloadSelectedSize', {
+                                            values: {
+                                                size: bytesToFileSize(
+                                                    selectedFilesSize
+                                                ),
+                                            },
+                                        })}
+                                    {:else}
+                                        {$t('asset.downloadSelected')}
+                                    {/if}
+                                </button>
                             </div>
                         </div>
                     </div>
