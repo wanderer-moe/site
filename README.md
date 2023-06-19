@@ -40,7 +40,7 @@ To run the website locally, follow these steps:
 
 > **Note**: There are currently CORS rules setup if you are using wanderer.moe's CDN — you may need to create your own R2 instance and change the `cdn` subdomain to your own R2. Make sure to also clone/modify the API and update the URLs.
 
-The API and CDN have their own respective subdomains — `api` and `cdn`. The API is powered by Cloudflare Workers and the CDN is powered by Cloudflare R2. The API's code is available [here][api.wanderer.moe]. More details on setting up the API are available [here][api.wanderer.moe Usage].
+The API and CDN have their own respective subdomains — `api` and `cdn`. The API is powered by Cloudflare Workers and the CDN is powered by Cloudflare R2. The API's code is available at the [api repository][api.wanderer.moe]. More details on setting up the API are available [on api/#usage][api.wanderer.moe Usage].
 
 ## Production Deployment & Configuration
 
@@ -62,14 +62,14 @@ View `src/hooks.server.ts` for the current redirects.
     /.svelte-kit/cloudflare
     ```
 
-All pushes to the `development` branch is deployed to the `beta` subdomain [here](https://beta.wanderer.moe).
+All pushes to the `development` branch is deployed to the `beta` subdomain @ [beta.wanderer.moe](https://beta.wanderer.moe).
 
 ## Contributing
 
 - **Development**: All contributions are welcome. Please make all pull requests to the `development` branch!
 - **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent on Discord (@dromzeh) or email: [marcel@dromzeh.dev][mail].
 
-A more detailed guide on contributing can be found [here][Contributing].
+A more detailed guide on contributing can be found in [CONTRIBUTING.md][Contributing].
 
 ## Contributors
 
@@ -83,7 +83,7 @@ A full list can be found [here][Contributors].
 
 ## Translations
 
-Translations are managed on [Crowdin][Crowdin] and are automatically synced with the `src/locales/***.json` language files on the `development` branch, @ [i18n_development][i18n Development].
+Translations are managed on [Crowdin][Crowdin]. All translations can be found on the [i18n repository][i18n].
 
 ## License
 
@@ -93,13 +93,13 @@ Translations are managed on [Crowdin][Crowdin] and are automatically synced with
 [Discord Badge]: https://img.shields.io/discord/982385887000272956?color=323379&label=discord&logo=discord&logoColor=fff&style=for-the-badge
 [Stars Badge]: https://img.shields.io/github/stars/wanderer-moe/site?color=3b3d91&logo=github&logoColor=fff&style=for-the-badge
 [Svelte Badge]: https://img.shields.io/github/package-json/dependency-version/wanderer-moe/site/dev/svelte?color=4547a9&logo=svelte&logoColor=fff&style=for-the-badge
-[api.wanderer.moe]: https://git.dromzeh.dev/api.wanderer.moe
-[api.wanderer.moe Usage]: https://git.dromzeh.dev/api.wanderer.moe#usage
+[api.wanderer.moe]: https://git.wanderer.moe/api
+[api.wanderer.moe Usage]: https://git.wanderer.moe/api#usage
 [Mail]: mailto:marcel@dromzeh.dev
 [Contributing]: CONTRIBUTING.md
 [Dromzeh]: https://github.com/dromzeh
 [Contributors]: https://wanderer.moe/contributors
 [Crowdin]: https://crowdin.com/project/wanderermoe
-[i18n Development]: https://github.com/wanderer-moe/site/tree/i18n_development
+[i18n]: https://github.com/wanderer-moe/i18n/tree/main/site
 [wanderer.moe]: https://wanderer.moe
 [License]: LICENSE
