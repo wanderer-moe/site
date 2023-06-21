@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CommitAuthor, Commit, Release } from '../../types/github'
+import type { CommitAuthor, Commit, Release } from '../../types/github'
 
 // gets the latest commits
 export async function getCommitsRecent(perPage?: number): Promise<Commit[]> {

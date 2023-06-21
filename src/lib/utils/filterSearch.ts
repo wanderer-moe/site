@@ -1,4 +1,4 @@
-import { Game, Subfolder, FormattedGame, FilteredGame } from '@/types/searchBar.ts'
+import type { Game, Subfolder, FormattedGame, FilteredGame } from '@/types/searchBar.ts'
 
 export const filterGamesSearchBar = (
     allGames: Game[],
