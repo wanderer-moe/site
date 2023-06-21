@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { CommitAuthor, Commit, Release } from '../../types/github'
 
 // gets the latest commits
-export async function getCommitsRecent(perPage) {
+export async function getCommitsRecent(perPage?: number): Promise<Commit[]> {
     try {
         const branch = window.location.href.startsWith('https://wanderer.moe/')
             ? 'main'
@@ -10,16 +11,14 @@ export async function getCommitsRecent(perPage) {
         const { data } = await axios.get(
             `https://api.github.com/repos/wanderer-moe/site/commits?per_page=${perPage}&sha=${branch}`
         )
+
         const commits = await Promise.all(
             data.map(
                 async ({
-                    commit: {
-                        message,
-                        author: { name, date },
-                    },
+                    commit: { message, author },
                     author: { login: username },
                     sha,
-                }) => {
+                }: any) => {
                     let commitMsg = message
                     if (commitMsg.includes('\n')) {
                         commitMsg = commitMsg.split('\n')[0]
@@ -27,13 +26,18 @@ export async function getCommitsRecent(perPage) {
                     const shaSpliced = sha.slice(0, 7)
                     return {
                         commitMsg,
-                        authorInfo: { name, username, date },
+                        authorInfo: {
+                            name: author.name,
+                            username,
+                            date: author.date,
+                        },
                         shaSpliced,
                         sha,
                     }
                 }
             )
         )
+
         return commits
     } catch (error) {
         console.error(error)
@@ -42,11 +46,12 @@ export async function getCommitsRecent(perPage) {
 }
 
 // gets the latest release
-export async function getReleases(releaseCount) {
+export async function getReleases(releaseCount?: number): Promise<Release[]> {
     try {
         const { data } = await axios.get(
             `https://api.github.com/repos/wanderer-moe/site/releases?per_page=${releaseCount}`
         )
+
         const releases = await Promise.all(
             data.map(
                 async ({
@@ -56,12 +61,13 @@ export async function getReleases(releaseCount) {
                     body = '',
                     author: { login: author },
                     published_at: date,
-                }) => {
+                }: any) => {
                     if (!date) return null
                     return { tag, name, url, body, author, date }
                 }
             )
         )
+
         return releases.filter(Boolean)
     } catch (error) {
         console.error(error)

@@ -1,7 +1,7 @@
-export function formatTimeAgo(isoTimestamp) {
+export function formatTimeAgo(isoTimestamp: string) {
     const now = new Date()
     const timestamp = new Date(isoTimestamp)
-    const elapsedMilliseconds = now - timestamp
+    const elapsedMilliseconds = now.getTime() - timestamp.getTime()
     const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000)
 
     if (elapsedSeconds < 60) {
@@ -37,7 +37,7 @@ export function formatTimeAgo(isoTimestamp) {
 }
 
 // ISO 8601 -> DD/Suffix Month YYYY, HH:MM:SS
-export function formatDateReadable(dateString) {
+export function formatDateReadable(dateString: string) {
     const date = new Date(dateString)
     const day = date.getDate()
     const month = date.toLocaleString('default', { month: 'long' })
@@ -46,7 +46,7 @@ export function formatDateReadable(dateString) {
     const suffix = getOrdinalSuffix(day)
     return `${day}${suffix} ${month} ${year}, ${time}`
 }
-function getOrdinalSuffix(day) {
+function getOrdinalSuffix(day: number) {
     const suffixes = ['th', 'st', 'nd', 'rd']
     const lastDigit = day % 10
     const suffixIndex =
@@ -55,7 +55,7 @@ function getOrdinalSuffix(day) {
 }
 
 // ISO 8601 -> Unix Timestamp
-export function iso8601ToUnix(isoString) {
+export function iso8601ToUnix(isoString: string) {
     const date = new Date(isoString)
     return Math.floor(date.getTime() / 1000)
 }
