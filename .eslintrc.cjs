@@ -3,6 +3,7 @@ module.exports = {
     extends: [
       "plugin:svelte/recommended",
     ],
+    ignorePatterns: ['*.cjs'],
     rules: {
       'svelte/no-trailing-spaces': 'error'
     },

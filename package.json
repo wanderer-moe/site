@@ -46,6 +46,8 @@
         "@svackages/sveltekit-hook-redirect": "^0.0.1",
         "@sveltejs/adapter-cloudflare": "^2.3.0",
         "@sveltejs/kit": "1.20.4",
+        "@typescript-eslint/eslint-plugin": "^5.60.0",
+        "@typescript-eslint/parser": "^5.60.0",
         "axios": "^1.4.0",
         "file-saver": "^2.0.5",
         "glob": "^10.2.7",
@@ -55,6 +57,7 @@
         "nprogress": "^0.2.0",
         "svelte-lazy": "^1.2.1",
         "svelte-loading-spinners": "^0.3.4",
-        "tiny-glob": "^0.2.9"
+        "tiny-glob": "^0.2.9",
+        "typescript": "^5.1.3"
     }
 }
