@@ -8,6 +8,7 @@
         "build": "vite build",
         "preview": "vite preview",
         "prettier": "prettier --write --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
+        "prettier:check": "prettier --check --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
         "lint": "eslint --ext .js,.svelte src"
     },
     "devDependencies": {
