@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { t } from 'svelte-i18n'
 import LocaleDropdown from '@/components/dropdowns/LocaleDropdown.svelte'
 import Status from '@/components/Status.svelte'

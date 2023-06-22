@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
 import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat'
 import Lazy from 'svelte-lazy'

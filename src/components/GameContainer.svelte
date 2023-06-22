@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat'
 export let game

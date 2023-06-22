@@ -1,18 +1,9 @@
-<script>
+<script lang="ts">
 import { t } from 'svelte-i18n'
 import SearchBar from '@/components/popouts/SearchBar.svelte'
 import { keybindHandler } from '@/lib/utils/keybinds'
-// import { getCommitsRecent } from '@/lib/utils/github'
-// import { onMount } from 'svelte'
 
 let isSearchOpen = false
-// let commitSha = ''
-
-// onMount(async () => {
-//     const commits = await getCommitsRecent()
-//     commitSha = commits[0].shaSpliced
-//     console.log(commitSha)
-// })
 </script>
 
 <svelte:window
