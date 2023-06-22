@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios'
 import { onMount } from 'svelte'
-import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { writable } from 'svelte/store'
 // import { t } from "svelte-i18n"; TODO: i18n support maybe?
 

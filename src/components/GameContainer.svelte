@@ -1,6 +1,6 @@
 <script>
-import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
-import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat.js'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing'
+import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat'
 export let game
 export let focusedImage
 export let handleImageChange

@@ -1,4 +1,4 @@
-import { getReleases } from '@/lib/utils/github.js'
+import { getReleases } from '@/lib/utils/github'
 
 export async function load({ fetch }) {
     try {

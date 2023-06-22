@@ -2,8 +2,8 @@
 import { t } from 'svelte-i18n'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { fly, fade } from 'svelte/transition'
-import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
-import { getImageResolution } from '@/lib/helpers/asset/getImageResolution.js'
+import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
+import { getImageResolution } from '@/lib/helpers/asset/getImageResolution'
 
 let resolution = 'Unknown'
 

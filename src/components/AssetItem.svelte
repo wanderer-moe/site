@@ -1,6 +1,6 @@
 <script>
-import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
-import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat.js'
+import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
+import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat'
 import Lazy from 'svelte-lazy'
 
 import { t } from 'svelte-i18n'

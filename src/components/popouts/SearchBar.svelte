@@ -10,7 +10,7 @@ import { t } from 'svelte-i18n'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { fly, fade } from 'svelte/transition'
 import { filterGamesSearchBar as filterGames } from '@/lib/utils/filterSearch'
-import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 export let query = ''
 export let closeSearchBar
 let searchInput

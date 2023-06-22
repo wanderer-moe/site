@@ -27,7 +27,6 @@ const OCGeneratorsLocations = allOCGenerators.locations
 let focusedImage = 'goddess-of-victory-nikke'
 let isFading = false
 let nextImage = ''
-
 function handleImageChange(newImage) {
     nextImage = newImage
     focusedImageElement.src = `https://cdn.wanderer.moe/${newImage}/cover.png`

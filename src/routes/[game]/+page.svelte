@@ -1,6 +1,6 @@
 <script>
-import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
-import { formatDateReadable } from '@/lib/helpers/timeConvertion/isoFormat.js'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing'
+import { formatDateReadable } from '@/lib/helpers/timeConvertion/isoFormat'
 import { t } from 'svelte-i18n'
 
 export let data

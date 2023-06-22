@@ -1,7 +1,7 @@
 <script>
 import { t } from 'svelte-i18n'
-import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
-import { getDiscordData } from '@/lib/utils/discord.js'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing'
+import { getDiscordData } from '@/lib/utils/discord'
 import { onMount } from 'svelte'
 import { writable } from 'svelte/store'
 
