@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { browser } from '$app/environment'
 import Faq from '@/components/popouts/Faq.svelte'
 import ViewImage from '@/components/popouts/ViewImage.svelte'

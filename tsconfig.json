@@ -10,5 +10,8 @@
         "sourceMap": true,
         "strict": true
     },
-    "exclude": ["i18n"]
+    "path": {
+        "@/*": ["src/*"]
+    },
+    "exclude": ["i18n", "node_modules"]
 }

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { formatDateReadable } from '@/lib/helpers/timeConvertion/isoFormat'
 import { t } from 'svelte-i18n'
