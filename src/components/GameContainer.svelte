@@ -1,9 +1,8 @@
 <script>
 import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
 import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat.js'
-export let game
-export let focusedImage
-export let handleImageChange
+
+export let game, focusedImage, handleImageChange
 </script>
 
 <a href="/{game.name}">

@@ -6,9 +6,7 @@ import { t } from 'svelte-i18n'
 
 let sortMenuOpen = false
 
-export let selectedSortingOption
-export let changeSort
-export let sortingOptions
+export let selectedSortingOption, changeSort, sortingOptions
 
 function updateSort(sortingOption) {
     changeSort(sortingOption)

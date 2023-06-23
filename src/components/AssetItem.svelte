@@ -6,16 +6,16 @@ import Lazy from 'svelte-lazy'
 import { t } from 'svelte-i18n'
 import LoadPlaceHolder from './LoadPlaceHolder.svelte'
 
-export let game
-export let asset
-export let image
-export let selectedItems
-export let selectedFilesSize
-export let imageDoubleClicked
-export let imageUrl
-export let imageTitle
-export let downloadingMultiple
-export let imageFileSize
+export let game,
+    asset,
+    image,
+    selectedItems,
+    selectedFilesSize,
+    imageDoubleClicked,
+    imageUrl,
+    imageTitle,
+    downloadingMultiple,
+    imageFileSize
 
 function toggleSelection(event) {
     if (!event.target.closest('button')) {
