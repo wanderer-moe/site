@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { t } from 'svelte-i18n'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { fly, fade } from 'svelte/transition'

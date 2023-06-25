@@ -1,44 +1,30 @@
-<script>
+<script lang="ts">
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
 import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat.js'
 import Lazy from 'svelte-lazy'
-
+import type { Asset } from '@/lib/types/asset'
 import { t } from 'svelte-i18n'
 import LoadPlaceHolder from './LoadPlaceHolder.svelte'
+import { fixCasing } from '$lib/helpers/casing/fixCasing'
 
-export let game,
-    asset,
-    image,
-    selectedItems,
-    selectedFilesSize,
-    imageDoubleClicked,
-    imageUrl,
-    imageTitle,
-    downloadingMultiple,
-    imageFileSize
-
-function toggleSelection(event) {
-    if (!event.target.closest('button')) {
-        // check if the click was on the download button
-        if (selectedItems.includes(image)) {
-            selectedFilesSize -= image.size
-            selectedItems = selectedItems.filter((item) => item !== image)
-        } else {
-            selectedItems = [...selectedItems, image]
-            selectedFilesSize += image.size
-        }
-    }
-}
+export let asset: Asset
+export let focusedImage: string
+export let handleImageChange: (newImage: string) => void
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-    class="relative flex cursor-pointer items-center rounded-md border-[3px] bg-main-500 p-3 font-semibold text-gray-400 transition-colors duration-150 hover:border-main-300 {selectedItems.includes(
-        image
-    )
-        ? '!border-accent-400'
-        : 'border-main-400'}"
-    on:click="{toggleSelection}">
+    class="relative flex cursor-pointer items-center rounded-md border-[3px] border-main-500 bg-main-500 p-3 font-semibold text-gray-400 transition-colors duration-150 hover:border-main-300"
+    on:mouseover="{() => {
+        if (focusedImage !== asset.game) {
+            handleImageChange(asset.game)
+        }
+    }}"
+    on:focus="{() => {
+        if (focusedImage !== asset.game) {
+            handleImageChange(asset.game)
+        }
+    }}">
     <Lazy
         height="{128}"
         placeholder="{LoadPlaceHolder}"
@@ -48,46 +34,47 @@ function toggleSelection(event) {
         }}">
         <img
             id="assetimg"
-            class="max-w-32 h-32 max-h-32 w-32 object-contain object-left p-1"
-            src="{image.path}"
-            alt="{image.name}"
-            on:dblclick="{() => {
-                imageDoubleClicked = true
-                imageUrl = `${image.path}`
-                imageTitle = `${image.name}`
-                imageFileSize = `${image.size}`
-            }}" />
+            class="max-w-28 h-28 max-h-28 w-28 object-contain object-left p-1"
+            src="{asset.url}"
+            alt="{asset.name}" />
     </Lazy>
     <div class="p-2">
         <div class="whitespace-normal break-all">
-            <div class="my-1">
-                <p class="text-sm lowercase text-white">
-                    {image.name.replace('.png', '')}
+            <div class="flex flex-row gap-y-2 text-xs">
+                <div>
+                    <span
+                        class="rounded-md bg-main-400 px-2 py-1 text-xs font-semibold text-white">
+                        <img
+                            src="https://cdn.wanderer.moe/{asset.game}/icon.png"
+                            alt="{asset.game} cover"
+                            class="mr-1 inline-block h-4 w-4 rounded-md" />
+                        {fixCasing(asset.game)}
+                    </span>
+                    <span
+                        class="rounded-md bg-main-400 px-2 py-1 text-xs font-semibold text-white">
+                        {fixCasing(asset.asset)}
+                    </span>
+                </div>
+            </div>
+            <div class="my-3">
+                <p class="text-sm font-semibold lowercase text-white">
+                    {asset.name.replace('.png', '')}
                 </p>
                 <p class="text-xs">
-                    Uploaded {formatTimeAgo(image.uploaded)}
+                    Uploaded {formatTimeAgo(asset.uploadedDate)}
+                </p>
+                <p class="text-xs">
+                    {bytesToFileSize(asset.fileSize)}
                 </p>
             </div>
             <a
-                href="https://cdn.wanderer.moe/{game}/{asset}/{image.name}.png"
+                href="https://v2-api-testing.wanderer.moe/download?id={asset.id}"
                 rel="noreferrer"
                 target="_blank"
                 download>
                 <button
-                    disabled="{downloadingMultiple}"
-                    class="btn mt-2 w-full p-2.5 font-semibold transition md:w-auto
-                    {downloadingMultiple
-                        ? 'cursor-not-allowed opacity-70'
-                        : ''}"
-                    onclick="{(event) => {
-                        event.stopPropagation()
-                    }}">
-                    <i class="fa-solid fa-download mr-1"></i>
-                    {$t('asset.downloadSize', {
-                        values: {
-                            size: bytesToFileSize(image.size),
-                        },
-                    })}
+                    class="btn w-full px-2 py-1 font-semibold transition md:w-auto">
+                    <i class="fa-solid fa-download mr-1"></i> Download
                 </button>
             </a>
         </div>

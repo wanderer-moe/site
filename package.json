@@ -56,6 +56,7 @@
         "nprogress": "^0.2.0",
         "svelte-lazy": "^1.2.1",
         "svelte-loading-spinners": "^0.3.4",
-        "tiny-glob": "^0.2.9"
+        "tiny-glob": "^0.2.9",
+        "typescript": "^5.1.3"
     }
 }

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { t } from 'svelte-i18n'
 import { page } from '$app/stores'
 </script>
@@ -30,7 +30,7 @@ import { page } from '$app/stores'
                     >{$t('errors.refresh')}
                 </a>
             </p>
-            <p class="text-xs text-gray-400">{$page.error.message}</p>
+            <p class="text-xs text-gray-400">{$page.error?.message}</p>
         </div>
     </div>
 </div>
