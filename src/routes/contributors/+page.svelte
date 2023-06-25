@@ -63,14 +63,14 @@ function getTopmostCategory(contributor) {
                     <div
                         class="flex flex-col items-center justify-between xl:flex-row">
                         <div>
-                            <h2
+                            <h1
                                 class="max-w-lg text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                                 {$t('contributors.title')}
-                            </h2>
-                            <p
+                            </h1>
+                            <h2
                                 class="text-md max-w-xl font-semibold text-white">
                                 {$t('contributors.desc')}
-                            </p>
+                            </h2>
                         </div>
                     </div>
                 </div>

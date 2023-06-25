@@ -5,10 +5,10 @@
 <div class="min-h-screen">
     <div class="px-2 py-24 md:px-12 lg:px-24">
         <div class="mb-2">
-            <p class="m-2 text-left text-4xl font-semibold text-white">
+            <h1 class="m-2 text-left text-4xl font-semibold text-white">
                 Privacy Policy
-            </p>
-            <p class="m-2 text-white">Last updated: 12th June 2023</p>
+            </h1>
+            <h2 class="m-2 text-white">Last updated: 12th June 2023</h2>
             <div>
                 <div class="m-2 mt-4 grid gap-3">
                     <p class="text-gray-400">

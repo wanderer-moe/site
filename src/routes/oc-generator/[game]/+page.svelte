@@ -78,14 +78,14 @@ onMount(async () => {
                     <div
                         class="flex flex-col items-center justify-between xl:flex-row">
                         <div class="">
-                            <h2
+                            <h1
                                 class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                                 <span class="mr-3">{fixCasing(game)}</span>
-                            </h2>
-                            <p
+                            </h1>
+                            <h2
                                 class="max-w-xl text-xl font-semibold text-white">
                                 OC Generator
-                            </p>
+                            </h2>
                             <p
                                 class="max-w-xl text-sm font-semibold text-white">
                                 You can lock and unlock entries by pressing the <i

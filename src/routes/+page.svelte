@@ -16,6 +16,8 @@
 <script lang="ts">
 import { t } from 'svelte-i18n'
 import AssetItem from '@/components/AssetItem.svelte'
+import { fly, fade } from 'svelte/transition'
+import { cubicOut, quintOut } from 'svelte/easing'
 
 export let data
 const { games, recent } = data
@@ -64,14 +66,13 @@ function handleImageChange(newImage: string) {
                         <div
                             class="flex flex-col items-center justify-between xl:flex-row">
                             <div>
-                                <h2
-                                    class="max-w-lg text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
+                                <h1
+                                    class="max-w-lg text-3xl font-bold text-white sm:text-4xl sm:leading-none">
                                     wanderer.moe
-                                </h2>
-                                <p
-                                    class="mb-2 max-w-xl text-xl font-semibold text-white">
+                                </h1>
+                                <h2 class="max-w-xl text-xl text-white">
                                     {$t('home.description')}
-                                </p>
+                                </h2>
                             </div>
                         </div>
                     </div>

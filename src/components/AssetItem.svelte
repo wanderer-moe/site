@@ -43,7 +43,7 @@ export let handleImageChange: (newImage: string) => void
             <div class="flex flex-row gap-y-2 text-xs">
                 <div>
                     <span
-                        class="rounded-md bg-main-400 px-2 py-1 text-xs font-semibold text-white">
+                        class="rounded-md bg-main-400 px-2.5 py-1 text-xs font-semibold text-white">
                         <img
                             src="https://cdn.wanderer.moe/{asset.game}/icon.png"
                             alt="{asset.game} cover"
@@ -51,7 +51,7 @@ export let handleImageChange: (newImage: string) => void
                         {fixCasing(asset.game)}
                     </span>
                     <span
-                        class="rounded-md bg-main-400 px-2 py-1 text-xs font-semibold text-white">
+                        class="rounded-md bg-main-400 px-2.5 py-1 text-xs font-semibold text-white">
                         {fixCasing(asset.asset)}
                     </span>
                 </div>
@@ -67,16 +67,24 @@ export let handleImageChange: (newImage: string) => void
                     {bytesToFileSize(asset.fileSize)}
                 </p>
             </div>
-            <a
-                href="https://v2-api-testing.wanderer.moe/download?id={asset.id}"
-                rel="noreferrer"
-                target="_blank"
-                download>
-                <button
-                    class="btn w-full px-2 py-1 font-semibold transition md:w-auto">
-                    <i class="fa-solid fa-download mr-1"></i> Download
-                </button>
-            </a>
+            <div class="flex gap-2">
+                <a
+                    href="https://v2-api-testing.wanderer.moe/download?id={asset.id}"
+                    rel="noreferrer"
+                    target="_blank"
+                    download>
+                    <button
+                        class="btn w-full px-2.5 py-1 font-semibold transition md:w-auto">
+                        <i class="fa-solid fa-download mr-1"></i> Download
+                    </button>
+                </a>
+                <a href="/asset/{asset.id}">
+                    <button
+                        class="btn w-full px-2.5 py-1 font-semibold transition md:w-auto">
+                        <i class="fa-solid fa-external-link mr-1"></i> View Details
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 </div>
