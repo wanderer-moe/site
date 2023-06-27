@@ -48,12 +48,11 @@ function getAssetCategoriesFromGames() {
     games.forEach((game) => {
         game.assetCategories.forEach((category) => {
             if (!allAssetCategories.includes(category)) {
-                console.log('pushing', category)
                 allAssetCategories.push(category)
             }
         })
     })
-    console.log('allAssetCategories', allAssetCategories)
+    // console.log('allAssetCategories', allAssetCategories)
 }
 
 function getValidAssetCategoriesFromGames() {
@@ -70,7 +69,7 @@ function getValidAssetCategoriesFromGames() {
     $selectedAssetCategories = $selectedAssetCategories.filter((category) =>
         validAssetCategories.includes(category)
     )
-    console.log('validAssetCategories', validAssetCategories)
+    // console.log('validAssetCategories', validAssetCategories)
 }
 
 onMount(() => {
@@ -82,36 +81,56 @@ onMount(() => {
     console.log(query, game, asset)
     if (query) {
         searchInput.value = query
-        makeRequest()
     }
     if (game) {
-        const gameArray = game.split(',') as string[]
+        const gameArray = game.split(',') as string[];
         gameArray.forEach((game) => {
-            $selectedGames.push(game)
-        })
-        getValidAssetCategoriesFromGames()
+            selectedGames.update((games) => [...games, game]);
+        });
     }
+    if (asset) {
+        const assetArray = asset.split(',') as string[]
+        assetArray.forEach((asset) => {
+            $selectedAssetCategories.push(asset)
+        })
+    }
+    getValidAssetCategoriesFromGames()
+    makeRequest()
 })
 
 function makeRequest() {
-    fetch(
-        `https://v2-api-testing.wanderer.moe/search?${new URLSearchParams({
-            query: searchInput.value.replace(/ /g, '-') || '',
-            game: $selectedGames.join(',') || '',
-            asset: $selectedAssetCategories.join(',') || '',
-        })}`
+    const filteredGames = $selectedGames.filter((game) => game !== '')
+    const filteredAssetCategories = $selectedAssetCategories.filter(
+        (category) => category !== ''
     )
+    const query = searchInput.value.trim().replace(/ /g, '-')
+
+    let url = 'https://v2-api-testing.wanderer.moe/search?'
+
+    if (query) {
+        url += new URLSearchParams({ query })
+    }
+
+    if (filteredGames.length > 0) {
+        url += `&game=${filteredGames.join(',')}`
+    }
+
+    if (filteredAssetCategories.length > 0) {
+        url += `&asset=${filteredAssetCategories.join(',')}`
+    }
+
+    fetch(url)
         .then((res) => res.json())
         .then((res) => {
             data = res
             showResults = true
-            console.log(res)
+            // console.log(res);
             results = res.results
         })
 }
 
 function searchForAssets() {
-    console.log(searchInput.value, $selectedGames, $selectedAssetCategories)
+    // console.log(searchInput.value, $selectedGames, $selectedAssetCategories)
     replaceStateWithQuery({
         query: searchInput.value.replace(/ /g, '-') || '',
         game: $selectedGames.join(',') || '',
@@ -124,6 +143,30 @@ function handleImageChange(newImage: string) {
     nextImage = newImage
     focusedImageElement.src = `https://cdn.wanderer.moe/${newImage}/cover.png`
     isFading = true
+}
+
+function toggleAssetCategory(asset: string): void {
+    if (!$selectedAssetCategories.includes(asset)) {
+        selectedAssetCategories.update((assets) => [...assets, asset])
+    } else {
+        selectedAssetCategories.update((assets) =>
+            assets.filter((selectedAsset) => selectedAsset !== asset)
+        )
+    }
+    // console.log($selectedAssetCategories);
+}
+
+function handleGameSelection(game: string): void {
+    handleImageChange(game)
+    if (!$selectedGames.includes(game)) {
+        selectedGames.update((games) => [...games, game])
+    } else {
+        selectedGames.update((games) =>
+            games.filter((selectedGame) => selectedGame !== game)
+        )
+    }
+    // console.log($selectedGames);
+    getValidAssetCategoriesFromGames()
 }
 
 getAssetCategoriesFromGames()
@@ -198,22 +241,7 @@ getAssetCategoriesFromGames()
                                     ? 'border-main-300 grayscale-0'
                                     : 'border-main-400 grayscale-[50]'} bg-main-500 px-4 py-2.5 text-lg text-white transition-colors hover:cursor-pointer hover:border-main-300 hover:grayscale-0 focus:outline-none"
                                 on:click="{() => {
-                                    handleImageChange(game.name)
-                                    if (!$selectedGames.includes(game.name)) {
-                                        selectedGames.update((games) => [
-                                            ...games,
-                                            game.name,
-                                        ])
-                                    } else {
-                                        selectedGames.update((games) =>
-                                            games.filter(
-                                                (selectedGame) =>
-                                                    selectedGame !== game.name
-                                            )
-                                        )
-                                    }
-                                    console.log($selectedGames)
-                                    getValidAssetCategoriesFromGames()
+                                    handleGameSelection(game.name)
                                 }}">
                                 <img
                                     src="{`https://cdn.wanderer.moe/${game.name}/icon.png`}"
@@ -229,27 +257,8 @@ getAssetCategoriesFromGames()
                                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                                 <!-- svelte-ignore a11y-no-static-element-interactions -->
                                 <div
-                                    on:click="{() => {
-                                        if (
-                                            !$selectedAssetCategories.includes(
-                                                asset
-                                            )
-                                        ) {
-                                            selectedAssetCategories.update(
-                                                (assets) => [...assets, asset]
-                                            )
-                                        } else {
-                                            selectedAssetCategories.update(
-                                                (assets) =>
-                                                    assets.filter(
-                                                        (selectedAsset) =>
-                                                            selectedAsset !==
-                                                            asset
-                                                    )
-                                            )
-                                        }
-                                        console.log($selectedAssetCategories)
-                                    }}"
+                                    on:click="{() =>
+                                        toggleAssetCategory(asset)}"
                                     class="rounded-md border-[3px] bg-main-500 px-4 py-2.5 text-lg text-white hover:border-main-300 {$selectedAssetCategories.includes(
                                         asset
                                     )
