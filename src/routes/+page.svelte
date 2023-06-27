@@ -26,8 +26,9 @@ import { mapGame } from '@/lib/helpers/casing/gameMapping.js'
 
 export let data
 const { games, recent } = data
-let { results } = data
 
+let numAssetsToDisplay = 50
+let results = recent
 let selectedGames = writable([])
 let selectedAssetCategories = writable([])
 const allAssetCategories = []
@@ -38,11 +39,6 @@ let searchInput: HTMLInputElement
 let focusedImage = 'honkai-star-rail'
 let isFading = false
 let nextImage = ''
-
-let showResults = false
-if (results) {
-    showResults = true
-}
 
 function getAssetCategoriesFromGames() {
     games.forEach((game) => {
@@ -73,7 +69,6 @@ function getValidAssetCategoriesFromGames() {
 }
 
 onMount(() => {
-    showResults = false
     const params = new URLSearchParams(window.location.search)
     const { query, game, asset } = Object.fromEntries(
         params.entries()
@@ -83,10 +78,10 @@ onMount(() => {
         searchInput.value = query
     }
     if (game) {
-        const gameArray = game.split(',') as string[];
+        const gameArray = game.split(',') as string[]
         gameArray.forEach((game) => {
-            selectedGames.update((games) => [...games, game]);
-        });
+            selectedGames.update((games) => [...games, game])
+        })
     }
     if (asset) {
         const assetArray = asset.split(',') as string[]
@@ -123,7 +118,6 @@ function makeRequest() {
         .then((res) => res.json())
         .then((res) => {
             data = res
-            showResults = true
             // console.log(res);
             results = res.results
         })
@@ -167,6 +161,10 @@ function handleGameSelection(game: string): void {
     }
     // console.log($selectedGames);
     getValidAssetCategoriesFromGames()
+}
+
+function handleViewMore() {
+    numAssetsToDisplay += 20
 }
 
 getAssetCategoriesFromGames()
@@ -253,7 +251,7 @@ getAssetCategoriesFromGames()
                     </div>
                     <div class="mb-8 flex flex-wrap gap-2 overflow-x-auto">
                         {#each allAssetCategories as asset}
-                            {#if validAssetCategories.includes(asset)}
+                            {#if validAssetCategories.includes(asset) || $selectedGames.length === 0}
                                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                                 <!-- svelte-ignore a11y-no-static-element-interactions -->
                                 <div
@@ -263,48 +261,36 @@ getAssetCategoriesFromGames()
                                         asset
                                     )
                                         ? 'border-main-300'
-                                        : 'border-main-500'} cursor-pointer
-                                    
-                                    hover:border-main-300">
+                                        : 'border-main-500'} cursor-pointer hover:border-main-300">
                                     {fixCasing(asset)}
                                 </div>
                             {/if}
                         {/each}
                     </div>
                 </div>
-                {#await data}
-                    <p>Loading...</p>
-                {:then}
-                    {#if !showResults}
-                        <div id="lastUploaded" class="mb-8">
-                            <p class="mb-4 text-2xl font-bold text-white">
-                                Recently Uploaded
-                            </p>
-                            <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
-                                {#each recent as asset}
-                                    <AssetItem
-                                        asset="{asset}"
-                                        bind:focusedImage="{focusedImage}"
-                                        handleImageChange="{handleImageChange}" />
-                                {/each}
-                            </div>
-                        </div>
-                    {:else}
-                        <div id="searchResults" class="mb-8">
-                            <p class="mb-4 text-2xl font-bold text-white">
-                                Search Results
-                            </p>
-                            <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
-                                {#each results as asset}
-                                    <AssetItem
-                                        asset="{asset}"
-                                        bind:focusedImage="{focusedImage}"
-                                        handleImageChange="{handleImageChange}" />
-                                {/each}
-                            </div>
-                        </div>
-                    {/if}
-                {/await}
+                <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
+                    {#each results.slice(0, numAssetsToDisplay) as asset}
+                        <AssetItem
+                            asset="{asset}"
+                            bind:focusedImage="{focusedImage}"
+                            handleImageChange="{handleImageChange}" />
+                    {/each}
+                </div>
+                {#if results.length === 0}
+                    <div>
+                        <p class="text-center text-2xl text-white">
+                            No results found.
+                        </p>
+                    </div>
+                {:else if results.length > numAssetsToDisplay}
+                    <div class="flex justify-center">
+                        <button
+                            class="my-8 cursor-pointer rounded-md border-[3px] border-main-500 bg-main-500 px-20 py-2.5 text-lg text-white hover:border-main-300"
+                            on:click="{handleViewMore}">
+                            View More
+                        </button>
+                    </div>
+                {/if}
             </div>
         </div>
     </div>
