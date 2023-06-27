@@ -29,9 +29,9 @@ let { results } = data
 
 let selectedGames = writable([])
 let selectedAssetCategories = writable([])
-const assetCategories = []
 const allAssetCategories = []
 let validAssetCategories = []
+
 let focusedImageElement: HTMLImageElement
 let searchInput: HTMLInputElement
 let focusedImage = 'honkai-star-rail'
@@ -66,6 +66,9 @@ function getValidAssetCategoriesFromGames() {
             })
         }
     })
+    $selectedAssetCategories = $selectedAssetCategories.filter((category) =>
+        validAssetCategories.includes(category)
+    )
     console.log('validAssetCategories', validAssetCategories)
 }
 
@@ -93,8 +96,8 @@ function makeRequest() {
     fetch(
         `https://v2-api-testing.wanderer.moe/search?${new URLSearchParams({
             query: searchInput.value.replace(/ /g, '-') || '',
-            // game: selectedGames.join(',') || '',
-            asset: assetCategories.join(',') || '',
+            game: $selectedGames.join(',') || '',
+            asset: $selectedAssetCategories.join(',') || '',
         })}`
     )
         .then((res) => res.json())
@@ -107,11 +110,11 @@ function makeRequest() {
 }
 
 function searchForAssets() {
-    console.log(searchInput.value, $selectedGames, assetCategories)
+    console.log(searchInput.value, $selectedGames, $selectedAssetCategories)
     replaceStateWithQuery({
         query: searchInput.value.replace(/ /g, '-') || '',
-        // game: selectedGames.join(',') || '',
-        asset: assetCategories.join(',') || '',
+        game: $selectedGames.join(',') || '',
+        asset: $selectedAssetCategories.join(',') || '',
     })
     makeRequest()
 }
@@ -221,40 +224,41 @@ getAssetCategoriesFromGames()
                     </div>
                     <div class="mb-8 flex flex-wrap gap-2 overflow-x-auto">
                         {#each allAssetCategories as asset}
-                        {#if validAssetCategories.includes(asset)}
-                            <!-- svelte-ignore a11y-click-events-have-key-events -->
-                            <!-- svelte-ignore a11y-no-static-element-interactions -->
-                            <div
-                                on:click="{() => {
-                                    if (
-                                        !$selectedAssetCategories.includes(
-                                            asset
-                                        )
-                                    ) {
-                                        selectedAssetCategories.update(
-                                            (assets) => [...assets, asset]
-                                        )
-                                    } else {
-                                        selectedAssetCategories.update(
-                                            (assets) =>
-                                                assets.filter(
-                                                    (selectedAsset) =>
-                                                        selectedAsset !== asset
-                                                )
-                                        )
-                                    }
-                                    console.log($selectedAssetCategories)
-                                }}"
-                                class="rounded-md border-[3px] bg-main-500 px-4 py-2.5 text-lg text-white hover:border-main-300 {$selectedAssetCategories.includes(
-                                    asset
-                                )
-                                    ? 'border-main-300'
-                                    : 'border-main-500'} cursor-pointer
+                            {#if validAssetCategories.includes(asset)}
+                                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                                <!-- svelte-ignore a11y-no-static-element-interactions -->
+                                <div
+                                    on:click="{() => {
+                                        if (
+                                            !$selectedAssetCategories.includes(
+                                                asset
+                                            )
+                                        ) {
+                                            selectedAssetCategories.update(
+                                                (assets) => [...assets, asset]
+                                            )
+                                        } else {
+                                            selectedAssetCategories.update(
+                                                (assets) =>
+                                                    assets.filter(
+                                                        (selectedAsset) =>
+                                                            selectedAsset !==
+                                                            asset
+                                                    )
+                                            )
+                                        }
+                                        console.log($selectedAssetCategories)
+                                    }}"
+                                    class="rounded-md border-[3px] bg-main-500 px-4 py-2.5 text-lg text-white hover:border-main-300 {$selectedAssetCategories.includes(
+                                        asset
+                                    )
+                                        ? 'border-main-300'
+                                        : 'border-main-500'} cursor-pointer
                                 
                                 hover:border-main-300">
-                                {fixCasing(asset)}
-                            </div>
-                        {/if}
+                                    {fixCasing(asset)}
+                                </div>
+                            {/if}
                         {/each}
                     </div>
                 </div>
