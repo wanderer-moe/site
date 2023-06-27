@@ -17,17 +17,63 @@
 import { replaceStateWithQuery } from '@/lib/helpers/replaceStateWithQuery'
 import { t } from 'svelte-i18n'
 import AssetItem from '@/components/AssetItem.svelte'
-import { fly, fade } from 'svelte/transition'
 import { cubicOut, quintOut } from 'svelte/easing'
+import { onMount } from 'svelte'
+import type { AcceptableParams } from '@/lib/types/acceptableParams'
 
 export let data
 const { games, recent } = data
+let { results } = data
 
 let focusedImageElement: HTMLImageElement
 let focusedImage = 'honkai-star-rail'
 let isFading = false
 let searchInput: HTMLInputElement
 let nextImage = ''
+let showResults = false
+
+if (results) {
+    showResults = true
+}
+
+onMount(() => {
+    showResults = false
+    const params = new URLSearchParams(window.location.search)
+    const { query, game, asset } = Object.fromEntries(
+        params.entries()
+    ) as AcceptableParams
+    console.log(query, game, asset)
+    if (query) {
+        searchInput.value = query
+        makeRequest()
+    }
+    if (game) {
+        focusedImage = game
+        focusedImageElement.src = `https://cdn.wanderer.moe/${game}/cover.png`
+    }
+})
+
+function makeRequest() {
+    const searchQuery = searchInput.value.replace(/ /g, '-')
+    if (!searchQuery) {
+        showResults = false
+        return
+    }
+    fetch(`https://v2-api-testing.wanderer.moe/search?query=${searchQuery}`)
+        .then((res) => res.json())
+        .then((res) => {
+            data = res
+            showResults = true
+            results = res.results
+        })
+}
+
+function handleInputChange() {
+    replaceStateWithQuery({
+        query: searchInput.value.replace(/ /g, '-'),
+    })
+    makeRequest()
+}
 
 function handleImageChange(newImage: string) {
     nextImage = newImage
@@ -85,25 +131,43 @@ function handleImageChange(newImage: string) {
                     <input
                         type="text"
                         bind:this="{searchInput}"
-                        on:change="{() =>
-                            replaceStateWithQuery({
-                                search: searchInput.value,
-                            })}"
-                        class="mb-4 w-full rounded-md bg-main-500 px-4 py-2 text-lg text-white focus:outline-none focus:ring-2 focus:ring-main-300" />
+                        placeholder="Search"
+                        on:change="{handleInputChange}"
+                        class="mb-4 w-full rounded-md bg-main-500 px-4 py-2 text-lg text-white hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300" />
                 </div>
-                <div id="lastUploaded" class="mb-8">
-                    <p class="mb-4 text-2xl font-bold text-white">
-                        Recently Uploaded
-                    </p>
-                    <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
-                        {#each recent as asset}
-                            <AssetItem
-                                asset="{asset}"
-                                bind:focusedImage="{focusedImage}"
-                                handleImageChange="{handleImageChange}" />
-                        {/each}
-                    </div>
-                </div>
+                {#await data}
+                    <p>Loading...</p>
+                {:then}
+                    {#if !showResults}
+                        <div id="lastUploaded" class="mb-8">
+                            <p class="mb-4 text-2xl font-bold text-white">
+                                Recently Uploaded
+                            </p>
+                            <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
+                                {#each recent as asset}
+                                    <AssetItem
+                                        asset="{asset}"
+                                        bind:focusedImage="{focusedImage}"
+                                        handleImageChange="{handleImageChange}" />
+                                {/each}
+                            </div>
+                        </div>
+                    {:else}
+                        <div id="searchResults" class="mb-8">
+                            <p class="mb-4 text-2xl font-bold text-white">
+                                Search Results
+                            </p>
+                            <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
+                                {#each results as asset}
+                                    <AssetItem
+                                        asset="{asset}"
+                                        bind:focusedImage="{focusedImage}"
+                                        handleImageChange="{handleImageChange}" />
+                                {/each}
+                            </div>
+                        </div>
+                    {/if}
+                {/await}
             </div>
         </div>
     </div>
