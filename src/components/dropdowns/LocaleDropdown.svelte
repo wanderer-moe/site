@@ -42,6 +42,9 @@ function changeLocale(lang) {
     <div
         class="relative z-50 mx-auto flex w-80 cursor-pointer select-none items-center justify-center rounded-xl">
         <div
+            aria
+            role="button"
+            tabindex="0"
             on:keypress="{() => (menuOpen = !menuOpen)}"
             on:click="{() => (menuOpen = !menuOpen)}"
             class="flex w-full items-center justify-center rounded-xl border border-main-400 bg-main-700 p-1 transition-colors duration-150 hover:border-main-300 hover:bg-main-600">
@@ -61,6 +64,9 @@ function changeLocale(lang) {
                     class="grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-700 p-1 transition-colors duration-150 sm:grid-cols-2">
                     {#each locales as locale}
                         <div
+                            aria
+                            role="button"
+                            tabindex="0"
                             class="flex items-center p-1 text-left {locale.id ===
                             currentLocale.id
                                 ? 'bg-main-500 hover:bg-main-400'
@@ -92,6 +98,9 @@ function changeLocale(lang) {
 
 {#if menuOpen}
     <div
+        aria
+        role="button"
+        tabindex="0"
         class="fixed left-0 top-0 z-10 h-full w-full"
         on:click="{() => (menuOpen = false)}"
         on:keypress="{() => (menuOpen = false)}">

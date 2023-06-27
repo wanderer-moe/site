@@ -1,4 +1,4 @@
-export async function getImageResolution(image) {
+export async function getImageResolution(image: string | HTMLImageElement) {
     if (!image) return 'Unknown'
     const img = typeof image === 'string' ? new Image() : image
     img.src = typeof image === 'string' ? image : image.src

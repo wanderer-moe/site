@@ -14,6 +14,7 @@
 </style>
 
 <script lang="ts">
+import { replaceStateWithQuery } from '@/lib/helpers/replaceStateWithQuery'
 import { t } from 'svelte-i18n'
 import AssetItem from '@/components/AssetItem.svelte'
 import { fly, fade } from 'svelte/transition'
@@ -25,6 +26,7 @@ const { games, recent } = data
 let focusedImageElement: HTMLImageElement
 let focusedImage = 'honkai-star-rail'
 let isFading = false
+let searchInput: HTMLInputElement
 let nextImage = ''
 
 function handleImageChange(newImage: string) {
@@ -78,17 +80,29 @@ function handleImageChange(newImage: string) {
                     </div>
                 </div>
             </div>
-            <div id="lastUploaded" class="mb-8">
-                <p class="mb-4 text-2xl font-bold text-white">
-                    Recently Uploaded
-                </p>
-                <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
-                    {#each recent as asset}
-                        <AssetItem
-                            asset="{asset}"
-                            bind:focusedImage="{focusedImage}"
-                            handleImageChange="{handleImageChange}" />
-                    {/each}
+            <div>
+                <div>
+                    <input
+                        type="text"
+                        bind:this="{searchInput}"
+                        on:change="{() =>
+                            replaceStateWithQuery({
+                                search: searchInput.value,
+                            })}"
+                        class="mb-4 w-full rounded-md bg-main-500 px-4 py-2 text-lg text-white focus:outline-none focus:ring-2 focus:ring-main-300" />
+                </div>
+                <div id="lastUploaded" class="mb-8">
+                    <p class="mb-4 text-2xl font-bold text-white">
+                        Recently Uploaded
+                    </p>
+                    <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
+                        {#each recent as asset}
+                            <AssetItem
+                                asset="{asset}"
+                                bind:focusedImage="{focusedImage}"
+                                handleImageChange="{handleImageChange}" />
+                        {/each}
+                    </div>
                 </div>
             </div>
         </div>

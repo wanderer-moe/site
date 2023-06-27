@@ -2,9 +2,9 @@
 import { onMount } from 'svelte'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { fly } from 'svelte/transition'
-import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { saveAs } from 'file-saver'
-import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
+import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
 import JSZip from 'jszip'
 
 let statusText = ''

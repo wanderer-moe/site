@@ -74,12 +74,12 @@ let contributeOpen = false
                                 >Contributors</a>
                         </li>
                         <li class="mb-4">
-                            <p
+                            <button
                                 on:keypress="{() => (contributeOpen = true)}"
                                 on:click="{() => (contributeOpen = true)}"
                                 class="cursor-pointer hover:font-semibold hover:text-white">
                                 Contribute
-                            </p>
+                            </button>
                         </li>
                     </ul>
                 </div>

@@ -17,6 +17,9 @@ function updateSort(sortingOption) {
 <div class="select-none">
     <div class="relative flex w-full cursor-pointer">
         <div
+            aria
+            role="button"
+            tabindex="0"
             class="flex w-full items-center justify-center rounded-lg border border-main-400 bg-main-700 p-3 transition-colors duration-150 hover:border-main-300 hover:bg-main-600"
             on:keypress="{() => (sortMenuOpen = !sortMenuOpen)}"
             on:click="{() => (sortMenuOpen = !sortMenuOpen)}">
@@ -40,6 +43,9 @@ function updateSort(sortingOption) {
                     class="grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-700 p-1 transition-colors duration-150">
                     {#each sortingOptions as sortingOption}
                         <div
+                            aria
+                            role="button"
+                            tabindex="0"
                             class="flex items-center justify-center text-gray-400 hover:cursor-pointer"
                             on:keypress="{() => updateSort(sortingOption)}"
                             on:click="{() => updateSort(sortingOption)}">
@@ -59,6 +65,9 @@ function updateSort(sortingOption) {
 
 {#if sortMenuOpen}
     <div
+        aria
+        role="button"
+        tabindex="0"
         class="fixed left-0 top-0 z-10 h-full w-full"
         on:click="{() => (sortMenuOpen = !sortMenuOpen)}"
         on:keypress="{() => (sortMenuOpen = !sortMenuOpen)}">

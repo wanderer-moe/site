@@ -14,6 +14,8 @@ export let handleImageChange: (newImage: string) => void
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
+    role="button"
+    tabindex="0"
     class="relative flex cursor-pointer items-center rounded-md border-[3px] border-main-500 bg-main-500 p-3 font-semibold text-gray-400 transition-colors duration-150 hover:border-main-300"
     on:mouseover="{() => {
         if (focusedImage !== asset.game) {

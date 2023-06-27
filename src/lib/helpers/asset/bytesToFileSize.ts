@@ -1,4 +1,4 @@
-export function bytesToFileSize(bytes) {
+export function bytesToFileSize(bytes: number) {
     const sizes = ['B', 'KB', 'MB', 'GB', 'TB']
     if (bytes === 0) return '0 B'
     const i = Math.floor(Math.log2(bytes) / 10)

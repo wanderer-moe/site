@@ -2,8 +2,8 @@
 import { t } from 'svelte-i18n'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { fly, fade } from 'svelte/transition'
-import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
-import { getImageResolution } from '@/lib/helpers/asset/getImageResolution.js'
+import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
+import { getImageResolution } from '@/lib/helpers/asset/getImageResolution'
 
 let resolution = 'Unknown'
 
@@ -37,10 +37,10 @@ export let imageUrl, imageTitle, closeImageView, imageFileSize
     </div>
 </div>
 
-<div
+<button
     class="fixed left-0 top-0 z-50 h-full w-full backdrop-blur-sm backdrop-filter"
     in:fade="{{ easing: quintOut, duration: 750 }}"
     out:fade="{{ easing: cubicOut, duration: 300 }}"
     on:click="{closeImageView}"
     on:keypress="{closeImageView}">
-</div>
+</button>
