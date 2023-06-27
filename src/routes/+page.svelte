@@ -22,6 +22,7 @@ import { onMount } from 'svelte'
 import type { AcceptableParams } from '@/lib/types/acceptableParams'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { writable } from 'svelte/store'
+import { mapGame } from '@/lib/helpers/casing/gameMapping.js'
 
 export let data
 const { games, recent } = data
@@ -218,7 +219,7 @@ getAssetCategoriesFromGames()
                                     src="{`https://cdn.wanderer.moe/${game.name}/icon.png`}"
                                     alt="{`${game.name} cover`}"
                                     class="mr-2 inline-block h-6 w-6 rounded-md" />
-                                {fixCasing(game.name)}
+                                {mapGame(game.name)}
                             </div>
                         {/each}
                     </div>
@@ -254,8 +255,8 @@ getAssetCategoriesFromGames()
                                     )
                                         ? 'border-main-300'
                                         : 'border-main-500'} cursor-pointer
-                                
-                                hover:border-main-300">
+                                    
+                                    hover:border-main-300">
                                     {fixCasing(asset)}
                                 </div>
                             {/if}

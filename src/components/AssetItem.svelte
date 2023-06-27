@@ -6,6 +6,7 @@ import type { Asset } from '@/lib/types/asset'
 import { t } from 'svelte-i18n'
 import LoadPlaceHolder from './LoadPlaceHolder.svelte'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
+import { mapGame } from '@/lib/helpers/casing/gameMapping'
 
 export let asset: Asset
 export let focusedImage: string
@@ -50,7 +51,7 @@ export let handleImageChange: (newImage: string) => void
                             src="https://cdn.wanderer.moe/{asset.game}/icon.png"
                             alt="{asset.game} cover"
                             class="mr-1 inline-block h-4 w-4 rounded-md" />
-                        {fixCasing(asset.game)}
+                        {mapGame(asset.game)}
                     </span>
                     <span
                         class="rounded-md bg-main-400 px-2.5 py-1 text-xs font-semibold text-white">
