@@ -5,7 +5,7 @@ import Lazy from 'svelte-lazy'
 import type { Asset } from '@/lib/types/asset'
 import { t } from 'svelte-i18n'
 import LoadPlaceHolder from './LoadPlaceHolder.svelte'
-import { fixCasing } from '$lib/helpers/casing/fixCasing'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 
 export let asset: Asset
 export let focusedImage: string

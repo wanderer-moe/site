@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit'
 import type { AcceptableParams } from '@/lib/types/acceptableParams'
 
-export async function load({ url }) {
+export async function load({ url, fetch }) {
     const searchParams = Object.fromEntries(url.searchParams.entries()) ?? {}
     const { query, game, asset } = searchParams as AcceptableParams
 

@@ -20,20 +20,53 @@ import AssetItem from '@/components/AssetItem.svelte'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { onMount } from 'svelte'
 import type { AcceptableParams } from '@/lib/types/acceptableParams'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing'
+import { writable } from 'svelte/store'
 
 export let data
 const { games, recent } = data
 let { results } = data
 
+let selectedGames = writable([])
+let selectedAssetCategories = writable([])
+const assetCategories = []
+const allAssetCategories = []
+let validAssetCategories = []
 let focusedImageElement: HTMLImageElement
+let searchInput: HTMLInputElement
 let focusedImage = 'honkai-star-rail'
 let isFading = false
-let searchInput: HTMLInputElement
 let nextImage = ''
-let showResults = false
 
+let showResults = false
 if (results) {
     showResults = true
+}
+
+function getAssetCategoriesFromGames() {
+    games.forEach((game) => {
+        game.assetCategories.forEach((category) => {
+            if (!allAssetCategories.includes(category)) {
+                console.log('pushing', category)
+                allAssetCategories.push(category)
+            }
+        })
+    })
+    console.log('allAssetCategories', allAssetCategories)
+}
+
+function getValidAssetCategoriesFromGames() {
+    validAssetCategories = []
+    games.forEach((game) => {
+        if ($selectedGames.includes(game.name)) {
+            game.assetCategories.forEach((category) => {
+                if (!validAssetCategories.includes(category)) {
+                    validAssetCategories.push(category)
+                }
+            })
+        }
+    })
+    console.log('validAssetCategories', validAssetCategories)
 }
 
 onMount(() => {
@@ -48,29 +81,37 @@ onMount(() => {
         makeRequest()
     }
     if (game) {
-        focusedImage = game
-        focusedImageElement.src = `https://cdn.wanderer.moe/${game}/cover.png`
+        const gameArray = game.split(',') as string[]
+        gameArray.forEach((game) => {
+            $selectedGames.push(game)
+        })
+        getValidAssetCategoriesFromGames()
     }
 })
 
 function makeRequest() {
-    const searchQuery = searchInput.value.replace(/ /g, '-')
-    if (!searchQuery) {
-        showResults = false
-        return
-    }
-    fetch(`https://v2-api-testing.wanderer.moe/search?query=${searchQuery}`)
+    fetch(
+        `https://v2-api-testing.wanderer.moe/search?${new URLSearchParams({
+            query: searchInput.value.replace(/ /g, '-') || '',
+            // game: selectedGames.join(',') || '',
+            asset: assetCategories.join(',') || '',
+        })}`
+    )
         .then((res) => res.json())
         .then((res) => {
             data = res
             showResults = true
+            console.log(res)
             results = res.results
         })
 }
 
-function handleInputChange() {
+function searchForAssets() {
+    console.log(searchInput.value, $selectedGames, assetCategories)
     replaceStateWithQuery({
-        query: searchInput.value.replace(/ /g, '-'),
+        query: searchInput.value.replace(/ /g, '-') || '',
+        // game: selectedGames.join(',') || '',
+        asset: assetCategories.join(',') || '',
     })
     makeRequest()
 }
@@ -80,6 +121,8 @@ function handleImageChange(newImage: string) {
     focusedImageElement.src = `https://cdn.wanderer.moe/${newImage}/cover.png`
     isFading = true
 }
+
+getAssetCategoriesFromGames()
 </script>
 
 <svelte:head>
@@ -128,12 +171,92 @@ function handleImageChange(newImage: string) {
             </div>
             <div>
                 <div>
-                    <input
-                        type="text"
-                        bind:this="{searchInput}"
-                        placeholder="Search"
-                        on:change="{handleInputChange}"
-                        class="mb-4 w-full rounded-md bg-main-500 px-4 py-2 text-lg text-white hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300" />
+                    <div class="flex gap-2">
+                        <input
+                            type="text"
+                            bind:this="{searchInput}"
+                            placeholder="Search"
+                            class="mb-4 w-full rounded-md bg-main-500 px-4 py-4 text-lg text-white hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300" />
+                        <button
+                            class="mb-4 flex items-center rounded-md bg-main-500 px-4 py-2 text-lg text-white hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
+                            on:click="{searchForAssets}">
+                            <i class="fas fa-search mr-2"></i>
+                            Search</button>
+                    </div>
+                    <div class="mb-4 flex flex-wrap gap-2 overflow-x-auto">
+                        {#each games as game}
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
+                            <!-- svelte-ignore a11y-no-static-element-interactions -->
+                            <div
+                                class="flex items-center rounded-md border-[3px] {$selectedGames.includes(
+                                    game.name
+                                )
+                                    ? 'border-main-300 grayscale-0'
+                                    : 'border-main-400 grayscale-[50]'} bg-main-500 px-4 py-2.5 text-lg text-white transition-colors hover:cursor-pointer hover:border-main-300 hover:grayscale-0 focus:outline-none"
+                                on:click="{() => {
+                                    handleImageChange(game.name)
+                                    if (!$selectedGames.includes(game.name)) {
+                                        selectedGames.update((games) => [
+                                            ...games,
+                                            game.name,
+                                        ])
+                                    } else {
+                                        selectedGames.update((games) =>
+                                            games.filter(
+                                                (selectedGame) =>
+                                                    selectedGame !== game.name
+                                            )
+                                        )
+                                    }
+                                    console.log($selectedGames)
+                                    getValidAssetCategoriesFromGames()
+                                }}">
+                                <img
+                                    src="{`https://cdn.wanderer.moe/${game.name}/icon.png`}"
+                                    alt="{`${game.name} cover`}"
+                                    class="mr-2 inline-block h-6 w-6 rounded-md" />
+                                {fixCasing(game.name)}
+                            </div>
+                        {/each}
+                    </div>
+                    <div class="mb-8 flex flex-wrap gap-2 overflow-x-auto">
+                        {#each allAssetCategories as asset}
+                        {#if validAssetCategories.includes(asset)}
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
+                            <!-- svelte-ignore a11y-no-static-element-interactions -->
+                            <div
+                                on:click="{() => {
+                                    if (
+                                        !$selectedAssetCategories.includes(
+                                            asset
+                                        )
+                                    ) {
+                                        selectedAssetCategories.update(
+                                            (assets) => [...assets, asset]
+                                        )
+                                    } else {
+                                        selectedAssetCategories.update(
+                                            (assets) =>
+                                                assets.filter(
+                                                    (selectedAsset) =>
+                                                        selectedAsset !== asset
+                                                )
+                                        )
+                                    }
+                                    console.log($selectedAssetCategories)
+                                }}"
+                                class="rounded-md border-[3px] bg-main-500 px-4 py-2.5 text-lg text-white hover:border-main-300 {$selectedAssetCategories.includes(
+                                    asset
+                                )
+                                    ? 'border-main-300'
+                                    : 'border-main-500'} cursor-pointer
+                                
+                                hover:border-main-300">
+                                {fixCasing(asset)}
+                            </div>
+                        {/if}
+                        {/each}
+                    </div>
                 </div>
                 {#await data}
                     <p>Loading...</p>
