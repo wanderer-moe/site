@@ -6,7 +6,7 @@ import type { Asset } from '@/lib/types/asset'
 import { t } from 'svelte-i18n'
 import LoadPlaceHolder from './LoadPlaceHolder.svelte'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
-import { mapGame } from '@/lib/helpers/casing/gameMapping'
+import { mapGame, mapAssetType } from '@/lib/helpers/casing/gameMapping'
 
 export let asset: Asset
 export let focusedImage: string
@@ -55,7 +55,7 @@ export let handleImageChange: (newImage: string) => void
                     </span>
                     <span
                         class="rounded-md bg-main-400 px-2.5 py-1 text-xs font-semibold text-white">
-                        {fixCasing(asset.asset)}
+                        {mapAssetType(asset.asset)}
                     </span>
                 </div>
             </div>

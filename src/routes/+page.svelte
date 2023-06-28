@@ -23,7 +23,7 @@ import { onMount } from 'svelte'
 import type { AcceptableParams } from '@/lib/types/acceptableParams'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { writable } from 'svelte/store'
-import { mapGame } from '@/lib/helpers/casing/gameMapping'
+import { mapGame, mapAssetType } from '@/lib/helpers/casing/gameMapping'
 
 // TODO: seperate this into its own components, helper functions, etc AFTER all functions are implemented & optimized
 // eg components: AssetItems, AssetCategories, Games, SearchBar, etc
@@ -43,6 +43,8 @@ let searchInput: HTMLInputElement
 let focusedImage = 'honkai-star-rail'
 let isFading = false
 let nextImage = ''
+
+// TODO, vice verca, get games from asset categories...
 
 function getAssetCategoriesFromGames() {
     games.forEach((game) => {
@@ -231,44 +233,57 @@ getAssetCategoriesFromGames()
                             <i class="fas fa-search mr-2"></i>
                             Search</button>
                     </div>
-                    <div class="mb-4 flex flex-wrap gap-2 overflow-x-auto">
-                        {#each games as game}
-                            <!-- svelte-ignore a11y-click-events-have-key-events -->
-                            <!-- svelte-ignore a11y-no-static-element-interactions -->
-                            <div
-                                class="flex items-center rounded-md border-[3px] {$selectedGames.includes(
-                                    game.name
-                                )
-                                    ? 'border-main-300 grayscale-0'
-                                    : 'border-main-400 grayscale-[50]'} bg-main-500 px-4 py-1.5 text-lg text-white transition-colors hover:cursor-pointer hover:border-main-300 hover:grayscale-0 focus:outline-none"
-                                on:click="{() => {
-                                    handleGameSelection(game.name)
-                                }}">
-                                <img
-                                    src="{`https://cdn.wanderer.moe/${game.name}/icon.png`}"
-                                    alt="{`${game.name} cover`}"
-                                    class="mr-2 inline-block h-4 w-4 rounded-md" />
-                                {mapGame(game.name)}
-                            </div>
-                        {/each}
+                    <div class="mb-4">
+                        <!-- this whole scrolling stuff is temporary until buttons are done -->
+                        <div
+                            class="flex gap-2 overflow-x-auto whitespace-nowrap">
+                            {#each games as game}
+                                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                                <!-- svelte-ignore a11y-no-static-element-interactions -->
+                                <div
+                                    class="flex rounded-md border-[3px] transition {$selectedGames.includes(
+                                        game.name
+                                    )
+                                        ? 'border-main-300 grayscale-0'
+                                        : 'border-main-400 grayscale-[50]'} bg-main-500 px-4 py-1.5 text-lg text-white transition-colors hover:cursor-pointer hover:border-main-300 hover:grayscale-0 focus:outline-none"
+                                    on:click="{() => {
+                                        handleGameSelection(game.name)
+                                    }}">
+                                    <div>
+                                        <!-- <img
+                                            src="https://cdn.wanderer.moe/{game.name}/icon.png"
+                                            class="mr-2 h-8 w-8 rounded-md"
+                                            alt="{game.name} icon" /> -->
+                                        {mapGame(game.name)}
+                                    </div>
+                                </div>
+                            {/each}
+                        </div>
                     </div>
-                    <div class="mb-8 flex flex-wrap gap-2 overflow-x-auto">
-                        {#each allAssetCategories as asset}
-                            {#if validAssetCategories.includes(asset) || $selectedGames.length === 0}
+                    <div class="mb-8">
+                        <div
+                            class="flex gap-2 overflow-x-auto whitespace-nowrap">
+                            {#each allAssetCategories as asset}
                                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                                 <!-- svelte-ignore a11y-no-static-element-interactions -->
                                 <div
                                     on:click="{() =>
-                                        toggleAssetCategory(asset)}"
-                                    class="rounded-md border-[3px] bg-main-500 px-4 py-1.5 text-lg text-white hover:border-main-300 {$selectedAssetCategories.includes(
-                                        asset
-                                    )
+                                        validAssetCategories.length === 0 ||
+                                        validAssetCategories.includes(asset)
+                                            ? toggleAssetCategory(asset)
+                                            : null}"
+                                    class="rounded-md border-[3px] bg-main-500 px-4 py-1.5 text-lg text-white transition
+                                    {validAssetCategories.length === 0 ||
+                                    validAssetCategories.includes(asset)
+                                        ? 'cursor-pointer hover:border-main-300'
+                                        : 'cursor-not-allowed opacity-50'} 
+                                    {$selectedAssetCategories.includes(asset)
                                         ? 'border-main-300'
-                                        : 'border-main-500'} cursor-pointer hover:border-main-300">
-                                    {fixCasing(asset)}
+                                        : 'border-main-500'} ">
+                                    {mapAssetType(asset)}
                                 </div>
-                            {/if}
-                        {/each}
+                            {/each}
+                        </div>
                     </div>
                 </div>
                 {#if results.length > 0}

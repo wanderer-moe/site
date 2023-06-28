@@ -11,3 +11,12 @@ export const mapGame = (game: string): string => {
 
     return gameMapping[game] ?? fixCasing(game)
 }
+
+export const mapAssetType = (assetType: string): string => {
+    const assetTypeMapping: Record<string, string> = {
+        tcg: 'TCG',
+        'tcg-sheets': 'TCG Sheets',
+    }
+
+    return assetTypeMapping[assetType] ?? fixCasing(assetType)
+}
