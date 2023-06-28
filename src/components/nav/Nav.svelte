@@ -9,7 +9,7 @@ import { t } from 'svelte-i18n'
             <a href="/" class="flex items-center gap-1" rel="external">
                 <img src="/logo.png" alt="logo" class="h-12 w-12" />
                 <div class="flex flex-col">
-                    <span class="text text-xl font-semibold text-white"
+                    <span class="text text-xl font-bold text-white"
                         >wanderer.moe</span>
                 </div>
             </a>

@@ -17,7 +17,7 @@ export let handleImageChange: (newImage: string) => void
 <div
     role="button"
     tabindex="0"
-    class="relative flex cursor-pointer items-center rounded-md border-[3px] border-main-500 bg-main-500 p-3 font-semibold text-gray-400 transition-colors duration-150 hover:border-main-300"
+    class="relative flex transform cursor-pointer items-center rounded-md border-[3px] border-main-500 bg-main-500 p-3 font-semibold text-gray-400 transition duration-150 hover:-translate-y-1 hover:border-main-300"
     on:mouseover="{() => {
         if (focusedImage !== asset.game) {
             handleImageChange(asset.game)
@@ -60,7 +60,7 @@ export let handleImageChange: (newImage: string) => void
                 </div>
             </div>
             <div class="my-3">
-                <p class="text-sm font-semibold lowercase text-white">
+                <p class="overflow-clip font-semibold lowercase text-white">
                     {asset.name.replace('.png', '')}
                 </p>
                 <p class="text-xs">

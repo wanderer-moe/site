@@ -9,7 +9,7 @@
     }
 
     body {
-        font-family: 'Sofia Sans', -apple-system, BlinkMacSystemFont;
+        font-family: 'Satoshi', sans-serif;
         @apply m-0 overflow-x-hidden text-sm leading-relaxed text-[#333];
     }
 

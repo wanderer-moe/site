@@ -18,11 +18,15 @@ import { replaceStateWithQuery } from '@/lib/helpers/replaceStateWithQuery'
 import { t } from 'svelte-i18n'
 import AssetItem from '@/components/AssetItem.svelte'
 import { cubicOut, quintOut } from 'svelte/easing'
+import { fly, fade } from 'svelte/transition'
 import { onMount } from 'svelte'
 import type { AcceptableParams } from '@/lib/types/acceptableParams'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { writable } from 'svelte/store'
-import { mapGame } from '@/lib/helpers/casing/gameMapping.js'
+import { mapGame } from '@/lib/helpers/casing/gameMapping'
+
+// TODO: seperate this into its own components, helper functions, etc AFTER all functions are implemented & optimized
+// eg components: AssetItems, AssetCategories, Games, SearchBar, etc
 
 export let data
 const { games, recent } = data
@@ -78,19 +82,18 @@ onMount(() => {
         searchInput.value = query
     }
     if (game) {
-        const gameArray = game.split(',') as string[]
-        gameArray.forEach((game) => {
-            selectedGames.update((games) => [...games, game])
-        })
+        selectedGames.update((games) => [...games, ...game.split(',')])
+        getValidAssetCategoriesFromGames()
     }
     if (asset) {
-        const assetArray = asset.split(',') as string[]
-        assetArray.forEach((asset) => {
-            $selectedAssetCategories.push(asset)
-        })
+        $selectedAssetCategories = [
+            ...$selectedAssetCategories,
+            ...asset.split(','),
+        ]
     }
-    getValidAssetCategoriesFromGames()
-    makeRequest()
+    if (game || asset || query) {
+        makeRequest()
+    }
 })
 
 function makeRequest() {
@@ -221,7 +224,7 @@ getAssetCategoriesFromGames()
                             type="text"
                             bind:this="{searchInput}"
                             placeholder="Search"
-                            class="mb-4 w-full rounded-md bg-main-500 px-4 py-4 text-lg text-white hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300" />
+                            class="mb-4 w-full rounded-md bg-main-500 px-4 py-4 text-lg text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300" />
                         <button
                             class="mb-4 flex items-center rounded-md bg-main-500 px-4 py-2 text-lg text-white hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                             on:click="{searchForAssets}">
@@ -237,14 +240,14 @@ getAssetCategoriesFromGames()
                                     game.name
                                 )
                                     ? 'border-main-300 grayscale-0'
-                                    : 'border-main-400 grayscale-[50]'} bg-main-500 px-4 py-2.5 text-lg text-white transition-colors hover:cursor-pointer hover:border-main-300 hover:grayscale-0 focus:outline-none"
+                                    : 'border-main-400 grayscale-[50]'} bg-main-500 px-4 py-1.5 text-lg text-white transition-colors hover:cursor-pointer hover:border-main-300 hover:grayscale-0 focus:outline-none"
                                 on:click="{() => {
                                     handleGameSelection(game.name)
                                 }}">
                                 <img
                                     src="{`https://cdn.wanderer.moe/${game.name}/icon.png`}"
                                     alt="{`${game.name} cover`}"
-                                    class="mr-2 inline-block h-6 w-6 rounded-md" />
+                                    class="mr-2 inline-block h-4 w-4 rounded-md" />
                                 {mapGame(game.name)}
                             </div>
                         {/each}
@@ -257,7 +260,7 @@ getAssetCategoriesFromGames()
                                 <div
                                     on:click="{() =>
                                         toggleAssetCategory(asset)}"
-                                    class="rounded-md border-[3px] bg-main-500 px-4 py-2.5 text-lg text-white hover:border-main-300 {$selectedAssetCategories.includes(
+                                    class="rounded-md border-[3px] bg-main-500 px-4 py-1.5 text-lg text-white hover:border-main-300 {$selectedAssetCategories.includes(
                                         asset
                                     )
                                         ? 'border-main-300'
@@ -268,14 +271,16 @@ getAssetCategoriesFromGames()
                         {/each}
                     </div>
                 </div>
-                <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
-                    {#each results.slice(0, numAssetsToDisplay) as asset}
-                        <AssetItem
-                            asset="{asset}"
-                            bind:focusedImage="{focusedImage}"
-                            handleImageChange="{handleImageChange}" />
-                    {/each}
-                </div>
+                {#if results.length > 0}
+                    <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
+                        {#each results.slice(0, numAssetsToDisplay) as asset}
+                            <AssetItem
+                                asset="{asset}"
+                                bind:focusedImage="{focusedImage}"
+                                handleImageChange="{handleImageChange}" />
+                        {/each}
+                    </div>
+                {/if}
                 {#if results.length === 0}
                     <div>
                         <p class="text-center text-2xl text-white">

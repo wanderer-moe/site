@@ -15,7 +15,7 @@ let contributeOpen = false
             <div class="mb-6 md:mb-0">
                 <a href="/" class="flex items-center gap-1" rel="external"
                     ><img src="/logo.png" alt="logo" class="h-12 w-12" />
-                    <span class="text text-xl font-semibold text-white"
+                    <span class="text text-xl font-bold text-white"
                         >wanderer.moe</span
                     ></a>
                 <div class="mt-2 grid gap-2">
