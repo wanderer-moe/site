@@ -93,8 +93,8 @@ onMount(async () => {
 {#if !minimized}
     <div
         class="fixed bottom-0 z-30 w-full sm:w-auto"
-        in:fly="{{ y: 15, easing: quintOut, duration: 200 }}"
-        out:fly="{{ y: 10, easing: cubicOut, duration: 200 }}">
+        in:fly|global="{{ y: 15, easing: quintOut, duration: 200 }}"
+        out:fly|global="{{ y: 10, easing: cubicOut, duration: 200 }}">
         <div class="relative z-50">
             <div
                 class="relative m-2 transform overflow-hidden rounded-md border border-main-300 bg-main-500 text-left transition-all">

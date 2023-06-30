@@ -8,8 +8,8 @@ export let closeContribute
 <div>
     <div
         class="fixed left-1/2 top-1/2 z-[60] w-3/4 -translate-x-1/2 -translate-y-1/2 transform"
-        in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
-        out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}">
+        in:fly|global="{{ y: 50, easing: quintOut, duration: 750 }}"
+        out:fly|global="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button
             class="close-button absolute right-0 top-6 rounded-lg p-4 text-white"
             on:click="{closeContribute}">
@@ -83,8 +83,8 @@ export let closeContribute
     </div>
     <button
         class="fixed left-0 top-0 z-50 h-full w-full backdrop-blur-sm backdrop-filter"
-        in:fade="{{ easing: quintOut, duration: 750 }}"
-        out:fade="{{ easing: cubicOut, duration: 300 }}"
+        in:fade|global="{{ easing: quintOut, duration: 750 }}"
+        out:fade|global="{{ easing: cubicOut, duration: 300 }}"
         on:click="{closeContribute()}"
         on:keypress="{closeContribute()}">
     </button>

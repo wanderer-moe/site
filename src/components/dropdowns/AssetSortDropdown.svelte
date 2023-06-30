@@ -28,12 +28,12 @@ function updateSort(sortingOption) {
         </div>
         {#if sortMenuOpen}
             <div
-                in:fly="{{
+                in:fly|global="{{
                     y: 15,
                     easing: quintOut,
                     duration: 200,
                 }}"
-                out:fly="{{
+                out:fly|global="{{
                     y: 10,
                     easing: cubicOut,
                     duration: 200,

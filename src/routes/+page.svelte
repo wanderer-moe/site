@@ -24,9 +24,10 @@ import type { AcceptableParams } from '@/lib/types/acceptableParams'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { writable } from 'svelte/store'
 import { mapGame, mapAssetType } from '@/lib/helpers/casing/gameMapping'
+import { debounce } from 'lodash'
 
 // TODO: seperate this into its own components, helper functions, etc AFTER all functions are implemented & optimized
-// eg components: AssetItems, AssetCategories, Games, SearchBar, etc
+// eg components: AssetItems, AssetCategories, Games, SearchBar, etc, all of this code is only temporary
 
 export let data
 const { games, recent } = data
@@ -37,7 +38,6 @@ let selectedGames = writable([])
 let selectedAssetCategories = writable([])
 const allAssetCategories = []
 let validAssetCategories = []
-
 let focusedImageElement: HTMLImageElement
 let searchInput: HTMLInputElement
 let focusedImage = 'honkai-star-rail'
@@ -227,11 +227,11 @@ getAssetCategoriesFromGames()
                             bind:this="{searchInput}"
                             placeholder="Search"
                             class="mb-4 w-full rounded-md bg-main-500 px-4 py-4 text-lg text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300" />
-                        <button
+                        <!-- <button
                             class="mb-4 flex items-center rounded-md bg-main-500 px-4 py-2 text-lg text-white hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                             on:click="{searchForAssets}">
                             <i class="fas fa-search mr-2"></i>
-                            Search</button>
+                            Search</button> -->
                     </div>
                     <div class="mb-4">
                         <!-- this whole scrolling stuff is temporary until buttons are done -->

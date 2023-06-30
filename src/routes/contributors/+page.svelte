@@ -83,7 +83,7 @@ function getTopmostCategory(contributor) {
                         <div
                             id="{category}"
                             class="mb-8"
-                            in:fade="{{ duration: 300 }}">
+                            in:fade|global="{{ duration: 300 }}">
                             <p class="mb-2 text-3xl font-bold text-white">
                                 {category}
                             </p>

@@ -13,8 +13,8 @@ export let imageUrl, imageTitle, closeImageView, imageFileSize
 <div
     class="fixed left-1/2 top-1/2 z-[1500] max-h-[90%] max-w-[90%] -translate-x-1/2 -translate-y-1/2 select-none bg-blend-overlay">
     <div
-        in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
-        out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}"
+        in:fly|global="{{ y: 50, easing: quintOut, duration: 750 }}"
+        out:fly|global="{{ y: 50, easing: cubicOut, duration: 300 }}"
         class="rounded-md bg-main-600 p-4 text-center">
         <img
             src="{imageUrl}"
@@ -39,8 +39,8 @@ export let imageUrl, imageTitle, closeImageView, imageFileSize
 
 <button
     class="fixed left-0 top-0 z-50 h-full w-full backdrop-blur-sm backdrop-filter"
-    in:fade="{{ easing: quintOut, duration: 750 }}"
-    out:fade="{{ easing: cubicOut, duration: 300 }}"
+    in:fade|global="{{ easing: quintOut, duration: 750 }}"
+    out:fade|global="{{ easing: cubicOut, duration: 300 }}"
     on:click="{closeImageView}"
     on:keypress="{closeImageView}">
 </button>

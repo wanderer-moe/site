@@ -57,8 +57,8 @@ function changeLocale(lang) {
         </div>
         {#if menuOpen}
             <div
-                in:fly="{{ y: 15, easing: quintOut, duration: 200 }}"
-                out:fly="{{ y: 10, easing: cubicOut, duration: 200 }}"
+                in:fly|global="{{ y: 15, easing: quintOut, duration: 200 }}"
+                out:fly|global="{{ y: 10, easing: cubicOut, duration: 200 }}"
                 class="absolute bottom-8 z-50 mb-2 w-full">
                 <div
                     class="grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-700 p-1 transition-colors duration-150 sm:grid-cols-2">
