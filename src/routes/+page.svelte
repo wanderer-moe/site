@@ -26,7 +26,7 @@ import { writable } from 'svelte/store'
 import { mapGame, mapAssetType } from '@/lib/helpers/casing/gameMapping'
 import { debounce } from 'lodash'
 
-// TODO: seperate this into its own components, helper functions, etc AFTER all functions are implemented & optimized
+// TODO: seperate this into its own components, helper functions, etc AFTER all functions are implemented & optimized because this is a mess
 // eg components: AssetItems, AssetCategories, Games, SearchBar, etc, all of this code is only temporary
 
 export let data
@@ -38,6 +38,7 @@ let selectedGames = writable([])
 let selectedAssetCategories = writable([])
 const allAssetCategories = []
 let validAssetCategories = []
+let validGameCategories = []
 let focusedImageElement: HTMLImageElement
 let searchInput: HTMLInputElement
 let focusedImage = 'honkai-star-rail'
@@ -72,6 +73,23 @@ function getValidAssetCategoriesFromGames() {
         validAssetCategories.includes(category)
     )
     // console.log('validAssetCategories', validAssetCategories)
+}
+
+function getValidGameCategoriesFromAssetCategories() {
+    validGameCategories = []
+    games.forEach((game) => {
+        if (
+            game.assetCategories.some((category) =>
+                $selectedAssetCategories.includes(category)
+            )
+        ) {
+            validGameCategories.push(game.name)
+        }
+    })
+    $selectedGames = $selectedGames.filter((game) =>
+        validGameCategories.includes(game)
+    )
+    console.log('validGameCategories', validGameCategories)
 }
 
 onMount(() => {
@@ -152,6 +170,7 @@ function toggleAssetCategory(asset: string): void {
             assets.filter((selectedAsset) => selectedAsset !== asset)
         )
     }
+    getValidGameCategoriesFromAssetCategories()
     // console.log($selectedAssetCategories);
 }
 
@@ -227,33 +246,38 @@ getAssetCategoriesFromGames()
                             bind:this="{searchInput}"
                             placeholder="Search"
                             class="mb-4 w-full rounded-md bg-main-500 px-4 py-4 text-lg text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300" />
-                        <!-- <button
+                        <button
                             class="mb-4 flex items-center rounded-md bg-main-500 px-4 py-2 text-lg text-white hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                             on:click="{searchForAssets}">
                             <i class="fas fa-search mr-2"></i>
-                            Search</button> -->
+                            Search</button>
                     </div>
                     <div class="mb-4">
                         <!-- this whole scrolling stuff is temporary until buttons are done -->
-                        <div
-                            class="flex gap-2 overflow-x-auto whitespace-nowrap">
+                        <div class="flex flex-wrap gap-2">
                             {#each games as game}
                                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                                 <!-- svelte-ignore a11y-no-static-element-interactions -->
                                 <div
-                                    class="flex rounded-md border-[3px] transition {$selectedGames.includes(
-                                        game.name
-                                    )
-                                        ? 'border-main-300 grayscale-0'
-                                        : 'border-main-400 grayscale-[50]'} bg-main-500 px-4 py-1.5 text-lg text-white transition-colors hover:cursor-pointer hover:border-main-300 hover:grayscale-0 focus:outline-none"
+                                    class="rounded-md border-[3px] bg-main-500 px-4 py-1.5 text-lg text-white transition
+                                {validGameCategories.length === 0 ||
+                                    validGameCategories.includes(game.name)
+                                        ? 'cursor-pointer hover:border-main-300'
+                                        : 'cursor-not-allowed opacity-50'}
+                                {$selectedGames.includes(game.name)
+                                        ? 'border-main-300'
+                                        : 'border-main-500'}"
                                     on:click="{() => {
-                                        handleGameSelection(game.name)
+                                        validGameCategories.length === 0 ||
+                                        validGameCategories.includes(game.name)
+                                            ? handleGameSelection(game.name)
+                                            : null
                                     }}">
                                     <div>
                                         <!-- <img
-                                            src="https://cdn.wanderer.moe/{game.name}/icon.png"
-                                            class="mr-2 h-8 w-8 rounded-md"
-                                            alt="{game.name} icon" /> -->
+                                        src="https://cdn.wanderer.moe/{game.name}/icon.png"
+                                        class="mr-2 h-8 w-8 rounded-md"
+                                        alt="{game.name} icon" /> -->
                                         {mapGame(game.name)}
                                     </div>
                                 </div>
@@ -261,8 +285,7 @@ getAssetCategoriesFromGames()
                         </div>
                     </div>
                     <div class="mb-8">
-                        <div
-                            class="flex gap-2 overflow-x-auto whitespace-nowrap">
+                        <div class="flex flex-wrap gap-2">
                             {#each allAssetCategories as asset}
                                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                                 <!-- svelte-ignore a11y-no-static-element-interactions -->
