@@ -72,7 +72,7 @@ export let handleImageChange: (newImage: string) => void
             </div>
             <div class="flex gap-2">
                 <a
-                    href="https://v2-api-testing.wanderer.moe/download?id={asset.id}"
+                    href="https://v2-api-testing.wanderer.moe/download/{asset.id}"
                     rel="noreferrer"
                     target="_blank"
                     download>

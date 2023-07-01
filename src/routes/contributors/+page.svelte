@@ -80,10 +80,7 @@ function getTopmostCategory(contributor) {
             <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
                 <div class="col-span-3 gap-4">
                     {#each Object.entries(categories) as [category, { description, roles }]}
-                        <div
-                            id="{category}"
-                            class="mb-8"
-                            in:fade|global="{{ duration: 300 }}">
+                        <div id="{category}" class="mb-8">
                             <p class="mb-2 text-3xl font-bold text-white">
                                 {category}
                             </p>
