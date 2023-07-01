@@ -16,49 +16,23 @@ import { t } from 'svelte-i18n'
         </div>
 
         <div class="flex items-center md:px-20">
-            <ul class="mt-4 flex flex-row space-x-4 font-medium md:mt-0">
-                <div
-                    class="rounded-lg border-[2px] border-main-400 transition-colors duration-150 hover:border-main-300">
-                </div>
-                <button class="hidden px-4 py-2 focus:outline-none lg:hidden">
-                    <a
-                        href="https://discord.wanderer.moe/"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <i
-                            class="fa-brands fa-discord cursor-pointer text-white hover:text-indigo-300"
-                        ></i>
-                    </a>
-                </button>
-                <button class="hidden px-4 py-2 focus:outline-none lg:hidden">
-                    <a
-                        href="https://git.wanderer.moe/"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <i
-                            class="fa-brands fa-github cursor-pointer text-white hover:text-indigo-300"
-                        ></i>
-                    </a>
-                </button>
-            </ul>
-
-            <button class="px-4 focus:outline-none lg:block lg:pl-4 lg:pr-2">
+            <button class="px-2 text-lg focus:outline-none">
                 <a
                     href="https://discord.wanderer.moe/"
                     target="_blank"
                     rel="noopener noreferrer">
                     <i
-                        class="fa-brands fa-discord cursor-pointer text-white hover:text-indigo-300"
+                        class="fa-brands fa-discord cursor-pointer text-gray-300 transition hover:text-white"
                     ></i>
                 </a>
             </button>
-            <button class="px-4 focus:outline-none lg:block lg:pl-2 lg:pr-4">
+            <button class="px-2 text-lg focus:outline-none">
                 <a
                     href="https://git.wanderer.moe/"
                     target="_blank"
                     rel="noopener noreferrer">
                     <i
-                        class="fa-brands fa-github cursor-pointer text-white hover:text-indigo-300"
+                        class="fa-brands fa-github cursor-pointer text-gray-300 hover:text-white"
                     ></i>
                 </a>
             </button>

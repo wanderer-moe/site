@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@iconify/svelte':
-    specifier: ^3.1.4
-    version: 3.1.4(svelte@4.0.1)
   '@jridgewell/sourcemap-codec':
     specifier: ^1.4.15
     version: 1.4.15
@@ -70,6 +67,9 @@ devDependencies:
   '@beyonk/svelte-notifications':
     specifier: ^4.2.0
     version: 4.2.0
+  '@iconify/svelte':
+    specifier: ^3.1.4
+    version: 3.1.4(svelte@4.0.1)
   '@mdi/js':
     specifier: ^7.2.96
     version: 7.2.96
@@ -672,11 +672,11 @@ packages:
     dependencies:
       '@iconify/types': 2.0.0
       svelte: 4.0.1
-    dev: false
+    dev: true
 
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: false
+    dev: true
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
