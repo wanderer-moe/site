@@ -62,6 +62,11 @@ onMount(async () => {
 
 <svelte:head>
     <title>OC Generator ({mapGame(game)}) | wanderer.moe</title>
+    <meta
+        name="description"
+        content="Generate your own OC for {mapGame(
+            game
+        )} using this randomizer!" />
 </svelte:head>
 
 <div class="min-h-screen">

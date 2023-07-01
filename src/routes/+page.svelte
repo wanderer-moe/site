@@ -38,7 +38,7 @@ let selectedGames = writable([])
 let selectedAssetCategories = writable([])
 const allAssetCategories = []
 let validAssetCategories = []
-let validGameCategories = []
+// let validGameCategories = []
 let focusedImageElement: HTMLImageElement
 let searchInput: HTMLInputElement
 let focusedImage = 'honkai-star-rail'
@@ -73,23 +73,6 @@ function getValidAssetCategoriesFromGames() {
         validAssetCategories.includes(category)
     )
     // console.log('validAssetCategories', validAssetCategories)
-}
-
-function getValidGameCategoriesFromAssetCategories() {
-    validGameCategories = []
-    games.forEach((game) => {
-        if (
-            game.assetCategories.some((category) =>
-                $selectedAssetCategories.includes(category)
-            )
-        ) {
-            validGameCategories.push(game.name)
-        }
-    })
-    $selectedGames = $selectedGames.filter((game) =>
-        validGameCategories.includes(game)
-    )
-    console.log('validGameCategories', validGameCategories)
 }
 
 onMount(() => {
@@ -141,13 +124,11 @@ function makeRequest() {
         .then((res) => res.json())
         .then((res) => {
             data = res
-            // console.log(res);
             results = res.results
         })
 }
 
 function searchForAssets() {
-    // console.log(searchInput.value, $selectedGames, $selectedAssetCategories)
     replaceStateWithQuery({
         query: searchInput.value.replace(/ /g, '-') || '',
         game: $selectedGames.join(',') || '',
@@ -170,8 +151,6 @@ function toggleAssetCategory(asset: string): void {
             assets.filter((selectedAsset) => selectedAsset !== asset)
         )
     }
-    getValidGameCategoriesFromAssetCategories()
-    // console.log($selectedAssetCategories);
 }
 
 function handleGameSelection(game: string): void {
@@ -183,7 +162,6 @@ function handleGameSelection(game: string): void {
             games.filter((selectedGame) => selectedGame !== game)
         )
     }
-    // console.log($selectedGames);
     getValidAssetCategoriesFromGames()
 }
 
@@ -196,6 +174,9 @@ getAssetCategoriesFromGames()
 
 <svelte:head>
     <title>wanderer.moe</title>
+    <meta
+        name="description"
+        content="wanderer.moe is a website that allows you to search for and download thousands of assets from various games." />
 </svelte:head>
 
 <div class="min-h-screen">
@@ -259,20 +240,13 @@ getAssetCategoriesFromGames()
                                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                                 <!-- svelte-ignore a11y-no-static-element-interactions -->
                                 <div
-                                    class="rounded-md border-[3px] bg-main-500 px-4 py-1.5 text-lg text-white transition
-                                {validGameCategories.length === 0 ||
-                                    validGameCategories.includes(game.name)
-                                        ? 'cursor-pointer hover:border-main-300'
-                                        : 'cursor-not-allowed opacity-50'}
-                                {$selectedGames.includes(game.name)
+                                    class="cursor-pointer rounded-md border-[3px] bg-main-500 px-4 py-1.5 text-lg text-white transition hover:border-main-300
+                                    {$selectedGames.includes(game.name)
                                         ? 'border-main-300'
-                                        : 'border-main-500'}"
-                                    on:click="{() => {
-                                        validGameCategories.length === 0 ||
-                                        validGameCategories.includes(game.name)
-                                            ? handleGameSelection(game.name)
-                                            : null
-                                    }}">
+                                        : 'border-main-500'}
+                                    "
+                                    on:click="{() =>
+                                        handleGameSelection(game.name)}">
                                     <div>
                                         <!-- <img
                                         src="https://cdn.wanderer.moe/{game.name}/icon.png"
