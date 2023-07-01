@@ -45,8 +45,6 @@ let focusedImage = 'honkai-star-rail'
 let isFading = false
 let nextImage = ''
 
-// TODO, vice verca, get games from asset categories...
-
 function getAssetCategoriesFromGames() {
     games.forEach((game) => {
         game.assetCategories.forEach((category) => {

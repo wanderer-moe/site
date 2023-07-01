@@ -1,6 +1,6 @@
 <script lang="ts">
-import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
-import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat.js'
+import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
+import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat'
 import Lazy from 'svelte-lazy'
 import type { Asset } from '@/lib/types/asset'
 import { t } from 'svelte-i18n'
@@ -52,6 +52,7 @@ export let asset: Asset
                     {asset.name.replace('.png', '')}
                 </p>
                 <p class="text-xs">
+                    {asset.uploadedDate}
                     Uploaded {formatTimeAgo(asset.uploadedDate)}
                 </p>
                 <p class="text-xs">
