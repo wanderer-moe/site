@@ -52,7 +52,6 @@ export let asset: Asset
                     {asset.name.replace('.png', '')}
                 </p>
                 <p class="text-xs">
-                    {asset.uploadedDate}
                     Uploaded {formatTimeAgo(asset.uploadedDate)}
                 </p>
                 <p class="text-xs">
