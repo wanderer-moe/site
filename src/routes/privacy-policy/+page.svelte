@@ -34,8 +34,8 @@
                     <p class="mt-4 text-gray-400">
                         If you have any questions, etc, feel free to contact <a
                             class="text-white hover:font-semibold"
-                            href="mailto:privacy@wanderer.moe"
-                            >privacy@wanderer.moe</a> and you'll recieve a response
+                            href="mailto:legal@wanderer.moe"
+                            >legal@wanderer.moe</a> and you'll recieve a response
                         within 24 hours.
                     </p>
                 </div>

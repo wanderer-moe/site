@@ -312,10 +312,7 @@ getAssetCategoriesFromGames()
                 {#if results.length > 0}
                     <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
                         {#each results.slice(0, numAssetsToDisplay) as asset}
-                            <AssetItem
-                                asset="{asset}"
-                                bind:focusedImage="{focusedImage}"
-                                handleImageChange="{handleImageChange}" />
+                            <AssetItem asset="{asset}" />
                         {/each}
                     </div>
                 {/if}

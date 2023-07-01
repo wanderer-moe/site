@@ -73,8 +73,8 @@
                         have been infringed upon by our website content, please
                         contact <a
                             class="text-white hover:font-semibold"
-                            href="mailto:marcel@wanderer.moe"
-                            >marcel@wanderer.moe</a
+                            href="mailto:legal@wanderer.moe"
+                            >legal@wanderer.moe</a
                         >, where your claim will be reviewed. If your claim is
                         found to be justified, the content in question will be
                         removed as soon as possible & any other content deemed

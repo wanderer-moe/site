@@ -2,16 +2,18 @@
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
 import { mapGame, mapAssetType } from '@/lib/helpers/casing/gameMapping'
 import { getImageResolution } from '@/lib/helpers/asset/getImageResolution'
-import { format, t } from 'svelte-i18n'
+import { t } from 'svelte-i18n'
 import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat'
 import { onMount } from 'svelte'
+import AssetItem from '@/components/AssetItem.svelte'
 
 let resolution = 'Unknown'
 export let data
 
-const { assetInformation } = data
+const { assetInformation, id } = data
+const { asset, similarAssets } = assetInformation
 
-const { asset } = assetInformation[0]
+// console.log(asset, similarAssets)
 
 onMount(async () => {
     resolution = await getImageResolution(asset.url)
@@ -37,7 +39,7 @@ onMount(async () => {
                                 class="h-full max-h-full w-full max-w-full rounded-lg border border-main-300 bg-main-700 object-cover"
                                 style="background-image: url(https://files.catbox.moe/qmjf27.png);" />
                         </div>
-                        <div class="m-2 my-auto w-full md:w-1/2 md:pl-8">
+                        <div class="m-2 my-auto w-full md:w-1/2">
                             <div class="flex flex-col">
                                 <div
                                     class="flex flex-col md:flex-row md:justify-between">
@@ -88,7 +90,7 @@ onMount(async () => {
                                                     target="_blank"
                                                     download>
                                                     <button
-                                                        class="btn w-full px-2.5 py-1 font-semibold transition md:w-auto">
+                                                        class="btn px-2.5 py-1 font-semibold transition">
                                                         <i
                                                             class="fa-solid fa-download mr-1"
                                                         ></i> Download Asset
@@ -99,6 +101,15 @@ onMount(async () => {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="my-4">
+                        <p class="my-2 text-2xl text-white">Similar Assets</p>
+                        <div
+                            class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                            {#each similarAssets as similarAsset}
+                                <AssetItem asset="{similarAsset}" />
+                            {/each}
                         </div>
                     </div>
                 </div>

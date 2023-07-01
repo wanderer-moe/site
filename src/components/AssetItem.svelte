@@ -9,25 +9,13 @@ import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { mapGame, mapAssetType } from '@/lib/helpers/casing/gameMapping'
 
 export let asset: Asset
-export let focusedImage: string
-export let handleImageChange: (newImage: string) => void
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
     role="button"
     tabindex="0"
-    class="relative flex transform cursor-pointer items-center rounded-md border-[3px] border-main-500 bg-main-500 p-3 font-semibold text-gray-400 transition duration-150 hover:-translate-y-1 hover:border-main-300"
-    on:mouseover="{() => {
-        if (focusedImage !== asset.game) {
-            handleImageChange(asset.game)
-        }
-    }}"
-    on:focus="{() => {
-        if (focusedImage !== asset.game) {
-            handleImageChange(asset.game)
-        }
-    }}">
+    class="relative flex transform cursor-pointer items-center rounded-md border-[3px] border-main-500 bg-main-500 p-3 font-semibold text-gray-400 transition duration-150 hover:-translate-y-1 hover:border-main-300">
     <Lazy
         height="{128}"
         placeholder="{LoadPlaceHolder}"
