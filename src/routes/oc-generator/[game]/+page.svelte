@@ -1,14 +1,15 @@
-<script>
-import axios from 'axios'
+<script lang="ts">
+// import axios from 'axios'
 import { onMount } from 'svelte'
-import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
+import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { writable } from 'svelte/store'
 // import { t } from "svelte-i18n"; TODO: i18n support maybe?
 
 export let data
 const { game, jsonFile } = data
 
-let response = ''
+console.log(game, jsonFile)
+
 let options = writable([])
 
 // randomizes all unlocked options
@@ -49,8 +50,7 @@ function toggleLock(option) {
 }
 
 onMount(async () => {
-    response = await axios.get(jsonFile)
-    options.set(response.data.options)
+    options.set(jsonFile.data.options)
     options.update((opts) => {
         return opts.map((opt) => {
             return { ...opt, value: 'None' }
@@ -105,7 +105,7 @@ onMount(async () => {
                     </button>
                     <button
                         class="btn p-2"
-                        on:click="{copyToClipboard($options)}">
+                        on:click="{() => copyToClipboard($options)}">
                         <i class="fa-regular fa-clipboard"></i> Copy
                     </button>
                     <button
