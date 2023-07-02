@@ -40,29 +40,28 @@ export let closeContribute
                             <a
                                 href="https://buymeacoffee.com/marcelmd"
                                 target="_blank"
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white hover:font-semibold"
                                 >donating</a> to help keep it running.
                         </p>
                         <p class="text-sm">
                             All donations go directly towards server costs,
                             maintenance, and development of new assets &
-                            features for wanderer.moe. This project will never
-                            be for-profit - our sole goal is to simply provide
-                            resources for this community.
+                            features for wanderer.moe - our sole goal is to
+                            simply provide resources for this community.
                         </p>
                         <p class="text-sm">
                             If you're interested in reading more, there's a <a
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white hover:font-semibold"
                                 target="_blank"
                                 href="https://dromzeh.dev/posts/wanderer-moe-website-breakdown/"
-                                >blog post here</a> breaking down how the site is
-                            built, maintained and hosted.
+                                >blog post</a> breaking down how the site is built,
+                            maintained and hosted.
                         </p>
                         <p class="text-sm">
                             If you want to help contribute by providing assets
                             for other users of the site (datamined/fan-made) or
                             for translations, please join the <a
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white hover:font-semibold"
                                 target="_blank"
                                 href="https://discord.wanderer.moe/"
                                 >discord server</a
@@ -72,7 +71,7 @@ export let closeContribute
                         </p>
                         <p class="text-xs">
                             For any other inquires, <a
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white hover:font-semibold"
                                 href="mailto:marcel@wanderer.moe"
                                 >send an email!</a>
                         </p>
