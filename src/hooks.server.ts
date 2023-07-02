@@ -3,6 +3,7 @@ import {
     type StringRedirects,
 } from '@svackages/sveltekit-hook-redirect'
 import type { Handle } from '@sveltejs/kit'
+import { getAuth } from '$lib/server/lucia'
 
 // redirects from old site & third party urls
 const redirects: StringRedirects = {
@@ -40,5 +41,10 @@ const redirects: StringRedirects = {
     },
 }
 
-export const handle: Handle = ({ event, resolve }) =>
-    RedirectHook({ event, resolve, redirects })
+export const handle: Handle = async ({ event, resolve }) => {
+    const auth = await getAuth(event.platform)
+    event.locals.auth = auth
+    event.locals.authRequest = auth.handleRequest(event)
+
+    return RedirectHook({ event, resolve, redirects })
+}
