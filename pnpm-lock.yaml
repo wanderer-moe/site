@@ -5,9 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@cloudflare/workers-types':
+    specifier: ^4.20230518.0
+    version: 4.20230518.0
   '@jridgewell/sourcemap-codec':
     specifier: ^1.4.15
     version: 1.4.15
+  '@lucia-auth/adapter-sqlite':
+    specifier: ^1.1.1
+    version: 1.1.1(lucia-auth@1.8.0)
   '@popperjs/core':
     specifier: ^2.11.8
     version: 2.11.8
@@ -44,6 +50,12 @@ dependencies:
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
+  lucia:
+    specifier: ^1.0.0
+    version: 1.0.0
+  lucia-auth:
+    specifier: ^1.8.0
+    version: 1.8.0
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
@@ -721,6 +733,18 @@ packages:
   /@kurkle/color@0.3.2:
     resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
     dev: true
+
+  /@lucia-auth/adapter-sqlite@1.1.1(lucia-auth@1.8.0):
+    resolution: {integrity: sha512-u9d1iUcyxZepQ+HXgLMRyIk0E9lTaiQsD7zJNLim/jaK16TWmchS68cIbAF1m+Z9rFkVFinNmWXPcA620xUmXg==}
+    peerDependencies:
+      better-sqlite3: ^8.0.0
+      lucia-auth: ^1.4.0
+    peerDependenciesMeta:
+      better-sqlite3:
+        optional: true
+    dependencies:
+      lucia-auth: 1.8.0
+    dev: false
 
   /@mdi/js@7.2.96:
     resolution: {integrity: sha512-paR9M9ZT7rKbh2boksNUynuSZMHhqRYnEZOm/KrZTjQ4/FzyhjLHuvw/8XYzP+E7fS4+/Ms/82EN1pl/OFsiIA==}
@@ -2231,6 +2255,15 @@ packages:
 
   /lru_map@0.3.3:
     resolution: {integrity: sha512-Pn9cox5CsMYngeDbmChANltQl+5pi6XmTrraMSzhPmMBbmgcxmqWry0U3PGapCU1yB4/LqCcom7qhHZiF/jGfQ==}
+    dev: false
+
+  /lucia-auth@1.8.0:
+    resolution: {integrity: sha512-zI8gT2AOpxTPIxYzToEdgoht+GOflrduZiHPsOEmg4/2pThOyCW3o3lXh+Uwh20tJ9QoXwQe9/Omn6PlUG6efw==}
+    dev: false
+
+  /lucia@1.0.0:
+    resolution: {integrity: sha512-tb2qR7WD7CCFmxc6FW9BhDzzQgWgccOr/QId6IMjrvVmeXnpTDp5ZOTRiHnhsazsGKMXzR8bNIVEfsS9HewW5w==}
+    deprecated: not maintained
     dev: false
 
   /magic-string@0.27.0:

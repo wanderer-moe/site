@@ -1,10 +1,10 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
+// src/app.d.ts
 declare global {
     namespace App {
-        // interface Error {}
-        // interface Locals {}
-        // interface PageData {}
+        interface Locals {
+            auth: import('lucia').AuthRequest
+        }
+
         interface Platform {
             env: {
                 DB: D1Database
@@ -13,6 +13,17 @@ declare global {
                 waitUntil(promise: Promise<any>): void
             }
             caches: CacheStorage & { default: Cache }
+        }
+    }
+}
+
+/// <reference types="lucia" />
+declare global {
+    namespace Lucia {
+        type Auth = import('$lib/server/lucia').Auth
+        type UserAttributes = {
+			username: string
+			userId: string
         }
     }
 }
