@@ -20,6 +20,14 @@ let isSearchOpen = false
         binds: ['control', 'k'],
         bindCalled: () => (isSearchOpen = !isSearchOpen),
     }}" />
+<div class="bg-main-400 p-2 text-center text-gray-400">
+    The download all & selected buttons are currently buggy - please use the
+    download button on each individual asset instead. There will be a fix out as
+    soon as possible & updates will be posted on the <a
+        class="font-semibold text-white underline"
+        href="https://discord.wanderer.moe/"
+        >#known-issues channel on the Discord.</a>
+</div>
 <header
     class="sticky top-0 z-50 w-full border-b border-main-300 bg-main-500 bg-opacity-75 p-2 backdrop-blur-lg backdrop-filter transition-opacity">
     <div class="mx-auto flex flex-wrap items-center justify-between">
