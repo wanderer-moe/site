@@ -5,25 +5,16 @@ import Footer from '@/components/nav/Footer.svelte'
 import Nav from '@/components/nav/Nav.svelte'
 import { startClient } from '@/lib/utils/i18n.js'
 import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
 import { derived } from 'svelte/store'
 import ScrollToTop from '@/components/nav/ScrollToTop.svelte'
+import { afterNavigate, beforeNavigate } from '$app/navigation'
 
-NProgress.configure({
-    // https://github.com/rstacruz/nprogress#configuration
-    minimum: 0.16,
-    showSpinner: false,
+beforeNavigate(() => {
+    NProgress.start()
 })
-
-// nprogress bar
-$: {
-    if ($navigating) {
-        NProgress.start()
-    }
-    if (!$navigating) {
-        NProgress.done()
-    }
-}
+afterNavigate(() => {
+    NProgress.done()
+})
 
 // derived store that runs whenever the $navigating store changes value
 const delayedPreloading = derived(navigating, (_, set) => {
