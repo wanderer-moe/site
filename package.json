@@ -5,6 +5,7 @@
     "version": "3.3.5",
     "scripts": {
         "dev": "vite dev --port 1337 --host",
+        "dev:wrangler": "wrangler pages dev -- pnpm run dev",
         "build": "vite build",
         "preview": "vite preview",
         "prettier": "prettier --write --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
