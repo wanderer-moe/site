@@ -29,10 +29,10 @@ To run the website locally, follow these steps:
     You also want to initialize the (i18n) submodules:
 
    ```bash
-   git submodule update --init --recursive
+   git submodule init && git submodule update
    ```
 
-3. Install dependencies & run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use).
+3. Install dependencies & run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use). If you require using D1 (DB) Bindings, run `pnpm run dev:wrangler` instead and configure the bindings correctly.
 
 4. To build the website, run `pnpm run build`. After the build process is complete, run `pnpm run preview` to preview the site at `http://localhost:4173`.
 
