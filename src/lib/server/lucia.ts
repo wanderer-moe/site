@@ -12,7 +12,7 @@ export const auth = (platform: App.Platform) => {
         env: dev ? 'DEV' : 'PROD',
         middleware: sveltekit(),
         transformDatabaseUser: (userData) => {
-          return {
+            return {
                 userId: userData.userId,
                 username: userData.username,
             }
