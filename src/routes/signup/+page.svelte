@@ -8,9 +8,6 @@ import {
 } from '$lib/helpers/auth/account/check'
 
 // TODO: signup logic in +page.server.ts
-// export let data
-// let { supabase } = data
-// $: ({ supabase } = data)
 
 let formData = {
     username: '',
