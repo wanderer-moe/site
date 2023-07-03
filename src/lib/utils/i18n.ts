@@ -8,14 +8,25 @@ import {
 } from 'svelte-i18n'
 import { browser } from '$app/environment'
 
+import type { Locale } from 'dayjs/locale/*'
+
 import en from '@/i18n/site/en.json'
 
-const INIT_OPTIONS = {
+interface InitOptions {
+    fallbackLocale: string
+    initialLocale: string
+}
+
+const INIT_OPTIONS: InitOptions = {
     fallbackLocale: 'en',
     initialLocale: 'en',
 }
 
-const htmlLocaleCode = {
+interface HtmlLocaleCode {
+    [key: string]: string
+}
+
+const htmlLocaleCode: HtmlLocaleCode = {
     en: 'en',
     nl: 'nl',
     ja: 'ja',
@@ -27,7 +38,13 @@ const htmlLocaleCode = {
     ar: 'ar',
 }
 
-const dayjsLocales = {
+interface DayjsLocales {
+    [key: string]: () => Promise<{
+        default: Locale
+    }>
+}
+
+const dayjsLocales: DayjsLocales = {
     en: () => import('dayjs/locale/en'),
     nl: () => import('dayjs/locale/de'),
     ja: () => import('dayjs/locale/ja'),
@@ -41,7 +58,7 @@ const dayjsLocales = {
 
 let isLoaded = false
 
-$locale.subscribe((value) => {
+$locale.subscribe((value: string | null) => {
     if (value === null) return
 
     if (isLoaded) localStorage.setItem('locale', value)
@@ -74,7 +91,7 @@ register('ro', () => import('@/i18n/site/ro.json'))
 register('sv', () => import('@/i18n/site/sv.json'))
 register('vi', () => import('@/i18n/site/vi.json'))
 
-export async function startClient() {
+export async function startClient(): Promise<void> {
     init({
         ...INIT_OPTIONS,
     })
