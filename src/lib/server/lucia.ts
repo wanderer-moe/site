@@ -2,11 +2,10 @@ import lucia from 'lucia-auth'
 import { sveltekit } from 'lucia-auth/middleware'
 import { d1 } from '@lucia-auth/adapter-sqlite'
 import { dev } from '$app/environment'
-// import { D1Database } from '@cloudflare/workers-types'
 
-export const getAuth = async (platform: App.Platform) => {
+export const getAuth = async (platform: App.Platform | undefined) => {
     if (!platform?.env?.DB) {
-        throw new Error('No database found inside platform context')
+        throw new Error('Missing DB in platform')
     }
 
     return lucia({
@@ -15,6 +14,7 @@ export const getAuth = async (platform: App.Platform) => {
         middleware: sveltekit(),
         transformDatabaseUser: (userData) => {
             return {
+                // userId: userData.id,
                 username: userData.username,
             }
         },
