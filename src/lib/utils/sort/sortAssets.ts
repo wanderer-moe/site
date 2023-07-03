@@ -1,7 +1,19 @@
-// sort images based on selected sorting option
 import { iso8601ToUnix } from '@/lib/helpers/timeConvertion/isoFormat'
 
-export function sortAssets(images, selectedSortingOption) {
+interface Image {
+    name: string
+    size: number
+    uploaded: string
+}
+
+interface SortingOption {
+    name: string
+}
+
+export function sortAssets(
+    images: Image[],
+    selectedSortingOption: SortingOption
+): Image[] {
     switch (selectedSortingOption.name) {
         case 'fileSizeStoL':
             return images.sort((a, b) => a.size - b.size)
