@@ -3,9 +3,11 @@ import { t } from 'svelte-i18n'
 import LocaleDropdown from '@/components/dropdowns/LocaleDropdown.svelte'
 import Status from '@/components/Status.svelte'
 import Contribute from '@/components/popouts/Contribute.svelte'
+import CheckUA from '@/components/popouts/download/CheckUA.svelte'
 const currentYear = new Date().getFullYear()
 
 let contributeOpen = false
+let checkUAOpen = false
 </script>
 
 <footer
@@ -81,6 +83,14 @@ let contributeOpen = false
                                 Contribute
                             </button>
                         </li>
+                        <li>
+                            <button
+                                on:keypress="{() => (checkUAOpen = true)}"
+                                on:click="{() => (checkUAOpen = true)}"
+                                class="cursor-pointer hover:font-semibold hover:text-white">
+                                Check User Agent
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -109,4 +119,8 @@ let contributeOpen = false
 
 {#if contributeOpen}
     <Contribute closeContribute="{() => (contributeOpen = false)}" />
+{/if}
+
+{#if checkUAOpen}
+    <CheckUA closeCheckUA="{() => (checkUAOpen = false)}" />
 {/if}
