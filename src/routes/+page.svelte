@@ -153,6 +153,7 @@ function toggleAssetCategory(asset: string): void {
 
 function handleGameSelection(game: string): void {
     handleImageChange(game)
+
     if (!$selectedGames.includes(game)) {
         selectedGames.update((games) => [...games, game])
     } else {
@@ -160,11 +161,31 @@ function handleGameSelection(game: string): void {
             games.filter((selectedGame) => selectedGame !== game)
         )
     }
-    getValidAssetCategoriesFromGames()
+
+    validAssetCategories = []
+    games.forEach((game) => {
+        if ($selectedGames.includes(game.name)) {
+            game.assetCategories.forEach((category) => {
+                if (!validAssetCategories.includes(category)) {
+                    validAssetCategories.push(category)
+                }
+            })
+        }
+    })
+
+    if ($selectedGames.length === 0 && $selectedAssetCategories.length > 0) {
+        return
+    }
+
+    selectedAssetCategories.set(
+        $selectedAssetCategories.filter((category) =>
+            validAssetCategories.includes(category)
+        )
+    )
 }
 
 function handleViewMore() {
-    numAssetsToDisplay += 20
+    numAssetsToDisplay += 50
 }
 
 getAssetCategoriesFromGames()
