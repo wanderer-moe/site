@@ -7,6 +7,11 @@ import {
     checkUsername,
 } from '$lib/helpers/auth/account/check'
 
+// TODO: signup logic in +page.server.ts
+// export let data
+// let { supabase } = data
+// $: ({ supabase } = data)
+
 let formData = {
     username: '',
     email: '',
@@ -39,7 +44,7 @@ let checks = {
                 </h2>
             </div>
             <div class="mt-4">
-                <form action="/api/signup" method="POST">
+                <form>
                     <div class="flex flex-col gap-y-2">
                         <div class="flex flex-col">
                             <label for="username" class="text-white"
@@ -84,7 +89,7 @@ let checks = {
                                 name="password"
                                 id="password"
                                 class="rounded-md bg-main-700 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
-                                placeholder="Password" />
+                                placeholder="••••••••••" />
                             {#if !checks.password && formData.password.length > 0}
                                 <p class="mt-1 text-xs text-red-200">
                                     Password must be 8 characters, have a
@@ -117,7 +122,7 @@ let checks = {
                                             formData.verifyPassword)}"
                                     name="verifyPassword"
                                     id="verifyPassword"
-                                    class="rounded-md bg-main-700 px-2 py-1 text-gray-300"
+                                    class="rounded-md bg-main-700 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                                     placeholder="Confirm password" />
                             </div>
                         {/if}
@@ -127,6 +132,7 @@ let checks = {
                                 disabled="{Object.values(checks).every(
                                     (check) => !check
                                 )}"
+                                on:click="{() => console.log('clicked')}"
                                 class="btn mt-4 px-2 py-1 transition
                             {Object.values(checks).every((check) => check)
                                     ? ''
