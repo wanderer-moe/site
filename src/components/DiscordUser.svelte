@@ -3,7 +3,7 @@ export let contributor, roleColors
 </script>
 
 <div
-    class="relative flex flex-col items-center justify-center overflow-hidden rounded-md bg-main-500 bg-cover p-2 text-white transition duration-150 ease-in-out hover:-translate-y-1">
+    class="relative flex flex-col items-center justify-center overflow-hidden rounded-md bg-main-500 bg-cover p-3 text-white transition duration-150 ease-in-out hover:-translate-y-1">
     <a href="https://discord.com/users/{contributor.id}" target="_blank">
         <img
             src="{contributor.avatar}"
