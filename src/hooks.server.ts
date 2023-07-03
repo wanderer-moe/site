@@ -1,8 +1,10 @@
+import '$lib/supabase'
 import {
     RedirectHook,
     type StringRedirects,
 } from '@svackages/sveltekit-hook-redirect'
 import type { Handle } from '@sveltejs/kit'
+import '$lib/supabase'
 
 // redirects from old site & third party urls
 const redirects: StringRedirects = {

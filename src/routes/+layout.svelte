@@ -23,7 +23,6 @@ const delayedPreloading = derived(navigating, (_, set) => {
 })
 
 startClient()
-
 $: segment = $page.url.pathname.substring(1).split('/')[0] // gets the first segment of the URL (e.g. /blog/1 => blog)
 // $: console.log(segment)
 </script>

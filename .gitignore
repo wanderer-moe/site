@@ -5,3 +5,4 @@ yarn-error.log
 build/
 .idea
 .DS_Store
+.env
