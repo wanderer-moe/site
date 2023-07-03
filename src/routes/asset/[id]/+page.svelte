@@ -83,7 +83,8 @@ onMount(async () => {
                                                 })}
                                             </p>
 
-                                            <div class="my-4">
+                                            <div
+                                                class="my-4 flex flex-row gap-2">
                                                 <a
                                                     href="https://v2-api-testing.wanderer.moe/download/{asset.id}"
                                                     rel="noreferrer"
@@ -96,6 +97,17 @@ onMount(async () => {
                                                         ></i> Download Asset
                                                     </button>
                                                 </a>
+                                                <button
+                                                    class="btn px-2.5 py-1 font-semibold transition"
+                                                    on:click="{() => {
+                                                        navigator.clipboard.writeText(
+                                                            window.location.href
+                                                        )
+                                                    }}">
+                                                    <i
+                                                        class="fa-solid fa-clipboard mr-1"
+                                                    ></i> Copy Link
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
