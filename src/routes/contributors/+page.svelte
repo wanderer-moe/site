@@ -1,5 +1,6 @@
 <script>
 import { t } from 'svelte-i18n'
+import DiscordUser from '@/components/DiscordUser.svelte'
 // import { fade } from 'svelte/transition'
 
 export let data
@@ -86,42 +87,9 @@ function getTopmostCategory(contributor) {
                         </p>
                         <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
                             {#each contributors.filter((contributor) => roles.some( (role) => contributor.roles.includes(role) ) && getTopmostCategory(contributor) === category) as contributor}
-                                <div
-                                    class="relative flex flex-col items-center justify-center overflow-hidden rounded-md bg-main-500 bg-cover p-2 text-white transition ease-in-out hover:scale-105">
-                                    <a
-                                        href="https://discord.com/users/{contributor.id}"
-                                        target="_blank">
-                                        <img
-                                            src="{contributor.avatar}"
-                                            alt="{contributor.username} avatar"
-                                            class="mb-1 h-16 w-16 rounded-full object-left" />
-                                    </a>
-                                    <p
-                                        class="mb-1 text-center text-sm font-bold text-white">
-                                        {contributor.username}
-                                        {#if contributor.globalname && contributor.globalname !== contributor.username}
-                                            <span
-                                                class="mb-1 text-center text-xs font-semibold text-gray-400">
-                                                aka "{contributor.globalname}"
-                                            </span>
-                                        {/if}
-                                    </p>
-
-                                    <div
-                                        class="flex flex-wrap justify-center gap-x-1 gap-y-1">
-                                        {#each contributor.roles as role}
-                                            <div
-                                                class="flex items-center rounded-md bg-main-400 px-2 py-1 text-xs text-gray-400">
-                                                <span
-                                                    class="{roleColors[
-                                                        role
-                                                    ]} mr-1 h-2 w-2 rounded-full"
-                                                ></span>
-                                                {role}
-                                            </div>
-                                        {/each}
-                                    </div>
-                                </div>
+                                <DiscordUser
+                                    contributor="{contributor}"
+                                    roleColors="{roleColors}" />
                             {/each}
                         </div>
                     </div>

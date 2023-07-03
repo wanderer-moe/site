@@ -28,7 +28,7 @@ const browser = (() => {
 
 export let closeCheckUA
 
-console.log(os, browser, ua, browserMap[os].includes(browser))
+// console.log(os, browser, ua, browserMap[os].includes(browser))
 </script>
 
 <div>
@@ -43,26 +43,24 @@ console.log(os, browser, ua, browserMap[os].includes(browser))
                         You're using {browser} on {os}, a supported browser for
                         downloading assets.
                     </p>
-                    <p class="mt-4">
-                        You should not face any issues when downloading assets,
-                        but if you do, please go into the #support channel in
-                        our Discord
-                    </p>
                 {:else}
                     <p class="mt-4 text-red-100">
                         You're not using a supported browser, therefore
                         downloads may not work.
                     </p>
                 {/if}
-                <p>
+                <p class="my-4">
                     For your device, it's reccomended to use {browserMap[
                         os
                     ].join(' or ')}.
                 </p>
                 <p class="mt-4 text-sm">
-                    Not all browsers are supported when downloading assets. This
-                    is due to the way browsers handle downloads, and is out of
-                    our control.
+                    You should not face any issues when downloading assets, but
+                    if you do, please go into the #support channel in our
+                    Discord.<br /><span class="text-xs">
+                        Not all browsers are supported when downloading assets.
+                        This is due to the way browsers handle downloads, and is
+                        out of our control.</span>
                 </p>
                 <button
                     class="btn mt-4 w-full p-2"
