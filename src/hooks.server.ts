@@ -1,31 +1,34 @@
-import '$lib/supabase'
 import {
-    RedirectHook,
-    type StringRedirects,
-} from '@svackages/sveltekit-hook-redirect'
+    PUBLIC_SUPABASE_URL,
+    PUBLIC_SUPABASE_ANON_KEY,
+} from '$env/static/public'
+import { createSupabaseServerClient } from '@supabase/auth-helpers-sveltekit'
 import type { Handle } from '@sveltejs/kit'
-import '$lib/supabase'
-
-// redirects from old site & third party urls
-const redirects: StringRedirects = {
-    '/asset-request-form': {
-        to: 'https://docs.google.com/forms/d/1wEflnF1asaLtRGqo6RMUKD55nRwy1-V77ogW1wLmvus/',
-        code: 301,
-    },
-    '/site-suggestions': {
-        to: 'https://docs.google.com/forms/d/1uIfRAYUbmYne6BbgoJuO6VyD6TdLnvvEZPCeBjCQmlI/',
-        code: 301,
-    },
-    '/discord': {
-        to: 'https://discord.com/invite/659KAFfNd6',
-        code: 301,
-    },
-    '/donate': {
-        to: 'https://www.buymeacoffee.com/marcelmd',
-        code: 301,
-    },
-}
+import { redirect } from '@sveltejs/kit'
 
 export const handle: Handle = async ({ event, resolve }) => {
-    return RedirectHook({ event, resolve, redirects })
+    event.locals.supabase = createSupabaseServerClient({
+        supabaseUrl: PUBLIC_SUPABASE_URL,
+        supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
+        event,
+    })
+
+    event.locals.getSession = async () => {
+        const {
+            data: { session },
+        } = await event.locals.supabase.auth.getSession()
+        return session
+    }
+
+    const session = await event.locals.getSession()
+
+    if (event.url.pathname.startsWith('/account') && !session) {
+        throw redirect(301, '/login')
+    }
+
+    return resolve(event, {
+        filterSerializedResponseHeaders(name) {
+            return name === 'content-range'
+        },
+    })
 }

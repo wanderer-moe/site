@@ -7,7 +7,8 @@ import { startClient } from '$lib/utils/i18n'
 import NProgress from 'nprogress'
 import { derived } from 'svelte/store'
 import ScrollToTop from '@/components/nav/ScrollToTop.svelte'
-import { afterNavigate, beforeNavigate } from '$app/navigation'
+import { afterNavigate, beforeNavigate, invalidate } from '$app/navigation'
+import { onMount } from 'svelte'
 
 beforeNavigate(() => {
     NProgress.start()
@@ -25,6 +26,21 @@ const delayedPreloading = derived(navigating, (_, set) => {
 startClient()
 $: segment = $page.url.pathname.substring(1).split('/')[0] // gets the first segment of the URL (e.g. /blog/1 => blog)
 // $: console.log(segment)
+
+export let data
+
+let { supabase, session } = data
+$: ({ supabase, session } = data)
+
+onMount(() => {
+    const { data } = supabase.auth.onAuthStateChange((event, _session) => {
+        if (_session?.expires_at !== session?.expires_at) {
+            invalidate('supabase:auth')
+        }
+    })
+
+    return () => data.subscription.unsubscribe()
+})
 </script>
 
 <ScrollToTop />
