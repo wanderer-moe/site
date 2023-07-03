@@ -65,10 +65,16 @@ let checkUAOpen = false
                     <ul>
                         <li class="mb-4">
                             <a
+                                href="/docs/api"
+                                class="hover:font-semibold hover:text-white"
+                                >API Documentation</a>
+                        </li>
+                        <!-- <li class="mb-4">
+                            <a
                                 href="https://wanderer.moe/asset-request-form"
                                 class="hover:font-semibold hover:text-white"
                                 >Asset Request Form</a>
-                        </li>
+                        </li> -->
                         <li class="mb-4">
                             <a
                                 href="/contributors"

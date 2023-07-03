@@ -1,0 +1,138 @@
+<svelte:head>
+    <title>API Documentation | wanderer.moe</title>
+    <meta name="description" content="API Documentation for wanderer.moe" />
+</svelte:head>
+
+<div class="min-h-screen">
+    <div class="mb-8">
+        <div class="px-2 md:px-12 lg:px-48">
+            <div class="relative my-8">
+                <img
+                    src="https://cdn.wanderer.moe/honkai-star-rail/cover.png"
+                    class="absolute inset-0 h-48 w-full rounded-md object-cover"
+                    style="object-position: 50% 20%;"
+                    alt="honkai star rail cover" />
+                <div class="relative h-48 rounded-md bg-main-400/50">
+                    <div
+                        class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+                        <div
+                            class="flex flex-col items-center justify-between xl:flex-row">
+                            <div>
+                                <h1
+                                    class="max-w-lg text-3xl font-bold text-white sm:text-4xl sm:leading-none">
+                                    API Documentation
+                                </h1>
+                                <h2 class="text-white">
+                                    API Documentation for api.wanderer.moe
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="mb-2 rounded-lg bg-main-400 p-2 text-gray-400">
+                        <div class="mb-3 flex flex-wrap gap-2 text-sm">
+                            <div class="w-full rounded-md bg-main-600 p-2">
+                                <div class="my-2 text-lg">
+                                    <span
+                                        class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
+                                        NOTE
+                                    </span>
+                                </div>
+
+                                <p class="my-2">
+                                    You are allowed to use all endpoints on this
+                                    page as you wish, but please do not abuse
+                                    it, if you are suspected of abusing the API,
+                                    your IP will be blocked. <br />
+                                    If you are planning to use this API for a large
+                                    project or need help please contact
+                                    <a
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="text-white hover:font-bold"
+                                        href="mailto:marcel@wanderer.moe"
+                                        >marcel@wanderer.moe</a
+                                    >. <br /> The API is open-source and fully
+                                    typed in TypeScript. You can find the source
+                                    code
+                                    <a
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="text-white hover:font-bold"
+                                        href="https://git.wanderer.moe/api"
+                                        >on GitHub.</a>
+                                </p>
+                                <div class="my-2 text-red-100">
+                                    Each endpoint per IP is limited to one
+                                    request per 5 seconds, please cache the
+                                    results if you are planning to use the API
+                                    in a project.
+                                </div>
+                            </div>
+                            <div class="w-full rounded-md bg-main-600 p-2">
+                                <div class="my-2 text-lg text-white">
+                                    <span
+                                        class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
+                                        GET
+                                    </span>
+                                    /asset/:id
+                                </div>
+
+                                <p class="my-2">
+                                    Returns the asset with the given ID. If the
+                                    asset is not found, a 404 error will be
+                                    returned.
+                                </p>
+                            </div>
+                            <div class="w-full rounded-md bg-main-600 p-2">
+                                <div class="my-2 text-lg text-white">
+                                    <span
+                                        class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
+                                        GET
+                                    </span>
+                                    /search
+                                </div>
+
+                                <p class="my-2">
+                                    Takes in query, game, asset, tags in the
+                                    URL. Returns a list of assets that match the
+                                    query.
+                                </p>
+                            </div>
+                            <div class="w-full rounded-md bg-main-600 p-2">
+                                <div class="my-2 text-lg text-white">
+                                    <span
+                                        class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
+                                        GET
+                                    </span>
+                                    /oc-generators
+                                </div>
+
+                                <p class="my-2">
+                                    Returns a list of all OC Generators.
+                                </p>
+                            </div>
+                            <div class="w-full rounded-md bg-main-600 p-2">
+                                <div class="my-2 text-lg text-white">
+                                    <span
+                                        class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
+                                        GET
+                                    </span>
+                                    /oc-generator/:game
+                                </div>
+
+                                <p class="my-2">
+                                    Returns the OC Generator JSON data for the
+                                    given game.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
