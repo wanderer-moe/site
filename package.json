@@ -5,7 +5,6 @@
     "version": "3.3.5",
     "scripts": {
         "dev": "vite dev --host",
-        "dev:wrangler": "wrangler pages dev --proxy 5173 -- vite dev",
         "build": "vite build",
         "preview": "vite preview",
         "prettier": "prettier --write --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
