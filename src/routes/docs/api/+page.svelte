@@ -93,6 +93,19 @@
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
                                         GET
                                     </span>
+                                    /recent
+                                </div>
+
+                                <p class="my-2">
+                                    Returns the 30 most recent assets.
+                                </p>
+                            </div>
+                            <div class="w-full rounded-md bg-main-600 p-2">
+                                <div class="my-2 text-lg text-white">
+                                    <span
+                                        class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
+                                        GET
+                                    </span>
                                     /search
                                 </div>
 
@@ -100,6 +113,10 @@
                                     Takes in query, game, asset, tags in the
                                     URL. Returns a list of assets that match the
                                     query.
+                                    <br />All parameters are optional, if none
+                                    are provided 30 most recent assets will be
+                                    returned instead. 1500 assets is the maximum
+                                    amount of assets that can be returned.
                                 </p>
                             </div>
                             <div class="w-full rounded-md bg-main-600 p-2">

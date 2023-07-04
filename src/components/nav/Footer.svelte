@@ -35,7 +35,7 @@ let checkUAOpen = false
                                 class="hover:font-semibold hover:text-white"
                                 >GitHub</a>
                         </li>
-                        <li>
+                        <li class="mb-4">
                             <a
                                 href="https://discord.wanderer.moe/"
                                 class="hover:font-semibold hover:text-white"

@@ -1,6 +1,10 @@
 declare global {
     namespace App {
         // interface Error {}
-        // interface Platform {}
+        // interface Locals {}
+        // interface PageData {}
+        interface Platform {
+            DB: D1Database
+        }
     }
 }
