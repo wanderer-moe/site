@@ -25,7 +25,7 @@ let checks = {
 </script>
 
 <svelte:head>
-    <title>Sign Up</title>
+    <title>Create Account</title>
 </svelte:head>
 
 <div class="min-h-screen">
@@ -33,7 +33,7 @@ let checks = {
         <div
             class="mx-auto my-4 w-full rounded-md bg-main-500 p-3 text-gray-400 transition-all md:w-2/3 lg:w-1/2">
             <div class="text-center">
-                <h1 class="text-xl font-bold text-white">Sign Up</h1>
+                <h1 class="text-xl font-bold text-white">Create Account</h1>
                 <h2 class="text-sm">
                     Already have an account? <a
                         href="/login"
@@ -57,6 +57,11 @@ let checks = {
                                 id="username"
                                 class="rounded-md bg-main-700 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                                 placeholder="username" />
+                            {#if !checks.username && formData.username.length > 0}
+                                <p class="mt-1 text-xs text-red-200">
+                                    5 to 16 characters.
+                                </p>
+                            {/if}
                         </div>
                         <div class="flex flex-col">
                             <label for="email" class="text-white"
@@ -72,6 +77,11 @@ let checks = {
                                 id="email"
                                 class="rounded-md bg-main-700 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                                 placeholder="email@domain.com" />
+                            {#if !checks.email && formData.email.length > 0}
+                                <p class="mt-1 text-xs text-red-200">
+                                    Please enter a valid email address.
+                                </p>
+                            {/if}
                         </div>
                         <div class="flex flex-col">
                             <label for="password" class=" text-white"
@@ -89,43 +99,41 @@ let checks = {
                                 placeholder="••••••••••" />
                             {#if !checks.password && formData.password.length > 0}
                                 <p class="mt-1 text-xs text-red-200">
-                                    Password must be 8 characters, have a
-                                    number, symbol, lowercase and uppercase
-                                    letter.
+                                    Password must be 8 characters, have one
+                                    uppercase & lowerecase letter, one digit,
+                                    and one special character.
                                 </p>
                             {/if}
                         </div>
-                        {#if checks.password}
-                            <div
-                                class="flex flex-col"
-                                in:fade|global="{{
-                                    easing: quintOut,
-                                    duration: 750,
-                                }}"
-                                out:fade|global="{{
-                                    easing: cubicOut,
-                                    duration: 300,
-                                }}">
-                                <label
-                                    for="verifyPassword"
-                                    class="text-sm text-white"
-                                    >Confirm Password</label>
-                                <input
-                                    type="password"
-                                    bind:value="{formData.verifyPassword}"
-                                    on:change="{() =>
-                                        (checks.verifyPassword =
-                                            formData.password ===
-                                            formData.verifyPassword)}"
-                                    name="verifyPassword"
-                                    id="verifyPassword"
-                                    class="rounded-md bg-main-700 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
-                                    placeholder="Confirm password" />
-                            </div>
-                        {/if}
+                        <div class="flex flex-col">
+                            <label
+                                for="verifyPassword"
+                                class="text-sm text-white"
+                                >Confirm Password</label>
+                            <input
+                                type="password"
+                                bind:value="{formData.verifyPassword}"
+                                on:change="{() =>
+                                    (checks.verifyPassword =
+                                        formData.password ===
+                                        formData.verifyPassword)}"
+                                name="verifyPassword"
+                                id="verifyPassword"
+                                disabled="{!checks.password}"
+                                class="rounded-md bg-main-700 p-1.5 text-white transition
+                                    {checks.password
+                                    ? 'hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300'
+                                    : 'opacity-50'}
+                                    "
+                                placeholder="Confirm password" />
+                            {#if checks.password && !checks.verifyPassword && formData.verifyPassword.length > 0}
+                                <p class="mt-1 text-xs text-red-200">
+                                    Passwords do not match.
+                                </p>
+                            {/if}
+                        </div>
                         <div class="flex flex-col">
                             <button
-                                type="submit"
                                 disabled="{Object.values(checks).every(
                                     (check) => !check
                                 )}"
