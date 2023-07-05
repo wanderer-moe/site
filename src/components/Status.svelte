@@ -17,7 +17,7 @@ const successText = {
 const success = writable('unknown')
 
 onMount(async () => {
-    const response = await fetch('https://api.wanderer.moe/') // TODO: Update this domain to an actual route, or maybe setup implementation with faults on the status page?
+    const response = await fetch('https://api.wanderer.moe/') // TODO: status page will have its own API to check for downtime, pinging the API is not a good idea and temporary
     const data = await response.json()
     success.set(data.success)
 })

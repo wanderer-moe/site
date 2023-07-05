@@ -1,10 +1,38 @@
+// src/app.d.ts
+
 declare global {
     namespace App {
-        // interface Error {}
-        // interface Locals {}
-        // interface PageData {}
+        interface Locals {
+            auth: import('$lib/server/lucia').Auth
+            authRequest: import('lucia-auth').AuthRequest
+        }
+
         interface Platform {
-            DB: D1Database
+            env?: {
+                DB: D1Database
+            }
+            context: {
+                waitUntil(promise: Promise<any>): void
+            }
+            caches: Cache
         }
     }
 }
+
+/// <reference types="lucia" />
+declare global {
+    namespace Lucia {
+        type Auth = import('$lib/server/lucia').Auth
+        type UserAttributes = {
+            id: int
+            username: string
+            email: string
+            pronouns: string
+            connections: string
+            isPlus: int
+            roles: string
+        }
+    }
+}
+
+export {}

@@ -4,9 +4,9 @@
     "description": "Centralized database of various game assets",
     "version": "3.3.5",
     "scripts": {
-        "dev": "vite dev --host --port 1337",
-        "dev:wrangler": "wrangler pages dev --proxy 1337 --d1=wanderer-moe -- pnpm run dev",
-        "build": "vite build",
+        "dev": "vite dev --host --port 5173",
+        "dev:wrangler": "wrangler pages dev --proxy 5173 -- pnpm run dev",
+        "build": "vite build --watch",
         "preview": "vite preview",
         "prettier": "prettier --write --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
         "prettier:check": "prettier --check --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
@@ -17,6 +17,7 @@
         "@beyonk/svelte-notifications": "^4.2.0",
         "@iconify/svelte": "^3.1.4",
         "@mdi/js": "^7.2.96",
+        "@sveltejs/adapter-cloudflare": "^2.3.0",
         "@sveltejs/adapter-static": "2.0.2",
         "autoprefixer": "^10.4.14",
         "chart.js": "^4.3.0",
@@ -38,7 +39,8 @@
         "svelte-preprocess": "^5.0.4",
         "svelte-simple-modal": "^1.6.0",
         "tailwindcss": "^3.3.2",
-        "vite": "4.3.9"
+        "vite": "4.3.9",
+        "wrangler": "^3.1.1"
     },
     "dependencies": {
         "@cloudflare/workers-types": "^4.20230518.0",
@@ -48,7 +50,6 @@
         "@sentry/node": "^7.57.0",
         "@sentry/svelte": "^7.57.0",
         "@svackages/sveltekit-hook-redirect": "^0.0.1",
-        "@sveltejs/adapter-cloudflare": "^2.3.0",
         "@sveltejs/kit": "^1.21.0",
         "axios": "^1.4.0",
         "drizzle-orm": "^0.27.0",
