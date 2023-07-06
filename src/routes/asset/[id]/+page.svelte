@@ -37,7 +37,8 @@ onMount(async () => {
                                 src="{asset.url}"
                                 alt="asset"
                                 class="h-full max-h-full w-full max-w-full rounded-lg border border-main-300 bg-main-500 object-cover"
-                                style="background-image: url(https://files.catbox.moe/qmjf27.png);" />
+                                
+                                style="background-image: url('/img/grid.png')" />
                         </div>
                         <div class="m-2 my-auto w-full md:w-1/2">
                             <div class="flex flex-col">
@@ -45,21 +46,21 @@ onMount(async () => {
                                     class="flex flex-col md:flex-row md:justify-between">
                                     <div class="flex flex-col">
                                         <div
-                                            class="my-2 flex flex-row gap-y-2 text-lg">
-                                            <div>
-                                                <span
-                                                    class="rounded-md bg-main-500 px-2.5 py-1 font-semibold text-white">
+                                            class="my-1 flex flex-row gap-2 text-lg">
+                                                <a
+                                                    href="/?game={asset.game}"
+                                                    class="border-2 border-main-400 rounded-md bg-main-500 flex items-center px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
                                                     <img
                                                         src="https://cdn.wanderer.moe/{asset.game}/icon.png"
                                                         alt="{asset.game} cover"
                                                         class="mr-1 inline-block h-5 w-5 rounded-md" />
                                                     {mapGame(asset.game)}
-                                                </span>
-                                                <span
-                                                    class="rounded-md bg-main-500 px-2.5 py-1 font-semibold text-white">
+                                                </a>
+                                                <a
+                                                    href="/?asset={asset.asset}"
+                                                    class="border-2 border-main-400 rounded-md bg-main-500 px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
                                                     {mapAssetType(asset.asset)}
-                                                </span>
-                                            </div>
+                                                </a>
                                         </div>
                                         <div class="my-2">
                                             <h1

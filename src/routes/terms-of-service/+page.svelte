@@ -58,7 +58,7 @@
                     <p class="text-gray-400">
                         No personally identifiable information is collected by
                         this website, please read the <a
-                            class="text-white hover:font-semibold"
+                            class="text-accent-100 hover:text-white transition hover:font-semibold"
                             href="/privacy-policy">Privacy Policy</a> for more information.
                     </p>
                     <p class="text-gray-400">
@@ -72,7 +72,7 @@
                         If you believe that your intellectual property rights
                         have been infringed upon by our website content, please
                         contact <a
-                            class="text-white hover:font-semibold"
+                            class="text-accent-100 hover:text-white transition hover:font-semibold"
                             href="mailto:legal@wanderer.moe"
                             >legal@wanderer.moe</a
                         >, where your claim will be reviewed. If your claim is

@@ -8,24 +8,25 @@ import { page } from '$app/stores'
 </svelte:head>
 
 <div class="flex h-screen">
-    <div class="m-auto text-center">
-        <div class="p-1">
-            <p class="p-2 text-5xl font-semibold">
-                <span class="rounded-lg bg-red-400 pl-3 pr-3 text-main-400"
+    <div class="m-auto">
+            <p class="text-3xl font-semibold my-2">
+                <span class="rounded-lg bg-red-400 px-3 text-main-400"
                     >{$page.status}
                 </span>
             </p>
-        </div>
         <div>
-            <p class="text-2xl text-white">
-                {$t(`errors.${$page.status === 404 ? '404' : '500'}`)}
+            <p class="text-4xl text-white items-center flex">
+                <img src="https://cdn.wanderer.moe/genshin-impact/emotes/keqing-3.png" alt ="keqing" class="inline h-16 w-16 mr-3"/>{$t(`errors.${$page.status === 404 ? '404' : '500'}`)}
             </p>
-            <p class=" text-gray-400">
-                <a href="/" class="hover:font-semibold hover:text-white"
-                    >{$t('errors.refresh')}
-                </a>
-            </p>
-            <p class="my-3 text-xs text-gray-400">{$page.error?.message}</p>
+            {#if $page.error?.message}
+                <p class="my-2 text-gray-400">Error: {$page.error?.message}</p>
+            {/if}
+            <button
+                class="mt-2 px-4 py-2 rounded-lg bg-main-300 text-white hover:bg-main-400 transition"
+                on:click={() => window.location.href = '/'}
+            >
+                Go Back <i class="fas fa-arrow-right"></i>
+            </button>
         </div>
     </div>
 </div>

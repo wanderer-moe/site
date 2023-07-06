@@ -8,8 +8,8 @@
         "dev:w": "wrangler pages dev --live-reload .svelte-kit/cloudflare",
         "build": "vite build --watch",
         "preview": "vite preview",
-        "prettier": "prettier --write --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
-        "prettier:check": "prettier --check --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
+        "prettier": "prettier --write . --ignore-path=.prettierignore",
+        "prettier:check": "prettier --check . --ignore-path=.prettierignore",
         "lint": "eslint --ext .js,.svelte src"
     },
     "devDependencies": {
@@ -30,7 +30,6 @@
         "lodash.debounce": "^4.0.8",
         "postcss": "^8.4.25",
         "postcss-nested": "^6.0.1",
-        "prettier": "^3.0.0",
         "prettier-plugin-svelte": "^2.10.1",
         "prettier-plugin-tailwindcss": "^0.3.0",
         "svelte": "^4.0.5",
@@ -56,6 +55,7 @@
         "kutty": "^0.6.0",
         "lodash": "^4.17.21",
         "nprogress": "^0.2.0",
+        "prettier": "2.8.8",
         "svelte-lazy": "^1.2.1",
         "svelte-loading-spinners": "^0.3.4",
         "tiny-glob": "^0.2.9",

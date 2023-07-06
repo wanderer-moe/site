@@ -20,17 +20,17 @@ To run the website locally, follow these steps:
 
 2. Clone the repository (either `main` or `development` branch, dependant on your use case), and run either:
 
-   ```bash
-   git clone https://github.com/wanderer-moe/site
-   # OR
-   git clone https://github.com/wanderer-moe/site -b development
-   ```
+    ```bash
+    git clone https://github.com/wanderer-moe/site
+    # OR
+    git clone https://github.com/wanderer-moe/site -b development
+    ```
 
     You also want to initialize the (i18n) submodules:
 
-   ```bash
-   git submodule init && git submodule update
-   ```
+    ```bash
+    git submodule init && git submodule update
+    ```
 
 3. Install dependencies & run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use). If you require using D1 (DB) Bindings, run `pnpm run dev:wrangler` instead and configure the bindings correctly.
 
@@ -50,13 +50,13 @@ View `src/hooks.server.ts` for the current redirects.
 
 ### Cloudflare Configuration
 
-- **Build Command**:
+-   **Build Command**:
 
     ```bash
     npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build
     ```
 
-- **Build Output Directory**:
+-   **Build Output Directory**:
 
     ```bash
     /.svelte-kit/cloudflare
@@ -66,8 +66,8 @@ All pushes to the `development` branch is deployed to the `beta` subdomain @ [be
 
 ## Contributing
 
-- **Development**: All contributions are welcome. Please make all pull requests to the `development` branch!
-- **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent on Discord (@dromzeh) or email: [marcel@dromzeh.dev][mail].
+-   **Development**: All contributions are welcome. Please make all pull requests to the `development` branch!
+-   **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent on Discord (@dromzeh) or email: [marcel@dromzeh.dev][mail].
 
 A more detailed guide on contributing can be found in [CONTRIBUTING.md][Contributing].
 
@@ -75,7 +75,7 @@ A more detailed guide on contributing can be found in [CONTRIBUTING.md][Contribu
 
 #### Developers
 
-- [@dromzeh][Dromzeh] - Project Lead & Developer (Website, API & CDN)
+-   [@dromzeh][Dromzeh] - Project Lead & Developer (Website, API & CDN)
 
 #### Asset Contributors and Translators
 

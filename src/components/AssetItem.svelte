@@ -31,10 +31,9 @@ export let asset: Asset
     </Lazy>
     <div class="p-2">
         <div class="whitespace-normal break-all">
-            <div class="flex flex-row gap-y-2 text-xs">
-                <div>
+            <div class="flex flex-row gap-1 text-xs">
                     <span
-                        class="rounded-md bg-main-500 px-2.5 py-1 text-xs font-semibold text-white">
+                        class="rounded-md bg-main-600 flex items-center px-2.5 py-1 text-xs font-semibold text-white">
                         <img
                             src="https://cdn.wanderer.moe/{asset.game}/icon.png"
                             alt="{asset.game} cover"
@@ -42,10 +41,9 @@ export let asset: Asset
                         {mapGame(asset.game)}
                     </span>
                     <span
-                        class="rounded-md bg-main-500 px-2.5 py-1 text-xs font-semibold text-white">
+                        class="rounded-md bg-main-600 px-2.5 py-1 text-xs font-semibold text-white">
                         {mapAssetType(asset.asset)}
                     </span>
-                </div>
             </div>
             <div class="my-3">
                 <p class="overflow-clip font-semibold lowercase text-white">

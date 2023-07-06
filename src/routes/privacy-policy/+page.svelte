@@ -33,7 +33,7 @@
                     </p>
                     <p class="mt-4 text-gray-400">
                         If you have any questions, etc, feel free to contact <a
-                            class="text-white hover:font-semibold"
+                            class="text-accent-100 hover:text-white transition hover:font-semibold"
                             href="mailto:legal@wanderer.moe"
                             >legal@wanderer.moe</a> and you'll recieve a response
                         within 24 hours.

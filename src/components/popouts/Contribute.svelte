@@ -24,7 +24,7 @@ export let closeContribute
                             alt="cat"
                             class="h-12 w-12" />
                         <p
-                            class="bg-gradient-to-tr from-violet-500 to-orange-300 bg-clip-text text-lg font-semibold text-transparent">
+                            class="bg-gradient-to-tr from-accent-100 to-white bg-clip-text text-lg font-semibold text-transparent">
                             Contribute
                         </p>
                     </div>
@@ -40,7 +40,7 @@ export let closeContribute
                             <a
                                 href="https://buymeacoffee.com/marcelmd"
                                 target="_blank"
-                                class="text-white hover:font-semibold"
+                                class="text-accent-100 hover:text-white transition hover:font-semibold"
                                 >donating</a> to help keep it running.
                         </p>
                         <p class="text-sm">
@@ -51,7 +51,7 @@ export let closeContribute
                         </p>
                         <p class="text-sm">
                             If you're interested in reading more, there's a <a
-                                class="text-white hover:font-semibold"
+                                class="text-accent-100 hover:text-white transition hover:font-semibold"
                                 target="_blank"
                                 href="https://dromzeh.dev/posts/wanderer-moe-website-breakdown/"
                                 >blog post</a> breaking down how the site is built,
@@ -61,17 +61,17 @@ export let closeContribute
                             If you want to help contribute by providing assets
                             for other users of the site (datamined/fan-made) or
                             for translations, please join the <a
-                                class="text-white hover:font-semibold"
+                                class="text-accent-100 hover:text-white transition hover:font-semibold"
                                 target="_blank"
                                 href="https://discord.wanderer.moe/"
-                                >discord server</a
-                            >/send a DM to @dromzeh. You will be credited for
+                                >discord server.</a
+                            > You will be credited for
                             your contributions on the site and within the
                             Discord.
                         </p>
                         <p class="text-xs">
                             For any other inquires, <a
-                                class="text-white hover:font-semibold"
+                                class="text-accent-100 hover:text-white transition hover:font-semibold"
                                 href="mailto:marcel@wanderer.moe"
                                 >send an email!</a>
                         </p>
