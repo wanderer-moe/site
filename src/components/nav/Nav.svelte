@@ -20,13 +20,15 @@ let isSearchOpen = false
         binds: ['control', 'k'],
         bindCalled: () => (isSearchOpen = !isSearchOpen),
     }}" />
-<div class="bg-main-400 p-2 text-center text-gray-400">
-    The download all & selected buttons are currently buggy - please use the
-    download button on each individual asset instead. There will be a fix out as
-    soon as possible & updates will be posted on the <a
-        class="font-semibold text-white underline"
-        href="https://discord.wanderer.moe/"
-        >#known-issues channel on the Discord.</a>
+<div class="bg-main-400 p-2 text-center text-sm text-gray-400">
+    We're aware of an issue effecting downloading multiple assets, please
+    download each asset individually. This will be fixed after the upcoming site
+    update, including a new name at the end of this month. More information will
+    be announced on this banner and <span class="underline"
+        ><a
+            class="font-semibold text-white"
+            href="https://discord.wanderer.moe/">in our Discord</a>
+    </span>
 </div>
 <header
     class="sticky top-0 z-50 w-full border-b border-main-300 bg-main-500 bg-opacity-75 p-2 backdrop-blur-lg backdrop-filter transition-opacity">
