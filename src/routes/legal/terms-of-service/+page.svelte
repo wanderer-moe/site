@@ -56,10 +56,10 @@
                         content you may access on the site.
                     </p>
                     <p class="text-gray-400">
-                        No personally identifiable information is collected by
-                        this website, please read the <a
+                        Please see our <a
                             class="text-accent-100 hover:text-white transition hover:font-semibold"
-                            href="/privacy-policy">Privacy Policy</a> for more information.
+                            href="/privacy-policy">Privacy Policy</a> for more information
+                        about data handling & account creation.
                     </p>
                     <p class="text-gray-400">
                         The website's codebase is completely open source, and is

@@ -2,7 +2,7 @@
     "type": "module",
     "name": "wanderer.moe",
     "description": "Centralized database of various game assets",
-    "version": "3.3.5",
+    "version": "4.0.0",
     "scripts": {
         "dev": "vite dev --host",
         "dev:w": "wrangler pages dev --live-reload .svelte-kit/cloudflare",

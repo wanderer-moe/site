@@ -48,13 +48,13 @@ let checkUAOpen = false
                     <ul>
                         <li class="mb-4">
                             <a
-                                href="/privacy-policy"
+                                href="/legal/privacy-policy"
                                 class="hover:font-semibold hover:text-white"
                                 >Privacy Policy</a>
                         </li>
                         <li class="mb-4">
                             <a
-                                href="/terms-of-service"
+                                href="/legal/terms-of-service"
                                 class="hover:font-semibold hover:text-white"
                                 >Terms of Service</a>
                         </li>
