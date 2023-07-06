@@ -220,7 +220,7 @@ getAssetCategoriesFromGames()
                             isFading = false
                         }
                     }}" />
-                <div class="relative h-48 rounded-md bg-main-400/50">
+                <div class="relative h-48 rounded-md bg-main-500/50">
                     <div
                         class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
                         <div
@@ -245,15 +245,14 @@ getAssetCategoriesFromGames()
                             type="text"
                             bind:this="{searchInput}"
                             placeholder="Search"
-                            class="mb-4 w-full rounded-md bg-main-500 px-4 py-4 text-lg text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300" />
+                            class="mb-4 w-full rounded-md border-[3px] border-transparent bg-main-500 px-4 py-4 text-lg text-white transition hover:border-main-300 focus:outline-none" />
                         <button
-                            class="mb-4 flex items-center rounded-md bg-main-500 px-4 py-2 text-lg text-white hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
+                            class="mb-4 flex items-center rounded-md border-[3px] border-transparent bg-main-500 px-4 py-2 text-lg text-white transition hover:border-main-300"
                             on:click="{searchForAssets}">
                             <i class="fas fa-search mr-2"></i>
                             Search</button>
                     </div>
                     <div class="mb-4">
-                        <!-- this whole scrolling stuff is temporary until buttons are done -->
                         <div class="flex flex-wrap gap-2">
                             {#each games as game}
                                 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -262,7 +261,7 @@ getAssetCategoriesFromGames()
                                     class="cursor-pointer rounded-md border-[3px] bg-main-500 px-4 py-1.5 text-lg text-white transition hover:border-main-300
                                     {$selectedGames.includes(game.name)
                                         ? 'border-main-300'
-                                        : 'border-main-500'}
+                                        : 'border-transparent'}
                                     "
                                     on:click="{() =>
                                         handleGameSelection(game.name)}">
@@ -295,7 +294,7 @@ getAssetCategoriesFromGames()
                                         : 'cursor-not-allowed opacity-50'} 
                                     {$selectedAssetCategories.includes(asset)
                                         ? 'border-main-300'
-                                        : 'border-main-500'} ">
+                                        : 'border-transparent'} ">
                                     {mapAssetType(asset)}
                                 </div>
                             {/each}
@@ -323,7 +322,7 @@ getAssetCategoriesFromGames()
                 {:else if results.length > numAssetsToDisplay}
                     <div class="flex justify-center">
                         <button
-                            class="my-8 cursor-pointer rounded-md border-[3px] border-main-500 bg-main-500 px-20 py-2.5 text-lg text-white hover:border-main-300"
+                            class="my-8 cursor-pointer rounded-md border-[3px] border-transparent bg-main-500 px-20 py-2.5 text-lg text-white hover:border-main-300"
                             on:click="{handleViewMore}">
                             View More
                         </button>

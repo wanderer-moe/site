@@ -36,7 +36,7 @@ onMount(async () => {
                             <img
                                 src="{asset.url}"
                                 alt="asset"
-                                class="h-full max-h-full w-full max-w-full rounded-lg border border-main-300 bg-main-700 object-cover"
+                                class="h-full max-h-full w-full max-w-full rounded-lg border border-main-300 bg-main-500 object-cover"
                                 style="background-image: url(https://files.catbox.moe/qmjf27.png);" />
                         </div>
                         <div class="m-2 my-auto w-full md:w-1/2">

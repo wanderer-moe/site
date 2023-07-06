@@ -78,7 +78,7 @@ onMount(async () => {
                     class="absolute inset-0 h-48 w-full rounded-md object-cover"
                     style="object-position: 50% 20%;"
                     alt="{game} cover" />
-                <div class="relative h-48 rounded-md bg-main-400/50">
+                <div class="relative h-48 rounded-md bg-main-500/50">
                     <div
                         class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
                         <div
@@ -98,7 +98,7 @@ onMount(async () => {
             </div>
             <div>
                 <div>
-                    <div class="mb-2 rounded-lg bg-main-400 p-2 text-white">
+                    <div class="mb-2 rounded-lg bg-main-500 p-2 text-white">
                         <div class="mb-3 flex flex-wrap gap-2 text-sm">
                             <button
                                 class="btn p-2"
@@ -156,7 +156,7 @@ onMount(async () => {
                                                 </button>
                                                 <input
                                                     type="text"
-                                                    class="h-10 w-full rounded-lg bg-main-600 text-center text-indigo-400 {option.value &&
+                                                    class="h-10 w-full rounded-lg bg-main-500 text-center text-indigo-400 {option.value &&
                                                     option.locked
                                                         ? 'text-red-500'
                                                         : 'text-accent-300'} focus:shadow focus:outline-none"

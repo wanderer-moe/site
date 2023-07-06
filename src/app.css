@@ -5,7 +5,7 @@
 @layer base {
     html {
         scroll-behavior: smooth;
-        @apply bg-main-400;
+        @apply bg-main-600;
     }
 
     body {
@@ -40,11 +40,11 @@
     }
 
     ::-moz-selection {
-        @apply bg-accent-500 text-white;
+        @apply bg-accent-100 bg-opacity-20 text-white;
     }
 
     ::selection {
-        @apply bg-accent-500 text-white;
+        @apply bg-accent-100 bg-opacity-20 text-white;
     }
 
     .rtl {

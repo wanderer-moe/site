@@ -20,7 +20,7 @@ function updateSort(sortingOption) {
             aria
             role="button"
             tabindex="0"
-            class="flex w-full items-center justify-center rounded-lg border border-main-400 bg-main-700 p-3 transition-colors duration-150 hover:border-main-300 hover:bg-main-600"
+            class="flex w-full items-center justify-center rounded-lg border border-main-400 bg-main-500 p-3 transition-colors duration-150 hover:border-main-300 hover:bg-main-500"
             on:keypress="{() => (sortMenuOpen = !sortMenuOpen)}"
             on:click="{() => (sortMenuOpen = !sortMenuOpen)}">
             <span class="text-white"
@@ -40,7 +40,7 @@ function updateSort(sortingOption) {
                 }}"
                 class="absolute bottom-8 z-30 mb-8 w-full">
                 <div
-                    class="grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-700 p-1 transition-colors duration-150">
+                    class="grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-500 p-1 transition-colors duration-150">
                     {#each sortingOptions as sortingOption}
                         <div
                             aria
@@ -52,8 +52,8 @@ function updateSort(sortingOption) {
                             <span
                                 class="flex items-center p-1 px-2 text-left {sortingOption ===
                                 selectedSortingOption
-                                    ? 'bg-main-500 hover:bg-main-400'
-                                    : 'hover:bg-main-600'} rounded-lg transition-colors duration-200"
+                                    ? 'bg-main-500 hover:bg-main-500'
+                                    : 'hover:bg-main-500'} rounded-lg transition-colors duration-200"
                                 >{sortingOption.text}</span>
                         </div>
                     {/each}

@@ -55,7 +55,7 @@ let checks = {
                                     ))}"
                                 name="username"
                                 id="username"
-                                class="rounded-md bg-main-700 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
+                                class="rounded-md bg-main-500 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                                 placeholder="username" />
                             {#if !checks.username && formData.username.length > 0}
                                 <p class="mt-1 text-xs text-red-200">
@@ -75,7 +75,7 @@ let checks = {
                                     ))}"
                                 name="email"
                                 id="email"
-                                class="rounded-md bg-main-700 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
+                                class="rounded-md bg-main-500 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                                 placeholder="email@domain.com" />
                             {#if !checks.email && formData.email.length > 0}
                                 <p class="mt-1 text-xs text-red-200">
@@ -95,7 +95,7 @@ let checks = {
                                     ))}"
                                 name="password"
                                 id="password"
-                                class="rounded-md bg-main-700 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
+                                class="rounded-md bg-main-500 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                                 placeholder="••••••••••" />
                             {#if !checks.password && formData.password.length > 0}
                                 <p class="mt-1 text-xs text-red-200">
@@ -120,7 +120,7 @@ let checks = {
                                 name="verifyPassword"
                                 id="verifyPassword"
                                 disabled="{!checks.password}"
-                                class="rounded-md bg-main-700 p-1.5 text-white transition
+                                class="rounded-md bg-main-500 p-1.5 text-white transition
                                     {checks.password
                                     ? 'hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300'
                                     : 'opacity-50'}

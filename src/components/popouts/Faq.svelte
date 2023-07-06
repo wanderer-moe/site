@@ -25,7 +25,7 @@ const faqEntries = [
         <button
             class="close-button absolute right-0 top-6 rounded-lg p-4 text-white"
             on:click="{closeFAQ}">✕</button>
-        <div class="rounded-lg bg-main-600 p-8 text-white">
+        <div class="rounded-lg bg-main-500 p-8 text-white">
             <div>
                 <div class="rtl flex justify-center">
                     <div class="flex flex-col items-center gap-2">

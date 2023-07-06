@@ -22,7 +22,7 @@ export let contributor, roleColors
     <div class="flex flex-wrap justify-center gap-x-1 gap-y-1">
         {#each contributor.roles as role}
             <div
-                class="flex items-center rounded-md bg-main-400 px-2 py-1 text-xs text-gray-400">
+                class="flex items-center rounded-md bg-main-500 px-2 py-1 text-xs text-gray-400">
                 <span class="{roleColors[role]} mr-1 h-2 w-2 rounded-full"
                 ></span>
                 {role}

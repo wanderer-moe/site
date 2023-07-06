@@ -15,7 +15,7 @@ export let closeContribute
             on:click="{closeContribute}">
             ✕
         </button>
-        <div class="mt-6 rounded-lg bg-main-600 p-8 text-gray-400">
+        <div class="mt-6 rounded-lg bg-main-500 p-8 text-gray-400">
             <div>
                 <div class="flex justify-center">
                     <div class="rtl flex flex-col items-center gap-2">
