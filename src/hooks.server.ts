@@ -3,8 +3,6 @@ import {
     type StringRedirects,
 } from '@svackages/sveltekit-hook-redirect'
 import type { Handle } from '@sveltejs/kit'
-import { getAuth } from '$lib/server/lucia'
-// import { createD1 } from '$lib/server/miniflare'
 import { dev } from '$app/environment'
 
 // redirects from old site & third party urls
@@ -28,16 +26,5 @@ const redirects: StringRedirects = {
 }
 
 export const handle: Handle = async ({ event, resolve }) => {
-    // if (dev) {
-    //     // hacky method to get platform.context running in dev (why)
-    //     event.platform ??= {
-    //         env: {
-    //             DB: createD1({ type: 'file', path: '.mf/d1-database.sqlite3' }),
-    //         },
-    //     }
-    // }
-
-    // event.locals.auth = await getAuth(event.platform)
-    // event.locals.authRequest = event.locals.auth.handleRequest(event)
     return RedirectHook({ event, resolve, redirects })
 }
