@@ -21,7 +21,7 @@ let isSearchOpen = false
         bindCalled: () => (isSearchOpen = !isSearchOpen),
     }}" />
 <div class="bg-main-400 p-2 text-center text-sm text-gray-400">
-    We're aware of an issue effecting downloading multiple assets, please
+    We're aware of an issue affecting downloading multiple assets, please
     download each asset individually. This will be fixed after the upcoming site
     update, including a new name at the end of this month. More information will
     be announced on this banner and <span class="underline"
