@@ -156,10 +156,10 @@ onMount(async () => {
                                                 </button>
                                                 <input
                                                     type="text"
-                                                    class="h-10 w-full rounded-lg bg-main-500 text-center text-indigo-400 {option.value &&
+                                                    class="h-10 w-full rounded-lg bg-main-600 text-center text-indigo-400 {option.value &&
                                                     option.locked
                                                         ? 'text-red-500'
-                                                        : 'text-accent-300'} focus:shadow focus:outline-none"
+                                                        : 'text-accent-300'} border border-main-300 transition focus:outline-none"
                                                     value="{option.value}"
                                                     readonly />
                                             </div>

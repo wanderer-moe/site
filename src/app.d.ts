@@ -11,10 +11,6 @@ declare global {
             env?: {
                 DB: D1Database
             }
-            context: {
-                waitUntil(promise: Promise<any>): void
-            }
-            caches: Cache
         }
     }
 }

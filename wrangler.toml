@@ -1,5 +1,4 @@
-workers_dev = true
-account_id = "ba4e8f7f9ffbc23dba6acd0d9bd3ef46"
+compatibility_date = "2023-05-18"
 
 [[d1_databases]]
 binding = 'DB' # available at env.DB

@@ -4,8 +4,8 @@
     "description": "Centralized database of various game assets",
     "version": "3.3.5",
     "scripts": {
-        "dev": "vite dev --host --port 5173",
-        "dev:wrangler": "wrangler pages dev --proxy 5173 -- pnpm run dev",
+        "dev": "vite dev --host",
+        "dev:w": "wrangler pages dev --live-reload .svelte-kit/cloudflare",
         "build": "vite build --watch",
         "preview": "vite preview",
         "prettier": "prettier --write --plugin-search-dir=. ./**/*.html ./**/*.svelte ./**/*.js ./**/*.css ./**/*.json ./**/*.ts",
@@ -39,13 +39,14 @@
         "svelte-preprocess": "^5.0.4",
         "svelte-simple-modal": "^1.6.0",
         "tailwindcss": "^3.3.2",
-        "vite": "4.3.9",
-        "wrangler": "^3.1.1"
+        "vite": "4.3.9"
     },
     "dependencies": {
         "@cloudflare/workers-types": "^4.20230518.0",
         "@jridgewell/sourcemap-codec": "^1.4.15",
         "@lucia-auth/adapter-sqlite": "^1.1.1",
+        "@miniflare/d1": "^2.14.0",
+        "@miniflare/shared": "^2.14.0",
         "@popperjs/core": "^2.11.8",
         "@sentry/node": "^7.57.0",
         "@sentry/svelte": "^7.57.0",
@@ -59,6 +60,7 @@
         "kutty": "^0.6.0",
         "lodash": "^4.17.21",
         "lucia-auth": "^1.8.0",
+        "miniflare": "^3.0.2",
         "nprogress": "^0.2.0",
         "svelte-lazy": "^1.2.1",
         "svelte-loading-spinners": "^0.3.4",

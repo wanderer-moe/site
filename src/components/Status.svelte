@@ -26,7 +26,7 @@ onMount(async () => {
 <a href="https://status.wanderer.moe/">
     <div class="mx-auto flex w-80">
         <div
-            class="flex w-full cursor-pointer items-center justify-center rounded-xl border border-main-400 bg-main-700 p-1 transition-colors duration-150 hover:border-main-300 hover:bg-main-500">
+            class="flex w-full cursor-pointer items-center justify-center rounded-xl border border-main-400 bg-main-600 p-1 transition-colors duration-150 hover:border-main-300 hover:bg-main-500">
             <span class="mr-2">API Status: </span>
             <span class="{responseColours[$success]} transition-colors">
                 <i class="fas fa-circle"></i>

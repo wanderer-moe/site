@@ -5,7 +5,7 @@
 @layer base {
     html {
         scroll-behavior: smooth;
-        @apply bg-main-600;
+        @apply bg-main-400;
     }
 
     body {

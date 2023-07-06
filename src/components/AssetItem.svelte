@@ -15,7 +15,7 @@ export let asset: Asset
 <div
     role="button"
     tabindex="0"
-    class="relative flex transform cursor-pointer items-center rounded-md border-[3px] border-transparent bg-main-500 p-3 font-semibold text-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
+    class="relative flex transform cursor-pointer items-center rounded-md border-2 border-main-400 bg-main-500 p-3 font-semibold text-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
     <Lazy
         height="{128}"
         placeholder="{LoadPlaceHolder}"
@@ -34,7 +34,7 @@ export let asset: Asset
             <div class="flex flex-row gap-y-2 text-xs">
                 <div>
                     <span
-                        class="rounded-md bg-main-600 px-2.5 py-1 text-xs font-semibold text-white">
+                        class="rounded-md bg-main-500 px-2.5 py-1 text-xs font-semibold text-white">
                         <img
                             src="https://cdn.wanderer.moe/{asset.game}/icon.png"
                             alt="{asset.game} cover"
@@ -42,7 +42,7 @@ export let asset: Asset
                         {mapGame(asset.game)}
                     </span>
                     <span
-                        class="rounded-md bg-main-600 px-2.5 py-1 text-xs font-semibold text-white">
+                        class="rounded-md bg-main-500 px-2.5 py-1 text-xs font-semibold text-white">
                         {mapAssetType(asset.asset)}
                     </span>
                 </div>

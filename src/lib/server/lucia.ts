@@ -4,9 +4,11 @@ import { d1 } from '@lucia-auth/adapter-sqlite'
 import type { D1Database } from '@cloudflare/workers-types'
 import { dev } from '$app/environment'
 
-export const getAuth = async (platform: App.Platform) => {
+export const getAuth = async (platform: App.Platform | undefined) => {
+    if (!platform.env?.DB) throw new Error('Missing DB env variable')
+
     return await lucia({
-        adapter: d1(platform.env.DB as D1Database),
+        adapter: d1(platform.env.DB),
         env: dev ? 'DEV' : 'PROD',
         middleware: sveltekit(),
     })
