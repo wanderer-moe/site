@@ -1,6 +1,9 @@
 <script lang="ts">
 import { fade } from 'svelte/transition'
 import { cubicOut, quintOut } from 'svelte/easing'
+import { enhance } from '$app/forms'
+export let form
+
 import {
     checkEmail,
     checkPassword,
@@ -36,12 +39,12 @@ let checks = {
                 <h1 class="text-xl font-bold text-white">Create Account</h1>
                 <h2 class="text-sm">
                     Already have an account? <a
-                        href="/login"
+                        href="/account/login"
                         class="text-white hover:underline">Log In</a>
                 </h2>
             </div>
             <div class="mt-4">
-                <form>
+                <form method="post" use:enhance>
                     <div class="flex flex-col gap-y-2">
                         <div class="flex flex-col">
                             <label for="username" class="text-white"
@@ -134,6 +137,7 @@ let checks = {
                         </div>
                         <div class="flex flex-col">
                             <button
+                                type="submit"
                                 disabled="{Object.values(checks).every(
                                     (check) => !check
                                 )}"

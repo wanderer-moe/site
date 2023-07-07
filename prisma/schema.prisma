@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AuthUser {
+  id           String        @id @unique
+  auth_session AuthSession[]
+  auth_key     AuthKey[]
+  username     String        @unique
+  roles        String        @default("user")
+  email        String        @unique
+  connections  String        @default("{}")
+
+  @@map("auth_user")
+}
+
+model AuthSession {
+  id             String   @id @unique
+  user_id        String
+  active_expires BigInt
+  idle_expires   BigInt
+  auth_user      AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
+  @@map("auth_session")
+}
+
+model AuthKey {
+  id              String   @id @unique
+  hashed_password String?
+  user_id         String
+  primary_key     Boolean
+  expires         BigInt?
+  auth_user       AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
+  @@map("auth_key")
+}
+
+model tags {
+  id   Int    @id
+  name String
+}
+
+model games {
+  id               Int    @id
+  name             String
+  asset_categories String
+}
+
+model oc_generators {
+  game          String @id
+  data          String
+  uploaded_by   Int
+  uploaded_date String
+  verified      Int
+}
+
+model assets {
+  id             Int    @id
+  name           String
+  game           String
+  asset          String
+  tags           String
+  url            String
+  verified       Int    @default(0)
+  uploaded_by    String
+  uploaded_date  String
+  view_count     Int    @default(0)
+  download_count Int    @default(0)
+  file_size      Int
+}
