@@ -35,6 +35,7 @@ export const actions: Actions = {
                     email,
                     roles: 'user',
                     connections: '{}',
+                    email_verified: 0,
                 },
             })
             const session = await auth.createSession(user.userId)

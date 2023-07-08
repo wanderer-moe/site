@@ -6,7 +6,7 @@
 ![Release Badge]
 ![Svelte Badge]
 
-[**wanderer.moe**](https://wanderer.moe) is a **centralized database** of various game assets — built using [**SvelteKit**](https://kit.svelte.dev/), [**TailwindCSS**](https://tailwindcss.com/), and [**Node.js**](https://nodejs.org/en), powered with [**Cloudflare**](https://www.cloudflare.com/) Pages, Workers & R2 paired with [**Lucia**](https://lucia-auth.com/), [**Prisma**](https://prisma.io), and [**PlanetScale**](https://planetscale.com) for the database & authentication.
+[**wanderer.moe**](https://wanderer.moe) is a **centralized database** of various game assets — built using [**SvelteKit**](https://kit.svelte.dev/), [**TailwindCSS**](https://tailwindcss.com/), and [**Node.js**](https://nodejs.org/en), powered with [**Cloudflare**](https://www.cloudflare.com/) Pages, Workers & R2 paired with [**Lucia**](https://lucia-auth.com/), [**Prisma**](https://prisma.io), and [**PlanetScale**](https://planetscale.com) for the database & authentication, [**Resend**](https://resend.com/) for email delivery, and [**Crowdin**](https://crowdin.com/) for translations.
 
 </div>
 

@@ -6,6 +6,7 @@ declare namespace Lucia {
         roles: string
         connections: string
         email: string
+        email_verified: int
     }
 }
 

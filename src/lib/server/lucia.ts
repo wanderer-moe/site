@@ -3,6 +3,7 @@ import { sveltekit } from 'lucia-auth/middleware'
 import prisma from '@lucia-auth/adapter-prisma'
 import { dev } from '$app/environment'
 import { PrismaClient } from '@prisma/client'
+import { idToken } from '@lucia-auth/tokens'
 
 export const auth = lucia({
     adapter: prisma(new PrismaClient()),
@@ -14,8 +15,17 @@ export const auth = lucia({
             username: userData.username,
             email: userData.email,
             roles: userData.roles,
+            emailVerified: userData.email_verified,
         }
     },
+})
+
+export const passwordResetToken = idToken(auth, 'password-reset', {
+    expiresIn: 60 * 60
+})
+
+export const emailVerificationToken = idToken(auth, 'email_verification', {
+    expiresIn: 60 * 60,
 })
 
 export type Auth = typeof auth

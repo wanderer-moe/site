@@ -2,11 +2,12 @@
 import { fade } from 'svelte/transition'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { enhance } from '$app/forms'
+// import { PageServerLoad } from './$types'
 export let form
 </script>
 
 <svelte:head>
-    <title>Create Account</title>
+    <title>Reset Password</title>
 </svelte:head>
 
 <div class="min-h-screen">
@@ -24,48 +25,43 @@ export let form
         <div
             class="mx-auto my-4 w-full rounded-md border-2 border-main-400 bg-main-500 p-3 text-gray-400 transition-all md:w-2/3 lg:w-1/2">
             <div class="text-center">
-                <h1 class="text-xl font-bold text-white">Login</h1>
+                <h1 class="text-xl font-bold text-white">Reset Password</h1>
                 <h2 class="text-sm">
-                    Don't have an account? <a
-                        href="/account/signup"
-                        class="text-white hover:underline">Sign Up</a>
+                    Know your password? <a
+                        href="/account/login"
+                        class="text-white hover:underline">Log In</a>
                 </h2>
             </div>
             <div class="mt-4">
                 <form method="post" use:enhance>
                     <div class="flex flex-col gap-y-2">
                         <div class="flex flex-col">
-                            <label for="username" class="text-white"
-                                >Username</label>
-                            <input
-                                type="text"
-                                name="username"
-                                id="username"
-                                class="rounded-md bg-main-600 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
-                                placeholder="username" />
-                        </div>
-                        <div class="flex flex-col">
-                            <label for="password" class=" text-white"
-                                >Password</label>
+                            <label for="email" class="text-white"
+                                >New Pasword</label>
                             <input
                                 type="password"
                                 name="password"
                                 id="password"
                                 class="rounded-md bg-main-600 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
-                                placeholder="••••••••••" />
+                                placeholder="password" />
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="email" class="text-white"
+                                >Confirm New Pasword</label>
+                            <input
+                                type="password"
+                                name="passwordConfirm"
+                                id="passwordConfirm"
+                                class="rounded-md bg-main-600 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
+                                placeholder="password" />
                             <div class="flex flex-col">
                                 <button
                                     type="submit"
                                     on:click="{() => console.log('clicked')}"
                                     class="btn mt-4 px-2 py-1 transition">
-                                    Log In</button>
+                                    Reset Password
+                                </button>
                             </div>
-                            <p class="text-sm text-gray-400 mt-2">
-                                Forgot your password? <a
-                                    href="/account/forgot-password"
-                                    class="text-white hover:underline"
-                                    >Reset it</a>
-                            </p>
                         </div>
                     </div>
                 </form>

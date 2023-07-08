@@ -48,15 +48,29 @@ model AuthKey {
   @@map("auth_key")
 }
 
+model Email {
+  id            String   @id @unique
+  subject       String
+  email_address String
+  date_sent     DateTime
+  content       String
+
+  @@map("email")
+}
+
 model tags {
   id   Int    @id
   name String
+
+  @@index([name])
 }
 
 model games {
   id               Int    @id
   name             String
   asset_categories String
+
+  @@index([id])
 }
 
 model oc_generators {
@@ -66,6 +80,8 @@ model oc_generators {
   uploaded_date String
   status        String @default("pending")
   view_count    Int    @default(0)
+
+  @@index([game])
 }
 
 model assets {
@@ -81,4 +97,6 @@ model assets {
   view_count     Int    @default(0)
   download_count Int    @default(0)
   file_size      Int
+
+  @@index([id])
 }
