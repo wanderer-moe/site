@@ -1,5 +1,8 @@
 <script>
 import { t } from 'svelte-i18n'
+
+export let user
+// console.log(user)
 </script>
 
 <header

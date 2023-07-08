@@ -54,6 +54,7 @@
         "@sentry/svelte": "^7.57.0",
         "@svackages/sveltekit-hook-redirect": "^0.0.1",
         "@sveltejs/kit": "^1.22.1",
+        "ai": "^2.1.17",
         "axios": "^1.4.0",
         "better-sqlite3": "^8.4.0",
         "file-saver": "^2.0.5",

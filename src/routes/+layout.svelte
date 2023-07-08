@@ -10,6 +10,8 @@ import ScrollToTop from '@/components/nav/ScrollToTop.svelte'
 import { afterNavigate, beforeNavigate, invalidate } from '$app/navigation'
 import { onMount } from 'svelte'
 
+export let data
+
 let showBrowserIncompatibilityWarning = false
 
 beforeNavigate(() => {
@@ -26,13 +28,14 @@ const delayedPreloading = derived(navigating, (_, set) => {
 })
 
 startClient()
+console.log(data)
 
 $: segment = $page.url.pathname.substring(1).split('/')[0] // gets the first segment of the URL (e.g. /blog/1 => blog)
 // $: console.log(segment)
 </script>
 
 <ScrollToTop />
-<Nav />
+<Nav user="{data.user}" />
 <main>
     <slot />
 </main>

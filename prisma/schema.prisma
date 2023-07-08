@@ -12,13 +12,15 @@ generator client {
 }
 
 model AuthUser {
-  id           String        @id @unique
-  auth_session AuthSession[]
-  auth_key     AuthKey[]
-  username     String        @unique
-  roles        String        @default("user")
-  email        String        @unique
-  connections  String        @default("{}")
+  id             String        @id @unique
+  auth_session   AuthSession[]
+  auth_key       AuthKey[]
+  avatar_url     String? // TODO: create a default avatar on the CDN
+  username       String        @unique
+  roles          String        @default("user")
+  email          String        @unique
+  email_verified Int           @default(0)
+  connections    String        @default("{}")
 
   @@map("auth_user")
 }
@@ -60,9 +62,10 @@ model games {
 model oc_generators {
   game          String @id
   data          String
-  uploaded_by   Int
+  uploaded_by   String @default("System")
   uploaded_date String
-  verified      Int
+  status        String @default("pending")
+  view_count    Int    @default(0)
 }
 
 model assets {
@@ -72,7 +75,7 @@ model assets {
   asset          String
   tags           String
   url            String
-  verified       Int    @default(0)
+  status         String @default("pending")
   uploaded_by    String
   uploaded_date  String
   view_count     Int    @default(0)

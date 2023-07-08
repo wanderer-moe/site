@@ -7,7 +7,8 @@ import { mapGame } from '@/lib/helpers/casing/gameMapping'
 // import { t } from "svelte-i18n"; TODO: i18n support maybe?
 
 export let data
-const { game, jsonFile } = data
+
+const { game, jsonFile, user } = data
 
 console.log(game, jsonFile)
 
@@ -98,7 +99,8 @@ onMount(async () => {
             </div>
             <div>
                 <div>
-                    <div class="mb-2 rounded-lg bg-main-500 p-2 text-white">
+                    <div
+                        class="mb-2 rounded-lg bg-main-500 p-2 text-white border-2 border-main-400">
                         <div class="mb-3 flex flex-wrap gap-2 text-sm">
                             <button
                                 class="btn p-2"
@@ -158,8 +160,8 @@ onMount(async () => {
                                                     type="text"
                                                     class="h-10 w-full rounded-lg bg-main-600 text-center text-indigo-400 {option.value &&
                                                     option.locked
-                                                        ? 'text-red-500'
-                                                        : 'text-accent-300'} border border-main-300 transition focus:outline-none"
+                                                        ? 'text-red-200'
+                                                        : 'text-accent-200'} border border-main-300 transition focus:outline-none"
                                                     value="{option.value}"
                                                     readonly />
                                             </div>
@@ -173,6 +175,32 @@ onMount(async () => {
                                 {/if}
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <p class="text-white text-xl">AI Generated Result</p>
+                        {#if !user}
+                            <div
+                                class="mt-2 rounded-lg bg-main-500 p-2 text-gray-400 h-80 border-2 border-main-400 flex items-center justify-center">
+                                <p class="text-center text-2xl">
+                                    <a
+                                        href="/account/signup"
+                                        class="text-accent-100 hover:text-white transition hover:font-semibold"
+                                        >Create an account
+                                    </a>
+                                    or
+                                    <a
+                                        href="/account/login"
+                                        class="text-accent-100 hover:text-white transition hover:font-semibold"
+                                        >login
+                                    </a> to create a detailed AI generated result
+                                    off of your options for free
+                                </p>
+                            </div>
+                        {:else}
+                            <div
+                                class="mt-2 rounded-lg bg-main-500 p-2 text-white h-80 border-2 border-main-400">
+                            </div>
+                        {/if}
                     </div>
                 </div>
             </div>
