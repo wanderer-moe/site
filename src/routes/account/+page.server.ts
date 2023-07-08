@@ -4,7 +4,11 @@ import { redirect } from '@sveltejs/kit'
 import type { PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async ({ locals }) => {
-    const session = await locals.auth.validate()
-    if (!session) throw redirect(302, '/account/login/')
-    return {}
+    const { user } = await locals.auth.validateUser()
+    if (!user) {
+        throw redirect(302, '/account/login')
+    }
+    return {
+        user,
+    }
 }

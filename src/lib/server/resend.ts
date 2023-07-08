@@ -34,7 +34,7 @@ export const sendPasswordResetConfirmationEmail = async (
             from: 'Test <test@test.wanderer.moe>',
             to: email,
             subject: 'Password Reset Confirmation',
-            html: `<strong>test password reset confirmation email for ${username}</strong><br /> Wasn't you? Contact us at <a href = "mailto:support@wanderer.moe">support@wanderer.moe</a>`,
+            html: `<strong>Password reset confirmation email for ${username}</strong><br /> Wasn't you? Contact us at <a href = "mailto:support@wanderer.moe">support@wanderer.moe</a>`,
         })
     } catch (error) {
         console.error(error)
@@ -55,7 +55,7 @@ export const sendEmailConfirmationEmail = async (
             from: 'Test <test@test.wanderer.moe>',
             to: email,
             subject: 'Email Confirmation',
-            html: `<strong>test email confirmation email for ${username} - ${link}</strong>`,
+            html: `<strong>Email confirmation for ${username}</strong><br /><a href = "${link}">Click here to confirm your email</a>`,
         })
     } catch (error) {
         console.error(error)

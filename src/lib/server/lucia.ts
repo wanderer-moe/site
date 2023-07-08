@@ -16,12 +16,13 @@ export const auth = lucia({
             email: userData.email,
             roles: userData.roles,
             emailVerified: userData.email_verified,
+            pronouns: userData.pronouns ?? '',
         }
     },
 })
 
 export const passwordResetToken = idToken(auth, 'password-reset', {
-    expiresIn: 60 * 60
+    expiresIn: 60 * 60,
 })
 
 export const emailVerificationToken = idToken(auth, 'email_verification', {

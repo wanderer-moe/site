@@ -4,6 +4,9 @@ import { Prisma } from '@prisma/client'
 import { redirect } from '@sveltejs/kit'
 import { LuciaError } from 'lucia-auth'
 import type { PageServerLoad } from './$types'
+import { sendEmailConfirmationEmail } from '$lib/server/resend'
+import { emailVerificationToken } from '$lib/server/lucia'
+import { env } from '$env/dynamic/private'
 
 export const actions: Actions = {
     default: async ({ request, locals }) => {
@@ -40,6 +43,11 @@ export const actions: Actions = {
             })
             const session = await auth.createSession(user.userId)
             locals.auth.setSession(session)
+            const token = await emailVerificationToken.issue(user.userId)
+            const link = `${
+                env.BASE_URL
+            }/account/verify-email/${token.toString()}`
+            await sendEmailConfirmationEmail(email, link, username)
         } catch (error) {
             if (
                 error instanceof Prisma.PrismaClientKnownRequestError &&

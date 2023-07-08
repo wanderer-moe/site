@@ -16,7 +16,7 @@ export const actions: Actions = {
         const password = form.get('password')
         const passwordConfirm = form.get('passwordConfirm')
 
-        console.log(params)
+        // console.log(password)
 
         if (
             !password ||
@@ -34,20 +34,29 @@ export const actions: Actions = {
         try {
             const token = await passwordResetToken.validate(params.token ?? '')
             let user = await auth.getUser(token.userId)
-            if (!user.emailVerified) {
+            if (user.emailVerified !== 1) {
+                // if the user's email is not verified, verify it as part of the password reset flow
                 user = await auth.updateUserAttributes(user.userId, {
                     email_verified: 1,
                 })
             }
+            // invalidate all sessions for the user, update the password, and create a new session
             await auth.invalidateAllUserSessions(user.userId)
-            await auth.updateKeyPassword('email', user.email, password)
+            await auth.updateKeyPassword('id', user.userId, password)
             const session = await auth.createSession(user.userId)
             locals.auth.setSession(session)
+            sendPasswordResetConfirmationEmail(user.email, user.username)
         } catch (err) {
+            console.log(err)
             if (err instanceof LuciaError) {
                 return fail(400, { message: `${err.message}` })
+            } else if (err instanceof LuciaTokenError) {
+                return fail(400, { message: 'Invalid token' })
+            } else {
+                return fail(500, { message: 'Internal server error' })
             }
         }
+        // redirect to the account page
         throw redirect(302, '/account/')
     },
 }

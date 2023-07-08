@@ -17,9 +17,15 @@ model AuthUser {
   auth_key       AuthKey[]
   avatar_url     String? // TODO: create a default avatar on the CDN
   username       String        @unique
-  roles          String        @default("user")
+  roles          String        @default("['user']")
   email          String        @unique
   email_verified Int           @default(0)
+  pronouns       String?
+  bio            String        @default("")
+  followers      Int           @default(0)
+  following      Int           @default(0)
+  tags           String        @default("[]")
+  user_uploads   String        @default("[]") // this will jsut store each asset ID that the user has uploaded to the site
   connections    String        @default("{}")
 
   @@map("auth_user")
@@ -59,14 +65,14 @@ model Email {
 }
 
 model tags {
-  id   Int    @id
+  id   Int    @id @default(autoincrement())
   name String
 
   @@index([name])
 }
 
 model games {
-  id               Int    @id
+  id               Int    @id @default(autoincrement())
   name             String
   asset_categories String
 
@@ -85,7 +91,7 @@ model oc_generators {
 }
 
 model assets {
-  id             Int    @id
+  id             Int    @id @default(autoincrement())
   name           String
   game           String
   asset          String

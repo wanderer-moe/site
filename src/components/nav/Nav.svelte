@@ -1,5 +1,6 @@
 <script>
 import { t } from 'svelte-i18n'
+import UserDropdown from './UserDropdown.svelte'
 
 export let user
 // console.log(user)
@@ -19,6 +20,19 @@ export let user
         </div>
 
         <div class="flex items-center md:px-20">
+            <div>
+                {#if user}
+                    <UserDropdown user="{user}" />
+                {:else}
+                    <button class="px-2 text-lg focus:outline-none">
+                        <a href="/account/login">
+                            <i
+                                class="fa-solid fa-sign-in-alt cursor-pointer text-gray-300 transition hover:text-white"
+                            ></i>
+                        </a>
+                    </button>
+                {/if}
+            </div>
             <button class="px-2 text-lg focus:outline-none">
                 <a
                     href="https://discord.wanderer.moe/"

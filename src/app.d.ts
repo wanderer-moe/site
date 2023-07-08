@@ -7,6 +7,7 @@ declare namespace Lucia {
         connections: string
         email: string
         email_verified: int
+        pronouns?: string
     }
 }
 
