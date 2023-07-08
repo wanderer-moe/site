@@ -33,6 +33,16 @@ let checks = {
 
 <div class="min-h-screen">
     <div class="px-2 py-24 md:px-12 lg:px-24">
+        {#if form?.message}
+            <div
+                in:fade|global="{{ easing: quintOut, duration: 750 }}"
+                out:fade|global="{{ easing: cubicOut, duration: 300 }}"
+                class="mx-auto my-4 w-full rounded-md bg-main-500 p-3 text-gray-400 transition-all md:w-2/3 lg:w-1/2">
+                <p class="text-red-100">
+                    An error occured: {form.message ?? 'Unknown error'}
+                </p>
+            </div>
+        {/if}
         <div
             class="mx-auto my-4 w-full rounded-md bg-main-500 p-3 text-gray-400 transition-all md:w-2/3 lg:w-1/2">
             <div class="text-center">
