@@ -1,3 +1,7 @@
+<script>
+import Banner from '@/components/Banner/Banner.svelte'
+</script>
+
 <svelte:head>
     <title>API Documentation | wanderer.moe</title>
     <meta name="description" content="API Documentation for wanderer.moe" />
@@ -7,30 +11,10 @@
 <div class="min-h-screen">
     <div class="mb-8">
         <div class="px-2 md:px-12 lg:px-48">
-            <div class="relative my-8">
-                <img
-                    src="https://cdn.wanderer.moe/honkai-star-rail/cover.png"
-                    class="absolute inset-0 h-48 w-full rounded-md object-cover"
-                    style="object-position: 50% 20%;"
-                    alt="honkai star rail cover" />
-                <div class="relative h-48 rounded-md bg-main-500/50">
-                    <div
-                        class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
-                        <div
-                            class="flex flex-col items-center justify-between xl:flex-row">
-                            <div>
-                                <h1
-                                    class="max-w-lg text-3xl font-bold text-white sm:text-4xl sm:leading-none">
-                                    API Documentation
-                                </h1>
-                                <h2 class="text-white">
-                                    API Documentation for api.wanderer.moe
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Banner
+                title="API Documentation"
+                description="Detailed documentation for the API endpoints"
+                url="https://cdn.wanderer.moe/honkai-star-rail/cover.png" />
             <div>
                 <div>
                     <div

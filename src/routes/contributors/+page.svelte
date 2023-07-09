@@ -1,6 +1,7 @@
 <script>
 import { t } from 'svelte-i18n'
 import DiscordUser from '@/components/Discord/DiscordUser.svelte'
+import Banner from '@/components/Banner/Banner.svelte'
 // import { fade } from 'svelte/transition'
 
 export let data
@@ -52,30 +53,11 @@ function getTopmostCategory(contributor) {
 <div class="min-h-screen">
     <div class="mb-8">
         <div class="px-2 md:px-12 lg:px-48">
-            <div class="relative my-8">
-                <img
-                    src="https://cdn.wanderer.moe/goddess-of-victory-nikke/cover.png"
-                    class="absolute inset-0 h-48 w-full rounded-md object-cover"
-                    style="object-position: 50% 20%;"
-                    alt="goddess of victory nikke cover" />
-                <div class="relative h-48 rounded-md bg-main-500/50">
-                    <div
-                        class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
-                        <div
-                            class="flex flex-col items-center justify-between xl:flex-row">
-                            <div>
-                                <h1
-                                    class="max-w-lg text-3xl font-bold text-white sm:text-4xl sm:leading-none">
-                                    {$t('contributors.title')}
-                                </h1>
-                                <h2 class="text-lg text-white">
-                                    {$t('contributors.desc')}
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- {$t('contributors.title')} && {$t('contributors.desc')} -->
+            <Banner
+                title="{$t('contributors.title')}"
+                description="{$t('contributors.desc')}"
+                url="https://cdn.wanderer.moe/goddess-of-victory-nikke/cover.png" />
             <div>
                 {#each Object.entries(categories) as [category, { description, roles }]}
                     <div id="{category}" class="mb-8">

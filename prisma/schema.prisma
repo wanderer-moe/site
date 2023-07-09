@@ -28,7 +28,6 @@ model AuthUser {
   // connections        // stores each connected social media account (i.e discord && tiktok)
   roles                Role[]           @relation("UserRole")
   self_assignable_tags SelfAssignTags[] @relation("UserSelfAssignTags")
-  selfAssignTagsId     Int?
 
   @@map("auth_user")
 }
@@ -116,14 +115,14 @@ model Role {
 enum RoleNames {
   user
   plus
+  translator
   staff
   developer
   creator
 }
 
 model SelfAssignTags {
-  id    Int        @id @default(autoincrement())
-  name  String
+  name  String     @id
   users AuthUser[] @relation("UserSelfAssignTags")
 
   @@index([name])
@@ -135,6 +134,7 @@ enum SelfAssignTagsNames {
   artist
   writer
   musician
+  content_creator
 }
 
 enum AssetStatus {
