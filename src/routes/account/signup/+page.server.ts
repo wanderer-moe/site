@@ -36,7 +36,7 @@ export const actions: Actions = {
                 attributes: {
                     username,
                     email,
-                    roles: 'user',
+                    roles: ['user'],
                     connections: '{}',
                     email_verified: 0,
                 },

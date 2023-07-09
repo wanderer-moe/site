@@ -12,21 +12,23 @@ generator client {
 }
 
 model AuthUser {
-  id             String        @id @unique
-  auth_session   AuthSession[]
-  auth_key       AuthKey[]
-  avatar_url     String? // TODO: create a default avatar on the CDN
-  username       String        @unique
-  roles          String        @default("['user']")
-  email          String        @unique
-  email_verified Int           @default(0)
-  pronouns       String?
-  bio            String        @default("")
-  followers      Int           @default(0)
-  following      Int           @default(0)
-  tags           String        @default("[]")
-  user_uploads   String        @default("[]") // this will jsut store each asset ID that the user has uploaded to the site
-  connections    String        @default("{}")
+  id                   String           @id @unique
+  auth_session         AuthSession[]
+  auth_key             AuthKey[]
+  avatar_url           String? // TODO: create a default avatar on the CDN
+  username             String           @unique
+  email                String           @unique
+  email_verified       Int              @default(0)
+  pronouns             String?
+  verified             Int              @default(0)
+  bio                  String           @default("")
+  // followers          // stores user(s) id as an array
+  // following          // stores user(s) id as an array
+  // user_uploads       // stores each asset id a user has uploaded as an array
+  // connections        // stores games && username/id
+  roles                Role[]           @relation("UserRole")
+  self_assignable_tags SelfAssignTags[] @relation("UserSelfAssignTags")
+  selfAssignTagsId     Int?
 
   @@map("auth_user")
 }
@@ -64,14 +66,14 @@ model Email {
   @@map("email")
 }
 
-model tags {
+model Tags {
   id   Int    @id @default(autoincrement())
   name String
 
   @@index([name])
 }
 
-model games {
+model Games {
   id               Int    @id @default(autoincrement())
   name             String
   asset_categories String
@@ -79,30 +81,70 @@ model games {
   @@index([id])
 }
 
-model oc_generators {
-  game          String @id
+model OC_Generators {
+  game          String            @id
   data          String
-  uploaded_by   String @default("System")
+  uploaded_by   String            @default("System")
   uploaded_date String
-  status        String @default("pending")
-  view_count    Int    @default(0)
+  status        OCGeneratorStatus @default(pending)
+  view_count    Int               @default(0)
 
   @@index([game])
 }
 
-model assets {
-  id             Int    @id @default(autoincrement())
+model Assets {
+  id             Int         @id @default(autoincrement())
   name           String
   game           String
   asset          String
-  tags           String
   url            String
-  status         String @default("pending")
+  status         AssetStatus @default(pending)
   uploaded_by    String
   uploaded_date  String
-  view_count     Int    @default(0)
-  download_count Int    @default(0)
+  view_count     Int         @default(0)
+  download_count Int         @default(0)
   file_size      Int
 
   @@index([id])
+}
+
+model Role {
+  name  String     @id
+  users AuthUser[] @relation("UserRole")
+}
+
+enum RoleNames {
+  user
+  plus
+  staff
+  developer
+  creator
+}
+
+model SelfAssignTags {
+  id    Int        @id @default(autoincrement())
+  name  String
+  users AuthUser[] @relation("UserSelfAssignTags")
+
+  @@index([name])
+}
+
+enum SelfAssignTagsNames {
+  designer
+  developer
+  artist
+  writer
+  musician
+}
+
+enum AssetStatus {
+  pending
+  approved
+  rejected
+}
+
+enum OCGeneratorStatus {
+  pending
+  approved
+  rejected
 }
