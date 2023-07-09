@@ -25,7 +25,7 @@ model AuthUser {
   // followers          // stores user(s) id as an array
   // following          // stores user(s) id as an array
   // user_uploads       // stores each asset id a user has uploaded as an array
-  // connections        // stores games && username/id
+  // connections        // stores each connected social media account (i.e discord && tiktok)
   roles                Role[]           @relation("UserRole")
   self_assignable_tags SelfAssignTags[] @relation("UserSelfAssignTags")
   selfAssignTagsId     Int?

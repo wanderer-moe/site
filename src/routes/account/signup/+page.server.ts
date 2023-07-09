@@ -7,6 +7,11 @@ import type { PageServerLoad } from './$types'
 import { sendEmailConfirmationEmail } from '$lib/server/resend'
 import { emailVerificationToken } from '$lib/server/lucia'
 import { env } from '$env/dynamic/private'
+import {
+    checkEmail,
+    checkPassword,
+    checkUsername,
+} from '$lib/helpers/auth/account/check'
 
 export const actions: Actions = {
     default: async ({ request, locals }) => {
@@ -14,6 +19,9 @@ export const actions: Actions = {
         const username = form.get('username')
         const password = form.get('password')
         const email = form.get('email')
+
+        // check if all required fields are present and valid
+        // TODO: add more validation using checkEmail, checkPassword, checkUsername functions
         if (
             !username ||
             !password ||
@@ -27,6 +35,7 @@ export const actions: Actions = {
             })
         }
         try {
+            // create user with required mandatory fields
             const user = await auth.createUser({
                 primaryKey: {
                     providerId: 'username',
@@ -37,10 +46,11 @@ export const actions: Actions = {
                     username,
                     email,
                     roles: ['user'],
-                    connections: '{}',
                     email_verified: 0,
                 },
             })
+
+            // create session and send email verification
             const session = await auth.createSession(user.userId)
             locals.auth.setSession(session)
             const token = await emailVerificationToken.issue(user.userId)

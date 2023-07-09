@@ -5,6 +5,7 @@ export async function load({ url, fetch }) {
     const searchParams = Object.fromEntries(url.searchParams.entries()) ?? {}
     const { query, game, asset } = searchParams as AcceptableParams
 
+    // TODO: rewrite this after planetscale is set up with the API && schema is finalized
     try {
         const [gamesResponse, recentResponse] = await Promise.all([
             fetch('https://v2-api-testing.wanderer.moe/games').then((res) =>

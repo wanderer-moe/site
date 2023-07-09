@@ -19,5 +19,7 @@ const { user } = data
             </p>
         </div>
     {/if}
-    <div class="px-2 py-24 md:px-12 lg:px-24"></div>
+    <div class="px-2 py-24 md:px-12 lg:px-24">
+        <!-- TODO: create onboarding, settings, etc components -->
+    </div>
 </div>

@@ -12,6 +12,7 @@ import { onMount } from 'svelte'
 
 export let data
 
+// TODO: if browser is incompatible, show a warning, give the user the option to continue or continue and don't show again
 let showBrowserIncompatibilityWarning = false
 
 beforeNavigate(() => {

@@ -4,7 +4,6 @@ declare namespace Lucia {
     type UserAttributes = {
         username: string
         roles: string[]
-        connections: string
         email: string
         email_verified: int
         pronouns?: string

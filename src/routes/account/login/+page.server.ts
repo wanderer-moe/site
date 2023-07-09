@@ -10,6 +10,8 @@ export const actions: Actions = {
         const form = await request.formData()
         const username = form.get('username')
         const password = form.get('password')
+
+        // check if username and password are valid
         if (
             !username ||
             !password ||

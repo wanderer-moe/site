@@ -146,6 +146,7 @@ let checks = {
                             {/if}
                         </div>
                         <div class="flex flex-col">
+                            <!-- TODO: add turnstile -->
                             <button
                                 type="submit"
                                 disabled="{Object.values(checks).every(

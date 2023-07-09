@@ -54,6 +54,7 @@ export let form
                                 class="rounded-md bg-main-600 p-1.5 text-white transition hover:ring-2 hover:ring-main-300 focus:outline-none focus:ring-2 focus:ring-main-300"
                                 placeholder="••••••••••" />
                             <div class="flex flex-col">
+                                <!-- TODO: add turnstile -->
                                 <button
                                     type="submit"
                                     on:click="{() => console.log('clicked')}"

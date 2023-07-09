@@ -45,6 +45,7 @@ export let form
                                 placeholder="email" />
                         </div>
                         <div class="flex flex-col">
+                            <!-- TODO: add turnstile -->
                             <button
                                 type="submit"
                                 on:click="{() => console.log('clicked')}"

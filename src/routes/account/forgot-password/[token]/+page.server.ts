@@ -41,6 +41,7 @@ export const actions: Actions = {
                 })
             }
             // invalidate all sessions for the user, update the password, and create a new session
+            // TODO: fix this as it always returns an error
             await auth.invalidateAllUserSessions(user.userId)
             await auth.updateKeyPassword('id', user.userId, password)
             const session = await auth.createSession(user.userId)
