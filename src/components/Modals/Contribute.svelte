@@ -15,7 +15,8 @@ export let closeContribute
             on:click="{closeContribute}">
             ✕
         </button>
-        <div class="mt-6 rounded-lg bg-main-500 p-8 text-gray-400">
+        <div
+            class="mt-6 rounded-lg bg-main-500 border-2 border-main-400 p-8 text-gray-400">
             <div>
                 <div class="flex justify-center">
                     <div class="rtl flex flex-col items-center gap-2">
@@ -64,10 +65,8 @@ export let closeContribute
                                 class="text-accent-100 hover:text-white transition hover:font-semibold"
                                 target="_blank"
                                 href="https://discord.wanderer.moe/"
-                                >discord server.</a
-                            > You will be credited for
-                            your contributions on the site and within the
-                            Discord.
+                                >discord server.</a> You will be credited for your
+                            contributions on the site and within the Discord.
                         </p>
                         <p class="text-xs">
                             For any other inquires, <a

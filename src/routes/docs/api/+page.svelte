@@ -3,6 +3,7 @@
     <meta name="description" content="API Documentation for wanderer.moe" />
 </svelte:head>
 
+<!-- this is temporary, a better solution will be implemented in the future -->
 <div class="min-h-screen">
     <div class="mb-8">
         <div class="px-2 md:px-12 lg:px-48">
@@ -32,9 +33,11 @@
             </div>
             <div>
                 <div>
-                    <div class="mb-2 rounded-lg bg-main-500 p-2 text-gray-400">
+                    <div
+                        class="mb-2 rounded-lg bg-main-500 border-2 border-main-400 p-2 text-gray-400">
                         <div class="mb-3 flex flex-wrap gap-2 text-sm">
-                            <div class="w-full rounded-md bg-main-600 p-2">
+                            <div
+                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
                                 <div class="my-2 text-lg">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -72,7 +75,8 @@
                                     in a project.
                                 </div>
                             </div>
-                            <div class="w-full rounded-md bg-main-600 p-2">
+                            <div
+                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -87,7 +91,8 @@
                                     returned.
                                 </p>
                             </div>
-                            <div class="w-full rounded-md bg-main-600 p-2">
+                            <div
+                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -100,7 +105,8 @@
                                     Returns the 30 most recent assets.
                                 </p>
                             </div>
-                            <div class="w-full rounded-md bg-main-600 p-2">
+                            <div
+                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -119,7 +125,8 @@
                                     amount of assets that can be returned.
                                 </p>
                             </div>
-                            <div class="w-full rounded-md bg-main-600 p-2">
+                            <div
+                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -132,7 +139,8 @@
                                     Returns a list of all OC Generators.
                                 </p>
                             </div>
-                            <div class="w-full rounded-md bg-main-600 p-2">
+                            <div
+                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
