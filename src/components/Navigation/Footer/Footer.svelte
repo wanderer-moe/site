@@ -1,9 +1,9 @@
 <script>
 import { t } from 'svelte-i18n'
-import LocaleDropdown from '@/components/dropdowns/LocaleDropdown.svelte'
-import Status from '@/components/Status.svelte'
-import Contribute from '@/components/popouts/Contribute.svelte'
-import CheckUA from '@/components/popouts/download/CheckUA.svelte'
+import LocaleDropdown from '@/components/Locale/LocaleDropdown.svelte'
+import Status from '@/components/Navigation/Footer/Status.svelte'
+import Contribute from '@/components/Modals/Contribute.svelte'
+import CheckUA from '@/components/Modals/CheckUA.svelte'
 const currentYear = new Date().getFullYear()
 
 let contributeOpen = false

@@ -16,7 +16,7 @@
 <script lang="ts">
 import { replaceStateWithQuery } from '@/lib/helpers/replaceStateWithQuery'
 import { t } from 'svelte-i18n'
-import AssetItem from '@/components/AssetItem.svelte'
+import AssetItem from '@/components/Asset/AssetItem.svelte'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { fly, fade } from 'svelte/transition'
 import { onMount } from 'svelte'

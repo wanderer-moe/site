@@ -5,7 +5,7 @@ import { getImageResolution } from '@/lib/helpers/asset/getImageResolution'
 import { t } from 'svelte-i18n'
 import { formatTimeAgo } from '@/lib/helpers/timeConvertion/isoFormat'
 import { onMount } from 'svelte'
-import AssetItem from '@/components/AssetItem.svelte'
+import AssetItem from '@/components/Asset/AssetItem.svelte'
 
 let resolution = 'Unknown'
 export let data
@@ -37,7 +37,6 @@ onMount(async () => {
                                 src="{asset.url}"
                                 alt="asset"
                                 class="h-full max-h-full w-full max-w-full rounded-lg border border-main-300 bg-main-500 object-cover"
-                                
                                 style="background-image: url('/img/grid.png')" />
                         </div>
                         <div class="m-2 my-auto w-full md:w-1/2">
@@ -47,20 +46,20 @@ onMount(async () => {
                                     <div class="flex flex-col">
                                         <div
                                             class="my-1 flex flex-row gap-2 text-lg">
-                                                <a
-                                                    href="/?game={asset.game}"
-                                                    class="border-2 border-main-400 rounded-md bg-main-500 flex items-center px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
-                                                    <img
-                                                        src="https://cdn.wanderer.moe/{asset.game}/icon.png"
-                                                        alt="{asset.game} cover"
-                                                        class="mr-1 inline-block h-5 w-5 rounded-md" />
-                                                    {mapGame(asset.game)}
-                                                </a>
-                                                <a
-                                                    href="/?asset={asset.asset}"
-                                                    class="border-2 border-main-400 rounded-md bg-main-500 px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
-                                                    {mapAssetType(asset.asset)}
-                                                </a>
+                                            <a
+                                                href="/?game={asset.game}"
+                                                class="border-2 border-main-400 rounded-md bg-main-500 flex items-center px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
+                                                <img
+                                                    src="https://cdn.wanderer.moe/{asset.game}/icon.png"
+                                                    alt="{asset.game} cover"
+                                                    class="mr-1 inline-block h-5 w-5 rounded-md" />
+                                                {mapGame(asset.game)}
+                                            </a>
+                                            <a
+                                                href="/?asset={asset.asset}"
+                                                class="border-2 border-main-400 rounded-md bg-main-500 px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
+                                                {mapAssetType(asset.asset)}
+                                            </a>
                                         </div>
                                         <div class="my-2">
                                             <h1

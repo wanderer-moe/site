@@ -1,12 +1,12 @@
 <script>
 import { navigating, page } from '$app/stores'
 import '@/app.css'
-import Footer from '@/components/nav/Footer.svelte'
-import Nav from '@/components/nav/Nav.svelte'
+import Footer from '@/components/Navigation/Footer/Footer.svelte'
+import Nav from '@/components/Navigation/Navbar/Nav.svelte'
 import { startClient } from '$lib/utils/i18n'
 import NProgress from 'nprogress'
 import { derived } from 'svelte/store'
-import ScrollToTop from '@/components/nav/ScrollToTop.svelte'
+import ScrollToTop from '@/components/Navigation/ScrollToTop.svelte'
 import { afterNavigate, beforeNavigate, invalidate } from '$app/navigation'
 import { onMount } from 'svelte'
 

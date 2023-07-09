@@ -1,6 +1,6 @@
 <script>
 import { t } from 'svelte-i18n'
-import DiscordUser from '@/components/DiscordUser.svelte'
+import DiscordUser from '@/components/Discord/DiscordUser.svelte'
 // import { fade } from 'svelte/transition'
 
 export let data
