@@ -12,23 +12,23 @@ generator client {
 }
 
 model AuthUser {
-  id                   String           @id @unique
-  auth_session         AuthSession[]
-  auth_key             AuthKey[]
-  avatar_url           String? // TODO: create a default avatar on the CDN
-  username             String           @unique
-  email                String           @unique
-  email_verified       Int              @default(0)
-  pronouns             String?
-  verified             Int              @default(0)
-  bio                  String           @default("")
+  id             String        @id @unique
+  auth_session   AuthSession[]
+  auth_key       AuthKey[]
+  avatar_url     String? // TODO: create a default avatar on the CDN
+  username       String        @unique
+  email          String        @unique
+  email_verified Int           @default(0)
+  pronouns       String?
+  verified       Int           @default(0)
+  bio            String        @default("")
+
   // followers          // stores user(s) id as an array
   // following          // stores user(s) id as an array
   // user_uploads       // stores each asset id a user has uploaded as an array
   // connections        // stores each connected social media account (i.e discord && tiktok)
-  roles                Role[]           @relation("UserRole")
-  self_assignable_tags SelfAssignTags[] @relation("UserSelfAssignTags")
-
+  // roles               // roles such as user, plus, translator, staff, developer, creator
+  // self_assignable_tags  // self assignable tags such as designer, developer, artist..
   @@map("auth_user")
 }
 
@@ -107,10 +107,11 @@ model Assets {
   @@index([id])
 }
 
-model Role {
-  name  String     @id
-  users AuthUser[] @relation("UserRole")
-}
+// model Role {
+//   name     String     @id
+//   users    AuthUser[] @relation("UserRole")
+//   AuthUser AuthUser[]
+// }
 
 enum RoleNames {
   user
@@ -121,12 +122,13 @@ enum RoleNames {
   creator
 }
 
-model SelfAssignTags {
-  name  String     @id
-  users AuthUser[] @relation("UserSelfAssignTags")
+// model SelfAssignTags {
+//   name     String     @id
+//   users    AuthUser[] @relation("UserSelfAssignTags")
+//   AuthUser AuthUser[]
 
-  @@index([name])
-}
+//   @@index([name])
+// }
 
 enum SelfAssignTagsNames {
   designer

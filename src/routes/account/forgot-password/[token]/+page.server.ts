@@ -1,7 +1,6 @@
 import { auth, passwordResetToken } from '$lib/server/lucia'
 import { fail, type Actions } from '@sveltejs/kit'
 import { error } from '@sveltejs/kit'
-import { prisma } from '$lib/server/prisma'
 import { redirect } from '@sveltejs/kit'
 import { LuciaError } from 'lucia-auth'
 import type { PageServerLoad } from './$types'
@@ -43,7 +42,7 @@ export const actions: Actions = {
             // invalidate all sessions for the user, update the password, and create a new session
             // TODO: fix this as it always returns an error
             await auth.invalidateAllUserSessions(user.userId)
-            await auth.updateKeyPassword('id', user.userId, password)
+            await auth.updateKeyPassword('username', user.username, password)
             const session = await auth.createSession(user.userId)
             locals.auth.setSession(session)
             sendPasswordResetConfirmationEmail(user.email, user.username)
@@ -63,7 +62,9 @@ export const actions: Actions = {
 }
 
 export const load: PageServerLoad = async ({ locals }) => {
-    const session = await locals.auth.validate()
-    if (session) throw redirect(302, '/account/')
+    const { session, user } = await locals.auth.validateUser()
+    if (session && user) {
+        throw redirect(302, '/account/')
+    }
     return {}
 }

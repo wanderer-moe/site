@@ -4,9 +4,9 @@ import type { RequestHandler } from './$types'
 
 export const GET: RequestHandler = async ({ params, locals }) => {
     try {
-        const session = await locals.auth.validate()
+        const { session, user } = await locals.auth.validateUser()
         // redirect to login page if not logged in
-        if (!session) throw redirect(302, '/account/login/')
+        if (!session || !user) throw redirect(302, '/account/login')
         // else, log out and redirect to main page
         await auth.invalidateSession(session.sessionId)
     } catch (err) {

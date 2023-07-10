@@ -3,7 +3,7 @@ declare namespace Lucia {
     type Auth = import('$lib/server/lucia').Auth
     type UserAttributes = {
         username: string
-        roles: string[]
+        // roles: []
         email: string
         email_verified: int
         pronouns?: string
