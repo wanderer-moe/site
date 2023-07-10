@@ -10,16 +10,13 @@ const { user } = data
 
 <!-- scuffed -->
 <div class="min-h-screen">
-    {#if user.emailVerified === 0}
-        <div
-            class="mx-auto my-4 w-full rounded-md border-2 border-main-400 bg-main-500 p-3 text-gray-400 md:w-2/3 lg:w-1/2">
-            <p class="text-red-100">
-                Your email is not verified. Please check your email for a
-                verification link.
-            </p>
-        </div>
-    {/if}
     <div class="px-2 py-24 md:px-12 lg:px-24">
         <!-- TODO: create onboarding, settings, etc components -->
+        <div>
+            <h1 class="text-2xl font-bold text-white mb-2">Account Settings</h1>
+
+            <h2 class="text-xl font-bold text-white mb-1">Profile Settings</h2>
+            <div class="grid gap-4 md:grid-cols-2"></div>
+        </div>
     </div>
 </div>

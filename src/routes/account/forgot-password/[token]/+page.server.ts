@@ -1,11 +1,9 @@
 import { auth, passwordResetToken } from '$lib/server/lucia'
 import { fail, type Actions } from '@sveltejs/kit'
-import { error } from '@sveltejs/kit'
 import { redirect } from '@sveltejs/kit'
 import { LuciaError } from 'lucia-auth'
 import type { PageServerLoad } from './$types'
-import { env } from '$env/dynamic/private'
-import { sendPasswordResetConfirmationEmail } from '$lib/server/resend'
+import { sendPasswordChangeEmail } from '$lib/server/resend'
 import { LuciaTokenError } from '@lucia-auth/tokens'
 import { checkPassword } from '$lib/helpers/auth/account/check'
 
@@ -40,12 +38,11 @@ export const actions: Actions = {
                 })
             }
             // invalidate all sessions for the user, update the password, and create a new session
-            // TODO: fix this as it always returns an error
             await auth.invalidateAllUserSessions(user.userId)
             await auth.updateKeyPassword('username', user.username, password)
             const session = await auth.createSession(user.userId)
             locals.auth.setSession(session)
-            sendPasswordResetConfirmationEmail(user.email, user.username)
+            sendPasswordChangeEmail(user.email, user.username)
         } catch (err) {
             console.log(err)
             if (err instanceof LuciaError) {

@@ -2,11 +2,9 @@ import { auth, passwordResetToken } from '$lib/server/lucia'
 import { fail, type Actions } from '@sveltejs/kit'
 import { prisma } from '$lib/server/prisma'
 import { redirect } from '@sveltejs/kit'
-import { LuciaError } from 'lucia-auth'
 import type { PageServerLoad } from './$types'
 import { env } from '$env/dynamic/private'
 import { sendPasswordResetEmail } from '$lib/server/resend'
-import { LuciaTokenError } from '@lucia-auth/tokens'
 
 export const actions: Actions = {
     default: async ({ request, locals }) => {

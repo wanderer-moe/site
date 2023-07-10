@@ -3,9 +3,17 @@ import { t } from 'svelte-i18n'
 import UserDropdown from './UserDropdown.svelte'
 
 export let user
-// console.log(user)
+console.log(user)
 </script>
 
+{#if user?.emailVerified === 0}
+    <div class="w-full bg-main-500 p-3 text-center">
+        <p class="text-red-200">
+            Your email is not verified. Please check your email {user?.email} for
+            a verification link.
+        </p>
+    </div>
+{/if}
 <header
     class="sticky top-0 z-50 w-full border-b border-main-300 bg-main-500 bg-opacity-75 p-2 backdrop-blur-lg backdrop-filter transition-opacity">
     <div class="mx-auto flex flex-wrap items-center justify-between">

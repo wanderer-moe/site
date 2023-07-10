@@ -25,7 +25,7 @@ export const sendPasswordResetEmail = async (
     }
 }
 
-export const sendPasswordResetConfirmationEmail = async (
+export const sendPasswordChangeEmail = async (
     email: string,
     username: string
 ) => {
@@ -33,14 +33,30 @@ export const sendPasswordResetConfirmationEmail = async (
         await resend.emails.send({
             from: 'Test <test@test.wanderer.moe>',
             to: email,
-            subject: 'Password Reset Confirmation',
-            html: `<strong>Password reset confirmation email for ${username}</strong><br /> Wasn't you? Contact us at <a href = "mailto:support@wanderer.moe">support@wanderer.moe</a>`,
+            subject: 'Password Updated Confirmation',
+            html: `<strong>Your password for ${username} has been updated.</strong><br /> Wasn't you? Contact us at <a href = "mailto:support@wanderer.moe">support@wanderer.moe</a>`,
         })
     } catch (error) {
         console.error(error)
         throw error(500, {
             message:
-                'Unknown error occurred while sending password reset confirmation email.',
+                'Unknown error occurred while sending password change email.',
+        })
+    }
+}
+
+export const sendEmailChangeEmail = async (email: string, username: string) => {
+    try {
+        await resend.emails.send({
+            from: 'Test <test@wanderer.moe>',
+            to: email,
+            subject: 'Email Change Request',
+            html: `<strong>Your email address for ${username} has been changed.</strong><br /> Wasn't you? Contact us at <a href = "mailto:support@wanderermoe">support@wanderer.moe</a>`,
+        })
+    } catch (error) {
+        console.error(error)
+        throw error(500, {
+            message: 'Unknown error occurred while sending email change email.',
         })
     }
 }
