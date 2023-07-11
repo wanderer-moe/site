@@ -1,18 +1,22 @@
-/// <reference types="lucia-auth" />
-declare namespace Lucia {
-    type Auth = import('$lib/server/lucia').Auth
-    type UserAttributes = {
-        username: string
-        // roles: []
-        email: string
-        email_verified: int
-        pronouns?: string
-    }
-}
+import type { PrismaClient } from '@prisma/client'
 
-/// <reference types="@sveltejs/kit" />
-declare namespace App {
-    interface Locals {
-        auth: import('lucia-auth').AuthRequest
+declare global {
+    /// <reference types="@sveltejs/kit" />
+    declare namespace App {
+        interface Locals {
+            auth: import('lucia-auth').AuthRequest
+        }
+    }
+    var __prisma: PrismaClient
+
+    declare namespace Lucia {
+        type Auth = import('$lib/server/lucia').Auth
+        type UserAttributes = {
+            username: string
+            // roles: []
+            email: string
+            email_verified: int
+            pronouns?: string
+        }
     }
 }

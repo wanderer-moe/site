@@ -11,24 +11,30 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// auth tables
 model AuthUser {
-  id             String        @id @unique
-  auth_session   AuthSession[]
-  auth_key       AuthKey[]
-  avatar_url     String? // TODO: create a default avatar on the CDN
-  username       String        @unique
-  email          String        @unique
-  email_verified Int           @default(0)
-  pronouns       String?
-  verified       Int           @default(0)
-  bio            String        @default("")
+  id                   String              @id @unique
+  auth_session         AuthSession[]
+  auth_key             AuthKey[]
+  avatar_url           String? // TODO: create a default avatar on the CDN
+  banner_url           String?
+  username             String              @unique
+  username_colour      String?
+  email                String              @unique
+  email_verified       Int                 @default(0)
+  pronouns             String?
+  verified             Int                 @default(0)
+  bio                  String              @default("")
+  assets               Assets[]
+  date_joined          DateTime            @default(now())
+  roles                Role[]
+  self_assignable_tags SelfAssignableTag[]
+  connections          Connection[]
 
-  // followers          // stores user(s) id as an array
-  // following          // stores user(s) id as an array
-  // user_uploads       // stores each asset id a user has uploaded as an array
-  // connections        // stores each connected social media account (i.e discord && tiktok)
-  // roles               // roles such as user, plus, translator, staff, developer, creator
-  // self_assignable_tags  // self assignable tags such as designer, developer, artist..
+  // relations
+  followers Follower[]
+  following Following[]
+
   @@map("auth_user")
 }
 
@@ -55,21 +61,52 @@ model AuthKey {
   @@map("auth_key")
 }
 
-model Email {
-  id            String   @id @unique
-  subject       String
-  email_address String
-  date_sent     DateTime
-  content       String
+model Follower {
+  id       String   @id @unique
+  user_id  String
+  follower AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
 
-  @@map("email")
+  @@index([user_id])
+  @@map("follower")
 }
 
-model Tags {
-  id   Int    @id @default(autoincrement())
-  name String
+model Following {
+  id        String   @id @unique
+  user_id   String
+  following AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
 
-  @@index([name])
+  @@index([user_id])
+  @@map("following")
+}
+
+model SelfAssignableTag {
+  id        Int      @id @default(autoincrement())
+  name      String
+  auth_user AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user_id   String
+
+  @@index([user_id])
+  @@map("self_assignable_tag")
+}
+
+model Role {
+  id        Int      @id @default(autoincrement())
+  name      String
+  auth_user AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user_id   String
+
+  @@index([user_id])
+  @@map("role")
+}
+
+model Connection {
+  id        Int      @id @default(autoincrement())
+  auth_user AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user_id   String
+  address   String
+
+  @@index([user_id])
+  @@map("connection")
 }
 
 model Games {
@@ -83,7 +120,7 @@ model Games {
 model OC_Generators {
   game          String            @id
   data          String
-  uploaded_by   String            @default("System")
+  uploaded_by   String            @default("System") // OC Generators will never be added by any users, but i'm appending uploaded_by for consistency
   uploaded_date String
   status        OCGeneratorStatus @default(pending)
   view_count    Int               @default(0)
@@ -92,27 +129,33 @@ model OC_Generators {
 }
 
 model Assets {
-  id             Int         @id @default(autoincrement())
+  id             Int            @id @default(autoincrement())
   name           String
   game           String
   asset          String
+  tags           AssetTagsNames @default(official)
   url            String
-  status         AssetStatus @default(pending)
+  status         AssetStatus    @default(pending)
+  auth_user      AuthUser       @relation(references: [id], fields: [uploaded_by])
+  userId         String
   uploaded_by    String
   uploaded_date  String
-  view_count     Int         @default(0)
-  download_count Int         @default(0)
+  view_count     Int            @default(0)
+  download_count Int            @default(0)
   file_size      Int
+
+  @@index([id])
+  @@index([uploaded_by])
+}
+
+model AssetCategories {
+  id   Int    @id @default(autoincrement())
+  name String
 
   @@index([id])
 }
 
-// model Role {
-//   name     String     @id
-//   users    AuthUser[] @relation("UserRole")
-//   AuthUser AuthUser[]
-// }
-
+// role & tag enums
 enum RoleNames {
   user
   plus
@@ -121,14 +164,6 @@ enum RoleNames {
   developer
   creator
 }
-
-// model SelfAssignTags {
-//   name     String     @id
-//   users    AuthUser[] @relation("UserSelfAssignTags")
-//   AuthUser AuthUser[]
-
-//   @@index([name])
-// }
 
 enum SelfAssignTagsNames {
   designer
@@ -139,6 +174,12 @@ enum SelfAssignTagsNames {
   content_creator
 }
 
+enum AssetTagsNames {
+  official
+  fanmade
+}
+
+// status enums
 enum AssetStatus {
   pending
   approved
