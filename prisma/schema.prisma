@@ -1,5 +1,4 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// TODO: optimize indexing after all queries are implemented
 
 datasource db {
   provider     = "mysql"
@@ -11,12 +10,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// auth tables
 model AuthUser {
   id                   String              @id @unique
   auth_session         AuthSession[]
   auth_key             AuthKey[]
-  avatar_url           String? // TODO: create a default avatar on the CDN
+  avatar_url           String?
   banner_url           String?
   username             String              @unique
   username_colour      String?
@@ -26,14 +24,14 @@ model AuthUser {
   verified             Int                 @default(0)
   bio                  String              @default("")
   assets               Assets[]
-  date_joined          DateTime            @default(now())
-  roles                Role[]
+  date_joined          DateTime
+  role                 RoleNames           @default(USER)
   self_assignable_tags SelfAssignableTag[]
-  connections          Connection[]
+  socials_connections  SocialsConnection[]
 
   // relations
-  followers Follower[]
-  following Following[]
+  followers Follower[]  @relation("FollowerToUser")
+  following Following[] @relation("FollowingToUser")
 
   @@map("auth_user")
 }
@@ -43,7 +41,7 @@ model AuthSession {
   user_id        String
   active_expires BigInt
   idle_expires   BigInt
-  auth_user      AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  auth_user      AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("auth_session")
@@ -55,7 +53,7 @@ model AuthKey {
   user_id         String
   primary_key     Boolean
   expires         BigInt?
-  auth_user       AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  auth_user       AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("auth_key")
@@ -64,7 +62,7 @@ model AuthKey {
 model Follower {
   id       String   @id @unique
   user_id  String
-  follower AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  follower AuthUser @relation("FollowerToUser", fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("follower")
@@ -73,7 +71,7 @@ model Follower {
 model Following {
   id        String   @id @unique
   user_id   String
-  following AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  following AuthUser @relation("FollowingToUser", fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("following")
@@ -82,112 +80,106 @@ model Following {
 model SelfAssignableTag {
   id        Int      @id @default(autoincrement())
   name      String
-  auth_user AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
   user_id   String
+  auth_user AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("self_assignable_tag")
 }
 
-model Role {
-  id        Int      @id @default(autoincrement())
-  name      String
-  auth_user AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
+model SocialsConnection {
+  id        String   @id @unique
   user_id   String
+  tiktok    String?
+  discord   String?
+  auth_user AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
-  @@map("role")
-}
-
-model Connection {
-  id        Int      @id @default(autoincrement())
-  auth_user AuthUser @relation(references: [id], fields: [user_id], onDelete: Cascade)
-  user_id   String
-  address   String
-
-  @@index([user_id])
-  @@map("connection")
+  @@map("socials_connection")
 }
 
 model Games {
-  id               Int    @id @default(autoincrement())
+  id               Int               @id @default(autoincrement())
   name             String
-  asset_categories String
+  asset_categories AssetCategories[]
 
   @@index([id])
+  @@map("games")
 }
 
 model OC_Generators {
-  game          String            @id
+  game          String @id
   data          String
-  uploaded_by   String            @default("System") // OC Generators will never be added by any users, but i'm appending uploaded_by for consistency
+  uploaded_by   String @default("System") // OC Generators will never be added by any users, but I'm appending uploaded_by for consistency
   uploaded_date String
-  status        OCGeneratorStatus @default(pending)
-  view_count    Int               @default(0)
+  view_count    Int    @default(0)
 
   @@index([game])
+  @@map("oc_generators")
 }
 
 model Assets {
-  id             Int            @id @default(autoincrement())
+  id             Int             @id @default(autoincrement())
   name           String
   game           String
-  asset          String
-  tags           AssetTagsNames @default(official)
+  asset_category AssetCategories @relation(fields: [game], references: [name], onDelete: Cascade)
+  tags           AssetTagsName   @default(OFFICIAL)
   url            String
-  status         AssetStatus    @default(pending)
-  auth_user      AuthUser       @relation(references: [id], fields: [uploaded_by])
-  userId         String
+  status         Status          @default(PENDING)
+  auth_user      AuthUser        @relation(fields: [uploaded_by], references: [id], onDelete: Cascade)
   uploaded_by    String
   uploaded_date  String
-  view_count     Int            @default(0)
-  download_count Int            @default(0)
+  view_count     Int             @default(0)
+  download_count Int             @default(0)
   file_size      Int
 
   @@index([id])
+  @@index([name])
+  @@index([game])
+  @@index([status])
+  @@index([tags])
   @@index([uploaded_by])
+  @@map("assets")
 }
 
 model AssetCategories {
-  id   Int    @id @default(autoincrement())
-  name String
+  name    String   @id
+  assets  Assets[]
+  Games   Games?   @relation(fields: [gamesId], references: [id])
+  gamesId Int?
 
-  @@index([id])
+  @@index([name])
+  @@index([gamesId])
+  @@map("asset_categories")
 }
 
 // role & tag enums
 enum RoleNames {
-  user
-  plus
-  translator
-  staff
-  developer
-  creator
+  USER
+  PLUS
+  TRANSLATOR
+  STAFF
+  DEVELOPER
+  CREATOR
 }
 
 enum SelfAssignTagsNames {
-  designer
-  developer
-  artist
-  writer
-  musician
-  content_creator
+  DESIGNER
+  DEVELOPER
+  ARTIST
+  WRITER
+  MUSICIAN
+  CONTENT_CREATOR
 }
 
-enum AssetTagsNames {
-  official
-  fanmade
+enum AssetTagsName {
+  OFFICIAL
+  FANMADE
 }
 
 // status enums
-enum AssetStatus {
-  pending
-  approved
-  rejected
-}
-
-enum OCGeneratorStatus {
-  pending
-  approved
-  rejected
+enum Status {
+  PENDING
+  APPROVED
+  REJECTED
 }
