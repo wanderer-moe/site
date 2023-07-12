@@ -1,8 +1,8 @@
-import { auth, emailVerificationToken } from '$lib/server/lucia'
+import { auth } from '$lib/server/lucia'
 import { redirect } from '@sveltejs/kit'
 import type { RequestHandler } from './$types'
 
-export const GET: RequestHandler = async ({ params, locals }) => {
+export const GET: RequestHandler = async ({ locals }) => {
     try {
         const { session, user } = await locals.auth.validateUser()
         // redirect to login page if not logged in

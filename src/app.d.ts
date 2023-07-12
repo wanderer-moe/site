@@ -13,10 +13,11 @@ declare global {
         type Auth = import('$lib/server/lucia').Auth
         type UserAttributes = {
             username: string
-            // roles: []
             email: string
             email_verified: int
             pronouns?: string
+            avatar_url?: string
+            date_joined: Date
         }
     }
 }

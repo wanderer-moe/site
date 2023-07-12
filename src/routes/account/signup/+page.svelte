@@ -2,6 +2,7 @@
 import { fade } from 'svelte/transition'
 import { cubicOut, quintOut } from 'svelte/easing'
 import { enhance } from '$app/forms'
+// import { Turnstile } from 'svelte-turnstile'
 export let form
 
 import {
@@ -9,8 +10,6 @@ import {
     checkPassword,
     checkUsername,
 } from '$lib/helpers/auth/account/check'
-
-// TODO: signup logic in +page.server.ts
 
 let formData = {
     username: '',
@@ -145,8 +144,10 @@ let checks = {
                                 </p>
                             {/if}
                         </div>
+                        <!-- <div class="flex flex-col">
+                            <Turnstile siteKey="SITE_KEY" theme="dark" />
+                        </div> -->
                         <div class="flex flex-col">
-                            <!-- TODO: add turnstile -->
                             <button
                                 type="submit"
                                 disabled="{Object.values(checks).every(

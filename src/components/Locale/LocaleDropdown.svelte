@@ -81,7 +81,7 @@ function changeLocale(lang) {
                                 >{locale.label}</span>
                         </div>
                     {/each}
-                    <!-- <div
+                    <div
                         class="btn col-span-1 mt-1 flex items-center justify-center p-1 sm:col-span-2">
                         <a
                             href="https://github.com/wanderer-moe/site/blob/development/CONTRIBUTING.md#contributing-to-translations">
@@ -89,7 +89,7 @@ function changeLocale(lang) {
                                 <i class="fas fa-external-link-alt text-sm"></i>
                                 Contribute towards translations
                             </span></a>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         {/if}

@@ -1,6 +1,5 @@
 import { auth } from '$lib/server/lucia'
 import { fail, type Actions } from '@sveltejs/kit'
-import { Prisma } from '@prisma/client'
 import { redirect } from '@sveltejs/kit'
 import { LuciaError } from 'lucia-auth'
 import type { PageServerLoad } from './$types'
@@ -12,6 +11,7 @@ import {
     checkPassword,
     checkUsername,
 } from '$lib/helpers/auth/account/check'
+import { validateToken } from '$lib/utils/validateTokenResponse'
 
 export const actions: Actions = {
     default: async ({ request, locals }) => {
@@ -19,6 +19,15 @@ export const actions: Actions = {
         const username = form.get('username')
         const password = form.get('password')
         const email = form.get('email')
+        // const token = form.get('cf-turnstile-response')
+
+        // const { success, error } = await validateToken(token, env.CF_SECRET_KEY)
+
+        // if (!success) {
+        //     return fail(400, {
+        //         message: 'Invalid captcha',
+        //     })
+        // }
 
         // check if all required fields are present and valid
         // TODO: add more validation using checkEmail, checkPassword, checkUsername functions
@@ -45,8 +54,8 @@ export const actions: Actions = {
                 attributes: {
                     username,
                     email,
-                    // roles: [],
                     email_verified: 0,
+                    date_joined: new Date(),
                 },
             })
 
@@ -59,11 +68,7 @@ export const actions: Actions = {
             }/account/verify-email/${token.toString()}`
             await sendEmailConfirmationEmail(email, link, username)
         } catch (error) {
-            if (
-                error instanceof Prisma.PrismaClientKnownRequestError &&
-                error.code === 'P2002' &&
-                error.message?.includes('username')
-            ) {
+            if (error.code === 'P2002' && error.message?.includes('username')) {
                 return fail(400, {
                     message: 'Username is already being used',
                 })

@@ -1,5 +1,5 @@
 <script>
-import Banner from '@/components/Banner/Banner.svelte'
+import Banner from '@/components/Banner/GameBanner.svelte'
 </script>
 
 <svelte:head>

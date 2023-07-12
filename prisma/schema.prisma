@@ -156,7 +156,7 @@ model AssetCategories {
 // role & tag enums
 enum RoleNames {
   USER
-  PLUS
+  CONTRIBUTOR
   TRANSLATOR
   STAFF
   DEVELOPER
@@ -168,7 +168,6 @@ enum SelfAssignTagsNames {
   DEVELOPER
   ARTIST
   WRITER
-  MUSICIAN
   CONTENT_CREATOR
 }
 

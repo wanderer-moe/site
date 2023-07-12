@@ -1,7 +1,7 @@
 <script>
 import { t } from 'svelte-i18n'
 import DiscordUser from '@/components/Discord/DiscordUser.svelte'
-import Banner from '@/components/Banner/Banner.svelte'
+import Banner from '@/components/Banner/GameBanner.svelte'
 // import { fade } from 'svelte/transition'
 
 export let data
