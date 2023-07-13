@@ -90,7 +90,7 @@ export const actions: Actions = {
 }
 
 export const load: PageServerLoad = async ({ locals }) => {
-    const { session, user } = await locals.auth.validateUser()
-    if (session && user) throw redirect(302, '/account/')
+    const { session } = await locals.auth.validateUser()
+    if (session) throw redirect(302, '/account/')
     return {}
 }

@@ -176,32 +176,6 @@ onMount(async () => {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="text-white text-xl">AI Generated Result</p>
-                        {#if !user}
-                            <div
-                                class="mt-2 rounded-lg bg-main-500 p-2 text-gray-400 h-80 border-2 border-main-400 flex items-center justify-center">
-                                <p class="text-center text-2xl">
-                                    <a
-                                        href="/account/signup"
-                                        class="text-accent-100 hover:text-white transition hover:font-semibold"
-                                        >Create an account
-                                    </a>
-                                    or
-                                    <a
-                                        href="/account/login"
-                                        class="text-accent-100 hover:text-white transition hover:font-semibold"
-                                        >login
-                                    </a> to create a detailed AI generated result
-                                    off of your options for free
-                                </p>
-                            </div>
-                        {:else}
-                            <div
-                                class="mt-2 rounded-lg bg-main-500 p-2 text-white h-80 border-2 border-main-400">
-                            </div>
-                        {/if}
-                    </div>
                 </div>
             </div>
         </div>

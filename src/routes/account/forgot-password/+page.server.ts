@@ -17,7 +17,7 @@ export const actions: Actions = {
             })
         }
 
-        const dbUser = await prisma.AuthUser.findFirst({
+        const dbUser = await prisma.authUser.findFirst({
             where: {
                 email: email,
             },
@@ -43,7 +43,7 @@ export const actions: Actions = {
 }
 
 export const load: PageServerLoad = async ({ locals }) => {
-    const { session, user } = await locals.auth.validateUser()
-    if (session && user) throw redirect(302, '/')
+    const { session } = await locals.auth.validateUser()
+    if (session) throw redirect(302, '/')
     return {}
 }
