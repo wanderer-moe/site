@@ -4,13 +4,13 @@ import {
     subjectPronouns,
     possessivePronouns,
     objectPronouns,
+    formatPronouns,
 } from '@/lib/helpers/user/pronouns'
 import { onMount } from 'svelte'
 export let user
 
 let currentSubjectPronoun, currentObjectPronoun, currentPossessivePronoun
 
-// check if user has pronouns, if not other separate them by / => he/him/his => he, him, his
 onMount(() => {
     if (user.pronouns && user.pronouns !== 'other') {
         const pronouns = user.pronouns.split('/')
@@ -21,16 +21,40 @@ onMount(() => {
                 currentObjectPronoun,
                 currentPossessivePronoun,
             ] = pronouns
+        } else {
+            // indexing through subjectPronouns, possessivePronouns and objectPronouns to see where if the pronoun matches so it can be set as the current pronoun
+            for (const pronoun of pronouns) {
+                if (subjectPronouns.includes(pronoun)) {
+                    currentSubjectPronoun = pronoun
+                } else if (possessivePronouns.includes(pronoun)) {
+                    currentPossessivePronoun = pronoun
+                } else if (objectPronouns.includes(pronoun)) {
+                    currentObjectPronoun = pronoun
+                }
+            }
         }
     }
 })
+
+// pronouns = i.e he/him/his or other
+$: pronouns = formatPronouns(
+    currentSubjectPronoun,
+    currentObjectPronoun,
+    currentPossessivePronoun
+)
+
+$: selectedPronouns = pronouns !== 'other' ? pronouns : 'other'
+
+$: console.log(pronouns)
 </script>
 
 <div class="bg-main-500 border-2 border-main-400 rounded-md text-white p-2">
     <p class="text-lg font-bold">Pronouns</p>
     <p class="text-xs text-gray-400">
         Data collected from pronouns.page, not all pronouns are available due to
-        limitations and to prevent misuse of this feature.
+        limitations and to prevent misuse of this feature. {#if user.pronouns}
+            Your current pronouns are {user.pronouns}
+        {/if}
     </p>
     <div class="grid grid-cols-1 mt-2 gap-3">
         <div>
@@ -40,9 +64,8 @@ onMount(() => {
             </p>
             <PronounsDropdown
                 pronounsList="{subjectPronouns}"
-                bind:currentSelected="{currentSubjectPronoun}" 
-                type="subject"
-                />
+                bind:currentSelected="{currentSubjectPronoun}"
+                type="subject" />
         </div>
         <div>
             <p class="text-lg font-bold">
@@ -51,9 +74,8 @@ onMount(() => {
             </p>
             <PronounsDropdown
                 pronounsList="{objectPronouns}"
-                bind:currentSelected="{currentObjectPronoun}" 
-                type="object"
-                />
+                bind:currentSelected="{currentObjectPronoun}"
+                type="object" />
         </div>
         <div>
             <p class="text-lg font-bold">
@@ -62,9 +84,27 @@ onMount(() => {
             </p>
             <PronounsDropdown
                 pronounsList="{possessivePronouns}"
-                bind:currentSelected="{currentPossessivePronoun}" 
-                type="possessive"
-                />
+                bind:currentSelected="{currentPossessivePronoun}"
+                type="possessive" />
         </div>
+        <p class="text-xs text-gray-400 flex items-center">
+            <input
+                type="checkbox"
+                class="mr-1 accent-accent-300"
+                checked="{selectedPronouns === 'other'}"
+                on:change="{() => {
+                    selectedPronouns = selectedPronouns === '' ? 'other' : ''
+                    if (
+                        currentObjectPronoun ||
+                        currentSubjectPronoun ||
+                        currentPossessivePronoun
+                    ) {
+                        currentSubjectPronoun = null
+                        currentObjectPronoun = null
+                        currentPossessivePronoun = null
+                    }
+                }}" />
+            Your pronouns aren't here? Tick this box to specify them as "other".
+        </p>
     </div>
 </div>

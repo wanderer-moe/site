@@ -39,3 +39,16 @@ export const possessivePronouns = [
     'xyrs',
     'zirs',
 ]
+
+export function formatPronouns(
+    currentSubjectPronoun,
+    currentObjectPronoun,
+    currentPossessivePronoun
+) {
+    const pronouns = [
+        currentSubjectPronoun,
+        currentObjectPronoun,
+        currentPossessivePronoun,
+    ].filter(Boolean)
+    return pronouns.length > 0 ? pronouns.join('/') : 'other'
+}
