@@ -58,7 +58,7 @@ console.log(user)
                     target="_blank"
                     rel="noopener noreferrer">
                     <i
-                        class="fa-brands fa-github cursor-pointer text-gray-300 hover:text-white"
+                        class="fa-brands fa-github cursor-pointer text-gray-300 transition hover:text-white"
                     ></i>
                 </a>
             </button>

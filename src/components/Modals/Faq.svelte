@@ -56,7 +56,7 @@ const faqEntries = [
         </div>
     </div>
     <button
-        class="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-[70] backdrop-blur-sm backdrop-filter"
+        class="fixed top-0 left-0 w-full h-full bg-black opacity-70 z-[70] backdrop-blur-sm backdrop-filter"
         in:fade|global="{{ duration: 200 }}"
         out:fade|global="{{ duration: 100 }}"
         on:click="{closeFAQ()}"

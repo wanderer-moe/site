@@ -32,13 +32,13 @@ let checkUAOpen = false
                         <li class="mb-4">
                             <a
                                 href="https://git.wanderer.moe/"
-                                class="hover:font-semibold hover:text-white"
+                                class="hover:font-semibold hover:text-white transition-colors"
                                 >GitHub</a>
                         </li>
                         <li class="mb-4">
                             <a
                                 href="https://discord.wanderer.moe/"
-                                class="hover:font-semibold hover:text-white"
+                                class="hover:font-semibold hover:text-white transition-colors"
                                 >Discord Server</a>
                         </li>
                     </ul>
@@ -49,13 +49,13 @@ let checkUAOpen = false
                         <li class="mb-4">
                             <a
                                 href="/legal/privacy-policy"
-                                class="hover:font-semibold hover:text-white"
+                                class="hover:font-semibold hover:text-white transition-colors"
                                 >Privacy Policy</a>
                         </li>
                         <li class="mb-4">
                             <a
                                 href="/legal/terms-of-service"
-                                class="hover:font-semibold hover:text-white"
+                                class="hover:font-semibold hover:text-white transition-colors"
                                 >Terms of Service</a>
                         </li>
                     </ul>
@@ -66,7 +66,7 @@ let checkUAOpen = false
                         <li class="mb-4">
                             <a
                                 href="/docs/api"
-                                class="hover:font-semibold hover:text-white"
+                                class="hover:font-semibold hover:text-white transition-colors"
                                 >API Documentation</a>
                         </li>
                         <!-- <li class="mb-4">
@@ -78,14 +78,14 @@ let checkUAOpen = false
                         <li class="mb-4">
                             <a
                                 href="/contributors"
-                                class="hover:font-semibold hover:text-white"
+                                class="hover:font-semibold hover:text-white transition-colors"
                                 >Contributors</a>
                         </li>
                         <li class="mb-4">
                             <button
                                 on:keypress="{() => (contributeOpen = true)}"
                                 on:click="{() => (contributeOpen = true)}"
-                                class="cursor-pointer hover:font-semibold hover:text-white">
+                                class="cursor-pointer hover:font-semibold hover:text-white transition-colors">
                                 Support Us / Contribute
                             </button>
                         </li>
@@ -93,7 +93,7 @@ let checkUAOpen = false
                             <button
                                 on:keypress="{() => (checkUAOpen = true)}"
                                 on:click="{() => (checkUAOpen = true)}"
-                                class="cursor-pointer hover:font-semibold hover:text-white">
+                                class="cursor-pointer hover:font-semibold hover:text-white transition-colors">
                                 Check User Agent
                             </button>
                         </li>
@@ -111,11 +111,12 @@ let checkUAOpen = false
                     Created with <i class="fas fa-heart text-red-500"></i> by
                     <a
                         href="https://dromzeh.dev/?ref=wanderer.moe"
-                        class="hover:font-semibold hover:text-white">dromzeh</a
+                        class="hover:font-semibold hover:text-white transition-colors"
+                        >dromzeh</a
                     >, powered by
                     <a
                         href="https://cloudflare.com/"
-                        class="hover:font-semibold hover:text-white"
+                        class="hover:font-semibold hover:text-white transition-colors"
                         >Cloudflare</a>
                 </p>
             </div>

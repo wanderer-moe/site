@@ -15,7 +15,8 @@ const { user } = data
         <div>
             <h1 class="text-2xl font-bold text-white">Account Settings</h1>
             <h2 class="text-xs font-bold text-gray-400 mb-2">
-                Manage your account settings, scroll down to save your changes.
+                Manage all of your account settings, make sure to save your
+                changes at the bottom of the page.
             </h2>
             <Settings user="{user}" />
         </div>

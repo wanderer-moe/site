@@ -7,7 +7,9 @@ import {
     objectPronouns,
 } from '@/lib/helpers/user/pronouns'
 
-export let pronounsList, currentSelected
+export let pronounsList,
+    currentSelected,
+    type: 'subject' | 'object' | 'possessive'
 
 let listOpen = false
 
@@ -43,14 +45,36 @@ $: document.body.style.overflow = listOpen ? 'hidden' : 'auto' // prevent accide
                             listOpen = false
                         }}">
                         {pronoun}
-                        <span class="text-gray-400 text-xs"
-                            >({subjectPronouns[
+                        <p class="text-gray-400 text-xs">
+                            <!-- (e.g {subjectPronouns[
                                 pronounsList.indexOf(pronoun)
                             ]}/{objectPronouns[
                                 pronounsList.indexOf(pronoun)
                             ]}/{possessivePronouns[
                                 pronounsList.indexOf(pronoun)
-                            ]})</span>
+                            ]}) -->
+                            <span
+                                class="{type === 'subject'
+                                    ? 'text-white'
+                                    : 'text-gray-400'}"
+                                >{subjectPronouns[
+                                    pronounsList.indexOf(pronoun)
+                                ]}</span>
+                            <span
+                                class="{type === 'object'
+                                    ? 'text-white'
+                                    : 'text-gray-400'}"
+                                >{objectPronouns[
+                                    pronounsList.indexOf(pronoun)
+                                ]}</span>
+                            <span
+                                class="{type === 'possessive'
+                                    ? 'text-white'
+                                    : 'text-gray-400'}"
+                                >{possessivePronouns[
+                                    pronounsList.indexOf(pronoun)
+                                ]}</span>
+                        </p>
                     </div>
                 {/each}
             </div>
@@ -62,7 +86,7 @@ $: document.body.style.overflow = listOpen ? 'hidden' : 'auto' // prevent accide
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
-        class="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-[70] backdrop-blur-sm backdrop-filter"
+        class="fixed top-0 left-0 w-full h-full bg-black opacity-70 z-[70] backdrop-blur-sm backdrop-filter"
         in:fade|global="{{ duration: 200 }}"
         out:fade|global="{{ duration: 100 }}"
         on:click="{() => (listOpen = false)}">

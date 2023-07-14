@@ -43,32 +43,38 @@ onMount(() => {
             <span class="rounded-lg bg-red-400 px-3 text-main-400"
                 >{$page.status}
             </span>
+            <span class="text-white">
+                {$t(`errors.${$page.status === 404 ? '404' : '500'}`)}
+            </span>
         </p>
         <div>
-            <p class="text-4xl text-white items-center flex">
-                <img
-                    src="https://cdn.wanderer.moe/genshin-impact/emotes/keqing-3.png"
-                    alt="keqing"
-                    class="inline h-16 w-16 mr-3" />{$t(
-                    `errors.${$page.status === 404 ? '404' : '500'}`
-                )}
-            </p>
-            {#if $page.error?.message}
-                <p class="my-2 text-gray-400">Error: {$page.error?.message}</p>
-            {/if}
             {#if misspelledRoute}
-                <p class="my-2 text-gray-400">
-                    Maybe you meant to go to <a
-                        href="{misspelledRoute}"
-                        class="text-white">{misspelledRoute}</a
-                    >?
-                </p>
+                <div class="items-center flex">
+                    <img
+                        src="https://cdn.wanderer.moe/genshin-impact/emotes/keqing-3.png"
+                        alt="keqing"
+                        class="inline h-8 w-8 mr-2" />
+                    <p class="my-2 text-gray-400">
+                        Maybe you meant to go to
+                        <a href="{misspelledRoute}" class="text-white">
+                            {misspelledRoute}
+                        </a> instead?
+                    </p>
+                </div>
             {/if}
             <button
-                class="text-white"
+                class="text-white mt-4"
                 on:click="{() => (window.location.href = '/')}">
                 Go Back <i class="fas fa-arrow-right"></i>
             </button>
         </div>
     </div>
+</div>
+
+<div class="text-center">
+    {#if $page.error?.message}
+        <p class="my-2 text-red-100 text-xs">
+            Boring error message: {$page.error.message}
+        </p>
+    {/if}
 </div>

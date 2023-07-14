@@ -30,7 +30,7 @@ onMount(() => {
     <p class="text-lg font-bold">Pronouns</p>
     <p class="text-xs text-gray-400">
         Data collected from pronouns.page, not all pronouns are available due to
-        limitations
+        limitations and to prevent misuse of this feature.
     </p>
     <div class="grid grid-cols-1 mt-2 gap-3">
         <div>
@@ -40,7 +40,9 @@ onMount(() => {
             </p>
             <PronounsDropdown
                 pronounsList="{subjectPronouns}"
-                bind:currentSelected="{currentSubjectPronoun}" />
+                bind:currentSelected="{currentSubjectPronoun}" 
+                type="subject"
+                />
         </div>
         <div>
             <p class="text-lg font-bold">
@@ -49,7 +51,9 @@ onMount(() => {
             </p>
             <PronounsDropdown
                 pronounsList="{objectPronouns}"
-                bind:currentSelected="{currentObjectPronoun}" />
+                bind:currentSelected="{currentObjectPronoun}" 
+                type="object"
+                />
         </div>
         <div>
             <p class="text-lg font-bold">
@@ -58,7 +62,9 @@ onMount(() => {
             </p>
             <PronounsDropdown
                 pronounsList="{possessivePronouns}"
-                bind:currentSelected="{currentPossessivePronoun}" />
+                bind:currentSelected="{currentPossessivePronoun}" 
+                type="possessive"
+                />
         </div>
     </div>
 </div>
