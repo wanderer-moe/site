@@ -1,0 +1,70 @@
+<script lang="ts">
+import { fly, fade } from 'svelte/transition'
+import { cubicOut, quintOut } from 'svelte/easing'
+import {
+    possessivePronouns,
+    subjectPronouns,
+    objectPronouns,
+} from '@/lib/helpers/user/pronouns'
+
+export let pronounsList, currentSelected
+
+let listOpen = false
+
+$: document.body.style.overflow = listOpen ? 'hidden' : 'auto' // prevent accidental scrolling when dropdown is open
+</script>
+
+<div class="relative w-full">
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div
+        class="relative text-center transition-colors border-main-300 border-2 w-full rounded-md px-1 hover:cursor-pointer {listOpen
+            ? 'bg-main-500 '
+            : 'bg-main-600 hover:bg-main-500'}"
+        on:keypress="{() => (listOpen = !listOpen)}"
+        on:click="{() => (listOpen = !listOpen)}">
+        {currentSelected ?? 'Select Pronouns'}
+    </div>
+    {#if listOpen}
+        <div
+            in:fly|global="{{ y: -15, easing: quintOut, duration: 200 }}"
+            out:fly|global="{{ y: -10, easing: cubicOut, duration: 100 }}"
+            class="absolute top-8 z-[90] bg-main-600 border-main-300 border-2 w-full rounded-md p-1 overflow-y-auto h-32">
+            <div class="grid gap-1">
+                {#each pronounsList as pronoun}
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
+                    <div
+                        class="text-center transition-colors rounded-md cursor-pointer {pronoun ===
+                        currentSelected
+                            ? 'bg-main-500 hover:bg-main-400'
+                            : 'hover:bg-main-500'} p-1"
+                        on:click="{() => {
+                            currentSelected = pronoun
+                            listOpen = false
+                        }}">
+                        {pronoun}
+                        <span class="text-gray-400 text-xs"
+                            >({subjectPronouns[
+                                pronounsList.indexOf(pronoun)
+                            ]}/{objectPronouns[
+                                pronounsList.indexOf(pronoun)
+                            ]}/{possessivePronouns[
+                                pronounsList.indexOf(pronoun)
+                            ]})</span>
+                    </div>
+                {/each}
+            </div>
+        </div>
+    {/if}
+</div>
+
+{#if listOpen}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div
+        class="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-[70] backdrop-blur-sm backdrop-filter"
+        in:fade|global="{{ duration: 200 }}"
+        out:fade|global="{{ duration: 100 }}"
+        on:click="{() => (listOpen = false)}">
+    </div>
+{/if}

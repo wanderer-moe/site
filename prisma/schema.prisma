@@ -1,5 +1,3 @@
-// TODO: optimize indexing after all queries are implemented
-
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
@@ -30,8 +28,9 @@ model AuthUser {
   socials_connections  SocialsConnection[]
 
   // relations
-  followers Follower[]  @relation("FollowerToUser")
-  following Following[] @relation("FollowingToUser")
+  followers       Follower[]        @relation("FollowerToUser")
+  following       Following[]       @relation("FollowingToUser")
+  AssetCollection AssetCollection[]
 
   @@map("auth_user")
 }
@@ -133,6 +132,8 @@ model Assets {
   download_count Int             @default(0)
   file_size      Int
 
+  asset_collections AssetCollectionAssets[]
+
   @@index([id])
   @@index([name])
   @@index([game])
@@ -151,6 +152,32 @@ model AssetCategories {
   @@index([name])
   @@index([gamesId])
   @@map("asset_categories")
+}
+
+model AssetCollection {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  auth_user   AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user_id     String
+
+  assets AssetCollectionAssets[]
+
+  @@index([user_id])
+  @@map("asset_collection")
+}
+
+model AssetCollectionAssets {
+  asset_collection_id Int
+  asset_id            Int
+
+  asset_collection AssetCollection @relation(fields: [asset_collection_id], references: [id], onDelete: Cascade)
+  asset            Assets          @relation(fields: [asset_id], references: [id], onDelete: Cascade)
+
+  @@id([asset_collection_id, asset_id])
+  @@index([asset_collection_id])
+  @@index([asset_id])
+  @@map("asset_collection_assets")
 }
 
 // role & tag enums

@@ -2,7 +2,7 @@
 import { t } from 'svelte-i18n'
 import LocaleDropdown from '@/components/Locale/LocaleDropdown.svelte'
 import Status from '@/components/Navigation/Footer/Status.svelte'
-import Contribute from '@/components/Modals/Contribute.svelte'
+import Contribute from '@/components/Modals/Support.svelte'
 import CheckUA from '@/components/Modals/CheckUA.svelte'
 const currentYear = new Date().getFullYear()
 
@@ -86,7 +86,7 @@ let checkUAOpen = false
                                 on:keypress="{() => (contributeOpen = true)}"
                                 on:click="{() => (contributeOpen = true)}"
                                 class="cursor-pointer hover:font-semibold hover:text-white">
-                                Contribute
+                                Support Us / Contribute
                             </button>
                         </li>
                         <li>

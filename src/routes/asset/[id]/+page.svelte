@@ -10,7 +10,7 @@ import AssetItem from '@/components/Asset/AssetItem.svelte'
 let resolution = 'Unknown'
 export let data
 
-const { assetInformation, id } = data
+const { assetInformation, id, user } = data
 const { asset, similarAssets } = assetInformation
 
 // console.log(asset, similarAssets)
@@ -117,10 +117,11 @@ onMount(async () => {
                     </div>
                     <div class="my-4">
                         <p class="my-2 text-2xl text-white">Similar Assets</p>
-                        <div
-                            class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                             {#each similarAssets as similarAsset}
-                                <AssetItem asset="{similarAsset}" />
+                                <AssetItem
+                                    asset="{similarAsset}"
+                                    user="{user}" />
                             {/each}
                         </div>
                     </div>

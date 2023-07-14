@@ -7,8 +7,10 @@ import { t } from 'svelte-i18n'
 import LoadPlaceHolder from './LoadPlaceHolder.svelte'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { mapGame, mapAssetType } from '@/lib/helpers/casing/gameMapping'
+import AssetCollection from './AssetCollection.svelte'
 
 export let asset: Asset
+export let user
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -24,7 +26,7 @@ export let asset: Asset
             duration: 1000,
         }}">
         <img
-            id="assetimg"
+            id="{asset.name}"
             class="max-w-28 h-28 max-h-28 w-28 object-contain object-left p-1"
             src="{asset.url}"
             alt="{asset.name}" />
@@ -32,18 +34,18 @@ export let asset: Asset
     <div class="p-2">
         <div class="whitespace-normal break-all">
             <div class="flex flex-row gap-1 text-xs">
-                    <span
-                        class="rounded-md bg-main-600 flex items-center px-2.5 py-1 text-xs font-semibold text-white">
-                        <img
-                            src="https://cdn.wanderer.moe/{asset.game}/icon.png"
-                            alt="{asset.game} cover"
-                            class="mr-1 inline-block h-4 w-4 rounded-md" />
-                        {mapGame(asset.game)}
-                    </span>
-                    <span
-                        class="rounded-md bg-main-600 px-2.5 py-1 text-xs font-semibold text-white">
-                        {mapAssetType(asset.asset)}
-                    </span>
+                <span
+                    class="rounded-md bg-main-600 border-2 border-main-400 flex items-center px-2.5 py-1 text-xs font-semibold text-white">
+                    <img
+                        src="https://cdn.wanderer.moe/{asset.game}/icon.png"
+                        alt="{asset.game} cover"
+                        class="mr-1 inline-block h-4 w-4 rounded-md" />
+                    {mapGame(asset.game)}
+                </span>
+                <span
+                    class="rounded-md bg-main-600 border-2 border-main-400 px-2.5 py-1 text-xs font-semibold text-white">
+                    {mapAssetType(asset.asset)}
+                </span>
             </div>
             <div class="my-3">
                 <p class="overflow-clip font-semibold lowercase text-white">
@@ -73,6 +75,7 @@ export let asset: Asset
                         <i class="fa-solid fa-external-link mr-1"></i> View Details
                     </button>
                 </a>
+                <AssetCollection asset="{asset}" user="{user}" />
             </div>
         </div>
     </div>

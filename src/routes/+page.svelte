@@ -30,7 +30,7 @@ import { debounce } from 'lodash'
 // eg components: AssetItems, AssetCategories, Games, SearchBar, etc, all of this code is only temporary
 
 export let data
-const { games, recent } = data
+const { games, recent, user } = data
 
 let numAssetsToDisplay = 50
 let results = recent
@@ -305,7 +305,7 @@ getAssetCategoriesFromGames()
                     <div class="grid grid-cols-1 gap-7 lg:grid-cols-2">
                         {#each results.slice(0, numAssetsToDisplay) as asset}
                             <div transition:fly="{{ y: 200, delay: 100 }}">
-                                <AssetItem asset="{asset}" />
+                                <AssetItem asset="{asset}" user="{user}" />
                             </div>
                         {/each}
                         <!-- {#if results.length % 2 !== 0}

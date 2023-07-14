@@ -11,6 +11,7 @@
         "prettier:check": "prettier --check . --ignore-path=.prettierignore",
         "prisma:generate": "npx prisma generate",
         "prisma:push": "npx prisma db push",
+        "prisma:format": "npx prisma format",
         "lint": "eslint --ext .js,.svelte src"
     },
     "devDependencies": {

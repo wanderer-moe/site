@@ -41,6 +41,7 @@ console.log(user)
                     </button>
                 {/if}
             </div>
+            <div class="h-6 w-px bg-gray-300/50 mx-2"></div>
             <button class="px-2 text-lg focus:outline-none">
                 <a
                     href="https://discord.wanderer.moe/"

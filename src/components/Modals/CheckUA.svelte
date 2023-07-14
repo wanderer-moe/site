@@ -35,10 +35,11 @@ export let closeCheckUA
 
 <div>
     <div
-        class="fixed left-1/2 top-1/2 z-[60] w-3/4 -translate-x-1/2 -translate-y-1/2 transform"
+        class="fixed left-1/2 top-1/2 z-[80] w-3/4 -translate-x-1/2 -translate-y-1/2 transform"
         in:fly|global="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly|global="{{ y: 50, easing: cubicOut, duration: 300 }}">
-        <div class="rounded-lg bg-main-500 border-2 border-main-400 p-8 text-gray-400">
+        <div
+            class="rounded-lg bg-main-500 border-2 border-main-400 p-4 text-gray-400">
             <div class="text-center">
                 {#if browserMap[os].includes(browser.toLowerCase())}
                     <p class="mt-2 text-green-100">
@@ -74,9 +75,9 @@ export let closeCheckUA
         </div>
     </div>
     <button
-        class="fixed left-0 top-0 z-50 h-full w-full backdrop-blur-sm backdrop-filter"
-        in:fade|global="{{ easing: quintOut, duration: 750 }}"
-        out:fade|global="{{ easing: cubicOut, duration: 300 }}"
+        class="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-[70] backdrop-blur-sm backdrop-filter"
+        in:fade|global="{{ duration: 200 }}"
+        out:fade|global="{{ duration: 100 }}"
         on:click="{() => closeCheckUA()}"
         on:keypress="{() => closeCheckUA()}">
     </button>
