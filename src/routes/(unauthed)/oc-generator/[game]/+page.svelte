@@ -100,7 +100,7 @@ onMount(async () => {
             <div>
                 <div>
                     <div
-                        class="mb-2 rounded-lg bg-main-500 p-2 text-white border-2 border-main-400">
+                        class="mb-2 rounded-lg bg-main-500 p-2 text-white border border-main-300">
                         <div class="mb-3 flex flex-wrap gap-2 text-sm">
                             <button
                                 class="btn p-2"

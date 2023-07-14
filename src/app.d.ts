@@ -15,6 +15,8 @@ declare global {
             username: string
             email: string
             email_verified: int
+            role: Role
+            bio: string
             pronouns?: string
             avatar_url?: string
             date_joined: Date

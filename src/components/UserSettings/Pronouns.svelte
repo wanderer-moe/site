@@ -21,15 +21,23 @@ onMount(() => {
                 currentObjectPronoun,
                 currentPossessivePronoun,
             ] = pronouns
+            // console.log(
+            //     currentSubjectPronoun,
+            //     currentObjectPronoun,
+            //     currentPossessivePronoun
+            // )
         } else {
             // indexing through subjectPronouns, possessivePronouns and objectPronouns to see where if the pronoun matches so it can be set as the current pronoun
             for (const pronoun of pronouns) {
                 if (subjectPronouns.includes(pronoun)) {
                     currentSubjectPronoun = pronoun
+                    // console.log(currentSubjectPronoun)
                 } else if (possessivePronouns.includes(pronoun)) {
                     currentPossessivePronoun = pronoun
+                    // console.log(currentPossessivePronoun)
                 } else if (objectPronouns.includes(pronoun)) {
                     currentObjectPronoun = pronoun
+                    // console.log(currentObjectPronoun)
                 }
             }
         }
@@ -49,7 +57,7 @@ $: console.log(pronouns)
 </script>
 
 <div
-    class="bg-main-500 border-2 border-main-400 rounded-md text-white p-2"
+    class="bg-main-500 border border-main-300 rounded-md text-white p-2"
     id="pronouns">
     <p class="text-lg font-bold">Pronouns</p>
     <p class="text-xs text-gray-400">

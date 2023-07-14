@@ -5,7 +5,8 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 model AuthUser {
@@ -26,11 +27,11 @@ model AuthUser {
   role                 RoleNames           @default(USER)
   self_assignable_tags SelfAssignableTag[]
   socials_connections  SocialsConnection[]
+  saved_oc_generators  SavedOCGenerators[]
 
   // relations
-  followers       Follower[]        @relation("FollowerToUser")
-  following       Following[]       @relation("FollowingToUser")
-  AssetCollection AssetCollection[]
+  followers Follower[]  @relation("FollowerToUser")
+  following Following[] @relation("FollowingToUser")
 
   @@map("auth_user")
 }
@@ -98,12 +99,24 @@ model SocialsConnection {
 }
 
 model Games {
-  id               Int               @id @default(autoincrement())
+  id               Int    @id @default(autoincrement())
   name             String
-  asset_categories AssetCategories[]
+  description      String
+  asset_count      Int    @default(0)
+  asset_categories String @default("[]") // e.g ["characters", "items"]
 
   @@index([id])
+  @@index([name])
   @@map("games")
+}
+
+model AssetCategories {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  @@index([id])
+  @@index([name])
+  @@map("asset_categories")
 }
 
 model OC_Generators {
@@ -118,21 +131,19 @@ model OC_Generators {
 }
 
 model Assets {
-  id             Int             @id @default(autoincrement())
+  id             Int           @id @default(autoincrement())
   name           String
   game           String
-  asset_category AssetCategories @relation(fields: [game], references: [name], onDelete: Cascade)
-  tags           AssetTagsName   @default(OFFICIAL)
+  asset_category String
+  tags           AssetTagsName @default(OFFICIAL)
   url            String
-  status         Status          @default(PENDING)
-  auth_user      AuthUser        @relation(fields: [uploaded_by], references: [id], onDelete: Cascade)
+  status         Status        @default(PENDING)
+  auth_user      AuthUser      @relation(fields: [uploaded_by], references: [id], onDelete: Cascade)
   uploaded_by    String
   uploaded_date  String
-  view_count     Int             @default(0)
-  download_count Int             @default(0)
+  view_count     Int           @default(0)
+  download_count Int           @default(0)
   file_size      Int
-
-  asset_collections AssetCollectionAssets[]
 
   @@index([id])
   @@index([name])
@@ -143,41 +154,18 @@ model Assets {
   @@map("assets")
 }
 
-model AssetCategories {
-  name    String   @id
-  assets  Assets[]
-  Games   Games?   @relation(fields: [gamesId], references: [id])
-  gamesId Int?
+model SavedOCGenerators {
+  id         Int      @id @default(autoincrement())
+  game       String
+  data       String
+  auth_user  AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user_id    String
+  saved_date String
 
-  @@index([name])
-  @@index([gamesId])
-  @@map("asset_categories")
-}
-
-model AssetCollection {
-  id          Int      @id @default(autoincrement())
-  name        String
-  description String?
-  auth_user   AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  user_id     String
-
-  assets AssetCollectionAssets[]
-
+  @@index([id])
+  @@index([game])
   @@index([user_id])
-  @@map("asset_collection")
-}
-
-model AssetCollectionAssets {
-  asset_collection_id Int
-  asset_id            Int
-
-  asset_collection AssetCollection @relation(fields: [asset_collection_id], references: [id], onDelete: Cascade)
-  asset            Assets          @relation(fields: [asset_id], references: [id], onDelete: Cascade)
-
-  @@id([asset_collection_id, asset_id])
-  @@index([asset_collection_id])
-  @@index([asset_id])
-  @@map("asset_collection_assets")
+  @@map("saved_oc_generators")
 }
 
 // role & tag enums

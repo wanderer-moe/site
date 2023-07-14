@@ -6,6 +6,7 @@ export const possibleRoutes = [
     '/logout',
     '/account/login',
     '/account/signup',
+    '/account/connections',
     '/account/forgot-password',
     '/oc-generator/genshin-impact',
     '/oc-generator/honkai-star-rail',

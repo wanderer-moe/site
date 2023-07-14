@@ -39,7 +39,7 @@ export let closeCheckUA
         in:fly|global="{{ y: 50, easing: quintOut, duration: 750 }}"
         out:fly|global="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <div
-            class="rounded-lg bg-main-500 border-2 border-main-400 p-4 text-gray-400">
+            class="rounded-lg bg-main-500 border border-main-300 p-4 text-gray-400">
             <div class="text-center">
                 {#if browserMap[os].includes(browser.toLowerCase())}
                     <p class="mt-2 text-green-100">

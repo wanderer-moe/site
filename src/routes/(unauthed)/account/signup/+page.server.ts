@@ -54,7 +54,9 @@ export const actions: Actions = {
                 attributes: {
                     username,
                     email,
+                    role: 'USER',
                     email_verified: 0,
+                    bio: 'No bio set',
                     date_joined: new Date(),
                 },
             })

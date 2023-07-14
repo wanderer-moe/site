@@ -18,7 +18,7 @@ export let asset: Asset, user, closeCollectionPopup
             ✕
         </button>
         <div
-            class="mt-8 rounded-lg bg-main-500 border-2 border-main-300 p-4 text-gray-400">
+            class="mt-8 rounded-lg bg-main-500 border border-main-300 p-4 text-gray-400">
             {#if !user}
                 <p class=" text-red-100">
                     Please log in or create an account to add {asset.name} to a collection.
@@ -26,11 +26,13 @@ export let asset: Asset, user, closeCollectionPopup
             {:else}
                 <p class="text-white mb-2">
                     Add {asset.name} from
-                    {mapAssetType(asset.asset)} for {mapGame(asset.game)} to a collection:
+                    {mapAssetType(asset.asset_category)} for {mapGame(
+                        asset.game
+                    )} to a collection:
                 </p>
                 <div class="grid grid-cols-1 gap-3">
                     <div
-                        class="bg-main-600 transition-colors border-2 border-main-300 hover:bg-main-500 cursor-pointer p-2 text-white rounded-md">
+                        class="bg-main-600 transition-colors border border-main-300 hover:bg-main-500 cursor-pointer p-2 text-white rounded-md">
                         <i class="fas fa-plus-circle"></i> Create a new collection
                     </div>
                 </div>

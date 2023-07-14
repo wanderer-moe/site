@@ -106,17 +106,12 @@ function makeRequest() {
 
     let url = 'https://v2-api-testing.wanderer.moe/search?'
 
-    if (query) {
-        url += new URLSearchParams({ query })
-    }
+    if (query) url += new URLSearchParams({ query })
 
-    if (filteredGames.length > 0) {
-        url += `&game=${filteredGames.join(',')}`
-    }
+    if (filteredGames.length > 0) url += `&game=${filteredGames.join(',')}`
 
-    if (filteredAssetCategories.length > 0) {
+    if (filteredAssetCategories.length > 0)
         url += `&asset=${filteredAssetCategories.join(',')}`
-    }
 
     fetch(url)
         .then((res) => res.json())
@@ -238,6 +233,7 @@ getAssetCategoriesFromGames()
                     </div>
                 </div>
             </div>
+            <!-- todo: fix this monstrosity -->
             <div>
                 <div>
                     <div class="flex gap-2">
@@ -245,9 +241,9 @@ getAssetCategoriesFromGames()
                             type="text"
                             bind:this="{searchInput}"
                             placeholder="Search"
-                            class="mb-4 w-full rounded-md border-2 border-main-400 bg-main-500 px-4 py-4 text-lg text-white transition hover:border-main-300 focus:outline-none" />
+                            class="mb-4 w-full rounded-md border border-main-300 bg-main-500 px-4 py-4 text-lg text-white transition hover:border-main-200 focus:outline-none" />
                         <button
-                            class="mb-4 flex items-center rounded-md border-2 border-main-400 bg-main-500 px-4 py-2 text-lg text-white transition hover:border-main-300"
+                            class="mb-4 flex items-center rounded-md border border-main-300 bg-main-500 px-4 py-2 text-lg text-white transition hover:border-main-200"
                             on:click="{searchForAssets}">
                             <i class="fas fa-search mr-2"></i>
                             Search</button>
@@ -258,10 +254,10 @@ getAssetCategoriesFromGames()
                                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                                 <!-- svelte-ignore a11y-no-static-element-interactions -->
                                 <div
-                                    class="cursor-pointer rounded-md border-2 bg-main-500 px-4 py-1.5 text-lg text-white transition hover:border-main-300
+                                    class="cursor-pointer rounded-md border bg-main-500 px-4 py-1.5 text-lg text-white transition hover:border-main-200
                                     {$selectedGames.includes(game.name)
-                                        ? 'border-main-300'
-                                        : 'border-main-400'}
+                                        ? 'border-main-200'
+                                        : 'border-main-300'}
                                     "
                                     on:click="{() =>
                                         handleGameSelection(game.name)}">
@@ -287,14 +283,14 @@ getAssetCategoriesFromGames()
                                         validAssetCategories.includes(asset)
                                             ? toggleAssetCategory(asset)
                                             : null}"
-                                    class="rounded-md border-2 bg-main-500 px-4 py-1.5 text-lg text-white transition
+                                    class="rounded-md border bg-main-500 px-4 py-1.5 text-lg text-white transition
                                     {validAssetCategories.length === 0 ||
                                     validAssetCategories.includes(asset)
-                                        ? 'cursor-pointer hover:border-main-300'
+                                        ? 'cursor-pointer hover:border-main-200'
                                         : 'cursor-not-allowed opacity-50'} 
                                     {$selectedAssetCategories.includes(asset)
-                                        ? 'border-main-300'
-                                        : 'border-main-400'} ">
+                                        ? 'border-main-200'
+                                        : 'border-main-300'} ">
                                     {mapAssetType(asset)}
                                 </div>
                             {/each}
@@ -322,7 +318,7 @@ getAssetCategoriesFromGames()
                 {:else if results.length > numAssetsToDisplay}
                     <div class="flex justify-center">
                         <button
-                            class="my-8 cursor-pointer rounded-md border-2 border-main-400 bg-main-500 px-20 py-2.5 text-lg text-white hover:border-main-300"
+                            class="my-8 cursor-pointer rounded-md border border-main-300 bg-main-500 px-20 py-2.5 text-lg text-white hover:border-main-200"
                             on:click="{handleViewMore}">
                             View More
                         </button>

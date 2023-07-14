@@ -16,7 +16,7 @@ export let closeContribute
             ✕
         </button>
         <div
-            class="mt-6 rounded-lg bg-main-500 border-2 border-main-400 p-8 text-gray-400">
+            class="mt-6 rounded-lg bg-main-500 border border-main-300 p-8 text-gray-400">
             <div>
                 <div class="flex justify-center">
                     <div class="rtl flex flex-col items-center gap-2">

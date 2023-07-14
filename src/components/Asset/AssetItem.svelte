@@ -19,7 +19,7 @@ export let user
 <div
     role="button"
     tabindex="0"
-    class="relative flex transform cursor-pointer items-center rounded-md border-2 border-main-400 bg-main-500 p-3 font-semibold text-gray-400 transition duration-150 ease-in-out hover:border-main-300">
+    class="relative flex transform cursor-pointer items-center rounded-md border border-main-300 bg-main-500 p-3 font-semibold text-gray-400 transition duration-150 ease-in-out hover:border-main-200">
     <Lazy
         height="{128}"
         placeholder="{LoadPlaceHolder}"
@@ -30,14 +30,14 @@ export let user
         <img
             id="{asset.name}"
             class="max-w-28 h-28 max-h-28 w-28 object-contain object-left p-1"
-            src="{asset.url}"
+            src="https://cdn.wanderer.moe/{asset.url}"
             alt="{asset.name}" />
     </Lazy>
     <div class="p-2">
         <div class="whitespace-normal break-all">
             <div class="flex flex-row gap-1 text-xs">
                 <span
-                    class="rounded-md bg-main-600 border-2 border-main-400 flex items-center px-2.5 py-1 text-xs font-semibold text-white">
+                    class="rounded-md bg-main-600 border border-main-300/50 flex items-center px-2.5 py-1 text-xs font-semibold text-white">
                     <img
                         src="https://cdn.wanderer.moe/{asset.game}/icon.png"
                         alt="{asset.game} cover"
@@ -45,8 +45,8 @@ export let user
                     {mapGame(asset.game)}
                 </span>
                 <span
-                    class="rounded-md bg-main-600 border-2 border-main-400 px-2.5 py-1 text-xs font-semibold text-white">
-                    {mapAssetType(asset.asset)}
+                    class="rounded-md bg-main-600 border border-main-300/50 px-2.5 py-1 text-xs font-semibold text-white">
+                    {mapAssetType(asset.asset_category)}
                 </span>
             </div>
             <div class="my-3">
@@ -54,10 +54,10 @@ export let user
                     {asset.name.replace('.png', '')}
                 </p>
                 <p class="text-xs">
-                    Uploaded {formatTimeAgo(asset.uploadedDate)}
+                    Uploaded {formatTimeAgo(asset.uploaded_date)}
                 </p>
                 <p class="text-xs">
-                    {bytesToFileSize(asset.fileSize)}
+                    {bytesToFileSize(asset.file_size)}
                 </p>
             </div>
             <div class="flex gap-2">

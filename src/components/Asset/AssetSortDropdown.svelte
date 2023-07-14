@@ -20,7 +20,7 @@ function updateSort(sortingOption) {
             aria
             role="button"
             tabindex="0"
-            class="flex w-full items-center justify-center rounded-lg border border-main-400 bg-main-500 p-3 transition-colors duration-150 hover:border-main-300 hover:bg-main-500"
+            class="flex w-full items-center justify-center rounded-lg border border-main-300 bg-main-500 p-3 transition-colors duration-150 hover:border-main-200 hover:bg-main-500"
             on:keypress="{() => (sortMenuOpen = !sortMenuOpen)}"
             on:click="{() => (sortMenuOpen = !sortMenuOpen)}">
             <span class="text-white"

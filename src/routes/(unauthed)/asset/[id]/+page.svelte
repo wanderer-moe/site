@@ -16,7 +16,9 @@ const { asset, similarAssets } = assetInformation
 // console.log(asset, similarAssets)
 
 onMount(async () => {
-    resolution = await getImageResolution(asset.url)
+    resolution = await getImageResolution(
+        `https://cdn.wanderer.moe/${asset.url}`
+    )
 })
 
 // console.log(assetInformation)
@@ -34,7 +36,7 @@ onMount(async () => {
                     <div class="flex flex-col md:flex-row">
                         <div class="w-full md:w-1/2">
                             <img
-                                src="{asset.url}"
+                                src="https://cdn.wanderer.moe/{asset.url}"
                                 alt="asset"
                                 class="h-full max-h-full w-full max-w-full rounded-lg border border-main-300 bg-main-500 object-cover"
                                 style="background-image: url('/img/grid.png')" />
@@ -48,7 +50,7 @@ onMount(async () => {
                                             class="my-1 flex flex-row gap-2 text-lg">
                                             <a
                                                 href="/?game={asset.game}"
-                                                class="border-2 border-main-400 rounded-md bg-main-500 flex items-center px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:border-main-300">
+                                                class="border border-main-300 rounded-md bg-main-500 flex items-center px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:border-main-200">
                                                 <img
                                                     src="https://cdn.wanderer.moe/{asset.game}/icon.png"
                                                     alt="{asset.game} cover"
@@ -56,9 +58,11 @@ onMount(async () => {
                                                 {mapGame(asset.game)}
                                             </a>
                                             <a
-                                                href="/?asset={asset.asset}"
-                                                class="border-2 border-main-400 rounded-md bg-main-500 px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:border-main-300">
-                                                {mapAssetType(asset.asset)}
+                                                href="/?asset={asset.asset_category}"
+                                                class="border border-main-300 rounded-md bg-main-500 px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:border-main-200">
+                                                {mapAssetType(
+                                                    asset.asset_category
+                                                )}
                                             </a>
                                         </div>
                                         <div class="my-2">
@@ -68,12 +72,12 @@ onMount(async () => {
                                             </h1>
                                             <p class="text-sm text-gray-300">
                                                 Uploaded {formatTimeAgo(
-                                                    asset.uploadedDate
+                                                    asset.uploaded_date
                                                 )}
                                             </p>
                                             <p class="text-sm text-gray-300">
                                                 {bytesToFileSize(
-                                                    asset.fileSize
+                                                    asset.file_size
                                                 )}
                                             </p>
                                             <p

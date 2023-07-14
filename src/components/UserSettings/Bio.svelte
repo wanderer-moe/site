@@ -5,12 +5,12 @@ let bio = ''
 export let user
 
 onMount(() => {
-    bio = user.bio
+    bio = user.bio || ''
 })
 </script>
 
 <div
-    class="bg-main-500 border-2 border-main-400 rounded-md text-white p-2"
+    class="bg-main-500 border border-main-300 rounded-md text-white p-2"
     id="bio">
     <p class="text-lg font-bold">Bio</p>
     <p class="text-xs text-gray-400">
@@ -18,10 +18,9 @@ onMount(() => {
         other users. Limited to 200 characters.
     </p>
     <textarea
-        class="h-20 resize-none mt-2 w-full rounded-md border-2 {bio.length >=
-        200
+        class="h-20 resize-none mt-2 w-full rounded-md border {bio.length >= 200
             ? 'border-red-200 hover:border-red-200'
-            : 'border-main-300 hover:border-main-300'} bg-main-600 p-1 text-white transition focus:outline-none"
+            : 'border-main-300 hover:border-main-200'} bg-main-600 p-1 text-white transition focus:outline-none"
         maxlength="200"
         bind:value="{bio}"></textarea>
     <p

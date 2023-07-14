@@ -47,7 +47,7 @@ function changeLocale(lang) {
             tabindex="0"
             on:keypress="{() => (menuOpen = !menuOpen)}"
             on:click="{() => (menuOpen = !menuOpen)}"
-            class="flex w-full items-center justify-center rounded-xl border border-main-400 bg-main-600 p-1 transition-colors duration-150 hover:border-main-300 hover:bg-main-500">
+            class="flex w-full items-center justify-center rounded-xl border border-main-300 bg-main-600 p-1 transition-colors duration-150 hover:border-main-200 hover:bg-main-500">
             <!-- <span>Language</span> -->
             <img
                 class="ml-2 mr-1 h-4 w-4 rounded-md"
@@ -61,7 +61,7 @@ function changeLocale(lang) {
                 out:fly|global="{{ y: 10, easing: cubicOut, duration: 200 }}"
                 class="absolute bottom-8 z-50 mb-2 w-full">
                 <div
-                    class="grid grid-cols-1 gap-1 rounded-xl border border-main-400 bg-main-600 p-1 transition-colors duration-150 sm:grid-cols-2">
+                    class="grid grid-cols-1 gap-1 rounded-xl border border-main-300 bg-main-600 p-1 transition-colors duration-150 sm:grid-cols-2">
                     {#each locales as locale}
                         <div
                             aria

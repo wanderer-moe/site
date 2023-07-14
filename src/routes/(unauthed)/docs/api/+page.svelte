@@ -18,10 +18,10 @@ import Banner from '@/components/Banner/GameBanner.svelte'
             <div>
                 <div>
                     <div
-                        class="mb-2 rounded-lg bg-main-500 border-2 border-main-400 p-2 text-gray-400">
+                        class="mb-2 rounded-lg bg-main-500 border border-main-300 p-2 text-gray-400">
                         <div class="mb-3 flex flex-wrap gap-2 text-sm">
                             <div
-                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
+                                class="w-full rounded-md bg-main-600 border border-main-300 p-2">
                                 <div class="my-2 text-lg">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -60,7 +60,7 @@ import Banner from '@/components/Banner/GameBanner.svelte'
                                 </div>
                             </div>
                             <div
-                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
+                                class="w-full rounded-md bg-main-600 border border-main-300 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -76,7 +76,7 @@ import Banner from '@/components/Banner/GameBanner.svelte'
                                 </p>
                             </div>
                             <div
-                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
+                                class="w-full rounded-md bg-main-600 border border-main-300 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -90,7 +90,7 @@ import Banner from '@/components/Banner/GameBanner.svelte'
                                 </p>
                             </div>
                             <div
-                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
+                                class="w-full rounded-md bg-main-600 border border-main-300 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -110,7 +110,7 @@ import Banner from '@/components/Banner/GameBanner.svelte'
                                 </p>
                             </div>
                             <div
-                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
+                                class="w-full rounded-md bg-main-600 border border-main-300 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">
@@ -124,7 +124,7 @@ import Banner from '@/components/Banner/GameBanner.svelte'
                                 </p>
                             </div>
                             <div
-                                class="w-full rounded-md bg-main-600 border-2 border-main-400 p-2">
+                                class="w-full rounded-md bg-main-600 border border-main-300 p-2">
                                 <div class="my-2 text-lg text-white">
                                     <span
                                         class="mr-1 rounded-md bg-white p-1 px-2.5 text-main-600">

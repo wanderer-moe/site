@@ -34,7 +34,7 @@ export let user
 </script>
 
 <div
-    class="bg-main-500 border-2 border-main-400 rounded-md text-white p-2"
+    class="bg-main-500 border border-main-300 rounded-md text-white p-2"
     id="profile">
     <p class="text-lg font-bold">Your Profile Picture</p>
     <p class="text-xs text-gray-400">
@@ -58,15 +58,15 @@ export let user
                     <img
                         src="{user.avatar_url}"
                         alt="{user.username}'s avatar"
-                        class="w-24 h-24 border-2 border-main-300 object-contain rounded-md" />
+                        class="w-24 h-24 border border-main-300 object-contain rounded-md" />
                 {:else if avatarSelected}
                     <img
                         src="{URL.createObjectURL(selectedAvatar.files[0])}"
                         alt="Your avatar"
-                        class="w-24 h-24 border-2 border-main-300 object-contain rounded-md" />
+                        class="w-24 h-24 border border-main-300 object-contain rounded-md" />
                 {:else}
                     <div
-                        class="w-24 h-24 bg-main-600 border-2 border-main-300 rounded-md">
+                        class="w-24 h-24 bg-main-600 border border-main-300 rounded-md">
                     </div>
                 {/if}
             </label>
