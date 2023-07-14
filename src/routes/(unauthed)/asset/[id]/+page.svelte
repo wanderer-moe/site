@@ -48,7 +48,7 @@ onMount(async () => {
                                             class="my-1 flex flex-row gap-2 text-lg">
                                             <a
                                                 href="/?game={asset.game}"
-                                                class="border-2 border-main-400 rounded-md bg-main-500 flex items-center px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
+                                                class="border-2 border-main-400 rounded-md bg-main-500 flex items-center px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:border-main-300">
                                                 <img
                                                     src="https://cdn.wanderer.moe/{asset.game}/icon.png"
                                                     alt="{asset.game} cover"
@@ -57,7 +57,7 @@ onMount(async () => {
                                             </a>
                                             <a
                                                 href="/?asset={asset.asset}"
-                                                class="border-2 border-main-400 rounded-md bg-main-500 px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
+                                                class="border-2 border-main-400 rounded-md bg-main-500 px-2.5 py-1 font-semibold text-white transition duration-150 ease-in-out hover:border-main-300">
                                                 {mapAssetType(asset.asset)}
                                             </a>
                                         </div>

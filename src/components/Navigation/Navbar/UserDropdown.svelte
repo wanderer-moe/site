@@ -47,6 +47,7 @@ export let user
                             role="button"
                             tabindex="0"
                             href="/user/{user?.username}"
+                            rel="external"
                             class="flex items-center p-1 text-left hover:bg-main-400 rounded-lg transition-colors duration-200 hover:text-white">
                             <span class="cursor-pointer">View Profile</span>
                         </a>
@@ -57,6 +58,7 @@ export let user
                             role="button"
                             tabindex="0"
                             href="/upload/"
+                            rel="external"
                             class="flex items-center p-1 text-left hover:bg-main-400 rounded-lg transition-colors duration-200 hover:text-white">
                             <span class="cursor-pointer">Upload Assets</span>
                         </a>
@@ -67,6 +69,7 @@ export let user
                             role="button"
                             tabindex="0"
                             href="/account/"
+                            rel="external"
                             class="flex items-center p-1 text-left hover:bg-main-400 rounded-lg transition-colors duration-200 hover:text-white">
                             <span class="cursor-pointer">Account Settings</span>
                         </a>
@@ -77,6 +80,7 @@ export let user
                             role="button"
                             tabindex="0"
                             href="/account/connections/"
+                            rel="external"
                             class="flex items-center p-1 text-left hover:bg-main-400 rounded-lg transition-colors duration-200 hover:text-white">
                             <span class="cursor-pointer">Connections</span>
                         </a>
@@ -87,6 +91,7 @@ export let user
                             role="button"
                             tabindex="0"
                             href="/account/logout/"
+                            rel="external"
                             class="flex items-center p-1 text-left hover:bg-main-500 rounded-lg transition-colors duration-200 hover:text-white">
                             <span class="cursor-pointer">Logout</span>
                         </a>

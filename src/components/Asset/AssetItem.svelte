@@ -19,7 +19,7 @@ export let user
 <div
     role="button"
     tabindex="0"
-    class="relative flex transform cursor-pointer items-center rounded-md border-2 border-main-400 bg-main-500 p-3 font-semibold text-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:border-main-300">
+    class="relative flex transform cursor-pointer items-center rounded-md border-2 border-main-400 bg-main-500 p-3 font-semibold text-gray-400 transition duration-150 ease-in-out hover:border-main-300">
     <Lazy
         height="{128}"
         placeholder="{LoadPlaceHolder}"
