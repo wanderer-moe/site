@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { Asset } from '@/lib/types/asset'
-import Tooltip from './Tooltip.svelte'
+import Tooltip from '@/components/Asset/Tooltip.svelte'
 
 export let asset: Asset
 export let user

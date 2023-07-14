@@ -1,6 +1,36 @@
 <script lang="ts">
+import {
+    possibleRoutes,
+    calculateLevenshtein,
+} from '$lib/helpers/possibleRoutes'
 import { t } from 'svelte-i18n'
 import { page } from '$app/stores'
+import { onMount } from 'svelte'
+
+let routeName = $page.url.pathname
+let misspelledRoute = ''
+
+onMount(() => {
+    if ($page.status === 404) {
+        console.log(routeName)
+        const matches = possibleRoutes.map((route) => {
+            return {
+                route,
+                distance: calculateLevenshtein(route, routeName),
+            }
+        })
+
+        // console.log(matches)
+        matches.sort((a, b) => a.distance - b.distance)
+
+        if (matches[0].distance < 5) {
+            console.warn(
+                `Possible misspelled route: ${matches[0].route} (distance: ${matches[0].distance})`
+            )
+            misspelledRoute = matches[0].route
+        }
+    }
+})
 </script>
 
 <svelte:head>
@@ -26,8 +56,16 @@ import { page } from '$app/stores'
             {#if $page.error?.message}
                 <p class="my-2 text-gray-400">Error: {$page.error?.message}</p>
             {/if}
+            {#if misspelledRoute}
+                <p class="my-2 text-gray-400">
+                    Maybe you meant to go to <a
+                        href="{misspelledRoute}"
+                        class="text-white">{misspelledRoute}</a
+                    >?
+                </p>
+            {/if}
             <button
-                class="mt-2 px-4 py-2 rounded-lg bg-main-300 text-white hover:bg-main-400 transition"
+                class="text-white"
                 on:click="{() => (window.location.href = '/')}">
                 Go Back <i class="fas fa-arrow-right"></i>
             </button>

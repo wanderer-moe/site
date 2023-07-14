@@ -12,7 +12,7 @@ export let closeContribute
         out:fly|global="{{ y: 50, easing: cubicOut, duration: 300 }}">
         <button
             class="close-button absolute right-0 top-6 rounded-lg p-4 text-white"
-            on:click="{closeContribute}">
+            on:click="{() => closeContribute()}">
             ✕
         </button>
         <div
@@ -81,7 +81,7 @@ export let closeContribute
         class="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-[70] backdrop-blur-sm backdrop-filter"
         in:fade|global="{{ duration: 200 }}"
         out:fade|global="{{ duration: 100 }}"
-        on:click="{closeContribute()}"
-        on:keypress="{closeContribute()}">
+        on:click="{() => closeContribute()}"
+        on:keypress="{() => closeContribute()}">
     </button>
 </div>

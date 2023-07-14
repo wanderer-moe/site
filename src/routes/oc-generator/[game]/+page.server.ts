@@ -10,7 +10,7 @@ export async function load({ url, params }) {
             ).then((res) => res.json()),
         ])
 
-        if (gameInformation[0].status === 'not found') {
+        if (gameInformation[0].status === 'error') {
             throw error(404, 'Game not found')
         }
 

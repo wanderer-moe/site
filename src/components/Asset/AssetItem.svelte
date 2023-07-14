@@ -8,7 +8,9 @@ import LoadPlaceHolder from './LoadPlaceHolder.svelte'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing'
 import { mapGame, mapAssetType } from '@/lib/helpers/casing/gameMapping'
 import AssetCollection from './AssetCollection.svelte'
+import AddToCollection from '@/components/Modals/AddToCollection.svelte'
 
+let collectionPopupOpen = false
 export let asset: Asset
 export let user
 </script>
@@ -75,8 +77,20 @@ export let user
                         <i class="fa-solid fa-external-link mr-1"></i> View Details
                     </button>
                 </a>
-                <AssetCollection asset="{asset}" user="{user}" />
+                <div
+                    role="button"
+                    tabindex="0"
+                    on:click="{() => (collectionPopupOpen = true)}">
+                    <AssetCollection asset="{asset}" user="{user}" />
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+{#if collectionPopupOpen}
+    <AddToCollection
+        asset="{asset}"
+        user="{user}"
+        closeCollectionPopup="{() => (collectionPopupOpen = false)}" />
+{/if}
