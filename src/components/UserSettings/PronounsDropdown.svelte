@@ -20,7 +20,7 @@ let listOpen = false
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
         class="relative text-center transition-colors border-main-300 border-2 w-full rounded-md px-1 hover:cursor-pointer {listOpen
-            ? 'bg-main-500 '
+            ? 'bg-main-500 z-[90]'
             : 'bg-main-600 hover:bg-main-500'}"
         on:keypress="{() => (listOpen = !listOpen)}"
         on:click="{() => (listOpen = !listOpen)}">
@@ -30,7 +30,7 @@ let listOpen = false
         <div
             in:fly|global="{{ y: -15, easing: quintOut, duration: 200 }}"
             out:fly|global="{{ y: -10, easing: cubicOut, duration: 100 }}"
-            class="absolute top-8 z-[90] bg-main-600 border-main-300 border-2 w-full rounded-md p-1 overflow-y-auto h-32">
+            class="absolute top-8 z-[90] bg-main-600 border-main-300 border-2 w-full rounded-md p-1 overflow-y-auto h-48">
             <div class="grid gap-1">
                 {#each pronounsList as pronoun}
                     <!-- svelte-ignore a11y-click-events-have-key-events -->

@@ -48,7 +48,9 @@ $: selectedPronouns = pronouns !== 'other' ? pronouns : 'other'
 $: console.log(pronouns)
 </script>
 
-<div class="bg-main-500 border-2 border-main-400 rounded-md text-white p-2">
+<div
+    class="bg-main-500 border-2 border-main-400 rounded-md text-white p-2"
+    id="pronouns">
     <p class="text-lg font-bold">Pronouns</p>
     <p class="text-xs text-gray-400">
         Data collected from pronouns.page, not all pronouns are available due to
