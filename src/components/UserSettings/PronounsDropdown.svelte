@@ -13,7 +13,7 @@ export let pronounsList,
 
 let listOpen = false
 
-$: document.body.style.overflow = listOpen ? 'hidden' : 'auto' // prevent accidental scrolling when dropdown is open
+// $: document.body.style.overflow = listOpen ? 'hidden' : 'auto' // prevent accidental scrolling when dropdown is open
 </script>
 
 <div class="relative w-full">
@@ -44,15 +44,10 @@ $: document.body.style.overflow = listOpen ? 'hidden' : 'auto' // prevent accide
                             currentSelected = pronoun
                             listOpen = false
                         }}">
-                        {pronoun}
+                        <p>
+                            {pronoun}
+                        </p>
                         <p class="text-gray-400 text-xs">
-                            <!-- (e.g {subjectPronouns[
-                                pronounsList.indexOf(pronoun)
-                            ]}/{objectPronouns[
-                                pronounsList.indexOf(pronoun)
-                            ]}/{possessivePronouns[
-                                pronounsList.indexOf(pronoun)
-                            ]}) -->
                             <span
                                 class="{type === 'subject'
                                     ? 'text-white'

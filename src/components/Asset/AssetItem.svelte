@@ -74,7 +74,7 @@ export let user
                 <a href="/asset/{asset.id}" rel="external">
                     <button
                         class="btn w-full px-2.5 py-1 font-semibold transition md:w-auto">
-                        <i class="fa-solid fa-external-link mr-1"></i> View Details
+                        <i class="fa-solid fa-external-link mr-1"></i> View
                     </button>
                 </a>
                 <div
