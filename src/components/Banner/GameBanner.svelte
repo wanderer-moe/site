@@ -1,18 +1,3 @@
-<style lang="postcss">
-.fade-in {
-    animation: fadeIn 0.2s forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-</style>
-
 <script lang="ts">
 import { t } from 'svelte-i18n'
 import { fade } from 'svelte/transition'

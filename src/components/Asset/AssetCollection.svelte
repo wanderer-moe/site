@@ -1,9 +1,6 @@
 <script lang="ts">
 import type { Asset } from '@/lib/types/asset'
 import Tooltip from '@/components/Asset/Tooltip.svelte'
-
-export let asset: Asset
-export let user
 </script>
 
 <div class="group inline-flex items-center justify-center">

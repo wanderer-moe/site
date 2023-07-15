@@ -81,7 +81,7 @@ export let user
                     role="button"
                     tabindex="0"
                     on:click="{() => (collectionPopupOpen = true)}">
-                    <AssetCollection asset="{asset}" user="{user}" />
+                    <AssetCollection />
                 </div>
             </div>
         </div>
