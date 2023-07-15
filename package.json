@@ -13,7 +13,7 @@
         "prisma:push": "npx prisma db push",
         "prisma:format": "npx prisma format",
         "lint": "eslint --ext .js,.svelte src",
-        "svelte:check": "svelte-check --fail-on-warnings"
+        "svelte:check": "svelte-check --fail-on-warnings --compiler-warnings 'css-unused-selector:ignore' --output machine"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.22.7",

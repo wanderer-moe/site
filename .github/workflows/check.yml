@@ -56,6 +56,9 @@ jobs:
             - name: Install dependencies
               run: pnpm install
 
+            - name: Initialize git submodules (i18n)
+              run: git submodule update --init --recursive
+
             - name: Svelte check
               run: pnpm run svelte:check
 
