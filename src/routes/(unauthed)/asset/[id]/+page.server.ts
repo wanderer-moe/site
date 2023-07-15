@@ -1,10 +1,8 @@
 import { error } from '@sveltejs/kit'
 
-export async function load({ url, params, fetch }) {
-    // get id from params
+export async function load({ params, fetch }) {
     const { id } = params
 
-    // TODO: finalize schema && rewrite
     try {
         const assetInformation = await fetch(
             `https://v2-api-testing.wanderer.moe/asset/${id}`

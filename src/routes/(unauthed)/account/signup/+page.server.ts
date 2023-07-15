@@ -29,8 +29,7 @@ export const actions: Actions = {
         //     })
         // }
 
-        // check if all required fields are present and valid
-        // TODO: add more validation using checkEmail, checkPassword, checkUsername functions
+        // idk why but vscode complains when modiying this, so I'm not going to touch it for now
         if (
             !username ||
             !password ||

@@ -31,6 +31,8 @@ onMount(() => {
         }
     }
 })
+
+// console.log($page)
 </script>
 
 <svelte:head>

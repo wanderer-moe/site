@@ -7,8 +7,9 @@ import {
     formatPronouns,
 } from '@/lib/helpers/user/pronouns'
 import { onMount } from 'svelte'
-export let user
 
+export let user
+let selectedPronouns, pronouns
 let currentSubjectPronoun, currentObjectPronoun, currentPossessivePronoun
 
 onMount(() => {
@@ -21,23 +22,14 @@ onMount(() => {
                 currentObjectPronoun,
                 currentPossessivePronoun,
             ] = pronouns
-            // console.log(
-            //     currentSubjectPronoun,
-            //     currentObjectPronoun,
-            //     currentPossessivePronoun
-            // )
         } else {
-            // indexing through subjectPronouns, possessivePronouns and objectPronouns to see where if the pronoun matches so it can be set as the current pronoun
             for (const pronoun of pronouns) {
                 if (subjectPronouns.includes(pronoun)) {
                     currentSubjectPronoun = pronoun
-                    // console.log(currentSubjectPronoun)
                 } else if (possessivePronouns.includes(pronoun)) {
                     currentPossessivePronoun = pronoun
-                    // console.log(currentPossessivePronoun)
                 } else if (objectPronouns.includes(pronoun)) {
                     currentObjectPronoun = pronoun
-                    // console.log(currentObjectPronoun)
                 }
             }
         }
@@ -52,8 +44,6 @@ $: pronouns = formatPronouns(
 )
 
 $: selectedPronouns = pronouns !== 'other' ? pronouns : 'other'
-
-$: console.log(pronouns)
 </script>
 
 <div
