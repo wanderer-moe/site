@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier:fmt": "prettier --write \"**/*.{ts,tsx,css,js}\" --cache"
+    "prettier:fmt": "prettier --write \"**/*.{ts,tsx,css,js}\" --cache",
+    "prettier:chk": "prettier --check \"**/*.{ts,tsx,css,js}\" --cache"
   },
   "dependencies": {
     "@lucia-auth/adapter-prisma": "^2.0.0",
