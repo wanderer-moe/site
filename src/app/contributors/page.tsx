@@ -1,6 +1,6 @@
 import { Contributor } from '@/interfaces/discord/contributor'
 
-async function getData() {
+async function getData(): Promise<Contributor[]> {
     const res = await fetch('https://api.wanderer.moe/discord/contributors')
     const { contributors } = await res.json()
     return contributors

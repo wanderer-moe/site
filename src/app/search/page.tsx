@@ -1,9 +1,18 @@
 import { Asset } from '@/interfaces/asset'
 
-async function getData() {
-    const res = await fetch('https://v2-api-testing.wanderer.moe/recent')
+async function getData(params?: Props['SearchParams']) {
+    // when no parameters are passed into search, same results as /recent
+    const res = await fetch('https://v2-api-testing.wanderer.moe/search')
     const { results } = await res.json()
     return results
+}
+
+type Props = {
+    SearchParams?: {
+        query?: string
+        game?: string
+        assetType?: string
+    }
 }
 
 async function Home() {
