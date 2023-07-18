@@ -12,3 +12,7 @@ export interface Asset {
     download_count?: number
     file_size: number
 }
+
+export interface SimilarAsset extends Asset {
+    similarAssets: Asset[]
+}

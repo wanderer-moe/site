@@ -1,7 +1,9 @@
 import { Metadata, ResolvingMetadata } from 'next'
-import { Asset } from '@/interfaces/asset'
+import { Asset, SimilarAsset } from '@/interfaces/asset'
 
-async function getAsset(id: string) {
+async function getAsset(
+    id: string,
+): Promise<{ asset: Asset; similarAssets: SimilarAsset[] }> {
     const res = await fetch(`https://v2-api-testing.wanderer.moe/asset/${id}`)
     const { asset, similarAssets } = await res.json()
     return { asset, similarAssets }

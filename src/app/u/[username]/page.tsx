@@ -1,4 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
+import { User } from '@/interfaces/user'
+import { Asset } from '@/interfaces/asset'
 
 type Props = {
     params: { username: string }
@@ -17,7 +19,9 @@ export async function generateMetadata(
     }
 }
 
-async function getUser(username: string) {
+async function getUser(
+    username: string,
+): Promise<{ user: User; uploadedAssets: Asset[] }> {
     const res = await fetch(
         `https://v2-api-testing.wanderer.moe/user/${username}`,
     )
