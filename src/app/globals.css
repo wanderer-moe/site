@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('satoshi.css');
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        @apply bg-[#09090B] text-white;
+    }
+
+    body {
+        font-family: 'Satoshi-Medium';
+        @apply m-0 overflow-x-hidden text-sm leading-relaxed;
+    }
+
+    a {
+        @apply text-current;
+    }
+
+    @screen sm {
+        body {
+            @apply text-base;
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply rounded-full bg-white;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-white;
+    }
+
+    ::-moz-selection {
+        @apply bg-indigo-500 bg-opacity-20 text-white;
+    }
+
+    ::selection {
+        @apply bg-indigo-500 bg-opacity-20 text-white;
+    }
+
+    .rtl {
+        direction: rtl;
+    }
+}

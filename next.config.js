@@ -6,6 +6,9 @@ const nextConfig = {
         serverActions: true,
         serverComponentsExternalPackages: ['@prisma/client'],
     },
+    images: {
+        domains: ['cdn.wanderer.moe'],
+    },
 }
 
 // export default withContentlayer(nextConfig)

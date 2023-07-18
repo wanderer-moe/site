@@ -1,10 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import { cn } from '@/lib/utils'
+import Navbar from '@/components/layouts/navbar'
 import { AuthProvider } from './authprovider'
-
-const inter = Inter({ subsets: ['latin'] })
+import { SiteFooter } from '@/components/layouts/footer'
 
 export const metadata: Metadata = {
     title: 'wanderer.moe',
@@ -20,9 +19,13 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-            <body className={cn('bg-background min-h-screen', inter.className)}>
-                <AuthProvider>{children}</AuthProvider>
+        <html lang="en" suppressHydrationWarning>
+            <body className={cn('bg-background min-h-screen')}>
+                <AuthProvider>
+                    <Navbar />
+                    {children}
+                    <SiteFooter />
+                </AuthProvider>
             </body>
         </html>
     )

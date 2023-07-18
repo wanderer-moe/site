@@ -4,6 +4,8 @@ import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { Asset } from '@/interfaces/asset'
 import { useCallback, useEffect, useState } from 'react'
+import { Input } from '@/components/ui/input'
+import { AssetItem } from '@/components/asset/assetitem'
 
 interface SearchParams {
     game?: string
@@ -19,6 +21,10 @@ function getData(searchParams: SearchParams) {
     )
         .then((res) => res.json())
         .then((data) => data.results)
+}
+
+function InputHandler() {
+    return <Input type="email" placeholder="Email" />
 }
 
 function SearchPage() {
@@ -42,11 +48,9 @@ function SearchPage() {
                 <div>Loading...</div>
             ) : (
                 <div className="flex flex-col items-center justify-center">
-                    <ul className="text-xl">
-                        {data.map((item: Asset) => (
-                            <li key={item.id}>- {item.name}</li>
-                        ))}
-                    </ul>
+                    {data.map((item: Asset) => (
+                        <AssetItem key={item.id} {...item} />
+                    ))}
                 </div>
             )}
         </main>
