@@ -9,7 +9,6 @@ generator client {
   previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
-// TODO: migrate users to lucia 2.0 as we're running prisma 5.0 
 model User {
   id                   String              @id @unique
   hashed_password      String?

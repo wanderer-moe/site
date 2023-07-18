@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npx prisma generate && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "prisma:generate": "npx prisma generate",
+    "prisma:push": "npx prisma push",
     "prettier:fmt": "prettier --write \"**/*.{ts,tsx,css,js}\" --cache",
     "prettier:chk": "prettier --check \"**/*.{ts,tsx,css,js}\" --cache"
   },
@@ -18,6 +19,7 @@
     "@planetscale/database": "^1.8.0",
     "@prisma/client": "^5.0.0",
     "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-navigation-menu": "^1.1.3",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
@@ -29,6 +31,7 @@
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
     "eslint-plugin-next-on-pages": "^1.3.1",
+    "framer-motion": "^10.12.22",
     "lucide-react": "^0.261.0",
     "next": "13.4.10",
     "next-auth": "^4.22.2",
@@ -46,6 +49,8 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.0"
+    "@types/bcrypt": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3"
   }
 }
