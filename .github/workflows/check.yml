@@ -3,7 +3,7 @@ name: Check formatting
 on:
     push:
         branches:
-            - "next"
+            - 'next'
 
 concurrency:
     group: ${{ github.job }}-${{ github.ref }}
@@ -33,3 +33,27 @@ jobs:
 
             - name: Prettier check
               run: pnpm run prettier:chk
+
+    typecheck:
+        name: TypeScript type checking
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: latest
+                  run_install: false
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: TypeScript type checking
+              run: pnpm run typecheck
