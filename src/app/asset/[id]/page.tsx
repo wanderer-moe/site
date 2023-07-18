@@ -1,4 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next'
+import { Asset } from '@/interfaces/asset'
 
 async function getAsset(id: string) {
     const res = await fetch(`https://v2-api-testing.wanderer.moe/asset/${id}`)
