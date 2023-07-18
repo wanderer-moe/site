@@ -10,10 +10,9 @@ generator client {
 }
 
 // TODO: migrate users to lucia 2.0 as we're running prisma 5.0 
-model AuthUser {
+model User {
   id                   String              @id @unique
-  auth_session         AuthSession[]
-  auth_key             AuthKey[]
+  hashed_password      String?
   avatar_url           String?
   banner_url           String?
   username             String              @unique
@@ -34,66 +33,43 @@ model AuthUser {
   followers Follower[]  @relation("FollowerToUser")
   following Following[] @relation("FollowingToUser")
 
-  @@map("auth_user")
-}
-
-model AuthSession {
-  id             String   @id @unique
-  user_id        String
-  active_expires BigInt
-  idle_expires   BigInt
-  auth_user      AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
-
-  @@index([user_id])
-  @@map("auth_session")
-}
-
-model AuthKey {
-  id              String   @id @unique
-  hashed_password String?
-  user_id         String
-  primary_key     Boolean
-  expires         BigInt?
-  auth_user       AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
-
-  @@index([user_id])
-  @@map("auth_key")
+  @@map("user")
 }
 
 model Follower {
-  id       String   @id @unique
+  id       String @id @unique
   user_id  String
-  follower AuthUser @relation("FollowerToUser", fields: [user_id], references: [id], onDelete: Cascade)
+  follower User   @relation("FollowerToUser", fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("follower")
 }
 
 model Following {
-  id        String   @id @unique
+  id        String @id @unique
   user_id   String
-  following AuthUser @relation("FollowingToUser", fields: [user_id], references: [id], onDelete: Cascade)
+  following User   @relation("FollowingToUser", fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("following")
 }
 
 model SelfAssignableTag {
-  id        Int      @id @default(autoincrement())
-  name      String
-  user_id   String
-  auth_user AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  id      Int    @id @default(autoincrement())
+  name    String
+  user_id String
+  user    User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("self_assignable_tag")
 }
 
 model SocialsConnection {
-  id        String   @id @unique
-  user_id   String
-  tiktok    String?
-  discord   String?
-  auth_user AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  id      String  @id @unique
+  user_id String
+  tiktok  String?
+  discord String?
+  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("socials_connection")
@@ -139,7 +115,7 @@ model Assets {
   tags           AssetTagsName @default(OFFICIAL)
   url            String
   status         Status        @default(PENDING)
-  auth_user      AuthUser      @relation(fields: [uploaded_by], references: [id], onDelete: Cascade)
+  user           User          @relation(fields: [uploaded_by], references: [id], onDelete: Cascade)
   uploaded_by    String
   uploaded_date  String
   view_count     Int           @default(0)
@@ -156,10 +132,10 @@ model Assets {
 }
 
 model SavedOCGenerators {
-  id         Int      @id @default(autoincrement())
+  id         Int    @id @default(autoincrement())
   game       String
   data       String
-  auth_user  AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user       User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
   user_id    String
   saved_date String
 

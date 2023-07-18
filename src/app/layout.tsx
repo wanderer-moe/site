@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { cn } from '@/lib/utils'
+import { AuthProvider } from './authprovider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,8 +21,8 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={cn('min-h-screen bg-background', inter.className)}>
-                {children}
+            <body className={cn('bg-background min-h-screen', inter.className)}>
+                <AuthProvider>{children}</AuthProvider>
             </body>
         </html>
     )
