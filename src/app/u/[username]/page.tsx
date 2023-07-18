@@ -29,7 +29,7 @@ async function getUser(
     return { user, uploadedAssets }
 }
 
-async function Page({
+async function UserPage({
     params: { username },
 }: {
     params: { username: string }
@@ -39,4 +39,4 @@ async function Page({
     return <></>
 }
 
-export default Page
+export default UserPage

@@ -26,10 +26,10 @@ export async function generateMetadata(
     }
 }
 
-async function Page({ params: { id } }: { params: { id: string } }) {
+async function AssetPage({ params: { id } }: { params: { id: string } }) {
     const { asset, similarAssets } = await getAsset(id)
 
     return <></>
 }
 
-export default Page
+export default AssetPage
