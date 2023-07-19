@@ -3,7 +3,6 @@ import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import { Prisma } from '@prisma/client'
 import { generateUserId } from '@/lib/generateUserId'
-
 import type { NextRequest } from 'next/server'
 
 export const POST = async (request: NextRequest) => {
@@ -41,8 +40,10 @@ export const POST = async (request: NextRequest) => {
         )
     }
     try {
+        const UUID = await generateUserId() // this has validation to check if the UUID is already in use
+        console.log(UUID)
         const user = await auth.createUser({
-            userId: generateUserId(), // uuidv4
+            userId: UUID,
             key: {
                 providerId: 'username',
                 providerUserId: username.toLowerCase(),
@@ -70,10 +71,11 @@ export const POST = async (request: NextRequest) => {
         return new Response(null, {
             status: 302,
             headers: {
-                Location: '/',
+                Location: '/account/',
             },
         })
     } catch (e) {
+        console.error(e)
         return NextResponse.json(
             {
                 error: 'An internal error occurred.',

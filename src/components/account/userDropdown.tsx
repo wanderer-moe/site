@@ -20,6 +20,7 @@ import {
     FileArchive,
     FileHeart,
 } from 'lucide-react'
+import { Input } from '../ui/input'
 
 export function UserNav() {
     return (
@@ -86,12 +87,15 @@ export function UserNav() {
                     </Link>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <Link href="/auth/logout" passHref>
-                    <DropdownMenuItem>
+                <form action="/api/auth/logout">
+                    <Button
+                        className="w-full text-red-200"
+                        variant="ghost"
+                        type="submit">
                         <LogOut className="mr-2 h-4 w-4" />
                         Log out
-                    </DropdownMenuItem>
-                </Link>
+                    </Button>
+                </form>
             </DropdownMenuContent>
         </DropdownMenu>
     )

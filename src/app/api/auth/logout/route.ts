@@ -5,8 +5,9 @@ import type { NextRequest } from 'next/server'
 export const POST = async (request: NextRequest) => {
     const authRequest = auth.handleRequest({ request, cookies })
     const session = await authRequest.validate()
+    console.log(session)
     if (!session) {
-        return new Response('Not authenticated', {
+        return new Response(null, {
             status: 401,
         })
     }
@@ -16,7 +17,7 @@ export const POST = async (request: NextRequest) => {
     return new Response(null, {
         status: 302,
         headers: {
-            Location: '/auth/login',
+            Location: '/',
         },
     })
 }

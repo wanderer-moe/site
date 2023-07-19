@@ -9,6 +9,7 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card'
+import { useRouter } from 'next/navigation'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
@@ -17,15 +18,29 @@ import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 
 export function CreateAccount() {
+    const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         setIsLoading(true)
 
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 1000)
+        const formData = new FormData(e.currentTarget)
+        console.log(formData)
+        const response = await fetch('/api/auth/signup', {
+            method: 'POST',
+            body: formData,
+            redirect: 'manual',
+        })
+
+        console.log(response)
+        if (response.status === 0) {
+            console.log('success')
+            return router.refresh()
+        } else {
+            console.log('failure')
+        }
+        setIsLoading(false)
     }
 
     return (
@@ -41,7 +56,7 @@ export function CreateAccount() {
                         <Separator className="my-4" />
                         Already have an account?{' '}
                         <Link
-                            href="/auth/login"
+                            href="/account/login"
                             passHref
                             className="text-white">
                             Login
@@ -52,7 +67,9 @@ export function CreateAccount() {
                     <div className="grid gap-2">
                         <Label htmlFor="email">Username</Label>
                         <Input
+                            disabled={isLoading}
                             id="username"
+                            name="username"
                             type="text"
                             placeholder="username"
                         />
@@ -62,6 +79,7 @@ export function CreateAccount() {
                         <Input
                             disabled={isLoading}
                             id="email"
+                            name="email"
                             type="email"
                             placeholder="email@domain.com"
                         />
@@ -71,6 +89,7 @@ export function CreateAccount() {
                         <Input
                             disabled={isLoading}
                             id="password"
+                            name="password"
                             type="password"
                             placeholder="••••••••••"
                         />

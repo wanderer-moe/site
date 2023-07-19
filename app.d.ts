@@ -8,10 +8,10 @@ declare namespace Lucia {
     type DatabaseUserAttributes = {
         username: string
         email: string
-        emailVerified: number
+        email_verified: number
         pronouns?: string
         bio?: string
-        dateJoined: string
+        date_joined: string
     }
     type DatabaseSessionAttributes = {}
 }

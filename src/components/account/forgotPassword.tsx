@@ -24,7 +24,7 @@ export function ForgotPassword() {
                     an account with that email we&apos;ll send a link your way
                     to reset your password.
                     <Separator className="my-4" />
-                    <Link href="/auth/login" passHref className="text-white">
+                    <Link href="/account/login" passHref className="text-white">
                         Login Instead
                     </Link>
                 </CardDescription>

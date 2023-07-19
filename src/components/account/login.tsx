@@ -40,14 +40,14 @@ export function Login() {
                         Enter your email and password to login to your account.
                         Don&apos;t have an account?{' '}
                         <Link
-                            href="/auth/signup"
+                            href="/account/signup"
                             passHref
                             className="text-white">
                             Sign Up
                         </Link>
                         <Separator className="my-4" />
                         <Link
-                            href="/auth/forgot-password"
+                            href="/account/forgot-password"
                             passHref
                             className="text-white">
                             Forgot Password?

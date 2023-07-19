@@ -9,7 +9,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "prisma:generate": "npx prisma generate",
-    "prisma:push": "npx prisma push",
+    "prisma:push": "npx prisma db push",
     "prettier:fmt": "prettier --write \"**/*.{ts,tsx,css,js}\"",
     "prettier:chk": "prettier --check \"**/*.{ts,tsx,css,js}\""
   },

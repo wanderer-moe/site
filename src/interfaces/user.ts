@@ -1,5 +1,5 @@
 export interface User {
-    id: string
+    userId: string
     avatar_url: string | null
     banner_url: string | null
     username: string

@@ -35,12 +35,11 @@ model User {
 }
 
 model Session {
-  id             String   @id @unique
+  id             String @id @unique
   user_id        String
   active_expires BigInt
   idle_expires   BigInt
-  created_at     DateTime
-  user           User     @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
 
   @@index([user_id])
 }
