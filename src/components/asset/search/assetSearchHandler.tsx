@@ -40,6 +40,10 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
         }
     }
 
+    const clearSelectedGames = () => {
+        setSelectedGames([])
+    }
+
     const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setQuery(event.target.value)
     }
@@ -69,12 +73,15 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
                     Search
                 </Button>
             </div>
-            <GameFilter
-                games={games}
-                selectedGames={selectedGames}
-                onGameChange={handleGameChange}
-            />
-            <CategoryFilter games={games} />
+            <div className="my-2">
+                <GameFilter
+                    games={games}
+                    selectedGames={selectedGames}
+                    onGameChange={handleGameChange}
+                    clearSelectedGames={clearSelectedGames}
+                />
+                <CategoryFilter games={games} />
+            </div>
         </div>
     )
 }

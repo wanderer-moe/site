@@ -1,31 +1,111 @@
 import { Input } from '@/components/ui/input'
 import { useState } from 'react'
 import { SearchParams, Games } from '@/interfaces/params'
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from '@/components/ui/popover'
+import { Folder, FolderPlus, FolderCheck } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import {
+    CommandEmpty,
+    CommandInput,
+    CommandItem,
+    Command,
+    CommandGroup,
+    CommandList,
+    CommandSeparator,
+} from '@/components/ui/command'
+import { mapGame } from '@/lib/helpers/casing/mapping'
+import { cn } from '@/lib/utils'
 
 interface GameFilterProps {
     games: Games[]
     selectedGames: string[]
     onGameChange: (name: string) => void
+    clearSelectedGames: () => void
 }
 
 export function GameFilter({
     games,
     selectedGames,
     onGameChange,
+    clearSelectedGames,
 }: GameFilterProps) {
     return (
-        <div className="flex flex-row">
-            {games.map((game) => (
-                <div key={game.name} className="text-xs">
-                    <Input
-                        type="checkbox"
-                        className="h-4 w-4"
-                        checked={selectedGames.includes(game.name)}
-                        onChange={() => onGameChange(game.name)}
-                    />
-                    <label className="ml-2">{game.name}</label>
-                </div>
-            ))}
-        </div>
+        <Popover>
+            <PopoverTrigger asChild>
+                <Button variant="outline" size="sm" className="h-8">
+                    <FolderPlus className="mr-2 h-4 w-4" />
+                    Games
+                    {selectedGames?.length > 0 ? (
+                        <>
+                            <Separator
+                                orientation="vertical"
+                                className="mx-2 h-4"
+                            />
+                            {selectedGames.length < 2 ? (
+                                <>
+                                    {selectedGames.map((game) => (
+                                        <Badge
+                                            variant="secondary"
+                                            className="rounded-sm font-normal"
+                                            key={game}>
+                                            {mapGame(game)}
+                                        </Badge>
+                                    ))}
+                                </>
+                            ) : (
+                                <Badge
+                                    variant="secondary"
+                                    className="rounded-sm font-normal">
+                                    {selectedGames.length} selected
+                                </Badge>
+                            )}
+                        </>
+                    ) : null}
+                </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-64">
+                <Command>
+                    <CommandInput placeholder="Search for games" />
+                    <CommandList>
+                        <CommandEmpty>No games found</CommandEmpty>
+                        <CommandGroup>
+                            {games.map((game) => {
+                                const isSelected = selectedGames.includes(
+                                    game.name,
+                                )
+                                return (
+                                    <CommandItem
+                                        key={game.name}
+                                        onSelect={() => onGameChange(game.name)}
+                                        className={`my-2 transition-colors hover:cursor-pointer ${
+                                            isSelected ? 'bg-zinc-800' : ''
+                                        }`}>
+                                        <span>{mapGame(game.name)}</span>
+                                    </CommandItem>
+                                )
+                            })}
+                        </CommandGroup>
+                        {selectedGames.length > 0 && (
+                            <>
+                                <CommandSeparator />
+                                <CommandGroup>
+                                    <CommandItem
+                                        onSelect={() => clearSelectedGames()}
+                                        className="my-2 transition-colors hover:cursor-pointer">
+                                        <span>Clear Filtered Games</span>
+                                    </CommandItem>
+                                </CommandGroup>
+                            </>
+                        )}
+                    </CommandList>
+                </Command>
+            </PopoverContent>
+        </Popover>
     )
 }
