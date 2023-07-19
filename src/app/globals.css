@@ -1,8 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('satoshi.css');
+@import 'satoshi.css';
 
 @layer base {
     body {
