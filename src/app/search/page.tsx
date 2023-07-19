@@ -8,7 +8,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Input } from '@/components/ui/input'
 import { AssetItem } from '@/components/asset/assetItem'
 import { Button } from '@/components/ui/button'
-import { AssetSearchHandler } from '@/components/assetSearchHandler'
+import { AssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
 
 interface SearchParams {
     game?: string
