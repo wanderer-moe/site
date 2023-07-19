@@ -1,21 +1,21 @@
 import Link from 'next/link'
-import { Login } from '@/components/account/login'
+import { ForgotPassword } from '@/components/account/forgotPassword'
 
 export function generateMetadata() {
     return {
-        title: `Login - wanderer.moe`,
+        title: `Forgot password - wanderer.moe`,
         description: `Login to account`,
     }
 }
 
-function LoginPage() {
+function ForgotPasswordPage() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-8">
             <div className="flex flex-col items-center justify-center">
-                <Login />
+                <ForgotPassword />
             </div>
         </main>
     )
 }
 
-export default LoginPage
+export default ForgotPasswordPage

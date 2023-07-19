@@ -17,6 +17,7 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
     const router = useRouter()
     const searchParams = useSearchParams()
 
+    // TODO: cleanup and mvoe all of this to its components becasue wtf am i looking at
     const [selectedGames, setSelectedGames] = useState<string[]>([])
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [query, setQuery] = useState<string>('')
@@ -60,7 +61,7 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
     }
 
     const clearSelectedCategories = () => {
-        setSelectedGames([])
+        setSelectedCategories([])
     }
 
     const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,6 +101,7 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
                 </Button>
             </div>
             <div className="my-2 flex gap-2">
+                {/* this hurts to look at */}
                 <GameFilter
                     games={games}
                     selectedGames={selectedGames}

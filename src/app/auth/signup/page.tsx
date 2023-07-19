@@ -1,21 +1,21 @@
 import Link from 'next/link'
-import { Login } from '@/components/account/login'
+import { CreateAccount } from '@/components/account/createAccount'
 
 export function generateMetadata() {
     return {
-        title: `Login - wanderer.moe`,
-        description: `Login to account`,
+        title: `Register - wanderer.moe`,
+        description: `Register a new account`,
     }
 }
 
-function LoginPage() {
+function RegisterPage() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-8">
             <div className="flex flex-col items-center justify-center">
-                <Login />
+                <CreateAccount />
             </div>
         </main>
     )
 }
 
-export default LoginPage
+export default RegisterPage

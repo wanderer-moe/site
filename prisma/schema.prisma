@@ -11,7 +11,6 @@ generator client {
 
 model User {
   id                   String              @id @unique
-  hashed_password      String?
   avatar_url           String?
   banner_url           String?
   username             String              @unique
@@ -27,12 +26,32 @@ model User {
   self_assignable_tags SelfAssignableTag[]
   socials_connections  SocialsConnection[]
   saved_oc_generators  SavedOCGenerators[]
+  auth_session         Session[]
+  auth_key             Key[]
 
   // relations
   followers Follower[]  @relation("FollowerToUser")
   following Following[] @relation("FollowingToUser")
+}
 
-  @@map("user")
+model Session {
+  id             String   @id @unique
+  user_id        String
+  active_expires BigInt
+  idle_expires   BigInt
+  created_at     DateTime
+  user           User     @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
+}
+
+model Key {
+  id              String  @id @unique
+  hashed_password String?
+  user_id         String
+  user            User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
 }
 
 model Follower {

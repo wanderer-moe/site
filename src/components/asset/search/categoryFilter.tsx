@@ -41,7 +41,7 @@ export function CategoryFilter({
                 <Button variant="outline" size="sm" className="h-8">
                     <FolderPlus className="mr-2 h-4 w-4" />
                     Asset Categories
-                    {selectedCategories?.length > 0 ? (
+                    {selectedCategories?.length > 0 && (
                         <>
                             <Separator
                                 orientation="vertical"
@@ -52,7 +52,7 @@ export function CategoryFilter({
                                     {selectedCategories.map((c) => (
                                         <Badge
                                             variant="secondary"
-                                            className="rounded-sm font-normal"
+                                            className="block rounded-sm font-normal"
                                             key={c}>
                                             {mapAssetType(c)}
                                         </Badge>
@@ -66,10 +66,10 @@ export function CategoryFilter({
                                 </Badge>
                             )}
                         </>
-                    ) : null}
+                    )}
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-64">
+            <PopoverContent className="w-auto">
                 <Command>
                     <CommandInput placeholder="Search for categories" />
                     <CommandList>

@@ -26,7 +26,7 @@ interface GameFilterProps {
     games: Games[]
     selectedGames: string[]
     onGameChange: (name: string) => void
-    clearSelectedGames: () => void
+    clearSelectedGames: () => void // why
 }
 
 export function GameFilter({
@@ -41,7 +41,7 @@ export function GameFilter({
                 <Button variant="outline" size="sm" className="h-8">
                     <FolderPlus className="mr-2 h-4 w-4" />
                     Games
-                    {selectedGames?.length > 0 ? (
+                    {selectedGames?.length > 0 && (
                         <>
                             <Separator
                                 orientation="vertical"
@@ -66,10 +66,10 @@ export function GameFilter({
                                 </Badge>
                             )}
                         </>
-                    ) : null}
+                    )}
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-64">
+            <PopoverContent className="w-auto">
                 <Command>
                     <CommandInput placeholder="Search for games" />
                     <CommandList>
