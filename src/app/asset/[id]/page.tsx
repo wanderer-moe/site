@@ -1,7 +1,7 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import { Asset, SimilarAsset } from '@/interfaces/asset'
 import { mapGame, mapAssetType } from '@/lib/helpers/casing/mapping'
-import { AssetItem } from '@/components/asset/assetitem'
+import { AssetItem } from '@/components/asset/assetItem'
 import { notFound } from 'next/navigation'
 
 async function getAsset(

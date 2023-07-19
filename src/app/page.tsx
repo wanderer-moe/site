@@ -1,7 +1,7 @@
 'use client'
 
 import { Asset } from '@/interfaces/asset'
-import { AssetItem } from '@/components/asset/assetitem'
+import { AssetItem } from '@/components/asset/assetItem'
 import { useCallback, useEffect, useState } from 'react'
 
 async function getData() {
