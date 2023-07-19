@@ -6,20 +6,15 @@ import { useRouter } from 'next/navigation'
 import { Asset } from '@/interfaces/asset'
 import { useCallback, useEffect, useState } from 'react'
 import { Input } from '@/components/ui/input'
-import { AssetItem } from '@/components/asset/assetItem'
+import AssetItem from '@/components/asset/assetItem'
 import { Button } from '@/components/ui/button'
 import { AssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
+import { Games } from '@/interfaces/params'
 
 interface SearchParams {
     game?: string
     query?: string
     asset?: string
-}
-
-interface Games {
-    name: string
-    id: number
-    assetCategories: string[]
 }
 
 function getGames() {
@@ -73,10 +68,16 @@ function SearchPage() {
             {loading ? (
                 <div>Loading...</div>
             ) : (
-                <div className="mt-3 grid grid-cols-1 md:grid-cols-2">
-                    {data.map((item: Asset) => (
-                        <AssetItem key={item.id} {...item} />
-                    ))}
+                <div>
+                    {data.length !== 0 ? (
+                        <div className="mt-3 grid grid-cols-1 md:grid-cols-2">
+                            {data.map((item: Asset) => (
+                                <AssetItem key={item.id} {...item} />
+                            ))}
+                        </div>
+                    ) : (
+                        <p>No data found</p>
+                    )}
                 </div>
             )}
         </main>

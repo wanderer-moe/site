@@ -1,8 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import { Asset } from '@/interfaces/asset'
 import { mapGame, mapAssetType } from '@/lib/helpers/casing/mapping'
 
-export function AssetItem(asset: Asset) {
+export default function AssetItem(asset: Asset) {
     return (
         <div>
             <Link href={`/asset/${asset.id}`}>

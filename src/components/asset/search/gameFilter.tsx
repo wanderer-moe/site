@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Input } from '@/components/ui/input'
 import { useState } from 'react'
 import { SearchParams, Games } from '@/interfaces/params'
@@ -85,7 +86,12 @@ export function GameFilter({
                                         onSelect={() => onGameChange(game.name)}
                                         className={`my-2 transition-colors hover:cursor-pointer ${
                                             isSelected ? 'bg-zinc-800' : ''
-                                        }`}>
+                                        } `}>
+                                        <img
+                                            src={`https://cdn.wanderer.moe/${game.name}/icon.png`}
+                                            alt={game.name}
+                                            className="mr-2 h-4 w-4 rounded-sm"
+                                        />
                                         <span>{mapGame(game.name)}</span>
                                     </CommandItem>
                                 )

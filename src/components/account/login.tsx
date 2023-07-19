@@ -14,6 +14,7 @@ import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
 
+// TODO: fancy validation w/ regex and error handling
 export function Login() {
     return (
         <Card>

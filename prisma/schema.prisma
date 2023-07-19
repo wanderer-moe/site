@@ -54,6 +54,22 @@ model Key {
   @@index([user_id])
 }
 
+model EmailVerificationToken {
+  id      String @id @unique
+  user_id String
+  expires BigInt
+
+  @@index([user_id])
+}
+
+model PasswordResetToken {
+  id      String @id @unique
+  user_id String
+  expires BigInt
+
+  @@index([user_id])
+}
+
 model Follower {
   id       String @id @unique
   user_id  String

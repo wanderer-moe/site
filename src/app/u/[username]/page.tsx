@@ -1,6 +1,7 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import { User } from '@/interfaces/user'
 import { Asset } from '@/interfaces/asset'
+import AssetItem from '@/components/asset/assetItem'
 
 type Props = {
     params: { username: string }

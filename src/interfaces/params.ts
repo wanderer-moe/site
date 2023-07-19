@@ -7,5 +7,6 @@ export interface SearchParams {
 export interface Games {
     name: string
     id: number
+    last_updated?: string
     assetCategories: string[]
 }

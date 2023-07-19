@@ -17,6 +17,15 @@ dependencies:
   '@hookform/resolvers':
     specifier: ^3.1.1
     version: 3.1.1(react-hook-form@7.45.2)
+  '@lucia-auth/adapter-prisma':
+    specifier: 3.0.0-beta.7
+    version: 3.0.0-beta.7(@prisma/client@5.0.0)(lucia@2.0.0-beta.6)
+  '@lucia-auth/nextjs':
+    specifier: ^0.5.7
+    version: 0.5.7(lucia-auth@1.8.0)
+  '@lucia-auth/tokens':
+    specifier: ^1.0.2
+    version: 1.0.2(lucia-auth@1.8.0)
   '@next-auth/prisma-adapter':
     specifier: ^1.0.7
     version: 1.0.7(@prisma/client@5.0.0)(next-auth@4.22.2)
@@ -113,6 +122,12 @@ dependencies:
   jsonwebtoken:
     specifier: ^9.0.1
     version: 9.0.1
+  lucia:
+    specifier: 2.0.0-beta.6
+    version: 2.0.0-beta.6
+  lucia-auth:
+    specifier: ^1.8.0
+    version: 1.8.0
   lucide-react:
     specifier: ^0.261.0
     version: 0.261.0(react@18.2.0)
@@ -128,6 +143,9 @@ dependencies:
   next-themes:
     specifier: ^0.2.1
     version: 0.2.1(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
+  nprogress:
+    specifier: ^0.2.0
+    version: 0.2.0
   postcss:
     specifier: 8.4.26
     version: 8.4.26
@@ -178,6 +196,9 @@ devDependencies:
   '@types/jsonwebtoken':
     specifier: ^9.0.2
     version: 9.0.2
+  '@types/nprogress':
+    specifier: ^0.2.0
+    version: 0.2.0
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -3221,6 +3242,32 @@ packages:
     resolution: {integrity: sha512-Lg3PnLp0QXpxwLIAuuJboLeRaIhrgJjeuh797QADg3xz8wGLugQOS5DpsE8A6i6Adgzf+bacllkKZG3J0tGfDw==}
     dev: false
 
+  /@lucia-auth/adapter-prisma@3.0.0-beta.7(@prisma/client@5.0.0)(lucia@2.0.0-beta.6):
+    resolution: {integrity: sha512-WSMjzSVtg7OJC4IEIgF2hc8zy9g6PKvvhuRqiOOxOM97lmWFsGyaT7xYO+MT+vFpQHtQimnk98SALlo63RLuAw==}
+    peerDependencies:
+      '@prisma/client': ^4.2.0 || ^5.0.0
+      lucia: 2.0.0-beta.6
+    dependencies:
+      '@prisma/client': 5.0.0(prisma@5.0.0)
+      lucia: 2.0.0-beta.6
+    dev: false
+
+  /@lucia-auth/nextjs@0.5.7(lucia-auth@1.8.0):
+    resolution: {integrity: sha512-f7Mt9cr8llx5bl5hMX5tB9sYamwYvv6A5cm6O+9k4tvDZ5oSN59M10Sc32MwpkwW9CW3mbelzx1dm/lwWQuK7g==}
+    peerDependencies:
+      lucia-auth: 0.5.x - 0.10.x
+    dependencies:
+      lucia-auth: 1.8.0
+    dev: false
+
+  /@lucia-auth/tokens@1.0.2(lucia-auth@1.8.0):
+    resolution: {integrity: sha512-gdhzw7CK+6V39+u/iGYauLblNoA+fhQzOUEkGJCrzA8Nth2VxOJQixTJxV6YATcy2PPYihJgIeU8GFhpkhYXig==}
+    peerDependencies:
+      lucia-auth: 1.x
+    dependencies:
+      lucia-auth: 1.8.0
+    dev: false
+
   /@mapbox/node-pre-gyp@1.0.11:
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
@@ -5349,6 +5396,10 @@ packages:
 
   /@types/node@20.4.2:
     resolution: {integrity: sha512-Dd0BYtWgnWJKwO1jkmTrzofjK2QXXcai0dmtzvIBhcA+RsG5h8R3xlyta0kGOZRNfL9GuRtb1knmPEhQrePCEw==}
+
+  /@types/nprogress@0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
+    dev: true
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -9704,6 +9755,14 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
+  /lucia-auth@1.8.0:
+    resolution: {integrity: sha512-zI8gT2AOpxTPIxYzToEdgoht+GOflrduZiHPsOEmg4/2pThOyCW3o3lXh+Uwh20tJ9QoXwQe9/Omn6PlUG6efw==}
+    dev: false
+
+  /lucia@2.0.0-beta.6:
+    resolution: {integrity: sha512-pfTHtv9ILAZspW7sWKIZOfAzp7yNsTnbJAlK/vFxppnTKpYe2MvhmQiwk8onHJcMODQmjjHMg7SCDHULmt/8ZQ==}
+    dev: false
+
   /lucide-react@0.261.0(react@18.2.0):
     resolution: {integrity: sha512-gzxEvIxf8+hGbm2ZQU/VP5TxTcnTu3ODDmYoS3a53wC4gkW9ukxmexKjTcZUzz3q8ema+DMwmPypx9Z0Bvvxog==}
     peerDependencies:
@@ -10673,6 +10732,10 @@ packages:
       console-control-strings: 1.1.0
       gauge: 3.0.2
       set-blocking: 2.0.0
+    dev: false
+
+  /nprogress@0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
     dev: false
 
   /oauth@0.9.15:
