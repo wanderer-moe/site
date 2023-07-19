@@ -18,7 +18,7 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
     const router = useRouter()
     const searchParams = useSearchParams()
 
-    // help me this is so bad
+    // ??????????????????
     const [selectedGames, setSelectedGames] = useState<string[]>([])
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [query, setQuery] = useState<string>('')
@@ -99,11 +99,12 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
             <div className="flex flex-row">
                 <Input
                     type="text"
+                    className="h-10 rounded-md px-4"
                     placeholder="Search for a file name"
                     value={query.replace(/-/g, ' ')}
                     onChange={handleQueryChange}
                 />
-                <Button className="ml-2" onClick={handleSearch}>
+                <Button size="lg" className="ml-2" onClick={handleSearch}>
                     Search
                 </Button>
             </div>
@@ -124,8 +125,7 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
                 </div>
                 <Button
                     variant="outline"
-                    size="sm"
-                    className="flex-wrap rounded-sm font-normal"
+                    className="flex rounded-sm font-normal"
                     onClick={() => clearAllFilters()}>
                     <X className="mr-2 h-4 w-4" />
                     Clear Filters

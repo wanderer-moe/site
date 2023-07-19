@@ -53,7 +53,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                             <p className="text-xl">{asset.uploaded_date}</p>
                         </div>
                     </div>
-                    <div className="mt-8 flex flex-col items-center justify-center">
+                    <div className="">
                         <h1 className="text-xl font-bold">Similar Assets</h1>
                         <AssetContainer assets={similarAssets} />
                     </div>

@@ -79,7 +79,9 @@ function SearchPage() {
                     {data.length !== 0 ? (
                         <AssetContainer assets={data} />
                     ) : (
-                        <p>No data found</p>
+                        <div className="mt-10 flex flex-col items-center justify-center">
+                            <p>No results found.</p>
+                        </div>
                     )}
                 </div>
             )}

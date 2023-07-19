@@ -24,7 +24,7 @@ export default function AssetContainer(assets: any) {
 
     return (
         <div>
-            <div className="mt-3 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="mt-3 grid grid-cols-1 gap-6 lg:grid-cols-2">
                 {displayedAssets.map((item: Asset) => (
                     <AssetItem key={item.id} {...item} />
                 ))}

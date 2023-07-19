@@ -34,7 +34,7 @@ export function UserNav() {
                     </Avatar>
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-auto" align="end" forceMount>
+            <DropdownMenuContent className="mt-4 w-auto" align="end" forceMount>
                 <div className="flex items-center space-x-2 p-2">
                     <div className="flex flex-col space-y-1">
                         <p className="text-sm font-medium leading-none">
