@@ -9,6 +9,15 @@
         font-family: 'Satoshi-Medium';
         @apply m-0 overflow-x-hidden text-sm leading-relaxed;
     }
+
+    font-semibold {
+        font-family: 'Satoshi-Bold';
+    }
+
+    font-bold {
+        font-family: 'Satoshi-Black';
+    }
+
     :root {
         --background: 0 0% 100%;
         --foreground: 240 10% 3.9%;

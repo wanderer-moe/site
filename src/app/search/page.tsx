@@ -10,6 +10,8 @@ import AssetItem from '@/components/asset/assetItem'
 import { Button } from '@/components/ui/button'
 import { AssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
 import { Games } from '@/interfaces/params'
+import AssetContainer from '@/components/asset/assetsContainer'
+import AssetLoadingPlaceholder from '@/components/asset/assetLoadingPlaceholder'
 
 interface SearchParams {
     game?: string
@@ -51,13 +53,16 @@ function SearchPage() {
 
     useEffect(() => {
         setLoading(true)
-        Promise.all([getData(searchParams as SearchParams), getGames()]).then(
-            ([data, games]) => {
+        setTimeout(() => {
+            Promise.all([
+                getData(searchParams as SearchParams),
+                getGames(),
+            ]).then(([data, games]) => {
                 setData(data)
                 setGames(games)
                 setLoading(false)
-            },
-        )
+            })
+        }, 500)
     }, [searchParams])
 
     return (
@@ -66,15 +71,13 @@ function SearchPage() {
                 <AssetSearchHandler games={games} />
             </div>
             {loading ? (
-                <div>Loading...</div>
+                <div className="mt-10">
+                    <AssetLoadingPlaceholder />
+                </div>
             ) : (
-                <div>
+                <div className="mt-10">
                     {data.length !== 0 ? (
-                        <div className="mt-3 grid grid-cols-1 md:grid-cols-2">
-                            {data.map((item: Asset) => (
-                                <AssetItem key={item.id} {...item} />
-                            ))}
-                        </div>
+                        <AssetContainer assets={data} />
                     ) : (
                         <p>No data found</p>
                     )}

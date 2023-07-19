@@ -4,6 +4,7 @@ import { Asset } from '@/interfaces/asset'
 import AssetItem from '@/components/asset/assetItem'
 import GameContainer from '@/components/game/gameContainer'
 import { useCallback, useEffect, useState } from 'react'
+import AssetContainer from '@/components/asset/assetsContainer'
 
 async function getData() {
     const recentRes = await fetch(
@@ -54,9 +55,7 @@ function Home() {
                     <h1 className="mt-3 text-xl font-bold">
                         Recently Uploaded Assets
                     </h1>
-                    {recentData.map((item: Asset) => (
-                        <AssetItem key={item.id} {...item} />
-                    ))}
+                    <AssetContainer assets={recentData} />
                 </div>
             )}
         </main>

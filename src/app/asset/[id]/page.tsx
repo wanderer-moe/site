@@ -3,6 +3,7 @@ import { Asset, SimilarAsset } from '@/interfaces/asset'
 import { mapGame, mapAssetType } from '@/lib/helpers/casing/mapping'
 import { notFound } from 'next/navigation'
 import AssetItem from '@/components/asset/assetItem'
+import AssetContainer from '@/components/asset/assetsContainer'
 
 async function getAsset(
     id: string,
@@ -38,25 +39,25 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
     const { asset, similarAssets } = await getAsset(id)
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="min-h-screen p-4 md:p-12">
             {asset ? (
-                <div>
-                    <div className="flex flex-col items-center justify-center">
-                        <h1 className="text-xl font-bold">{asset.name}</h1>
-                        <p className="text-xl">id {asset.id}</p>
-                        <p className="text-xl">
-                            {mapAssetType(asset.asset_category)}
-                        </p>
-                        <p className="text-xl">{mapGame(asset.game)}</p>
-                        <p className="text-xl">{asset.uploaded_date}</p>
+                <>
+                    <div>
+                        <div className="flex flex-col items-center justify-center">
+                            <h1 className="text-xl font-bold">{asset.name}</h1>
+                            <p className="text-xl">id {asset.id}</p>
+                            <p className="text-xl">
+                                {mapAssetType(asset.asset_category)}
+                            </p>
+                            <p className="text-xl">{mapGame(asset.game)}</p>
+                            <p className="text-xl">{asset.uploaded_date}</p>
+                        </div>
                     </div>
                     <div className="mt-8 flex flex-col items-center justify-center">
                         <h1 className="text-xl font-bold">Similar Assets</h1>
-                        {similarAssets.map((item: SimilarAsset) => (
-                            <AssetItem key={item.id} {...item} />
-                        ))}
+                        <AssetContainer assets={similarAssets} />
                     </div>
-                </div>
+                </>
             ) : (
                 <div>Loading...</div>
             )}
