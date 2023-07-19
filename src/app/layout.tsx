@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import Navbar from '@/components/layouts/navbar'
 import { AuthProvider } from './authprovider'
 import { SiteFooter } from '@/components/layouts/footer'
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
     title: 'wanderer.moe',
@@ -20,11 +21,13 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={cn('bg-background min-h-screen')}>
+            <body className={cn('min-h-screen bg-background')}>
                 <AuthProvider>
-                    <Navbar />
-                    {children}
-                    <SiteFooter />
+                    <ThemeProvider attribute="class" defaultTheme="dark">
+                        <Navbar />
+                        {children}
+                        <SiteFooter />
+                    </ThemeProvider>
                 </AuthProvider>
             </body>
         </html>

@@ -1,6 +1,6 @@
-import NextAuth from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import NextAuth from 'next-auth/next'
+import { authOptions } from '@/api/auth/login/authOptions'
 
-// @ts-expect-error - i don't know what is going on here
+// @ts-expect-error
 const handler = NextAuth(authOptions)
 export { handler as GET, handler as POST }

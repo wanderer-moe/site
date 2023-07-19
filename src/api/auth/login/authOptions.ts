@@ -2,11 +2,26 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import prisma from '@/lib/prisma'
+import DiscordProvider, { DiscordProfile } from 'next-auth/providers/discord'
 import bcrypt from 'bcrypt'
+import { generateUserId } from '@/lib/generateUserId'
 
 export const authOptions: NextAuthOptions = {
     adapter: PrismaAdapter(prisma),
     providers: [
+        // TODO: get discord auth working :333333333333
+        // DiscordProvider({
+        //     profile(profile: DiscordProfile) {
+        //         return {
+        //             id: i need to figure this out,
+        //             username: profile.username,
+        //             email: profile.email,
+        //             avatar_url: profile.avatar,
+        //         }
+        //     },
+        //     clientId: process.env.DISCORD_CLIENT_ID as string,
+        //     clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
+        // }),
         CredentialsProvider({
             name: 'credentials',
             credentials: {
@@ -36,9 +51,13 @@ export const authOptions: NextAuthOptions = {
             },
         }),
     ],
-    pages: {
-        signIn: '/login',
-    },
+    // pages: {
+    //     signIn: '/login',
+    //     signOut: '/logout',
+    //     error: '/login/error',
+    //     verifyRequest: '/login/verify',
+    //     newUser: '/onboarding',
+    // },
     callbacks: {
         session: ({ session, token }) => {
             console.log('Session Callback', { session, token })
@@ -47,7 +66,6 @@ export const authOptions: NextAuthOptions = {
                 user: {
                     ...session.user,
                     id: token.id,
-                    randomKey: token.randomKey,
                 },
             }
         },
@@ -58,7 +76,6 @@ export const authOptions: NextAuthOptions = {
                 return {
                     ...token,
                     id: u.id,
-                    randomKey: u.randomKey,
                 }
             }
             return token

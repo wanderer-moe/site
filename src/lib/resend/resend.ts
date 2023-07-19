@@ -16,7 +16,6 @@ export const sendPasswordResetEmail = async (
         })
     } catch (error) {
         throw new Error('Error sending password reset email.')
-        console.error(error)
     }
 }
 
@@ -33,7 +32,6 @@ export const sendPasswordChangeEmail = async (
         })
     } catch (error) {
         throw new Error('Error sending password change email.')
-        console.error(error)
     }
 }
 
@@ -47,7 +45,6 @@ export const sendEmailChangeEmail = async (email: string, username: string) => {
         })
     } catch (error) {
         throw new Error('Error sending email change email.')
-        console.error(error)
     }
 }
 
@@ -65,6 +62,5 @@ export const sendEmailConfirmationEmail = async (
         })
     } catch (error) {
         throw new Error('Error sending email confirmation email.')
-        console.error(error)
     }
 }
