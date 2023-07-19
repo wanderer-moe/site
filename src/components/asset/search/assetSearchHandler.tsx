@@ -18,17 +18,22 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
     const searchParams = useSearchParams()
 
     const [selectedGames, setSelectedGames] = useState<string[]>([])
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [query, setQuery] = useState<string>('')
 
     useEffect(() => {
         const game = searchParams.get('game')
         const query = searchParams.get('query')
+        const asset = searchParams.get('asset')
 
         if (game) {
             setSelectedGames(game.split(','))
         }
         if (query) {
             setQuery(query)
+        }
+        if (asset) {
+            setSelectedCategories(asset.split(','))
         }
     }, [searchParams])
 
@@ -40,7 +45,21 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
         }
     }
 
+    const handleCategoryChange = (category: string) => {
+        if (selectedCategories.includes(category)) {
+            setSelectedCategories(
+                selectedCategories.filter((c) => c !== category),
+            )
+        } else {
+            setSelectedCategories([...selectedCategories, category])
+        }
+    }
+
     const clearSelectedGames = () => {
+        setSelectedGames([])
+    }
+
+    const clearSelectedCategories = () => {
         setSelectedGames([])
     }
 
@@ -54,11 +73,18 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
         if (selectedGames.length > 0) {
             searchParams.game = selectedGames.join(',')
         }
+        if (selectedCategories.length > 0) {
+            searchParams.asset = selectedCategories.join(',')
+        }
         if (query) {
             searchParams.query = query
         }
         router.push(`?${new URLSearchParams(searchParams as any)}`)
     }
+
+    const categories = [
+        ...new Set(games.flatMap((game) => game.assetCategories)),
+    ]
 
     return (
         <div>
@@ -73,14 +99,19 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
                     Search
                 </Button>
             </div>
-            <div className="my-2">
+            <div className="my-2 flex gap-2">
                 <GameFilter
                     games={games}
                     selectedGames={selectedGames}
                     onGameChange={handleGameChange}
                     clearSelectedGames={clearSelectedGames}
                 />
-                <CategoryFilter games={games} />
+                <CategoryFilter
+                    categories={categories}
+                    selectedCategories={selectedCategories}
+                    onCategoryChange={handleCategoryChange}
+                    clearSelectedCategories={clearSelectedCategories}
+                />
             </div>
         </div>
     )
