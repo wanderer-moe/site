@@ -15,40 +15,20 @@ import {
 } from '@/components/ui/navigation-menu'
 import { DiscordLogoIcon, GitHubLogoIcon } from '@radix-ui/react-icons'
 import { LogIn } from 'lucide-react'
+import { UserNav } from '@/components/account/userDropdown'
 
 export function Navitems() {
     return (
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <Link href="/auth/login" passHref>
+                    {/* <Link href="/auth/login" passHref>
                         <NavigationMenuLink
                             className={navigationMenuTriggerStyle()}>
                             <LogIn className="h-4 w-4" />
                         </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <Link
-                        href="https://discord.wanderer.moe/"
-                        legacyBehavior
-                        passHref>
-                        <NavigationMenuLink
-                            className={navigationMenuTriggerStyle()}>
-                            <DiscordLogoIcon />
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <Link
-                        href="https://git.wanderer.moe/"
-                        legacyBehavior
-                        passHref>
-                        <NavigationMenuLink
-                            className={navigationMenuTriggerStyle()}>
-                            <GitHubLogoIcon />
-                        </NavigationMenuLink>
-                    </Link>
+                    </Link> */}
+                    <UserNav />
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

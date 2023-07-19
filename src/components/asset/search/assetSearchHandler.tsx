@@ -8,7 +8,7 @@ import { GameFilter } from '@/components/asset/search/gameFilter'
 import { CategoryFilter } from '@/components/asset/search/categoryFilter'
 import { Games, SearchParams } from '@/interfaces/params'
 import { useEffect, useState } from 'react'
-import { Filter, Trash } from 'lucide-react'
+import { Filter, X } from 'lucide-react'
 
 interface AssetSearchHandlerProps {
     games: Games[]
@@ -18,7 +18,7 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
     const router = useRouter()
     const searchParams = useSearchParams()
 
-    // TODO: cleanup and mvoe all of this to its components becasue wtf am i looking at
+    // help me this is so bad
     const [selectedGames, setSelectedGames] = useState<string[]>([])
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [query, setQuery] = useState<string>('')
@@ -80,15 +80,12 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
         setLoading(true)
         console.log(selectedGames, query)
         const searchParams: SearchParams = {}
-        if (selectedGames.length > 0) {
+        if (selectedGames.length > 0)
             searchParams.game = selectedGames.join(',')
-        }
-        if (selectedCategories.length > 0) {
+        if (selectedCategories.length > 0)
             searchParams.asset = selectedCategories.join(',')
-        }
-        if (query) {
-            searchParams.query = query
-        }
+        if (query) searchParams.query = query
+
         setLoading(false)
         router.push(`?${new URLSearchParams(searchParams as any)}`)
     }
@@ -111,7 +108,6 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
                 </Button>
             </div>
             <div className="my-2 flex flex-col gap-2 md:flex-row md:justify-between">
-                {/* TODO: fix scaling on small devices, also why */}
                 <div className="flex flex-col gap-2 md:flex-row md:justify-between">
                     <GameFilter
                         games={games}
@@ -131,7 +127,7 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
                     size="sm"
                     className="flex-wrap rounded-sm font-normal"
                     onClick={() => clearAllFilters()}>
-                    <Trash className="mr-2 h-4 w-4" />
+                    <X className="mr-2 h-4 w-4" />
                     Clear Filters
                 </Button>
             </div>

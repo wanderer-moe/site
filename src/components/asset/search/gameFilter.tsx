@@ -7,7 +7,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover'
-import { Folder, FolderPlus, FolderCheck } from 'lucide-react'
+import { Folder, FolderPlus, FolderCheck, X } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -104,6 +104,7 @@ export function GameFilter({
                                     <CommandItem
                                         onSelect={() => clearSelectedGames()}
                                         className="my-2 transition-colors hover:cursor-pointer">
+                                        <X className="mr-2 h-4 w-4" />
                                         <span>Clear Filtered Games</span>
                                     </CommandItem>
                                 </CommandGroup>
