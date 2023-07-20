@@ -27,7 +27,7 @@ export function CreateAccount() {
 
         const formData = new FormData(e.currentTarget)
         console.log(formData)
-        const response = await fetch('/api/auth/signup', {
+        const response = await fetch('/auth/signup', {
             method: 'POST',
             body: formData,
             redirect: 'manual',

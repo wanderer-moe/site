@@ -28,7 +28,7 @@ export function Login() {
 
         const formData = new FormData(e.currentTarget)
         console.log(formData)
-        const response = await fetch('/api/auth/login', {
+        const response = await fetch('/auth/login', {
             method: 'POST',
             body: formData,
             redirect: 'manual',

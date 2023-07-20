@@ -66,6 +66,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.2",
+    "react-redux": "^8.1.1",
+    "redux": "^4.2.1",
     "resend": "^0.17.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",

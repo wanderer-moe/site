@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import Navbar from '@/components/layouts/nav/navbar'
 import { SiteFooter } from '@/components/layouts/footer/footer'
 import { ThemeProvider } from '@/components/themeProvider'
+import { getPageSession } from '@/auth/lucia'
 
 export const metadata: Metadata = {
     title: 'wanderer.moe',

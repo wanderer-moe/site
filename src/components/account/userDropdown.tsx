@@ -87,7 +87,7 @@ export function UserNav() {
                     </Link>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <form action="/api/auth/logout">
+                <form action="/auth/logout">
                     <Button
                         className="w-full text-red-200"
                         variant="ghost"
