@@ -1,12 +1,12 @@
 import { lucia } from 'lucia'
 import { nextjs } from 'lucia/middleware'
-import { prisma } from '@lucia-auth/adapter-prisma'
+import { prisma as prismaAdapter } from '@lucia-auth/adapter-prisma'
 import { cache } from 'react'
 import { cookies } from 'next/headers'
-import { PrismaClient } from '@prisma/client'
+import __prisma from '@/lib/prisma'
 
 export const auth = lucia({
-    adapter: prisma(new PrismaClient()),
+    adapter: prismaAdapter(__prisma),
     env: process.env.NODE_ENV === 'development' ? 'DEV' : 'PROD',
     middleware: nextjs(),
     sessionCookie: {
