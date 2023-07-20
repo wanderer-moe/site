@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 
+// TODO: use react email w/ tailwind
 export const resend = new Resend(process.env.RESEND_API_KEY)
 
 export const sendPasswordResetEmail = async (
