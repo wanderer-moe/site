@@ -16,19 +16,29 @@ import {
 import { DiscordLogoIcon, GitHubLogoIcon } from '@radix-ui/react-icons'
 import { LogIn } from 'lucide-react'
 import { UserNav } from '@/components/account/userDropdown'
+import { Session } from 'lucia'
 
-export function Navitems() {
+interface NavitemsProps {
+    session: Session
+}
+
+export function Navitems(props: NavitemsProps) {
+    const { session } = props
+
     return (
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    {/* <Link href="/auth/login" passHref>
-                        <NavigationMenuLink
-                            className={navigationMenuTriggerStyle()}>
-                            <LogIn className="h-4 w-4" />
-                        </NavigationMenuLink>
-                    </Link> */}
-                    <UserNav />
+                    {!session ? (
+                        <Link href="/auth/login" passHref>
+                            <NavigationMenuLink
+                                className={navigationMenuTriggerStyle()}>
+                                <LogIn className="h-4 w-4" />
+                            </NavigationMenuLink>
+                        </Link>
+                    ) : (
+                        <UserNav session={session} />
+                    )}
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

@@ -1,8 +1,8 @@
-import { getPageSession } from '@/auth/lucia'
+import { getSession } from '@/auth/getSession'
 import { redirect } from 'next/navigation'
 
 const Page = async () => {
-    const session = await getPageSession()
+    const session = await getSession()
     if (!session) redirect('/login')
     return (
         <>

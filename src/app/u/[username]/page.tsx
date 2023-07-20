@@ -2,17 +2,19 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { User } from '@/interfaces/user'
 import { Asset } from '@/interfaces/asset'
 import AssetItem from '@/components/asset/assetItem'
+import { notFound } from 'next/navigation'
 
 type Props = {
     params: { username: string }
 }
 
-export async function generateMetadata(
-    { params }: Props,
-    parent?: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { username } = params
     const { user, uploadedAssets } = await getUser(username)
+
+    if (!user) {
+        return notFound()
+    }
 
     return {
         title: `@${user.username} - wanderer.moe`,
