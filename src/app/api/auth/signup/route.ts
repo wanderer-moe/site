@@ -1,9 +1,7 @@
 import { auth } from '@/auth/lucia'
 import { cookies } from 'next/headers'
-import { NextResponse } from 'next/server'
-import { Prisma } from '@prisma/client'
+import { NextResponse, NextRequest } from 'next/server'
 import { generateUserId } from '@/lib/generateUserId'
-import type { NextRequest } from 'next/server'
 
 export const POST = async (request: NextRequest) => {
     const formData = await request.formData()
@@ -40,10 +38,7 @@ export const POST = async (request: NextRequest) => {
         )
     }
     try {
-        const UUID = await generateUserId() // this has validation to check if the UUID is already in use
-        console.log(UUID)
         const user = await auth.createUser({
-            userId: UUID,
             key: {
                 providerId: 'username',
                 providerUserId: username.toLowerCase(),

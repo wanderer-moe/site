@@ -13,22 +13,35 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 
 // TODO: fancy validation w/ regex and error handling
 export function Login() {
+    const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         setIsLoading(true)
 
-        // TODO: login logic
+        const formData = new FormData(e.currentTarget)
+        console.log(formData)
+        const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            body: formData,
+            redirect: 'manual',
+        })
 
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 1000)
+        console.log(response)
+        if (response.status === 0) {
+            console.log('success')
+            return router.refresh()
+        } else {
+            console.log('failure')
+        }
+        setIsLoading(false)
     }
 
     return (
@@ -56,12 +69,13 @@ export function Login() {
                 </CardHeader>
                 <CardContent className="grid gap-4">
                     <div className="grid gap-2">
-                        <Label htmlFor="email">Email</Label>
+                        <Label htmlFor="username">Username</Label>
                         <Input
                             disabled={isLoading}
-                            id="email"
-                            type="email"
-                            placeholder="email@domain.com"
+                            id="username"
+                            name="username"
+                            type="username"
+                            placeholder="username"
                         />
                     </div>
                     <div className="grid gap-2">
@@ -69,6 +83,7 @@ export function Login() {
                         <Input
                             disabled={isLoading}
                             id="password"
+                            name="password"
                             type="password"
                             placeholder="••••••••••"
                         />

@@ -1,19 +1,8 @@
-import { PrismaClient } from '@prisma/client'
 import { v4 as uuidv4 } from 'uuid'
-
-const prisma = new PrismaClient()
 
 export const generateUserId = async () => {
     let userId = uuidv4()
-
-    // Check if userId already exists in the db, if it does, generate a new one
-    // while (await prisma.user.findUnique({
-    //         where: {
-    //             id: userId
-    //         }
-    //     })) {
-    //     userId = uuidv4()
-    // }
-
+    // i need to implement actual good logic for this instead of creating 23098409234809 prisma client instances
+    // so for now, this code is unused and i'm letting lucia handle generating the user id
     return userId
 }
