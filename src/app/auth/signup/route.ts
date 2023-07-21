@@ -48,9 +48,9 @@ export const POST = async (request: NextRequest) => {
                 username,
                 email,
                 email_verified: 0,
+                date_joined: new Date().toISOString(),
                 verified: 0,
                 role: 'USER',
-                date_joined: new Date().toISOString(),
             },
         })
         // creating a session for the user after they sign up

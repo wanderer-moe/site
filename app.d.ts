@@ -15,8 +15,8 @@ declare namespace Lucia {
         pronouns?: string
         verified: number
         bio?: string
-        date_joined: Date
         role: string
+        date_joined: Date
     }
     type DatabaseSessionAttributes = {}
 }

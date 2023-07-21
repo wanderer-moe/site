@@ -13,9 +13,9 @@ export const auth = lucia({
     getUserAttributes: (data) => {
         return {
             username: data.username,
-            username_colour: data.usernameColour || null,
-            avatar_url: data.avatarUrl || null,
-            banner_url: data.bannerUrl || null,
+            usernameColour: data.usernameColour || null,
+            avatarUrl: data.avatarUrl || null,
+            bannerUrl: data.bannerUrl || null,
             email: data.email,
             emailVerified: data.emailVerified,
             pronouns: data.pronouns || null,

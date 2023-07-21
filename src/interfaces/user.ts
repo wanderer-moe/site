@@ -7,6 +7,5 @@ export interface User {
     bio: string | null
     pronouns: string | null
     verified: number
-    date_joined: string
     role: string
 }

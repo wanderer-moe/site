@@ -30,7 +30,7 @@ export function Navitems(props: NavitemsProps) {
             <NavigationMenuList>
                 <NavigationMenuItem>
                     {!session ? (
-                        <Link href="/auth/login" passHref>
+                        <Link href="/account/login" passHref>
                             <NavigationMenuLink
                                 className={navigationMenuTriggerStyle()}>
                                 <LogIn className="h-4 w-4" />
