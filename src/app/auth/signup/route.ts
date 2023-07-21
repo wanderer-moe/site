@@ -47,9 +47,9 @@ export const POST = async (request: NextRequest) => {
             attributes: {
                 username,
                 email,
-                role: 'USER',
                 email_verified: 0,
-                bio: 'No bio set',
+                verified: 0,
+                role: 'USER',
                 date_joined: new Date().toISOString(),
             },
         })

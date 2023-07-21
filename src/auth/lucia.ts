@@ -13,10 +13,15 @@ export const auth = lucia({
     getUserAttributes: (data) => {
         return {
             username: data.username,
+            username_colour: data.usernameColour || null,
+            avatar_url: data.avatarUrl || null,
+            banner_url: data.bannerUrl || null,
             email: data.email,
             emailVerified: data.emailVerified,
-            pronouns: data.pronouns,
-            bio: data.bio,
+            pronouns: data.pronouns || null,
+            verified: data.verified,
+            bio: data.bio || null,
+            role: data.role,
             dateJoined: data.dateJoined,
         }
     },
