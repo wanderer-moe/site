@@ -3,6 +3,7 @@ import { Login } from '@/components/account/login'
 import { auth } from '@/auth/lucia'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { getSession } from '@/auth/getSession'
 
 export function generateMetadata() {
     return {
@@ -12,11 +13,7 @@ export function generateMetadata() {
 }
 
 const LoginPage = async () => {
-    const authRequest = auth.handleRequest({
-        request: null,
-        cookies,
-    })
-    const session = await authRequest.validate()
+    const session = await getSession()
     if (session) redirect('/')
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-8">
