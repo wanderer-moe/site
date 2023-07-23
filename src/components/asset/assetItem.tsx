@@ -39,7 +39,17 @@ import {
     ContextMenuTrigger,
 } from '@/components/ui/context-menu'
 
-export default function AssetItem(asset: Asset) {
+function copyImageToClipboard(asset: Asset) {
+    const i = new Image()
+    i.src = `https://cdn.wanderer.moe/${asset.url}`
+    // TODO: Copy image to clipboard..
+}
+
+function download(asset: Asset) {
+    window.open(`https://v2-api-testing.wanderer.moe/download/${asset.id}`)
+}
+
+export function AssetItem(asset: Asset) {
     return (
         <ContextMenu>
             <ContextMenuTrigger>
@@ -84,13 +94,13 @@ export default function AssetItem(asset: Asset) {
                                 Uploaded {timeAgo(asset.uploaded_date)}
                             </p>
                             <div className="flex flex-row gap-2">
-                                <Link
-                                    href={`https://v2-api-testing.wanderer.moe/download/${asset.id}`}>
-                                    <Button size="sm" className="mt-2 text-sm">
-                                        <HardDriveDownload className="mr-2 h-4 w-4" />
-                                        Download
-                                    </Button>
-                                </Link>
+                                <Button
+                                    size="sm"
+                                    className="mt-2 text-sm"
+                                    onClick={() => download(asset)}>
+                                    <HardDriveDownload className="mr-2 h-4 w-4" />
+                                    Download
+                                </Button>
                                 <Link href={`/asset/${asset.id}`}>
                                     <Button size="sm" className="mt-2 text-sm">
                                         <ExternalLink className="mr-2 h-4 w-4" />
@@ -103,11 +113,11 @@ export default function AssetItem(asset: Asset) {
                 </Card>
             </ContextMenuTrigger>
             <ContextMenuContent className="z-50 w-64">
-                <ContextMenuItem>
+                <ContextMenuItem onClick={() => copyImageToClipboard(asset)}>
                     <Copy className="mr-2 h-4 w-4" />
                     Copy Image
                 </ContextMenuItem>
-                <ContextMenuItem>
+                <ContextMenuItem onClick={() => download(asset)}>
                     <Download className="mr-2 h-4 w-4" />
                     Download
                 </ContextMenuItem>
@@ -134,3 +144,5 @@ export default function AssetItem(asset: Asset) {
         </ContextMenu>
     )
 }
+
+export default AssetItem

@@ -4,6 +4,8 @@ import { useState } from 'react'
 import AssetItem from '@/components/asset/assetItem'
 import type { Asset } from '@/interfaces/asset'
 import { Button } from '@/components/ui/button'
+import { motion, Variants } from 'framer-motion'
+import { assetVariants } from '@/lib/framer/variants'
 
 export default function AssetContainer(assets: any) {
     const [displayedAssets, setDisplayedAssets] = useState(
@@ -26,7 +28,14 @@ export default function AssetContainer(assets: any) {
         <div>
             <div className="mt-3 grid grid-cols-1 gap-6 lg:grid-cols-2">
                 {displayedAssets.map((item: Asset) => (
-                    <AssetItem key={item.id} {...item} />
+                    <motion.div
+                        variants={assetVariants}
+                        key={item.id}
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ once: true }}>
+                        <AssetItem key={item.id} {...item} />
+                    </motion.div>
                 ))}
             </div>
             <div className="flex flex-col items-center justify-center">
