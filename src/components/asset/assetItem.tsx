@@ -38,6 +38,18 @@ import {
     ContextMenuSubTrigger,
     ContextMenuTrigger,
 } from '@/components/ui/context-menu'
+import { AddToCollection } from '../collection/addToCollection'
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '@/components/ui/dialog'
+import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
 
 function copyImageToClipboard(asset: Asset) {
     const i = new Image()
@@ -51,97 +63,95 @@ function download(asset: Asset) {
 
 export function AssetItem(asset: Asset) {
     return (
-        <ContextMenu>
-            <ContextMenuTrigger>
-                <Card className="p-2 transition-all hover:cursor-pointer hover:bg-zinc-400/5">
-                    <div className="relative flex items-center">
-                        <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-zinc-800/20 p-1">
-                            <img
-                                src={`https://cdn.wanderer.moe/${asset.url}`}
-                                className="max-w-32 h-32 max-h-32 w-32 object-contain object-left"
-                                alt={asset.name}
-                            />
-                        </div>
-                        <div>
-                            <div className="flex flex-row gap-1">
-                                <Link href={`/search?game=${asset.game}`}>
-                                    <Button
-                                        variant="outline"
-                                        size="cs"
-                                        className="text-xs font-normal">
-                                        <img
-                                            src={`https://cdn.wanderer.moe/${asset.game}/icon.png`}
-                                            className="h-4 w-4"
-                                            alt={asset.game}
-                                        />
-                                    </Button>
-                                </Link>
-                                <Link
-                                    href={`/search?asset=${asset.asset_category}`}>
-                                    <Button
-                                        variant="outline"
-                                        size="cs"
-                                        className="text-xs font-normal">
-                                        {mapAssetType(asset.asset_category)}
-                                    </Button>
-                                </Link>
+        <Dialog>
+            <ContextMenu>
+                <ContextMenuTrigger>
+                    <Card className="p-2 transition-all hover:cursor-pointer hover:bg-zinc-400/5">
+                        <div className="relative flex items-center">
+                            <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-zinc-800/20 p-1">
+                                <img
+                                    src={`https://cdn.wanderer.moe/${asset.url}`}
+                                    className="max-w-32 h-32 max-h-32 w-32 object-contain object-left"
+                                    alt={asset.name}
+                                />
                             </div>
-                            <p className="font-normal">{asset.name}</p>
-                            <p className="text-xs font-normal">
-                                Size: {bytesToFileSize(asset.file_size)}
-                            </p>
-                            <p className="text-xs font-normal">
-                                Uploaded {timeAgo(asset.uploaded_date)}
-                            </p>
-                            <div className="flex flex-row gap-2">
-                                <Button
-                                    size="sm"
-                                    className="mt-2 text-sm"
-                                    onClick={() => download(asset)}>
-                                    <HardDriveDownload className="mr-2 h-4 w-4" />
-                                    Download
-                                </Button>
-                                <Link href={`/asset/${asset.id}`}>
-                                    <Button size="sm" className="mt-2 text-sm">
-                                        <ExternalLink className="mr-2 h-4 w-4" />
-                                        View
+                            <div>
+                                <div className="flex flex-row gap-1">
+                                    <Link href={`/search?game=${asset.game}`}>
+                                        <Button
+                                            variant="outline"
+                                            size="cs"
+                                            className="text-xs font-normal">
+                                            <img
+                                                src={`https://cdn.wanderer.moe/${asset.game}/icon.png`}
+                                                className="h-4 w-4"
+                                                alt={asset.game}
+                                            />
+                                        </Button>
+                                    </Link>
+                                    <Link
+                                        href={`/search?asset=${asset.asset_category}`}>
+                                        <Button
+                                            variant="outline"
+                                            size="cs"
+                                            className="text-xs font-normal">
+                                            {mapAssetType(asset.asset_category)}
+                                        </Button>
+                                    </Link>
+                                </div>
+                                <p className="font-normal">{asset.name}</p>
+                                <p className="text-xs font-normal">
+                                    Size: {bytesToFileSize(asset.file_size)}
+                                </p>
+                                <p className="text-xs font-normal">
+                                    Uploaded {timeAgo(asset.uploaded_date)}
+                                </p>
+                                <div className="flex flex-row gap-2">
+                                    <Button
+                                        size="sm"
+                                        className="mt-2 text-sm"
+                                        onClick={() => download(asset)}>
+                                        <HardDriveDownload className="mr-2 h-4 w-4" />
+                                        Download
                                     </Button>
-                                </Link>
+                                    <Link href={`/asset/${asset.id}`}>
+                                        <Button
+                                            size="sm"
+                                            className="mt-2 text-sm">
+                                            <ExternalLink className="mr-2 h-4 w-4" />
+                                            View
+                                        </Button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Card>
-            </ContextMenuTrigger>
-            <ContextMenuContent className="z-50 w-64">
-                <ContextMenuItem onClick={() => copyImageToClipboard(asset)}>
-                    <Copy className="mr-2 h-4 w-4" />
-                    Copy Image
-                </ContextMenuItem>
-                <ContextMenuItem onClick={() => download(asset)}>
-                    <Download className="mr-2 h-4 w-4" />
-                    Download
-                </ContextMenuItem>
-                <ContextMenuItem>
-                    <Star className="mr-2 h-4 w-4" />
-                    Add to Favourites
-                </ContextMenuItem>
-                <ContextMenuSub>
-                    <ContextMenuSubTrigger>
-                        <ContainerIcon className="mr-2 h-4 w-4" />
-                        Add to Collection
-                    </ContextMenuSubTrigger>
-                    <ContextMenuSubContent className="w-48">
-                        <ContextMenuItem>Collection 1</ContextMenuItem>
-                        <ContextMenuItem>Collection 2</ContextMenuItem>
-                        <ContextMenuSeparator />
+                    </Card>
+                </ContextMenuTrigger>
+                <ContextMenuContent className="z-50 w-64">
+                    <ContextMenuItem
+                        onClick={() => copyImageToClipboard(asset)}>
+                        <Copy className="mr-2 h-4 w-4" />
+                        Copy Image
+                    </ContextMenuItem>
+                    <ContextMenuItem onClick={() => download(asset)}>
+                        <Download className="mr-2 h-4 w-4" />
+                        Download
+                    </ContextMenuItem>
+                    <ContextMenuItem>
+                        <Star className="mr-2 h-4 w-4" />
+                        Add to Favourites
+                    </ContextMenuItem>
+                    <ContextMenuSeparator />
+                    <DialogTrigger asChild>
                         <ContextMenuItem>
-                            <PlusCircleIcon className="mr-2 h-4 w-4" />
-                            Create new collection
+                            <ContainerIcon className="mr-2 h-4 w-4" />
+                            Add to Collection
                         </ContextMenuItem>
-                    </ContextMenuSubContent>
-                </ContextMenuSub>
-            </ContextMenuContent>
-        </ContextMenu>
+                    </DialogTrigger>
+                </ContextMenuContent>
+            </ContextMenu>
+            <AddToCollection {...asset} />
+        </Dialog>
     )
 }
 

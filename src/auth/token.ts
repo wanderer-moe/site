@@ -1,8 +1,7 @@
 import { generateRandomString, isWithinExpiration } from 'lucia/utils'
-import { PrismaClient } from '@prisma/client'
+import __prisma from '@/lib/prisma'
 
-const prisma = new PrismaClient()
-
+const prisma = __prisma
 const TokenExpiryTime = 1000 * 60 * 60 * 2
 
 export const createEmailVerificationToken = async (userId: string) => {
@@ -40,9 +39,8 @@ export const validateEmailVerificationToken = async (token: string) => {
             id: token,
         },
     })
-    if (!tokenRecord) {
-        throw new Error('Invalid token')
-    }
+    if (!tokenRecord) throw new Error('Invalid token')
+
     // delete token after we've used it
     await prisma.emailVerificationToken.delete({
         where: {
@@ -51,8 +49,7 @@ export const validateEmailVerificationToken = async (token: string) => {
     })
 
     // check if grabbed token was expired
-    if (!isWithinExpiration(Number(tokenRecord.expires))) {
+    if (!isWithinExpiration(Number(tokenRecord.expires)))
         throw new Error('Token expired')
-    }
     return tokenRecord.user_id
 }
