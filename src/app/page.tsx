@@ -8,7 +8,7 @@ import AssetContainer from '@/components/asset/assetsContainer'
 
 async function getData() {
     const recentRes = await fetch(
-        'https://v2-api-testing.wanderer.moe/recent',
+        `https://v2-api-testing.wanderer.moe/recent`,
         {
             next: {
                 revalidate: 10,
@@ -18,7 +18,7 @@ async function getData() {
     const recentData = await recentRes.json()
     const recentResults = recentData.results
 
-    const gamesRes = await fetch('https://v2-api-testing.wanderer.moe/games', {
+    const gamesRes = await fetch(`https://v2-api-testing.wanderer.moe/games`, {
         next: {
             revalidate: 10,
         },

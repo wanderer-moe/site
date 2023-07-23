@@ -55,7 +55,7 @@
     "lucia": "2.0.0-beta.6",
     "lucia-auth": "^1.8.0",
     "lucide-react": "^0.262.0",
-    "next": "13.4.10",
+    "next": "13.4.12",
     "next-contentlayer": "^0.3.4",
     "next-themes": "^0.2.1",
     "nprogress": "^0.2.0",

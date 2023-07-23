@@ -19,11 +19,9 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { id } = params
-    const { asset, similarAssets } = await getAsset(id)
+    const { asset } = await getAsset(id)
 
-    if (!asset) {
-        return notFound()
-    }
+    if (!asset) return notFound()
 
     return {
         title: `${asset.name} (${mapGame(asset.game)}: ${mapAssetType(

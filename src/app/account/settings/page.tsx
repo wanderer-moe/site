@@ -1,7 +1,7 @@
 import { getSession } from '@/auth/getSession'
 import { redirect } from 'next/navigation'
 
-const Page = async () => {
+const SettingsPage = async () => {
     const session = await getSession()
     if (!session) redirect('/login')
     return (
@@ -16,4 +16,4 @@ const Page = async () => {
     )
 }
 
-export default Page
+export default SettingsPage

@@ -19,7 +19,7 @@ model User {
   email_verified       Int                 @default(0)
   pronouns             String?
   verified             Int                 @default(0)
-  bio                  String              @default("")
+  bio                  String?             @default("")
   assets               Assets[]
   date_joined          DateTime
   role                 RoleNames           @default(USER)
@@ -120,19 +120,10 @@ model Games {
   @@map("games")
 }
 
-model AssetCategories {
-  id   Int    @id @default(autoincrement())
-  name String
-
-  @@index([id])
-  @@index([name])
-  @@map("asset_categories")
-}
-
 model OC_Generators {
   game          String @id
   data          String
-  uploaded_by   String @default("System") // OC Generators will never be added by any users, but I'm appending uploaded_by for consistency
+  uploaded_by   String @default("System") // might add support for user uploaded generators in the future
   uploaded_date String
   view_count    Int    @default(0)
 

@@ -21,6 +21,7 @@ import {
     FileHeart,
 } from 'lucide-react'
 import { Session } from 'lucia'
+
 interface UserNavProps {
     session: Session
 }
@@ -72,12 +73,10 @@ export function UserNav(props: UserNavProps) {
                             Saved Assets
                         </DropdownMenuItem>
                     </Link>
-                    <Link href="/account/upload" passHref>
-                        <DropdownMenuItem>
-                            <Upload className="mr-2 h-4 w-4" />
-                            Upload Assets
-                        </DropdownMenuItem>
-                    </Link>
+                    <DropdownMenuItem disabled={session.user.role !== 'admin'}>
+                        <Upload className="mr-2 h-4 w-4" />
+                        Upload Assets
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <Link href="/account/settings" passHref>
                         <DropdownMenuItem>
@@ -93,15 +92,13 @@ export function UserNav(props: UserNavProps) {
                     </Link>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <form action="/auth/logout">
-                    <Button
-                        className="w-full text-red-200"
-                        variant="ghost"
-                        type="submit">
-                        <LogOut className="mr-2 h-4 w-4" />
-                        Log out
-                    </Button>
-                </form>
+                <Button
+                    className="w-full text-red-200"
+                    variant="ghost"
+                    type="submit">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Log out
+                </Button>
             </DropdownMenuContent>
         </DropdownMenu>
     )
