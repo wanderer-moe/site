@@ -16,6 +16,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
+import { DiscordLogoIcon } from '@radix-ui/react-icons'
 
 // TODO: fancy validation w/ regex and error handling
 export function Login() {
@@ -50,21 +51,16 @@ export function Login() {
                 <CardHeader className="space-y-1">
                     <CardTitle className="text-2xl">Login to account</CardTitle>
                     <CardDescription>
-                        Enter your email and password to login to your account.
-                        Don&apos;t have an account?{' '}
-                        <Link
-                            href="/account/signup"
-                            passHref
-                            className="text-white">
-                            Sign Up
-                        </Link>
-                        <Separator className="my-4" />
-                        <Link
-                            href="/account/forgot-password"
-                            passHref
-                            className="text-white">
-                            Forgot Password?
-                        </Link>
+                        Enter your username and password to login to your
+                        account.
+                        <Button
+                            className="mt-4 w-full"
+                            variant="outline"
+                            disabled>
+                            <DiscordLogoIcon className="mr-2 h-4 w-4" />
+                            Login through Discord
+                        </Button>
+                        <Separator className="mt-4" />
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="grid gap-4">

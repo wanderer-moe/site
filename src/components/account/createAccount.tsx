@@ -16,6 +16,7 @@ import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
+import { DiscordLogoIcon } from '@radix-ui/react-icons'
 
 export function CreateAccount() {
     const router = useRouter()
@@ -51,16 +52,16 @@ export function CreateAccount() {
                         Create your account
                     </CardTitle>
                     <CardDescription>
-                        Enter whatever username you&apos;d like, your email and
-                        a strong password to create your account.
-                        <Separator className="my-4" />
-                        Already have an account?{' '}
-                        <Link
-                            href="/account/login"
-                            passHref
-                            className="text-white">
-                            Login
-                        </Link>
+                        Enter a username, email, and password to create your
+                        account.
+                        <Button
+                            className="mt-4 w-full"
+                            variant="outline"
+                            disabled>
+                            <DiscordLogoIcon className="mr-2 h-4 w-4" />
+                            Login through Discord
+                        </Button>
+                        <Separator className="mt-4" />
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="grid gap-4">
@@ -95,7 +96,7 @@ export function CreateAccount() {
                         />
                     </div>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex flex-col gap-2">
                     <Button disabled={isLoading} className="w-full">
                         {isLoading && (
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />

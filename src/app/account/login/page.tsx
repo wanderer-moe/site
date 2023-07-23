@@ -16,10 +16,8 @@ const LoginPage = async () => {
     const session = await getSession()
     if (session) redirect('/')
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-8">
-            <div className="flex flex-col items-center justify-center">
-                <Login />
-            </div>
+        <main className="flex min-h-screen flex-col items-center justify-center p-8">
+            <Login />
         </main>
     )
 }

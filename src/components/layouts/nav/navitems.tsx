@@ -37,7 +37,7 @@ export function Navitems(props: NavitemsProps) {
                             </NavigationMenuLink>
                         </Link>
                     ) : (
-                        <UserNav session={session} />
+                        <UserNav {...props} />
                     )}
                 </NavigationMenuItem>
             </NavigationMenuList>

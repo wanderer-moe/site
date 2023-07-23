@@ -14,10 +14,8 @@ const ForgotPasswordPage = async () => {
     const session = await getSession()
     if (session) redirect('/')
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-8">
-            <div className="flex flex-col items-center justify-center">
-                <ForgotPassword />
-            </div>
+        <main className="flex min-h-screen flex-col items-center justify-center p-8">
+            <ForgotPassword />
         </main>
     )
 }

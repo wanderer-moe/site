@@ -17,7 +17,7 @@ export function Navbar(props: HeaderProps) {
                         <p className="font-bold">:3</p>
                     </Link>
                 </div>
-                <Navitems session={session} />
+                <Navitems {...props} />
             </div>
         </div>
     )
