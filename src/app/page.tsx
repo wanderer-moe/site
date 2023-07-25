@@ -43,7 +43,7 @@ function Home() {
         })
     }, [])
     return (
-        <main className="min-h-screen p-4 md:p-12">
+        <main className="min-h-screen p-5 md:px-16 lg:px-36">
             {loading ? (
                 <div>Loading...</div>
             ) : (
@@ -54,7 +54,7 @@ function Home() {
                         ))}
                     </div>
                     <div>
-                        <h1 className="mt-3 text-xl font-bold">
+                        <h1 className="mt-8 text-center text-2xl font-bold">
                             Recently Uploaded Assets
                         </h1>
                         <AssetContainer assets={recentData} />

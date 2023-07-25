@@ -10,7 +10,7 @@ async function Page() {
     const contributors = await getData()
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="min-h-screen p-5 md:px-16 lg:px-36">
             <div className="flex flex-col items-center justify-center">
                 <ul className="text-xl">
                     {contributors.map((contributor: Contributor) => (

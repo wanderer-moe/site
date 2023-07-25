@@ -62,11 +62,11 @@ function SearchPage() {
                 setGames(games)
                 setLoading(false)
             })
-        }, 500)
+        }, 100)
     }, [searchParams])
 
     return (
-        <main className="min-h-screen p-4 md:p-12">
+        <main className="min-h-screen p-5 md:px-16 lg:px-36">
             <div>
                 <AssetSearchHandler games={games} />
             </div>

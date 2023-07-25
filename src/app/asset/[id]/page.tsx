@@ -37,7 +37,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
     const { asset, similarAssets } = await getAsset(id)
 
     return (
-        <main className="min-h-screen p-4 md:p-12">
+        <main className="min-h-screen p-5 md:px-16 lg:px-36">
             {asset ? (
                 <>
                     <div>
