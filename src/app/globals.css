@@ -9,12 +9,12 @@
         @apply m-0 overflow-x-hidden text-sm leading-relaxed;
     }
 
-    font-semibold {
-        font-family: 'Satoshi-Bold';
+    .font-semibold {
+        font-family: 'Satoshi-Bold' !important;
     }
 
-    font-bold {
-        font-family: 'Satoshi-Black';
+    .font-bold {
+        font-family: 'Satoshi-Black' !important;
     }
 
     :root {

@@ -30,15 +30,21 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
         const asset = searchParams.get('asset')
 
         if (game) {
-            setSelectedGames(game.split(','))
+            const gamesToAdd = game.split(',').filter((g) => {
+                return games.map((game) => game.name).includes(g)
+            })
+            setSelectedGames(gamesToAdd)
         }
-        if (query) {
-            setQuery(query)
-        }
+
+        if (query) setQuery(query)
+
         if (asset) {
-            setSelectedCategories(asset.split(','))
+            const categoriesToAdd = asset.split(',').filter((a) => {
+                return games.flatMap((game) => game.assetCategories).includes(a)
+            })
+            setSelectedCategories(categoriesToAdd)
         }
-    }, [searchParams])
+    }, [searchParams, games])
 
     const handleGameChange = (name: string) => {
         if (selectedGames.includes(name)) {
