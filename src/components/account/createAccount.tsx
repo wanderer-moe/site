@@ -14,6 +14,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
+import { Checkbox } from '@/components/ui/checkbox'
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
@@ -94,6 +95,20 @@ export function CreateAccount() {
                             type="password"
                             placeholder="••••••••••"
                         />
+                    </div>
+                    <div className="flex items-center space-x-2">
+                        <Checkbox id="confirm" />
+                        <Label htmlFor="confirm">
+                            I confirm I have read and agree to the{' '}
+                            <Link href="/legal/terms-of-service">
+                                Terms of Service
+                            </Link>{' '}
+                            and{' '}
+                            <Link href="/legal/privacy-policy">
+                                Privacy Policy
+                            </Link>{' '}
+                            and that I am over the age of 13.
+                        </Label>
                     </div>
                 </CardContent>
                 <CardFooter className="flex flex-col gap-2">

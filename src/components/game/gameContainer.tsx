@@ -33,7 +33,7 @@ export default function GameContainer(game: any) {
                     />
                     <div className="align-center absolute">
                         <motion.p
-                            className="text-center text-2xl font-bold text-white"
+                            className="text-center text-2xl font-bold uppercase text-white"
                             animate={{
                                 opacity: hovered ? 1 : 1,
                                 y: hovered ? 0 : 10,
