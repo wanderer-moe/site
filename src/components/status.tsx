@@ -32,7 +32,7 @@ export function Status() {
                         status === 'online' ? 'text-green-200' : 'text-red-200'
                     } animate-pulse`}
                     size={12}
-                    fill={status === 'online' ? '#BBF7D0' : '#FECACA'}
+                    fill="currentColor"
                 />
                 <span className="ml-2">
                     API: {status === 'online' ? 'Online' : 'Degraded'}

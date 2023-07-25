@@ -1,7 +1,11 @@
 import { auth } from '@/auth/lucia'
 import { cookies } from 'next/headers'
 import { NextResponse, NextRequest } from 'next/server'
-import { generateUserId } from '@/lib/generateUserId'
+import {
+    checkPassword,
+    checkEmail,
+    checkUsername,
+} from '@/lib/regex/validateInformation'
 
 export const POST = async (request: NextRequest) => {
     const formData = await request.formData()
@@ -9,39 +13,39 @@ export const POST = async (request: NextRequest) => {
     const password = formData.get('password')
     const email = formData.get('email')
 
-    if (
-        typeof username !== 'string' ||
-        username.length < 3 ||
-        username.length > 18
-    ) {
+    if (!username || !password || !email) {
         return NextResponse.json(
             {
-                error: 'Invalid username',
+                error: 'Please fill out all fields.',
             },
             {
                 status: 400,
             },
         )
     }
+
     if (
-        typeof password !== 'string' ||
-        password.length < 6 ||
-        password.length > 50
+        !checkUsername(username as string) ||
+        !checkPassword(password as string) ||
+        !checkEmail(email as string)
     ) {
         return NextResponse.json(
             {
-                error: 'Invalid password',
+                error: 'Invalid credentials.',
             },
             {
                 status: 400,
             },
         )
     }
+
     try {
         const user = await auth.createUser({
             key: {
                 providerId: 'username',
+                // @ts-expect-error
                 providerUserId: username.toLowerCase(),
+                // @ts-expect-error
                 password,
             },
             attributes: {
