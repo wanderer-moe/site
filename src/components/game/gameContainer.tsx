@@ -11,14 +11,22 @@ export default function GameContainer(game: any) {
             <div
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
-                <div
-                    className="relative flex h-32 items-center justify-center bg-cover text-white transition-all duration-150"
+                <motion.div
+                    className="relative flex h-32 items-center justify-center bg-cover text-white"
                     style={{
                         backgroundImage: `url(https://cdn.wanderer.moe/${game.name}/cover.png)`,
-                        backgroundPosition: '50% 20%',
+                    }}
+                    animate={{
                         backgroundSize: hovered ? '115%' : '100%',
-                    }}>
-                    <div className="absolute inset-0 bg-black/70"></div>{' '}
+                        backgroundPosition: hovered ? '50% 15%' : '50% 20%',
+                    }}
+                    transition={{ duration: 0.15 }}>
+                    <motion.div
+                        className="absolute h-full w-full bg-black bg-opacity-60"
+                        animate={{
+                            opacity: hovered ? 0.9 : 1,
+                        }}
+                        transition={{ duration: 0.15 }}></motion.div>
                     <div className="align-center absolute">
                         <motion.p
                             className="text-center text-2xl font-bold text-white"
@@ -43,7 +51,7 @@ export default function GameContainer(game: any) {
                             available
                         </motion.p>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </Link>
     )
