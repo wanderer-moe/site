@@ -15,8 +15,11 @@ export default function GameContainer(game: any) {
                     className="relative flex h-32 items-center justify-center bg-cover text-white"
                     style={{
                         backgroundImage: `url(https://cdn.wanderer.moe/${game.name}/cover.png)`,
+                        backgroundPosition: '50% 20%',
+                        backgroundSize: '100%',
                     }}
                     animate={{
+                        // idk about this, will probably change
                         backgroundSize: hovered ? '115%' : '100%',
                         backgroundPosition: hovered ? '50% 15%' : '50% 20%',
                     }}
@@ -26,7 +29,8 @@ export default function GameContainer(game: any) {
                         animate={{
                             opacity: hovered ? 0.9 : 1,
                         }}
-                        transition={{ duration: 0.15 }}></motion.div>
+                        transition={{ duration: 0.15 }}
+                    />
                     <div className="align-center absolute">
                         <motion.p
                             className="text-center text-2xl font-bold text-white"
