@@ -86,7 +86,9 @@ export function Login() {
                     </div>
                 </CardContent>
                 <CardFooter>
-                    <Button disabled={isLoading} className="w-full">
+                    <Button
+                        disabled={isLoading}
+                        className="w-full font-semibold">
                         {isLoading && (
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         )}

@@ -40,7 +40,7 @@ export function ForgotPassword() {
                 </div>
             </CardContent>
             <CardFooter>
-                <Button className="w-full">Reset</Button>
+                <Button className="w-full font-semibold">Reset</Button>
             </CardFooter>
         </Card>
     )
