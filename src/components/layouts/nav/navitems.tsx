@@ -31,10 +31,7 @@ export function Navitems(props: NavitemsProps) {
                 <NavigationMenuItem>
                     {!session ? (
                         <Link href="/account/login" passHref>
-                            <NavigationMenuLink
-                                className={navigationMenuTriggerStyle()}>
-                                <LogIn className="h-4 w-4" />
-                            </NavigationMenuLink>
+                            <LogIn className="h-4 w-4" />
                         </Link>
                     ) : (
                         <UserNav {...props} />

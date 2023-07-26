@@ -35,7 +35,7 @@ export function Discord() {
                     } animate-pulse`}
                     fill="currentColor"
                 />
-                <span className="ml-2">Discord: {members} members online</span>
+                <span className="ml-2">Discord: {members} online</span>
             </Button>
         </Link>
     )
