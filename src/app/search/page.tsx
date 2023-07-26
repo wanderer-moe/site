@@ -66,7 +66,7 @@ function SearchPage() {
     }, [searchParams])
 
     return (
-        <main className="min-h-screen p-5 md:px-16 lg:px-36">
+        <main className="min-h-screen p-5 md:px-16 lg:px-48">
             <div>
                 <AssetSearchHandler games={games} />
             </div>

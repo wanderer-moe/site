@@ -109,17 +109,17 @@ export function AssetItem(asset: Asset) {
                                 <div className="flex flex-row gap-2">
                                     <Button
                                         size="sm"
+                                        variant="ghost"
                                         className="mt-2 text-sm"
                                         onClick={() => download(asset)}>
-                                        <HardDriveDownload className="mr-2 h-4 w-4" />
-                                        Download
+                                        <HardDriveDownload className="h-4 w-4" />
                                     </Button>
                                     <Link href={`/asset/${asset.id}`}>
                                         <Button
                                             size="sm"
+                                            variant="ghost"
                                             className="mt-2 text-sm">
-                                            <ExternalLink className="mr-2 h-4 w-4" />
-                                            View
+                                            <ExternalLink className="h-4 w-4" />
                                         </Button>
                                     </Link>
                                 </div>

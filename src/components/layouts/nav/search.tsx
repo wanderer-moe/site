@@ -6,7 +6,7 @@ export function SearchBar() {
 
     return (
         <>
-            <Input disabled placeholder="Search" />
+            <Input placeholder="Search" />
         </>
     )
 }

@@ -5,7 +5,7 @@ import { Discord } from './discord'
 
 export function SiteFooter() {
     return (
-        <footer className="w-full border-t bg-background p-6 md:px-16 lg:px-36">
+        <footer className="w-full border-t bg-background p-6 md:px-16 lg:px-48">
             <div>
                 <div className="mb-4 text-xs">
                     <p>

@@ -120,17 +120,6 @@ model Games {
   @@map("games")
 }
 
-model OC_Generators {
-  game          String @id
-  data          String
-  uploaded_by   String @default("System") // might add support for user uploaded generators in the future
-  uploaded_date String
-  view_count    Int    @default(0)
-
-  @@index([game])
-  @@map("oc_generators")
-}
-
 model Assets {
   id             Int           @id @default(autoincrement())
   name           String
