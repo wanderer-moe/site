@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layouts/nav/navbar'
 import { SiteFooter } from '@/components/layouts/footer/footer'
 import { ThemeProvider } from '@/components/themeProvider'
 import { getSession } from '@/auth/getSession'
+import { ScrollToTop } from '@/components/layouts/nav/scrollToTop'
 
 export const metadata: Metadata = {
     title: 'wanderer.moe',
@@ -25,6 +26,7 @@ export default async function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body className={cn('min-h-screen bg-background')}>
                 <ThemeProvider attribute="class" defaultTheme="dark">
+                    <ScrollToTop />
                     <Navbar session={session} />
                     {children}
                     <SiteFooter />

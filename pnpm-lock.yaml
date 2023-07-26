@@ -122,6 +122,9 @@ dependencies:
   framer-motion:
     specifier: ^10.13.0
     version: 10.13.0(react-dom@18.2.0)(react@18.2.0)
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   lucia:
     specifier: 2.0.0-beta.6
     version: 2.0.0-beta.6
@@ -199,6 +202,9 @@ devDependencies:
   '@types/jsonwebtoken':
     specifier: ^9.0.2
     version: 9.0.2
+  '@types/lodash':
+    specifier: ^4.14.196
+    version: 4.14.196
   '@types/nprogress':
     specifier: ^0.2.0
     version: 0.2.0
@@ -5391,6 +5397,10 @@ packages:
     dependencies:
       '@types/node': 20.4.2
     dev: false
+
+  /@types/lodash@4.14.196:
+    resolution: {integrity: sha512-22y3o88f4a94mKljsZcanlNWPzO0uBsBdzLAngf2tp533LzZcQzb6+eZPJ+vCTt+bqF2XnvT9gejTLsAcJAJyQ==}
+    dev: true
 
   /@types/long@4.0.2:
     resolution: {integrity: sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==}
