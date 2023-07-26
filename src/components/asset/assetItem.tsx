@@ -19,7 +19,7 @@ import {
     ContainerIcon,
     Copy,
     Download,
-    PlusCircleIcon,
+    MoreHorizontal,
 } from 'lucide-react'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
 import { timeAgo } from '@/lib/helpers/time'
@@ -66,60 +66,70 @@ export function AssetItem(asset: Asset) {
         <Dialog>
             <ContextMenu>
                 <ContextMenuTrigger>
-                    <Card className="p-2 transition-all hover:cursor-pointer hover:bg-zinc-400/5">
+                    <Card className="p-2 transition-all hover:cursor-pointer hover:border-white/50">
                         <div className="relative flex items-center">
-                            <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-zinc-800/20 p-1">
-                                <img
-                                    src={`https://cdn.wanderer.moe/${asset.url}`}
-                                    className="max-w-32 h-32 max-h-32 w-32 object-contain object-left"
-                                    alt={asset.name}
-                                />
-                            </div>
-                            <div>
-                                <div className="flex flex-row gap-1">
-                                    <Link href={`/search?game=${asset.game}`}>
-                                        <Button
-                                            variant="outline"
-                                            size="cs"
-                                            className="text-xs font-normal">
-                                            <img
-                                                src={`https://cdn.wanderer.moe/${asset.game}/icon.png`}
-                                                className="h-4 w-4"
-                                                alt={asset.game}
-                                            />
-                                        </Button>
-                                    </Link>
-                                    <Link
-                                        href={`/search?asset=${asset.asset_category}`}>
-                                        <Button
-                                            variant="outline"
-                                            size="cs"
-                                            className="text-xs font-normal">
-                                            {mapAssetType(asset.asset_category)}
-                                        </Button>
-                                    </Link>
-                                </div>
-                                <p className="font-normal">{asset.name}</p>
-                                <p className="text-xs font-normal">
-                                    Size: {bytesToFileSize(asset.file_size)}
-                                </p>
-                                <p className="text-xs font-normal">
-                                    Uploaded {timeAgo(asset.uploaded_date)}
-                                </p>
-                                <div className="flex flex-row gap-2">
+                            <div className="absolute bottom-0 right-0">
+                                <div className="flex flex-col justify-center gap-1">
+                                    {/* TODO: open context menu on click */}
                                     <Button
                                         size="sm"
-                                        variant="ghost"
-                                        className="mt-2 text-sm"
-                                        onClick={() => download(asset)}>
-                                        <HardDriveDownload className="h-4 w-4" />
+                                        variant="secondary"
+                                        className="text-sm">
+                                        <MoreHorizontal className="h-4 w-4" />
                                     </Button>
                                     <Link href={`/asset/${asset.id}`}>
                                         <Button
                                             size="sm"
-                                            variant="ghost"
-                                            className="mt-2 text-sm">
+                                            variant="secondary"
+                                            className="text-sm">
                                             <ExternalLink className="h-4 w-4" />
+                                        </Button>
+                                    </Link>
+                                    <Button
+                                        size="sm"
+                                        variant="secondary"
+                                        className="text-sm"
+                                        onClick={() => download(asset)}>
+                                        <HardDriveDownload className="h-4 w-4" />
+                                    </Button>
+                                </div>
+                            </div>
+                            <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-zinc-800/20 p-1">
+                                <img
+                                    src={`https://cdn.wanderer.moe/${asset.url}`}
+                                    className="max-w-24 h-24 max-h-24 w-24 object-contain object-left"
+                                    alt={asset.name}
+                                />
+                            </div>
+                            <div>
+                                <div>
+                                    <p className="font-normal">{asset.name}</p>
+                                    <p className="text-xs font-normal">
+                                        Size: {bytesToFileSize(asset.file_size)}
+                                    </p>
+                                </div>
+                                <p className="text-xs font-normal">
+                                    Uploaded {timeAgo(asset.uploaded_date)}
+                                </p>
+                                <div className="mt-2 flex flex-row gap-1">
+                                    <Link
+                                        href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
+                                        <Button
+                                            variant="outline"
+                                            size="cs"
+                                            className="text-xs font-normal">
+                                            <div className="flex flex-row items-center">
+                                                <img
+                                                    src={`https://cdn.wanderer.moe/${asset.game}/icon.png`}
+                                                    className="mr-2 h-4 w-4"
+                                                    alt={asset.game}
+                                                />
+                                                <p className="font-normal">
+                                                    {mapAssetType(
+                                                        asset.asset_category,
+                                                    )}
+                                                </p>
+                                            </div>
                                         </Button>
                                     </Link>
                                 </div>
