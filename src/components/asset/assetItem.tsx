@@ -62,6 +62,8 @@ function download(asset: Asset) {
 }
 
 export function AssetItem(asset: Asset) {
+    const assetName = asset.name.split('.').shift()
+    const assetFormat = asset.name.split('.').pop()
     return (
         <Dialog>
             <ContextMenu>
@@ -103,7 +105,7 @@ export function AssetItem(asset: Asset) {
                             </div>
                             <div>
                                 <div>
-                                    <p className="font-normal">{asset.name}</p>
+                                    <p className="font-normal">{assetName}</p>
                                     <p className="text-xs font-normal">
                                         Size: {bytesToFileSize(asset.file_size)}
                                     </p>
@@ -132,6 +134,16 @@ export function AssetItem(asset: Asset) {
                                             </div>
                                         </Button>
                                     </Link>
+                                    <Button
+                                        variant="outline"
+                                        size="cs"
+                                        className="text-xs font-normal">
+                                        <div className="flex flex-row items-center">
+                                            <p className="font-normal uppercase">
+                                                {assetFormat}
+                                            </p>
+                                        </div>
+                                    </Button>
                                 </div>
                             </div>
                         </div>

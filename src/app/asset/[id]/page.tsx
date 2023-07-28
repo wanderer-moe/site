@@ -35,6 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 async function AssetPage({ params: { id } }: { params: { id: string } }) {
     const { asset, similarAssets } = await getAsset(id)
+    const assetName = asset.name.split('.').shift()
+    // const assetFormat = asset.name.split('.').pop()
 
     return (
         <main className="min-h-screen p-5 md:px-16 lg:px-48">
@@ -42,7 +44,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                 <>
                     <div>
                         <div className="flex flex-col items-center justify-center">
-                            <h1 className="text-xl font-bold">{asset.name}</h1>
+                            <h1 className="text-xl font-bold">{assetName}</h1>
                             <p className="text-xl">id {asset.id}</p>
                             <p className="text-xl">
                                 {mapAssetType(asset.asset_category)}
