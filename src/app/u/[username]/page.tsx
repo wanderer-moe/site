@@ -25,8 +25,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 async function getUser(
     username: string,
 ): Promise<{ user: User; uploadedAssets: Asset[] }> {
-    // i will change this to getting information from
-    // prisma directly instead of using the api
     const res = await fetch(
         `https://v2-api-testing.wanderer.moe/user/${username}`,
     )
