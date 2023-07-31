@@ -55,7 +55,6 @@
     "framer-motion": "^10.15.0",
     "lodash": "^4.17.21",
     "lucia": "2.0.0",
-    "lucia-auth": "^1.8.0",
     "lucide-react": "^0.263.1",
     "next": "13.4.12",
     "next-contentlayer": "^0.3.4",

@@ -22,10 +22,10 @@ dependencies:
     version: 3.0.0(@prisma/client@5.0.0)(lucia@2.0.0)
   '@lucia-auth/nextjs':
     specifier: ^0.5.7
-    version: 0.5.7(lucia-auth@1.8.0)
+    version: 0.5.7
   '@lucia-auth/tokens':
     specifier: ^1.0.2
-    version: 1.0.2(lucia-auth@1.8.0)
+    version: 1.0.2
   '@planetscale/database':
     specifier: ^1.10.0
     version: 1.10.0
@@ -128,9 +128,6 @@ dependencies:
   lucia:
     specifier: 2.0.0
     version: 2.0.0
-  lucia-auth:
-    specifier: ^1.8.0
-    version: 1.8.0
   lucide-react:
     specifier: ^0.263.1
     version: 0.263.1(react@18.2.0)
@@ -3198,21 +3195,17 @@ packages:
       lucia: 2.0.0
     dev: false
 
-  /@lucia-auth/nextjs@0.5.7(lucia-auth@1.8.0):
+  /@lucia-auth/nextjs@0.5.7:
     resolution: {integrity: sha512-f7Mt9cr8llx5bl5hMX5tB9sYamwYvv6A5cm6O+9k4tvDZ5oSN59M10Sc32MwpkwW9CW3mbelzx1dm/lwWQuK7g==}
     peerDependencies:
       lucia-auth: 0.5.x - 0.10.x
-    dependencies:
-      lucia-auth: 1.8.0
     dev: false
 
-  /@lucia-auth/tokens@1.0.2(lucia-auth@1.8.0):
+  /@lucia-auth/tokens@1.0.2:
     resolution: {integrity: sha512-gdhzw7CK+6V39+u/iGYauLblNoA+fhQzOUEkGJCrzA8Nth2VxOJQixTJxV6YATcy2PPYihJgIeU8GFhpkhYXig==}
     deprecated: No longer supported
     peerDependencies:
       lucia-auth: 1.x
-    dependencies:
-      lucia-auth: 1.8.0
     dev: false
 
   /@mapbox/node-pre-gyp@1.0.11:
@@ -3386,7 +3379,7 @@ packages:
     resolution: {integrity: sha512-8KG5RD0GVP4ydEzRn/I4BNDuxDtqVbOdm8675T49OIG/NGhaK0pjPX7ZcDlvKYbA+ulvVK3ztfcF4uBdOxuJbQ==}
     dependencies:
       '@gar/promisify': 1.1.3
-      semver: 7.3.8
+      semver: 7.5.4
     dev: false
 
   /@npmcli/move-file@1.1.2:
@@ -5771,7 +5764,7 @@ packages:
       recast: 0.21.5
       remark-frontmatter: 4.0.1
       remark-mdx-frontmatter: 1.1.1
-      semver: 7.3.8
+      semver: 7.5.4
       sort-package-json: 1.57.0
       tar-fs: 2.1.1
       tsconfig-paths: 4.2.0
@@ -8706,7 +8699,7 @@ packages:
       '@types/glob': 7.2.0
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.11
+      fast-glob: 3.3.1
       glob: 7.2.3
       ignore: 5.2.4
       merge2: 1.4.1
@@ -9751,10 +9744,6 @@ packages:
   /lru-cache@7.18.3:
     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
     engines: {node: '>=12'}
-    dev: false
-
-  /lucia-auth@1.8.0:
-    resolution: {integrity: sha512-zI8gT2AOpxTPIxYzToEdgoht+GOflrduZiHPsOEmg4/2pThOyCW3o3lXh+Uwh20tJ9QoXwQe9/Omn6PlUG6efw==}
     dev: false
 
   /lucia@2.0.0:
