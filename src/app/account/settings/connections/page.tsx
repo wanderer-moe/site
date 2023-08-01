@@ -8,7 +8,7 @@ const ConnectionsPage = async () => {
     const session = await getSession()
     if (!session) redirect('/account/login')
     return (
-        <main className="min-h-screen p-5 md:px-16 lg:px-48">
+        <main className="min-h-screen p-5 max-w-screen-xl mx-auto">
             <div>
                 <h1 className="text-3xl font-bold">Connection Settings</h1>
                 <p>Manage all your socials connections.</p>

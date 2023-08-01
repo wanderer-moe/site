@@ -11,8 +11,16 @@ export const metadata: Metadata = {
     title: 'wanderer.moe',
     description: 'A centralized database of various game assets',
     icons: {
-        icon: '/favicon.ico',
+        icon: '/icon.svg',
     },
+    openGraph: {
+        type: 'website',
+        description: 'A centralized database of various game assets',
+        locale: 'en_US',
+        url: 'https://wanderer.moe',
+        siteName: 'wanderer.moe',
+    },
+    themeColor: '#BFB7D6',
 }
 
 export default async function RootLayout({

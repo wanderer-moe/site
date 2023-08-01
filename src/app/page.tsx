@@ -43,7 +43,7 @@ function Home() {
         })
     }, [])
     return (
-        <main className="min-h-screen p-5 md:px-16 lg:px-48">
+        <main className="min-h-screen p-5 max-w-screen-xl mx-auto">
             {loading ? (
                 <div>Loading...</div>
             ) : (
@@ -53,8 +53,8 @@ function Home() {
                             <GameContainer key={game.id} {...game} />
                         ))}
                     </div>
-                    <div>
-                        <h1 className="mt-8 text-center text-2xl font-bold">
+                    <div className="mt-8">
+                        <h1 className="mb-6 text-center text-2xl font-bold">
                             Recently Uploaded Assets
                         </h1>
                         <AssetContainer assets={recentData} />
