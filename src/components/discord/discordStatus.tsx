@@ -3,10 +3,9 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
-import { Circle } from 'lucide-react'
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
 
-export function Discord() {
+export function DiscordStatus() {
     const [members, setMembers] = useState('Unknown')
 
     useEffect(() => {

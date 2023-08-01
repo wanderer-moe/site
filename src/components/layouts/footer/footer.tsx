@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Status } from '@/components/status'
 import { Heart } from 'lucide-react'
-import { Discord } from './discord'
+import { DiscordStatus } from '@/components/discord/discordStatus'
 
 export function SiteFooter() {
     const currentYear = new Date().getFullYear()
@@ -13,7 +13,7 @@ export function SiteFooter() {
                     <div className="mb-4 flex flex-col md:mb-0">
                         <div className="mt-2 grid gap-2">
                             <Status />
-                            <Discord />
+                            <DiscordStatus />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
