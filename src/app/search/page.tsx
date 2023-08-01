@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button'
 import { AssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
 import { Games } from '@/interfaces/params'
 import AssetContainer from '@/components/asset/assetsContainer'
-import AssetLoadingPlaceholder from '@/components/asset/assetLoadingPlaceholder'
+import SkeletonLoader from '@/components/placeholders/skeletonLoader'
 
 interface SearchParams {
     game?: string
@@ -72,7 +72,7 @@ function SearchPage() {
             </div>
             {loading ? (
                 <div className="mt-10">
-                    <AssetLoadingPlaceholder />
+                    <SkeletonLoader />
                 </div>
             ) : (
                 <div className="mt-10">

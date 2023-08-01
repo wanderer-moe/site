@@ -3,7 +3,7 @@
 // import { useState } from 'react'
 import { Skeleton } from '@/components/ui/skeleton'
 
-export default function AssetLoadingPlaceholder() {
+export default function SkeletonLoader() {
     const displayFakes = 6
     return (
         <div>
