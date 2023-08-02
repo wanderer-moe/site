@@ -1,13 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import { Input } from '@/components/ui/input'
-import { useState } from 'react'
-import { SearchParams, Games } from '@/interfaces/params'
+import { Games } from '@/interfaces/params'
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover'
-import { Folder, FolderPlus, FolderCheck, X } from 'lucide-react'
+import { FolderPlus, X } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -21,7 +19,6 @@ import {
     CommandSeparator,
 } from '@/components/ui/command'
 import { mapGame } from '@/lib/helpers/casing/mapping'
-import { cn } from '@/lib/utils'
 
 interface GameFilterProps {
     games: Games[]

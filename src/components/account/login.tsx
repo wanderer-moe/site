@@ -29,19 +29,6 @@ export function Login() {
 
         const formData = new FormData(e.currentTarget)
         console.log(formData)
-        // const response = await fetch('/auth/login', {
-        //     method: 'POST',
-        //     body: formData,
-        //     redirect: 'manual',
-        // })
-
-        // console.log(response)
-        // if (response.status === 0) {
-        //     console.log('success')
-        //     return router.refresh()
-        // } else {
-        //     console.log('failure')
-        // }
         setIsLoading(false)
     }
 

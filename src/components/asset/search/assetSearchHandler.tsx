@@ -8,7 +8,7 @@ import { GameFilter } from '@/components/asset/search/gameFilter'
 import { CategoryFilter } from '@/components/asset/search/categoryFilter'
 import { Games, SearchParams } from '@/interfaces/params'
 import { useEffect, useState } from 'react'
-import { Filter, X } from 'lucide-react'
+import { X } from 'lucide-react'
 
 interface AssetSearchHandlerProps {
     games: Games[]
