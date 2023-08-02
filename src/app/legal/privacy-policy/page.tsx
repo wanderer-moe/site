@@ -1,6 +1,6 @@
 export default function PrivacyPolicy() {
     return (
-        <main className="min-h-screen p-5 max-w-screen-xl mx-auto">
+        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
             <div>
                 <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                     Privacy Policy

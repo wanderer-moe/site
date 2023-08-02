@@ -53,7 +53,7 @@ export default function Page() {
     }
 
     return (
-        <main className="min-h-screen p-5 max-w-screen-xl mx-auto">
+        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
             {!loading ? (
                 <div className="flex flex-col items-center justify-center">
                     <div className="relative mt-8 grid gap-8 px-2 md:grid-cols-1 lg:grid-cols-3 lg:px-0">

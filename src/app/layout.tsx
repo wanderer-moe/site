@@ -9,16 +9,28 @@ import { ScrollToTop } from '@/components/layouts/nav/scrollToTop'
 
 export const metadata: Metadata = {
     title: 'wanderer.moe',
-    description: 'A centralized database of various game assets',
+    description: 'A centralized database of various game assets.',
     icons: {
         icon: '/icon.svg',
     },
     openGraph: {
         type: 'website',
-        description: 'A centralized database of various game assets',
+        description: 'A centralized database of various game assets.',
         locale: 'en_US',
         url: 'https://wanderer.moe',
         siteName: 'wanderer.moe',
+        images: [
+            {
+                url: '/og',
+                width: 1200,
+                height: 630,
+                alt: 'wanderer.moe',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        images: ['/og'],
     },
     themeColor: '#BFB7D6',
 }
