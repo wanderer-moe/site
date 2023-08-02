@@ -18,9 +18,9 @@ import { LogIn } from 'lucide-react'
 import { UserNav } from '@/components/account/userDropdown'
 import { Session } from 'lucia'
 
-interface NavitemsProps {
-    session: Session
-}
+// interface NavitemsProps {
+//     session: Session
+// }
 
 export function Navitems() {
     return (
