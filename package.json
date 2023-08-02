@@ -83,6 +83,7 @@
     "@types/lodash": "^4.14.196",
     "@types/nprogress": "^0.2.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3"
+    "lint-staged": "^13.2.3",
+    "pnpm": "^8.6.11"
   }
 }

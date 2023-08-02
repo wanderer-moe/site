@@ -22,20 +22,15 @@ interface NavitemsProps {
     session: Session
 }
 
-export function Navitems(props: NavitemsProps) {
-    const { session } = props
-
+export function Navitems() {
     return (
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    {!session ? (
-                        <Link href="/account/login" passHref>
-                            <LogIn className="h-4 w-4" />
-                        </Link>
-                    ) : (
-                        <UserNav {...props} />
-                    )}
+                    <Link href="/account/login" passHref>
+                        <LogIn className="h-4 w-4" />
+                    </Link>
+                    {/* <UserNav {...props} /> */}
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

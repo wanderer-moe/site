@@ -8,8 +8,6 @@ interface HeaderProps {
 }
 
 export function Navbar(props: HeaderProps) {
-    const { session } = props
-    console.log(session)
     return (
         <div className="sticky top-0 z-[100] border-b border-zinc-100/20 bg-zinc-950/70 pb-0 pt-0 backdrop-blur-lg backdrop-filter">
             <div className="mx-auto flex h-14 max-w-screen-xl items-center justify-between px-5">
@@ -20,7 +18,7 @@ export function Navbar(props: HeaderProps) {
                     <SearchBar />
                 </div>
                 <div className="flex gap-2">
-                    <Navitems {...props} />
+                    <Navitems />
                 </div>
             </div>
         </div>
