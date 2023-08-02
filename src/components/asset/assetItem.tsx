@@ -159,7 +159,7 @@ export function AssetItem(asset: Asset) {
                         <Download className="mr-2 h-4 w-4" />
                         Download
                     </ContextMenuItem>
-                    <ContextMenuItem>
+                    {/* <ContextMenuItem>
                         <Star className="mr-2 h-4 w-4" />
                         Add to Favourites
                     </ContextMenuItem>
@@ -169,7 +169,7 @@ export function AssetItem(asset: Asset) {
                             <ContainerIcon className="mr-2 h-4 w-4" />
                             Add to Collection
                         </ContextMenuItem>
-                    </DialogTrigger>
+                    </DialogTrigger> */}
                 </ContextMenuContent>
             </ContextMenu>
             <AddToCollection {...asset} />

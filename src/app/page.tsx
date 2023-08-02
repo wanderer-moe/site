@@ -1,10 +1,10 @@
 'use client'
 
 import { Asset } from '@/interfaces/asset'
-import AssetItem from '@/components/asset/assetItem'
 import GameContainer from '@/components/game/gameContainer'
 import { useCallback, useEffect, useState } from 'react'
 import AssetContainer from '@/components/asset/assetsContainer'
+import SkeletonLoader from '@/components/placeholders/skeletonLoader'
 
 async function getData() {
     const recentRes = await fetch(
@@ -45,7 +45,9 @@ function Home() {
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">
             {loading ? (
-                <div>Loading...</div>
+                <div className="mt-10">
+                    <SkeletonLoader />
+                </div>
             ) : (
                 <>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
