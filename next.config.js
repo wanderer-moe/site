@@ -4,10 +4,9 @@
 const nextConfig = {
     experimental: {
         serverActions: true,
-        serverComponentsExternalPackages: ['@prisma/client'],
     },
     images: {
-        domains: ['cdn.wanderer.moe'],
+        domains: ['cdn.wanderer.moe', 'files.wanderer.moe'],
     },
 }
 

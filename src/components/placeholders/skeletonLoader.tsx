@@ -4,7 +4,7 @@
 import { Skeleton } from '@/components/ui/skeleton'
 
 export default function SkeletonLoader() {
-    const displayFakes = 6
+    const displayFakes = 12
     return (
         <div>
             <div className="mt-3 grid grid-cols-1 gap-6 md:grid-cols-2">
