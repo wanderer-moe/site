@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/themeProvider'
 import { ScrollToTop } from '@/components/layouts/nav/scrollToTop'
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://next.wanderer.moe'),
     title: 'wanderer.moe',
     description: 'A centralized database of various game assets.',
     icons: {
