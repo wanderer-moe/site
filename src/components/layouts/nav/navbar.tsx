@@ -12,7 +12,7 @@ import { LocaleChanger } from '@/components/localeChanger'
 export function Navbar() {
     return (
         <div className="sticky top-0 z-[100] border-b border-zinc-100/20 bg-zinc-950/70 pb-0 pt-0 backdrop-blur-lg backdrop-filter">
-            <div className="mx-auto flex h-14 max-w-screen-xl items-center justify-between gap-5 px-5">
+            <div className="mx-auto flex h-14 max-w-screen-xl items-center justify-between gap-3 px-5">
                 <Link href="/" passHref>
                     <Image
                         src="/icon.svg"

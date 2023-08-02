@@ -4,6 +4,7 @@ import { mapGame, mapAssetType } from '@/lib/helpers/casing/mapping'
 import { notFound } from 'next/navigation'
 import AssetItem from '@/components/asset/assetItem'
 import AssetContainer from '@/components/asset/assetsContainer'
+import SkeletonLoader from '@/components/placeholders/skeletonLoader'
 
 async function getAsset(
     id: string,
@@ -59,7 +60,9 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                     </div>
                 </>
             ) : (
-                <div>Loading...</div>
+                <div className="flex flex-col items-center justify-center">
+                    <SkeletonLoader />
+                </div>
             )}
         </main>
     )
