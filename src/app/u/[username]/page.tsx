@@ -11,9 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { username } = params
     const { user, uploadedAssets } = await getUser(username)
 
-    if (!user) {
-        return notFound()
-    }
+    if (!user) return notFound()
 
     return {
         title: `@${user.username} - wanderer.moe`,

@@ -32,7 +32,7 @@ function getGames() {
 
 function getData(searchParams: SearchParams) {
     return fetch(
-        `https://v2-api-testing.wanderer.moe/search/asset?${new URLSearchParams(
+        `https://v2-api-testing.wanderer.moe/search/assets?${new URLSearchParams(
             searchParams as any,
         )}`,
     )

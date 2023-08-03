@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import AssetContainer from '@/components/asset/assetsContainer'
 import SkeletonLoader from '@/components/placeholders/skeletonLoader'
 import { Badge } from '@/components/ui/badge'
@@ -11,17 +12,20 @@ import {
 } from '@/components/ui/table'
 import { Asset, SimilarAsset } from '@/interfaces/asset'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
+import { getImageResolution } from '@/lib/helpers/asset/getResolution'
 import { mapAssetType, mapGame } from '@/lib/helpers/casing/mapping'
 import {
     Boxes,
     ChevronRightCircle,
+    ChevronRight,
     Copy,
     Download,
-    Image,
+    Image as ImageIcon,
     Info,
 } from 'lucide-react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 
 async function getAsset(
     id: string,
@@ -60,15 +64,32 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">
             {asset ? (
                 <>
-                    {/* TODO: Add a breadcrumb here :) */}
+                    <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+                        <div className="whitespace-nowrap transition-colors hover:text-foreground">
+                            <Link href={`/search?game=${asset.game}`}>
+                                {mapGame(asset.game)}
+                            </Link>
+                        </div>
+                        <ChevronRight size={15} />
+                        <div className="whitespace-nowrap font-medium text-muted-foreground hover:text-foreground">
+                            <Link
+                                href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
+                                {mapAssetType(asset.asset_category)}
+                            </Link>
+                        </div>
+                        <ChevronRight size={15} />
+                        <div className="overflow-hidden text-ellipsis whitespace-nowrap text-foreground transition-colors">
+                            {assetName}.{assetFormat}
+                        </div>
+                    </div>
                     <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
                         <div className="relative items-center justify-center rounded-xl border bg-secondary/25">
                             <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
-                                <Image size={16} /> Asset
+                                <ImageIcon size={16} /> Asset
                             </h1>
                             <div className="flex h-[425px] items-center justify-center p-4">
                                 <img
-                                    src={`https://cdn.wanderer.moe/${asset.url}`}
+                                    src={`https://files.wanderer.moe/assets/${asset.url}`}
                                     alt={assetName}
                                     className="checkerboard max-h-full rounded-lg border object-contain object-left shadow-lg"
                                 />
@@ -91,7 +112,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                         <TableCell colSpan={3}>
                                             <div className="flex items-center">
                                                 <img
-                                                    src={`https://cdn.wanderer.moe/${asset.game}/icon.png`}
+                                                    src={`https://files.wanderer.moe/assets/${asset.game}/icon.png`}
                                                     className="mr-2 h-4 w-4 rounded"
                                                     alt={asset.game}
                                                 />

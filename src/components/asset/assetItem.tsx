@@ -26,7 +26,7 @@ import { AddToCollection } from '../collection/addToCollection'
 
 function copyImageToClipboard(asset: Asset) {
     const i = new Image()
-    i.src = `https://cdn.wanderer.moe/${asset.url}`
+    i.src = `https://files.wanderer.moe/assets/${asset.url}`
     // TODO: Copy image to clipboard..
 }
 
@@ -71,7 +71,7 @@ export function AssetItem(asset: Asset) {
                             </div>
                             <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-zinc-800/20 p-1">
                                 <img
-                                    src={`https://cdn.wanderer.moe/${asset.url}`}
+                                    src={`https://files.wanderer.moe/assets/${asset.url}`}
                                     className="max-w-24 h-24 max-h-24 w-24 object-contain object-left"
                                     alt={asset.name}
                                 />
@@ -95,7 +95,7 @@ export function AssetItem(asset: Asset) {
                                             className="text-xs font-normal">
                                             <div className="flex flex-row items-center">
                                                 <img
-                                                    src={`https://cdn.wanderer.moe/${asset.game}/icon.png`}
+                                                    src={`https://files.wanderer.moe/assets/${asset.game}/icon.png`}
                                                     className="mr-2 h-4 w-4"
                                                     alt={asset.game}
                                                 />

@@ -17,7 +17,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { id } = params
-    const { status, data } = await GetGeneratorData(id)
+    const { data } = await GetGeneratorData(id)
 
     if (!data) return notFound()
 

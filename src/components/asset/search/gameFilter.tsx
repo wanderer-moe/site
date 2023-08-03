@@ -85,7 +85,7 @@ export function GameFilter({
                                             isSelected ? 'bg-zinc-800' : ''
                                         } `}>
                                         <img
-                                            src={`https://cdn.wanderer.moe/${game.name}/icon.png`}
+                                            src={`https://files.wanderer.moe/assets/${game.name}/icon.png`}
                                             alt={game.name}
                                             className="mr-2 h-4 w-4 rounded-sm"
                                         />

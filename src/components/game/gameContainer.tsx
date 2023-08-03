@@ -15,7 +15,7 @@ export default function GameContainer(game: any) {
                 <motion.div
                     className="relative flex h-32 items-center justify-center bg-cover text-white"
                     style={{
-                        backgroundImage: `url(https://cdn.wanderer.moe/${game.name}/cover.png)`,
+                        backgroundImage: `url(https://files.wanderer.moe/assets/${game.name}/cover.png)`,
                         backgroundPosition: '50% 20%',
                         backgroundSize: '100%',
                     }}
