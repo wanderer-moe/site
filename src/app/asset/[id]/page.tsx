@@ -57,6 +57,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 async function AssetPage({ params: { id } }: { params: { id: string } }) {
     const { asset, similarAssets } = await getAsset(id)
+    if (!asset) return notFound()
+
     const assetName = asset.name.split('.').shift()
     const assetFormat = asset.name.split('.').pop()
 
@@ -143,7 +145,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                     <TableRow>
                                         <TableHead>Status</TableHead>
                                         <TableCell colSpan={3}>
-                                            {/* TODO: Add semantic colors here */}
+                                            {/* TODO: Add semantic colors here, ref https://github.com/wanderer-moe/api/blob/v2-auth/prisma/schema.prisma */}
                                             <Badge variant="outline">
                                                 {asset.status}
                                             </Badge>
@@ -207,8 +209,8 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                     <div className="mt-4 flex w-full flex-col gap-4 sm:flex-row">
                         {/* TODO: Implement */}
                         <Button
-                            variant="outline"
                             className="w-full"
+                            variant="outline"
                             title="Download Image">
                             <Download size={16} />
                         </Button>
