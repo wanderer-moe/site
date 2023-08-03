@@ -89,4 +89,8 @@
     body {
         @apply bg-background text-foreground;
     }
+    .checkerboard {
+        background: repeating-conic-gradient(#09090b 0% 25%, transparent 0% 50%)
+            50% / 20px 20px;
+    }
 }

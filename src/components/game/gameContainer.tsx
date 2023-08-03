@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 export default function GameContainer(game: any) {
     const [hovered, setHovered] = useState<boolean>(false)
+    console.log(game)
 
     return (
         <Link href={`/search?game=${game.name}`}>
