@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/themeProvider'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import './globals.css'
+// import { AuthProvider } from '@/context/authContext'
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://next.wanderer.moe'),
