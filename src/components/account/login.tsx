@@ -12,11 +12,10 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import Link from 'next/link'
+import { DiscordLogoIcon } from '@radix-ui/react-icons'
+import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { Loader2 } from 'lucide-react'
-import { DiscordLogoIcon } from '@radix-ui/react-icons'
 
 // TODO: fancy validation w/ regex and error handling
 export function Login() {

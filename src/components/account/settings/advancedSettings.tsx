@@ -1,8 +1,7 @@
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import { Separator } from '@/components/ui/separator'
 import { Session } from 'lucia'
-import { Button } from '@/components/ui/button'
 
 export function AdvancedSettings({ session }: { session: Session }) {
     // TODO: validation

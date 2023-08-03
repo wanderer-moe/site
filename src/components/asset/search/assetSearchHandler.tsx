@@ -1,14 +1,13 @@
 // AssetSearchHandler.tsx
 
-import { useRouter } from 'next/navigation'
-import { useSearchParams } from 'next/navigation'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { GameFilter } from '@/components/asset/search/gameFilter'
 import { CategoryFilter } from '@/components/asset/search/categoryFilter'
+import { GameFilter } from '@/components/asset/search/gameFilter'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { Games, SearchParams } from '@/interfaces/params'
-import { useEffect, useState } from 'react'
 import { X } from 'lucide-react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 interface AssetSearchHandlerProps {
     games: Games[]
@@ -101,12 +100,12 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
     ]
 
     return (
-        <div>
+        <div className="flex flex-col gap-2">
             <div className="flex flex-row">
                 <Input
                     type="text"
                     className="h-10 rounded-md px-4"
-                    placeholder="Search for a file name"
+                    placeholder="Search for a file name..."
                     value={query.replace(/-/g, ' ')}
                     onChange={handleQueryChange}
                 />
@@ -114,8 +113,8 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
                     Search
                 </Button>
             </div>
-            <div className="my-2 flex flex-col gap-2 md:flex-row md:justify-between">
-                <div className="flex flex-col gap-2 md:flex-row md:justify-between">
+            <div className="flex flex-col gap-2 md:flex-row">
+                <div className="flex flex-col gap-2 md:flex-row">
                     <GameFilter
                         games={games}
                         selectedGames={selectedGames}

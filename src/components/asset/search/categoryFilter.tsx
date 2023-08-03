@@ -1,22 +1,22 @@
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import {
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+} from '@/components/ui/command'
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover'
-import { FolderPlus, X } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import {
-    CommandEmpty,
-    CommandInput,
-    CommandItem,
-    Command,
-    CommandGroup,
-    CommandList,
-    CommandSeparator,
-} from '@/components/ui/command'
 import { mapAssetType } from '@/lib/helpers/casing/mapping'
+import { FolderPlus, X } from 'lucide-react'
 
 interface CategoryFilterProps {
     categories: string[]

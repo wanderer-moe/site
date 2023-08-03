@@ -1,10 +1,13 @@
 'use client'
 
-import { Asset } from '@/interfaces/asset'
-import GameContainer from '@/components/game/gameContainer'
-import { useCallback, useEffect, useState } from 'react'
 import AssetContainer from '@/components/asset/assetsContainer'
+import GameContainer from '@/components/game/gameContainer'
 import SkeletonLoader from '@/components/placeholders/skeletonLoader'
+import { Asset } from '@/interfaces/asset'
+import { FilePlus2 } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 async function getData() {
     const recentRes = await fetch(
@@ -55,11 +58,24 @@ function Home() {
                             <GameContainer key={game.id} {...game} />
                         ))}
                     </div>
-                    <div className="mt-8">
-                        <h1 className="mb-6 text-center text-2xl font-bold">
-                            Recently Uploaded Assets
-                        </h1>
-                        <AssetContainer assets={recentData} />
+                    <div className="mt-10">
+                        <div className="rounded-xl border bg-secondary/25 p-4">
+                            <h1 className="mb-4 flex items-center justify-center gap-2 text-lg font-bold">
+                                <FilePlus2 strokeWidth={3} size={20} /> Newest
+                                Assets
+                            </h1>
+                            <AssetContainer
+                                assets={recentData}
+                                displayCounter={false}
+                            />
+                            <div className="flex justify-center">
+                                <Link href="/search">
+                                    <Button variant="default" className="mt-4">
+                                        View All Assets
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </>
             )}

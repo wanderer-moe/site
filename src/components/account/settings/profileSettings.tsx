@@ -1,8 +1,8 @@
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { Textarea } from '@/components/ui/textarea'
 import { Session } from 'lucia'
-import { Button } from '@/components/ui/button'
 import { PronounHandler } from './pronounHandler'
 
 export function ProfileSettings({ session }: { session: Session }) {

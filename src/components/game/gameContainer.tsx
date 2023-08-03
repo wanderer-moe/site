@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { mapGame } from '@/lib/helpers/casing/mapping'
-import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { useState } from 'react'
 
 export default function GameContainer(game: any) {
     const [hovered, setHovered] = useState<boolean>(false)
@@ -31,7 +31,7 @@ export default function GameContainer(game: any) {
                         }}
                         transition={{ duration: 0.15 }}
                     />
-                    <div className="align-center absolute">
+                    <div className="align-center absolute w-5/6">
                         <motion.p
                             className="text-center text-2xl font-bold text-white"
                             animate={{

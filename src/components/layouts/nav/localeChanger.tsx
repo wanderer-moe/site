@@ -9,7 +9,7 @@ export function LocaleChanger() {
 
     return (
         <div>
-            <Button variant="ghost">{localeFlags['en']}</Button>
+            <Button variant="outline">{localeFlags['en']}</Button>
         </div>
     )
 }

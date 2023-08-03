@@ -1,17 +1,13 @@
 'use client'
 
 // TODO: cleanup
-import { useSearchParams } from 'next/navigation'
-import { useRouter } from 'next/navigation'
-import { Asset } from '@/interfaces/asset'
-import { useCallback, useEffect, useState } from 'react'
-import { Input } from '@/components/ui/input'
-import AssetItem from '@/components/asset/assetItem'
-import { Button } from '@/components/ui/button'
-import { AssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
-import { Games } from '@/interfaces/params'
 import AssetContainer from '@/components/asset/assetsContainer'
+import { AssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
 import SkeletonLoader from '@/components/placeholders/skeletonLoader'
+import { Asset } from '@/interfaces/asset'
+import { Games } from '@/interfaces/params'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 interface SearchParams {
     game?: string
@@ -67,15 +63,15 @@ function SearchPage() {
 
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">
-            <div>
+            <div className="rounded-xl border bg-secondary/25 p-4">
                 <AssetSearchHandler games={games} />
             </div>
             {loading ? (
-                <div className="mt-10">
+                <div className="mt-5">
                     <SkeletonLoader />
                 </div>
             ) : (
-                <div className="mt-10">
+                <div className="mt-5">
                     {data.length !== 0 ? (
                         <AssetContainer assets={data} />
                     ) : (

@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
-import { ChevronUp } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { debounce } from 'lodash'
+import { ChevronUp } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 export function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false)

@@ -1,6 +1,5 @@
-import { Metadata, ResolvingMetadata } from 'next'
-import SkeletonLoader from '@/components/placeholders/skeletonLoader'
-import { mapGame, mapAssetType } from '@/lib/helpers/casing/mapping'
+import { mapGame } from '@/lib/helpers/casing/mapping'
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 async function GetGeneratorData(id: string): Promise<any> {
@@ -30,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 async function OCGeneratorPage({ params: { id } }: { params: { id: string } }) {
     return (
-        <main className="min-h-screen p-5 md:px-16 lg:px-48">
+        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-xl font-bold">OC Generator</h1>
                 <p className="text-xl">id {id}</p>

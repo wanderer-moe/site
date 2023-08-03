@@ -1,9 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { useEffect, useState } from 'react'
 import { Circle } from 'lucide-react'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export function Status() {
     const [status, setStatus] = useState('Pending API Status')
@@ -26,7 +26,7 @@ export function Status() {
 
     return (
         <Link href="https://status.wanderer.moe">
-            <Button variant="outline">
+            <Button variant="outline" className="w-full">
                 <Circle
                     className={`${
                         status === 'online' ? 'text-green-200' : 'text-red-200'

@@ -7,7 +7,7 @@ export default function SkeletonLoader() {
     const displayFakes = 12
     return (
         <div>
-            <div className="mt-3 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 {[...Array(displayFakes)].map((_, i) => (
                     <Skeleton className="h-32 w-full" key={i} />
                 ))}

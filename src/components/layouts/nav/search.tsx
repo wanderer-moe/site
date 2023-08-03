@@ -6,7 +6,7 @@ export function SearchBar() {
 
     return (
         <>
-            <Input placeholder="Search" />
+            <Input className="mr-3" placeholder="Search..." />
         </>
     )
 }

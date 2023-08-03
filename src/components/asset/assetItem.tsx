@@ -1,55 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import Link from 'next/link'
-import { Asset } from '@/interfaces/asset'
-import { mapGame, mapAssetType } from '@/lib/helpers/casing/mapping'
-import {
-    Card,
-    CardTitle,
-    CardDescription,
-    CardHeader,
-    CardContent,
-} from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import {
-    HardDriveDownload,
-    ExternalLink,
-    Star,
-    ContainerIcon,
-    Copy,
-    Download,
-    MoreHorizontal,
-} from 'lucide-react'
-import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
-import { timeAgo } from '@/lib/helpers/time'
+import { Card } from '@/components/ui/card'
 import {
     ContextMenu,
-    ContextMenuCheckboxItem,
     ContextMenuContent,
     ContextMenuItem,
-    ContextMenuLabel,
-    ContextMenuRadioGroup,
-    ContextMenuRadioItem,
-    ContextMenuSeparator,
-    ContextMenuShortcut,
-    ContextMenuSub,
-    ContextMenuSubContent,
-    ContextMenuSubTrigger,
     ContextMenuTrigger,
 } from '@/components/ui/context-menu'
-import { AddToCollection } from '../collection/addToCollection'
+import { Dialog } from '@/components/ui/dialog'
+import { Asset } from '@/interfaces/asset'
+import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
+import { mapAssetType } from '@/lib/helpers/casing/mapping'
+import { timeAgo } from '@/lib/helpers/time'
 import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from '@/components/ui/dialog'
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
+    Copy,
+    Download,
+    ExternalLink,
+    HardDriveDownload,
+    MoreHorizontal,
+} from 'lucide-react'
+import Link from 'next/link'
+import { AddToCollection } from '../collection/addToCollection'
 
 function copyImageToClipboard(asset: Asset) {
     const i = new Image()

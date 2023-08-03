@@ -1,9 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { useEffect, useState } from 'react'
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export function DiscordStatus() {
     const [members, setMembers] = useState('Unknown')
@@ -25,7 +25,7 @@ export function DiscordStatus() {
 
     return (
         <Link href="https://discord.wanderer.moe">
-            <Button variant="outline">
+            <Button variant="outline" className="w-full">
                 <DiscordLogoIcon
                     className={`${
                         members === 'unknown'

@@ -1,7 +1,6 @@
-import { Metadata, ResolvingMetadata } from 'next'
-import { User } from '@/interfaces/user'
 import { Asset } from '@/interfaces/asset'
-import AssetItem from '@/components/asset/assetItem'
+import { User } from '@/interfaces/user'
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 type Props = {

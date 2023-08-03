@@ -5,22 +5,20 @@ import {
     DropdownMenuContent,
     DropdownMenuGroup,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuSeparator,
-    DropdownMenuShortcut,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import Link from 'next/link'
+import { Session } from 'lucia'
 import {
-    LogOut,
+    FileArchive,
+    FileHeart,
     Link as LinkIcon,
+    LogOut,
     Settings,
     Upload,
     User as UserIcon,
-    FileArchive,
-    FileHeart,
 } from 'lucide-react'
-import { Session } from 'lucia'
+import Link from 'next/link'
 
 interface UserNavProps {
     session: Session

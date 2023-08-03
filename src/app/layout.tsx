@@ -1,10 +1,10 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { cn } from '@/lib/utils'
-import { Navbar } from '@/components/layouts/nav/navbar'
 import { SiteFooter } from '@/components/layouts/footer/footer'
-import { ThemeProvider } from '@/components/themeProvider'
+import { Navbar } from '@/components/layouts/nav/navbar'
 import { ScrollToTop } from '@/components/layouts/nav/scrollToTop'
+import { ThemeProvider } from '@/components/themeProvider'
+import { cn } from '@/lib/utils'
+import type { Metadata } from 'next'
+import './globals.css'
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://next.wanderer.moe'),

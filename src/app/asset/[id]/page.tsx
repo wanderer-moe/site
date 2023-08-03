@@ -1,10 +1,9 @@
-import { Metadata, ResolvingMetadata } from 'next'
-import { Asset, SimilarAsset } from '@/interfaces/asset'
-import { mapGame, mapAssetType } from '@/lib/helpers/casing/mapping'
-import { notFound } from 'next/navigation'
-import AssetItem from '@/components/asset/assetItem'
 import AssetContainer from '@/components/asset/assetsContainer'
 import SkeletonLoader from '@/components/placeholders/skeletonLoader'
+import { Asset, SimilarAsset } from '@/interfaces/asset'
+import { mapAssetType, mapGame } from '@/lib/helpers/casing/mapping'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 async function getAsset(
     id: string,
@@ -40,7 +39,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
     // const assetFormat = asset.name.split('.').pop()
 
     return (
-        <main className="min-h-screen p-5 md:px-16 lg:px-48">
+        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
             {asset ? (
                 <>
                     <div>
@@ -56,7 +55,10 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                     </div>
                     <div className="">
                         <h1 className="text-xl font-bold">Similar Assets</h1>
-                        <AssetContainer assets={similarAssets} />
+                        <AssetContainer
+                            assets={similarAssets}
+                            displayCounter={false}
+                        />
                     </div>
                 </>
             ) : (

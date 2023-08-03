@@ -1,7 +1,8 @@
-import Link from 'next/link'
-import { Status } from '@/components/status'
-import { Heart } from 'lucide-react'
 import { DiscordStatus } from '@/components/discord/discordStatus'
+import { Status } from '@/components/layouts/footer/status'
+import { Heart } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export function SiteFooter() {
     const currentYear = new Date().getFullYear()
@@ -11,14 +12,27 @@ export function SiteFooter() {
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-4 flex flex-col md:mb-0">
-                        <div className="mt-2 grid gap-2">
+                        <div className="flex items-center justify-center gap-1 md:justify-start">
+                            <Image
+                                src="/icon.svg"
+                                alt="wanderer.moe"
+                                width={30}
+                                height={30}
+                            />
+                            <Link href="/" passHref>
+                                <p className="cursor-pointer text-xl font-semibold text-white">
+                                    wanderer.moe
+                                </p>
+                            </Link>
+                        </div>
+                        <div className="mt-4 grid gap-2">
                             <Status />
                             <DiscordStatus />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
                         <div>
-                            <p className="mb-4 font-semibold text-white">
+                            <p className="mb-4 pt-1 font-semibold text-white">
                                 Socials
                             </p>
                             <ul>
@@ -39,7 +53,7 @@ export function SiteFooter() {
                             </ul>
                         </div>
                         <div>
-                            <p className="mb-4 font-semibold text-white">
+                            <p className="mb-4 pt-1 font-semibold text-white">
                                 Legal
                             </p>
                             <ul>
@@ -60,7 +74,7 @@ export function SiteFooter() {
                             </ul>
                         </div>
                         <div>
-                            <p className="mb-4 font-semibold text-white">
+                            <p className="mb-4 pt-1 font-semibold text-white">
                                 Other
                             </p>
                             <ul>

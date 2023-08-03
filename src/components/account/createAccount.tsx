@@ -9,15 +9,15 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card'
-import { useRouter } from 'next/navigation'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import Link from 'next/link'
-import { Checkbox } from '@/components/ui/checkbox'
-import { useState } from 'react'
-import { Loader2 } from 'lucide-react'
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
+import { Loader2 } from 'lucide-react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 export function CreateAccount() {
     const router = useRouter()
