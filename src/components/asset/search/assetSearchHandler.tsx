@@ -1,5 +1,3 @@
-// AssetSearchHandler.tsx
-
 import { CategoryFilter } from '@/components/asset/search/categoryFilter'
 import { GameFilter } from '@/components/asset/search/gameFilter'
 import { Button } from '@/components/ui/button'
