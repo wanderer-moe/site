@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
+        title: 'wanderer.moe',
         images: ['/og'],
     },
     themeColor: '#BFB7D6',
