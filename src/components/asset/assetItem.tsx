@@ -31,7 +31,9 @@ function copyImageToClipboard(asset: Asset) {
 }
 
 function download(asset: Asset) {
-    window.open(`https://v2-api-testing.wanderer.moe/download/${asset.id}`)
+    window.open(
+        `https://v2-api-testing.wanderer.moe/asset/download/${asset.id}`,
+    )
 }
 
 export function AssetItem(asset: Asset) {
@@ -107,7 +109,7 @@ export function AssetItem(asset: Asset) {
                                             </div>
                                         </Button>
                                     </Link>
-                                    <Button
+                                    {/* <Button
                                         variant="outline"
                                         size="cs"
                                         className="text-xs font-normal">
@@ -116,7 +118,7 @@ export function AssetItem(asset: Asset) {
                                                 {assetFormat}
                                             </p>
                                         </div>
-                                    </Button>
+                                    </Button> */}
                                 </div>
                             </div>
                         </div>

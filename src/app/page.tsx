@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 async function getData() {
     const recentRes = await fetch(
-        `https://v2-api-testing.wanderer.moe/recent`,
+        `https://v2-api-testing.wanderer.moe/search/recent`,
         {
             next: {
                 revalidate: 10,
@@ -21,11 +21,14 @@ async function getData() {
     const recentData = await recentRes.json()
     const recentResults = recentData.results
 
-    const gamesRes = await fetch(`https://v2-api-testing.wanderer.moe/games`, {
-        next: {
-            revalidate: 10,
+    const gamesRes = await fetch(
+        `https://v2-api-testing.wanderer.moe/games/all`,
+        {
+            next: {
+                revalidate: 10,
+            },
         },
-    })
+    )
     const gamesData = await gamesRes.json()
     const gamesResults = gamesData.results
 

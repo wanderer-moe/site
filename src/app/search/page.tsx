@@ -16,7 +16,7 @@ interface SearchParams {
 }
 
 function getGames() {
-    return fetch(`https://v2-api-testing.wanderer.moe/games`, {
+    return fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
         next: {
             revalidate: 20,
         },
