@@ -5,8 +5,10 @@ export interface SearchParams {
 }
 
 export interface Games {
-    name: string
     id: number
-    last_updated?: string
-    assetCategories: string[]
+    name: string
+    asset_count: number
+    asset_categories: string // comma separated category1,category2,category3
+    category_count: number
+    last_updated: string
 }

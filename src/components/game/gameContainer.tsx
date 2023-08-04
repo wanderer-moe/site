@@ -49,10 +49,8 @@ export default function GameContainer(game: any) {
                                 y: hovered ? 0 : 10,
                             }}
                             transition={{ duration: 0.15 }}>
-                            {game.assetCategories.length}{' '}
-                            {game.assetCategories.length === 1
-                                ? 'category'
-                                : 'categories'}{' '}
+                            {game.asset_count}{' '}
+                            {game.asset_count === 1 ? 'asset' : 'assets'}{' '}
                             available
                         </motion.p>
                     </div>

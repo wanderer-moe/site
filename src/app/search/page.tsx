@@ -25,7 +25,7 @@ function getGames() {
         .then((data) =>
             data.results.map((game: Games) => ({
                 ...game,
-                assetCategories: [...new Set(game.assetCategories)],
+                asset_categories: [...new Set(game.asset_categories)],
             })),
         )
 }

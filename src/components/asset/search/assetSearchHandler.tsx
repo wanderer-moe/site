@@ -37,7 +37,9 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
 
         if (asset) {
             const categoriesToAdd = asset.split(',').filter((a) => {
-                return games.flatMap((game) => game.assetCategories).includes(a)
+                return games
+                    .flatMap((game) => game.asset_categories)
+                    .includes(a)
             })
             setSelectedCategories(categoriesToAdd)
         }
@@ -94,7 +96,7 @@ export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {
     }
 
     const categories = [
-        ...new Set(games.flatMap((game) => game.assetCategories)),
+        ...new Set(games.flatMap((game) => game.asset_categories)),
     ]
 
     return (
