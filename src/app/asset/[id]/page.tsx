@@ -12,7 +12,6 @@ import {
 } from '@/components/ui/table'
 import { Asset, SimilarAsset } from '@/interfaces/asset'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
-import { getImageResolution } from '@/lib/helpers/asset/getResolution'
 import { mapAssetType, mapGame } from '@/lib/helpers/casing/mapping'
 import {
     Boxes,
@@ -176,7 +175,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                             Resolution
                                         </TableHead>
                                         <TableCell className="hidden sm:table-cell">
-                                            PLACEHOLDER
+                                            {asset.width}x{asset.height}
                                         </TableCell>
                                         <TableHead className="hidden sm:table-cell">
                                             File Type
@@ -191,10 +190,11 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                             {bytesToFileSize(asset.file_size)}
                                         </TableCell>
                                     </TableRow>
-                                    {/* TODO: Implement */}
                                     <TableRow className="sm:hidden">
                                         <TableHead>Resolution</TableHead>
-                                        <TableCell>PLACEHOLDER</TableCell>
+                                        <TableCell>
+                                            {asset.width}x{asset.height}
+                                        </TableCell>
                                     </TableRow>
                                     <TableRow className="sm:hidden">
                                         <TableHead>File Type</TableHead>
