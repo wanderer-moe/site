@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
                 <Separator />
                 <div className="p-4 pb-0 text-zinc-400">
                     <p className="mb-4">
-                        This privacy policy for <Link className="text-zinc-200" href="https://wanderer.moe/">wanderer.moe</Link> ("<b className="font-semibold text-zinc-200">we</b>," "<b className="font-semibold text-zinc-200">us</b>," or "<b className="font-semibold text-zinc-200">our</b>,"), describes how and why we might collect, store, use, and/or share ("<b className="font-semibold text-zinc-200">process</b>") your information when you use our services ("<b className="font-semibold text-zinc-200">Services</b>").
+                        This privacy policy for <Link className="text-zinc-200" href="https://wanderer.moe/">wanderer.moe</Link> (&quot;<b className="font-semibold text-zinc-200">we</b>,&quot; &quot;<b className="font-semibold text-zinc-200">us</b>,&quot; or &quot;<b className="font-semibold text-zinc-200">our</b>,&quot;), describes how and why we might collect, store, use, and/or share (&quot;<b className="font-semibold text-zinc-200">process</b>&quot;) your information when you use our services (&quot;<b className="font-semibold text-zinc-200">Services</b>&quot;).
                     </p>
                     <p className="mb-4">
                         <b className="font-semibold text-zinc-200">Questions or concerns?</b> Reading this privacy policy will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <Link className="text-zinc-200" href="mailto:privacy@wanderer.moe">privacy@wanderer.moe</Link>.
