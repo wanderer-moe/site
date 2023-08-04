@@ -63,14 +63,14 @@ export default function Page() {
                                     <div
                                         key={category}
                                         id={category}
-                                        className="rounded-xl bg-secondary/25 border mb-4">
-                                        <h1 className="flex items-center border-b justify-center gap-2 rounded-t-xl bg-background py-2 text-base">
+                                        className="mb-4 rounded-xl border bg-secondary/25">
+                                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                                             <span className="inline-block">
                                                 {icon}
                                             </span>
                                             {category}
                                         </h1>
-                                        <div className="flex items-center justify-center gap-4 m-2 text-zinc-500 text-xs">
+                                        <div className="m-2 flex items-center justify-center gap-4 text-xs text-zinc-500">
                                             {description}
                                         </div>
                                         <div className="grid grid-cols-2 gap-4 border-t p-4 md:grid-cols-3 lg:grid-cols-4">
