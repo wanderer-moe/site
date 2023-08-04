@@ -5,7 +5,7 @@ import AssetContainer from '@/components/asset/assetsContainer'
 import { AssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
 import SkeletonLoader from '@/components/placeholders/skeletonLoader'
 import { Asset } from '@/interfaces/asset'
-import { Games } from '@/interfaces/params'
+import { Game } from '@/interfaces/params'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
@@ -23,7 +23,7 @@ function getGames() {
     })
         .then((res) => res.json())
         .then((data) =>
-            data.results.map((game: Games) => ({
+            data.results.map((game: Game) => ({
                 ...game,
                 asset_categories: [...new Set(game.asset_categories)],
             })),
@@ -45,7 +45,7 @@ function SearchPage() {
 
     const [data, setData] = useState<Asset[]>([])
     const [loading, setLoading] = useState<boolean>(true)
-    const [games, setGames] = useState<Games[]>([])
+    const [games, setGames] = useState<Game[]>([])
 
     useEffect(() => {
         setLoading(true)

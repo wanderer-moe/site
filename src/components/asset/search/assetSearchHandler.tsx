@@ -2,13 +2,13 @@ import { CategoryFilter } from '@/components/asset/search/categoryFilter'
 import { GameFilter } from '@/components/asset/search/gameFilter'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Games, SearchParams } from '@/interfaces/params'
+import { Game, SearchParams } from '@/interfaces/params'
 import { X } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 interface AssetSearchHandlerProps {
-    games: Games[]
+    games: Game[]
 }
 
 export function AssetSearchHandler({ games }: AssetSearchHandlerProps) {

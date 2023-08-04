@@ -16,12 +16,12 @@ import {
     PopoverTrigger,
 } from '@/components/ui/popover'
 import { Separator } from '@/components/ui/separator'
-import { Games } from '@/interfaces/params'
+import { Game } from '@/interfaces/params'
 import { mapGame } from '@/lib/helpers/casing/mapping'
 import { FolderPlus, X } from 'lucide-react'
 
 interface GameFilterProps {
-    games: Games[]
+    games: Game[]
     selectedGames: string[]
     onGameChange: (name: string) => void
     clearSelectedGames: () => void // why
