@@ -25,22 +25,22 @@ export default function Page() {
         Development: {
             description: 'Managing and developing the project codebase',
             roles: ['Project Lead', 'Developer'],
-            icon: <Code />,
+            icon: <Code size={16} />,
         },
         Staff: {
             description: 'Moderating and managing the community',
             roles: ['Admin', 'Senior Moderator', 'Moderator'],
-            icon: <Users />,
+            icon: <Users size={16} />,
         },
         Contributors: {
             description: 'Contributing with assets and translations',
             roles: ['Translator', 'Contributor'],
-            icon: <Star />,
+            icon: <Star size={16} />,
         },
         Supporters: {
             description: 'Really cool people',
             roles: ['Server Booster'],
-            icon: <Heart />,
+            icon: <Heart size={16} />,
         },
     }
 
@@ -63,19 +63,17 @@ export default function Page() {
                                     <div
                                         key={category}
                                         id={category}
-                                        className="mb-8">
-                                        <span className="mb-2 flex items-center gap-2">
+                                        className="rounded-xl bg-secondary/25 border mb-4">
+                                        <h1 className="flex items-center border-b justify-center gap-2 rounded-t-xl bg-background py-2 text-base">
                                             <span className="inline-block">
                                                 {icon}
                                             </span>
-                                            <p className="text-3xl font-bold text-white">
-                                                {category}
-                                            </p>
-                                        </span>
-                                        <p className="text-md mb-4 font-semibold text-white">
+                                            {category}
+                                        </h1>
+                                        <div className="flex items-center justify-center gap-4 m-2 text-zinc-500 text-xs">
                                             {description}
-                                        </p>
-                                        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-4 border-t p-4 md:grid-cols-3 lg:grid-cols-4">
                                             {contributors
                                                 .filter(
                                                     (contributor) =>

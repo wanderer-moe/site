@@ -8,7 +8,7 @@ export function SiteFooter() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="border-t p-3 text-gray-400 backdrop-blur-lg backdrop-filter transition-opacity">
+        <footer className="border-t p-3 text-zinc-400 backdrop-blur-lg backdrop-filter transition-opacity">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-4 flex flex-col md:mb-0">
@@ -114,7 +114,7 @@ export function SiteFooter() {
                         <p>
                             Built with{' '}
                             <Heart
-                                className="inline-block h-3 w-3 text-gray-400"
+                                className="inline-block h-3 w-3 text-zinc-400"
                                 fill="currentColor"
                             />{' '}
                             using{' '}

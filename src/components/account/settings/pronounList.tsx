@@ -35,7 +35,7 @@ export function PronounList({
                             <SelectItem key={pronoun} value={pronoun}>
                                 <SelectLabel>
                                     {pronoun}
-                                    <span className="text-xs text-gray-400">
+                                    <span className="text-xs text-zinc-400">
                                         {' '}
                                         (subject)
                                     </span>
@@ -47,7 +47,7 @@ export function PronounList({
                             <SelectItem key={pronoun} value={pronoun}>
                                 <SelectLabel>
                                     {pronoun}
-                                    <span className="text-xs text-gray-400">
+                                    <span className="text-xs text-zinc-400">
                                         {' '}
                                         (object)
                                     </span>
@@ -59,7 +59,7 @@ export function PronounList({
                             <SelectItem key={pronoun} value={pronoun}>
                                 <SelectLabel>
                                     {pronoun}
-                                    <span className="text-xs text-gray-400">
+                                    <span className="text-xs text-zinc-400">
                                         {' '}
                                         (possessive)
                                     </span>

@@ -17,7 +17,7 @@ export function discordUser(contributor: Contributor) {
     return (
         <div
             key={contributor.id}
-            className="relative flex flex-col items-center justify-center overflow-hidden rounded-md border bg-cover p-2 text-white transition ease-in-out hover:scale-105">
+            className="relative flex flex-col items-center justify-center bg-secondary/40 overflow-hidden rounded-md border bg-cover p-2 text-white transition ease-in-out hover:scale-105">
             <a
                 href={`https://discord.com/users/${contributor.id}`}
                 target="_blank"
@@ -33,7 +33,7 @@ export function discordUser(contributor: Contributor) {
                 {contributor.username}
                 {contributor.globalname &&
                     contributor.globalname !== contributor.username && (
-                        <span className="text-xs font-semibold text-gray-400">
+                        <span className="text-xs font-semibold text-zinc-400">
                             aka &quot;
                             {contributor.globalname}
                             &quot;
@@ -45,7 +45,7 @@ export function discordUser(contributor: Contributor) {
                 {contributor.roles.map((role) => (
                     <div
                         key={role}
-                        className="flex items-center rounded-md border px-2 py-1 text-xs text-gray-400">
+                        className="flex items-center bg-secondary/75 rounded-md border px-2 py-1 text-xs text-zinc-400">
                         <span
                             className={`${roleColors[role]} mr-1 h-2 w-2 rounded-full`}></span>
                         {role}

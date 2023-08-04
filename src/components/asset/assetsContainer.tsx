@@ -42,7 +42,7 @@ export default function AssetContainer({
                 ))}
             </div>
             {displayCounter && (
-                <div className="mt-5 flex flex-col items-center justify-center text-gray-400">
+                <div className="mt-5 flex flex-col items-center justify-center text-zinc-400">
                     <p>
                         Currently displaying{' '}
                         <span className="font-semibold">
