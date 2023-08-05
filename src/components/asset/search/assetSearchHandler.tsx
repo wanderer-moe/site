@@ -154,10 +154,7 @@ export function AssetSearchHandler({
                         value={selectedFilters.query.replace(/-/g, ' ')}
                         onChange={handleQueryChange}
                     />
-                    <Button
-                        size="lg"
-                        className="ml-2"
-                        onClick={handleSearch}>
+                    <Button size="lg" className="ml-2" onClick={handleSearch}>
                         Search
                     </Button>
                 </div>
