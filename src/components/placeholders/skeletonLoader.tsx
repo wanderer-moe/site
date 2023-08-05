@@ -3,11 +3,20 @@
 // import { useState } from 'react'
 import { Skeleton } from '@/components/ui/skeleton'
 
-export default function SkeletonLoader() {
-    const displayFakes = 12
+interface SkeletonLoaderProps {
+    displayFakes?: number
+    gridCols?: 1 | 2
+}
+
+export function SkeletonLoader({
+    displayFakes = 12,
+    gridCols = 2,
+}: SkeletonLoaderProps) {
+    const gridColsClass = gridCols === 1 ? 'grid-cols-1' : 'md:grid-cols-2'
+
     return (
         <div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className={`grid gap-6 ${gridColsClass}`}>
                 {[...Array(displayFakes)].map((_, i) => (
                     <Skeleton className="h-32 w-full" key={i} />
                 ))}

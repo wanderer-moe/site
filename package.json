@@ -47,6 +47,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
+    "copy-image-clipboard": "^2.1.2",
     "dayjs": "^1.11.9",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",

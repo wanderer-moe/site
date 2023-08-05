@@ -17,20 +17,23 @@ import {
 import { Separator } from '@/components/ui/separator'
 import { mapAssetType } from '@/lib/helpers/casing/mapping'
 import { FolderPlus, X } from 'lucide-react'
+import { useCallback } from 'react'
 
 interface CategoryFilterProps {
     categories: string[]
     selectedCategories: string[]
     onCategoryChange: (name: string) => void
-    clearSelectedCategories: () => void
 }
 
 export function CategoryFilter({
     categories,
     selectedCategories,
     onCategoryChange,
-    clearSelectedCategories,
 }: CategoryFilterProps) {
+    const handleClear = useCallback(() => {
+        selectedCategories.forEach((category) => onCategoryChange(category))
+    }, [selectedCategories, onCategoryChange])
+
     return (
         <Popover>
             <PopoverTrigger asChild>
@@ -91,9 +94,7 @@ export function CategoryFilter({
                                 <CommandSeparator />
                                 <CommandGroup>
                                     <CommandItem
-                                        onSelect={() =>
-                                            clearSelectedCategories()
-                                        }
+                                        onSelect={handleClear}
                                         className="my-2 transition-colors hover:cursor-pointer">
                                         <X className="mr-2 h-4 w-4" />
                                         <span>Clear Filtered Categories</span>

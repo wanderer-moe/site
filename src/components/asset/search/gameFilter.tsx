@@ -15,6 +15,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover'
+import { useCallback } from 'react'
 import { Separator } from '@/components/ui/separator'
 import { Game } from '@/interfaces/params'
 import { mapGame } from '@/lib/helpers/casing/mapping'
@@ -24,15 +25,17 @@ interface GameFilterProps {
     games: Game[]
     selectedGames: string[]
     onGameChange: (name: string) => void
-    clearSelectedGames: () => void // why
 }
 
 export function GameFilter({
     games,
     selectedGames,
     onGameChange,
-    clearSelectedGames,
 }: GameFilterProps) {
+    const handleClear = useCallback(() => {
+        selectedGames.forEach((game) => onGameChange(game))
+    }, [selectedGames, onGameChange])
+
     return (
         <Popover>
             <PopoverTrigger asChild>
@@ -99,7 +102,7 @@ export function GameFilter({
                                 <CommandSeparator />
                                 <CommandGroup>
                                     <CommandItem
-                                        onSelect={() => clearSelectedGames()}
+                                        onSelect={handleClear}
                                         className="my-2 transition-colors hover:cursor-pointer">
                                         <X className="mr-2 h-4 w-4" />
                                         <span>Clear Filtered Games</span>

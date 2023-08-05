@@ -22,12 +22,14 @@ import {
     MoreHorizontal,
 } from 'lucide-react'
 import Link from 'next/link'
+import { copyImageToClipboard as copyToClipboard } from 'copy-image-clipboard'
 import { AddToCollection } from '../collection/addToCollection'
 
-function copyImageToClipboard(asset: Asset) {
-    const i = new Image()
-    i.src = `https://files.wanderer.moe/assets/${asset.url}`
-    // TODO: Copy image to clipboard..
+export function copyImageToClipboard(asset: Asset) {
+    // TODO: add toasts to alert user of success/failure - this does not work on firefox
+    copyToClipboard(`https://files.wanderer.moe/assets/${asset.url}`)
+        .then(() => console.log('Copied to clipboard'))
+        .catch((err) => console.log('Failed to copy to clipboard', err))
 }
 
 function download(asset: Asset) {
@@ -38,7 +40,7 @@ function download(asset: Asset) {
 
 export function AssetItem(asset: Asset) {
     const assetName = asset.name.split('.').shift()
-    const assetFormat = asset.name.split('.').pop()
+    // const assetFormat = asset.name.split('.').pop()
     return (
         <Dialog>
             <ContextMenu>

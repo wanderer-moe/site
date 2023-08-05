@@ -2,7 +2,7 @@
 
 import AssetContainer from '@/components/asset/assetsContainer'
 import GameContainer from '@/components/game/gameContainer'
-import SkeletonLoader from '@/components/placeholders/skeletonLoader'
+import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
 import { Asset } from '@/interfaces/asset'
 import { FilePlus2, Gamepad2 } from 'lucide-react'
 import { useEffect, useState } from 'react'

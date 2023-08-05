@@ -1,9 +1,8 @@
 'use client'
 
-// TODO: cleanup
 import AssetContainer from '@/components/asset/assetsContainer'
-import { AssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
-import SkeletonLoader from '@/components/placeholders/skeletonLoader'
+import { DynamicAssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
+import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
 import { Asset } from '@/interfaces/asset'
 import { Game } from '@/interfaces/params'
 import { useSearchParams } from 'next/navigation'
@@ -63,9 +62,11 @@ function SearchPage() {
 
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">
-            <div className="rounded-xl border bg-secondary/25 p-4">
-                <AssetSearchHandler games={games} />
-            </div>
+            <DynamicAssetSearchHandler
+                games={games}
+                // showCategories={false}
+                // showGames={false}
+            />
             {loading ? (
                 <div className="mt-5">
                     <SkeletonLoader />

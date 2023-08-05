@@ -1,7 +1,7 @@
 'use client'
 
 import { discordUser as ContributorItem } from '@/components/discord/discordUser'
-import SkeletonLoader from '@/components/placeholders/skeletonLoader'
+import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
 import { Contributor } from '@/interfaces/discord/contributor'
 import { Code, Heart, Star, Users } from 'lucide-react'
 import { useEffect, useState } from 'react'

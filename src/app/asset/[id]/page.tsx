@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import AssetContainer from '@/components/asset/assetsContainer'
-import SkeletonLoader from '@/components/placeholders/skeletonLoader'
+import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {

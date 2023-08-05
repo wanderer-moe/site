@@ -1,4 +1,4 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
 
 settings:
   autoInstallPeers: true
@@ -110,6 +110,9 @@ dependencies:
   cmdk:
     specifier: ^0.2.0
     version: 0.2.0(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
+  copy-image-clipboard:
+    specifier: ^2.1.2
+    version: 2.1.2
   dayjs:
     specifier: ^1.11.9
     version: 1.11.9
@@ -6793,6 +6796,10 @@ packages:
   /cookie@0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /copy-image-clipboard@2.1.2:
+    resolution: {integrity: sha512-3VCXVl2IpFfOyD8drv9DozcNlwmqBqxOlsgkEGyVAzadjlPk1go8YNZyy8QmTnwHPxSFpeCR9OdsStEdVK7qDA==}
     dev: false
 
   /core-js-compat@3.32.0:
