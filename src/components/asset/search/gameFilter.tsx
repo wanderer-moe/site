@@ -63,6 +63,11 @@ export function GameFilter({
                                 <Badge
                                     variant="secondary"
                                     className="rounded-sm font-normal">
+                                    {/* {selectedGames.map((game) => (
+                                            <>
+                                                <img src={`https://files.wanderer.moe/assets/${game}/icon.png`} alt={game} className="mr-2 h-4 w-4 rounded-sm" /> 
+                                            </>
+                                        ))} */}
                                     {selectedGames.length} selected
                                 </Badge>
                             )}
@@ -81,6 +86,7 @@ export function GameFilter({
                                     game.name,
                                 )
                                 return (
+                                    // TODO: better colourings for selected/hover [mobile]
                                     <CommandItem
                                         key={game.name}
                                         onSelect={() => onGameChange(game.name)}
@@ -97,20 +103,19 @@ export function GameFilter({
                                 )
                             })}
                         </CommandGroup>
-                        {selectedGames.length > 0 && (
-                            <>
-                                <CommandSeparator />
-                                <CommandGroup>
-                                    <CommandItem
-                                        onSelect={handleClear}
-                                        className="my-2 transition-colors hover:cursor-pointer">
-                                        <X className="mr-2 h-4 w-4" />
-                                        <span>Clear Filtered Games</span>
-                                    </CommandItem>
-                                </CommandGroup>
-                            </>
-                        )}
                     </CommandList>
+                    <CommandGroup>
+                        <CommandSeparator />
+                        <CommandItem
+                            onSelect={handleClear}
+                            className={`mt-2 transition-colors hover:cursor-pointer
+                            ${selectedGames.length < 1 ? 'text-zinc-500' : ''}
+                            `}
+                            disabled={selectedGames.length < 1}>
+                            <X className="mr-2 h-4 w-4" />
+                            <span>Clear Filtered Games</span>
+                        </CommandItem>
+                    </CommandGroup>
                 </Command>
             </PopoverContent>
         </Popover>

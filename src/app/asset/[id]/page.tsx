@@ -67,14 +67,14 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                 <>
                     <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
                         <div className="whitespace-nowrap transition-colors hover:text-foreground">
-                            <Link href={`/search/assets?game=${asset.game}`}>
+                            <Link href={`/search?game=${asset.game}`}>
                                 {mapGame(asset.game)}
                             </Link>
                         </div>
                         <ChevronRight size={15} />
                         <div className="whitespace-nowrap font-medium text-muted-foreground hover:text-foreground">
                             <Link
-                                href={`/search/assets?game=${asset.game}&asset=${asset.asset_category}`}>
+                                href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
                                 {mapAssetType(asset.asset_category)}
                             </Link>
                         </div>

@@ -10,7 +10,7 @@ export default function GameContainer(game: Game) {
     console.log(game)
 
     return (
-        <Link href={`/search/assets?game=${game.name}`}>
+        <Link href={`/search?game=${game.name}`}>
             <div
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>

@@ -86,7 +86,7 @@ function IndexPage() {
                                     />
                                 </div>
                                 <div className="flex justify-center">
-                                    <Link href="/search/assets">
+                                    <Link href="/search">
                                         <Button
                                             variant="default"
                                             className="mb-4">

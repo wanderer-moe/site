@@ -136,9 +136,7 @@ export function AssetSearchHandler({
             searchParams.asset = selectedFilters.categories.join(',')
         if (selectedFilters.query) searchParams.query = selectedFilters.query
 
-        router.push(
-            `/search/assets?${new URLSearchParams(searchParams as any)}`,
-        )
+        router.push(`/search?${new URLSearchParams(searchParams as any)}`)
     }, [router, selectedFilters])
 
     const categories = useMemo(

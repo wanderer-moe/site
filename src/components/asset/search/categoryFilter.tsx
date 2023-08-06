@@ -89,20 +89,22 @@ export function CategoryFilter({
                                 )
                             })}
                         </CommandGroup>
-                        {selectedCategories.length > 0 && (
-                            <>
-                                <CommandSeparator />
-                                <CommandGroup>
-                                    <CommandItem
-                                        onSelect={handleClear}
-                                        className="my-2 transition-colors hover:cursor-pointer">
-                                        <X className="mr-2 h-4 w-4" />
-                                        <span>Clear Filtered Categories</span>
-                                    </CommandItem>
-                                </CommandGroup>
-                            </>
-                        )}
                     </CommandList>
+                    <CommandSeparator />
+                    <CommandGroup>
+                        <CommandItem
+                            onSelect={handleClear}
+                            className={`mt-2 transition-colors hover:cursor-pointer
+                                        ${
+                                            selectedCategories.length < 1
+                                                ? 'text-zinc-400'
+                                                : ''
+                                        }`}
+                            disabled={selectedCategories.length < 1}>
+                            <X className="mr-2 h-4 w-4" />
+                            <span>Clear Filtered Categories</span>
+                        </CommandItem>
+                    </CommandGroup>
                 </Command>
             </PopoverContent>
         </Popover>
