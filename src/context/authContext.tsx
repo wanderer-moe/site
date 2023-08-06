@@ -1,5 +1,8 @@
-import type { Session } from 'lucia'
+"use client"
+
 import * as React from 'react'
+import type { Session } from 'lucia'
+import { redirect } from 'next/navigation'
 
 export type SessionState = {
     session: Session | null
@@ -10,7 +13,7 @@ export type AuthContextType = {
     refreshSessionData: () => Promise<Session | null>
 } & SessionState
 
-const API_URL = 'https://v2-api-testing.wanderer.moe/'
+const API_URL = 'https://v2-api-testing.wanderer.moe'
 
 export const AuthContext = React.createContext<AuthContextType>({
     session: null,
@@ -18,9 +21,7 @@ export const AuthContext = React.createContext<AuthContextType>({
     refreshSessionData: async () => null,
 })
 
-export const AuthProvider: React.FC = ({
-    children,
-}: React.PropsWithChildren) => {
+export const AuthProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     const [authState, setAuthState] = React.useState<SessionState>({
         session: null,
         isLoadingSession: true,
@@ -30,13 +31,14 @@ export const AuthProvider: React.FC = ({
         let isMounted = true
 
         const fetchSessionData = async () => {
-            const session = await fetchJson<Session>(
-                `${API_URL}/auth/session/validate`,
+            const sessionRequest = await fetchJson<any>(
+                `${API_URL}/auth/validate`,
             )
-            if (isMounted) {
+            console.log(sessionRequest)
+            if (isMounted && !sessionRequest.session) {
                 setAuthState({
                     isLoadingSession: false,
-                    session,
+                    session: sessionRequest.session,
                 })
             }
         }
@@ -51,14 +53,16 @@ export const AuthProvider: React.FC = ({
     const authContextValue: AuthContextType = {
         ...authState,
         refreshSessionData: async () => {
-            const session = await fetchJson<Session>(
-                `${API_URL}/auth/session/validate`,
+            const sessionRequest = await fetchJson<any>(
+                `${API_URL}/auth/validate`,
             )
-            setAuthState({
-                isLoadingSession: false,
-                session,
-            })
-            return session
+            if (!sessionRequest.session) {
+                setAuthState({
+                    isLoadingSession: false,
+                    session: sessionRequest.session,
+                })
+            }
+            return sessionRequest.session
         },
     }
 

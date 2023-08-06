@@ -52,6 +52,7 @@ export function AssetItem(asset: Asset) {
                                     {/* TODO: open context menu on click */}
                                     <Button
                                         size="sm"
+                                        title="More"
                                         variant="secondary"
                                         className="text-sm">
                                         <MoreHorizontal className="h-4 w-4" />
@@ -60,6 +61,7 @@ export function AssetItem(asset: Asset) {
                                         <Button
                                             size="sm"
                                             variant="secondary"
+                                            title="View Asset"
                                             className="text-sm">
                                             <ExternalLink className="h-4 w-4" />
                                         </Button>
@@ -67,6 +69,7 @@ export function AssetItem(asset: Asset) {
                                     <Button
                                         size="sm"
                                         variant="secondary"
+                                        title="Download Asset"
                                         className="text-sm"
                                         onClick={() => download(asset)}>
                                         <HardDriveDownload className="h-4 w-4" />
@@ -132,7 +135,8 @@ export function AssetItem(asset: Asset) {
                         <Copy className="mr-2 h-4 w-4" />
                         Copy Image
                     </ContextMenuItem>
-                    <ContextMenuItem onClick={() => download(asset)}>
+                    <ContextMenuItem
+                        onClick={() => download(asset)}>
                         <Download className="mr-2 h-4 w-4" />
                         Download
                     </ContextMenuItem>

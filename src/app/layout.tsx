@@ -3,6 +3,7 @@ import { NavBar } from '@/components/layouts/nav/navBar'
 import { ScrollToTop } from '@/components/layouts/nav/scrollToTop'
 import { ThemeProvider } from '@/components/themeProvider'
 import { cn } from '@/lib/utils'
+import { AuthProvider } from '@/context/authContext'
 import type { Metadata } from 'next'
 import './globals.css'
 // import { AuthProvider } from '@/context/authContext'
@@ -48,10 +49,12 @@ export default async function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body className={cn('min-h-screen bg-background')}>
                 <ThemeProvider attribute="class" defaultTheme="dark">
-                    <ScrollToTop />
-                    <NavBar />
-                    {children}
-                    <SiteFooter />
+                    <AuthProvider>
+                        <ScrollToTop />
+                        <NavBar />
+                        {children}
+                        <SiteFooter />
+                    </AuthProvider>
                 </ThemeProvider>
             </body>
         </html>

@@ -3,9 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { NavItems } from './navItems'
 import { SearchBar } from './search'
-// interface HeaderProps {
-// session: Session
-// }
 
 export function NavBar() {
     return (

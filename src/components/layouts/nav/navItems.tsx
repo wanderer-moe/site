@@ -9,22 +9,26 @@ import {
     NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 import { LogIn } from 'lucide-react'
-
-// interface NavitemsProps {
-//     session: Session
-// }
+import { Session } from 'lucia'
+import { useAuthContext } from '@/context/authContext'
 
 export function NavItems() {
+    const { isLoadingSession, session } = useAuthContext()
+    console.log(session)
+    
     return (
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <Link href="/account/login" passHref>
-                        <Button variant="outline">
-                            <LogIn className="h-4 w-4" />
-                        </Button>
-                    </Link>
-                    {/* <UserNav {...props} /> */}
+                    {!session ? (
+                        <Link href="/account/login" passHref>
+                            <Button variant="outline">
+                                <LogIn className="h-4 w-4" />
+                            </Button>
+                        </Link>
+                    )
+                        : null
+                }
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
