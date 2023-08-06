@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import * as React from 'react'
 import type { Session } from 'lucia'
@@ -21,7 +21,9 @@ export const AuthContext = React.createContext<AuthContextType>({
     refreshSessionData: async () => null,
 })
 
-export const AuthProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+    children,
+}) => {
     const [authState, setAuthState] = React.useState<SessionState>({
         session: null,
         isLoadingSession: true,
@@ -34,11 +36,10 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({children}) 
             const sessionRequest = await fetchJson<any>(
                 `${API_URL}/auth/validate`,
             )
-            console.log(sessionRequest)
-            if (isMounted && !sessionRequest.session) {
+            if (isMounted) {
                 setAuthState({
                     isLoadingSession: false,
-                    session: sessionRequest.session,
+                    session: sessionRequest.session || null,
                 })
             }
         }
@@ -56,12 +57,13 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({children}) 
             const sessionRequest = await fetchJson<any>(
                 `${API_URL}/auth/validate`,
             )
-            if (!sessionRequest.session) {
-                setAuthState({
-                    isLoadingSession: false,
-                    session: sessionRequest.session,
-                })
-            }
+            setAuthState({
+                isLoadingSession: false,
+                session:
+                    sessionRequest.success !== 'false'
+                        ? sessionRequest.session
+                        : null,
+            })
             return sessionRequest.session
         },
     }

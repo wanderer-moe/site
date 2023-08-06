@@ -135,8 +135,7 @@ export function AssetItem(asset: Asset) {
                         <Copy className="mr-2 h-4 w-4" />
                         Copy Image
                     </ContextMenuItem>
-                    <ContextMenuItem
-                        onClick={() => download(asset)}>
+                    <ContextMenuItem onClick={() => download(asset)}>
                         <Download className="mr-2 h-4 w-4" />
                         Download
                     </ContextMenuItem>

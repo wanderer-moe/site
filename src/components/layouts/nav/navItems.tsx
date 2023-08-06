@@ -15,7 +15,7 @@ import { useAuthContext } from '@/context/authContext'
 export function NavItems() {
     const { isLoadingSession, session } = useAuthContext()
     console.log(session)
-    
+
     return (
         <NavigationMenu>
             <NavigationMenuList>
@@ -26,9 +26,7 @@ export function NavItems() {
                                 <LogIn className="h-4 w-4" />
                             </Button>
                         </Link>
-                    )
-                        : null
-                }
+                    ) : null}
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
