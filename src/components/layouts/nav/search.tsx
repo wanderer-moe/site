@@ -1,12 +1,18 @@
 import { Input } from '@/components/ui/input'
 
 export function SearchBar() {
-    // TODO: create searching mechanism for asset categories, games, individual assets & users
-    // needs to be implemented within requests the api
+    // TODO: this search bar will allow for searching by assets name, username, asset category & game name.
+    /* example interface:
+    interface NavbarSearchResponse {
+        assets?: Asset[]
+        users?: User[]
+        games?: Game[]
+        categories?: string[]
+    }*/
 
     return (
         <>
-            <Input className="mr-3" placeholder="Search..." />
+            <Input className="mr-3" placeholder="Search everywhere.." />
         </>
     )
 }

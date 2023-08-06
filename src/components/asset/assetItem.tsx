@@ -92,7 +92,7 @@ export function AssetItem(asset: Asset) {
                                 </p>
                                 <div className="mt-2 flex flex-row gap-1">
                                     <Link
-                                        href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
+                                        href={`/search/assets?game=${asset.game}&asset=${asset.asset_category}`}>
                                         <Button
                                             variant="outline"
                                             size="cs"

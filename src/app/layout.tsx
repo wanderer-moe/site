@@ -1,5 +1,5 @@
 import { SiteFooter } from '@/components/layouts/footer/footer'
-import { Navbar } from '@/components/layouts/nav/navbar'
+import { NavBar } from '@/components/layouts/nav/navBar'
 import { ScrollToTop } from '@/components/layouts/nav/scrollToTop'
 import { ThemeProvider } from '@/components/themeProvider'
 import { cn } from '@/lib/utils'
@@ -49,7 +49,7 @@ export default async function RootLayout({
             <body className={cn('min-h-screen bg-background')}>
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <ScrollToTop />
-                    <Navbar />
+                    <NavBar />
                     {children}
                     <SiteFooter />
                 </ThemeProvider>

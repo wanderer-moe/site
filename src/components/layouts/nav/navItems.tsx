@@ -14,7 +14,7 @@ import { LogIn } from 'lucide-react'
 //     session: Session
 // }
 
-export function Navitems() {
+export function NavItems() {
     return (
         <NavigationMenu>
             <NavigationMenuList>

@@ -5,6 +5,7 @@ import { DynamicAssetSearchHandler } from '@/components/asset/search/assetSearch
 import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
 import { Asset } from '@/interfaces/asset'
 import { Game } from '@/interfaces/params'
+import { Search } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
@@ -17,7 +18,7 @@ interface SearchParams {
 function getGames() {
     return fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
         next: {
-            revalidate: 20,
+            revalidate: 5,
         },
     })
         .then((res) => res.json())
@@ -62,26 +63,22 @@ function SearchPage() {
 
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">
-            <DynamicAssetSearchHandler
-                games={games}
-                // showCategories={false}
-                // showGames={false}
-            />
-            {loading ? (
-                <div className="mt-5">
+            <div className="flex flex-col gap-y-10">
+                <DynamicAssetSearchHandler games={games} />
+                {loading ? (
                     <SkeletonLoader />
-                </div>
-            ) : (
-                <div className="mt-5">
-                    {data.length !== 0 ? (
-                        <AssetContainer assets={data} />
-                    ) : (
-                        <div className="mt-10 flex flex-col items-center justify-center">
-                            <p>No results found.</p>
-                        </div>
-                    )}
-                </div>
-            )}
+                ) : (
+                    <>
+                        {data.length !== 0 ? (
+                            <AssetContainer assets={data} />
+                        ) : (
+                            <div className="mt-10 flex flex-col items-center justify-center">
+                                <p>No results found.</p>
+                            </div>
+                        )}
+                    </>
+                )}
+            </div>
         </main>
     )
 }

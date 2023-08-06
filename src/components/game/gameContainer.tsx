@@ -1,14 +1,16 @@
+import { Game } from '@/interfaces/params'
 import { mapGame } from '@/lib/helpers/casing/mapping'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { timeAgo } from '@/lib/helpers/time'
 import { useState } from 'react'
 
-export default function GameContainer(game: any) {
+export default function GameContainer(game: Game) {
     const [hovered, setHovered] = useState<boolean>(false)
     console.log(game)
 
     return (
-        <Link href={`/search?game=${game.name}`}>
+        <Link href={`/search/assets?game=${game.name}`}>
             <div
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
@@ -33,25 +35,29 @@ export default function GameContainer(game: any) {
                         transition={{ duration: 0.15 }}
                     />
                     <div className="align-center absolute w-5/6">
-                        <motion.p
-                            className="text-center text-2xl font-bold text-white"
+                        <motion.div
                             animate={{
                                 opacity: hovered ? 1 : 1,
                                 y: hovered ? 0 : 10,
                             }}
                             transition={{ duration: 0.15 }}>
-                            {mapGame(game.name)}
-                        </motion.p>
+                            <p className="text-center text-2xl font-bold text-white">
+                                {mapGame(game.name)}
+                            </p>
+                            <p className="text-center text-sm font-normal text-white">
+                                {game.asset_count}{' '}
+                                {game.asset_count === 1 ? 'asset' : 'assets'}{' '}
+                                available
+                            </p>
+                        </motion.div>
                         <motion.p
-                            className="text-center text-white"
+                            className="text-center text-xs font-normal text-white"
                             animate={{
                                 opacity: hovered ? 1 : 0,
                                 y: hovered ? 0 : 10,
                             }}
                             transition={{ duration: 0.15 }}>
-                            {game.asset_count}{' '}
-                            {game.asset_count === 1 ? 'asset' : 'assets'}{' '}
-                            available
+                            Last updated {timeAgo(game.last_updated)}
                         </motion.p>
                     </div>
                 </motion.div>
