@@ -97,7 +97,7 @@ export function CategoryFilter({
                             className={`mt-2 transition-colors hover:cursor-pointer
                                         ${
                                             selectedCategories.length < 1
-                                                ? 'text-zinc-400'
+                                                ? 'text-zinc-500'
                                                 : ''
                                         }`}
                             disabled={selectedCategories.length < 1}>
