@@ -13,7 +13,7 @@ export type AuthContextType = {
     refreshSessionData: () => Promise<Session | null>
 } & SessionState
 
-const API_URL = 'https://v2-api-testing.wanderer.moe'
+export const API_URL = 'https://v2-api-testing.wanderer.moe'
 
 export const AuthContext = React.createContext<AuthContextType>({
     session: null,
@@ -24,7 +24,7 @@ export const AuthContext = React.createContext<AuthContextType>({
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [authState, setAuthState] = React.useState<SessionState>({
+    const [authState, setAuthState] = React.useState<any>({
         session: null,
         isLoadingSession: true,
     })
@@ -36,10 +36,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             const sessionRequest = await fetchJson<any>(
                 `${API_URL}/auth/validate`,
             )
+            console.log(sessionRequest)
             if (isMounted) {
                 setAuthState({
                     isLoadingSession: false,
-                    session: sessionRequest.session || null,
+                    session: sessionRequest?.session || null,
                 })
             }
         }
@@ -57,6 +58,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             const sessionRequest = await fetchJson<any>(
                 `${API_URL}/auth/validate`,
             )
+            console.log(sessionRequest)
             setAuthState({
                 isLoadingSession: false,
                 session:
@@ -94,6 +96,7 @@ export async function fetchJson<T>(path: string): Promise<T | null> {
             headers: {
                 'Content-Type': 'application/json',
             },
+            credentials: 'include',
         })
 
         if (!res.ok)

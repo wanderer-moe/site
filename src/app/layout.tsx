@@ -38,8 +38,6 @@ export const metadata: Metadata = {
     themeColor: '#BFB7D6',
 }
 
-export const runtime = 'edge'
-
 export default async function RootLayout({
     children,
 }: {
@@ -47,7 +45,7 @@ export default async function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={cn('min-h-screen bg-background')}>
+            <body className="min-h-screen bg-background">
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <AuthProvider>
                         <ScrollToTop />

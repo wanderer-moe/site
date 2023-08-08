@@ -53,7 +53,7 @@ export default function Page() {
     }
 
     return (
-        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
+        <div className="mx-auto min-h-screen max-w-screen-xl p-5">
             {!loading ? (
                 <div className="flex flex-col items-center justify-center">
                     <div className="relative mt-8 grid gap-8 px-2 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
@@ -108,6 +108,6 @@ export default function Page() {
                     <SkeletonLoader />
                 </div>
             )}
-        </main>
+        </div>
     )
 }

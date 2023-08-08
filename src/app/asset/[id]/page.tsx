@@ -62,7 +62,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
     const assetFormat = asset.name.split('.').pop()
 
     return (
-        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
+        <div className="mx-auto min-h-screen max-w-screen-xl p-5">
             {asset ? (
                 <>
                     <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
@@ -249,7 +249,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                     <SkeletonLoader />
                 </div>
             )}
-        </main>
+        </div>
     )
 }
 

@@ -51,7 +51,7 @@ function IndexPage() {
     }, [])
 
     return (
-        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
+        <div className="mx-auto min-h-screen max-w-screen-xl p-5">
             {loading ? (
                 <div className="mt-10">
                     <SkeletonLoader />
@@ -99,7 +99,7 @@ function IndexPage() {
                     </div>
                 </>
             )}
-        </main>
+        </div>
     )
 }
 

@@ -28,8 +28,27 @@ export function CreateAccount() {
         setIsLoading(true)
 
         const formData = new FormData(e.currentTarget)
-        console.log(formData)
-        setIsLoading(false)
+
+        try {
+            const res = await fetch(
+                'https://v2-api-testing.wanderer.moe/auth/signup',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    body: formData,
+                },
+            )
+
+            if (res.ok && res.status === 200) {
+                router.push('/')
+            } else {
+                throw new Error('Something went wrong')
+            }
+        } catch (error) {
+            console.error(error)
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     return (
@@ -83,6 +102,19 @@ export function CreateAccount() {
                             placeholder="••••••••••"
                         />
                     </div>
+                    <div className="grid gap-2">
+                        <Label htmlFor="passwordConfirm">
+                            Confirm Password
+                        </Label>
+                        <Input
+                            disabled={isLoading}
+                            id="passwordConfirm"
+                            name="passwordConfirm"
+                            type="password"
+                            placeholder="••••••••••"
+                        />
+                    </div>
+                    <Separator />
                     <div className="flex items-center space-x-2">
                         <Checkbox id="confirm" />
                         <Label htmlFor="confirm">

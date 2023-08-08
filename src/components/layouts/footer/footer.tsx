@@ -37,18 +37,18 @@ export function SiteFooter() {
                             </p>
                             <ul>
                                 <li className="mb-2">
-                                    <a
+                                    <Link
                                         href="https://git.wanderer.moe/"
                                         className="hover:text-white">
                                         GitHub
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         href="https://discord.wanderer.moe/"
                                         className="hover:text-white">
                                         Discord Server
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -58,18 +58,18 @@ export function SiteFooter() {
                             </p>
                             <ul>
                                 <li className="mb-2">
-                                    <a
+                                    <Link
                                         href="/legal/privacy-policy"
                                         className="hover:text-white">
                                         Privacy Policy
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2">
-                                    <a
+                                    <Link
                                         href="/legal/terms-of-service"
                                         className="hover:text-white">
                                         Terms of Service
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -79,18 +79,18 @@ export function SiteFooter() {
                             </p>
                             <ul>
                                 <li className="mb-2">
-                                    <a
+                                    <Link
                                         href="https://wanderer.moe/asset-request-form"
                                         className="hover:text-white">
                                         Asset Request Form
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2">
-                                    <a
+                                    <Link
                                         href="/contributors"
                                         className="hover:text-white">
                                         Contributors
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2">
                                     <p className="cursor-pointer hover:text-white">
@@ -132,7 +132,7 @@ export function SiteFooter() {
                             by{' '}
                             <Link
                                 className="text-white"
-                                href="https://dromzeh.dev/">
+                                href="https://dromzeh.dev/?ref=wanderer.moe">
                                 dromzeh
                             </Link>{' '}
                             and our{' '}

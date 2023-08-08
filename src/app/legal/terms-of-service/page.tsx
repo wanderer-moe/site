@@ -32,7 +32,7 @@ import Link from 'next/link'
 
 export default function TermsOfService() {
     return (
-        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
+        <div className="mx-auto min-h-screen max-w-screen-xl p-5">
             <div className="rounded-xl border bg-secondary/25">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl bg-background py-2 text-base">
                     <ScrollText size={16} /> Terms of Service
@@ -1699,6 +1699,6 @@ export default function TermsOfService() {
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     )
 }

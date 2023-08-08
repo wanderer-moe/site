@@ -43,13 +43,13 @@ async function OCGeneratorPage({ params: { id } }: { params: { id: string } }) {
     } = await GetGeneratorData(id)
 
     return (
-        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
+        <div className="mx-auto min-h-screen max-w-screen-xl p-5">
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-xl font-bold">
                     OC Generator: {mapGame(id)}
                 </h1>
             </div>
-        </main>
+        </div>
     )
 }
 

@@ -19,6 +19,7 @@ import {
     User as UserIcon,
 } from 'lucide-react'
 import Link from 'next/link'
+import { roleFlagsToArray } from '@/lib/helpers/roleFlags'
 
 interface UserNavProps {
     session: Session
@@ -26,6 +27,13 @@ interface UserNavProps {
 
 export function UserNav(props: UserNavProps) {
     const { session } = props
+    console.log(session.user.roleFlags)
+    const roles = roleFlagsToArray(session.user.roleFlags)
+
+    const isStaffOrContributor =
+        roles.includes('CONTRIBUTOR') || roles.includes('STAFF')
+
+    console.log(roles)
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -33,7 +41,7 @@ export function UserNav(props: UserNavProps) {
                     variant="ghost"
                     className="relative h-8 w-8 rounded-full">
                     <Avatar className="h-8 w-8">
-                        <AvatarImage src="" alt="@tempusername" />
+                        <AvatarImage src="" alt={session.user.username} />
                         <AvatarFallback>
                             {session.user.username[0].toUpperCase()}
                         </AvatarFallback>
@@ -71,7 +79,7 @@ export function UserNav(props: UserNavProps) {
                             Saved Assets
                         </DropdownMenuItem>
                     </Link>
-                    <DropdownMenuItem disabled={session.user.role !== 'admin'}>
+                    <DropdownMenuItem disabled={isStaffOrContributor}>
                         <Upload className="mr-2 h-4 w-4" />
                         Upload Assets
                     </DropdownMenuItem>
@@ -93,7 +101,7 @@ export function UserNav(props: UserNavProps) {
                 <Button
                     className="w-full text-red-200"
                     variant="ghost"
-                    type="submit">
+                    onClick={() => console.log('logout')}>
                     <LogOut className="mr-2 h-4 w-4" />
                     Log out
                 </Button>

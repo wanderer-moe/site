@@ -3,30 +3,33 @@
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
+import { UserNav } from '@/components/account/userDropdown'
 import {
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 import { LogIn } from 'lucide-react'
-import { Session } from 'lucia'
 import { useAuthContext } from '@/context/authContext'
 
 export function NavItems() {
     const { isLoadingSession, session } = useAuthContext()
-    console.log(session)
+
+    console.log(isLoadingSession, session)
 
     return (
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
                     {!session ? (
-                        <Link href="/account/login" passHref>
+                        <Link href="/login" passHref>
                             <Button variant="outline">
                                 <LogIn className="h-4 w-4" />
                             </Button>
                         </Link>
-                    ) : null}
+                    ) : (
+                        <UserNav session={session} />
+                    )}
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

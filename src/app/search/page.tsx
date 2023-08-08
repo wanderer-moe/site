@@ -62,7 +62,7 @@ function SearchPage() {
     }, [searchParams])
 
     return (
-        <main className="mx-auto min-h-screen max-w-screen-xl p-5">
+        <div className="mx-auto min-h-screen max-w-screen-xl p-5">
             <div className="flex flex-col gap-y-10">
                 <DynamicAssetSearchHandler games={games} />
                 {loading ? (
@@ -79,7 +79,7 @@ function SearchPage() {
                     </>
                 )}
             </div>
-        </main>
+        </div>
     )
 }
 
