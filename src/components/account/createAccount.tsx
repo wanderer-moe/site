@@ -114,6 +114,18 @@ export function CreateAccount() {
                             placeholder="••••••••••"
                         />
                     </div>
+                    <div className="grid gap-2">
+                        <Label htmlFor="secretKey">
+                            Secret Key (Temporary, required to Create Account)
+                        </Label>
+                        <Input
+                            disabled={isLoading}
+                            id="secretKey"
+                            name="secretKey"
+                            type="password"
+                            placeholder="Secret Key"
+                        />
+                    </div>
                     <Separator />
                     <div className="flex items-center space-x-2">
                         <Checkbox id="confirm" />
