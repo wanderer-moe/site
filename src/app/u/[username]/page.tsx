@@ -3,6 +3,8 @@ import { User } from '@/interfaces/user'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+export const runtime = 'edge'
+
 type Props = {
     params: { username: string }
 }

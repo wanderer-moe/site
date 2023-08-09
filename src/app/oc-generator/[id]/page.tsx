@@ -3,6 +3,8 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { OCGeneratorResponse } from '@/interfaces/ocGenerator'
 
+export const runtime = 'edge'
+
 async function GetGeneratorData(id: string): Promise<OCGeneratorResponse> {
     const res = await fetch(
         `https://v2-api-testing.wanderer.moe/oc-generator/${id}`,

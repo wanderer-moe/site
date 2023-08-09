@@ -26,6 +26,8 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
+export const runtime = 'edge'
+
 async function getAsset(
     id: string,
 ): Promise<{ asset: Asset; similarAssets: SimilarAsset[] }> {
