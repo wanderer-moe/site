@@ -7,7 +7,7 @@ export const runtime = 'edge'
 
 async function GetGeneratorData(id: string): Promise<OCGeneratorResponse> {
     const res = await fetch(
-        `https://v2-api-testing.wanderer.moe/oc-generator/${id}`,
+        `https://v2-api-testing.wanderer.moe/oc-generators/${id}`,
     )
     const { success, status, data, error, message } = await res.json()
 

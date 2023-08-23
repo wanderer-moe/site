@@ -25,8 +25,9 @@ async function getUser(
     username: string,
 ): Promise<{ user: User; uploadedAssets: Asset[] }> {
     const res = await fetch(
-        `https://v2-api-testing.wanderer.moe/user/${username}`,
+        `https://v2-api-testing.wanderer.moe/user/u/${username}`,
     )
+    console.log(res)
     const { user, uploadedAssets } = await res.json()
     return { user, uploadedAssets }
 }
@@ -38,7 +39,7 @@ async function UserPage({
 }) {
     const { user, uploadedAssets } = await getUser(username)
 
-    return <></>
+    return <div></div>
 }
 
 export default UserPage

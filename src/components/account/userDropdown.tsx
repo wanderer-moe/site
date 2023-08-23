@@ -20,6 +20,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { roleFlagsToArray } from '@/lib/helpers/roleFlags'
+import { logoutUser } from '@/context/authContext'
 
 interface UserNavProps {
     session: Session
@@ -101,7 +102,7 @@ export function UserNav(props: UserNavProps) {
                 <Button
                     className="w-full text-red-200"
                     variant="ghost"
-                    onClick={() => console.log('logout')}>
+                    onClick={() => logoutUser()}>
                     <LogOut className="mr-2 h-4 w-4" />
                     Log out
                 </Button>

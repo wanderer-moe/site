@@ -78,7 +78,10 @@ export function AssetItem(asset: Asset) {
                             </div>
                             <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-zinc-800/20 p-1">
                                 <img
-                                    src={`https://files.wanderer.moe/assets/${asset.url}`}
+                                    src={`https://files.wanderer.moe/assets/${asset.url.replace(
+                                        '.png',
+                                        '-128.png',
+                                    )}`}
                                     className="max-w-24 h-24 max-h-24 w-24 object-contain object-left"
                                     alt={asset.name}
                                 />

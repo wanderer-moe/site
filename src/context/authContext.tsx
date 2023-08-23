@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import type { Session } from 'lucia'
-import { redirect } from 'next/navigation'
+// import { redirect } from 'next/navigation'
 
 export type SessionState = {
     session: Session | null
@@ -89,6 +89,19 @@ export const useAuthContext = () => {
 export const useCurrentSession = () => useAuthContext().session
 
 export const useCurrentUser = () => useCurrentSession()?.user ?? null
+
+export const logoutUser = async () => {
+    fetch('https://v2-api-testing.wanderer.moe/auth/logout', {
+        method: 'POST',
+        credentials: 'include',
+    })
+        .then(() => {
+            console.log('logged out')
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+}
 
 export async function fetchJson<T>(path: string): Promise<T | null> {
     try {

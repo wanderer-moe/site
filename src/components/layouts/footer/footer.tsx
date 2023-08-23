@@ -1,3 +1,5 @@
+'use client'
+
 import { DiscordStatus } from '@/components/discord/discordStatus'
 import { Status } from '@/components/layouts/footer/status'
 import { Heart } from 'lucide-react'
@@ -43,7 +45,7 @@ export function SiteFooter() {
                                         GitHub
                                     </Link>
                                 </li>
-                                <li>
+                                <li className="mb-2">
                                     <Link
                                         href="https://discord.wanderer.moe/"
                                         className="hover:text-white">

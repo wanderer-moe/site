@@ -146,7 +146,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                     <TableRow>
                                         <TableHead>Status</TableHead>
                                         <TableCell colSpan={3}>
-                                            {/* TODO: Add semantic colors here, ref https://github.com/wanderer-moe/api/blob/v2-auth/prisma/schema.prisma */}
+                                            {/* TODO: Add semantic colors here */}
                                             <Badge variant="outline">
                                                 {asset.status}
                                             </Badge>
