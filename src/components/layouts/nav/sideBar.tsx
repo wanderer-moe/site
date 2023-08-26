@@ -1,12 +1,11 @@
 import { Button } from '@/components/ui/button'
 import { Menu } from 'lucide-react'
 import React, { useState, useEffect, useMemo } from 'react'
-import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { LocaleChanger } from './localeChanger'
 import { DiscordStatus } from '@/components/discord/discordStatus'
-import { getGames } from '@/app/search/page'
+import { useGetGames } from '@/hooks/useGetGames'
 import type { Game } from '@/interfaces/params'
 import {
     AssetCategoryLabel,
@@ -27,9 +26,9 @@ export function SideBar() {
                         <span className="sr-only">Open Sidebar</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent className="z-[150] flex w-5/6 flex-col bg-zinc-950/70 px-5 pt-16 backdrop-blur-lg backdrop-filter">
+                <SheetContent className="z-[150] flex w-full flex-col bg-zinc-950/70 px-5 pt-16 backdrop-blur-lg backdrop-filter md:w-5/6">
                     <ScrollArea>
-                        <GameandCategorySideBar />
+                        <GameCategorySideBar />
                         <div className="flex flex-col gap-1">
                             <LocaleChanger />
                             <DiscordStatus />
@@ -71,12 +70,14 @@ function GameSideBar({ games }: { games: Game[] }) {
     )
 }
 
-function GameandCategorySideBar() {
+function GameCategorySideBar() {
     const [data, setData] = useState<Game[]>([])
 
+    const gamesData = useGetGames()
+
     useEffect(() => {
-        getGames().then((data) => setData(data))
-    }, [])
+        gamesData.then((data) => setData(data))
+    }, [gamesData])
 
     const categories = useMemo(
         () => [...new Set(data.flatMap((data) => data.asset_categories))],
