@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Menu } from 'lucide-react'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -8,7 +8,12 @@ import { LocaleChanger } from './localeChanger'
 import { DiscordStatus } from '@/components/discord/discordStatus'
 import { getGames } from '@/app/search/page'
 import type { Game } from '@/interfaces/params'
-import { GameContainer, GameLabel } from '@/components/game/gameContainer'
+import {
+    AssetCategoryLabel,
+    GameContainer,
+    GameLabel,
+} from '@/components/game/gameContainer'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 export function SideBar() {
     const [open, setOpen] = useState(false)
@@ -23,29 +28,65 @@ export function SideBar() {
                     </Button>
                 </SheetTrigger>
                 <SheetContent className="z-[150] flex w-5/6 flex-col bg-zinc-950/70 px-5 pt-16 backdrop-blur-lg backdrop-filter">
-                    <GamesSideBar />
-                    <div className="flex flex-col gap-1">
-                        <LocaleChanger />
-                        <DiscordStatus />
-                    </div>
+                    <ScrollArea>
+                        <GameandCategorySideBar />
+                        <div className="flex flex-col gap-1">
+                            <LocaleChanger />
+                            <DiscordStatus />
+                        </div>
+                    </ScrollArea>
                 </SheetContent>
             </Sheet>
         </div>
     )
 }
 
-function GamesSideBar() {
+function AssetCategoryFilter({ categories }: { categories: string[] }) {
+    return (
+        <div className="mt-4">
+            <Label className="text-md font-semibold">
+                Asset Categories ({categories.length})
+            </Label>
+            <div className="mt-2 flex flex-col gap-2">
+                {categories.map((category, i) => (
+                    <AssetCategoryLabel key={i} category={category} />
+                ))}
+            </div>
+        </div>
+    )
+}
+
+function GameSideBar({ games }: { games: Game[] }) {
+    return (
+        <div className="mt-4">
+            <Label className="text-md font-semibold">
+                Games ({games.length})
+            </Label>
+            <div className="mt-2 flex flex-col gap-2">
+                {games.map((game) => (
+                    <GameLabel key={game.id} game={game} className="ml-2" />
+                ))}
+            </div>
+        </div>
+    )
+}
+
+function GameandCategorySideBar() {
     const [data, setData] = useState<Game[]>([])
 
     useEffect(() => {
         getGames().then((data) => setData(data))
     }, [])
 
+    const categories = useMemo(
+        () => [...new Set(data.flatMap((data) => data.asset_categories))],
+        [data],
+    )
+
     return (
-        <div className="flex flex-col gap-2">
-            {data.map((game) => (
-                <GameLabel key={game.id} game={game} />
-            ))}
+        <div className="pb-6">
+            <GameSideBar games={data} />
+            <AssetCategoryFilter categories={categories} />
         </div>
     )
 }

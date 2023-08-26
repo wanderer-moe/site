@@ -49,14 +49,14 @@ function SearchPage() {
 
     useEffect(() => {
         setLoading(true)
-            Promise.all([
-                getData(searchParams as SearchParams),
-                getGames(),
-            ]).then(([data, games]) => {
+        Promise.all([getData(searchParams as SearchParams), getGames()]).then(
+            ([data, games]) => {
                 setData(data)
                 setGames(games)
                 setLoading(false)
-            })    }, [searchParams])
+            },
+        )
+    }, [searchParams])
 
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">

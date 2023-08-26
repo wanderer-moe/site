@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Game } from '@/interfaces/params'
-import { mapGame } from '@/lib/helpers/casing/mapping'
+import { mapAssetType, mapGame } from '@/lib/helpers/casing/mapping'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { timeAgo } from '@/lib/helpers/time'
@@ -10,6 +10,11 @@ import { Label } from '@/components/ui/label'
 
 interface GameContainerProps {
     game: Game
+    className?: string
+}
+
+interface CategoryContainerProps {
+    category: string
     className?: string
 }
 
@@ -87,7 +92,10 @@ export function GameLabel({ game, className }: GameContainerProps) {
                     x: hovered ? 5 : 0,
                 }}
                 transition={{ duration: 0.15 }}
-                className="flex cursor-pointer flex-row items-center gap-1"
+                className={cn(
+                    'flex cursor-pointer flex-row items-center gap-1',
+                    className,
+                )}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
                 <img
@@ -98,6 +106,35 @@ export function GameLabel({ game, className }: GameContainerProps) {
                 <div>
                     <Label className="ml-2 cursor-pointer text-xs font-normal">
                         {mapGame(game.name)}
+                    </Label>
+                </div>
+            </motion.div>
+        </Link>
+    )
+}
+
+export function AssetCategoryLabel({
+    category,
+    className,
+}: CategoryContainerProps) {
+    const [hovered, setHovered] = useState<boolean>(false)
+
+    return (
+        <Link href={`/search?asset=${category}`}>
+            <motion.div
+                animate={{
+                    x: hovered ? 5 : 0,
+                }}
+                transition={{ duration: 0.15 }}
+                className={cn(
+                    'flex cursor-pointer flex-row items-center gap-1',
+                    className,
+                )}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}>
+                <div>
+                    <Label className="ml-2 cursor-pointer text-xs font-normal">
+                        {mapAssetType(category)}
                     </Label>
                 </div>
             </motion.div>
