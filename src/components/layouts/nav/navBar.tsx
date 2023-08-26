@@ -1,8 +1,6 @@
-import { LocaleChanger } from '@/components/layouts/nav/localeChanger'
 import Image from 'next/image'
 import Link from 'next/link'
 import { NavItems } from './navItems'
-import { SearchBar } from './search'
 
 export function NavBar() {
     return (
@@ -13,14 +11,12 @@ export function NavBar() {
                         <Image
                             src="/icon.svg"
                             alt="wanderer.moe"
-                            width={50}
-                            height={50}
+                            width={35}
+                            height={35}
                         />
                     </Link>
-                    <SearchBar />
                 </div>
                 <div id="right" className="flex items-center gap-3">
-                    <LocaleChanger />
                     <NavItems />
                 </div>
             </div>

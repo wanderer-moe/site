@@ -15,7 +15,7 @@ interface SearchParams {
     asset?: string
 }
 
-function getGames() {
+export function getGames() {
     return fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
         next: {
             revalidate: 5,
@@ -49,7 +49,6 @@ function SearchPage() {
 
     useEffect(() => {
         setLoading(true)
-        setTimeout(() => {
             Promise.all([
                 getData(searchParams as SearchParams),
                 getGames(),
@@ -57,9 +56,7 @@ function SearchPage() {
                 setData(data)
                 setGames(games)
                 setLoading(false)
-            })
-        }, 100)
-    }, [searchParams])
+            })    }, [searchParams])
 
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">

@@ -18,7 +18,7 @@ export default function Page() {
 
     useEffect(() => {
         getData().then((data) => setContributors(data))
-        setTimeout(() => setLoading(false), 1000)
+        setTimeout(() => setLoading(false), 500)
     }, [])
 
     const categories = {

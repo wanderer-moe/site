@@ -1,7 +1,7 @@
 'use client'
 
 import AssetContainer from '@/components/asset/assetsContainer'
-import GameContainer from '@/components/game/gameContainer'
+import { GameContainer } from '@/components/game/gameContainer'
 import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
 import { Asset } from '@/interfaces/asset'
 import { FilePlus2, Gamepad2 } from 'lucide-react'
@@ -70,7 +70,7 @@ function IndexPage() {
                             </h1>
                             <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
                                 {games.map((game) => (
-                                    <GameContainer key={game.id} {...game} />
+                                    <GameContainer key={game.id} game={game} />
                                 ))}
                             </div>
                         </div>
