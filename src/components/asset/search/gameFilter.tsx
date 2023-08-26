@@ -20,6 +20,7 @@ import { Separator } from '@/components/ui/separator'
 import { Game } from '@/interfaces/params'
 import { mapGame } from '@/lib/helpers/casing/mapping'
 import { FolderPlus, X } from 'lucide-react'
+import { siteConfig } from '@/config/site'
 
 interface GameFilterProps {
     games: Game[]
@@ -94,7 +95,7 @@ export function GameFilter({
                                             isSelected ? 'bg-zinc-800' : ''
                                         } `}>
                                         <img
-                                            src={`https://files.wanderer.moe/assets/${game.name}/icon.png`}
+                                            src={`${siteConfig.urls.cdn}/assets/${game.name}/icon.png`}
                                             alt={game.name}
                                             className="mr-2 h-4 w-4 rounded-sm"
                                         />

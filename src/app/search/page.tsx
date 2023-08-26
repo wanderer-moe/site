@@ -8,6 +8,7 @@ import { Game } from '@/interfaces/params'
 import { Search } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { siteConfig } from '@/config/site'
 
 interface SearchParams {
     game?: string
@@ -17,7 +18,7 @@ interface SearchParams {
 
 function getData(searchParams: SearchParams) {
     return fetch(
-        `https://v2-api-testing.wanderer.moe/search/assets?${new URLSearchParams(
+        `${siteConfig.urls.api}/search/assets?${new URLSearchParams(
             searchParams as any,
         )}`,
     )
@@ -26,7 +27,7 @@ function getData(searchParams: SearchParams) {
 }
 
 function getGames() {
-    return fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
+    return fetch(`${siteConfig.urls.api}/games/all`, {
         next: {
             revalidate: 5,
         },

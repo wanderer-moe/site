@@ -10,22 +10,20 @@ import { Button } from '@/components/ui/button'
 // import { DynamicAssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
 import Link from 'next/link'
 import { Game } from '@/interfaces/params'
+import { siteConfig } from '@/config/site'
 
 async function fetchRecentData() {
-    const res = await fetch(
-        `https://v2-api-testing.wanderer.moe/search/assets/recent`,
-        {
-            next: {
-                revalidate: 5,
-            },
+    const res = await fetch(`${siteConfig.urls.api}/search/assets/recent`, {
+        next: {
+            revalidate: 5,
         },
-    )
+    })
     const data = await res.json()
     return data.results
 }
 
 async function fetchGamesData() {
-    const res = await fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
+    const res = await fetch(`${siteConfig.urls.api}/games/all`, {
         next: {
             revalidate: 5,
         },

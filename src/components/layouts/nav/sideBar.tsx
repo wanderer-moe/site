@@ -12,6 +12,7 @@ import {
     GameLabel,
 } from '@/components/game/gameContainer'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { siteConfig } from '@/config/site'
 
 export function SideBar() {
     const [open, setOpen] = useState(false)
@@ -70,7 +71,7 @@ function GameSideBar({ games }: { games: Game[] }) {
 }
 
 function getGames() {
-    return fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
+    return fetch(`${siteConfig.urls.api}/games/all`, {
         next: {
             revalidate: 5,
         },

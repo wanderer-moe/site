@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { timeAgo } from '@/lib/helpers/time'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
+import { siteConfig } from '@/config/site'
 import { Label } from '@/components/ui/label'
 
 interface GameContainerProps {
@@ -30,7 +31,7 @@ export function GameContainer({ game, className }: GameContainerProps) {
                     <motion.div
                         className="relative flex h-32 items-center justify-center bg-cover text-white"
                         style={{
-                            backgroundImage: `url(https://files.wanderer.moe/assets/${game.name}/cover.png)`,
+                            backgroundImage: `url(${siteConfig.urls.cdn}/assets/${game.name}/cover.png)`,
                             backgroundPosition: '50% 20%',
                             backgroundSize: '100%',
                         }}
@@ -99,7 +100,7 @@ export function GameLabel({ game, className }: GameContainerProps) {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
                 <img
-                    src={`https://files.wanderer.moe/assets/${game.name}/icon.png`}
+                    src={`${siteConfig.urls.cdn}/assets/${game.name}/icon.png`}
                     alt={game.name}
                     className="h-5 w-5 rounded-md"
                 />

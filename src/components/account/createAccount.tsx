@@ -17,6 +17,7 @@ import { DiscordLogoIcon } from '@radix-ui/react-icons'
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { siteConfig } from '@/config/site'
 import { useState } from 'react'
 
 export function CreateAccount() {
@@ -30,14 +31,11 @@ export function CreateAccount() {
         const formData = new FormData(e.currentTarget)
 
         try {
-            const res = await fetch(
-                'https://v2-api-testing.wanderer.moe/auth/signup',
-                {
-                    method: 'POST',
-                    credentials: 'include',
-                    body: formData,
-                },
-            )
+            const res = await fetch(`${siteConfig.urls.api}/auth/signup`, {
+                method: 'POST',
+                credentials: 'include',
+                body: formData,
+            })
 
             if (res.ok && res.status === 200) {
                 router.push('/')

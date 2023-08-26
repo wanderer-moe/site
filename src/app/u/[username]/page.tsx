@@ -2,6 +2,7 @@ import { Asset } from '@/interfaces/asset'
 import { User } from '@/interfaces/user'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { siteConfig } from '@/config/site'
 
 export const runtime = 'edge'
 
@@ -25,7 +26,9 @@ async function getUser(
     username: string,
 ): Promise<{ user: User; uploadedAssets: Asset[] }> {
     const res = await fetch(
-        `https://v2-api-testing.wanderer.moe/user/u/${username}`,
+        `$(
+            siteConfig.urls.api
+        )/user/u/${username}`,
     )
     console.log(res)
     const { user, uploadedAssets } = await res.json()

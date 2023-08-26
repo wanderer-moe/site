@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import type { Session } from 'lucia'
+import { siteConfig } from '@/config/site'
 // import { redirect } from 'next/navigation'
 
 export type SessionState = {
@@ -12,8 +13,6 @@ export type SessionState = {
 export type AuthContextType = {
     refreshSessionData: () => Promise<Session | null>
 } & SessionState
-
-export const API_URL = 'https://v2-api-testing.wanderer.moe'
 
 export const AuthContext = React.createContext<AuthContextType>({
     session: null,
@@ -34,7 +33,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
         const fetchSessionData = async () => {
             const sessionRequest = await fetchJson<any>(
-                `${API_URL}/auth/validate`,
+                `${siteConfig.urls.api}/auth/validate`,
             )
             console.log(sessionRequest)
             if (isMounted) {
@@ -56,7 +55,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         ...authState,
         refreshSessionData: async () => {
             const sessionRequest = await fetchJson<any>(
-                `${API_URL}/auth/validate`,
+                `${siteConfig.urls.api}/auth/validate`,
             )
             console.log(sessionRequest)
             setAuthState({
@@ -91,7 +90,7 @@ export const useCurrentSession = () => useAuthContext().session
 export const useCurrentUser = () => useCurrentSession()?.user ?? null
 
 export const logoutUser = async () => {
-    fetch('https://v2-api-testing.wanderer.moe/auth/logout', {
+    fetch(`${siteConfig.urls.api}/auth/logout`, {
         method: 'POST',
         credentials: 'include',
     })

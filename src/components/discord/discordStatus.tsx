@@ -4,12 +4,15 @@ import { Button } from '@/components/ui/button'
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { siteConfig } from '@/config/site'
 
 export function DiscordStatus() {
     const [members, setMembers] = useState('Unknown')
 
     useEffect(() => {
-        fetch('https://discord.com/api/guilds/982385887000272956/widget.json')
+        fetch(
+            `https://discord.com/api/guilds/${siteConfig.discord.server_id}/widget.json`,
+        )
             .then((res) => res.json())
             .then((data) => {
                 if (data.id === '982385887000272956') {
@@ -24,7 +27,7 @@ export function DiscordStatus() {
     }, [])
 
     return (
-        <Link href="https://discord.wanderer.moe">
+        <Link href={siteConfig.socials.discord}>
             <Button variant="outline" className="w-full">
                 <DiscordLogoIcon
                     className={`${

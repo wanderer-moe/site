@@ -24,18 +24,17 @@ import {
 import Link from 'next/link'
 import { copyImageToClipboard as copyToClipboard } from 'copy-image-clipboard'
 import { AddToCollection } from '../collection/addToCollection'
+import { siteConfig } from '@/config/site'
 
 export function copyImageToClipboard(asset: Asset) {
     // TODO: add toasts to alert user of success/failure - this does not work on firefox
-    copyToClipboard(`https://files.wanderer.moe/assets/${asset.url}`)
+    copyToClipboard(`${siteConfig.urls.cdn}/assets/${asset.url}`)
         .then(() => console.log('Copied to clipboard'))
         .catch((err) => console.log('Failed to copy to clipboard', err))
 }
 
 function download(asset: Asset) {
-    window.open(
-        `https://v2-api-testing.wanderer.moe/asset/download/${asset.id}`,
-    )
+    window.open(`${siteConfig.urls.api}/asset/download/${asset.id}`)
 }
 
 export function AssetItem(asset: Asset) {
@@ -78,7 +77,9 @@ export function AssetItem(asset: Asset) {
                             </div>
                             <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-zinc-800/20 p-1">
                                 <img
-                                    src={`https://files.wanderer.moe/assets/${asset.url.replace(
+                                    src={`${
+                                        siteConfig.urls.cdn
+                                    }/assets/${asset.url.replace(
                                         '.png',
                                         '-128.png',
                                     )}`}
@@ -105,7 +106,7 @@ export function AssetItem(asset: Asset) {
                                             className="text-xs font-normal">
                                             <div className="flex flex-row items-center">
                                                 <img
-                                                    src={`https://files.wanderer.moe/assets/${asset.game}/icon.png`}
+                                                    src={`${siteConfig.urls.cdn}/assets/${asset.game}/icon.png`}
                                                     className="mr-2 h-4 w-4"
                                                     alt={asset.game}
                                                 />

@@ -17,6 +17,7 @@ import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { siteConfig } from '@/config/site'
 
 export function Login() {
     const router = useRouter()
@@ -30,14 +31,11 @@ export function Login() {
 
         try {
             // post request to /auth/login using formData
-            const res = await fetch(
-                'https://v2-api-testing.wanderer.moe/auth/login',
-                {
-                    method: 'POST',
-                    credentials: 'include',
-                    body: formData,
-                },
-            )
+            const res = await fetch(`${siteConfig.urls.api}/auth/login`, {
+                method: 'POST',
+                credentials: 'include',
+                body: formData,
+            })
 
             console.log(res)
 

@@ -25,13 +25,14 @@ import {
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { siteConfig } from '@/config/site'
 
 export const runtime = 'edge'
 
 async function getAsset(
     id: string,
 ): Promise<{ asset: Asset; similarAssets: SimilarAsset[] }> {
-    const res = await fetch(`https://v2-api-testing.wanderer.moe/asset/${id}`)
+    const res = await fetch(`${siteConfig.urls.api}/asset/${id}`)
     const { asset, similarAssets } = await res.json()
     return { asset, similarAssets }
 }
@@ -92,7 +93,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                             </h1>
                             <div className="flex h-[425px] items-center justify-center p-4">
                                 <img
-                                    src={`https://files.wanderer.moe/assets/${asset.url}`}
+                                    src={`${siteConfig.urls.cdn}/assets/${asset.url}`}
                                     alt={assetName}
                                     className="checkerboard max-h-full rounded-lg border object-contain object-left shadow-lg"
                                 />
@@ -115,7 +116,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                         <TableCell colSpan={3}>
                                             <div className="flex items-center">
                                                 <img
-                                                    src={`https://files.wanderer.moe/assets/${asset.game}/icon.png`}
+                                                    src={`${siteConfig.urls.cdn}/assets/${asset.game}/icon.png`}
                                                     className="mr-2 h-4 w-4 rounded"
                                                     alt={asset.game}
                                                 />

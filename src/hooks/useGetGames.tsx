@@ -1,8 +1,9 @@
 import { Game } from '@/interfaces/params'
+import { siteConfig } from '@/config/site'
 
 // todo: fix
 export function useGetGames() {
-    return fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
+    return fetch(`${siteConfig.urls.api}/games/all`, {
         next: {
             revalidate: 5,
         },
