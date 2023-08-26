@@ -8,7 +8,6 @@ import { Game } from '@/interfaces/params'
 import { Search } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { useGetGames } from '@/hooks/useGetGames'
 
 interface SearchParams {
     game?: string
@@ -26,6 +25,21 @@ function getData(searchParams: SearchParams) {
         .then((data) => data.results)
 }
 
+function getGames() {
+    return fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
+        next: {
+            revalidate: 5,
+        },
+    })
+        .then((res) => res.json())
+        .then((data) =>
+            data.results.map((game: Game) => ({
+                ...game,
+                asset_categories: [...new Set(game.asset_categories)],
+            })),
+        )
+}
+
 function SearchPage() {
     const searchParams = useSearchParams()!
 
@@ -33,18 +47,16 @@ function SearchPage() {
     const [loading, setLoading] = useState<boolean>(true)
     const [games, setGames] = useState<Game[]>([])
 
-    const gamesData = useGetGames()
-
     useEffect(() => {
         setLoading(true)
-        Promise.all([getData(searchParams as SearchParams), gamesData]).then(
+        Promise.all([getData(searchParams as SearchParams), getGames()]).then(
             ([data, games]) => {
                 setData(data)
                 setGames(games)
                 setLoading(false)
             },
         )
-    }, [searchParams, gamesData])
+    }, [searchParams])
 
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">

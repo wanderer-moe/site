@@ -149,9 +149,6 @@ dependencies:
   prettier-plugin-tailwindcss:
     specifier: ^0.4.1
     version: 0.4.1(prettier@3.0.1)
-  prisma:
-    specifier: 5.1.1
-    version: 5.1.1
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -3194,11 +3191,6 @@ packages:
   /@planetscale/database@1.10.0:
     resolution: {integrity: sha512-XMfNRjIPgGTga6g1YpGr7E21CcnHZcHZdyhRUIiZ/AlpD+ts65UF2B3wKjcu7MKMynmmcOGs6R9kAT6D1OTlZQ==}
     engines: {node: '>=16'}
-    dev: false
-
-  /@prisma/engines@5.1.1:
-    resolution: {integrity: sha512-NV/4nVNWFZSJCCIA3HIFJbbDKO/NARc9ej0tX5S9k2EVbkrFJC4Xt9b0u4rNZWL4V+F5LAjvta8vzEUw0rw+HA==}
-    requiresBuild: true
     dev: false
 
   /@protobufjs/aspromise@1.1.2:
@@ -10616,15 +10608,6 @@ packages:
 
   /printable-characters@1.0.42:
     resolution: {integrity: sha512-dKp+C4iXWK4vVYZmYSd0KBH5F/h1HoZRsbJ82AVKRO3PEo8L4lBS/vLwhVtpwwuYcoIsVY+1JYKR268yn480uQ==}
-    dev: false
-
-  /prisma@5.1.1:
-    resolution: {integrity: sha512-WJFG/U7sMmcc6TjJTTifTfpI6Wjoh55xl4AzopVwAdyK68L9/ogNo8QQ2cxuUjJf/Wa82z/uhyh3wMzvRIBphg==}
-    engines: {node: '>=16.13'}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      '@prisma/engines': 5.1.1
     dev: false
 
   /process-nextick-args@2.0.1:

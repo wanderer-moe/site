@@ -1,5 +1,6 @@
 import { Game } from '@/interfaces/params'
 
+// todo: fix
 export function useGetGames() {
     return fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
         next: {

@@ -10,7 +10,7 @@ import { PlusIcon } from '@radix-ui/react-icons'
 import { Session } from 'lucia'
 import { Link as LinkIcon } from 'lucide-react'
 
-export function TiktokConnection(session: Session) {
+export function TiktokConnection(connection: any) {
     return (
         <Card>
             <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">

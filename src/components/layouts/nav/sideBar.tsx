@@ -5,7 +5,6 @@ import { Label } from '@/components/ui/label'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { LocaleChanger } from './localeChanger'
 import { DiscordStatus } from '@/components/discord/discordStatus'
-import { useGetGames } from '@/hooks/useGetGames'
 import type { Game } from '@/interfaces/params'
 import {
     AssetCategoryLabel,
@@ -70,24 +69,36 @@ function GameSideBar({ games }: { games: Game[] }) {
     )
 }
 
+function getGames() {
+    return fetch(`https://v2-api-testing.wanderer.moe/games/all`, {
+        next: {
+            revalidate: 5,
+        },
+    })
+        .then((res) => res.json())
+        .then((data) =>
+            data.results.map((game: Game) => ({
+                ...game,
+                asset_categories: [...new Set(game.asset_categories)],
+            })),
+        )
+}
+
 function GameCategorySideBar() {
     const [data, setData] = useState<Game[]>([])
 
-    const gamesData = useGetGames()
-
     useEffect(() => {
-        gamesData.then((data) => setData(data))
-    }, [gamesData])
-
-    const categories = useMemo(
-        () => [...new Set(data.flatMap((data) => data.asset_categories))],
-        [data],
-    )
+        getGames().then((data) => setData(data))
+    }, [])
 
     return (
         <div className="pb-6">
             <GameSideBar games={data} />
-            <AssetCategoryFilter categories={categories} />
+            <AssetCategoryFilter
+                categories={[
+                    ...new Set(data.flatMap((g) => g.asset_categories)),
+                ]}
+            />
         </div>
     )
 }
