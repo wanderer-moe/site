@@ -1,9 +1,9 @@
 'use client'
 
-import AssetContainer from '@/components/asset/assetsContainer'
-import { DynamicAssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
-import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
-import { Asset } from '@/interfaces/asset'
+import AssetContainer from '@/components/asset/assets-container'
+import { DynamicAssetSearchHandler } from '@/components/asset/search/asset-search-handler'
+import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
+import { Asset } from '@/interfaces/asset/asset'
 import { Game } from '@/interfaces/params'
 import { Search } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'

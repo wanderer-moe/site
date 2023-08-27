@@ -6,7 +6,7 @@ import {
 } from '@/lib/helpers/user/pronouns'
 import { Session } from 'lucia'
 import { Separator } from '@/components/ui/separator'
-import { PronounList } from './pronounList'
+import { PronounList } from './pronoun-list'
 
 export function PronounHandler({ session }: { session: Session }) {
     const pronounsOptions = ['subject', 'object', 'possessive']

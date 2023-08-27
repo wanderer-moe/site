@@ -1,7 +1,7 @@
 import { mapGame } from '@/lib/helpers/casing/mapping'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { OCGeneratorResponse } from '@/interfaces/ocGenerator'
+import { OCGeneratorResponse } from '@/interfaces/oc-generator/oc-generator'
 import { siteConfig } from '@/config/site'
 
 export const runtime = 'edge'

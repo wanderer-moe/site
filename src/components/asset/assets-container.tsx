@@ -1,8 +1,8 @@
 'use client'
 
-import AssetItem from '@/components/asset/assetItem'
+import AssetItem from '@/components/asset/asset-item'
 import { Button } from '@/components/ui/button'
-import type { Asset } from '@/interfaces/asset'
+import type { Asset } from '@/interfaces/asset/asset'
 import { assetVariants } from '@/lib/framer/variants'
 import { motion } from 'framer-motion'
 import { useState } from 'react'

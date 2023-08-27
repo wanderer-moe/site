@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { NavItems } from './navItems'
+import { NavItems } from './navigation-items'
 
 export function NavBar() {
     return (

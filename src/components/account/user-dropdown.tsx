@@ -20,7 +20,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { roleFlagsToArray } from '@/lib/helpers/roleFlags'
-import { logoutUser } from '@/context/authContext'
+import { logoutUser } from '@/context/auth-context'
 
 interface UserNavProps {
     session: Session

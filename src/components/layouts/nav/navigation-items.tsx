@@ -2,15 +2,15 @@
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { UserNav } from '@/components/account/userDropdown'
+import { UserNav } from '@/components/account/user-dropdown'
 import {
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 import { LogIn } from 'lucide-react'
-import { SideBar } from './sideBar'
-import { useAuthContext } from '@/context/authContext'
+import { SideBar } from './side-bar'
+import { useAuthContext } from '@/context/auth-context'
 
 export function NavItems() {
     const { isLoadingSession, session } = useAuthContext()

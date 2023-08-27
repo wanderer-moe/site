@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import AssetContainer from '@/components/asset/assetsContainer'
-import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
+import AssetContainer from '@/components/asset/assets-container'
+import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -10,7 +10,7 @@ import {
     TableHead,
     TableRow,
 } from '@/components/ui/table'
-import { Asset, SimilarAsset } from '@/interfaces/asset'
+import { Asset, SimilarAsset } from '@/interfaces/asset/asset'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
 import { mapAssetType, mapGame } from '@/lib/helpers/casing/mapping'
 import {

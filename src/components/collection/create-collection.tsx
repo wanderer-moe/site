@@ -1,4 +1,4 @@
-import { Asset } from '@/interfaces/asset'
+import { Asset } from '@/interfaces/asset/asset'
 import { Button } from '@/components/ui/button'
 import {
     Dialog,

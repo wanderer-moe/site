@@ -1,7 +1,7 @@
 'use client'
 
 import { Login } from '@/components/account/login'
-import { useAuthContext } from '@/context/authContext'
+import { useAuthContext } from '@/context/auth-context'
 import { redirect } from 'next/navigation'
 
 export default function LoginPage() {

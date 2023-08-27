@@ -10,7 +10,7 @@ import {
     ContextMenuTrigger,
 } from '@/components/ui/context-menu'
 import { Dialog } from '@/components/ui/dialog'
-import { Asset } from '@/interfaces/asset'
+import { Asset } from '@/interfaces/asset/asset'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
 import { mapAssetType } from '@/lib/helpers/casing/mapping'
 import { timeAgo } from '@/lib/helpers/time'
@@ -23,7 +23,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { copyImageToClipboard as copyToClipboard } from 'copy-image-clipboard'
-import { AddToCollection } from '../collection/addToCollection'
+import { AddToCollection } from '../collection/add-to-collection'
 import { siteConfig } from '@/config/site'
 
 export function copyImageToClipboard(asset: Asset) {

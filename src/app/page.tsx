@@ -1,9 +1,9 @@
 'use client'
 
-import AssetContainer from '@/components/asset/assetsContainer'
-import { GameContainer } from '@/components/game/gameContainer'
-import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
-import { Asset } from '@/interfaces/asset'
+import AssetContainer from '@/components/asset/assets-container'
+import { GameContainer } from '@/components/game/game-container'
+import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
+import { Asset } from '@/interfaces/asset/asset'
 import { FilePlus2, Gamepad2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'

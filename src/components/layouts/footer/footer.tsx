@@ -1,7 +1,7 @@
 'use client'
 
-import { DiscordStatus } from '@/components/discord/discordStatus'
-import { Status } from '@/components/layouts/footer/status'
+import { DiscordStatus } from '@/components/status/discord-status'
+import { Status } from '@/components/status/api-status'
 import { Heart } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'

@@ -3,7 +3,7 @@ import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { Textarea } from '@/components/ui/textarea'
 import { Session } from 'lucia'
-import { PronounHandler } from './pronounHandler'
+import { PronounHandler } from './pronoun-handler'
 
 export function ProfileSettings({ session }: { session: Session }) {
     // TODO: validation

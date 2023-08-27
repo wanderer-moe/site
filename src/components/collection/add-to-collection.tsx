@@ -7,7 +7,7 @@ import {
     DialogTitle,
 } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
-import { Asset } from '@/interfaces/asset'
+import { Asset } from '@/interfaces/asset/asset'
 import { PlusCircle } from 'lucide-react'
 import { useState } from 'react'
 

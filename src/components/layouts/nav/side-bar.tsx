@@ -3,14 +3,14 @@ import { Menu } from 'lucide-react'
 import React, { useState, useEffect, useMemo } from 'react'
 import { Label } from '@/components/ui/label'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { LocaleChanger } from './localeChanger'
-import { DiscordStatus } from '@/components/discord/discordStatus'
+import { LocaleChanger } from './locale-changer'
+import { DiscordStatus } from '@/components/status/discord-status'
 import type { Game } from '@/interfaces/params'
 import {
     AssetCategoryLabel,
     GameContainer,
     GameLabel,
-} from '@/components/game/gameContainer'
+} from '@/components/game/game-container'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { siteConfig } from '@/config/site'
 

@@ -1,7 +1,7 @@
 'use client'
 
-import { CreateAccount } from '@/components/account/createAccount'
-import { useAuthContext } from '@/context/authContext'
+import { CreateAccount } from '@/components/account/create-account'
+import { useAuthContext } from '@/context/auth-context'
 import { redirect } from 'next/navigation'
 
 export default function CreateAccountPage() {

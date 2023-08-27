@@ -1,5 +1,5 @@
-import { CategoryFilter } from '@/components/asset/search/categoryFilter'
-import { GameFilter } from '@/components/asset/search/gameFilter'
+import { CategoryFilter } from '@/components/asset/search/category-filter'
+import { GameFilter } from '@/components/asset/search/game-filter'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Game, SearchParams } from '@/interfaces/params'
@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useMemo, useState, useEffect } from 'react'
 import { Search } from 'lucide-react'
-import { SkeletonLoader } from '@/components/placeholders/skeletonLoader'
+import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
 interface AssetSearchHandlerProps {
     games: Game[]
     showGames?: boolean
