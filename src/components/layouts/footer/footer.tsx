@@ -1,8 +1,8 @@
 'use client'
 
 import { DiscordStatus } from '@/components/status/discord-status'
-import { Status } from '@/components/status/api-status'
 import { Heart } from 'lucide-react'
+import { LocaleChanger } from '@/components/layouts/nav/locale-changer'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -28,8 +28,8 @@ export function SiteFooter() {
                             </Link>
                         </div>
                         <div className="mt-4 grid gap-2">
-                            <Status />
                             <DiscordStatus />
+                            <LocaleChanger />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">

@@ -13,6 +13,7 @@ import {
 } from '@/components/game/game-container'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { siteConfig } from '@/config/site'
+import { QuickLinksList } from '@/components/layouts/nav/quick-links'
 
 export function SideBar() {
     const [open, setOpen] = useState(false)
@@ -29,9 +30,10 @@ export function SideBar() {
                 <SheetContent className="z-[150] flex w-full flex-col bg-zinc-950/70 px-5 pt-16 backdrop-blur-lg backdrop-filter md:w-5/6">
                     <ScrollArea>
                         <GameCategorySideBar />
-                        <div className="flex flex-col gap-1">
+                        <div className="flex flex-col gap-2">
                             <LocaleChanger />
                             <DiscordStatus />
+                            <QuickLinksList />
                         </div>
                     </ScrollArea>
                 </SheetContent>

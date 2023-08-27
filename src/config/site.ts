@@ -5,6 +5,7 @@ export const siteConfig = {
         api: 'https://v2-api-testing.wanderer.moe',
         cdn: 'https://files.wanderer.moe',
         site: 'https://wanderer.moe',
+        status: 'https://status.wanderer.moe',
     },
     socials: {
         github: 'https://git.wanderer.moe',
@@ -12,6 +13,10 @@ export const siteConfig = {
     },
     discord: {
         server_id: '982385887000272956', // for the [count] online component
+    },
+    support: {
+        email: 'support@wanderer.moe',
+        server: 'https://discord.wanderer.moe',
     },
 }
 
