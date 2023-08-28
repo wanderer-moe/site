@@ -29,11 +29,13 @@ export function SideBar() {
                 </SheetTrigger>
                 <SheetContent className="z-[150] flex w-full flex-col bg-zinc-950/70 px-5 pt-16 backdrop-blur-lg backdrop-filter md:w-5/6">
                     <ScrollArea>
-                        <GameCategorySideBar />
-                        <div className="flex flex-col gap-2">
-                            <LocaleChanger />
-                            <DiscordStatus />
-                            <QuickLinksList />
+                        <div className="pr-3">
+                            <GameCategorySideBar />
+                            <div className="flex flex-col gap-2">
+                                <LocaleChanger />
+                                <DiscordStatus />
+                                <QuickLinksList />
+                            </div>
                         </div>
                     </ScrollArea>
                 </SheetContent>
