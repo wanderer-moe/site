@@ -35,7 +35,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             const sessionRequest = await fetchJson<any>(
                 `${siteConfig.urls.api}/auth/validate`,
             )
-            console.log(sessionRequest)
             if (isMounted) {
                 setAuthState({
                     isLoadingSession: false,
@@ -57,7 +56,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             const sessionRequest = await fetchJson<any>(
                 `${siteConfig.urls.api}/auth/validate`,
             )
-            console.log(sessionRequest)
             setAuthState({
                 isLoadingSession: false,
                 session:
@@ -95,7 +93,7 @@ export const logoutUser = async () => {
         credentials: 'include',
     })
         .then(() => {
-            console.log('logged out')
+            console.log('user logged out')
         })
         .catch((error) => {
             console.error(error)
