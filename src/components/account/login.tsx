@@ -15,12 +15,10 @@ import { Separator } from '@/components/ui/separator'
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { siteConfig } from '@/config/site'
 
 export function Login() {
-    const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -37,10 +35,8 @@ export function Login() {
                 body: formData,
             })
 
-            console.log(res)
-
             if (res.ok && res.status === 200) {
-                router.push('/')
+                window.location.href = '/'
             } else {
                 throw new Error('Something went wrong')
             }
