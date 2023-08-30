@@ -73,6 +73,13 @@ export function SiteFooter() {
                                         Terms of Service
                                     </Link>
                                 </li>
+                                <li className="mb-2">
+                                    <Link
+                                        href="/legal/cookie-policy"
+                                        className="hover:text-white">
+                                        Cookie Policy
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                         <div>
