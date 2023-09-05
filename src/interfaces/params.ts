@@ -2,6 +2,7 @@ export interface SearchParams {
     game?: string
     query?: string
     asset?: string
+    tags?: string
 }
 
 export interface Game {

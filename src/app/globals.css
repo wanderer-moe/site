@@ -3,6 +3,8 @@
 @tailwind utilities;
 @import 'satoshi.css';
 
+/* * { border: 0.1px solid red; } */
+
 @layer base {
     body {
         font-family: 'Satoshi-Medium';

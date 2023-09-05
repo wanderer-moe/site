@@ -7,7 +7,6 @@ import { Asset } from '@/interfaces/asset/asset'
 import { FilePlus2, Gamepad2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
-// import { DynamicAssetSearchHandler } from '@/components/asset/search/assetSearchHandler'
 import Link from 'next/link'
 import { Game } from '@/interfaces/params'
 import { siteConfig } from '@/config/site'
@@ -57,11 +56,6 @@ function IndexPage() {
             ) : (
                 <>
                     <div className="flex flex-col gap-y-10">
-                        {/* <DynamicAssetSearchHandler
-                            games={games}
-                            showCategories={false}
-                            showGames={false}
-                        /> */}
                         <div className="rounded-xl border bg-secondary/25">
                             <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                                 <Gamepad2 size={16} /> Games List

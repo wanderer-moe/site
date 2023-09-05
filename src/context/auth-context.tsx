@@ -93,6 +93,7 @@ export const logoutUser = async () => {
         credentials: 'include',
     })
         .then(() => {
+            window.location.href = '/'
             console.log('user logged out')
         })
         .catch((error) => {
