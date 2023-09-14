@@ -4,9 +4,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    experimental: {
-        serverActions: true,
-    },
+    // experimental: {
+    //     serverActions: true,
+    // },
     images: {
         domains: ['cdn.wanderer.moe', 'files.wanderer.moe'],
     },

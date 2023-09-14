@@ -1,7 +1,7 @@
 import { mapGame } from '@/lib/helpers/casing/mapping'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { OCGeneratorResponse } from '@/interfaces/oc-generator/oc-generator'
+import type { OCGeneratorResponse } from '@/interfaces/oc-generator/oc-generator'
 import { siteConfig } from '@/config/site'
 import { ChevronRight } from 'lucide-react'
 import { DataHandler } from '@/components/oc-generators/data-handler'
@@ -10,13 +10,13 @@ import { RawData } from '@/components/oc-generators/raw-data'
 
 export const runtime = 'edge'
 
-async function GetGeneratorData(id: string): Promise<any> {
+async function GetGeneratorData(id: string): Promise<OCGeneratorResponse> {
     const res = await fetch(`${siteConfig.urls.api}/oc-generators/${id}`)
     const response = await res.json()
 
     if (!res.ok) return notFound()
 
-    return response as any
+    return response as OCGeneratorResponse
 }
 
 type Props = {
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!data) return notFound()
 
     return {
-        title: `${mapGame(id)} - wanderer.moe`,
+        title: `${mapGame(id)} OC Generator - wanderer.moe`,
         description: `OC Generator for ${mapGame(id)}`,
     }
 }
