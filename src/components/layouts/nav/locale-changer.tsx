@@ -41,6 +41,7 @@ export function LocaleChanger() {
                     <ChevronUp size={16} />
                 </Button>
             </DropdownMenuTrigger>
+            {/* TODO: fix width */}
             <DropdownMenuContent className="z-[200]">
                 <DropdownMenuRadioGroup value={locale}>
                     {locales.map((l) => (

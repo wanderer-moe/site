@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/alert-dialog'
 
 export const reccomendedBrowsers: { [key: string]: string[] } = {
-    android: ['chrome'],
+    android: ['chrome', 'google'],
     ios: ['safari', 'chrome'],
 }
 
@@ -39,7 +39,6 @@ export function DeviceWarning() {
         !browser ||
         !os ||
         (os !== 'android' && os !== 'ios')
-        // || reccomendedBrowsers[os]?.includes(browser)
     ) {
         return null
     }
