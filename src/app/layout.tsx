@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from '@/lib/utils'
 import { AuthProvider } from '@/context/auth-context'
 import type { Metadata } from 'next'
+import { DeviceWarning } from '@/components/device-warning'
 import './globals.css'
 // import { AuthProvider } from '@/context/authContext'
 
@@ -50,6 +51,7 @@ export default async function RootLayout({
                     <AuthProvider>
                         <ScrollToTop />
                         <NavBar />
+                        <DeviceWarning />
                         {children}
                         <SiteFooter />
                     </AuthProvider>
