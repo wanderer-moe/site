@@ -15,15 +15,20 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { siteConfig } from '@/config/site'
 import { Clipboard } from 'lucide-react'
 
-interface RawDataProps {
-    data: any
+type RawDataProps = {
+    data: {
+        options: {
+            name: string
+            entries: string[]
+        }[]
+    }
 }
 
-export function RawData(props: RawDataProps) {
+export function RawData(props: RawDataProps): React.ReactElement {
     const { data } = props
-    const [isOpen, setIsOpen] = React.useState(false)
+    const [isOpen, setIsOpen] = React.useState<boolean>(false)
 
-    const copyDataToClipboard = () => {
+    const copyDataToClipboard = (): void => {
         navigator.clipboard.writeText(JSON.stringify(data, null, 4))
     }
 

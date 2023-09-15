@@ -6,17 +6,13 @@ import { debounce } from 'lodash'
 import { ChevronUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-export function ScrollToTop() {
-    const [isVisible, setIsVisible] = useState(false)
-    const [isHovered, setIsHovered] = useState(false)
+export function ScrollToTop(): React.ReactElement {
+    const [isVisible, setIsVisible] = useState<boolean>(false)
+    const [isHovered, setIsHovered] = useState<boolean>(false)
 
     useEffect(() => {
         const handleScroll = debounce(() => {
-            if (window.scrollY > 500) {
-                setIsVisible(true)
-            } else {
-                setIsVisible(false)
-            }
+            setIsVisible(window.scrollY > 500)
         }, 100)
 
         window.addEventListener('scroll', handleScroll)
@@ -26,25 +22,36 @@ export function ScrollToTop() {
         }
     }, [])
 
+    const handleButtonClick = (): void => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    }
+
+    const handleMouseEnter = (): void => {
+        setIsHovered(true)
+    }
+
+    const handleMouseLeave = (): void => {
+        setIsHovered(false)
+    }
+
+    const buttonOpacity: number = isVisible ? 1 : 0
+    const buttonY: number = isHovered ? -5 : 0
+
     return (
         <motion.div
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             className="fixed bottom-0 right-0 z-50 p-3"
             initial={{ opacity: 0 }}
             animate={{
-                opacity: isVisible ? 1 : 0,
-                y: isHovered ? -5 : 0,
+                opacity: buttonOpacity,
+                y: buttonY,
             }}
             transition={{ duration: 0.15 }}>
-            <Button
-                variant="outline"
-                onClick={() => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth',
-                    })
-                }}>
+            <Button variant="outline" onClick={handleButtonClick}>
                 <ChevronUp />
             </Button>
         </motion.div>

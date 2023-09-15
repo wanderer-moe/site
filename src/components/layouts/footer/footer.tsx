@@ -1,12 +1,10 @@
-'use client'
-
 import { DiscordStatus } from '@/components/status/discord-status'
 import { Heart } from 'lucide-react'
 import { LocaleChanger } from '@/components/layouts/nav/locale-changer'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export function SiteFooter() {
+export function SiteFooter(): React.ReactElement {
     const currentYear = new Date().getFullYear()
 
     return (

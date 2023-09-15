@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import type { Asset } from '@/interfaces/asset/asset'
 import { assetVariants } from '@/lib/framer/variants'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import * as React from 'react'
 
 interface AssetContainerProps {
     assets: Asset[]
@@ -16,16 +16,23 @@ export default function AssetContainer({
     assets,
     displayCounter = true,
 }: AssetContainerProps) {
-    const [displayedAssets, setDisplayedAssets] = useState(assets.slice(0, 50))
-    const [numDisplayed, setNumDisplayed] = useState(
+    const [displayedAssets, setDisplayedAssets] = React.useState(() =>
+        assets.slice(0, 50),
+    )
+    const [numDisplayed, setNumDisplayed] = React.useState(() =>
         Math.min(50, assets.length),
     )
 
-    const handleShowMore = () => {
-        const newNumDisplayed = Math.min(numDisplayed + 50, assets.length)
-        setDisplayedAssets(assets.slice(0, newNumDisplayed))
-        setNumDisplayed(newNumDisplayed)
-    }
+    const handleShowMore = React.useCallback(() => {
+        setNumDisplayed((prevNumDisplayed) => {
+            const newNumDisplayed = Math.min(
+                prevNumDisplayed + 50,
+                assets.length,
+            )
+            setDisplayedAssets(assets.slice(0, newNumDisplayed))
+            return newNumDisplayed
+        })
+    }, [assets])
 
     return (
         <div>

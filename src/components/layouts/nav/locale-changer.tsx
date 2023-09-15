@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { ChevronUp, Languages as LanguagesIcon } from 'lucide-react'
@@ -11,6 +12,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { setCookie, getCookie } from 'cookies-next'
 
 const locales = [
     { id: 'en', label: 'English' },
@@ -23,11 +25,16 @@ const locales = [
     { id: 'ar', label: 'العربية' },
 ]
 
-export function LocaleChanger() {
-    const [locale, setLocale] = useState('en')
+export function LocaleChanger(): React.ReactElement {
+    const [locale, setLocale] = useState<string>('en')
 
-    function handleLocaleChange(newLocale: string) {
+    React.useEffect(() => {
+        setLocale(getCookie('locale') ?? 'en')
+    }, [])
+
+    const handleLocaleChange = (newLocale: string): void => {
         setLocale(newLocale)
+        setCookie('locale', newLocale)
     }
 
     return (
@@ -41,7 +48,6 @@ export function LocaleChanger() {
                     <ChevronUp size={16} />
                 </Button>
             </DropdownMenuTrigger>
-            {/* TODO: fix width */}
             <DropdownMenuContent className="z-[200]">
                 <DropdownMenuRadioGroup value={locale}>
                     {locales.map((l) => (

@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { DiscordLogoIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
@@ -15,24 +17,32 @@ export function DiscordStatus() {
         )
             .then((res) => res.json())
             .then((data) => {
-                if (data.id === '982385887000272956') {
-                    setMembers(data.presence_count)
-                } else {
-                    setMembers('unknown')
-                }
+                setMembers(
+                    data.id === '982385887000272956'
+                        ? data.presence_count
+                        : 'unknown',
+                )
             })
             .catch((err) => {
                 console.error(err)
             })
     }, [])
 
+    const handleMouseEnter = () => {
+        setHovered(true)
+    }
+
+    const handleMouseLeave = () => {
+        setHovered(false)
+    }
+
     return (
         <Link href={siteConfig.socials.discord}>
             <Button
                 variant="outline"
                 className="w-full"
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}>
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}>
                 <motion.div
                     animate={{ rotate: hovered ? 360 : 0 }}
                     transition={{ duration: 0.3 }}

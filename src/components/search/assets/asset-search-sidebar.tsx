@@ -1,6 +1,5 @@
 'use client'
-
-// spaghetti code below, sorry :3
+// TODO: clean up
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import {

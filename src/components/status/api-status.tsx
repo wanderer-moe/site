@@ -5,20 +5,16 @@ import { Circle } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-export function Status() {
-    const [status, setStatus] = useState('Pending API Status')
+export function Status(): React.ReactElement {
+    const [status, setStatus] = useState<string>('Pending API Status')
 
     useEffect(() => {
         fetch('https://api.wanderer.moe/')
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.status === 'ok') {
-                    setStatus('online')
-                } else {
-                    setStatus('offline')
-                }
+            .then((res: Response) => res.json())
+            .then((data: { status: string }) => {
+                setStatus(data.status === 'ok' ? 'online' : 'offline')
             })
-            .catch((err) => {
+            .catch((err: Error) => {
                 console.error(err)
                 setStatus('offline')
             })

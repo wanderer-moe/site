@@ -48,7 +48,7 @@ async function OCGeneratorPage({ params: { id } }: { params: { id: string } }) {
                     {mapGame(id)}
                 </div>
             </div>
-            <div>
+            <div className="mb-8">
                 <h1 className="text-2xl font-bold tracking-tight">
                     {mapGame(id)} OC Generator
                 </h1>

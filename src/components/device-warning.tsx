@@ -13,35 +13,35 @@ import {
     AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
 
-export const reccomendedBrowsers: { [key: string]: string[] } = {
+export const recommendedBrowsers: { [key: string]: string[] } = {
     android: ['chrome', 'google'],
     ios: ['safari', 'chrome'],
 }
 
 const osMap: { [key: string]: string } = {
-    android: 'android',
+    android: 'Android',
     ios: 'iOS',
 }
 
 export function DeviceWarning() {
-    const [isOpen, setIsOpen] = React.useState(true)
-
-    const dontShowAgain = () => {
-        setCookie('hasSeenWarning', 'true')
-        setIsOpen(false)
-    }
-
-    const hasSeenWarning = getCookie('hasSeenWarning') === 'true' ? true : false
+    const [isOpen, setIsOpen] = React.useState<boolean>(true)
     const { browser, os } = useBrowserDetection()
 
-    if (
-        hasSeenWarning ||
-        !browser ||
-        !os ||
-        (os !== 'android' && os !== 'ios')
-    ) {
+    const handleDontShowAgain = React.useCallback(() => {
+        setCookie('hasSeenWarning', 'true')
+        setIsOpen(false)
+    }, [])
+
+    const hasSeenWarning = getCookie('hasSeenWarning') === 'true'
+    const isOnMobile = os === 'android' || os === 'ios'
+
+    if (hasSeenWarning || !isOnMobile || !browser || !os) {
         return null
     }
+
+    const recommendedBrowsersList = recommendedBrowsers[os]
+        .map((browser) => browser.charAt(0).toUpperCase() + browser.slice(1))
+        .join(' or ')
 
     return (
         <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
@@ -49,20 +49,14 @@ export function DeviceWarning() {
                 <AlertDialogHeader>
                     <AlertDialogTitle>Device Warning</AlertDialogTitle>
                     <AlertDialogDescription>
-                        You&apos;re on {osMap[os]}. It&apos;s reccomended to use{' '}
-                        {reccomendedBrowsers[os].length === 1
-                            ? reccomendedBrowsers[os][0]
-                            : reccomendedBrowsers[os].join(' or ')}{' '}
-                        to avoid any issues when downloading files.
+                        You&apos;re on {osMap[os]}. It&apos;s recommended to use{' '}
+                        {recommendedBrowsersList} to avoid any issues when
+                        downloading files.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter className="gap-2">
-                    <Button
-                        variant={'outline'}
-                        onClick={() => {
-                            dontShowAgain()
-                        }}>
-                        Dont Show Again
+                    <Button variant={'outline'} onClick={handleDontShowAgain}>
+                        Don&apos;t Show Again
                     </Button>
                     <Button onClick={() => setIsOpen(false)}>Close</Button>
                 </AlertDialogFooter>

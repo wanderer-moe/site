@@ -12,7 +12,7 @@ import { LogIn } from 'lucide-react'
 import { SideBar } from './side-bar'
 import { useAuthContext } from '@/context/auth-context'
 
-export function NavItems() {
+export function NavItems(): React.ReactElement {
     const { isLoadingSession, session } = useAuthContext()
     console.log(isLoadingSession, session)
 
