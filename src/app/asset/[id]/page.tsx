@@ -21,6 +21,7 @@ import {
     Download,
     Image as ImageIcon,
     Info,
+    Home,
 } from 'lucide-react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -70,18 +71,24 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                 <>
                     <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
                         <div className="whitespace-nowrap transition-colors hover:text-foreground">
+                            <Link href={`/`}>
+                                <Home size={16} />
+                            </Link>
+                        </div>
+                        <ChevronRight size={16} />
+                        <div className="whitespace-nowrap transition-colors hover:text-foreground">
                             <Link href={`/search?game=${asset.game}`}>
                                 {mapGame(asset.game)}
                             </Link>
                         </div>
-                        <ChevronRight size={15} />
+                        <ChevronRight size={16} />
                         <div className="whitespace-nowrap font-medium text-muted-foreground hover:text-foreground">
                             <Link
                                 href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
                                 {mapAssetType(asset.asset_category)}
                             </Link>
                         </div>
-                        <ChevronRight size={15} />
+                        <ChevronRight size={16} />
                         <div className="overflow-hidden text-ellipsis whitespace-nowrap text-foreground transition-colors">
                             {assetName}.{assetFormat}
                         </div>

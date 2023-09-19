@@ -8,7 +8,6 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Session } from 'lucia'
 import {
     FileArchive,
     FileHeart,
@@ -23,7 +22,7 @@ import { roleFlagsToArray } from '@/lib/helpers/roleFlags'
 import { logoutUser } from '@/context/auth-context'
 
 interface UserNavProps {
-    session: Session
+    session: any
 }
 
 export function UserNav(props: UserNavProps) {

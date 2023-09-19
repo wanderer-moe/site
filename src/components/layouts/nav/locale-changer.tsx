@@ -14,7 +14,12 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { setCookie, getCookie } from 'cookies-next'
 
-const locales = [
+interface Locale {
+    id: string
+    label: string
+}
+
+const locales: Locale[] = [
     { id: 'en', label: 'English' },
     { id: 'nl', label: 'Nederlands' },
     { id: 'ja', label: '日本語' },

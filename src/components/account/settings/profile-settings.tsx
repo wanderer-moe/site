@@ -2,10 +2,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { Textarea } from '@/components/ui/textarea'
-import { Session } from 'lucia'
 import { PronounHandler } from './pronoun-handler'
 
-export function ProfileSettings({ session }: { session: Session }) {
+export function ProfileSettings({ session }: { session: any }) {
     // TODO: validation
     return (
         <div className="mt-8">

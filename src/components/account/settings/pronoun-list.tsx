@@ -14,15 +14,8 @@ import {
     possessivePronouns,
     subjectPronouns,
 } from '@/lib/helpers/user/pronouns'
-import { Session } from 'lucia'
 
-export function PronounList({
-    session,
-    type,
-}: {
-    session: Session
-    type: string
-}) {
+export function PronounList({ session, type }: { session: any; type: string }) {
     return (
         <Select>
             <SelectTrigger className="w-full sm:w-[180px]">

@@ -3,8 +3,9 @@
 import { discordUser as ContributorItem } from '@/components/discord/discord-user'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
 import { Contributor } from '@/interfaces/discord/contributor'
-import { Code, Heart, Star, Users } from 'lucide-react'
+import { Code, Heart, Star, Users, Home, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 async function getData(): Promise<Contributor[]> {
     const res = await fetch('https://api.wanderer.moe/discord/contributors')
@@ -14,7 +15,7 @@ async function getData(): Promise<Contributor[]> {
 
 export default function Page() {
     const [contributors, setContributors] = useState<Contributor[]>([])
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState<boolean>(true)
 
     useEffect(() => {
         getData().then((data) => setContributors(data))
@@ -54,9 +55,20 @@ export default function Page() {
 
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">
+            <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+                <div className="whitespace-nowrap transition-colors hover:text-foreground">
+                    <Link href={`/`}>
+                        <Home size={16} />
+                    </Link>
+                </div>
+                <ChevronRight size={16} />
+                <div className="whitespace-nowrap text-foreground transition-colors">
+                    <Link href={`/contributors`}>Contributors</Link>
+                </div>
+            </div>
             {!loading ? (
                 <div className="flex flex-col items-center justify-center">
-                    <div className="relative mt-8 grid gap-8 px-2 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
+                    <div className="relative mt-2 grid gap-8 px-2 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
                         <div className="col-span-3 gap-4">
                             {Object.entries(categories).map(
                                 ([category, { description, roles, icon }]) => (

@@ -7,7 +7,6 @@ import {
     CardTitle,
 } from '@/components/ui/card'
 import { DiscordLogoIcon, PlusIcon } from '@radix-ui/react-icons'
-import { Session } from 'lucia'
 import { Link as LinkIcon } from 'lucide-react'
 
 export function DiscordConnection(connection: any) {

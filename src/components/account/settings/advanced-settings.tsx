@@ -1,9 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { Session } from 'lucia'
 
-export function AdvancedSettings({ session }: { session: Session }) {
+export function AdvancedSettings({ session }: { session: any }) {
     // TODO: validation
     return (
         <div className="mt-8">

@@ -185,7 +185,13 @@ function OptionHandler({
     return (
         <div className="relative flex items-center justify-between rounded-lg border bg-[#09090B] p-2 px-4 transition-colors hover:border-primary/50">
             <div>
-                <p className="text-lg font-semibold">{name}</p>
+                {/* TODO: make this more clear dependant on lock state... */}
+                <p
+                    className={`text-lg font-semibold ${
+                        locked ? 'text-muted-foreground' : 'text-foreground'
+                    }`}>
+                    {name}
+                </p>
                 <p
                     className={`transition-colors ${
                         locked ? 'text-muted-foreground' : 'text-foreground'

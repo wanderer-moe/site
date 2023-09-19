@@ -9,16 +9,15 @@ The <AuthProvider> is already included in Layout.tsx, which means we can access 
 // TODO: define types instead of any
 
 import * as React from 'react'
-import type { Session } from 'lucia'
 import { siteConfig } from '@/config/site'
 
 export type SessionState = {
-    session: Session | null
+    session: any | null
     isLoadingSession: boolean
 }
 
 export type AuthContextType = {
-    refreshSessionData: () => Promise<Session | null>
+    refreshSessionData: () => Promise<any | null>
 } & SessionState
 
 export const AuthContext = React.createContext<AuthContextType>({

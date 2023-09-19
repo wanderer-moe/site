@@ -3,10 +3,11 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import type { OCGeneratorResponse } from '@/interfaces/oc-generator/oc-generator'
 import { siteConfig } from '@/config/site'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, Home } from 'lucide-react'
 import { DataHandler } from '@/components/oc-generators/data-handler'
 import Link from 'next/link'
 import { RawData } from '@/components/oc-generators/raw-data'
+import ColorPalette from '@/components/oc-generators/color-palette'
 
 export const runtime = 'edge'
 
@@ -41,9 +42,15 @@ async function OCGeneratorPage({ params: { id } }: { params: { id: string } }) {
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">
             <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
                 <div className="whitespace-nowrap transition-colors hover:text-foreground">
+                    <Link href={`/`}>
+                        <Home size={16} />
+                    </Link>
+                </div>
+                <ChevronRight size={16} />
+                <div className="whitespace-nowrap transition-colors hover:text-foreground">
                     <Link href={`/oc-generators`}>OC Generators</Link>
                 </div>
-                <ChevronRight size={15} />
+                <ChevronRight size={16} />
                 <div className="overflow-hidden text-ellipsis whitespace-nowrap text-foreground transition-colors">
                     {mapGame(id)}
                 </div>
@@ -68,6 +75,7 @@ async function OCGeneratorPage({ params: { id } }: { params: { id: string } }) {
             <div>
                 <DataHandler {...data} />
             </div>
+            <ColorPalette />
             <RawData {...data} />
         </div>
     )

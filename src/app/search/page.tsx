@@ -9,7 +9,8 @@ import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { siteConfig } from '@/config/site'
 import { AssetSearchHandler } from '@/components/search/assets/asset-search-sidebar'
-
+import Link from 'next/link'
+import { ChevronRight, Home } from 'lucide-react'
 interface SearchParams {
     game?: string
     query?: string
@@ -42,6 +43,17 @@ function SearchPage() {
 
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">
+            <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+                <div className="whitespace-nowrap transition-colors hover:text-foreground">
+                    <Link href={`/`}>
+                        <Home size={16} />
+                    </Link>
+                </div>
+                <ChevronRight size={16} />
+                <div className="whitespace-nowrap text-foreground">
+                    <Link href={`/search`}>Search</Link>
+                </div>
+            </div>
             <div className="flex flex-col md:flex-row">
                 <AssetSearchHandler />
                 {loading ? (

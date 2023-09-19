@@ -5,12 +5,27 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Separator } from '@/components/ui/separator'
-import { Cookie } from 'lucide-react'
+import { Cookie, ChevronRight, Home } from 'lucide-react'
 import Link from 'next/link'
 
 export default function PrivacyPolicy() {
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">
+            <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+                <div className="whitespace-nowrap transition-colors hover:text-foreground">
+                    <Link href={`/`}>
+                        <Home size={16} />
+                    </Link>
+                </div>
+                <ChevronRight size={16} />
+                <div className="whitespace-nowrap transition-colors hover:text-foreground">
+                    <Link href={`/legal`}>Legal</Link>
+                </div>
+                <ChevronRight size={16} />
+                <div className="overflow-hidden text-ellipsis whitespace-nowrap text-foreground transition-colors">
+                    Cookie Policy
+                </div>
+            </div>
             <div className="rounded-xl border bg-secondary/25">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl bg-background py-2 text-base">
                     <Cookie size={16} /> Cookie Policy
