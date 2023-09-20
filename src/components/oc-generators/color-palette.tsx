@@ -12,8 +12,14 @@ import {
 import { GetColorName } from 'hex-color-to-color-name'
 import { readableColor } from 'polished'
 
-export default function ColorPalette() {
-    const [colors, setColors] = React.useState<string[]>([])
+interface ColorPaletteProps {
+    itemHeight?: number
+}
+
+const initialColors = ['#083D77', '#7F95D1', '#7DE2D1', '#FFC0BE', '#FFEBE7']
+
+export default function ColorPalette(props: ColorPaletteProps) {
+    const [colors, setColors] = React.useState<string[]>(initialColors)
 
     const generateColors = React.useCallback(() => {
         const newColors = []
@@ -22,10 +28,6 @@ export default function ColorPalette() {
         }
         setColors(newColors)
     }, [])
-
-    React.useEffect(() => {
-        generateColors()
-    }, [generateColors])
 
     const generateColor = () => {
         const letters = '0123456789ABCDEF'
@@ -53,6 +55,7 @@ export default function ColorPalette() {
                 <div className="flex flex-col gap-4 p-6 md:flex-row">
                     {colors.map((color, index) => (
                         <ColorPaletteItem
+                            height={props.itemHeight || 48}
                             key={index}
                             color={color}
                             locked={false}
@@ -68,6 +71,7 @@ interface ColorPaletteItemProps {
     color: string
     locked: boolean
     onClick?: () => void
+    height?: number
 }
 
 function ColorPaletteItem(props: ColorPaletteItemProps) {
@@ -79,7 +83,10 @@ function ColorPaletteItem(props: ColorPaletteItemProps) {
     const textColor = readableColor(props.color)
 
     return (
-        <div className="relative h-24 flex-grow rounded-lg md:h-48">
+        <div
+            className={`relative h-24 flex-grow rounded-lg ${
+                props.height ? `h-${props.height}` : 'h-48'
+            }`}>
             <div
                 className="h-full w-full rounded-lg transition-colors"
                 onMouseEnter={onMouseEnter}
