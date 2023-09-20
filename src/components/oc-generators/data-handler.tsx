@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { useCurrentSession, useCurrentUser } from '@/context/auth-context'
-import { Lock, Unlock, Shuffle, Clipboard, Save } from 'lucide-react'
+import { Lock, Unlock, Shuffle, Clipboard, Save, Dices } from 'lucide-react'
 
 import * as React from 'react'
 
@@ -147,6 +147,7 @@ export function DataHandler(props: DataHandlerProps) {
             </div>
             <div className="mt-4 rounded-xl border bg-secondary/25">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
+                    <Dices size={16} />
                     Characteristics
                 </h1>
                 <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">

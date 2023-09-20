@@ -2,13 +2,15 @@
 import * as React from 'react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
-import { Copy, Shuffle, Lock, Unlock } from 'lucide-react'
+import { Copy, Shuffle, Lock, Unlock, Palette } from 'lucide-react'
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip'
+import { GetColorName } from 'hex-color-to-color-name'
+import { readableColor } from 'polished'
 
 export default function ColorPalette() {
     const [colors, setColors] = React.useState<string[]>([])
@@ -37,10 +39,14 @@ export default function ColorPalette() {
         <div>
             <div className="mt-4 rounded-xl border bg-secondary/25">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
+                    <Palette size={16} />
                     Color Palette
                 </h1>
                 <div className="px-6 pt-4">
-                    <Button onClick={generateColors} className="w-full">
+                    <Button
+                        onClick={generateColors}
+                        className="flex w-full items-center gap-2">
+                        <Shuffle size={16} />
                         Generate Colors
                     </Button>
                 </div>
@@ -70,6 +76,8 @@ function ColorPaletteItem(props: ColorPaletteItemProps) {
     const onMouseEnter = () => setHovered(true)
     const onMouseLeave = () => setHovered(false)
 
+    const textColor = readableColor(props.color)
+
     return (
         <div className="relative h-24 flex-grow rounded-lg md:h-48">
             <div
@@ -78,11 +86,15 @@ function ColorPaletteItem(props: ColorPaletteItemProps) {
                 onMouseLeave={onMouseLeave}
                 style={{ backgroundColor: props.color }}
             />
+            <div className="absolute top-0 flex flex-row justify-between gap-2 p-2">
+                <p style={{ color: textColor }}>{GetColorName(props.color)}</p>
+            </div>
             <div className="absolute bottom-0 flex flex-row justify-between gap-2 p-2">
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-col gap-1">
                     <CopyColorToClipboardButton color={props.color} />
                 </div>
             </div>
+            <div className="absolute top-0 flex flex-row justify-between gap-2 p-2"></div>
         </div>
     )
 }

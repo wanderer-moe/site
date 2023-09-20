@@ -122,6 +122,9 @@ dependencies:
   framer-motion:
     specifier: ^10.16.4
     version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+  hex-color-to-color-name:
+    specifier: ^1.0.2
+    version: 1.0.2
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -143,6 +146,9 @@ dependencies:
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
+  polished:
+    specifier: ^4.2.2
+    version: 4.2.2
   postcss:
     specifier: 8.4.30
     version: 8.4.30
@@ -5764,6 +5770,10 @@ packages:
       space-separated-tokens: 2.0.2
     dev: false
 
+  /hex-color-to-color-name@1.0.2:
+    resolution: {integrity: sha512-YKPBFTSbYIHH8YKcJB4Q5PV+Tr+kvDXpV60BcPMUu5CSZUcc/qOOx7lkr7luk6MSXKd5A82yfPGZTgedIdQ+aA==}
+    dev: false
+
   /hoist-non-react-statics@3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
@@ -7369,6 +7379,13 @@ packages:
     engines: {node: '>=16.14'}
     hasBin: true
     dev: true
+
+  /polished@4.2.2:
+    resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@babel/runtime': 7.22.15
+    dev: false
 
   /postcss-import@15.1.0(postcss@8.4.30):
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
