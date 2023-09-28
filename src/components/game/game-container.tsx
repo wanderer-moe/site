@@ -29,56 +29,47 @@ export function GameContainer({ game, className }: GameContainerProps) {
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}>
                     <motion.div
-                        className="relative flex h-32 items-center justify-center bg-cover text-white"
+                        className="relative flex h-24 items-center justify-center rounded-md bg-cover text-white sm:h-28"
                         style={{
                             backgroundImage: `url(${siteConfig.urls.cdn}/assets/${game.name}/cover.png)`,
-                            backgroundPosition: '50% 20%',
                             backgroundSize: '100%',
                         }}
                         animate={{
-                            // idk about this, will probably change
                             backgroundSize: hovered ? '115%' : '100%',
                             backgroundPosition: hovered ? '50% 15%' : '50% 20%',
                         }}
                         transition={{ duration: 0.15 }}>
                         <motion.div
-                            className="absolute h-full w-full bg-black bg-opacity-60"
+                            className={`absolute h-full w-full rounded-md bg-opacity-60 transition-all ${
+                                hovered
+                                    ? 'bg-indigo-500/50 ring-2 ring-indigo-500'
+                                    : 'bg-black'
+                            }`}
                             animate={{
                                 opacity: hovered ? 0.9 : 1,
                             }}
                             transition={{ duration: 0.15 }}
                         />
-                        <div className="align-center absolute w-5/6">
-                            <motion.div
-                                animate={{
-                                    opacity: hovered ? 1 : 1,
-                                    y: hovered ? 0 : 10,
-                                }}
-                                transition={{ duration: 0.15 }}>
-                                <p className="text-center text-2xl font-bold text-white">
-                                    {mapGame(game.name)}
-                                </p>
-                                <p className="text-center text-sm font-normal text-white">
-                                    {game.asset_count}{' '}
-                                    {game.asset_count === 1
-                                        ? 'asset'
-                                        : 'assets'}{' '}
-                                    available
-                                </p>
-                            </motion.div>
-                            <motion.p
-                                className="text-center text-xs font-normal text-white"
-                                animate={{
-                                    opacity: hovered ? 1 : 0,
-                                    y: hovered ? 0 : 10,
-                                }}
-                                transition={{ duration: 0.15 }}>
-                                Last updated {timeAgo(game.last_updated)}
-                            </motion.p>
-                        </div>
                     </motion.div>
                 </div>
             </Link>
+            <div className="flex flex-col gap-1">
+                <div className="mt-2 flex flex-row items-center gap-1">
+                    <img
+                        src={`${siteConfig.urls.cdn}/assets/${game.name}/icon.png`}
+                        alt={game.name}
+                        className="h-4 w-4 rounded-md"
+                    />
+                    <Label className="font-semibold">
+                        {mapGame(game.name)}
+                    </Label>
+                </div>
+                <div className="mt-1 flex flex-row items-center gap-1">
+                    <Label className="rounded-md bg-background px-1 text-xs font-normal ring-1 ring-secondary/25">
+                        {game.asset_count} assets available
+                    </Label>
+                </div>
+            </div>
         </div>
     )
 }
