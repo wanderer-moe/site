@@ -84,7 +84,9 @@ function ColorPaletteItem(props: ColorPaletteItemProps) {
 
     return (
         <div
-            className={`relative h-24 flex-grow rounded-lg ${
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            className={`relative h-24 flex-grow rounded-lg transition-all ${
                 props.height ? `h-${props.height}` : 'h-48'
             }`}>
             <div
@@ -93,8 +95,17 @@ function ColorPaletteItem(props: ColorPaletteItemProps) {
                 onMouseLeave={onMouseLeave}
                 style={{ backgroundColor: props.color }}
             />
+            <div
+                className={`absolute inset-0 ${
+                    hovered
+                        ? 'bg-background opacity-75 ring-2 ring-secondary backdrop-blur-lg backdrop-filter'
+                        : ''
+                } rounded-lg transition-all`}
+            />
             <div className="absolute top-0 flex flex-row justify-between gap-2 p-2">
-                <p style={{ color: textColor }}>{GetColorName(props.color)}</p>
+                <p style={{ color: hovered ? 'white' : textColor }}>
+                    {GetColorName(props.color)}
+                </p>
             </div>
             <div className="absolute bottom-0 flex flex-row justify-between gap-2 p-2">
                 <div className="flex flex-col gap-1">
