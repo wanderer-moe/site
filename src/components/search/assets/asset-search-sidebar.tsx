@@ -108,13 +108,12 @@ export function AssetSearchHandler() {
     const [categories, setCategories] = useState<any[]>([])
 
     useEffect(() => {
-        // set categories to a set of all game categories
         getGames().then((data) => setGames(data))
-    }, [games])
+    }, [])
 
     useEffect(() => {
         const queryParam = searchParams.get('query') || null
-        const gamesParam = searchParams.get('games')?.split(',') || null
+        const gamesParam = searchParams.get('game')?.split(',') || null
         const categoriesParam = searchParams.get('asset')?.split(',') || null
         const tagsParam = searchParams.get('tags')?.split(',') || null
 
@@ -144,7 +143,7 @@ export function AssetSearchHandler() {
             searchParams.set('query', state.query)
         }
         if (state.games.length) {
-            searchParams.set('games', state.games.join(','))
+            searchParams.set('game', state.games.join(','))
         }
         if (state.categories.length) {
             searchParams.set('asset', state.categories.join(','))
@@ -156,7 +155,6 @@ export function AssetSearchHandler() {
     }
 
     return (
-        // TODO: fix this fucking gap jesus christ akjdbkdf.,f
         <section className="mb-6 md:mb-0 md:w-1/3">
             <div className="md:fixed">
                 <div className="flex flex-col gap-3">

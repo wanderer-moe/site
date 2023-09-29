@@ -141,7 +141,7 @@ export function CreateAccount() {
     }
 
     return (
-        <div className="w-full sm:w-2/3">
+        <div className="w-[500px]">
             <form onSubmit={handleSubmit}>
                 <Card>
                     <CardHeader className="space-y-1">
@@ -214,6 +214,28 @@ export function CreateAccount() {
                             )}
                             Create Account
                         </Button>
+                        <div className="mt-4 text-zinc-400">
+                            Already have an account?{' '}
+                            <Link
+                                href="/login"
+                                className="transition-all hover:text-white">
+                                Login.
+                            </Link>
+                        </div>
+                        <div className="mt-2 text-center text-xs text-zinc-400">
+                            By creating an account, you agree to our{' '}
+                            <Link
+                                href="/legal/terms-of-service"
+                                className="transition-all hover:text-white">
+                                Terms of Service
+                            </Link>{' '}
+                            and our{' '}
+                            <Link
+                                href="/legal/privacy-policy"
+                                className="transition-all hover:text-white">
+                                Privacy Policy
+                            </Link>
+                        </div>
                     </CardFooter>
                 </Card>
             </form>

@@ -64,11 +64,9 @@ export function GameContainer({ game, className }: GameContainerProps) {
                         {mapGame(game.name)}
                     </Label>
                 </div>
-                <div className="mt-1 flex flex-row items-center gap-1">
-                    <Label className="rounded-md bg-background px-1 text-xs font-normal ring-1 ring-secondary/25">
-                        {game.asset_count} assets available
-                    </Label>
-                </div>
+                <Label className="text-xs font-normal">
+                    {game.asset_count} assets available
+                </Label>
             </div>
         </div>
     )

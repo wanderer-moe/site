@@ -97,7 +97,7 @@ export function Login() {
     }
 
     return (
-        <div className="w-full sm:w-2/3">
+        <div className="w-[500px]">
             <form onSubmit={handleSubmit}>
                 <Card>
                     <CardHeader className="space-y-1">
@@ -120,7 +120,14 @@ export function Login() {
                             />
                         </div>
                         <div className="grid gap-2">
-                            <Label htmlFor="password">Password</Label>
+                            <div className="flex items-center justify-between">
+                                <Label htmlFor="password">Password</Label>
+                                <Link
+                                    className="text-zinc-400 transition-colors hover:text-white"
+                                    href="/account/forgot-password">
+                                    Forgot password?
+                                </Link>
+                            </div>
                             <Input
                                 disabled={isLoading}
                                 id="password"
@@ -129,7 +136,7 @@ export function Login() {
                             />
                         </div>
                     </CardContent>
-                    <CardFooter>
+                    <CardFooter className="flex flex-col gap-2">
                         <Button
                             disabled={isLoading}
                             className="w-full font-semibold">
@@ -138,6 +145,14 @@ export function Login() {
                             )}
                             Login
                         </Button>
+                        <div className="mt-4 text-zinc-400">
+                            Don&apos;t have an account?{' '}
+                            <Link
+                                href="/signup"
+                                className="transition-all hover:text-white">
+                                Create one.
+                            </Link>
+                        </div>
                     </CardFooter>
                 </Card>
             </form>
