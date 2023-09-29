@@ -29,7 +29,7 @@ export function GameContainer({ game, className }: GameContainerProps) {
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}>
                     <motion.div
-                        className="relative flex h-24 items-center justify-center rounded-md bg-cover text-white sm:h-28"
+                        className="relative flex h-24 items-center justify-center rounded-md bg-cover sm:h-28"
                         style={{
                             backgroundImage: `url(${siteConfig.urls.cdn}/assets/${game.name}/cover.png)`,
                             backgroundSize: '100%',
@@ -40,9 +40,9 @@ export function GameContainer({ game, className }: GameContainerProps) {
                         }}
                         transition={{ duration: 0.15 }}>
                         <motion.div
-                            className={`absolute h-full w-full rounded-md bg-opacity-60 transition-all ${
+                            className={`absolute h-full w-full rounded-md bg-opacity-25 transition-all ${
                                 hovered
-                                    ? 'bg-indigo-500/50 ring-2 ring-indigo-500'
+                                    ? 'bg-indigo-500 ring-2 ring-indigo-500'
                                     : 'bg-black'
                             }`}
                             animate={{
