@@ -12,14 +12,43 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import { DiscordLogoIcon } from '@radix-ui/react-icons'
+import { DiscordLogoIcon, GlobeIcon } from '@radix-ui/react-icons'
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { siteConfig } from '@/config/site'
+import { AlternateAuthProviders } from '@/components/account/alternate-auth-providers'
+import { useToast } from '@/components/ui/use-toast'
+import { z } from 'zod'
+
+const LoginSchema = z.object({
+    username: z
+        .string({
+            required_error: 'Username is required',
+            invalid_type_error: 'Username must be a string',
+        })
+        .min(3, 'Username must be at least 3 characters long')
+        .max(32, 'Username must be at most 32 characters long'),
+    password: z
+        .string({
+            required_error: 'Password is required',
+            invalid_type_error: 'Password must be a string',
+        })
+        .regex(new RegExp('.*[A-Z].*'), 'One uppercase character is required')
+        .regex(new RegExp('.*[a-z].*'), 'One lowercase character is required')
+        .regex(new RegExp('.*\\d.*'), 'One number is required')
+        .regex(
+            new RegExp('.*[`~<>?,./!@#$%^&*()\\-_+="\'|{}\\[\\];:\\\\].*'),
+            'One special character is required',
+        )
+        .min(8, 'Password must be at least 8 characters long')
+        .max(128, 'Password must be at most 128 characters long'),
+})
 
 export function Login() {
     const [isLoading, setIsLoading] = useState(false)
+
+    const { toast } = useToast()
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -27,8 +56,23 @@ export function Login() {
 
         const formData = new FormData(e.currentTarget)
 
+        const data = LoginSchema.safeParse(Object.fromEntries(formData))
+
+        if (!data.success) {
+            // TODO(dromzeh): error dependant on field instead of toast
+            const errorMessage = data.error.issues
+                .map((issue) => issue.message)
+                .join(', ')
+
+            toast({
+                title: 'Invalid form data',
+                description: errorMessage,
+            })
+            setIsLoading(false)
+            return
+        }
+
         try {
-            // post request to /auth/login using formData
             const res = await fetch(`${siteConfig.urls.api}/auth/login`, {
                 method: 'POST',
                 credentials: 'include',
@@ -38,40 +82,30 @@ export function Login() {
             if (res.ok && res.status === 200) {
                 window.location.href = '/'
             } else {
-                throw new Error('Something went wrong')
+                throw new Error('Response failed')
             }
         } catch (error) {
             console.error(error)
+            toast({
+                title: 'Something went wrong',
+                description: 'Please try again later',
+                variant: 'destructive',
+            })
         } finally {
             setIsLoading(false)
         }
     }
 
     return (
-        <div>
+        <div className="w-full sm:w-2/3">
             <form onSubmit={handleSubmit}>
                 <Card>
                     <CardHeader className="space-y-1">
-                        <CardTitle className="text-2xl">
+                        <CardTitle className="text-center text-2xl">
                             Login to account
                         </CardTitle>
                         <CardDescription>
-                            Enter your username and password to login to your
-                            account. Don&apos;t have an account?{' '}
-                            <Link
-                                href="/signup"
-                                className="text-white"
-                                passHref>
-                                create one
-                            </Link>
-                            .
-                            <Button
-                                className="mt-4 w-full"
-                                variant="outline"
-                                disabled>
-                                <DiscordLogoIcon className="mr-2 h-4 w-4" />
-                                Login through Discord
-                            </Button>
+                            <AlternateAuthProviders />
                             <Separator className="mt-4" />
                         </CardDescription>
                     </CardHeader>
@@ -83,7 +117,6 @@ export function Login() {
                                 id="username"
                                 name="username"
                                 type="username"
-                                placeholder="username"
                             />
                         </div>
                         <div className="grid gap-2">
@@ -93,7 +126,6 @@ export function Login() {
                                 id="password"
                                 name="password"
                                 type="password"
-                                placeholder="••••••••••"
                             />
                         </div>
                     </CardContent>

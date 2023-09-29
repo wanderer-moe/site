@@ -40,7 +40,7 @@ function IndexPage() {
         setLoading(true)
         Promise.all([fetchRecentData(), fetchGamesData()]).then(
             ([recentResults, gamesResults]) => {
-                setRecentData(recentResults)
+                setRecentData(recentResults.slice(0, 8))
                 setGames(gamesResults)
                 setLoading(false)
             },

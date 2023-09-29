@@ -39,14 +39,14 @@ export function SiteFooter(): React.ReactElement {
                                 <li className="mb-2">
                                     <Link
                                         href="https://git.wanderer.moe/"
-                                        className="hover:text-white">
+                                        className="transition-colors hover:text-white">
                                         GitHub
                                     </Link>
                                 </li>
                                 <li className="mb-2">
                                     <Link
                                         href="https://discord.wanderer.moe/"
-                                        className="hover:text-white">
+                                        className="transition-colors hover:text-white">
                                         Discord Server
                                     </Link>
                                 </li>
@@ -60,21 +60,21 @@ export function SiteFooter(): React.ReactElement {
                                 <li className="mb-2">
                                     <Link
                                         href="/legal/privacy-policy"
-                                        className="hover:text-white">
+                                        className="transition-colors hover:text-white">
                                         Privacy Policy
                                     </Link>
                                 </li>
                                 <li className="mb-2">
                                     <Link
                                         href="/legal/terms-of-service"
-                                        className="hover:text-white">
+                                        className="transition-colors hover:text-white">
                                         Terms of Service
                                     </Link>
                                 </li>
                                 <li className="mb-2">
                                     <Link
                                         href="/legal/cookie-policy"
-                                        className="hover:text-white">
+                                        className="transition-colors hover:text-white">
                                         Cookie Policy
                                     </Link>
                                 </li>
@@ -88,19 +88,19 @@ export function SiteFooter(): React.ReactElement {
                                 <li className="mb-2">
                                     <Link
                                         href="https://wanderer.moe/asset-request-form"
-                                        className="hover:text-white">
+                                        className="transition-colors hover:text-white">
                                         Asset Request Form
                                     </Link>
                                 </li>
                                 <li className="mb-2">
                                     <Link
                                         href="/contributors"
-                                        className="hover:text-white">
+                                        className="transition-colors hover:text-white">
                                         Contributors
                                     </Link>
                                 </li>
                                 <li className="mb-2">
-                                    <p className="cursor-pointer hover:text-white">
+                                    <p className="cursor-pointer transition-colors hover:text-white">
                                         Contribute
                                     </p>
                                 </li>

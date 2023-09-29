@@ -12,8 +12,10 @@ export default function CreateAccountPage() {
     }
 
     return (
-        <div className="m-auto min-h-screen max-w-screen-xl p-5">
-            {isLoadingSession ? <div>Loading...</div> : <CreateAccount />}
+        <div className="mx-auto min-h-screen max-w-screen-xl p-5">
+            <div className="flex items-center justify-center">
+                {isLoadingSession ? <div>Loading...</div> : <CreateAccount />}
+            </div>
         </div>
     )
 }

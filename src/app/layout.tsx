@@ -7,6 +7,7 @@ import { AuthProvider } from '@/context/auth-context'
 import type { Metadata } from 'next'
 import { DeviceWarning } from '@/components/device-warning'
 import './globals.css'
+import { Toaster } from '@/components/ui/toaster'
 // import { AuthProvider } from '@/context/authContext'
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default async function RootLayout({
                         <NavBar />
                         <DeviceWarning />
                         {children}
+                        <Toaster />
                         <SiteFooter />
                     </AuthProvider>
                 </ThemeProvider>
