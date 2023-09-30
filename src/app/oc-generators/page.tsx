@@ -21,7 +21,8 @@ export default function OCGeneratorPage() {
                     OC Generators
                 </h1>
                 <p className=" text-muted-foreground">
-                    Create unique Original Characters with our OC Generators.
+                    Create, save and share unique Original Characters with our
+                    OC Generators.
                 </p>
                 <p className="text-muted-foreground">
                     Need assets for your OC? Check out{' '}

@@ -55,8 +55,9 @@ export function OCGeneratorGameContainer({
                                 <p className="text-center font-bold text-white">
                                     {mapGame(game)}
                                 </p>
+                                {/* TODO(dromzeh): update placeholders */}
                                 <p className="text-center text-xs font-normal text-white">
-                                    placeholder text 1
+                                    1337 possible combinations
                                 </p>
                             </motion.div>
                             <motion.p
@@ -66,7 +67,7 @@ export function OCGeneratorGameContainer({
                                     y: hovered ? 0 : 10,
                                 }}
                                 transition={{ duration: 0.15 }}>
-                                placeholder text 2
+                                Updated today
                             </motion.p>
                         </div>
                     </motion.div>

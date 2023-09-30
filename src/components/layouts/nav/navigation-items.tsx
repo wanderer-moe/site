@@ -20,15 +20,20 @@ export function NavItems(): React.ReactElement {
         <NavigationMenu>
             <NavigationMenuList className="flex">
                 <NavigationMenuItem>
-                    {!session ? (
-                        <Link href="/login" passHref>
-                            <Button variant="outline">
-                                <LogIn size={16} />
-                            </Button>
-                        </Link>
-                    ) : (
-                        <UserNav {...session} />
-                    )}
+                    <div className="mr-2">
+                        {!session ? (
+                            <div className="flex flex-row items-center gap-2">
+                                <Link href="/login" passHref>
+                                    <Button variant="outline">Login</Button>
+                                </Link>
+                                <Link href="/signup" passHref>
+                                    <Button>Sign Up</Button>
+                                </Link>
+                            </div>
+                        ) : (
+                            <UserNav {...session} />
+                        )}
+                    </div>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <SideBar />

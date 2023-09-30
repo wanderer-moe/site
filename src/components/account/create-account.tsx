@@ -149,6 +149,10 @@ export function CreateAccount() {
                             Create your account
                         </CardTitle>
                         <CardDescription>
+                            <p className="mb-4 text-center text-xs text-muted-foreground">
+                                Organize assets into sharable collections &
+                                share your OC Generator responses
+                            </p>
                             <AlternateAuthProviders />
                             <Separator className="mt-4" />
                         </CardDescription>
