@@ -51,6 +51,7 @@
     "framer-motion": "^10.16.4",
     "hex-color-to-color-name": "^1.0.2",
     "lodash": "^4.17.21",
+    "lucia": "^2.7.0",
     "lucide-react": "^0.279.0",
     "million": "2.6.2",
     "next": "13.5.3",

@@ -1,6 +1,6 @@
 'use client'
 import * as React from 'react'
-import { OCGeneratorGame } from '@/components/oc-generators/oc-generator-game-container'
+import { OCGeneratorGameContainer } from '@/components/oc-generators/oc-generator-game-container'
 import { siteConfig } from '@/config/site'
 import { Dices } from 'lucide-react'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
@@ -38,7 +38,10 @@ export function OCGeneratorList() {
                     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
                         {/* @ts-ignore fuck typing */}
                         {games.map((game) => (
-                            <OCGeneratorGame key={game.name} game={game.name} />
+                            <OCGeneratorGameContainer
+                                key={game.name}
+                                game={game.name}
+                            />
                         ))}
                     </div>
                 )}

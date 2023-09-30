@@ -23,7 +23,7 @@ export function DataHandler(props: DataHandlerProps) {
         options.map((option) => ({
             ...option,
             locked: false,
-            // FIX: hydration
+            // TODO(dromzeh): fix hydration
             currentOption:
                 option.entries[
                     Math.floor(Math.random() * option.entries.length)

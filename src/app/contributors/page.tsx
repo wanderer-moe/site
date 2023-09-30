@@ -53,6 +53,8 @@ export default function Page() {
         }
     }
 
+    // TODO(dromzeh): skeleton loading UX
+
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">
             <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">

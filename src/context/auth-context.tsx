@@ -6,18 +6,19 @@ Since our Backend is completely separate from the frontend, we need a way to sha
 The <AuthProvider> is already included in Layout.tsx, which means we can access session data from any component effortlessly.
 */
 
-// TODO: define types instead of any
+// TODO(dromzeh): define types instead of any
 
 import * as React from 'react'
 import { siteConfig } from '@/config/site'
+import type { Session } from 'lucia'
 
 export type SessionState = {
-    session: any | null
+    session: Session | null
     isLoadingSession: boolean
 }
 
 export type AuthContextType = {
-    refreshSessionData: () => Promise<any | null>
+    refreshSessionData: () => Promise<Session | null>
 } & SessionState
 
 export const AuthContext = React.createContext<AuthContextType>({

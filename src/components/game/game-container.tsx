@@ -26,6 +26,9 @@ export function GameContainer({ game, className }: GameContainerProps) {
         <div className={cn(className)}>
             <Link href={`/search?game=${game.name}`}>
                 <div
+                    onTouchCancel={() => setHovered(false)}
+                    onTouchEnd={() => setHovered(false)}
+                    onTouchStart={() => setHovered(true)}
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}>
                     <motion.div
@@ -74,7 +77,7 @@ export function GameContainer({ game, className }: GameContainerProps) {
                                     y: hovered ? 0 : 10,
                                 }}
                                 transition={{ duration: 0.15 }}>
-                                Last updated {timeAgo(game.last_updated)}
+                                Updated {timeAgo(game.last_updated)}
                             </motion.p>
                         </div>
                     </motion.div>

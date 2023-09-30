@@ -10,7 +10,7 @@ interface OCGeneratorGameContainerProps {
     className?: string
 }
 
-export function OCGeneratorGame({
+export function OCGeneratorGameContainer({
     game,
     className,
 }: OCGeneratorGameContainerProps) {
@@ -19,6 +19,9 @@ export function OCGeneratorGame({
         <div className={cn(className)}>
             <Link href={`/oc-generators/${game}`}>
                 <div
+                    onTouchCancel={() => setHovered(false)}
+                    onTouchEnd={() => setHovered(false)}
+                    onTouchStart={() => setHovered(true)}
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}>
                     <motion.div
