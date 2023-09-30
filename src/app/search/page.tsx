@@ -67,8 +67,24 @@ function SearchPage() {
                                 <AssetContainer assets={data} />
                             </div>
                         ) : (
-                            <div className="mt-10">
-                                <p>No results found.</p>
+                            <div className="mt-10 w-full">
+                                <p className="text-2xl font-bold tracking-tight">
+                                    No results found.
+                                </p>
+                                <p className=" text-muted-foreground">
+                                    Try broadening your search query?
+                                </p>
+                                <p className="mt-2 text-xs text-muted-foreground">
+                                    If theres an asset that doesn&apos;t exist
+                                    on the site yet, fill out our{' '}
+                                    <Link
+                                        href="/asset-request-form"
+                                        className="text-white">
+                                        Asset Request Form
+                                    </Link>{' '}
+                                    and we&apos;ll get to it as soon as
+                                    possible.
+                                </p>
                             </div>
                         )}
                     </>

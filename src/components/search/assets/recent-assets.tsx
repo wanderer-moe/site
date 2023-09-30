@@ -24,7 +24,7 @@ export function RecentAssets() {
 
     React.useEffect(() => {
         fetchRecentData().then((recentResults) => {
-            setRecentData(recentResults.slice(0, 8))
+            setRecentData(recentResults.slice(0, 4))
             setLoading(false)
         })
     }, [])
@@ -37,7 +37,7 @@ export function RecentAssets() {
                 </h1>
                 <div className="p-4">
                     {loading ? (
-                        <SkeletonLoader displayFakes={8} />
+                        <SkeletonLoader displayFakes={4} />
                     ) : (
                         <AssetContainer
                             assets={recentData}
@@ -45,9 +45,9 @@ export function RecentAssets() {
                         />
                     )}
                 </div>
-                <div className="flex justify-center">
+                <div className="px-4 pt-4">
                     <Link href="/search">
-                        <Button variant="default" className="mb-4">
+                        <Button variant="default" className="mb-4 w-full">
                             View All Assets
                         </Button>
                     </Link>
