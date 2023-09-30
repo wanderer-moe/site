@@ -33,17 +33,17 @@ export function GamesList() {
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                     <Gamepad2 size={16} /> Games List
                 </h1>
-                {loading ? (
-                    <div className="p-4">
+                <div className="p-4">
+                    {loading ? (
                         <SkeletonLoader displayFakes={2} />
-                    </div>
-                ) : (
-                    <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-3 lg:grid-cols-5">
-                        {games.map((game) => (
-                            <GameContainer key={game.id} game={game} />
-                        ))}
-                    </div>
-                )}
+                    ) : (
+                        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+                            {games.map((game) => (
+                                <GameContainer key={game.id} game={game} />
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
         </React.Suspense>
     )
