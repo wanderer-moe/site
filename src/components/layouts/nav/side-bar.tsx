@@ -1,22 +1,31 @@
 import { Button } from '@/components/ui/button'
-import { Menu } from 'lucide-react'
 import React, { useState, useEffect, useMemo } from 'react'
-import { Label } from '@/components/ui/label'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { LocaleChanger } from './locale-changer'
 import { DiscordStatus } from '@/components/status/discord-status'
-import type { Game } from '@/interfaces/params'
-import {
-    AssetCategoryLabel,
-    GameContainer,
-    GameLabel,
-} from '@/components/game/game-container'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { siteConfig } from '@/config/site'
 import { QuickLinksList } from '@/components/layouts/nav/quick-links'
+import Image from 'next/image'
+import Link from 'next/link'
+import {
+    Dices,
+    Scroll,
+    Menu,
+    Search,
+    HardDriveUpload,
+    Home,
+} from 'lucide-react'
+import { SessionSideBar } from '@/components/layouts/nav/session-sidebar'
+import { usePathname } from 'next/navigation'
 
 export function SideBar() {
     const [open, setOpen] = useState(false)
+
+    const currentPath = usePathname()
+
+    useEffect(() => {
+        setOpen(false)
+    }, [currentPath])
 
     return (
         <div>
@@ -30,7 +39,23 @@ export function SideBar() {
                 <SheetContent className="z-[150] flex w-full flex-col bg-zinc-950/70 px-5 pt-16 backdrop-blur-lg backdrop-filter md:w-5/6">
                     <ScrollArea>
                         <div className="pr-3">
-                            <GameCategorySideBar />
+                            <div className="mb-4 flex flex-col gap-4">
+                                <div className="flex items-center justify-center gap-1 md:justify-start">
+                                    <Image
+                                        src="/icon.svg"
+                                        alt="wanderer.moe"
+                                        width={30}
+                                        height={30}
+                                    />
+                                    <Link href="/" passHref>
+                                        <p className="cursor-pointer text-xl font-semibold text-white">
+                                            wanderer.moe
+                                        </p>
+                                    </Link>
+                                </div>
+                                <SessionSideBar />
+                                <Links />
+                            </div>
                             <div className="flex flex-col gap-2">
                                 <LocaleChanger />
                                 <DiscordStatus />
@@ -44,66 +69,53 @@ export function SideBar() {
     )
 }
 
-function AssetCategoryFilter({ categories }: { categories: string[] }) {
+function Links() {
     return (
-        <div className="mt-4">
-            <Label className="text-md font-semibold">
-                Asset Categories ({categories.length})
-            </Label>
-            <div className="mt-2 flex flex-col gap-2">
-                {categories.map((category, i) => (
-                    <AssetCategoryLabel key={i} category={category} />
-                ))}
-            </div>
-        </div>
-    )
-}
-
-function GameSideBar({ games }: { games: Game[] }) {
-    return (
-        <div className="mt-4">
-            <Label className="text-md font-semibold">
-                Games ({games.length})
-            </Label>
-            <div className="mt-2 flex flex-col gap-2">
-                {games.map((game) => (
-                    <GameLabel key={game.id} game={game} className="ml-2" />
-                ))}
-            </div>
-        </div>
-    )
-}
-
-function getGames() {
-    return fetch(`${siteConfig.urls.api}/games/all`, {
-        next: {
-            revalidate: 5,
-        },
-    })
-        .then((res) => res.json())
-        .then((data) =>
-            data.results.map((game: Game) => ({
-                ...game,
-                asset_categories: [...new Set(game.asset_categories)],
-            })),
-        )
-}
-
-function GameCategorySideBar() {
-    const [data, setData] = useState<Game[]>([])
-
-    useEffect(() => {
-        getGames().then((data) => setData(data))
-    }, [])
-
-    return (
-        <div className="pb-6">
-            <GameSideBar games={data} />
-            <AssetCategoryFilter
-                categories={[
-                    ...new Set(data.flatMap((g) => g.asset_categories)),
-                ]}
-            />
+        <div className="mt-4 flex flex-col gap-2">
+            <Link href="/" className="w-full transition-colors">
+                <Button
+                    variant="ghost"
+                    className="flex w-full flex-row items-center justify-start gap-2">
+                    <Home className="h-4 w-4" />
+                    <p className="cursor-pointer text-white">Home</p>
+                </Button>
+            </Link>
+            <Link href="/search" className="w-full transition-colors">
+                <Button
+                    variant="ghost"
+                    className="flex w-full flex-row items-center justify-start gap-2">
+                    <Search className="h-4 w-4" />
+                    <p className="cursor-pointer text-white">Search Assets</p>
+                </Button>
+            </Link>
+            <Link href="/oc-generators" className="w-full transition-colors">
+                <Button
+                    variant="ghost"
+                    className="flex w-full flex-row items-center justify-start gap-2">
+                    <Dices className="h-4 w-4" />
+                    <p className="cursor-pointer text-white">OC Generators</p>
+                </Button>
+            </Link>
+            <Link href="/changelog" className="w-full transition-colors">
+                <Button
+                    variant="ghost"
+                    className="flex w-full flex-row items-center justify-start gap-2">
+                    <Scroll className="h-4 w-4" />
+                    <p className="cursor-pointer text-white">Changelog</p>
+                </Button>
+            </Link>
+            <Link
+                href="/asset-request-form"
+                className="w-full transition-colors">
+                <Button
+                    variant="ghost"
+                    className="flex w-full flex-row items-center justify-start gap-2">
+                    <HardDriveUpload className="h-4 w-4" />
+                    <p className="cursor-pointer text-white">
+                        Asset Request Form
+                    </p>
+                </Button>
+            </Link>
         </div>
     )
 }

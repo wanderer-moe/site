@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
-import { DiscordLogoIcon, GlobeIcon } from '@radix-ui/react-icons'
+import { Chrome } from 'lucide-react'
+import { DiscordLogoIcon } from '@radix-ui/react-icons'
 
 export function AlternateAuthProviders() {
     return (
@@ -17,7 +18,7 @@ export function AlternateAuthProviders() {
                     variant="outline"
                     disabled>
                     {/* TODO(dromzeh): google icon lib :3 */}
-                    <GlobeIcon className="mr-2 h-4 w-4" />
+                    <Chrome className="mr-2 h-4 w-4" />
                     Login with Google
                 </Button>
             </div>

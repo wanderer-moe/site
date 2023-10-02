@@ -41,6 +41,10 @@ export function DiscordStatus() {
             <Button
                 variant="outline"
                 className="w-full"
+                // TODO(dromzeh): this hurts to look at
+                onTouchStart={handleMouseEnter}
+                onTouchEnd={handleMouseLeave}
+                onTouchCancel={handleMouseLeave}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}>
                 <motion.div

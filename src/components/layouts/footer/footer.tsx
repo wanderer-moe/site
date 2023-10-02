@@ -8,7 +8,7 @@ export function SiteFooter(): React.ReactElement {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="border-t p-3 text-zinc-400 backdrop-blur-lg backdrop-filter transition-opacity">
+        <footer className="border-t border-zinc-100/20 bg-zinc-950 p-3 text-zinc-400">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-4 flex flex-col md:mb-0">

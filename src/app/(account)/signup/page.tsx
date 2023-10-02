@@ -3,6 +3,7 @@
 import { CreateAccount } from '@/components/account/create-account'
 import { useAuthContext } from '@/context/auth-context'
 import { redirect } from 'next/navigation'
+import Background from '@/components/background/background'
 
 export default function CreateAccountPage() {
     const { isLoadingSession, session } = useAuthContext()
@@ -13,9 +14,15 @@ export default function CreateAccountPage() {
 
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">
-            <div className="flex items-center justify-center">
-                {isLoadingSession ? <div>Loading...</div> : <CreateAccount />}
-            </div>
+            <Background>
+                <div className="flex min-h-screen flex-row items-center justify-center">
+                    {isLoadingSession ? (
+                        <div>Loading...</div>
+                    ) : (
+                        <CreateAccount />
+                    )}
+                </div>
+            </Background>
         </div>
     )
 }

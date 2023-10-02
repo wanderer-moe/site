@@ -12,7 +12,6 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import { DiscordLogoIcon, GlobeIcon } from '@radix-ui/react-icons'
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
