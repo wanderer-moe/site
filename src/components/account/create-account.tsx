@@ -12,8 +12,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import { DiscordLogoIcon } from '@radix-ui/react-icons'
-import { Loader2 } from 'lucide-react'
+import { Loader2, Eye, EyeOff } from 'lucide-react'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 import { useState } from 'react'
@@ -91,6 +90,8 @@ const CreateAccountSchema = z
 
 export function CreateAccount() {
     const [isLoading, setIsLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
+    const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
 
     const { toast } = useToast()
 
@@ -174,23 +175,44 @@ export function CreateAccount() {
                             />
                         </div>
                         <div className="grid gap-2">
-                            <Label htmlFor="password">Password</Label>
+                            <div className="flex items-center gap-x-2">
+                                <Label htmlFor="password">Password</Label>
+                                <div onClick={() => setShowPassword((p) => !p)}>
+                                    {showPassword ? (
+                                        <Eye className="h-4 w-4" />
+                                    ) : (
+                                        <EyeOff className="h-4 w-4" />
+                                    )}
+                                </div>
+                            </div>
                             <Input
                                 disabled={isLoading}
                                 id="password"
                                 name="password"
-                                type="password"
+                                type={showPassword ? 'text' : 'password'}
                             />
                         </div>
                         <div className="grid gap-2">
-                            <Label htmlFor="passwordConfirm">
-                                Confirm Password
-                            </Label>
+                            <div className="flex items-center gap-x-2">
+                                <Label htmlFor="passwordConfirm">
+                                    Confirm Password
+                                </Label>
+                                <div
+                                    onClick={() =>
+                                        setShowPasswordConfirm((p) => !p)
+                                    }>
+                                    {showPasswordConfirm ? (
+                                        <Eye className="h-4 w-4" />
+                                    ) : (
+                                        <EyeOff className="h-4 w-4" />
+                                    )}
+                                </div>
+                            </div>
                             <Input
                                 disabled={isLoading}
                                 id="passwordConfirm"
                                 name="passwordConfirm"
-                                type="password"
+                                type={showPasswordConfirm ? 'text' : 'password'}
                             />
                         </div>
                         <div className="grid gap-2">

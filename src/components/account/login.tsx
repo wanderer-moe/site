@@ -12,7 +12,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import { Loader2 } from 'lucide-react'
+import { Loader2, Eye, EyeOff } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { siteConfig } from '@/config/site'
@@ -46,6 +46,7 @@ const LoginSchema = z.object({
 
 export function Login() {
     const [isLoading, setIsLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
 
     const { toast } = useToast()
 
@@ -120,19 +121,33 @@ export function Login() {
                         </div>
                         <div className="grid gap-2">
                             <div className="flex items-center justify-between">
-                                <Label htmlFor="password">Password</Label>
+                                <div className="flex items-center gap-x-2">
+                                    <Label htmlFor="password">Password</Label>
+                                    <div
+                                        onClick={() =>
+                                            setShowPassword((p) => !p)
+                                        }>
+                                        {showPassword ? (
+                                            <Eye className="h-4 w-4" />
+                                        ) : (
+                                            <EyeOff className="h-4 w-4" />
+                                        )}
+                                    </div>
+                                </div>
                                 <Link
                                     className="text-zinc-400 transition-colors hover:text-white"
                                     href="/account/forgot-password">
                                     Forgot password?
                                 </Link>
                             </div>
-                            <Input
-                                disabled={isLoading}
-                                id="password"
-                                name="password"
-                                type="password"
-                            />
+                            <div>
+                                <Input
+                                    disabled={isLoading}
+                                    id="password"
+                                    name="password"
+                                    type={showPassword ? 'text' : 'password'}
+                                />
+                            </div>
                         </div>
                     </CardContent>
                     <CardFooter className="flex flex-col gap-2">
