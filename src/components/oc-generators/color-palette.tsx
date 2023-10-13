@@ -119,7 +119,7 @@ function ColorPaletteItem(props: ColorPaletteItemProps) {
 
 function CopyColorToClipboardButton({ color }: { color: string }) {
     return (
-        <TooltipProvider>
+        <TooltipProvider delayDuration={10}>
             <Tooltip>
                 <TooltipTrigger>
                     <Button
