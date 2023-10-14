@@ -14,6 +14,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/components/ui/use-toast'
+import data from '@/lib/names/en/female.json'
 
 export const MESSAGE_ROLES = ['user', 'assistant'] as const
 
@@ -64,11 +65,8 @@ const CreateSchema = z
     })
     .partial()
 
-const CharacterNameSchema = z.object({
-    name: z.string().min(1).max(32),
-})
-
 interface ImportToSakuraFMProps {
+    characterName: string
     options: {
         name: string
         locked: boolean
@@ -76,7 +74,7 @@ interface ImportToSakuraFMProps {
     }[]
 }
 
-function ImportData(options: ImportToSakuraFMProps, name: string) {
+function ImportData(options: ImportToSakuraFMProps['options'], name: string) {
     const data = {
         name,
         description: `${name}`,
@@ -106,32 +104,7 @@ export function ImportToSakuraFM(options: ImportToSakuraFMProps) {
     const { toast } = useToast()
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault()
-
-        const formData = new FormData(e.currentTarget)
-
-        console.log(formData)
-
-        const validData = CharacterNameSchema.safeParse(
-            Object.fromEntries(formData),
-        )
-
-        if (!validData.success) {
-            console.error(validData.error)
-
-            const errorMessage = validData.error.issues
-                .map((issue) => issue.message)
-                .join(', ')
-
-            toast({
-                title: 'Something went wrong',
-                description: errorMessage,
-            })
-            return
-        }
-
-        const { name } = validData.data
-        ImportData(options, name)
+        ImportData(options.options, options.characterName)
     }
 
     return (
@@ -141,24 +114,22 @@ export function ImportToSakuraFM(options: ImportToSakuraFMProps) {
                     variant={'outline'}
                     className="flex w-full flex-row items-center gap-2">
                     <Import size={16} />
-                    Import to SakuraFM
+                    Create Character on SakuraFM
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <form onSubmit={handleSubmit}>
                     <DialogHeader>
-                        <DialogTitle>Import to SakuraFM</DialogTitle>
+                        <DialogTitle>Create Character on SakuraFM</DialogTitle>
                         <DialogDescription>
-                            Give your character a name and import it to
-                            SakuraFM.
+                            You will be redirected to SakuraFM to create your
+                            character. Some information you generated for{' '}
+                            {options.characterName} will be pre-filled.
                         </DialogDescription>
                     </DialogHeader>
-                    <div className="grid-col grid gap-2">
-                        <Label htmlFor="name">Character Name</Label>
-                        <Input id="name" name="name" className="w-full" />
-                    </div>
-                    <DialogFooter className="mt-4">
-                        <Button variant="outline">Import to SakuraFM</Button>
+                    <DialogFooter className="mt-2 gap-2">
+                        <Button variant="outline">Cancel</Button>
+                        <Button>Import</Button>
                     </DialogFooter>
                 </form>
             </DialogContent>

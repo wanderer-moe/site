@@ -5,12 +5,15 @@ import { useCurrentSession, useCurrentUser } from '@/context/auth-context'
 import { Lock, Unlock, Shuffle, Clipboard, Save, Dices } from 'lucide-react'
 import { ImportToSakuraFM } from '@/components/oc-generators/import/sakura-import-create'
 import { DataHandlerProps } from '@/interfaces/oc-generator/oc-generator'
-
+import { GenerateCharacterName } from '@/components/oc-generators/generate-character-name'
+import { generateMixedName } from '@/lib/helpers/name/generateCharacterName'
 import * as React from 'react'
 
 export function DataHandler(props: DataHandlerProps) {
     const { options } = props.data
     const user = useCurrentUser()
+
+    const [name, setName] = React.useState<string>(generateMixedName())
 
     const [optionStates, setOptionStates] = React.useState(
         options.map((option) => ({
@@ -117,14 +120,15 @@ export function DataHandler(props: DataHandlerProps) {
                         onClick={() => {
                             const currentUrl = new URL(window.location.href)
                             currentUrl.host = 'wanderer.moe' // TODO(dromzeh): fix this
-                            const concatenatedOptions = optionStates
+
+                            const message = `${name}\n\n${optionStates
                                 .map(
                                     (option) =>
                                         `${option.name} - ${option.currentOption}`,
                                 )
-                                .join('\n')
-                                .concat(`\n\n${currentUrl.toString()}`)
-                            navigator.clipboard.writeText(concatenatedOptions)
+                                .join('\n')}\n\n${currentUrl.toString()}`
+
+                            navigator.clipboard.writeText(message)
                         }}>
                         <Clipboard className="mr-2" size={16} /> Copy To
                         Clipboard
@@ -141,7 +145,10 @@ export function DataHandler(props: DataHandlerProps) {
                     </Button>
                 </div>
                 <div className="mt-2 flex">
-                    <ImportToSakuraFM options={optionStates} />
+                    <ImportToSakuraFM
+                        options={optionStates}
+                        characterName={name}
+                    />
                 </div>
             </div>
             <div className="mt-4 rounded-xl border bg-secondary/25">
@@ -149,6 +156,10 @@ export function DataHandler(props: DataHandlerProps) {
                     <Dices size={16} />
                     Characteristics
                 </h1>
+
+                <div className="p-4">
+                    <GenerateCharacterName name={name} setName={setName} />
+                </div>
                 <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
                     {optionStates.map((option) => (
                         <OptionHandler
