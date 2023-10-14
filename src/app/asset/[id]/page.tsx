@@ -219,6 +219,12 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                     <div className="mt-4 flex w-full flex-col gap-4 sm:flex-row">
                         {/* TODO: Implement */}
                         <Button
+                            onClick={() =>
+                                window.open(
+                                    `${siteConfig.urls.api}/asset/download/${asset.id}`,
+                                    '_blank',
+                                )
+                            }
                             className="w-full"
                             variant="outline"
                             title="Download Image">
