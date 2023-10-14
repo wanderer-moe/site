@@ -41,9 +41,9 @@ export const possessivePronouns = [
 ]
 
 export function formatPronouns(
-    currentSubjectPronoun,
-    currentObjectPronoun,
-    currentPossessivePronoun
+    currentSubjectPronoun: string,
+    currentObjectPronoun: string,
+    currentPossessivePronoun: string,
 ) {
     const pronouns = [
         currentSubjectPronoun,

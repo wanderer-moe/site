@@ -1,13 +1,8 @@
 {
-    "bracketSameLine": true,
-    "endOfLine": "lf",
-    "htmlWhitespaceSensitivity": "css",
-    "singleQuote": true,
-    "semi": false,
-    "svelteAllowShorthand": true,
-    "svelteIndentScriptAndStyle": false,
-    "svelteSortOrder": "options-styles-scripts-markup",
-    "svelteStrictMode": true,
     "tabWidth": 4,
-    "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"]
+    "bracketSameLine": true,
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "semi": false,
+    "plugins": ["prettier-plugin-tailwindcss"]
 }

@@ -1,10 +1,9 @@
-name: Check Code
+name: Check formatting
 
 on:
     push:
         branches:
-            - main
-            - development
+            - 'next'
 
 concurrency:
     group: ${{ github.job }}-${{ github.ref }}
@@ -33,10 +32,10 @@ jobs:
               run: pnpm install
 
             - name: Prettier check
-              run: pnpm run prettier:check
+              run: pnpm run prettier:chk
 
-    svelte-check:
-        name: Svelte check
+    typecheck:
+        name: TypeScript type checking
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repo
@@ -56,32 +55,5 @@ jobs:
             - name: Install dependencies
               run: pnpm install
 
-            - name: Initialize git submodules (i18n)
-              run: git submodule update --init --recursive
-
-            - name: Svelte check
-              run: pnpm run svelte:check
-
-    # lint:
-    #     name: ESLint
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Checkout repo
-    #           uses: actions/checkout@v3
-
-    #         - name: Setup Node.js
-    #           uses: actions/setup-node@v3
-    #           with:
-    #               node-version: 18
-
-    #         - name: Install pnpm
-    #           uses: pnpm/action-setup@v2
-    #           with:
-    #               version: latest
-    #               run_install: false
-
-    #         - name: Install dependencies
-    #           run: pnpm install
-
-    #         - name: Lint
-    #           run: pnpm run lint
+            - name: TypeScript type checking
+              run: pnpm run typecheck
