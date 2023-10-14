@@ -7,10 +7,12 @@ import { ImportToSakuraFM } from '@/components/oc-generators/import/sakura-impor
 import { DataHandlerProps } from '@/interfaces/oc-generator/oc-generator'
 import { GenerateCharacterName } from '@/components/oc-generators/generate-character-name'
 import { generateMixedName } from '@/lib/helpers/name/generateCharacterName'
+import { useToast } from '@/components/ui/use-toast'
 import * as React from 'react'
 
 export function DataHandler(props: DataHandlerProps) {
     const { options } = props.data
+    const { toast } = useToast()
     const user = useCurrentUser()
 
     const [name, setName] = React.useState<string>(generateMixedName())
@@ -121,14 +123,24 @@ export function DataHandler(props: DataHandlerProps) {
                             const currentUrl = new URL(window.location.href)
                             currentUrl.host = 'wanderer.moe' // TODO(dromzeh): fix this
 
-                            const message = `${name}\n\n${optionStates
+                            const message = `Name - ${name}\n${optionStates
                                 .map(
                                     (option) =>
                                         `${option.name} - ${option.currentOption}`,
                                 )
                                 .join('\n')}\n\n${currentUrl.toString()}`
-
-                            navigator.clipboard.writeText(message)
+                            try {
+                                navigator.clipboard.writeText(message)
+                                toast({
+                                    title: 'Success',
+                                    description: `Copied ${name}'s data to clipboard`,
+                                })
+                            } catch (e) {
+                                toast({
+                                    title: 'Error',
+                                    description: `Failed copying ${name}'s data to clipboard`,
+                                })
+                            }
                         }}>
                         <Clipboard className="mr-2" size={16} /> Copy To
                         Clipboard

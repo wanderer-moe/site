@@ -6,7 +6,7 @@ import { siteConfig } from '@/config/site'
 import { ChevronRight, Home } from 'lucide-react'
 import { DataHandler } from '@/components/oc-generators/data-handler'
 import Link from 'next/link'
-import { RawData } from '@/components/oc-generators/raw-data'
+import { CopyJSONData } from '@/components/oc-generators/copy-json-data'
 import ColorPalette from '@/components/oc-generators/color-palette'
 
 export const runtime = 'edge'
@@ -76,7 +76,7 @@ async function OCGeneratorPage({ params: { id } }: { params: { id: string } }) {
                 <DataHandler {...data} />
             </div>
             <ColorPalette />
-            <RawData {...data} />
+            <CopyJSONData {...data} />
         </div>
     )
 }

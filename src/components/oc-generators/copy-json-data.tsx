@@ -15,7 +15,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { siteConfig } from '@/config/site'
 import { Clipboard } from 'lucide-react'
 
-type RawDataProps = {
+type CopyJSONDataProps = {
     data: {
         options: {
             name: string
@@ -24,7 +24,7 @@ type RawDataProps = {
     }
 }
 
-export function RawData(props: RawDataProps): React.ReactElement {
+export function CopyJSONData(props: CopyJSONDataProps): React.ReactElement {
     const { data } = props
     const [isOpen, setIsOpen] = React.useState<boolean>(false)
 
