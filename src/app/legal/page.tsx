@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { siteConfig } from '@/config/site'
 import Link from 'next/link'
 import { Home, ChevronRight } from 'lucide-react'
 import {
@@ -8,7 +7,6 @@ import {
     CardTitle,
     CardHeader,
     CardDescription,
-    CardFooter,
 } from '@/components/ui/card'
 
 const LegalPages = [

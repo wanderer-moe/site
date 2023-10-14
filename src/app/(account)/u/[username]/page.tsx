@@ -2,7 +2,6 @@ import { Asset } from '@/interfaces/asset/asset'
 import { User } from '@/interfaces/user/user'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { siteConfig } from '@/config/site'
 
 export const runtime = 'edge'
 

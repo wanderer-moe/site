@@ -8,7 +8,6 @@ import {
     NavigationMenuItem,
     NavigationMenuList,
 } from '@/components/ui/navigation-menu'
-import { LogIn } from 'lucide-react'
 import { SideBar } from './side-bar'
 import { useAuthContext } from '@/context/auth-context'
 

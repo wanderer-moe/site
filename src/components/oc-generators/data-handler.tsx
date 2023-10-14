@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { useCurrentSession, useCurrentUser } from '@/context/auth-context'
+import { useCurrentUser } from '@/context/auth-context'
 import { Lock, Unlock, Shuffle, Clipboard, Save, Dices } from 'lucide-react'
 import { ImportToSakuraFM } from '@/components/oc-generators/import/sakura-import-create'
 import { DataHandlerProps } from '@/interfaces/oc-generator/oc-generator'

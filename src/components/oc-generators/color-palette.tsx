@@ -1,8 +1,7 @@
 'use client'
 import * as React from 'react'
 import { Button } from '@/components/ui/button'
-import { motion } from 'framer-motion'
-import { Copy, Shuffle, Lock, Unlock, Palette } from 'lucide-react'
+import { Copy, Shuffle, Palette } from 'lucide-react'
 import {
     Tooltip,
     TooltipContent,

@@ -3,8 +3,6 @@
 import AssetContainer from '@/components/asset/assets-container'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
 import { Asset } from '@/interfaces/asset/asset'
-import { Game } from '@/interfaces/params'
-import { Search } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { siteConfig } from '@/config/site'

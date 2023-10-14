@@ -4,12 +4,9 @@ import { Button } from '@/components/ui/button'
 import { ChevronUp, Languages as LanguagesIcon } from 'lucide-react'
 import {
     DropdownMenu,
-    DropdownMenuCheckboxItem,
     DropdownMenuContent,
-    DropdownMenuLabel,
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { setCookie, getCookie } from 'cookies-next'

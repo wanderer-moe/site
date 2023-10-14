@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { LocaleChanger } from './locale-changer'
 import { DiscordStatus } from '@/components/status/discord-status'

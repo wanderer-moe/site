@@ -1,10 +1,3 @@
-import {
-    possessivePronouns,
-    subjectPronouns,
-    objectPronouns,
-    formatPronouns,
-} from '@/lib/helpers/user/pronouns'
-import { Separator } from '@/components/ui/separator'
 import { PronounList } from './pronoun-list'
 
 export function PronounHandler({ session }: { session: any }) {

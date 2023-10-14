@@ -1,9 +1,9 @@
 'use client'
-import * as React from 'react'
 import { OCGeneratorGameContainer } from '@/components/oc-generators/oc-generator-game-container'
+import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
 import { siteConfig } from '@/config/site'
 import { Dices } from 'lucide-react'
-import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
+import * as React from 'react'
 
 async function fetchGamesData() {
     const res = await fetch(`${siteConfig.urls.api}/oc-generators`, {

@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import { Import } from 'lucide-react'
-import { DataHandlerProps } from '@/interfaces/oc-generator/oc-generator'
 import { z } from 'zod'
 import {
     Dialog,
@@ -11,10 +10,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { useToast } from '@/components/ui/use-toast'
-import data from '@/lib/names/en/female.json'
 
 export const MESSAGE_ROLES = ['user', 'assistant'] as const
 
@@ -122,14 +118,26 @@ export function ImportToSakuraFM(options: ImportToSakuraFMProps) {
                     <DialogHeader>
                         <DialogTitle>Create Character on SakuraFM</DialogTitle>
                         <DialogDescription>
-                            You will be redirected to SakuraFM to create your
-                            character. Some information you generated for{' '}
-                            {options.characterName} will be pre-filled.
+                            {(options.characterName.length >= 0 && (
+                                <p>
+                                    You need to enter a name for your character
+                                    to be able to create it on SakuraFM.
+                                </p>
+                            )) || (
+                                <p>
+                                    You will be redirected to SakuraFM to create
+                                    your character. Some information you
+                                    generated for {options.characterName} will
+                                    be pre-filled.
+                                </p>
+                            )}
                         </DialogDescription>
                     </DialogHeader>
                     <DialogFooter className="mt-2 gap-2">
-                        <Button variant="outline">Cancel</Button>
-                        <Button>Import</Button>
+                        <Button variant="outline">Go Back</Button>
+                        <Button disabled={options.characterName.length >= 0}>
+                            Create Character
+                        </Button>
                     </DialogFooter>
                 </form>
             </DialogContent>

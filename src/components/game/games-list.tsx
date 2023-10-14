@@ -1,6 +1,6 @@
 'use client'
 import { GameContainer } from '@/components/game/game-container'
-import { FilePlus2, Gamepad2 } from 'lucide-react'
+import { Gamepad2 } from 'lucide-react'
 import * as React from 'react'
 import type { Game } from '@/interfaces/params'
 import { siteConfig } from '@/config/site'
