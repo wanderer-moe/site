@@ -1,10 +1,12 @@
 'use client'
-import { GameContainer } from '@/components/game/game-container'
+
 import { Gamepad2 } from 'lucide-react'
-import * as React from 'react'
-import type { Game } from '@/interfaces/params'
-import { siteConfig } from '@/config/site'
+import { Suspense, useEffect, useState } from 'react'
+import { GameContainer } from '@/components/game/game-container'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
+import { siteConfig } from '@/config/site'
+import { arbitraryGameSort } from '@/lib/helpers/casing/mapping'
+import type { Game } from '@/interfaces/params'
 
 async function fetchGamesData() {
     const res = await fetch(`${siteConfig.urls.api}/games/all`, {
@@ -17,18 +19,28 @@ async function fetchGamesData() {
 }
 
 export function GamesList() {
-    const [games, setGames] = React.useState<Game[]>([])
-    const [loading, setLoading] = React.useState<boolean>(true)
+    const [games, setGames] = useState<Game[]>([])
+    const [loading, setLoading] = useState<boolean>(true)
 
-    React.useEffect(() => {
+    const sortGames = (games: Game[]): Game[] => {
+        return [...games].sort((a, b) => {
+            const orderA = arbitraryGameSort[a.name] || Infinity
+            const orderB = arbitraryGameSort[b.name] || Infinity
+            return orderA - orderB
+        })
+    }
+
+    useEffect(() => {
         fetchGamesData().then((gamesResults) => {
             setGames(gamesResults)
             setLoading(false)
         })
     }, [])
 
+    const sortedGames = sortGames(games)
+
     return (
-        <React.Suspense fallback={<SkeletonLoader />}>
+        <Suspense fallback={<SkeletonLoader />}>
             <div className="rounded-xl border bg-secondary/25">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                     <Gamepad2 size={16} /> Games List
@@ -38,13 +50,13 @@ export function GamesList() {
                         <SkeletonLoader displayFakes={2} />
                     ) : (
                         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-                            {games.map((game) => (
+                            {sortedGames.map((game) => (
                                 <GameContainer key={game.id} game={game} />
                             ))}
                         </div>
                     )}
                 </div>
             </div>
-        </React.Suspense>
+        </Suspense>
     )
 }

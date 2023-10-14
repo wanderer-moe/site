@@ -45,9 +45,9 @@ export function RecentAssets() {
                         />
                     )}
                 </div>
-                <div className="px-4 pt-4">
+                <div className="px-4">
                     <Link href="/search">
-                        <Button variant="default" className="mb-4 w-full">
+                        <Button variant="secondary" className="mb-4 w-full">
                             View All Assets
                         </Button>
                     </Link>

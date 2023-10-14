@@ -156,7 +156,7 @@ export function AssetSearchHandler() {
 
     return (
         <section className="mb-6 md:mb-0 md:w-1/3">
-            <div className="md:fixed">
+            <div className="md:mr-10">
                 <div className="flex flex-col gap-3">
                     <h1 className={'text-xl font-bold'}>Search Assets</h1>
                     <Input

@@ -44,7 +44,7 @@ export function LocaleChanger(): React.ReactElement {
             <DropdownMenuTrigger asChild>
                 <Button variant="outline">
                     <LanguagesIcon size={16} />
-                    <span className="ml-2">
+                    <span className="ml-2 mr-1">
                         {locales.find((l) => l.id === locale)?.label}
                     </span>
                     <ChevronUp size={16} />
