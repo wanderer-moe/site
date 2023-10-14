@@ -7,3 +7,12 @@ export interface OCGeneratorResponse {
         }[]
     }
 }
+
+export interface DataHandlerProps {
+    data: {
+        options: {
+            name: string
+            entries: string[]
+        }[]
+    }
+}

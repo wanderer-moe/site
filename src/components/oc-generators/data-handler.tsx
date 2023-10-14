@@ -3,17 +3,10 @@
 import { Button } from '@/components/ui/button'
 import { useCurrentSession, useCurrentUser } from '@/context/auth-context'
 import { Lock, Unlock, Shuffle, Clipboard, Save, Dices } from 'lucide-react'
+import { ImportToSakuraFM } from '@/components/oc-generators/import/sakura-import-create'
+import { DataHandlerProps } from '@/interfaces/oc-generator/oc-generator'
 
 import * as React from 'react'
-
-interface DataHandlerProps {
-    data: {
-        options: {
-            name: string
-            entries: string[]
-        }[]
-    }
-}
 
 export function DataHandler(props: DataHandlerProps) {
     const { options } = props.data
@@ -146,6 +139,9 @@ export function DataHandler(props: DataHandlerProps) {
                         }}>
                         <Save className="mr-2" size={16} /> Save To Account
                     </Button>
+                </div>
+                <div className="mt-2 flex">
+                    <ImportToSakuraFM options={optionStates} />
                 </div>
             </div>
             <div className="mt-4 rounded-xl border bg-secondary/25">
