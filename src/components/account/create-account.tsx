@@ -147,7 +147,7 @@ export function CreateAccount() {
                 <Card>
                     <CardHeader className="space-y-1">
                         <CardTitle className="text-center text-2xl">
-                            Create your account
+                            Create Your Account
                         </CardTitle>
                         <CardDescription>
                             {/* TODO(dromzeh): text here */}

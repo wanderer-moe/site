@@ -102,7 +102,7 @@ export function Login() {
                 <Card>
                     <CardHeader className="space-y-1">
                         <CardTitle className="text-center text-2xl">
-                            Login to account
+                            Login To Your Account
                         </CardTitle>
                         <CardDescription>
                             <AlternateAuthProviders />

@@ -122,13 +122,15 @@ export function DataHandler(props: DataHandlerProps) {
                         variant="outline"
                         className="flex w-full items-center"
                         onClick={() => {
+                            const currentUrl = new URL(window.location.href)
+                            currentUrl.host = 'wanderer.moe' // TODO(dromzeh): fix this
                             const concatenatedOptions = optionStates
                                 .map(
                                     (option) =>
-                                        `${option.name}: ${option.currentOption}`,
+                                        `${option.name} - ${option.currentOption}`,
                                 )
                                 .join('\n')
-                                .concat(`\n\n${window.location.href}`)
+                                .concat(`\n\n${currentUrl.toString()}`)
                             navigator.clipboard.writeText(concatenatedOptions)
                         }}>
                         <Clipboard className="mr-2" size={16} /> Copy To
