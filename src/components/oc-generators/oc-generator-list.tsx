@@ -35,7 +35,7 @@ export function OCGeneratorList() {
                 {loading ? (
                     <SkeletonLoader displayFakes={2} />
                 ) : (
-                    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+                    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
                         {/* @ts-ignore fuck typing */}
                         {games.map((game) => (
                             <OCGeneratorGameContainer

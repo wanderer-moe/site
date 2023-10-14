@@ -37,7 +37,7 @@ export function SideBar() {
                         <span className="sr-only">Open Sidebar</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent className="z-[150] flex w-full flex-col bg-zinc-950/70 px-5 pt-16 backdrop-blur-lg backdrop-filter md:w-5/6">
+                <SheetContent className="z-[150] flex w-full flex-col bg-background/70 px-5 pt-16 backdrop-blur-lg backdrop-filter md:w-5/6">
                     <ScrollArea>
                         <div className="pr-3">
                             <div className="mb-4 flex flex-col gap-2">

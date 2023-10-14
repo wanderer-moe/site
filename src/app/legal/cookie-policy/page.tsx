@@ -31,34 +31,34 @@ export default function PrivacyPolicy() {
                     <Cookie size={16} /> Cookie Policy
                 </h1>
                 <Separator />
-                <div className="my-2 flex h-5 items-center justify-center gap-4 text-xs text-zinc-500">
+                <div className="my-2 flex h-5 items-center justify-center gap-4 text-xs text-muted-foreground/60">
                     Last updated: 2023-08-30
                     <Separator orientation="vertical" />
                     Effective: 2023-08-30
                 </div>
                 <Separator />
-                <div className="p-4 pb-0 text-zinc-400">
+                <div className="p-4 pb-0 text-muted-foreground">
                     <p className="mb-4">
                         This Cookie Policy describes how{' '}
                         <Link
-                            className="text-zinc-200"
+                            className="text-foreground"
                             href="https://wanderer.moe/">
                             wanderer.moe
                         </Link>{' '}
-                        (&quot;<b className="font-semibold text-zinc-200">we</b>
+                        (&quot;<b className="font-semibold text-foreground">we</b>
                         ,&quot; &quot;
-                        <b className="font-semibold text-zinc-200">us</b>,&quot;
+                        <b className="font-semibold text-foreground">us</b>,&quot;
                         or &quot;
-                        <b className="font-semibold text-zinc-200">our</b>
+                        <b className="font-semibold text-foreground">our</b>
                         ,&quot;), uses cookies and similar technologies to
                         recognize you when you visit our websites at{' '}
                         <Link
-                            className="text-zinc-200"
+                            className="text-foreground"
                             href="https://wanderer.moe/">
                             https://wanderer.moe/
                         </Link>{' '}
                         (&quot;
-                        <b className="font-semibold text-zinc-200">Website</b>
+                        <b className="font-semibold text-foreground">Website</b>
                         &quot;). It explains what these technologies are and why
                         we use them, as well as your rights to control our use
                         of them.
@@ -83,16 +83,16 @@ export default function PrivacyPolicy() {
                             </p>
                             <p>
                                 Cookies set by the website owner (in this case,{' '}
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     wanderer.moe
                                 </b>
                                 ) are called &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     first-party cookies
                                 </b>
                                 .&quot; Cookies set by parties other than the
                                 website owner are called &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     third-party cookies
                                 </b>
                                 .&quot; Third-party cookies enable third-party
@@ -116,11 +116,11 @@ export default function PrivacyPolicy() {
                                 several reasons. Some cookies are required for
                                 technical reasons in order for our Website to
                                 operate, and we refer to these as &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     essential
                                 </b>
                                 &quot; or &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     strictly necessary
                                 </b>
                                 &quot; cookies. Other cookies also enable us to
@@ -176,7 +176,7 @@ export default function PrivacyPolicy() {
                                 collapsible
                                 className="w-full">
                                 <AccordionItem value="item-1">
-                                    <AccordionTrigger className="text-center text-zinc-200">
+                                    <AccordionTrigger className="text-center text-foreground">
                                         Essential website cookies
                                     </AccordionTrigger>
                                     <AccordionContent>
@@ -191,7 +191,7 @@ export default function PrivacyPolicy() {
                                             <table>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Name:
                                                         </b>
                                                     </td>
@@ -201,7 +201,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Purpose:
                                                         </b>
                                                     </td>
@@ -216,7 +216,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Provider:
                                                         </b>
                                                     </td>
@@ -226,7 +226,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Service:
                                                         </b>
                                                     </td>
@@ -236,7 +236,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Type:
                                                         </b>
                                                     </td>
@@ -246,7 +246,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Expires in:
                                                         </b>
                                                     </td>
@@ -259,7 +259,7 @@ export default function PrivacyPolicy() {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-2">
-                                    <AccordionTrigger className="text-center text-zinc-200">
+                                    <AccordionTrigger className="text-center text-foreground">
                                         Performance and functionality cookies
                                     </AccordionTrigger>
                                     <AccordionContent>
@@ -275,7 +275,7 @@ export default function PrivacyPolicy() {
                                             <table>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Name:
                                                         </b>
                                                     </td>
@@ -285,7 +285,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Purpose:
                                                         </b>
                                                     </td>
@@ -298,7 +298,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Provider:
                                                         </b>
                                                     </td>
@@ -308,7 +308,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Service:
                                                         </b>
                                                     </td>
@@ -318,7 +318,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Type:
                                                         </b>
                                                     </td>
@@ -328,7 +328,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Expires in:
                                                         </b>
                                                     </td>
@@ -341,7 +341,7 @@ export default function PrivacyPolicy() {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-3">
-                                    <AccordionTrigger className="text-center text-zinc-200">
+                                    <AccordionTrigger className="text-center text-foreground">
                                         Analytics and customization cookies
                                     </AccordionTrigger>
                                     {/* generate the entire content in one go */}
@@ -359,7 +359,7 @@ export default function PrivacyPolicy() {
                                             <table>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Name:
                                                         </b>
                                                     </td>
@@ -367,7 +367,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Purpose:
                                                         </b>
                                                     </td>
@@ -382,7 +382,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Provider:
                                                         </b>
                                                     </td>
@@ -392,7 +392,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Service:
                                                         </b>
                                                     </td>
@@ -402,7 +402,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Country:
                                                         </b>
                                                     </td>
@@ -412,7 +412,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Type:
                                                         </b>
                                                     </td>
@@ -422,7 +422,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Expires in:
                                                         </b>
                                                     </td>
@@ -435,7 +435,7 @@ export default function PrivacyPolicy() {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-4">
-                                    <AccordionTrigger className="text-center text-zinc-200">
+                                    <AccordionTrigger className="text-center text-foreground">
                                         Advertising cookies
                                     </AccordionTrigger>
                                     <AccordionContent>
@@ -454,7 +454,7 @@ export default function PrivacyPolicy() {
                                             <table>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Name:
                                                         </b>
                                                     </td>
@@ -462,7 +462,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Purpose:
                                                         </b>
                                                     </td>
@@ -475,7 +475,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Provider:
                                                         </b>
                                                     </td>
@@ -485,7 +485,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Service:
                                                         </b>
                                                     </td>
@@ -495,7 +495,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Country:
                                                         </b>
                                                     </td>
@@ -505,7 +505,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Type:
                                                         </b>
                                                     </td>
@@ -515,7 +515,7 @@ export default function PrivacyPolicy() {
                                                 </tr>
                                                 <tr>
                                                     <td className="p-1">
-                                                        <b className="font-semibold text-zinc-200">
+                                                        <b className="font-semibold text-foreground">
                                                             Expires in:
                                                         </b>
                                                     </td>
@@ -530,7 +530,7 @@ export default function PrivacyPolicy() {
                                 <AccordionItem
                                     value="item-5"
                                     className="border-none">
-                                    <AccordionTrigger className="text-center text-zinc-200">
+                                    <AccordionTrigger className="text-center text-foreground">
                                         Unclassified cookies
                                     </AccordionTrigger>
                                     <AccordionContent>
@@ -566,42 +566,42 @@ export default function PrivacyPolicy() {
                             <ul className="mb-4 list-inside list-disc">
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="https://support.google.com/chrome/answer/95647#zippy=%2Callow-or-block-cookies">
                                         Chrome
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="https://support.microsoft.com/en-us/windows/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d">
                                         Internet Explorer
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US">
                                         Firefox
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="https://support.apple.com/en-ie/guide/safari/sfri11471/mac">
                                         Safari
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="https://support.microsoft.com/en-us/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd">
                                         Edge
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="https://help.opera.com/en/latest/web-preferences/">
                                         Opera
                                     </Link>
@@ -616,21 +616,21 @@ export default function PrivacyPolicy() {
                             <ul className="list-inside list-disc">
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="http://www.aboutads.info/choices/">
                                         Digital Advertising Alliance
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="http://youradchoices.ca/">
                                         Digital Advertising Alliance of Canada
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="http://www.youronlinechoices.com/">
                                         European Interactive Digital Advertising
                                         Alliance
@@ -695,7 +695,7 @@ export default function PrivacyPolicy() {
                                 cookies or other technologies, please email us
                                 at{' '}
                                 <Link
-                                    className="text-zinc-200"
+                                    className="text-foreground"
                                     href="mailto:privacy@wanderer.moe">
                                     privacy@wanderer.moe
                                 </Link>

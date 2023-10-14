@@ -28,7 +28,7 @@ export function PronounList({ session, type }: { session: any; type: string }) {
                             <SelectItem key={pronoun} value={pronoun}>
                                 <SelectLabel>
                                     {pronoun}
-                                    <span className="text-xs text-zinc-400">
+                                    <span className="text-xs text-muted-foreground">
                                         {' '}
                                         (subject)
                                     </span>
@@ -40,7 +40,7 @@ export function PronounList({ session, type }: { session: any; type: string }) {
                             <SelectItem key={pronoun} value={pronoun}>
                                 <SelectLabel>
                                     {pronoun}
-                                    <span className="text-xs text-zinc-400">
+                                    <span className="text-xs text-muted-foreground">
                                         {' '}
                                         (object)
                                     </span>
@@ -52,7 +52,7 @@ export function PronounList({ session, type }: { session: any; type: string }) {
                             <SelectItem key={pronoun} value={pronoun}>
                                 <SelectLabel>
                                     {pronoun}
-                                    <span className="text-xs text-zinc-400">
+                                    <span className="text-xs text-muted-foreground">
                                         {' '}
                                         (possessive)
                                     </span>

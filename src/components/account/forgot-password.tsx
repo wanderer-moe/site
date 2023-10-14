@@ -96,13 +96,13 @@ export function ForgotPassword() {
                             )}
                             Send reset link
                         </Button>
-                        <div className="mt-4 text-zinc-400">
+                        <div className="mt-4 text-muted-foreground">
                             Remember your password?{' '}
                             <Link
                                 href="/login"
-                                className="transition-all hover:text-white">
+                                className="transition-all text-foreground hover:underline">
                                 Login
-                            </Link>
+                            </Link>.
                         </div>
                     </CardFooter>
                 </Card>

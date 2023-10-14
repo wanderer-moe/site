@@ -12,7 +12,7 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="mx-auto min-h-screen max-w-screen-xl p-5">
+        <div className="-mt-14 mx-auto min-h-screen max-w-screen-xl p-5">
             <Background>
                 <div className="flex min-h-screen flex-row items-center justify-center">
                     {isLoadingSession ? <div>Loading...</div> : <Login />}

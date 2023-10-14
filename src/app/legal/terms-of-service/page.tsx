@@ -55,40 +55,40 @@ export default function TermsOfService() {
                     <ScrollText size={16} /> Terms of Service
                 </h1>
                 <Separator />
-                <div className="my-2 flex h-5 items-center justify-center gap-4 text-xs text-zinc-500">
+                <div className="my-2 flex h-5 items-center justify-center gap-4 text-xs text-muted-foreground/60">
                     Last updated: 2023-08-04
                     <Separator orientation="vertical" />
                     Effective: 2023-08-04
                 </div>
                 <Separator />
-                <div className="p-4 pb-0 text-zinc-400">
+                <div className="p-4 pb-0 text-muted-foreground">
                     <p className="mb-4">
                         We are{' '}
-                        <Link className="text-zinc-200" href="/">
+                        <Link className="text-foreground" href="/">
                             wanderer.moe
                         </Link>{' '}
-                        (&quot;<b className="font-semibold text-zinc-200">we</b>
+                        (&quot;<b className="font-semibold text-foreground">we</b>
                         &quot;, &quot;
-                        <b className="font-semibold text-zinc-200">us</b>&quot;,
+                        <b className="font-semibold text-foreground">us</b>&quot;,
                         or &quot;
-                        <b className="font-semibold text-zinc-200">our</b>
+                        <b className="font-semibold text-foreground">our</b>
                         &quot;). We operate the website{' '}
-                        <Link className="text-zinc-200" href="/">
+                        <Link className="text-foreground" href="/">
                             wanderer.moe
                         </Link>{' '}
                         (the &quot;
-                        <b className="font-semibold text-zinc-200">Site</b>
+                        <b className="font-semibold text-foreground">Site</b>
                         &quot;), as well as any other related products and
                         services that refer or link to these legal terms (the
                         &quot;
-                        <b className="font-semibold text-zinc-200">
+                        <b className="font-semibold text-foreground">
                             Legal Terms
                         </b>
                         &quot;) (collectively, the &quot;
-                        <b className="font-semibold text-zinc-200">Services</b>
+                        <b className="font-semibold text-foreground">Services</b>
                         &quot;). You can contact us by email at{' '}
                         <Link
-                            className="text-zinc-200"
+                            className="text-foreground"
                             href="mailto:support@wanderer.moe">
                             support@wanderer.moe
                         </Link>
@@ -98,7 +98,7 @@ export default function TermsOfService() {
                         These Legal Terms constitute a legally binding agreement
                         made between you, whether personally or on behalf of an
                         entity (&quot;
-                        <b className="font-semibold text-zinc-200">you</b>
+                        <b className="font-semibold text-foreground">you</b>
                         &quot;), and wanderer.moe, concerning your access to and
                         use of the Services. You agree that by accessing the
                         Services, you have read, understood, and agreed to be
@@ -144,175 +144,175 @@ export default function TermsOfService() {
                             <ol className="list-outside list-decimal pl-7">
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#our-services">
                                         Our Services
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#intellectual-property-rights">
                                         Intellectual Property Rights
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#user-representations">
                                         User Representations
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#user-registration">
                                         User Registration
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#prohibited-activities">
                                         Prohibited Activities
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#user-generated-contributions">
                                         User Generated Contributions
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#contribution-licence">
                                         Contribution Licence
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#social-media">
                                         Social Media
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#third-party-websites-and-content">
                                         Third-Party Websites and Content
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#services-management">
                                         Services Management
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#privacy-policy">
                                         Privacy Policy
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#copyright">
                                         Copyright Infringements
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#term-and-termination">
                                         Term and Termination
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#modifications-and-interruptions">
                                         Modifications and Interruptions
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#governing-law">
                                         Governing Law
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#dispute-resolution">
                                         Dispute Resolution
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#corrections">
                                         Corrections
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#disclaimer">
                                         Disclaimer
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#limitation-of-liability">
                                         Limitation of Liability
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#indemnification">
                                         Indemnification
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#user-data">
                                         User Data
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#electronic-communications">
                                         Electronic Communications
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#california-users-and-residents">
                                         California Users and Residents
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#miscellaneous">
                                         Miscellaneous
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="#contact-us">
                                         Contact Us
                                     </Link>
@@ -368,12 +368,12 @@ export default function TermsOfService() {
                                 databases, functionality, software, website
                                 designs on the Services (collectively, the
                                 &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Content
                                 </b>
                                 &quot;) and the trademarks, service marks, and
                                 logos contained therein (the &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Marks
                                 </b>
                                 &quot;) are owned or controlled by us or
@@ -393,7 +393,7 @@ export default function TermsOfService() {
                                 resources, including but not limited to images,
                                 videos, audio, documents, and logos
                                 (collectively, the &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Assets
                                 </b>
                                 &quot;). These Assets may be the intellectual
@@ -447,7 +447,7 @@ export default function TermsOfService() {
                                 and redistribute. As the codebase is licensed
                                 under the{' '}
                                 <Link
-                                    className="text-zinc-200"
+                                    className="text-foreground"
                                     href="https://www.gnu.org/licenses/gpl-3.0.en.html">
                                     GNU General Public License v3.0
                                 </Link>{' '}
@@ -703,7 +703,7 @@ export default function TermsOfService() {
                                 writings, video, audio, graphics, or personal
                                 information or other material (collectively,
                                 &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Contributions
                                 </b>
                                 &quot;). Contributions may be viewable by other
@@ -895,7 +895,7 @@ export default function TermsOfService() {
                                 you may link your account with online accounts
                                 you have with third-party service providers
                                 (each such account, a &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Third-Party Account
                                 </b>
                                 &quot;) by either:
@@ -934,7 +934,7 @@ export default function TermsOfService() {
                                     applicable) any content that you have
                                     provided to and stored in your Third-Party
                                     Account (the &quot;
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Social Network Content
                                     </b>
                                     &quot;) so that it is available on and
@@ -1008,7 +1008,7 @@ export default function TermsOfService() {
                             <p className="mb-4">
                                 The Services may contain (or you may be sent via
                                 the Services) links to other websites (&quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Third-Party Websites
                                 </b>
                                 &quot;) as well as articles, photographs, text,
@@ -1016,7 +1016,7 @@ export default function TermsOfService() {
                                 video, information, applications, software, and
                                 other content or items belonging to or
                                 originating from third parties (&quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Third-Party Content
                                 </b>
                                 &quot;). Such Third-Party Websites and
@@ -1123,7 +1123,7 @@ export default function TermsOfService() {
                                 We care about data privacy and security. Please
                                 review our{' '}
                                 <Link
-                                    className="text-zinc-200"
+                                    className="text-foreground"
                                     href="/legal/privacy-policy">
                                     Privacy Policy
                                 </Link>
@@ -1170,7 +1170,7 @@ export default function TermsOfService() {
                                 upon any copyright you own or control, please
                                 immediately notify us using the contact
                                 information provided below (a &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Notification
                                 </b>
                                 &quot;). A copy of your Notification will be
@@ -1312,20 +1312,20 @@ export default function TermsOfService() {
                                 To expedite resolution and control the cost of
                                 any dispute, controversy, or claim related to
                                 these Legal Terms (each a &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Dispute
                                 </b>
                                 &quot; and collectively, the &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Disputes
                                 </b>
                                 &quot;) brought by either you or us
                                 (individually, a &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Party
                                 </b>
                                 &quot; and collectively, the &quot;
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Parties
                                 </b>
                                 &quot;), the Parties agree to first attempt to

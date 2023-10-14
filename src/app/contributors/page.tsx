@@ -84,7 +84,7 @@ export default function Page() {
                                             </span>
                                             {category}
                                         </h1>
-                                        <div className="m-2 flex items-center justify-center gap-4 text-xs text-zinc-500">
+                                        <div className="m-2 flex items-center justify-center gap-4 text-xs text-muted-foreground/60">
                                             {description}
                                         </div>
                                         <div className="grid grid-cols-2 gap-4 border-t p-4 md:grid-cols-3 lg:grid-cols-4">

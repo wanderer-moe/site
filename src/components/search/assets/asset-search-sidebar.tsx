@@ -156,126 +156,130 @@ export function AssetSearchHandler() {
 
     return (
         <section className="mb-6 md:mb-0 md:w-1/3">
-            <div className="md:mr-10">
-                <div className="flex flex-col gap-3">
-                    <h1 className={'text-xl font-bold'}>Search Assets</h1>
-                    <Input
-                        placeholder="Search"
-                        value={state.query}
-                        onChange={(e) =>
-                            dispatch({
-                                type: 'SET_QUERY',
-                                payload: e.target.value,
-                            })
-                        }
-                    />
-                    <Separator />
-                </div>
-                <Accordion type="multiple" className="w-full">
-                    <AccordionItem id="gamesitem" value="gamesitem">
-                        <AccordionTrigger className="text-zinc-200">
-                            Games
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            {dummyData.games.map((game: string) => (
-                                <div
-                                    onClick={() => {
-                                        if (state.games.includes(game)) {
-                                            dispatch({
-                                                type: 'REMOVE_GAME',
-                                                payload: game,
-                                            })
-                                        } else {
-                                            dispatch({
-                                                type: 'ADD_GAME',
-                                                payload: game,
-                                            })
-                                        }
-                                    }}
-                                    key={game}
-                                    className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
-                                    <Checkbox
-                                        className={'mr-2'}
-                                        checked={state.games.includes(game)}
-                                    />{' '}
-                                    {game}
-                                </div>
-                            ))}
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem id="categoriesitem" value="categoriesitem">
-                        <AccordionTrigger className="text-zinc-200">
-                            Categories
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            {dummyData.categories.map((category: string) => (
-                                <div
-                                    onClick={() => {
-                                        if (
-                                            state.categories.includes(category)
-                                        ) {
-                                            dispatch({
-                                                type: 'REMOVE_ASSET_CATEGORY',
-                                                payload: category,
-                                            })
-                                        } else {
-                                            dispatch({
-                                                type: 'ADD_ASSET_CATEGORY',
-                                                payload: category,
-                                            })
-                                        }
-                                    }}
-                                    key={category}
-                                    className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
-                                    <Checkbox
-                                        className={'mr-2'}
-                                        checked={state.categories.includes(
-                                            category,
-                                        )}
-                                    />{' '}
-                                    {category}
-                                </div>
-                            ))}
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem id="tagsitem" value="tagsitem">
-                        <AccordionTrigger className="text-zinc-200">
-                            Tags
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            {dummyData.tags.map((tag: string) => (
-                                <div
-                                    onClick={() => {
-                                        if (state.tags.includes(tag)) {
-                                            dispatch({
-                                                type: 'REMOVE_TAG',
-                                                payload: tag,
-                                            })
-                                        } else {
-                                            dispatch({
-                                                type: 'ADD_TAG',
-                                                payload: tag,
-                                            })
-                                        }
-                                    }}
-                                    key={tag}
-                                    className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
-                                    <Checkbox
-                                        className={'mr-2'}
-                                        checked={state.tags.includes(tag)}
-                                    />{' '}
-                                    {tag}
-                                </div>
-                            ))}
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+            <div className="md:mr-10 flex flex-col gap-4">
+                <h1 className={'text-xl font-bold'}>Search Assets</h1>
                 <Button
-                    className="mt-4 w-full"
+                    className="w-full"
                     onClick={handleSearch}
-                    variant="outline">
-                    Search
+                    variant="secondary">
+                    Update Search
                 </Button>
+                <Input
+                    placeholder="Search..."
+                    value={state.query}
+                    onChange={(e) =>
+                        dispatch({
+                            type: 'SET_QUERY',
+                            payload: e.target.value,
+                        })
+                    }
+                />
+                <div className="rounded-md border bg-secondary/25">
+                    <span className="flex items-center justify-center gap-2 rounded-t-md border-b bg-background py-2 text-base">
+                        Filters
+                    </span>
+                    <div className="px-4">
+                        <Accordion type="multiple" className="w-full">
+                            <AccordionItem id="gamesitem" value="gamesitem">
+                                <AccordionTrigger className="text-foreground">
+                                    Games
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                    {dummyData.games.map((game: string) => (
+                                        <div
+                                            onClick={() => {
+                                                if (state.games.includes(game)) {
+                                                    dispatch({
+                                                        type: 'REMOVE_GAME',
+                                                        payload: game,
+                                                    })
+                                                } else {
+                                                    dispatch({
+                                                        type: 'ADD_GAME',
+                                                        payload: game,
+                                                    })
+                                                }
+                                            }}
+                                            key={game}
+                                            className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
+                                            <Checkbox
+                                                className={'mr-2'}
+                                                checked={state.games.includes(game)}
+                                            />{' '}
+                                            {game}
+                                        </div>
+                                    ))}
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem id="categoriesitem" value="categoriesitem">
+                                <AccordionTrigger className="text-foreground">
+                                    Categories
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                    {dummyData.categories.map((category: string) => (
+                                        <div
+                                            onClick={() => {
+                                                if (
+                                                    state.categories.includes(category)
+                                                ) {
+                                                    dispatch({
+                                                        type: 'REMOVE_ASSET_CATEGORY',
+                                                        payload: category,
+                                                    })
+                                                } else {
+                                                    dispatch({
+                                                        type: 'ADD_ASSET_CATEGORY',
+                                                        payload: category,
+                                                    })
+                                                }
+                                            }}
+                                            key={category}
+                                            className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
+                                            <Checkbox
+                                                className={'mr-2'}
+                                                checked={state.categories.includes(
+                                                    category,
+                                                )}
+                                            />{' '}
+                                            {category}
+                                        </div>
+                                    ))}
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem id="tagsitem" value="tagsitem" className="border-none">
+                                <AccordionTrigger className="text-foreground">
+                                    Tags
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                    {dummyData.tags.map((tag: string) => (
+                                        <div
+                                            onClick={() => {
+                                                if (state.tags.includes(tag)) {
+                                                    dispatch({
+                                                        type: 'REMOVE_TAG',
+                                                        payload: tag,
+                                                    })
+                                                } else {
+                                                    dispatch({
+                                                        type: 'ADD_TAG',
+                                                        payload: tag,
+                                                    })
+                                                }
+                                            }}
+                                            key={tag}
+                                            className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
+                                            <Checkbox
+                                                className={'mr-2'}
+                                                checked={state.tags.includes(tag)}
+                                            />{' '}
+                                            {tag}
+                                        </div>
+                                    ))}
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
+                </div>
             </div>
         </section>
     )

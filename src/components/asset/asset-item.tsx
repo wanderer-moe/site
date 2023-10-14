@@ -44,81 +44,54 @@ export function AssetItem(asset: Asset) {
         <Dialog>
             <ContextMenu>
                 <ContextMenuTrigger>
-                    <Card className="p-2 transition-all hover:cursor-pointer hover:border-white/50">
-                        <div className="relative flex items-center">
-                            <div className="absolute bottom-0 right-0">
-                                <div className="flex flex-col justify-center gap-1">
-                                    {/* TODO: open context menu on click */}
-                                    <Button
-                                        size="sm"
-                                        title="More"
-                                        variant="secondary"
-                                        className="text-sm">
-                                        <MoreHorizontal className="h-4 w-4" />
-                                    </Button>
+                    <Card className="p-2 transition-all hover:border-foreground/50">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center">
+                                <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-muted/20 p-1">
                                     <Link href={`/asset/${asset.id}`}>
-                                        <Button
-                                            size="sm"
-                                            variant="secondary"
-                                            title="View Asset"
-                                            className="text-sm">
-                                            <ExternalLink className="h-4 w-4" />
-                                        </Button>
+                                        <img
+                                            src={`${siteConfig.urls.cdn
+                                                }/assets/${asset.url.replace(
+                                                    '.png',
+                                                    '-128.png',
+                                                )}`}
+                                            className="max-w-24 h-24 max-h-24 w-24 object-contain object-left"
+                                            alt={asset.name}
+                                        />
                                     </Link>
-                                    <Button
-                                        size="sm"
-                                        variant="secondary"
-                                        title="Download Asset"
-                                        className="text-sm"
-                                        onClick={() => download(asset)}>
-                                        <HardDriveDownload className="h-4 w-4" />
-                                    </Button>
                                 </div>
-                            </div>
-                            <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-zinc-800/20 p-1">
-                                <img
-                                    src={`${
-                                        siteConfig.urls.cdn
-                                    }/assets/${asset.url.replace(
-                                        '.png',
-                                        '-128.png',
-                                    )}`}
-                                    className="max-w-24 h-24 max-h-24 w-24 object-contain object-left"
-                                    alt={asset.name}
-                                />
-                            </div>
-                            <div>
                                 <div>
-                                    <p className="font-normal">{assetName}</p>
+                                    <div>
+                                        <p className="font-normal">{assetName}</p>
+                                        <p className="text-xs font-normal">
+                                            Size: {bytesToFileSize(asset.file_size)}
+                                        </p>
+                                    </div>
                                     <p className="text-xs font-normal">
-                                        Size: {bytesToFileSize(asset.file_size)}
+                                        Uploaded {timeAgo(asset.uploaded_date)}
                                     </p>
-                                </div>
-                                <p className="text-xs font-normal">
-                                    Uploaded {timeAgo(asset.uploaded_date)}
-                                </p>
-                                <div className="mt-2 flex flex-row gap-1">
-                                    <Link
-                                        href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
-                                        <Button
-                                            variant="outline"
-                                            size="cs"
-                                            className="text-xs font-normal">
-                                            <div className="flex flex-row items-center">
-                                                <img
-                                                    src={`${siteConfig.urls.cdn}/assets/${asset.game}/icon.png`}
-                                                    className="mr-2 h-4 w-4"
-                                                    alt={asset.game}
-                                                />
-                                                <p className="font-normal">
-                                                    {mapAssetType(
-                                                        asset.asset_category,
-                                                    )}
-                                                </p>
-                                            </div>
-                                        </Button>
-                                    </Link>
-                                    {/* <Button
+                                    <div className="mt-2 flex flex-row gap-1">
+                                        <Link
+                                            href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
+                                            <Button
+                                                variant="outline"
+                                                size="cs"
+                                                className="text-xs font-normal">
+                                                <div className="flex flex-row items-center">
+                                                    <img
+                                                        src={`${siteConfig.urls.cdn}/assets/${asset.game}/icon.png`}
+                                                        className="mr-2 h-4 w-4"
+                                                        alt={asset.game}
+                                                    />
+                                                    <p className="font-normal">
+                                                        {mapAssetType(
+                                                            asset.asset_category,
+                                                        )}
+                                                    </p>
+                                                </div>
+                                            </Button>
+                                        </Link>
+                                        {/* <Button
                                         variant="outline"
                                         size="cs"
                                         className="text-xs font-normal">
@@ -128,7 +101,33 @@ export function AssetItem(asset: Asset) {
                                             </p>
                                         </div>
                                     </Button> */}
+                                    </div>
                                 </div>
+                            </div>
+                            <div className="flex flex-col justify-center gap-1">
+                                {/* TODO: open context menu on click */}
+                                <Button
+                                    title="More"
+                                    variant="secondary"
+                                    className="h-12 rounded-md px-3 text-xs">
+                                    <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                                {/* <Link href={`/asset/${asset.id}`}>
+                                        <Button
+                                            size="sm"
+                                            variant="secondary"
+                                            title="View Asset"
+                                            className="text-sm">
+                                            <ExternalLink className="h-4 w-4" />
+                                        </Button>
+                                    </Link> */}
+                                <Button
+                                    variant="secondary"
+                                    title="Download Asset"
+                                    className="h-12 rounded-md px-3 text-xs"
+                                    onClick={() => download(asset)}>
+                                    <HardDriveDownload className="h-4 w-4" />
+                                </Button>
                             </div>
                         </div>
                     </Card>

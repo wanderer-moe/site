@@ -25,14 +25,14 @@ export function OCGeneratorGameContainer({
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}>
                     <motion.div
-                        className="relative flex h-24 items-center justify-center rounded-md bg-cover sm:h-28"
+                        className="relative flex h-24 items-center justify-center rounded-md sm:h-28"
                         style={{
                             backgroundImage: `url(${siteConfig.urls.cdn}/assets/${game}/cover.png)`,
-                            backgroundSize: '100%',
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
                         }}
                         animate={{
-                            backgroundSize: hovered ? '115%' : '100%',
-                            backgroundPosition: hovered ? '50% 15%' : '50% 20%',
+                            backgroundPosition: hovered ? '50% 10%' : '50% 20%',
                         }}
                         transition={{ duration: 0.15 }}>
                         <div
@@ -41,8 +41,8 @@ export function OCGeneratorGameContainer({
                         <div
                             className={`absolute h-full w-full rounded-md transition-all ${
                                 hovered
-                                    ? 'bg-indigo-500 bg-opacity-50 ring-2 ring-indigo-500'
-                                    : 'bg-black bg-opacity-50'
+                                ? 'bg-black bg-opacity-25 ring-2 ring-ring'
+                                : 'bg-black bg-opacity-50'
                             }`}
                         />
                         <div className="align-center absolute w-5/6">

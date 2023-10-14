@@ -13,7 +13,7 @@ import { useAuthContext } from '@/context/auth-context'
 
 export function NavItems(): React.ReactElement {
     const { isLoadingSession, session } = useAuthContext()
-    console.log(isLoadingSession, session)
+    // console.log(isLoadingSession, session)
 
     return (
         <NavigationMenu>

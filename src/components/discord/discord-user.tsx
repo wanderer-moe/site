@@ -33,7 +33,7 @@ export function discordUser(contributor: Contributor) {
                 {contributor.username}
                 {contributor.globalname &&
                     contributor.globalname !== contributor.username && (
-                        <span className="text-xs font-semibold text-zinc-400">
+                        <span className="text-xs font-semibold text-muted-foreground">
                             aka &quot;
                             {contributor.globalname}
                             &quot;
@@ -45,7 +45,7 @@ export function discordUser(contributor: Contributor) {
                 {contributor.roles.map((role) => (
                     <div
                         key={role}
-                        className="flex items-center rounded-md border bg-secondary/75 px-2 py-1 text-xs text-zinc-400">
+                        className="flex items-center rounded-md border bg-secondary/75 px-2 py-1 text-xs text-muted-foreground">
                         <span
                             className={`${roleColors[role]} mr-1 h-2 w-2 rounded-full`}></span>
                         {role}

@@ -8,10 +8,10 @@ export function SiteFooter(): React.ReactElement {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="border-t border-zinc-100/20 bg-zinc-950 p-3 text-zinc-400">
+        <footer className="border-t border-border bg-background p-3 text-muted-foreground">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
-                    <div className="mb-4 flex flex-col md:mb-0">
+                    <div className="mb-4 flex flex-col md:mb-0 w-1/3">
                         <div className="flex items-center justify-center gap-1 md:justify-start">
                             <Image
                                 src="/icon.svg"
@@ -121,7 +121,7 @@ export function SiteFooter(): React.ReactElement {
                         <p>
                             Built with{' '}
                             <Heart
-                                className="inline-block h-3 w-3 text-zinc-400"
+                                className="inline-block h-3 w-3 text-muted-foreground"
                                 fill="currentColor"
                             />{' '}
                             using{' '}

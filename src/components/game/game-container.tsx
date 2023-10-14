@@ -32,14 +32,14 @@ export function GameContainer({ game, className }: GameContainerProps) {
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}>
                     <motion.div
-                        className="relative flex h-24 items-center justify-center rounded-md bg-cover sm:h-28"
+                        className="relative flex h-24 items-center justify-center rounded-md sm:h-28"
                         style={{
                             backgroundImage: `url(${siteConfig.urls.cdn}/assets/${game.name}/cover.png)`,
-                            backgroundSize: '100%',
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
                         }}
                         animate={{
-                            backgroundSize: hovered ? '115%' : '100%',
-                            backgroundPosition: hovered ? '50% 15%' : '50% 20%',
+                            backgroundPosition: hovered ? '50% 10%' : '50% 20%',
                         }}
                         transition={{ duration: 0.15 }}>
                         <div
@@ -48,7 +48,7 @@ export function GameContainer({ game, className }: GameContainerProps) {
                         <div
                             className={`absolute h-full w-full rounded-md transition-all ${
                                 hovered
-                                    ? 'bg-indigo-500 bg-opacity-50 ring-2 ring-indigo-500'
+                                    ? 'bg-black bg-opacity-25 ring-2 ring-ring'
                                     : 'bg-black bg-opacity-50'
                             }`}
                         />
@@ -83,21 +83,6 @@ export function GameContainer({ game, className }: GameContainerProps) {
                     </motion.div>
                 </div>
             </Link>
-            {/* <div className="flex flex-col gap-1">
-                <div className="mt-2 flex flex-row items-center gap-1">
-                    <img
-                        src={`${siteConfig.urls.cdn}/assets/${game.name}/icon.png`}
-                        alt={game.name}
-                        className="h-4 w-4 rounded-md"
-                    />
-                    <Label className="font-semibold">
-                        {mapGame(game.name)}
-                    </Label>
-                </div>
-                <Label className="text-xs font-normal">
-                    {game.asset_count} assets available
-                </Label>
-            </div> */}
         </div>
     )
 }

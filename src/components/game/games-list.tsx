@@ -49,7 +49,7 @@ export function GamesList() {
                     {loading ? (
                         <SkeletonLoader displayFakes={2} />
                     ) : (
-                        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+                        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
                             {sortedGames.map((game) => (
                                 <GameContainer key={game.id} game={game} />
                             ))}

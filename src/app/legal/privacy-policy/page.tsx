@@ -50,35 +50,35 @@ export default function PrivacyPolicy() {
                     <FileKey2 size={16} /> Privacy Policy
                 </h1>
                 <Separator />
-                <div className="my-2 flex h-5 items-center justify-center gap-4 text-xs text-zinc-500">
+                <div className="my-2 flex h-5 items-center justify-center gap-4 text-xs text-muted-foreground/60">
                     Last updated: 2023-08-03
                     <Separator orientation="vertical" />
                     Effective: 2023-08-03
                 </div>
                 <Separator />
-                <div className="p-4 pb-0 text-zinc-400">
+                <div className="p-4 pb-0 text-muted-foreground">
                     <p className="mb-4">
                         This privacy policy for{' '}
                         <Link
-                            className="text-zinc-200"
+                            className="text-foreground"
                             href="https://wanderer.moe/">
                             wanderer.moe
                         </Link>{' '}
-                        (&quot;<b className="font-semibold text-zinc-200">we</b>
+                        (&quot;<b className="font-semibold text-foreground">we</b>
                         ,&quot; &quot;
-                        <b className="font-semibold text-zinc-200">us</b>,&quot;
+                        <b className="font-semibold text-foreground">us</b>,&quot;
                         or &quot;
-                        <b className="font-semibold text-zinc-200">our</b>
+                        <b className="font-semibold text-foreground">our</b>
                         ,&quot;), describes how and why we might collect, store,
                         use, and/or share (&quot;
-                        <b className="font-semibold text-zinc-200">process</b>
+                        <b className="font-semibold text-foreground">process</b>
                         &quot;) your information when you use our services
                         (&quot;
-                        <b className="font-semibold text-zinc-200">Services</b>
+                        <b className="font-semibold text-foreground">Services</b>
                         &quot;).
                     </p>
                     <p className="mb-4">
-                        <b className="font-semibold text-zinc-200">
+                        <b className="font-semibold text-foreground">
                             Questions or concerns?
                         </b>{' '}
                         Reading this privacy policy will help you understand
@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
                         Services. If you still have any questions or concerns,
                         please contact us at{' '}
                         <Link
-                            className="text-zinc-200"
+                            className="text-foreground"
                             href="mailto:privacy@wanderer.moe">
                             privacy@wanderer.moe
                         </Link>
@@ -97,7 +97,7 @@ export default function PrivacyPolicy() {
                         <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
                             <SquareSlash size={16} /> Summary
                         </h1>
-                        <div className="m-4 flex items-center justify-center gap-4 text-xs text-zinc-500">
+                        <div className="m-4 flex items-center justify-center gap-4 text-xs text-muted-foreground/60">
                             Below is a summary which provides key points from
                             our privacy policy. You can learn about more details
                             for these topics by clicking the link following each
@@ -107,7 +107,7 @@ export default function PrivacyPolicy() {
                         <Separator />
                         <div className="p-4">
                             <p className="mb-4">
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     What personal information do we process?
                                 </b>{' '}
                                 When you visit, use, or navigate our Services,
@@ -116,14 +116,14 @@ export default function PrivacyPolicy() {
                                 Services, the choices you make, and the products
                                 and features you use.{' '}
                                 <Link
-                                    className="text-zinc-200"
+                                    className="text-foreground"
                                     href="#information-collection">
                                     Learn more about personal information you
                                     disclose to us.
                                 </Link>
                             </p>
                             <p className="mb-4">
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Do we process any sensitive personal
                                     information?
                                 </b>{' '}
@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
                                 information.
                             </p>
                             <p className="mb-4">
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     Do we receive any information from third
                                     parties?
                                 </b>{' '}
@@ -142,7 +142,7 @@ export default function PrivacyPolicy() {
                                 users).
                             </p>
                             <p className="mb-4">
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     How do we process your information?
                                 </b>{' '}
                                 We process your information to provide, improve,
@@ -153,14 +153,14 @@ export default function PrivacyPolicy() {
                                 consent. We process your information only when
                                 we have a valid legal reason to do so.{' '}
                                 <Link
-                                    className="text-zinc-200"
+                                    className="text-foreground"
                                     href="#information-processing">
                                     Learn more about how we process your
                                     information.
                                 </Link>
                             </p>
                             <p className="mb-4">
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     In what situations and with which parties do
                                     we share personal information?
                                 </b>{' '}
@@ -168,7 +168,7 @@ export default function PrivacyPolicy() {
                                 any third parties.
                             </p>
                             <p className="mb-4">
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     What are your rights?
                                 </b>{' '}
                                 Depending on where you are located
@@ -176,13 +176,13 @@ export default function PrivacyPolicy() {
                                 mean you have certain rights regarding your
                                 personal information.{' '}
                                 <Link
-                                    className="text-zinc-200"
+                                    className="text-foreground"
                                     href="#privacy-rights">
                                     Learn more about your privacy rights.
                                 </Link>
                             </p>
                             <p>
-                                <b className="font-semibold text-zinc-200">
+                                <b className="font-semibold text-foreground">
                                     How do you exercise your rights?
                                 </b>{' '}
                                 The easiest way to exercise your rights is by
@@ -202,7 +202,7 @@ export default function PrivacyPolicy() {
                         <AccordionItem
                             id="#information-collection"
                             value="item-1">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <FileInput size={20} />
                                 </span>{' '}
@@ -210,7 +210,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Personal information you disclose to us
                                     </b>
                                 </p>
@@ -224,7 +224,7 @@ export default function PrivacyPolicy() {
                                     when you contact us.
                                 </p>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Sensitive information
                                     </b>
                                 </p>
@@ -232,7 +232,7 @@ export default function PrivacyPolicy() {
                                     We do not process sensitive information.
                                 </p>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Information automatically collected
                                     </b>
                                 </p>
@@ -265,7 +265,7 @@ export default function PrivacyPolicy() {
                         <AccordionItem
                             id="#information-processing"
                             value="item-2">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <Cog size={20} />
                                 </span>{' '}
@@ -273,7 +273,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         We process your information to provide,
                                         improve, and administer our Services,
                                         communicate with you, for security and
@@ -290,7 +290,7 @@ export default function PrivacyPolicy() {
                                 </p>
                                 <ul className="mb-4 list-inside list-disc">
                                     <li className="mb-2">
-                                        <b className="font-semibold text-zinc-200">
+                                        <b className="font-semibold text-foreground">
                                             Providing and improving our
                                             Services.
                                         </b>{' '}
@@ -300,7 +300,7 @@ export default function PrivacyPolicy() {
                                         provide technical support.
                                     </li>
                                     <li className="mb-2">
-                                        <b className="font-semibold text-zinc-200">
+                                        <b className="font-semibold text-foreground">
                                             Communicating with you.
                                         </b>{' '}
                                         We may use your information to
@@ -309,7 +309,7 @@ export default function PrivacyPolicy() {
                                         you about our Services.
                                     </li>
                                     <li className="mb-2">
-                                        <b className="font-semibold text-zinc-200">
+                                        <b className="font-semibold text-foreground">
                                             For security and fraud prevention.
                                         </b>{' '}
                                         We may use your information to protect
@@ -317,7 +317,7 @@ export default function PrivacyPolicy() {
                                         customers, or our websites.
                                     </li>
                                     <li className="mb-2">
-                                        <b className="font-semibold text-zinc-200">
+                                        <b className="font-semibold text-foreground">
                                             To comply with law.
                                         </b>{' '}
                                         We may use your information to comply
@@ -326,7 +326,7 @@ export default function PrivacyPolicy() {
                                         court order.
                                     </li>
                                     <li className="mb-2">
-                                        <b className="font-semibold text-zinc-200">
+                                        <b className="font-semibold text-foreground">
                                             For other purposes with your
                                             consent.
                                         </b>{' '}
@@ -335,7 +335,7 @@ export default function PrivacyPolicy() {
                                         not listed above. You may withdraw your
                                         consent at any time by contacting us at{' '}
                                         <Link
-                                            className="text-zinc-200"
+                                            className="text-foreground"
                                             href="mailto:privacy@wanderer.moe">
                                             privacy@wanderer.moe
                                         </Link>
@@ -343,7 +343,7 @@ export default function PrivacyPolicy() {
                                     </li>
                                 </ul>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         In what situations and with which
                                         parties do we share personal
                                         information?
@@ -356,7 +356,7 @@ export default function PrivacyPolicy() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem id="#sharing-information" value="item-3">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <UserSquare size={20} />
                                 </span>{' '}
@@ -371,7 +371,7 @@ export default function PrivacyPolicy() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem id="#cookies" value="item-4">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <Cookie size={20} />
                                 </span>{' '}
@@ -380,7 +380,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         We may use cookies and other tracking
                                         technologies to collect and store your
                                         information.
@@ -408,7 +408,7 @@ export default function PrivacyPolicy() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem id="#social-logins" value="item-5">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <Share2 size={20} />
                                 </span>
@@ -416,7 +416,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         If you choose to register or log in to
                                         our Services using a social media
                                         account, we may have access to certain
@@ -457,7 +457,7 @@ export default function PrivacyPolicy() {
                         <AccordionItem
                             id="#international-information"
                             value="item-6">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <Globe size={20} />
                                 </span>
@@ -465,7 +465,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         We may transfer, store, and process your
                                         information in countries other than your
                                         own, depending on where our servers are
@@ -488,7 +488,7 @@ export default function PrivacyPolicy() {
                         <AccordionItem
                             id="#information-retention"
                             value="item-7">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <Clock size={20} />
                                 </span>
@@ -496,7 +496,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         We keep your information for as long as
                                         necessary to fulfill the purposes
                                         outlined in this privacy notice unless
@@ -524,7 +524,7 @@ export default function PrivacyPolicy() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem id="#u13-collection" value="item-8">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <Baby size={20} />
                                 </span>
@@ -533,7 +533,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         We do not knowingly collect data from or
                                         market to children under 13 years of
                                         age.
@@ -555,7 +555,7 @@ export default function PrivacyPolicy() {
                                     collected from children under age 13, please
                                     contact us at{' '}
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="mailto:privacy@wanderer.moe">
                                         privacy@wanderer.moe
                                     </Link>
@@ -564,7 +564,7 @@ export default function PrivacyPolicy() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem id="#privacy-rights" value="item-9">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <ShieldCheck size={20} />
                                 </span>
@@ -572,7 +572,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Depending on where you are located
                                         geographically, the applicable privacy
                                         law may mean you have certain rights
@@ -589,13 +589,13 @@ export default function PrivacyPolicy() {
                                     processing your personal information, you
                                     also have the right to complain to your{' '}
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="https://ec.europa.eu/newsroom/article29/items/612080">
                                         Member State data protection authority
                                     </Link>{' '}
                                     or{' '}
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="https://ico.org.uk/make-a-complaint/data-protection-complaints/data-protection-complaints/">
                                         UK data protection authority
                                     </Link>
@@ -605,14 +605,14 @@ export default function PrivacyPolicy() {
                                     If you are located in Switzerland, you may
                                     contact the Swiss Federal{' '}
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="https://www.edoeb.admin.ch/edoeb/en/home.html">
                                         Data Protection and Information
                                         Commissioner.
                                     </Link>
                                 </p>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Withdrawing your consent:
                                     </b>{' '}
                                     If we are processing your personal
@@ -620,7 +620,7 @@ export default function PrivacyPolicy() {
                                     withdraw your consent at any time by
                                     contacting us at{' '}
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="mailto:privacy@wanderer.moe">
                                         privacy@wanderer.moe
                                     </Link>
@@ -637,7 +637,7 @@ export default function PrivacyPolicy() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem id="#dnt-features" value="item-10">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <EyeOff size={20} />
                                 </span>
@@ -645,7 +645,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Most web browsers and some mobile
                                         operating systems and mobile
                                         applications include a Do-Not-Track
@@ -674,7 +674,7 @@ export default function PrivacyPolicy() {
                         <AccordionItem
                             id="#california-residents"
                             value="item-11">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <MapPin size={20} />
                                 </span>
@@ -683,7 +683,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Yes, if you are a resident of
                                         California, you are granted specific
                                         rights regarding access to your personal
@@ -726,7 +726,7 @@ export default function PrivacyPolicy() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem id="#notice-updates" value="item-12">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <RefreshCw size={20} />
                                 </span>
@@ -734,7 +734,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Yes, we will update this policy as
                                         necessary to stay compliant with
                                         relevant laws.
@@ -757,7 +757,7 @@ export default function PrivacyPolicy() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem id="#contact" value="item-13">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <MailQuestion size={20} />
                                 </span>
@@ -768,7 +768,7 @@ export default function PrivacyPolicy() {
                                     If you have questions or comments about this
                                     notice, you may email us at{' '}
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="mailto:privacy@wanderer.moe">
                                         privacy@wanderer.moe
                                     </Link>
@@ -780,7 +780,7 @@ export default function PrivacyPolicy() {
                             id="#review"
                             value="item-14"
                             className="border-none">
-                            <AccordionTrigger className="text-zinc-200">
+                            <AccordionTrigger className="text-foreground">
                                 <span className="pr-2">
                                     <Eraser size={20} />
                                 </span>
@@ -789,7 +789,7 @@ export default function PrivacyPolicy() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p className="mb-4">
-                                    <b className="font-semibold text-zinc-200">
+                                    <b className="font-semibold text-foreground">
                                         Based on the applicable laws of your
                                         country, you may have the right to
                                         request access to the personal
@@ -803,7 +803,7 @@ export default function PrivacyPolicy() {
                                     personal information, please submit a
                                     request to the email{' '}
                                     <Link
-                                        className="text-zinc-200"
+                                        className="text-foreground"
                                         href="mailto:privacy@wanderer.moe">
                                         privacy@wanderer.moe
                                     </Link>

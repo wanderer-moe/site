@@ -102,7 +102,7 @@ export function Login() {
                 <Card>
                     <CardHeader className="space-y-1">
                         <CardTitle className="text-center text-2xl">
-                            Login To Your Account
+                            Login to Your Account
                         </CardTitle>
                         <CardDescription>
                             <AlternateAuthProviders />
@@ -135,7 +135,7 @@ export function Login() {
                                     </div>
                                 </div>
                                 <Link
-                                    className="text-zinc-400 transition-colors hover:text-white"
+                                    className="text-muted-foreground select-none transition-colors hover:text-white hover:underline"
                                     href="/account/forgot-password">
                                     Forgot password?
                                 </Link>
@@ -159,13 +159,13 @@ export function Login() {
                             )}
                             Login
                         </Button>
-                        <div className="mt-4 text-zinc-400">
+                        <div className="mt-4 text-muted-foreground">
                             Don&apos;t have an account?{' '}
                             <Link
                                 href="/signup"
-                                className="transition-all hover:text-white">
-                                Create one.
-                            </Link>
+                                className="transition-all text-foreground hover:underline">
+                                Create one
+                            </Link>.
                         </div>
                     </CardFooter>
                 </Card>
