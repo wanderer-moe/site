@@ -1,6 +1,7 @@
 'use client'
 
 import { Skeleton } from '@/components/ui/skeleton'
+import { cn } from '@/lib/utils'
 
 interface SkeletonLoaderProps {
     displayFakes?: number
@@ -17,7 +18,7 @@ export function SkeletonLoader({
 }: SkeletonLoaderProps) {
     return (
         <div>
-            <div className={`grid gap-4 ${className}`}>
+            <div className={cn(`grid gap-4`, className)}>
                 {[...Array(displayFakes)].map((_, i) => (
                     <Skeleton
                         className={`${height} w-full ${skeletonClassName}`}
