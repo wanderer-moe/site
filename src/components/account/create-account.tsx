@@ -207,7 +207,7 @@ export function CreateAccount() {
                                     className="pr-6"
                                 />
                                 <div
-                                    onClick={() => setShowPassword((p) => !p)}
+                                    onClick={() => setShowPasswordConfirm((p) => !p)}
                                     className="flex items-center p-2 border border-border rounded-md hover:cursor-pointer"
                                 >
                                     {showPasswordConfirm ? (
