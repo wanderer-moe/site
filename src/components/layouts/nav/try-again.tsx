@@ -15,7 +15,7 @@ export function TryAgainButton({ reset }: { reset: () => void }) {
             onTouchStart={() => setHovered(true)}
             onTouchEnd={() => setHovered(false)}
             onTouchMove={() => setHovered(false)}
-            variant="outline">
+            variant="secondary">
             Try Again
             <motion.div animate={{ x: hovered ? 5 : 0 }}>
                 <ArrowRight className="h-4 w-4" />

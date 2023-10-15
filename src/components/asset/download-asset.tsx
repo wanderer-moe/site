@@ -13,7 +13,7 @@ export function DownloadAsset({ assetId }: { assetId: number }) {
                 )
             }
             className="w-full"
-            variant="outline"
+            variant="secondary"
             title="Download Image">
             <Download size={16} />
         </Button>

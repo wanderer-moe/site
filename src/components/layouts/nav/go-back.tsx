@@ -8,7 +8,7 @@ export function GoBackButton() {
     const [hovered, setHovered] = useState<boolean>(false)
     return (
         <Button
-            variant="outline"
+            variant="secondary"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onTouchStart={() => setHovered(true)}

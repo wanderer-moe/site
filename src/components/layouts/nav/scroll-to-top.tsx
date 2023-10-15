@@ -51,7 +51,7 @@ export function ScrollToTop(): React.ReactElement {
                 y: buttonY,
             }}
             transition={{ duration: 0.15 }}>
-            <Button variant="outline" onClick={handleButtonClick}>
+            <Button variant="secondary" onClick={handleButtonClick}>
                 <ChevronUp />
             </Button>
         </motion.div>

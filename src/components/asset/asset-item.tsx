@@ -94,16 +94,6 @@ export function AssetItem(asset: Asset) {
                                                 </div>
                                             </Button>
                                         </Link>
-                                        {/* <Button
-                                        variant="outline"
-                                        size="cs"
-                                        className="text-xs font-normal">
-                                        <div className="flex flex-row items-center">
-                                            <p className="font-normal uppercase">
-                                                {assetFormat}
-                                            </p>
-                                        </div>
-                                    </Button> */}
                                     </div>
                                 </div>
                             </div>

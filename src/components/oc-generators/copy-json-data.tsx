@@ -35,7 +35,7 @@ export function CopyJSONData(props: CopyJSONDataProps): React.ReactElement {
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger>
                 <Button
-                    variant="outline"
+                    variant="secondary"
                     className="flex w-full flex-row items-center gap-2">
                     <Braces size={16} />
                     Copy JSON Data
@@ -67,7 +67,7 @@ export function CopyJSONData(props: CopyJSONDataProps): React.ReactElement {
                                 copyDataToClipboard()
                                 console.log('copied')
                             }}
-                            variant="outline">
+                            variant="secondary">
                             <Clipboard size={16} />
                         </Button>
                         <pre className="text-sm text-white">

@@ -7,14 +7,14 @@ export function AlternateAuthProviders() {
             <div className="mt-2 flex flex-row items-center gap-2">
                 <Button
                     className="flex w-full items-center"
-                    variant="outline"
+                    variant="secondary"
                     disabled>
                     <DiscordLogoIcon className="mr-2 h-4 w-4" />
                     Login with Discord
                 </Button>
                 <Button
                     className="flex w-full items-center"
-                    variant="outline"
+                    variant="secondary"
                     disabled>
                     {/* lol */}
                     <svg

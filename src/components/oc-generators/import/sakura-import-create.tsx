@@ -134,7 +134,7 @@ export function ImportToSakuraFM(options: ImportToSakuraFMProps) {
                         </DialogDescription>
                     </DialogHeader>
                     <DialogFooter className="mt-2 gap-2">
-                        <Button variant="outline">Go Back</Button>
+                        <Button variant="secondary">Go Back</Button>
                         <Button disabled={options.characterName.length >= 0}>
                             Create Character
                         </Button>

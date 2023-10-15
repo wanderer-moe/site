@@ -221,13 +221,13 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                         {/* TODO: Implement */}
                         <DownloadAsset assetId={asset.id} />
                         <Button
-                            variant="outline"
+                            variant="secondary"
                             className="w-full"
                             title="Copy Image">
                             <Copy size={16} />
                         </Button>
                         <Button
-                            variant="outline"
+                            variant="secondary"
                             className="w-full"
                             title="Add to Collection">
                             <Boxes size={16} />

@@ -121,32 +121,30 @@ export function Login() {
                         </div>
                         <div className="grid gap-2">
                             <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-x-2">
-                                    <Label htmlFor="password">Password</Label>
-                                    <div
-                                        onClick={() =>
-                                            setShowPassword((p) => !p)
-                                        }>
-                                        {showPassword ? (
-                                            <Eye className="h-4 w-4" />
-                                        ) : (
-                                            <EyeOff className="h-4 w-4" />
-                                        )}
-                                    </div>
-                                </div>
+                                <Label htmlFor="password">Password</Label>
                                 <Link
                                     className="select-none text-muted-foreground transition-colors hover:text-white hover:underline"
                                     href="/account/forgot-password">
                                     Forgot password?
                                 </Link>
                             </div>
-                            <div>
+                            <div className="flex gap-2">
                                 <Input
                                     disabled={isLoading}
                                     id="password"
                                     name="password"
                                     type={showPassword ? 'text' : 'password'}
+                                    className="pr-6"
                                 />
+                                <div
+                                    onClick={() => setShowPassword((p) => !p)}
+                                    className="flex items-center rounded-md border border-border p-2 hover:cursor-pointer">
+                                    {showPassword ? (
+                                        <Eye className="h-4 w-4" />
+                                    ) : (
+                                        <EyeOff className="h-4 w-4" />
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </CardContent>
