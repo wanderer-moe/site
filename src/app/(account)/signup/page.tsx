@@ -13,7 +13,7 @@ export default function CreateAccountPage() {
     }
 
     return (
-        <div className="-mt-14 mx-auto min-h-screen max-w-screen-xl px-5">
+        <div className="mx-auto -mt-14 min-h-screen max-w-screen-xl px-5">
             <Background>
                 <div className="flex min-h-screen flex-row items-center justify-center">
                     {isLoadingSession ? (

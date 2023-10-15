@@ -119,7 +119,7 @@ export default function Page() {
                 </div>
             ) : (
                 <div>
-                    <SkeletonLoader skeletonClassName='h-64 rounded-xl' />
+                    <SkeletonLoader skeletonClassName="h-64 rounded-xl" />
                 </div>
             )}
         </div>

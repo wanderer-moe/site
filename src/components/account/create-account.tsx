@@ -174,7 +174,7 @@ export function CreateAccount() {
                                 type="email"
                             />
                         </div>
-                        <div className="grid gap-2 select-none">
+                        <div className="grid select-none gap-2">
                             <Label htmlFor="password">Password</Label>
                             <div className="flex gap-2">
                                 <Input
@@ -186,8 +186,7 @@ export function CreateAccount() {
                                 />
                                 <div
                                     onClick={() => setShowPassword((p) => !p)}
-                                    className="flex items-center p-2 border border-border rounded-md hover:cursor-pointer"
-                                >
+                                    className="flex items-center rounded-md border border-border p-2 hover:cursor-pointer">
                                     {showPassword ? (
                                         <Eye className="h-4 w-4" />
                                     ) : (
@@ -196,20 +195,27 @@ export function CreateAccount() {
                                 </div>
                             </div>
                         </div>
-                        <div className="grid gap-2 select-none">
-                            <Label htmlFor="passwordConfirm">Confirm Password</Label>
+                        <div className="grid select-none gap-2">
+                            <Label htmlFor="passwordConfirm">
+                                Confirm Password
+                            </Label>
                             <div className="flex gap-2">
                                 <Input
                                     disabled={isLoading}
                                     id="passwordConfirm"
                                     name="passwordConfirm"
-                                    type={showPasswordConfirm ? 'text' : 'password'}
+                                    type={
+                                        showPasswordConfirm
+                                            ? 'text'
+                                            : 'password'
+                                    }
                                     className="pr-6"
                                 />
                                 <div
-                                    onClick={() => setShowPasswordConfirm((p) => !p)}
-                                    className="flex items-center p-2 border border-border rounded-md hover:cursor-pointer"
-                                >
+                                    onClick={() =>
+                                        setShowPasswordConfirm((p) => !p)
+                                    }
+                                    className="flex items-center rounded-md border border-border p-2 hover:cursor-pointer">
                                     {showPasswordConfirm ? (
                                         <Eye className="h-4 w-4" />
                                     ) : (
@@ -220,8 +226,10 @@ export function CreateAccount() {
                         </div>
                         <div className="grid gap-2">
                             <Label htmlFor="secretKey">
-                                Secret Key <span className="text-muted-foreground">(Temporary, required to create
-                                    account)</span>
+                                Secret Key{' '}
+                                <span className="text-muted-foreground">
+                                    (Temporary, required to create account)
+                                </span>
                             </Label>
                             <Input
                                 disabled={isLoading}
@@ -244,27 +252,29 @@ export function CreateAccount() {
                             Already have an account?{' '}
                             <Link
                                 href="/login"
-                                className="transition-all text-foreground hover:underline">
+                                className="text-foreground transition-all hover:underline">
                                 Login
-                            </Link>.
+                            </Link>
+                            .
                         </div>
                         <div className="mt-4 text-center text-xs text-muted-foreground">
                             By creating an account, you agree to our{' '}
                             <Link
                                 href="/legal/terms-of-service"
-                                className="transition-all text-foreground hover:underline">
+                                className="text-foreground transition-all hover:underline">
                                 Terms of Service
                             </Link>{' '}
                             and our{' '}
                             <Link
                                 href="/legal/privacy-policy"
-                                className="transition-all text-foreground hover:underline">
+                                className="text-foreground transition-all hover:underline">
                                 Privacy Policy
-                            </Link>.
+                            </Link>
+                            .
                         </div>
                     </CardFooter>
                 </Card>
             </form>
-        </div >
+        </div>
     )
 }

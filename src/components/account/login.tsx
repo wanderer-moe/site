@@ -135,7 +135,7 @@ export function Login() {
                                     </div>
                                 </div>
                                 <Link
-                                    className="text-muted-foreground select-none transition-colors hover:text-white hover:underline"
+                                    className="select-none text-muted-foreground transition-colors hover:text-white hover:underline"
                                     href="/account/forgot-password">
                                     Forgot password?
                                 </Link>
@@ -163,9 +163,10 @@ export function Login() {
                             Don&apos;t have an account?{' '}
                             <Link
                                 href="/signup"
-                                className="transition-all text-foreground hover:underline">
+                                className="text-foreground transition-all hover:underline">
                                 Create one
-                            </Link>.
+                            </Link>
+                            .
                         </div>
                     </CardFooter>
                 </Card>

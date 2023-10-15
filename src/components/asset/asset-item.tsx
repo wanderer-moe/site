@@ -44,17 +44,18 @@ export function AssetItem(asset: Asset) {
         <Dialog>
             <ContextMenu>
                 <ContextMenuTrigger>
-                    <Card className="p-2 h-32 transition-all hover:border-foreground/50">
-                        <div className="flex items-center justify-between h-full">
+                    <Card className="h-32 p-2 transition-all hover:border-foreground/50">
+                        <div className="flex h-full items-center justify-between">
                             <div className="flex items-center">
                                 <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-muted/20 p-1">
                                     <Link href={`/asset/${asset.id}`}>
                                         <img
-                                            src={`${siteConfig.urls.cdn
-                                                }/assets/${asset.url.replace(
-                                                    '.png',
-                                                    '-128.png',
-                                                )}`}
+                                            src={`${
+                                                siteConfig.urls.cdn
+                                            }/assets/${asset.url.replace(
+                                                '.png',
+                                                '-128.png',
+                                            )}`}
                                             className="max-w-24 h-24 max-h-24 w-24 object-contain object-left"
                                             alt={asset.name}
                                         />
@@ -62,12 +63,15 @@ export function AssetItem(asset: Asset) {
                                 </div>
                                 <div className="mr-2">
                                     <div>
-                                        <p className="font-normal line-clamp-1">{assetName}</p>
-                                        <p className="text-xs font-normal line-clamp-1">
-                                            Size: {bytesToFileSize(asset.file_size)}
+                                        <p className="line-clamp-1 font-normal">
+                                            {assetName}
+                                        </p>
+                                        <p className="line-clamp-1 text-xs font-normal">
+                                            Size:{' '}
+                                            {bytesToFileSize(asset.file_size)}
                                         </p>
                                     </div>
-                                    <p className="text-xs font-normal line-clamp-1">
+                                    <p className="line-clamp-1 text-xs font-normal">
                                         Uploaded {timeAgo(asset.uploaded_date)}
                                     </p>
                                     <div className="mt-2 flex flex-row gap-1">
@@ -75,14 +79,14 @@ export function AssetItem(asset: Asset) {
                                             href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
                                             <Button
                                                 variant="outline"
-                                                className="text-xs font-normal h-6 px-3 py-1 rounded-md">
+                                                className="h-6 rounded-md px-3 py-1 text-xs font-normal">
                                                 <div className="flex flex-row items-center">
                                                     <img
                                                         src={`${siteConfig.urls.cdn}/assets/${asset.game}/icon.png`}
                                                         className="mr-2 h-4 w-4"
                                                         alt={asset.game}
                                                     />
-                                                    <div className="font-normal line-clamp-1">
+                                                    <div className="line-clamp-1 font-normal">
                                                         {mapAssetType(
                                                             asset.asset_category,
                                                         )}

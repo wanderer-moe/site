@@ -67,10 +67,11 @@ export default function TermsOfService() {
                         <Link className="text-foreground" href="/">
                             wanderer.moe
                         </Link>{' '}
-                        (&quot;<b className="font-semibold text-foreground">we</b>
+                        (&quot;
+                        <b className="font-semibold text-foreground">we</b>
                         &quot;, &quot;
-                        <b className="font-semibold text-foreground">us</b>&quot;,
-                        or &quot;
+                        <b className="font-semibold text-foreground">us</b>
+                        &quot;, or &quot;
                         <b className="font-semibold text-foreground">our</b>
                         &quot;). We operate the website{' '}
                         <Link className="text-foreground" href="/">
@@ -85,7 +86,9 @@ export default function TermsOfService() {
                             Legal Terms
                         </b>
                         &quot;) (collectively, the &quot;
-                        <b className="font-semibold text-foreground">Services</b>
+                        <b className="font-semibold text-foreground">
+                            Services
+                        </b>
                         &quot;). You can contact us by email at{' '}
                         <Link
                             className="text-foreground"

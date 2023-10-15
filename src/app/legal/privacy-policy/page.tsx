@@ -64,17 +64,20 @@ export default function PrivacyPolicy() {
                             href="https://wanderer.moe/">
                             wanderer.moe
                         </Link>{' '}
-                        (&quot;<b className="font-semibold text-foreground">we</b>
+                        (&quot;
+                        <b className="font-semibold text-foreground">we</b>
                         ,&quot; &quot;
-                        <b className="font-semibold text-foreground">us</b>,&quot;
-                        or &quot;
+                        <b className="font-semibold text-foreground">us</b>
+                        ,&quot; or &quot;
                         <b className="font-semibold text-foreground">our</b>
                         ,&quot;), describes how and why we might collect, store,
                         use, and/or share (&quot;
                         <b className="font-semibold text-foreground">process</b>
                         &quot;) your information when you use our services
                         (&quot;
-                        <b className="font-semibold text-foreground">Services</b>
+                        <b className="font-semibold text-foreground">
+                            Services
+                        </b>
                         &quot;).
                     </p>
                     <p className="mb-4">

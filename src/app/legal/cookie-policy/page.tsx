@@ -45,10 +45,11 @@ export default function PrivacyPolicy() {
                             href="https://wanderer.moe/">
                             wanderer.moe
                         </Link>{' '}
-                        (&quot;<b className="font-semibold text-foreground">we</b>
+                        (&quot;
+                        <b className="font-semibold text-foreground">we</b>
                         ,&quot; &quot;
-                        <b className="font-semibold text-foreground">us</b>,&quot;
-                        or &quot;
+                        <b className="font-semibold text-foreground">us</b>
+                        ,&quot; or &quot;
                         <b className="font-semibold text-foreground">our</b>
                         ,&quot;), uses cookies and similar technologies to
                         recognize you when you visit our websites at{' '}

@@ -41,8 +41,8 @@ export function OCGeneratorGameContainer({
                         <div
                             className={`absolute h-full w-full rounded-md transition-all ${
                                 hovered
-                                ? 'bg-black bg-opacity-25 ring-2 ring-ring'
-                                : 'bg-black bg-opacity-50'
+                                    ? 'bg-black bg-opacity-25 ring-2 ring-ring'
+                                    : 'bg-black bg-opacity-50'
                             }`}
                         />
                         <div className="align-center absolute w-5/6">
@@ -52,7 +52,7 @@ export function OCGeneratorGameContainer({
                                     y: hovered ? 0 : 10,
                                 }}
                                 transition={{ duration: 0.15 }}>
-                                <p className="text-center font-bold text-white line-clamp-2">
+                                <p className="line-clamp-2 text-center font-bold text-white">
                                     {mapGame(game)}
                                 </p>
                                 {/* TODO(dromzeh): update placeholders */}

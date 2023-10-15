@@ -27,6 +27,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
+import { DownloadAsset } from '@/components/asset/download-asset'
 
 export const runtime = 'edge'
 
@@ -218,18 +219,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                     </div>
                     <div className="mt-4 flex w-full flex-col gap-4 sm:flex-row">
                         {/* TODO: Implement */}
-                        <Button
-                            onClick={() =>
-                                window.open(
-                                    `${siteConfig.urls.api}/asset/download/${asset.id}`,
-                                    '_blank',
-                                )
-                            }
-                            className="w-full"
-                            variant="outline"
-                            title="Download Image">
-                            <Download size={16} />
-                        </Button>
+                        <DownloadAsset assetId={asset.id} />
                         <Button
                             variant="outline"
                             className="w-full"

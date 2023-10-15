@@ -11,7 +11,7 @@ export function SiteFooter(): React.ReactElement {
         <footer className="border-t border-border bg-background p-3 text-muted-foreground">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="w-full md:flex md:justify-between">
-                    <div className="mb-4 flex flex-col md:mb-0 md:w-72 w-full">
+                    <div className="mb-4 flex w-full flex-col md:mb-0 md:w-72">
                         <div className="flex items-center justify-center gap-1 md:justify-start">
                             <Image
                                 src="/icon.svg"

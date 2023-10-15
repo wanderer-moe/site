@@ -100,9 +100,10 @@ export function ForgotPassword() {
                             Remember your password?{' '}
                             <Link
                                 href="/login"
-                                className="transition-all text-foreground hover:underline">
+                                className="text-foreground transition-all hover:underline">
                                 Login
-                            </Link>.
+                            </Link>
+                            .
                         </div>
                     </CardFooter>
                 </Card>

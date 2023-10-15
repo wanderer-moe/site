@@ -15,12 +15,14 @@ export function SkeletonLoader({
     className = '',
     skeletonClassName = '',
 }: SkeletonLoaderProps) {
-
     return (
         <div>
             <div className={`grid gap-4 ${className}`}>
                 {[...Array(displayFakes)].map((_, i) => (
-                    <Skeleton className={`${height} w-full ${skeletonClassName}`} key={i} />
+                    <Skeleton
+                        className={`${height} w-full ${skeletonClassName}`}
+                        key={i}
+                    />
                 ))}
             </div>
         </div>

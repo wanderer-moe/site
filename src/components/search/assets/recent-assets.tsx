@@ -37,7 +37,11 @@ export function RecentAssets() {
                 </h1>
                 <div className="p-4">
                     {loading ? (
-                        <SkeletonLoader displayFakes={4} className="grid grid-cols-1 gap-4 lg:grid-cols-2" skeletonClassName='rounded-xl' />
+                        <SkeletonLoader
+                            displayFakes={4}
+                            className="grid grid-cols-1 gap-4 lg:grid-cols-2"
+                            skeletonClassName="rounded-xl"
+                        />
                     ) : (
                         <AssetContainer
                             assets={recentData}
