@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/navigation-menu'
 import { SideBar } from './side-bar'
 import { useAuthContext } from '@/context/auth-context'
+import { Search } from 'lucide-react'
 
 export function NavItems(): React.ReactElement {
     const { isLoadingSession, session } = useAuthContext()
@@ -17,22 +18,27 @@ export function NavItems(): React.ReactElement {
 
     return (
         <NavigationMenu>
-            <NavigationMenuList className="flex">
+            <NavigationMenuList className="flex gap-1">
                 <NavigationMenuItem>
-                    <div className="mr-2">
-                        {!session ? (
-                            <div className="flex flex-row items-center gap-2">
-                                <Link href="/login" passHref>
-                                    <Button variant="outline">Login</Button>
-                                </Link>
-                                <Link href="/signup" passHref>
-                                    <Button>Sign Up</Button>
-                                </Link>
-                            </div>
-                        ) : (
-                            <UserNav {...session} />
-                        )}
-                    </div>
+                    <Link href="/search" passHref>
+                        <Button variant="outline">
+                            <Search size={16} />
+                        </Button>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    {!session ? (
+                        <div className="flex flex-row items-center gap-2">
+                            <Link href="/login" passHref>
+                                <Button variant="outline">Login</Button>
+                            </Link>
+                            <Link href="/signup" passHref>
+                                <Button>Sign Up</Button>
+                            </Link>
+                        </div>
+                    ) : (
+                        <UserNav {...session} />
+                    )}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <SideBar />
