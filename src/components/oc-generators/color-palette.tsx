@@ -38,7 +38,7 @@ export default function ColorPalette(props: ColorPaletteProps) {
 
     return (
         <div>
-            <div className="mt-4 rounded-xl border bg-secondary/25">
+            <div className="my-4 rounded-xl border bg-secondary-dark">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                     <Palette size={16} />
                     Color Palette
@@ -46,6 +46,7 @@ export default function ColorPalette(props: ColorPaletteProps) {
                 <div className="px-6 pt-4">
                     <Button
                         onClick={generateColors}
+                        variant="secondary"
                         className="flex w-full items-center gap-2">
                         <Shuffle size={16} />
                         Generate Colors

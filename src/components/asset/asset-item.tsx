@@ -60,14 +60,14 @@ export function AssetItem(asset: Asset) {
                                         />
                                     </Link>
                                 </div>
-                                <div>
+                                <div className="mr-2">
                                     <div>
-                                        <p className="font-normal">{assetName}</p>
-                                        <p className="text-xs font-normal">
+                                        <p className="font-normal line-clamp-1">{assetName}</p>
+                                        <p className="text-xs font-normal line-clamp-1">
                                             Size: {bytesToFileSize(asset.file_size)}
                                         </p>
                                     </div>
-                                    <p className="text-xs font-normal">
+                                    <p className="text-xs font-normal line-clamp-1">
                                         Uploaded {timeAgo(asset.uploaded_date)}
                                     </p>
                                     <div className="mt-2 flex flex-row gap-1">
@@ -75,19 +75,18 @@ export function AssetItem(asset: Asset) {
                                             href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
                                             <Button
                                                 variant="outline"
-                                                size="cs"
-                                                className="text-xs font-normal">
+                                                className="text-xs font-normal h-6 px-3 py-1 rounded-md">
                                                 <div className="flex flex-row items-center">
                                                     <img
                                                         src={`${siteConfig.urls.cdn}/assets/${asset.game}/icon.png`}
                                                         className="mr-2 h-4 w-4"
                                                         alt={asset.game}
                                                     />
-                                                    <p className="font-normal">
+                                                    <div className="font-normal line-clamp-1">
                                                         {mapAssetType(
                                                             asset.asset_category,
                                                         )}
-                                                    </p>
+                                                    </div>
                                                 </div>
                                             </Button>
                                         </Link>

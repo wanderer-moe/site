@@ -56,7 +56,7 @@ export function GenerateCharacterName({
     }
 
     return (
-        <div className="rounded-lg border bg-[#09090B] p-4 transition-colors hover:border-primary/50">
+        <div className="rounded-lg border bg-[#09090B] p-4">
             <Label htmlFor="name">
                 <p
                     className={`text-lg font-semibold ${

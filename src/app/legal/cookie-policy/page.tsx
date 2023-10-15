@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
                     Cookie Policy
                 </div>
             </div>
-            <div className="rounded-xl border bg-secondary/25">
+            <div className="rounded-xl border bg-secondary-dark">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl bg-background py-2 text-base">
                     <Cookie size={16} /> Cookie Policy
                 </h1>
@@ -166,8 +166,8 @@ export default function PrivacyPolicy() {
                             </p>
                         </div>
                     </div>
-                    <div className="mb-4 rounded-xl border bg-secondary/50">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-secondary/50 py-2 text-base text-white">
+                    <div className="mb-4 rounded-xl border bg-secondary-dark">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-secondary-dark py-2 text-base text-white">
                             Cookies List
                         </h1>
                         <div className="px-4">
@@ -187,7 +187,7 @@ export default function PrivacyPolicy() {
                                             use some of its features, such as
                                             access to secure areas.
                                         </p>
-                                        <div className="mb-4 rounded-xl border bg-secondary/50 p-2 text-xs">
+                                        <div className="mb-4 rounded-xl border bg-secondary-dark p-2 text-xs">
                                             <table>
                                                 <tr>
                                                     <td className="p-1">
@@ -271,7 +271,7 @@ export default function PrivacyPolicy() {
                                             cookies, certain functionality (like
                                             videos) may become unavailable.
                                         </p>
-                                        <div className="mb-4 rounded-xl border bg-secondary/50 p-2 text-xs">
+                                        <div className="mb-4 rounded-xl border bg-secondary-dark p-2 text-xs">
                                             <table>
                                                 <tr>
                                                     <td className="p-1">
@@ -355,7 +355,7 @@ export default function PrivacyPolicy() {
                                             are, or to help us customize our
                                             Website for you.
                                         </p>
-                                        <div className="mb-4 rounded-xl border bg-secondary/50 p-2 text-xs">
+                                        <div className="mb-4 rounded-xl border bg-secondary-dark p-2 text-xs">
                                             <table>
                                                 <tr>
                                                     <td className="p-1">
@@ -450,7 +450,7 @@ export default function PrivacyPolicy() {
                                             selecting advertisements that are
                                             based on your interests.
                                         </p>
-                                        <div className="mb-4 rounded-xl border bg-secondary/50 p-2 text-xs">
+                                        <div className="mb-4 rounded-xl border bg-secondary-dark p-2 text-xs">
                                             <table>
                                                 <tr>
                                                     <td className="p-1">

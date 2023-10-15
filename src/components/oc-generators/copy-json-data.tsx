@@ -12,7 +12,7 @@ import {
 import Link from 'next/link'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { siteConfig } from '@/config/site'
-import { Clipboard } from 'lucide-react'
+import { Braces, Clipboard } from 'lucide-react'
 
 type CopyJSONDataProps = {
     data: {
@@ -34,9 +34,12 @@ export function CopyJSONData(props: CopyJSONDataProps): React.ReactElement {
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger>
-                <p className="mt-6 text-primary">
-                    Want to use our OC Generator data in your own project?
-                </p>
+                <Button
+                    variant="outline"
+                    className="flex w-full flex-row items-center gap-2">
+                    <Braces size={16} />
+                    Copy JSON Data
+                </Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
@@ -57,7 +60,7 @@ export function CopyJSONData(props: CopyJSONDataProps): React.ReactElement {
                     </DialogDescription>
                 </DialogHeader>
                 <div className="mt-4">
-                    <ScrollArea className="relative h-96 rounded-lg bg-secondary/25 p-2">
+                    <ScrollArea className="relative h-96 rounded-lg bg-secondary-dark p-2">
                         <Button
                             className="absolute right-2 top-2"
                             onClick={() => {

@@ -81,13 +81,13 @@ export function DataHandler(props: DataHandlerProps) {
             <div className="my-4 flex flex-col gap-2">
                 <div className="flex flex-row space-x-2">
                     <Button
-                        variant="outline"
+                        variant="secondary"
                         className="flex w-full items-center"
                         onClick={shuffleAllOptions}>
                         <Shuffle className="mr-2" size={16} /> Shuffle All
                     </Button>
                     <Button
-                        variant="outline"
+                        variant="secondary"
                         className="flex w-full items-center"
                         onClick={() => {
                             const lockedOptions = optionStates.map(
@@ -101,7 +101,7 @@ export function DataHandler(props: DataHandlerProps) {
                         <Lock className="mr-2" size={16} /> Lock All
                     </Button>
                     <Button
-                        variant="outline"
+                        variant="secondary"
                         className="flex w-full items-center"
                         onClick={() => {
                             const unlockedOptions = optionStates.map(
@@ -117,7 +117,7 @@ export function DataHandler(props: DataHandlerProps) {
                 </div>
                 <div className="flex flex-row space-x-2">
                     <Button
-                        variant="outline"
+                        variant="secondary"
                         className="flex w-full items-center"
                         onClick={() => {
                             const currentUrl = new URL(window.location.href)
@@ -146,7 +146,7 @@ export function DataHandler(props: DataHandlerProps) {
                         Clipboard
                     </Button>
                     <Button
-                        variant="outline"
+                        variant="secondary"
                         disabled={!user}
                         className="flex w-full items-center"
                         onClick={() => {
@@ -163,7 +163,7 @@ export function DataHandler(props: DataHandlerProps) {
                     />
                 </div>
             </div>
-            <div className="mt-4 rounded-xl border bg-secondary/25">
+            <div className="mt-4 rounded-xl border bg-secondary-dark">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                     <Dices size={16} />
                     Characteristics
@@ -206,7 +206,7 @@ function OptionHandler({
     const { name, currentOption, locked } = option
 
     return (
-        <div className="relative flex items-center justify-between rounded-lg border bg-[#09090B] p-2 px-4 transition-colors hover:border-primary/50">
+        <div className="relative flex items-center justify-between rounded-lg border bg-[#09090B] p-2 pl-4 transition-colors hover:border-primary/50">
             <div>
                 {/* TODO: make this more clear dependant on lock state... */}
                 <p

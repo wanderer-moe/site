@@ -41,6 +41,9 @@
         --secondary: 240 3.7% 15.9%;
         --secondary-foreground: 0 0% 98%;
 
+        --secondary-dark: 240 3.7% 7%;
+        --secondary-dark-foreground: 0 0% 98%;
+
         --accent: 240 3.7% 15.9%;
         --accent-foreground: 0 0% 98%;
 
@@ -72,6 +75,9 @@
 
         --secondary: 240 3.7% 15.9%;
         --secondary-foreground: 0 0% 98%;
+
+        --secondary-dark: 240 3.7% 7%;
+        --secondary-dark-foreground: 0 0% 98%;
 
         --accent: 240 3.7% 15.9%;
         --accent-foreground: 0 0% 98%;

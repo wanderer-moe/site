@@ -52,7 +52,7 @@ export function OCGeneratorGameContainer({
                                     y: hovered ? 0 : 10,
                                 }}
                                 transition={{ duration: 0.15 }}>
-                                <p className="text-center font-bold text-white">
+                                <p className="text-center font-bold text-white line-clamp-2">
                                     {mapGame(game)}
                                 </p>
                                 {/* TODO(dromzeh): update placeholders */}

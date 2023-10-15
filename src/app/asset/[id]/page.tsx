@@ -94,7 +94,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                         </div>
                     </div>
                     <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
-                        <div className="relative items-center justify-center rounded-xl border bg-secondary/25">
+                        <div className="relative items-center justify-center rounded-xl border bg-secondary-dark">
                             <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                                 <ImageIcon size={16} /> Asset
                             </h1>
@@ -106,7 +106,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                 />
                             </div>
                         </div>
-                        <div className="overflow-y-auto rounded-xl border bg-secondary/25">
+                        <div className="overflow-y-auto rounded-xl border bg-secondary-dark">
                             <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                                 <Info size={16} /> Asset Information
                             </h1>
@@ -245,7 +245,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                     </div>
                     {similarAssets.length > 0 && (
                         <>
-                            <div className="mt-4 rounded-xl border bg-secondary/25">
+                            <div className="mt-4 rounded-xl border bg-secondary-dark">
                                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                                     <ChevronRightCircle size={16} /> Similar
                                     Assets

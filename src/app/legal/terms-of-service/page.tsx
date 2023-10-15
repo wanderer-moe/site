@@ -50,7 +50,7 @@ export default function TermsOfService() {
                     Cookie Policy
                 </div>
             </div>
-            <div className="rounded-xl border bg-secondary/25">
+            <div className="rounded-xl border bg-secondary-dark">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl bg-background py-2 text-base">
                     <ScrollText size={16} /> Terms of Service
                 </h1>
@@ -136,8 +136,8 @@ export default function TermsOfService() {
                         or guardian read and agree to these Legal Terms prior to
                         you using the Services.
                     </p>
-                    <div className="mb-4 rounded-xl border bg-secondary/50">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-secondary/25 py-2 text-base text-white">
+                    <div className="mb-4 rounded-xl border bg-secondary-dark">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-secondary-dark py-2 text-base text-white">
                             <Info size={16} /> Table of Contents
                         </h1>
                         <div className="p-4">

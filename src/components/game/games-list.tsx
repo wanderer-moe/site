@@ -41,7 +41,7 @@ export function GamesList() {
 
     return (
         <Suspense fallback={<SkeletonLoader />}>
-            <div className="rounded-xl border bg-secondary/25">
+            <div className="rounded-xl border bg-secondary-dark">
                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                     <Gamepad2 size={16} /> Games List
                 </h1>

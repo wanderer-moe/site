@@ -56,20 +56,19 @@ async function OCGeneratorPage({ params: { id } }: { params: { id: string } }) {
                 </div>
             </div>
             <div className="mb-8">
-                <h1 className="text-2xl font-bold tracking-tight">
+                <h1 className="text-2xl font-bold tracking-tight mb-2">
                     {mapGame(id)} OC Generator
                 </h1>
                 <p className="text-muted-foreground">
-                    Create your very own Original Character for {mapGame(id)}.
+                    Create your very own original character (OC) for {mapGame(id)}!
                 </p>
                 <p className="text-muted-foreground">
-                    Need assets for your OC? Check out{' '}
+                    Need assets for your OC? Check out Genshin Impact&apos;s{' '}
                     <Link
                         className="text-white"
                         href={`/search?game=${id}&asset=character-sheets,splash-art`}>
                         Character Sheets and Splash Art
-                    </Link>{' '}
-                    for {mapGame(id)}.
+                    </Link>.
                 </p>
             </div>
             <div>

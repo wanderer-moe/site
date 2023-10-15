@@ -77,7 +77,7 @@ export default function Page() {
                                     <div
                                         key={category}
                                         id={category}
-                                        className="mb-4 rounded-xl border bg-secondary/25">
+                                        className="mb-4 rounded-xl border bg-secondary-dark">
                                         <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
                                             <span className="inline-block">
                                                 {icon}

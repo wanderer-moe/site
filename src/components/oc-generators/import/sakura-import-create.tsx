@@ -107,7 +107,7 @@ export function ImportToSakuraFM(options: ImportToSakuraFMProps) {
         <Dialog>
             <DialogTrigger asChild>
                 <Button
-                    variant={'outline'}
+                    variant="secondary"
                     className="flex w-full flex-row items-center gap-2">
                     <Import size={16} />
                     Create Character on SakuraFM

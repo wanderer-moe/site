@@ -174,7 +174,7 @@ export function AssetSearchHandler() {
                         })
                     }
                 />
-                <div className="rounded-md border bg-secondary/25">
+                <div className="rounded-md border bg-secondary-dark">
                     <span className="flex items-center justify-center gap-2 rounded-t-md border-b bg-background py-2 text-base">
                         Filters
                     </span>
