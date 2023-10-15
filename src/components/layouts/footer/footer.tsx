@@ -11,7 +11,7 @@ export function SiteFooter(): React.ReactElement {
         <footer className="border-t border-border bg-background p-3 text-muted-foreground">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
-                    <div className="mb-4 flex flex-col md:mb-0 w-1/3">
+                    <div className="mb-4 flex flex-col md:mb-0 w-72">
                         <div className="flex items-center justify-center gap-1 md:justify-start">
                             <Image
                                 src="/icon.svg"
@@ -26,8 +26,8 @@ export function SiteFooter(): React.ReactElement {
                             </Link>
                         </div>
                         <div className="mt-4 grid gap-2">
-                            <DiscordStatus />
                             <LocaleChanger />
+                            <DiscordStatus />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">

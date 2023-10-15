@@ -44,8 +44,8 @@ export function AssetItem(asset: Asset) {
         <Dialog>
             <ContextMenu>
                 <ContextMenuTrigger>
-                    <Card className="p-2 transition-all hover:border-foreground/50">
-                        <div className="flex items-center justify-between">
+                    <Card className="p-2 h-32 transition-all hover:border-foreground/50">
+                        <div className="flex items-center justify-between h-full">
                             <div className="flex items-center">
                                 <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-muted/20 p-1">
                                     <Link href={`/asset/${asset.id}`}>
@@ -104,7 +104,7 @@ export function AssetItem(asset: Asset) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col justify-center gap-1">
+                            <div className="flex flex-col justify-center gap-2">
                                 {/* TODO: open context menu on click */}
                                 <Button
                                     title="More"

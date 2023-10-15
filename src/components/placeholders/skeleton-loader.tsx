@@ -4,20 +4,23 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 interface SkeletonLoaderProps {
     displayFakes?: number
-    gridCols?: 1 | 2
+    height?: string
+    className?: string
+    skeletonClassName?: string
 }
 
 export function SkeletonLoader({
     displayFakes = 12,
-    gridCols = 2,
+    height = 'h-32',
+    className = '',
+    skeletonClassName = '',
 }: SkeletonLoaderProps) {
-    const gridColsClass = gridCols === 1 ? 'grid-cols-1' : 'md:grid-cols-2'
 
     return (
         <div>
-            <div className={`grid gap-6 ${gridColsClass}`}>
+            <div className={`grid gap-4 ${className}`}>
                 {[...Array(displayFakes)].map((_, i) => (
-                    <Skeleton className={`h-32 w-full`} key={i} />
+                    <Skeleton className={`${height} w-full ${skeletonClassName}`} key={i} />
                 ))}
             </div>
         </div>

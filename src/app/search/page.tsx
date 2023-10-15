@@ -56,7 +56,7 @@ function SearchPage() {
                 <AssetSearchHandler />
                 {loading ? (
                     <div className={'w-full'}>
-                        <SkeletonLoader />
+                        <SkeletonLoader className="grid grid-cols-1 gap-4 lg:grid-cols-2" skeletonClassName='rounded-xl' />
                     </div>
                 ) : (
                     <>

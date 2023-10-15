@@ -50,7 +50,7 @@ export function LocaleChanger(): React.ReactElement {
                     <ChevronUp size={16} />
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="z-[200]">
+            <DropdownMenuContent className="z-[200] w-72">
                 <DropdownMenuRadioGroup value={locale}>
                     {locales.map((l) => (
                         <DropdownMenuRadioItem
