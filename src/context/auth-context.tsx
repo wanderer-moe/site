@@ -10,15 +10,15 @@ The <AuthProvider> is already included in Layout.tsx, which means we can access 
 
 import * as React from 'react'
 import { siteConfig } from '@/config/site'
-import type { Session } from 'lucia'
+import { SessionData } from '@/interfaces/user/user'
 
 export type SessionState = {
-    session: Session | null
+    session: SessionData | null
     isLoadingSession: boolean
 }
 
 export type AuthContextType = {
-    refreshSessionData: () => Promise<Session | null>
+    refreshSessionData: () => Promise<SessionData | null>
 } & SessionState
 
 export const AuthContext = React.createContext<AuthContextType>({
@@ -51,7 +51,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
          */
         const fetchSessionData = async () => {
             const sessionRequest = await fetchJson<any>(
-                `${siteConfig.urls.api}/auth/validate`,
+                `http://localhost:8787/v2/auth/validate`,
             )
             if (isMounted) {
                 setAuthState({
@@ -77,7 +77,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
          */
         refreshSessionData: async () => {
             const sessionRequest = await fetchJson<any>(
-                `${siteConfig.urls.api}/auth/validate`,
+                `http://localhost:8787/v2/auth/validate`,
             )
             setAuthState({
                 isLoadingSession: false,
@@ -121,7 +121,7 @@ export const useCurrentUser = () => useCurrentSession()?.user ?? null
  * @return {Promise<void>} - A Promise that resolves when the user is successfully logged out.
  */
 export const logoutUser = async () => {
-    fetch(`${siteConfig.urls.api}/auth/logout`, {
+    fetch(`http://localhost:8787/v2/auth/logout`, {
         method: 'POST',
         credentials: 'include',
     })

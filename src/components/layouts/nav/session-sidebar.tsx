@@ -3,6 +3,7 @@ import { LogIn, LogOut } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useAuthContext } from '@/context/auth-context'
+import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
 import * as React from 'react'
 
 export function SessionSideBar() {
@@ -10,6 +11,7 @@ export function SessionSideBar() {
 
     return (
         <div className="flex flex-col gap-2">
+            {isLoadingSession && <SkeletonLoader />}
             {!session ? (
                 <React.Fragment>
                     <Link href="/login" className="w-full transition-colors">
@@ -33,6 +35,15 @@ export function SessionSideBar() {
                 </React.Fragment>
             ) : (
                 <>
+                    <Link
+                        href="/account/profile"
+                        className="w-full transition-colors">
+                        <Button
+                            className="flex w-full flex-row items-center justify-start gap-2"
+                            variant="ghost">
+                            {session.user.username}
+                        </Button>
+                    </Link>
                     <Link href="/logout" className="w-full transition-colors">
                         <Button
                             variant="ghost"

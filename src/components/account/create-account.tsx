@@ -118,7 +118,7 @@ export function CreateAccount() {
         }
 
         try {
-            const res = await fetch(`${siteConfig.urls.api}/auth/signup`, {
+            const res = await fetch(`http://localhost:8787/v2/auth/signup`, {
                 method: 'POST',
                 credentials: 'include',
                 body: formData,

@@ -14,11 +14,10 @@ import { Search } from 'lucide-react'
 
 export function NavItems(): React.ReactElement {
     const { isLoadingSession, session } = useAuthContext()
-    // console.log(isLoadingSession, session)
 
     return (
         <NavigationMenu>
-            <NavigationMenuList className="flex gap-1">
+            <NavigationMenuList className="flex">
                 <NavigationMenuItem>
                     <Link href="/search" passHref>
                         <Button variant="outline">
@@ -37,7 +36,7 @@ export function NavItems(): React.ReactElement {
                             </Link>
                         </div>
                     ) : (
-                        <UserNav {...session} />
+                        <UserNav session={session} />
                     )}
                 </NavigationMenuItem>
                 <NavigationMenuItem>

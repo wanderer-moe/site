@@ -20,9 +20,10 @@ import {
 import Link from 'next/link'
 import { roleFlagsToArray } from '@/lib/helpers/roleFlags'
 import { logoutUser } from '@/context/auth-context'
+import { SessionData } from '@/interfaces/user/user'
 
 interface UserNavProps {
-    session: any
+    session: SessionData
 }
 
 export function UserNav(props: UserNavProps) {
@@ -38,17 +39,22 @@ export function UserNav(props: UserNavProps) {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button
-                    variant="ghost"
-                    className="relative h-8 w-8 rounded-full">
+                    className="flex flex-row items-center gap-2"
+                    variant="ghost">
                     <Avatar className="h-8 w-8">
                         <AvatarImage src="" alt={session.user.username} />
                         <AvatarFallback>
                             {session.user.username[0].toUpperCase()}
                         </AvatarFallback>
                     </Avatar>
+                    {session.user.username}
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="mt-4 w-auto" align="end" forceMount>
+            {/* note: i think this will be better as a "sidebar" type thing? or maybe just clicking it just takes you directly to ur profile ngl */}
+            <DropdownMenuContent
+                className="z-[200] w-auto"
+                align="end"
+                forceMount>
                 <div className="flex items-center space-x-2 p-2">
                     <div className="flex flex-col space-y-1">
                         <p className="text-sm font-medium leading-none">
