@@ -1,14 +1,15 @@
 export interface User {
     avatarUrl: null | string
     bannerUrl: null | string
+    displayName: string
     username: string
     usernameColour: null | string
-    email: string
-    emailVerified: number
+    email?: string
+    emailVerified?: number
     pronouns: null | string
     verified: number
     bio: string
-    dateJoined: number
+    dateJoined: string
     roleFlags: number
     isContributor: number
     selfAssignableRoleFlags: null | number

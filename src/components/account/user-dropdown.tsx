@@ -20,6 +20,7 @@ import {
 import Link from 'next/link'
 import { roleFlagsToArray } from '@/lib/helpers/roleFlags'
 import { logoutUser } from '@/context/auth-context'
+import { Badge } from '@/components/ui/badge'
 import { SessionData } from '@/interfaces/user/user'
 
 interface UserNavProps {
@@ -28,20 +29,16 @@ interface UserNavProps {
 
 export function UserNav(props: UserNavProps) {
     const { session } = props
-    console.log(session.user.roleFlags)
     const roles = roleFlagsToArray(session.user.roleFlags)
 
-    const isStaffOrContributor =
-        roles.includes('CONTRIBUTOR') || roles.includes('STAFF')
-
-    console.log(roles)
+    console.log(session)
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button
                     className="flex flex-row items-center gap-2"
-                    variant="ghost">
-                    <Avatar className="h-8 w-8">
+                    variant="outline">
+                    <Avatar className="h-6 w-6">
                         <AvatarImage src="" alt={session.user.username} />
                         <AvatarFallback>
                             {session.user.username[0].toUpperCase()}
@@ -55,7 +52,7 @@ export function UserNav(props: UserNavProps) {
                 className="z-[200] w-auto"
                 align="end"
                 forceMount>
-                <div className="flex items-center space-x-2 p-2">
+                <div className="flex space-x-2 p-2">
                     <div className="flex flex-col space-y-1">
                         <p className="text-sm font-medium leading-none">
                             {session.user.username}
@@ -65,6 +62,19 @@ export function UserNav(props: UserNavProps) {
                         </p>
                     </div>
                 </div>
+                {/* this is temp */}
+                {roles && (
+                    <div className="flex flex-row flex-wrap gap-1 p-2">
+                        {roles
+                            .slice()
+                            .reverse()
+                            .map((role) => (
+                                <Badge variant="secondary" key={role}>
+                                    {role}
+                                </Badge>
+                            ))}
+                    </div>
+                )}
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <Link href="/account/profile" passHref>
@@ -85,7 +95,8 @@ export function UserNav(props: UserNavProps) {
                             Saved Assets
                         </DropdownMenuItem>
                     </Link>
-                    <DropdownMenuItem disabled={isStaffOrContributor}>
+                    <DropdownMenuItem
+                        disabled={session.user.isContributor === 0}>
                         <Upload className="mr-2 h-4 w-4" />
                         Upload Assets
                     </DropdownMenuItem>

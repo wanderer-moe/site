@@ -82,7 +82,8 @@ export function Login() {
             if (res.ok && res.status === 200) {
                 window.location.href = '/'
             } else {
-                throw new Error('Response failed')
+                console.log(res)
+                throw new Error(`Response failed`)
             }
         } catch (error) {
             console.error(error)

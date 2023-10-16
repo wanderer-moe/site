@@ -13,7 +13,7 @@ export default function OCGeneratorPage() {
                 </div>
                 <ChevronRight size={16} />
                 <div className="whitespace-nowrap text-foreground">
-                    <Link href={`/oc-generators`}>OC Generators</Link>
+                    <Link href={`/oc-generator`}>OC Generators</Link>
                 </div>
             </div>
             <div className="mb-8">

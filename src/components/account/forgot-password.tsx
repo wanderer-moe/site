@@ -53,7 +53,36 @@ export function ForgotPassword() {
             return
         }
 
-        // TODO(dromzeh): api request to send reset link
+        try {
+            const res = await fetch(
+                `http://localhost:8787/v2/auth/generate-password-reset-token`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: formData,
+                },
+            )
+
+            if (res.ok && res.status === 200) {
+                toast({
+                    title: 'Success',
+                    description:
+                        'If an account exists with that email, we will send a reset link.',
+                })
+                setIsLoading(false)
+                return
+            }
+        } catch (e) {
+            toast({
+                title: 'Error',
+                description: 'Something went wrong.',
+                variant: 'destructive',
+            })
+            setIsLoading(false)
+            return
+        }
 
         toast({
             title: 'Success',

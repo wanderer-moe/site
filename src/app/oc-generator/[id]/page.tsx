@@ -48,7 +48,7 @@ async function OCGeneratorPage({ params: { id } }: { params: { id: string } }) {
                 </div>
                 <ChevronRight size={16} />
                 <div className="whitespace-nowrap transition-colors hover:text-foreground">
-                    <Link href={`/oc-generators`}>OC Generators</Link>
+                    <Link href={`/oc-generator`}>OC Generators</Link>
                 </div>
                 <ChevronRight size={16} />
                 <div className="overflow-hidden text-ellipsis whitespace-nowrap text-foreground transition-colors">
