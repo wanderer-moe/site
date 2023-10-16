@@ -118,9 +118,7 @@ export function UserNav(props: UserNavProps) {
                 <Button
                     className="w-full text-red-200"
                     variant="ghost"
-                    onClick={() =>
-                        logoutUser().then(() => (window.location.href = '/'))
-                    }>
+                    onClick={() => logoutUser()}>
                     <LogOut className="mr-2 h-4 w-4" />
                     Log out
                 </Button>

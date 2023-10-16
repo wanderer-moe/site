@@ -45,11 +45,7 @@ export function SessionSideBar() {
                         </Button>
                     </Link>
                     <Button
-                        onClick={() =>
-                            logoutUser().then(
-                                () => (window.location.href = '/'),
-                            )
-                        }
+                        onClick={() => logoutUser()}
                         variant="ghost"
                         className="flex w-full flex-row items-center justify-start gap-2">
                         <LogOut className="h-4 w-4" />
