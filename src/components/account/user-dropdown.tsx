@@ -119,7 +119,7 @@ export function UserNav(props: UserNavProps) {
                     className="w-full text-red-200"
                     variant="ghost"
                     onClick={() =>
-                        logoutUser().then(() => window.location.reload())
+                        logoutUser().then(() => (window.location.href = '/'))
                     }>
                     <LogOut className="mr-2 h-4 w-4" />
                     Log out
