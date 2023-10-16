@@ -27,21 +27,29 @@ export function DiscordStatus() {
 
     return (
         <Link href={siteConfig.socials.discord}>
-            <Button
-                variant="outline"
-                className="w-full group">
-                <div
-                    className="flex items-center">
+            <Button variant="outline" className="group w-full">
+                <span className="relative flex items-center">
                     <DiscordLogoIcon
                         className={`${
                             members === 'unknown'
                                 ? 'text-red-200'
                                 : 'text-green-200'
-                        } group-hover:rotate-[360deg] duration-300`}
+                        } absolute stroke-2 opacity-100 
+                            duration-300 group-hover:rotate-[360deg] 
+                            group-hover:scale-[1.5]
+                            group-hover:opacity-0`}
                         fill="currentColor"
                     />
-                </div>
-                <span className="ml-2">Discord: {members} online</span>
+                    <DiscordLogoIcon
+                        className={`${
+                            members === 'unknown'
+                                ? 'text-red-200'
+                                : 'text-green-200'
+                        } mr-2 stroke-2 duration-300 group-hover:rotate-[360deg]`}
+                        fill="currentColor"
+                    />{' '}
+                    Discord: {members} online
+                </span>
             </Button>
         </Link>
     )
