@@ -18,6 +18,7 @@ import {
 } from 'lucide-react'
 import { SessionSideBar } from '@/components/layouts/nav/session-sidebar'
 import { usePathname } from 'next/navigation'
+import { GHStar } from '@/components/github/star'
 
 export function SideBar() {
     const [open, setOpen] = useState(false)
@@ -62,6 +63,7 @@ export function SideBar() {
                             <div className="flex flex-col gap-2">
                                 <LocaleChanger />
                                 <DiscordStatus />
+                                <GHStar />
                                 <div className="mt-4">
                                     <QuickLinksList />
                                 </div>

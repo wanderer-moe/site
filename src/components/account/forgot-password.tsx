@@ -111,7 +111,6 @@ export function ForgotPassword() {
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder="email@domain.com"
                                 disabled={isLoading}
                             />
                         </div>
