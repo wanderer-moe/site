@@ -4,7 +4,7 @@ import Background from '@/components/background/background'
 import { useAuthContext } from '@/context/auth-context'
 import { redirect } from 'next/navigation'
 
-export default function ForgotPasswordPage() {
+export default function MainSettingsPage() {
     const { isLoadingSession, session } = useAuthContext()
 
     if (session) {
