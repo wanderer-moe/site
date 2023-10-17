@@ -11,18 +11,12 @@ import {
     CommandList,
     CommandSeparator,
 } from '@/components/ui/command'
-import {
-    Dices,
-    Scroll,
-    Home,
-    Search,
-    Box,
-    Gamepad,
-    Tags,
-} from 'lucide-react'
+import { Dices, Scroll, Home, Search, Box, Gamepad, Tags } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 export function Command() {
     const [open, setOpen] = React.useState(false)
+    const router = useRouter()
 
     React.useEffect(() => {
         const down = (e: KeyboardEvent) => {
@@ -36,6 +30,11 @@ export function Command() {
         return () => document.removeEventListener('keydown', down)
     }, [])
 
+    const runCommand = React.useCallback((command: () => unknown) => {
+        setOpen(false)
+        command()
+    }, [])
+
     // TODO(dromzeh): we can use the /v2/search/all endpoint to get results for assetcategories, tags, etc
     return (
         <>
@@ -47,30 +46,46 @@ export function Command() {
                 <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="Suggestions">
-                        <CommandItem>
+                        <CommandItem
+                            onSelect={() =>
+                                runCommand(() => router.push('/search'))
+                            }>
                             <Box size={16} className="mr-2" />
                             <span>Assets</span>
                         </CommandItem>
-                        <CommandItem>
+                        <CommandItem
+                            onSelect={() =>
+                                runCommand(() => router.push('/oc-generator'))
+                            }>
                             <Dices size={16} className="mr-2" />
                             <span>OC Generators</span>
                         </CommandItem>
-                        <CommandItem>
+                        <CommandItem
+                            onSelect={() =>
+                                runCommand(() => router.push('/game'))
+                            }>
                             <Gamepad size={16} className="mr-2" />
                             <span>Games</span>
                         </CommandItem>
-                        <CommandItem>
+                        <CommandItem
+                            onSelect={() =>
+                                runCommand(() => router.push('/tag'))
+                            }>
                             <Tags size={16} className="mr-2" />
                             <span>Tags</span>
                         </CommandItem>
                     </CommandGroup>
                     <CommandSeparator />
                     <CommandGroup heading="Actions">
-                        <CommandItem>
+                        <CommandItem
+                            onSelect={() => runCommand(() => router.push('/'))}>
                             <Home size={16} className="mr-2" />
                             <span>Home</span>
                         </CommandItem>
-                        <CommandItem>
+                        <CommandItem
+                            onSelect={() =>
+                                runCommand(() => router.push('/changelog'))
+                            }>
                             <Scroll size={16} className="mr-2" />
                             <span>Changelog</span>
                         </CommandItem>
