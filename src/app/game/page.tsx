@@ -19,7 +19,8 @@ export default function GamesPage() {
             <div className="mb-8">
                 <h1 className="text-2xl font-bold tracking-tight">Games</h1>
                 <p className=" text-muted-foreground">
-                    sdfkhjjksfdkjhsdfjkhsfdjkbfsdbjnkmf sduj
+                    List of all supported games with available fan-made and
+                    datamined assets to download.
                 </p>
             </div>
             <GamesList />
