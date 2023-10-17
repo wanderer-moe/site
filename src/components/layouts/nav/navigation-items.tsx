@@ -11,6 +11,7 @@ import {
 import { SideBar } from './side-bar'
 import { useAuthContext } from '@/context/auth-context'
 import { Search } from 'lucide-react'
+import { Command } from './command'
 
 export function NavItems(): React.ReactElement {
     const { isLoadingSession, session } = useAuthContext()
@@ -19,11 +20,7 @@ export function NavItems(): React.ReactElement {
         <NavigationMenu>
             <NavigationMenuList className="flex">
                 <NavigationMenuItem>
-                    <Link href="/search" passHref>
-                        <Button variant="outline">
-                            <Search size={16} />
-                        </Button>
-                    </Link>
+                    <Command />
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     {!session ? (

@@ -45,7 +45,8 @@ export function DiscordStatus() {
                             members === 'unknown'
                                 ? 'text-red-200'
                                 : 'text-green-200'
-                        } mr-2 stroke-2 duration-300 group-hover:rotate-[360deg]`}
+                        } mr-2 stroke-2 duration-300 
+                        group-hover:rotate-[360deg]`}
                         fill="currentColor"
                     />{' '}
                     Discord: {members} online

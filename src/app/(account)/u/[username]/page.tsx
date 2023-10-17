@@ -18,7 +18,7 @@ export const runtime = 'edge'
 
 async function getUser(username: string): Promise<UserResponse> {
     const res = await fetch(
-        `http://localhost:8787/v2/search/users/user/${username}`,
+        `http://127.0.0.1:8787/v2/search/users/user/${username}`,
     )
     const response = await res.json()
     return response as UserResponse
