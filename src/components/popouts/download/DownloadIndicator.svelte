@@ -34,7 +34,9 @@ async function downloadFiles(selected = false) {
         if (downloadCancelled) return
 
         try {
-            const response = await fetch(item.path)
+            const response = await fetch(item.path, {
+                mode: 'no-cors',
+            })
             const blob = await response.blob()
             folder.file(`${item.name}.png`, blob)
             progress += 1

@@ -99,19 +99,19 @@ function downloadFiles(selectedOpt) {
 
 {#if imageDoubleClicked}
     <ViewImage
-        imageUrl="{imageUrl}"
-        imageTitle="{imageTitle}"
-        imageFileSize="{imageFileSize}"
+        {imageUrl}
+        {imageTitle}
+        {imageFileSize}
         closeImageView="{() => (imageDoubleClicked = false)}" />
 {/if}
 
 {#if downloadingMultiple}
     <DownloadIndicator
-        game="{game}"
-        asset="{asset}"
-        images="{images}"
-        selectedItems="{selectedItems}"
-        selected="{selected}"
+        {game}
+        {asset}
+        {images}
+        {selectedItems}
+        {selected}
         closeDownload="{() => (downloadingMultiple = false)}" />
 {/if}
 
@@ -177,9 +177,9 @@ function downloadFiles(selectedOpt) {
                                 on:input="{handleInput}"
                                 bind:value="{query}" />
                             <AssetSortDropdown
-                                bind:selectedSortingOption="{selectedSortingOption}"
-                                changeSort="{changeSort}"
-                                sortingOptions="{sortingOptions}" />
+                                bind:selectedSortingOption
+                                {changeSort}
+                                {sortingOptions} />
                         </div>
 
                         <div class="w-full rounded-md text-white">
@@ -240,16 +240,16 @@ function downloadFiles(selectedOpt) {
                         <!-- TODO: limit how many files are shown at once before more are displayed.. -->
                         {#each filteredImages as image}
                             <AssetItem
-                                game="{game}"
-                                asset="{asset}"
-                                image="{image}"
-                                downloadingMultiple="{downloadingMultiple}"
-                                bind:selectedItems="{selectedItems}"
-                                bind:selectedFilesSize="{selectedFilesSize}"
-                                bind:imageDoubleClicked="{imageDoubleClicked}"
-                                bind:imageUrl="{imageUrl}"
-                                bind:imageTitle="{imageTitle}"
-                                bind:imageFileSize="{imageFileSize}" />
+                                {game}
+                                {asset}
+                                {image}
+                                {downloadingMultiple}
+                                bind:selectedItems
+                                bind:selectedFilesSize
+                                bind:imageDoubleClicked
+                                bind:imageUrl
+                                bind:imageTitle
+                                bind:imageFileSize />
                         {/each}
                     </div>
                 {/if}

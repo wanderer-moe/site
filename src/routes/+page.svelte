@@ -90,14 +90,14 @@ function handleImageChange(newImage) {
                         <div class="grid grid-cols-1 gap-7 md:grid-cols-2">
                             {#each allGames as game}
                                 <GameContainer
-                                    game="{game}"
-                                    bind:focusedImage="{focusedImage}"
-                                    handleImageChange="{handleImageChange}" />
+                                    {game}
+                                    bind:focusedImage
+                                    {handleImageChange} />
                             {/each}
                         </div>
                     </div>
                 </div>
-                <HomeSidebar OCGeneratorsLocations="{OCGeneratorsLocations}" />
+                <HomeSidebar {OCGeneratorsLocations} />
             </div>
         </div>
     </div>
