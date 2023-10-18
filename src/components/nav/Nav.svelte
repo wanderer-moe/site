@@ -2,17 +2,8 @@
 import { t } from 'svelte-i18n'
 import SearchBar from '@/components/popouts/SearchBar.svelte'
 import { keybindHandler } from '@/lib/utils/keybinds'
-// import { getCommitsRecent } from '@/lib/utils/github'
-// import { onMount } from 'svelte'
 
 let isSearchOpen = false
-// let commitSha = ''
-
-// onMount(async () => {
-//     const commits = await getCommitsRecent()
-//     commitSha = commits[0].shaSpliced
-//     console.log(commitSha)
-// })
 </script>
 
 <svelte:window
@@ -20,15 +11,18 @@ let isSearchOpen = false
         binds: ['control', 'k'],
         bindCalled: () => (isSearchOpen = !isSearchOpen),
     }}" />
-<div class="bg-main-400 p-2 text-center text-sm text-gray-400">
-    We're aware of an issue affecting downloading multiple assets, please
-    download each asset individually until this is fixed after the next site
-    update. More info will be announced on this banner and <span
-        class="underline"
-        ><a
+<div class="bg-main-400 p-2 text-center text-gray-400">
+    <p class="justify-self-center">
+        Downloading all images is (finally) fixed - iOS users: use Safari! You
+        can also
+        <a
             class="font-semibold text-white"
-            href="https://discord.wanderer.moe/">in our Discord</a>
-    </span>
+            target="_blank"
+            href="https://discord.wanderer.moe/"
+            >Join our Discord Server for updates & site support <i
+                class="fa-solid fa-arrow-up-right-from-square ml12"></i
+            ></a>
+    </p>
 </div>
 <header
     class="sticky top-0 z-50 w-full border-b border-main-300 bg-main-500 bg-opacity-75 p-2 backdrop-blur-lg backdrop-filter transition-opacity">
