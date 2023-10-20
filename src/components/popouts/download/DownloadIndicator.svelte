@@ -35,7 +35,10 @@ async function downloadFiles(selected = false) {
 
         try {
             const response = await fetch(item.path, {
-                mode: 'no-cors',
+                method: 'GET',
+                headers: {
+                    Origin: 'https://wanderer.moe',
+                },
             })
             const blob = await response.blob()
             folder.file(`${item.name}.png`, blob)
