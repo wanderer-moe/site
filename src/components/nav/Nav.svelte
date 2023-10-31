@@ -1,29 +1,17 @@
 <script>
 import { t } from 'svelte-i18n'
 import SearchBar from '@/components/popouts/SearchBar.svelte'
-import { keybindHandler } from '@/lib/utils/keybinds'
 
 let isSearchOpen = false
 </script>
 
-<svelte:window
-    use:keybindHandler="{{
-        binds: ['control', 'k'],
-        bindCalled: () => (isSearchOpen = !isSearchOpen),
-    }}" />
-<div class="bg-main-400 p-2 text-center text-gray-400">
-    <p class="justify-self-center">
-        Downloading all images is (finally) fixed - iOS users: use Safari! You
-        can also
-        <a
-            class="font-semibold text-white"
-            target="_blank"
-            href="https://discord.wanderer.moe/"
-            >Join our Discord Server for updates & site support <i
-                class="fa-solid fa-arrow-up-right-from-square ml12"></i
-            ></a>
-    </p>
-</div>
+<a href="https://preregister.wanderer.moe/">
+    <div class="bg-indigo-500 hover:bg-indigo-400 p-2 text-center text-white duration-150 transition-all">
+        <p class="justify-self-center font-bold text-base">
+        pre-register & get notified for our new site! <i class="fa-solid fa-arrow-right ml-1 text-base"></i> 
+        <p class="text-xs mt-[0.5]">🚀 thousands of new assets, accounts, uploading, saving & sharing</p>
+    </div>
+</a>
 <header
     class="sticky top-0 z-50 w-full border-b border-main-300 bg-main-500 bg-opacity-75 p-2 backdrop-blur-lg backdrop-filter transition-opacity">
     <div class="mx-auto flex flex-wrap items-center justify-between">
@@ -55,9 +43,9 @@ let isSearchOpen = false
                                     'globalSearch.searchBar'
                                 )}
                             </span>
-                            <span
+                            <!-- <span
                                 class="rounded-lg border border-main-500 bg-main-600 px-2 py-1 text-xs font-semibold text-gray-100"
-                                >Ctrl + K</span>
+                                >Ctrl + K</span> -->
                         </div>
                     </div>
                 </div>
@@ -71,16 +59,6 @@ let isSearchOpen = false
                         ></i>
                     </a>
                 </button>
-                <button class="hidden px-4 py-2 focus:outline-none lg:hidden">
-                    <a
-                        href="https://git.wanderer.moe/"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <i
-                            class="fa-brands fa-github cursor-pointer text-white hover:text-indigo-300"
-                        ></i>
-                    </a>
-                </button>
             </ul>
 
             <button
@@ -91,23 +69,13 @@ let isSearchOpen = false
                     class="fa-solid fa-search cursor-pointer text-white hover:text-indigo-300"
                 ></i>
             </button>
-            <button class="px-4 focus:outline-none lg:block lg:pl-4 lg:pr-2">
+            <button class="px-4 focus:outline-none lg:block lg:pl-4 lg:pr-2 bg-main-600 border-main-100">
                 <a
                     href="https://discord.wanderer.moe/"
                     target="_blank"
                     rel="noopener noreferrer">
                     <i
                         class="fa-brands fa-discord cursor-pointer text-white hover:text-indigo-300"
-                    ></i>
-                </a>
-            </button>
-            <button class="px-4 focus:outline-none lg:block lg:pl-2 lg:pr-4">
-                <a
-                    href="https://git.wanderer.moe/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <i
-                        class="fa-brands fa-github cursor-pointer text-white hover:text-indigo-300"
                     ></i>
                 </a>
             </button>
