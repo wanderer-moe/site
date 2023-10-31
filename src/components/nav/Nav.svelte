@@ -69,7 +69,7 @@ let isSearchOpen = false
                     class="fa-solid fa-search cursor-pointer text-white hover:text-indigo-300"
                 ></i>
             </button>
-            <button class="px-4 focus:outline-none lg:block lg:pl-4 lg:pr-2 bg-main-600 border-main-100">
+            <button class="px-4 focus:outline-none lg:block lg:pl-4 lg:pr-2">
                 <a
                     href="https://discord.wanderer.moe/"
                     target="_blank"
