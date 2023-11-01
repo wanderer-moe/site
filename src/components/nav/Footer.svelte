@@ -64,6 +64,7 @@ let contributeOpen = false
                         <li class="mb-4">
                             <a
                                 href="https://wanderer.moe/asset-request-form"
+                                target="_blank"
                                 class="hover:font-semibold hover:text-white"
                                 >Asset Request Form</a>
                         </li>

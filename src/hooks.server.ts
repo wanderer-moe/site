@@ -38,6 +38,10 @@ const redirects: StringRedirects = {
         to: 'https://www.buymeacoffee.com/marcelmd',
         code: 301,
     },
+    '/preregister': {
+        to: 'https://preregister.wanderer.moe/',
+        code: 301,
+    },
 }
 
 export const handle: Handle = ({ event, resolve }) =>
