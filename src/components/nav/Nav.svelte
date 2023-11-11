@@ -6,10 +6,16 @@ let isSearchOpen = false
 </script>
 
 <a href="https://preregister.wanderer.moe/">
-    <div class="bg-indigo-500 hover:bg-indigo-400 p-2 text-center text-white duration-150 transition-all">
-        <p class="justify-self-center font-bold text-base">
-        pre-register & get notified for our new site! <i class="fa-solid fa-arrow-right ml-1 text-base"></i> 
-        <p class="text-xs mt-[0.5]">🚀 thousands of new assets, accounts, uploading, saving & sharing</p>
+    <div
+        class="bg-indigo-500 p-2 text-center text-white transition-all duration-150 hover:bg-indigo-400">
+        <p class="justify-self-center text-base font-bold">
+            pre-register & join our discord for a chance to win discord nitro &
+            be notified for our new site! <i
+                class="fa-solid fa-arrow-right ml-1 text-base"></i>
+        </p>
+        <p class="mt-[0.5] text-xs">
+            🚀 thousands of new assets, accounts, uploading, saving & sharing
+        </p>
     </div>
 </a>
 <header

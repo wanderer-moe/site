@@ -9,10 +9,11 @@ export async function load({ fetch }) {
                 getReleases(3),
             ])
         const games = await gamesResponse.json()
-        const ocGenerators = await ocGeneratorsResponse.json()
+        const allOCGenerators = await ocGeneratorsResponse.json()
+        const allGames = games.games.sort((a, b) => new Date(b.lastUploaded) - new Date(a.lastUploaded));
         return {
-            allGames: games.games,
-            allOCGenerators: ocGenerators,
+            allGames,
+            allOCGenerators,
             releases,
         }
     } catch (err) {
