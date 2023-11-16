@@ -256,13 +256,15 @@ function downloadFiles(selectedOpt) {
 
                 {#if filteredImages.length == 0}
                     <div
-                        class="flex flex-col items-center justify-center"
+                        class="flex flex-col items-center justify-center text-center"
                         in:fade="{{ duration: 200, delay: 100 }}">
                         <p class="text-2xl text-white">
                             {$t('asset.nothingFound', { values: { query } })}
                         </p>
-                        <p class="text-sm text-gray-400">
-                            {$t('asset.nothingFoundSuggestions')}
+                        <p class="text-sm text-red-300">
+                            Assets are missing! This is because we're heads-down
+                            working on the new site. We have all missing assets
+                            available on our discord :)
                         </p>
                     </div>
                 {/if}

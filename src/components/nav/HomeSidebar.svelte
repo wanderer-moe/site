@@ -17,7 +17,6 @@ export let OCGeneratorsLocations
 const sideBarEntries = [
     {
         name: $t('home.ocGen.title'),
-        accentRGBA: 'rgba(253, 180, 222, 0.1)',
         iconClass: 'fa-solid fa-dice-d20',
         shortDesc: $t('home.ocGen.shortDesc'),
         desc: $t('home.ocGen.desc'),
@@ -30,7 +29,6 @@ const sideBarEntries = [
     },
     {
         name: 'Discord',
-        accentRGBA: 'rgba(121, 133, 216, 0.1)',
         iconClass: 'fa-brands fa-discord',
         desc: $t('home.discord.desc'),
         buttons: [
@@ -42,7 +40,6 @@ const sideBarEntries = [
     },
     {
         name: $t('home.donate.title'),
-        accentRGBA: 'rgba(188, 51, 46, 0.1)',
         iconClass: 'fa-solid fa-donate',
         shortDesc: $t('home.donate.shortDesc'),
         desc: $t('home.donate.desc'),
@@ -55,7 +52,6 @@ const sideBarEntries = [
     },
     {
         name: 'Github',
-        accentRGBA: 'rgba(255, 255, 255, 0.1)',
         iconClass: 'fa-brands fa-github',
         shortDesc: $t('home.github.shortDesc'),
         desc: $t('home.github.desc'),
@@ -84,8 +80,7 @@ $: discordShortDesc = $t('home.discord.shortDesc', {
     <div class="grid gap-7">
         {#each sideBarEntries as entry}
             <div
-                class="rounded-md bg-main-400 p-3 text-white transition ease-in-out hover:scale-105"
-                style="background: linear-gradient(100deg, {entry.accentRGBA} 0%, rgba(16,16,16,0.5) 49%);">
+                class="rounded-md bg-main-500 p-3 text-white transition ease-in-out hover:scale-105">
                 <p class="font-white text-xl font-bold uppercase">
                     <i class="{entry.iconClass}"></i>
                     {entry.name}
@@ -106,8 +101,7 @@ $: discordShortDesc = $t('home.discord.shortDesc', {
                 <div class="mt-2 grid gap-2">
                     {#each entry.buttons as button}
                         <a href="{button.link}" target="_blank">
-                            <button
-                                class="w-full rounded-md bg-main-300/40 p-2 font-semibold text-white hover:bg-main-200/40">
+                            <button class="btn w-full rounded-md font-semibold">
                                 {button.name}
                             </button>
                         </a>

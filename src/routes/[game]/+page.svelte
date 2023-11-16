@@ -65,15 +65,25 @@ const { subFolders, game, lastUploaded } = data
         <div class="relative z-10 px-2 md:px-12 lg:px-24">
             <div id="games">
                 <div class="grid grid-cols-1 gap-4 pt-8 md:grid-cols-2">
-                    {#each subFolders as folder}
+                    {#each subFolders.sort((a, b) => {
+                        return new Date(b.lastUploaded) - new Date(a.lastUploaded)
+                    }) as folder}
                         <a href="/{game}/{folder.name}">
                             <div
                                 class="flex items-center justify-between rounded-md border-[3px] border-main-400 bg-main-500 p-4 transition-colors duration-150 hover:border-main-300">
-                                <p
-                                    class="text-left text-2xl font-semibold text-white">
-                                    <i class="fa fa-folder mr-5"></i>
-                                    {fixCasing(folder.name)}
-                                </p>
+                                <div class="flex flex-col gap-1">
+                                    <p
+                                        class="text-left text-2xl font-semibold text-white">
+                                        <i class="fa fa-folder mr-4"></i>
+                                        {fixCasing(folder.name)}
+                                    </p>
+                                    <p class="text-left text-lg text-white">
+                                        Updated on{' '}
+                                        {formatDateReadable(
+                                            folder.lastUploaded
+                                        )}
+                                    </p>
+                                </div>
                                 <div class="text-right text-lg text-white">
                                     <p class="text-lg">
                                         {folder.fileCount} Files

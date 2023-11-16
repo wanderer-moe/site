@@ -30,13 +30,13 @@ let contributeOpen = false
                         <li class="mb-4">
                             <a
                                 href="https://git.wanderer.moe/"
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white transition-all hover:underline"
                                 >GitHub</a>
                         </li>
                         <li>
                             <a
                                 href="https://discord.wanderer.moe/"
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white transition-all hover:underline"
                                 >Discord Server</a>
                         </li>
                     </ul>
@@ -47,13 +47,13 @@ let contributeOpen = false
                         <li class="mb-4">
                             <a
                                 href="/privacy-policy"
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white transition-all hover:underline"
                                 >Privacy Policy</a>
                         </li>
                         <li class="mb-4">
                             <a
                                 href="/terms-of-service"
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white transition-all hover:underline"
                                 >Terms of Service</a>
                         </li>
                     </ul>
@@ -65,20 +65,20 @@ let contributeOpen = false
                             <a
                                 href="https://wanderer.moe/asset-request-form"
                                 target="_blank"
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white transition-all hover:underline"
                                 >Asset Request Form</a>
                         </li>
                         <li class="mb-4">
                             <a
                                 href="/contributors"
-                                class="hover:font-semibold hover:text-white"
+                                class="text-white transition-all hover:underline"
                                 >Contributors</a>
                         </li>
                         <li class="mb-4">
                             <p
                                 on:keypress="{() => (contributeOpen = true)}"
                                 on:click="{() => (contributeOpen = true)}"
-                                class="cursor-pointer hover:font-semibold hover:text-white">
+                                class="cursor-pointer text-white transition-all hover:underline">
                                 Contribute
                             </p>
                         </li>
@@ -92,15 +92,16 @@ let contributeOpen = false
                 <p class="text-sm">
                     © 2022-{currentYear} — {$t('footer.fanmadeNotice')}
                 </p>
-                <p class="text-xs">
+                <p class="">
                     Created with <i class="fas fa-heart text-red-500"></i> by
                     <a
                         href="https://dromzeh.dev/?ref=wanderer.moe"
-                        class="hover:font-semibold hover:text-white">dromzeh</a
+                        class="text-white transition-all hover:underline"
+                        >dromzeh</a
                     >, powered by
                     <a
                         href="https://cloudflare.com/"
-                        class="hover:font-semibold hover:text-white"
+                        class="text-white transition-all hover:underline"
                         >Cloudflare</a>
                 </p>
             </div>
