@@ -22,6 +22,7 @@ const redirects: StringRedirects = {
         to: '/genshin-impact/tcg',
         code: 301,
     },
+    // ^^ old site redirects
     '/asset-request-form': {
         to: 'https://docs.google.com/forms/d/1wEflnF1asaLtRGqo6RMUKD55nRwy1-V77ogW1wLmvus/',
         code: 301,
@@ -32,6 +33,14 @@ const redirects: StringRedirects = {
     },
     '/discord': {
         to: 'https://discord.com/invite/659KAFfNd6',
+        code: 301,
+    },
+    '/chat': {
+        to: 'https://discord.com/invite/659KAFfNd6',
+        code: 301,
+    },
+    '/github': {
+        to: 'https://github.com/wanderer-moe',
         code: 301,
     },
     '/donate': {
