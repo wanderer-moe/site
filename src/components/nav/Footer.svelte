@@ -29,15 +29,31 @@ let contributeOpen = false
                     <ul>
                         <li class="mb-4">
                             <a
-                                href="https://git.wanderer.moe/"
+                                href="https://twitter.com/dromzeh"
+                                target="_blank"
                                 class="text-white transition-all hover:underline"
-                                >GitHub</a>
+                                >Dev Twitter</a>
                         </li>
-                        <li>
+                        <li class="mb-4">
+                            <a
+                                href="https://tiktok.com/@dromzeh"
+                                target="_blank"
+                                class="text-white transition-all hover:underline"
+                                >Dev TikTok</a>
+                        </li>
+                        <li class="mb-4">
                             <a
                                 href="https://discord.wanderer.moe/"
+                                target="_blank"
                                 class="text-white transition-all hover:underline"
                                 >Discord Server</a>
+                        </li>
+                        <li class="mb-4">
+                            <a
+                                href="https://git.wanderer.moe/"
+                                target="_blank"
+                                class="text-white transition-all hover:underline"
+                                >GitHub</a>
                         </li>
                     </ul>
                 </div>
