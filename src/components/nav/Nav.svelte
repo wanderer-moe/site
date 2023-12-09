@@ -5,14 +5,21 @@ import SearchBar from '@/components/popouts/SearchBar.svelte'
 let isSearchOpen = false
 </script>
 
-<a href="https://preregister.wanderer.moe/">
+<a href="https://waitlist.wanderer.moe/">
     <div
-        class="group bg-indigo-500 p-2 text-center text-white transition-all duration-150 hover:bg-indigo-400">
-        <p class="justify-self-center text-base font-bold">
-            pre-register & get notified for our new site!<i
-                class="fa-solid fa-arrow-right ml-2 translate-y-[1px] transition-transform group-hover:translate-x-1"
-            ></i>
-        </p>
+        class="group bg-indigo-500 p-1.5 text-center text-white transition-all duration-150 hover:bg-indigo-400">
+        <div class="text-center">
+            <p class="text-lg font-bold">
+                join the new site waitlist in less than 30 seconds
+                <i
+                    class="fa-solid fa-arrow-right ml-2 translate-y-[1px] transition-transform group-hover:translate-x-1"
+                ></i>
+            </p>
+            <p class="translate-y-[-3px] text-xs font-semibold text-white">
+                by joining, you get early access to new features and entered in
+                giveaways
+            </p>
+        </div>
     </div>
 </a>
 <header

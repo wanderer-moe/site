@@ -48,7 +48,11 @@ const redirects: StringRedirects = {
         code: 301,
     },
     '/preregister': {
-        to: 'https://preregister.wanderer.moe/',
+        to: 'https://waitlist.wanderer.moe/',
+        code: 301,
+    },
+    '/waitlist': {
+        to: 'https://waitlist.wanderer.moe/',
         code: 301,
     },
 }
