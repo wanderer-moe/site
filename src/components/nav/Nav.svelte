@@ -10,14 +10,13 @@ let isSearchOpen = false
         class="group bg-indigo-500 p-1.5 text-center text-white transition-all duration-150 hover:bg-indigo-400">
         <div class="text-center">
             <p class="text-lg font-bold">
-                join the new site waitlist in less than 30 seconds
+                join the new site waitlist
                 <i
                     class="fa-solid fa-arrow-right ml-2 translate-y-[1px] transition-transform group-hover:translate-x-1"
                 ></i>
             </p>
             <p class="translate-y-[-3px] text-xs font-semibold text-white">
-                by joining, you get early access to new features and entered in
-                giveaways
+                get early access to new features & entered in giveaways
             </p>
         </div>
     </div>
