@@ -12,6 +12,10 @@ let minimized = false
 let progressPercentage = 0
 let downloadCancelled = false
 
+let downloadErrored = false
+
+const errors = []
+
 export let game, asset, selectedItems, selected, images, closeDownload
 
 async function downloadFiles(selected = false) {
@@ -41,7 +45,8 @@ async function downloadFiles(selected = false) {
             progressPercentage = (progress / items.length) * 100
             downloadProgress = `Downloaded ${progress}/${items.length} files`
         } catch (error) {
-            console.error(error)
+            errors.push('Error downloading file: ' + item.path + ' ' + error)
+            console.error('Error downloading file:', item.path, error)
         }
     }
 
@@ -50,11 +55,23 @@ async function downloadFiles(selected = false) {
     try {
         const content = await zip.generateAsync({ type: 'blob' })
         saveAs(content, `${game}-${asset}-${selected ? 'selected' : 'all'}.zip`)
-        statusText = `Downloaded ${selected ? 'selected' : 'all'} ${fixCasing(
-            game
-        )} ${fixCasing(asset)} files.`
+
+        if (progress < items.length) {
+            downloadErrored = true
+            statusText = `Downloaded ${
+                selected ? 'selected' : 'all'
+            } ${fixCasing(game)} ${fixCasing(asset)} files - with ${
+                items.length - progress
+            } errors.`
+            setTimeout(closeDownload, 30000)
+        } else {
+            statusText = `Downloaded ${
+                selected ? 'selected' : 'all'
+            } ${fixCasing(game)} ${fixCasing(asset)} files.`
+            setTimeout(closeDownload, 5000)
+        }
+
         minimized = false
-        setTimeout(closeDownload, 5000)
     } catch (error) {
         console.error(error)
         statusText = `Error downloading ${fixCasing(game)} ${
@@ -63,6 +80,13 @@ async function downloadFiles(selected = false) {
         minimized = false
         setTimeout(closeDownload, 5000)
     }
+}
+
+function copyErrors() {
+    const errorsString = errors
+        .map((error, i) => `${i + 1}. ${error}`)
+        .join('\n')
+    navigator.clipboard.writeText(errorsString)
 }
 
 function toggleMinimize() {
@@ -118,6 +142,13 @@ onMount(async () => {
                                     </div>
                                 </div>
                             </div>
+                            {#if downloadErrored}
+                                <button
+                                    class="btn mt-2 w-full"
+                                    on:click="{copyErrors}">
+                                    Copy Error Logs
+                                </button>
+                            {/if}
                         </div>
                     </div>
                 </div>
