@@ -4,8 +4,10 @@ import LocaleDropdown from '@/components/dropdowns/LocaleDropdown.svelte'
 import Status from '@/components/Status.svelte'
 import Contribute from '@/components/popouts/Contribute.svelte'
 const currentYear = new Date().getFullYear()
+import Faq from '@/components/popouts/Faq.svelte'
 
 let contributeOpen = false
+let isFaqOpen = false
 </script>
 
 <footer
@@ -98,6 +100,14 @@ let contributeOpen = false
                                 Contribute
                             </p>
                         </li>
+                        <li class="mb-4">
+                            <p
+                                on:keypress="{() => (isFaqOpen = true)}"
+                                on:click="{() => (isFaqOpen = true)}"
+                                class="cursor-pointer text-white transition-all hover:underline">
+                                FAQ
+                            </p>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -127,4 +137,8 @@ let contributeOpen = false
 
 {#if contributeOpen}
     <Contribute closeContribute="{() => (contributeOpen = false)}" />
+{/if}
+
+{#if isFaqOpen}
+    <Faq closeFAQ="{() => (isFaqOpen = false)}" />
 {/if}

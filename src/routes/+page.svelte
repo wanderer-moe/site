@@ -24,7 +24,7 @@ export let data
 const { allGames, allOCGenerators } = data
 const OCGeneratorsLocations = allOCGenerators.locations
 
-let focusedImage = 'goddess-of-victory-nikke'
+let focusedImage = 'honkai-star-rail'
 let isFading = false
 let nextImage = ''
 
@@ -61,22 +61,12 @@ function handleImageChange(newImage) {
                     }
                 }}" />
             <div
-                class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
-                <div
-                    class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
-                    <div
-                        class="flex flex-col items-center justify-between xl:flex-row">
-                        <div>
-                            <h2
-                                class="max-w-lg text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                wanderer.moe
-                            </h2>
-                            <p
-                                class="mb-2 max-w-xl text-xl font-semibold text-white">
-                                {$t('home.description')}
-                            </p>
-                        </div>
-                    </div>
+                class="relative flex h-48 items-center justify-center bg-gradient-to-t from-main-400 to-main-400/50">
+                <div class="flex flex-col items-center text-center">
+                    <h2 class="text-3xl font-bold text-white">wanderer.moe</h2>
+                    <p class="text-lg font-semibold text-white">
+                        {$t('home.description')}
+                    </p>
                 </div>
             </div>
         </div>
@@ -84,9 +74,7 @@ function handleImageChange(newImage) {
             <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
                 <div class="col-span-2 gap-4">
                     <div id="games" class="mb-8">
-                        <p class="mb-4 text-3xl font-bold text-white">
-                            Game Assets
-                        </p>
+                        <p class="mb-4 text-3xl font-bold text-white">Games</p>
                         <div class="grid grid-cols-1 gap-7 md:grid-cols-2">
                             {#each allGames as game}
                                 <GameContainer

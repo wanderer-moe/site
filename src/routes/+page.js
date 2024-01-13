@@ -10,7 +10,9 @@ export async function load({ fetch }) {
             ])
         const games = await gamesResponse.json()
         const allOCGenerators = await ocGeneratorsResponse.json()
-        const allGames = games.games.sort((a, b) => new Date(b.lastUploaded) - new Date(a.lastUploaded));
+        const allGames = games.games.sort(
+            (a, b) => new Date(b.lastUploaded) - new Date(a.lastUploaded)
+        )
         return {
             allGames,
             allOCGenerators,

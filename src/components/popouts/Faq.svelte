@@ -27,13 +27,13 @@ const faqEntries = [
             on:click="{closeFAQ}">✕</button>
         <div class="rounded-lg bg-main-600 p-8 text-white">
             <div>
-                <div class="rtl flex justify-center">
-                    <div class="flex flex-col items-center gap-2">
+                <div class="flex justify-center">
+                    <div class="flex flex-row items-center gap-2">
                         <img
-                            src="https://cdn.wanderer.moe/genshin-impact/emotes/cyno-3.png"
-                            alt="cyno"
+                            src="https://cdn.wanderer.moe/honkai-star-rail/emotes/pom-pom-gallery---second-closed-beta-9.png"
+                            alt="emote"
                             class="h-12 w-12" />
-                        <p class="font-semibold">
+                        <p class="text-lg font-semibold">
                             {$t('faq.title')}
                         </p>
                     </div>

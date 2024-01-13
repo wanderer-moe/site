@@ -15,9 +15,6 @@ let isSearchOpen = false
                     class="fa-solid fa-arrow-right ml-2 translate-y-[1px] transition-transform group-hover:translate-x-1"
                 ></i>
             </p>
-            <p class="translate-y-[-3px] text-xs font-semibold text-white">
-                get early access to new features & entered in giveaways
-            </p>
         </div>
     </div>
 </a>

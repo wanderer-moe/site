@@ -19,46 +19,20 @@ const { subFolders, game, lastUploaded } = data
                 src="https://cdn.wanderer.moe/{game}/cover.png"
                 class="absolute inset-0 h-48 w-full object-cover transition ease-in-out"
                 style="object-position: 50% 20%;"
-                alt="{game} cover" />
+                alt="cover" />
             <div
-                class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
-                <div
-                    class="mx-auto px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
-                    <div
-                        class="flex flex-col items-center justify-between xl:flex-row">
-                        <div>
-                            <div class="mb-4">
-                                <p
-                                    class="max-w-xl text-sm font-semibold text-white">
-                                    {$t('details.lastUpdated', {
-                                        values: {
-                                            date: formatDateReadable(
-                                                lastUploaded
-                                            ),
-                                        },
-                                    })}
-                                </p>
-                                <p
-                                    class="max-w-lg text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                    {fixCasing(game)}
-                                </p>
-                                <p
-                                    class="max-w-xl text-xl font-semibold text-white">
-                                    {$t('game.main', {
-                                        values: {
-                                            game: fixCasing(game),
-                                            availableCategories:
-                                                subFolders.length,
-                                        },
-                                    })}
-                                </p>
-                            </div>
-                            <p
-                                class="max-w-xl text-sm font-semibold text-white">
-                                {$t('game.info')}
-                            </p>
-                        </div>
-                    </div>
+                class="relative flex h-48 items-center justify-center bg-gradient-to-t from-main-400 to-main-400/50">
+                <div class="flex flex-col items-center text-center">
+                    <h2 class="text-3xl font-bold text-white">
+                        {fixCasing(game)} Assets
+                    </h2>
+                    <p class="text-sm font-semibold text-white">
+                        {$t('details.lastUpdated', {
+                            values: {
+                                date: formatDateReadable(lastUploaded),
+                            },
+                        })}
+                    </p>
                 </div>
             </div>
         </div>
@@ -74,10 +48,10 @@ const { subFolders, game, lastUploaded } = data
                                 <div class="flex flex-col gap-1">
                                     <p
                                         class="text-left text-2xl font-semibold text-white">
-                                        <i class="fa fa-folder mr-4"></i>
+                                        <i class="fa fa-folder mr-1"></i>
                                         {fixCasing(folder.name)}
                                     </p>
-                                    <p class="text-left text-lg text-white">
+                                    <p class="text-left text-sm text-gray-400">
                                         Updated on{' '}
                                         {formatDateReadable(
                                             folder.lastUploaded

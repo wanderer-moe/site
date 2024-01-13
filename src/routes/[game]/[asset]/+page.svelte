@@ -1,6 +1,5 @@
 <script>
 import { browser } from '$app/environment'
-import Faq from '@/components/popouts/Faq.svelte'
 import ViewImage from '@/components/popouts/ViewImage.svelte'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
@@ -20,7 +19,6 @@ export let data
 const { game, asset, images, lastUploaded } = data
 
 // initialize variables
-let isFaqOpen = false
 let imageDoubleClicked = false
 let selectedItems = []
 let filteredImages = images
@@ -117,55 +115,30 @@ function downloadFiles(selectedOpt) {
 
 <div class="min-h-screen">
     <div class="mb-8">
-        <div class="relative">
+        <div class="relative z-0">
             <img
                 src="https://cdn.wanderer.moe/{game}/cover.png"
                 class="absolute inset-0 h-48 w-full object-cover transition ease-in-out"
                 style="object-position: 50% 20%;"
                 alt="cover" />
             <div
-                class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
-                <div
-                    class="mx-auto px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
-                    <div
-                        class="flex flex-col items-center justify-between xl:flex-row">
-                        <div class="">
-                            <div class="mb-4">
-                                <p
-                                    class="max-w-xl text-sm font-semibold text-white">
-                                    {$t('details.lastUpdated', {
-                                        values: {
-                                            date: formatDateReadable(
-                                                lastUploaded.uploaded
-                                            ),
-                                        },
-                                    })}
-                                </p>
-                                <p
-                                    class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                    {fixCasing(game)}
-                                    <i
-                                        class="fa fa-info-circle ml-2 cursor-pointer text-sm"
-                                        on:keypress="{() =>
-                                            (isFaqOpen = !isFaqOpen)}"
-                                        on:click="{() =>
-                                            (isFaqOpen = !isFaqOpen)}"></i>
-                                </p>
-                                <p
-                                    class="max-w-xl text-xl font-semibold text-white">
-                                    {fixCasing(asset)}
-                                </p>
-                            </div>
-                            <p
-                                class="max-w-xl text-sm font-semibold text-white">
-                                {$t('asset.info')}
-                            </p>
-                        </div>
-                    </div>
+                class="relative flex h-48 items-center justify-center bg-gradient-to-t from-main-400 to-main-400/50">
+                <div class="flex flex-col items-center text-center">
+                    <h2 class="text-3xl font-bold text-white">
+                        {fixCasing(game)}
+                        {fixCasing(asset)}
+                    </h2>
+                    <p class="text-sm font-semibold text-white">
+                        {$t('details.lastUpdated', {
+                            values: {
+                                date: formatDateReadable(lastUploaded.uploaded),
+                            },
+                        })}
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="px-2 md:px-12 lg:px-24">
+        <div class="relative z-10 px-2 md:px-12 lg:px-24">
             <div>
                 <div class="mb-2 rounded-md bg-main-500 p-4">
                     <div
@@ -261,18 +234,9 @@ function downloadFiles(selectedOpt) {
                         <p class="text-2xl text-white">
                             {$t('asset.nothingFound', { values: { query } })}
                         </p>
-                        <p class="text-sm text-red-300">
-                            Assets are missing! This is because we're heads-down
-                            working on the new site. We have all missing assets
-                            available on our discord :)
-                        </p>
                     </div>
                 {/if}
             </div>
         </div>
     </div>
 </div>
-
-{#if isFaqOpen}
-    <Faq closeFAQ="{() => (isFaqOpen = false)}" />
-{/if}

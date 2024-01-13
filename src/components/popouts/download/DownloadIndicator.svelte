@@ -4,7 +4,6 @@ import { cubicOut, quintOut } from 'svelte/easing'
 import { fly } from 'svelte/transition'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
 import { saveAs } from 'file-saver'
-import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
 import JSZip from 'jszip'
 
 let statusText = ''
@@ -15,15 +14,10 @@ let downloadCancelled = false
 
 export let game, asset, selectedItems, selected, images, closeDownload
 
-let failedItems = []
-
-// TODO: separate function into downloadFiles.js
-// handling multiple files
 async function downloadFiles(selected = false) {
     let zip = new JSZip()
     let folder = zip.folder(`${game}-${asset}-${selected ? 'selected' : 'all'}`)
     let progress = 0
-    let startTime = performance.now()
     let totalSize = 0
     let items = selected ? selectedItems : images
     statusText = `Downloading ${selected ? 'selected' : 'all'} ${fixCasing(
@@ -44,18 +38,8 @@ async function downloadFiles(selected = false) {
             folder.file(`${item.name}.png`, blob)
             progress += 1
             totalSize += item.size
-            let elapsedTime = (performance.now() - startTime) / 1000
-            let speed = totalSize / elapsedTime
-            let speeds = []
-            speeds.push(speed)
-            if (speeds.length > 5) {
-                speeds.shift()
-            }
-            speed = speeds.reduce((a, b) => a + b, 0) / speeds.length
             progressPercentage = (progress / items.length) * 100
-            downloadProgress = `Downloaded ${progress}/${
-                items.length
-            } files @ ${bytesToFileSize(speed)}/s`
+            downloadProgress = `Downloaded ${progress}/${items.length} files`
         } catch (error) {
             console.error(error)
         }

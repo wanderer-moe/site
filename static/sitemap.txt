@@ -7,6 +7,7 @@ https://wanderer.moe/genshin-impact/artifacts
 https://wanderer.moe/genshin-impact/character-icons
 https://wanderer.moe/genshin-impact/character-sheets
 https://wanderer.moe/genshin-impact/elements
+https://wanderer.moe/genshin-impact/weapon-icons
 https://wanderer.moe/genshin-impact/emotes
 https://wanderer.moe/genshin-impact/items
 https://wanderer.moe/genshin-impact/namecards
@@ -15,9 +16,11 @@ https://wanderer.moe/genshin-impact/splash-art
 https://wanderer.moe/genshin-impact/tcg
 https://wanderer.moe/honkai-impact-3rd
 https://wanderer.moe/honkai-impact-3rd/splash-art
+https://wanderer.moe/honkai-impact-3rd/emotes
 https://wanderer.moe/honkai-star-rail
 https://wanderer.moe/honkai-star-rail/splash-art
 https://wanderer.moe/honkai-star-rail/elements
+https://wanderer.moe/honkai-star-rail/emotes
 https://wanderer.moe/honkai-star-rail/monsters
 https://wanderer.moe/project-sekai
 https://wanderer.moe/project-sekai/character-sheets
