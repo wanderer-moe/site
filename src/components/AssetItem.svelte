@@ -48,7 +48,7 @@ function toggleSelection(event) {
         }}">
         <img
             id="assetimg"
-            class="max-w-32 h-32 max-h-32 w-32 object-contain object-left p-1"
+            class="h-32 max-h-32 w-32 max-w-32 object-contain object-left p-1"
             src="{image.path}"
             alt="{image.name}"
             on:dblclick="{() => {

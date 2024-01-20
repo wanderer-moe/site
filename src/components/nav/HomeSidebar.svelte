@@ -39,18 +39,6 @@ const sideBarEntries = [
         ],
     },
     {
-        name: $t('home.donate.title'),
-        iconClass: 'fa-solid fa-donate',
-        shortDesc: $t('home.donate.shortDesc'),
-        desc: $t('home.donate.desc'),
-        buttons: [
-            {
-                name: 'Buy me a coffee',
-                link: 'https://buymeacoffee.com/marcelmd',
-            },
-        ],
-    },
-    {
         name: 'Github',
         iconClass: 'fa-brands fa-github',
         shortDesc: $t('home.github.shortDesc'),

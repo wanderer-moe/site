@@ -67,33 +67,16 @@ onMount(async () => {
     <div class="mb-8">
         <div class="relative z-0">
             <img
-                src="https://cdn.wanderer.moe/{game}/cover.png"
+                src="https://cdn.wanderer.moe/honkai-star-rail/cover.png"
                 class="absolute inset-0 h-48 w-full object-cover transition ease-in-out"
                 style="object-position: 50% 20%;"
-                alt="{game} cover" />
+                alt="Cover" />
             <div
-                class="relative h-48 bg-gradient-to-t from-main-400 to-main-400/50">
-                <div
-                    class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
-                    <div
-                        class="flex flex-col items-center justify-between xl:flex-row">
-                        <div class="">
-                            <h2
-                                class="flex max-w-lg items-start text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                <span class="mr-3">{fixCasing(game)}</span>
-                            </h2>
-                            <p
-                                class="max-w-xl text-xl font-semibold text-white">
-                                OC Generator
-                            </p>
-                            <p
-                                class="max-w-xl text-sm font-semibold text-white">
-                                You can lock and unlock entries by pressing the <i
-                                    class="fas fa-lock"></i>
-                                and <i class="fas fa-unlock"></i> buttons.
-                            </p>
-                        </div>
-                    </div>
+                class="relative flex h-48 items-center justify-center bg-gradient-to-t from-main-400 to-main-400/50">
+                <div class="flex flex-col items-center text-center">
+                    <h2 class="text-3xl font-bold text-white">
+                        {fixCasing(game)} OC Generator
+                    </h2>
                 </div>
             </div>
         </div>
