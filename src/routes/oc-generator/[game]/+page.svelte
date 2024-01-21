@@ -67,7 +67,7 @@ onMount(async () => {
     <div class="mb-8">
         <div class="relative z-0">
             <img
-                src="https://cdn.wanderer.moe/honkai-star-rail/cover.png"
+                src="https://cdn.wanderer.moe/{game}/cover.png"
                 class="absolute inset-0 h-48 w-full object-cover transition ease-in-out"
                 style="object-position: 50% 20%;"
                 alt="Cover" />
