@@ -3,6 +3,7 @@ import { Heart } from 'lucide-react'
 import { LocaleChanger } from '@/components/layouts/nav/locale-changer'
 import Image from 'next/image'
 import Link from 'next/link'
+import { GHStar } from '@/components/github/star'
 
 export function SiteFooter(): React.ReactElement {
     const currentYear = new Date().getFullYear()
@@ -28,6 +29,7 @@ export function SiteFooter(): React.ReactElement {
                         <div className="mt-4 grid gap-2">
                             <LocaleChanger />
                             <DiscordStatus />
+                            <GHStar />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">

@@ -1,21 +1,29 @@
 export interface User {
-    userId: string
+    avatarUrl: null | string
+    bannerUrl: null | string
+    displayName: string
     username: string
-    username_colour: string | null
-    avatar_url: string | null
-    banner_url: string | null
-    email: string
-    email_verified: number
-    pronouns: string | null
-    is_contributor: number
+    usernameColour: null | string
+    email?: string
+    emailVerified?: number
+    pronouns: null | string
     verified: number
-    bio: string | null
-    role_flags: number
-    self_assignable_role_flags: number | null
-    date_joined: number
+    bio: string
+    dateJoined: string
+    roleFlags: number
+    isContributor: number
+    selfAssignableRoleFlags: null | number
+    userId: string
 }
 
-export interface UserSessionAttributes {
-    country_code: string
-    country_name: string
+export interface SessionData {
+    userAgent: string | null
+    countryCode: string | null
+    ipAddress: string | null
+    user: User
+    sessionId: string
+    activePeriodExpiresAt: string
+    idlePeriodExpiresAt: string
+    state: string
+    fresh: boolean
 }

@@ -73,7 +73,7 @@ export function Login() {
         }
 
         try {
-            const res = await fetch(`${siteConfig.urls.api}/auth/login`, {
+            const res = await fetch(`http://localhost:8787/v2/auth/login`, {
                 method: 'POST',
                 credentials: 'include',
                 body: formData,
@@ -82,7 +82,8 @@ export function Login() {
             if (res.ok && res.status === 200) {
                 window.location.href = '/'
             } else {
-                throw new Error('Response failed')
+                console.log(res)
+                throw new Error(`Response failed`)
             }
         } catch (error) {
             console.error(error)

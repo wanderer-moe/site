@@ -1,6 +1,5 @@
 import { GamesList } from '@/components/game/games-list'
 import { RecentAssets } from '@/components/search/assets/recent-assets'
-import { OCGeneratorList } from '@/components/oc-generators/oc-generator-list'
 
 function IndexPage() {
     return (
@@ -8,7 +7,6 @@ function IndexPage() {
             <div className="flex flex-col gap-y-10">
                 <GamesList />
                 <RecentAssets />
-                <OCGeneratorList />
             </div>
         </div>
     )
