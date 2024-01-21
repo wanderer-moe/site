@@ -99,18 +99,6 @@ function Links() {
                         </p>
                     </Button>
                 </Link>
-                <Link
-                    href="/oc-generators"
-                    className="w-full transition-colors">
-                    <Button
-                        variant="ghost"
-                        className="flex w-full flex-row items-center justify-start gap-2">
-                        <Dices className="h-4 w-4" />
-                        <p className="cursor-pointer text-white">
-                            OC Generators
-                        </p>
-                    </Button>
-                </Link>
                 <Link href="/changelog" className="w-full transition-colors">
                     <Button
                         variant="ghost"

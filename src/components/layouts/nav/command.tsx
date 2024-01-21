@@ -55,13 +55,6 @@ export function Command() {
                         </CommandItem>
                         <CommandItem
                             onSelect={() =>
-                                runCommand(() => router.push('/oc-generator'))
-                            }>
-                            <Dices size={16} className="mr-2" />
-                            <span>OC Generators</span>
-                        </CommandItem>
-                        <CommandItem
-                            onSelect={() =>
                                 runCommand(() => router.push('/game'))
                             }>
                             <Gamepad size={16} className="mr-2" />
