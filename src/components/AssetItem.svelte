@@ -62,7 +62,7 @@ function toggleSelection(event) {
         <div class="whitespace-normal break-all">
             <div class="my-1">
                 <p class="text-sm lowercase text-white">
-                    {image.name.replace('.png', '')}
+                    {image.name.replace('.png', '').replaceAll('-', ' ').replaceAll('_', ' ')}
                 </p>
                 <p class="text-xs">
                     Uploaded {formatTimeAgo(image.uploaded)}
