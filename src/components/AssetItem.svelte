@@ -49,7 +49,8 @@ function toggleSelection(event) {
         <img
             id="assetimg"
             class="h-32 max-h-32 w-32 max-w-32 object-contain object-left p-1"
-            src="https://cdn.wanderer.moe/cdn-cgi/image/width=128,height=128,quality=75/{game}/{asset}/{image.name}.png"
+            style="-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;"
+            src="https://cdn.wanderer.moe/cdn-cgi/image/width=256,height=256,quality=75/{game}/{asset}/{image.name}.png"
             alt="{image.name}"
             on:dblclick="{() => {
                 imageDoubleClicked = true
