@@ -12,9 +12,9 @@ import { sortAssets } from '@/lib/utils/sort/sortAssets'
 import DownloadIndicator from '@/components/popouts/download/DownloadIndicator.svelte'
 import AssetSortDropdown from '@/components/dropdowns/AssetSortDropdown.svelte'
 
-import { page } from '$app/stores';
+import { page } from '$app/stores'
 
-const SearchQuery = $page.url.searchParams.get('query');
+const SearchQuery = $page.url.searchParams.get('query')
 
 // TODO: clean up, e.g. seperate dropdown & download into its own components...
 
@@ -70,7 +70,9 @@ function changeSort(option) {
 function updateFilter() {
     const url = new URL(window.location.href)
     const hyphenatedQuery = query.toLowerCase().replace(/\s+/g, '-')
-    url.searchParams.set('query', hyphenatedQuery)
+    if (query) {
+        url.searchParams.set('query', hyphenatedQuery)
+    }
     window.history.replaceState({}, '', url)
     filteredImages = images.filter((image) => {
         return image.name.toLowerCase().includes(hyphenatedQuery)

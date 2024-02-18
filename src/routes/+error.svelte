@@ -25,12 +25,14 @@ import { page } from '$app/stores'
                     {$t('errors.500')}
                 </p>
             {/if}
-            <p class=" text-gray-400">
-                <a href="/" class="hover:font-semibold hover:text-white"
+            <p class=" mt-2 text-gray-400">
+                <a
+                    href="/"
+                    class="transition-colors duration-150 hover:font-semibold hover:text-white"
                     >{$t('errors.refresh')}
                 </a>
             </p>
-            <p class="text-xs text-gray-400">{$page.error.message}</p>
+            <p class="mt-8 text-xs text-gray-400">{$page.error.message}</p>
         </div>
     </div>
 </div>
