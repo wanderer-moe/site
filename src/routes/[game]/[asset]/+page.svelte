@@ -72,6 +72,8 @@ function updateFilter() {
     const hyphenatedQuery = query.toLowerCase().replace(/\s+/g, '-')
     if (query) {
         url.searchParams.set('query', hyphenatedQuery)
+    } else if (url.searchParams.has('query')) {
+        url.searchParams.delete('query')
     }
     window.history.replaceState({}, '', url)
     filteredImages = images.filter((image) => {
