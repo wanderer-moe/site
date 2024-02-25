@@ -8,7 +8,7 @@ export let handleImageChange
 
 <a href="/{game.name}">
     <div
-        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover text-white transition ease-in-out hover:scale-105"
+        class="relative flex h-40 items-center justify-center overflow-hidden rounded-md bg-cover text-white ring-white/60 transition duration-150 ease-in-out hover:ring focus:ring"
         style="background-image: url('https://cdn.wanderer.moe/cdn-cgi/image/width=700,height=340,quality=75/{game.name}/cover.png'); background-position: 50% 20%;"
         on:mouseover="{() => {
             if (focusedImage !== game.name) {
