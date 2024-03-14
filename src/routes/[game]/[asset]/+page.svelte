@@ -1,7 +1,6 @@
 <script>
 import { browser } from '$app/environment'
 import ViewImage from '@/components/popouts/ViewImage.svelte'
-import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize.js'
 import { fixCasing } from '@/lib/helpers/casing/fixCasing.js'
 import AssetItem from '@/components/AssetItem.svelte'
 import { formatDateReadable } from '@/lib/helpers/timeConvertion/isoFormat.js'
@@ -9,7 +8,6 @@ import { onMount } from 'svelte'
 import { t } from 'svelte-i18n'
 import { fade } from 'svelte/transition'
 import { sortAssets } from '@/lib/utils/sort/sortAssets'
-import DownloadIndicator from '@/components/popouts/download/DownloadIndicator.svelte'
 import AssetSortDropdown from '@/components/dropdowns/AssetSortDropdown.svelte'
 
 import { page } from '$app/stores'
@@ -23,17 +21,13 @@ export let data
 const { game, asset, images, lastUploaded } = data
 
 // initialize variables
-let imageDoubleClicked = false
+let imagePreviewed = false
 let selectedItems = []
 let filteredImages = images
 let query = SearchQuery || ''
-let selected = false
-let downloadingMultiple = false
 let imageUrl = ''
 let imageTitle = ''
 let imageFileSize = ''
-let totalImagesSizeHumanReadable = '?'
-let selectedFilesSize = 0
 
 // TODO: seperate sorting into its own component
 export const sortingOptions = [
@@ -88,40 +82,20 @@ function handleInput(event) {
 }
 
 onMount(() => {
-    const totalImagesSize = images.reduce((acc, image) => {
-        return acc + image.size
-    }, 0)
-
-    totalImagesSizeHumanReadable = bytesToFileSize(totalImagesSize)
     updateFilter()
 })
-
-function downloadFiles(selectedOpt) {
-    downloadingMultiple = true
-    selected = selectedOpt
-}
 </script>
 
 <svelte:head>
     <title>{fixCasing(asset)} ({fixCasing(game)}) | wanderer.moe</title>
 </svelte:head>
 
-{#if imageDoubleClicked}
+{#if imagePreviewed}
     <ViewImage
         {imageUrl}
         {imageTitle}
         {imageFileSize}
-        closeImageView="{() => (imageDoubleClicked = false)}" />
-{/if}
-
-{#if downloadingMultiple}
-    <DownloadIndicator
-        {game}
-        {asset}
-        {images}
-        {selectedItems}
-        {selected}
-        closeDownload="{() => (downloadingMultiple = false)}" />
+        closeImageView="{() => (imagePreviewed = false)}" />
 {/if}
 
 <div class="min-h-screen">
@@ -165,46 +139,6 @@ function downloadFiles(selectedOpt) {
                                 {changeSort}
                                 {sortingOptions} />
                         </div>
-
-                        <div class="w-full rounded-md text-white">
-                            <div class="flex flex-wrap items-center gap-1">
-                                <button
-                                    disabled="{downloadingMultiple}"
-                                    on:click="{() => downloadFiles(false)}"
-                                    class="btn w-full p-2.5 font-semibold transition md:w-auto
-                                    {downloadingMultiple
-                                        ? 'cursor-not-allowed opacity-70'
-                                        : ''}">
-                                    <i class="fa-solid fa-download"></i>
-                                    {$t('asset.downloadAllSize', {
-                                        values: {
-                                            size: totalImagesSizeHumanReadable,
-                                        },
-                                    })}
-                                </button>
-                                <button
-                                    on:click="{() => downloadFiles(true)}"
-                                    class="btn w-full p-2.5 font-semibold transition md:w-auto {selectedItems.length ==
-                                        0 || downloadingMultiple
-                                        ? 'cursor-not-allowed opacity-70'
-                                        : ''}"
-                                    disabled="{selectedItems.length == 0 ||
-                                        downloadingMultiple}">
-                                    <i class="fa-solid fa-download"></i>
-                                    {#if selectedItems.length >= 1}
-                                        {$t('asset.downloadSelectedSize', {
-                                            values: {
-                                                size: bytesToFileSize(
-                                                    selectedFilesSize
-                                                ),
-                                            },
-                                        })}
-                                    {:else}
-                                        {$t('asset.downloadSelected')}
-                                    {/if}
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="text-center text-lg font-semibold text-white">
@@ -220,17 +154,15 @@ function downloadFiles(selectedOpt) {
 
             <div class="mt-8">
                 {#if filteredImages.length > 0}
-                    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div
+                        class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
                         <!-- TODO: limit how many files are shown at once before more are displayed.. -->
                         {#each filteredImages as image}
                             <AssetItem
                                 {game}
                                 {asset}
                                 {image}
-                                {downloadingMultiple}
-                                bind:selectedItems
-                                bind:selectedFilesSize
-                                bind:imageDoubleClicked
+                                bind:imagePreviewed
                                 bind:imageUrl
                                 bind:imageTitle
                                 bind:imageFileSize />

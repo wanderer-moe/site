@@ -7,12 +7,7 @@ export let closeFAQ
 
 const faqEntries = [
     { question: 'faq.purpose', answer: 'faq.purposeAnswer' },
-    {
-        question: 'faq.downloadMultipleOrAll',
-        answer: 'faq.downloadMultipleOrAllAnswer',
-    },
     { question: 'faq.downloadOnMobile', answer: 'faq.downloadOnMobileAnswer' },
-    { question: 'faq.howToExtract', answer: 'faq.howToExtractAnswer' },
     { question: 'faq.issueNotFound', answer: 'faq.issueNotFoundAnswer' },
 ]
 </script>

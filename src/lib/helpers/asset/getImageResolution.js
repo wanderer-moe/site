@@ -1,3 +1,4 @@
+// what the fuck is this
 export async function getImageResolution(image) {
     if (!image) return 'Unknown'
     const img = typeof image === 'string' ? new Image() : image
