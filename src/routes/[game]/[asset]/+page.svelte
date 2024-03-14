@@ -142,13 +142,7 @@ onMount(() => {
                     </div>
                 </div>
                 <div class="text-center text-lg font-semibold text-white">
-                    {$t('asset.main', {
-                        values: {
-                            filteredImagesCount: filteredImages.length,
-                            imagesCount: images.length,
-                            selectedItemsCount: selectedItems.length,
-                        },
-                    })}
+                    {filteredImages.length} / {images.length} assets shown
                 </div>
             </div>
 
