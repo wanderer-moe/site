@@ -57,7 +57,7 @@ export let imageUrl, imageTitle, closeImageView, imageFileSize
 </div>
 
 <div
-    class="fixed left-0 top-0 z-50 h-full w-full backdrop-blur-sm bg-black/60 backdrop-filter"
+    class="fixed left-0 top-0 z-50 h-full w-full bg-black/60 backdrop-blur-sm backdrop-filter"
     in:fade="{{ easing: quintOut, duration: 750 }}"
     out:fade="{{ easing: cubicOut, duration: 300 }}"
     on:click="{closeImageView}"

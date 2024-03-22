@@ -5,12 +5,15 @@ import SearchBar from '@/components/popouts/SearchBar.svelte'
 let isSearchOpen = false
 </script>
 
-<a href="https://waitlist.wanderer.moe/">
+<a
+    href="https://x.com/dromzeh/status/1771212786736992411"
+    target="_blank"
+    rel="noreferrer noopener">
     <div
         class="group bg-indigo-500 p-1.5 text-center text-white transition-all duration-150 hover:bg-indigo-400">
         <div class="text-center">
             <p class="text-lg font-bold">
-                join the new site waitlist
+                Artist or OC creator? Click here
                 <i
                     class="fa-solid fa-arrow-right ml-2 translate-y-[1px] transition-transform group-hover:translate-x-1"
                 ></i>
