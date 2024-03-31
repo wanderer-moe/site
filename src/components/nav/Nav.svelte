@@ -6,14 +6,14 @@ let isSearchOpen = false
 </script>
 
 <a
-    href="https://x.com/dromzeh/status/1771212786736992411"
+    href="https://glaad.org/tdov/"
     target="_blank"
     rel="noreferrer noopener">
     <div
         class="group bg-indigo-500 p-1.5 text-center text-white transition-all duration-150 hover:bg-indigo-400">
         <div class="text-center">
-            <p class="text-lg font-bold">
-                Artist or OC creator? Click here
+            <p class="font-bold">
+                🏳️‍⚧️ March 31st is TDOV - trans rights are human rights
                 <i
                     class="fa-solid fa-arrow-right ml-2 translate-y-[1px] transition-transform group-hover:translate-x-1"
                 ></i>
