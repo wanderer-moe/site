@@ -10,7 +10,7 @@
 
     @font-face {
         font-family: 'Comic Sans TTF';
-        src: url('/fonts/comic-sans-ms.ttf') format('truetype');
+        src: url('/comic-sans-ms.ttf') format('truetype');
     }
 
     body {
