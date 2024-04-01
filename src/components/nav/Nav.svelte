@@ -1,26 +1,9 @@
 <script>
-import { t } from 'svelte-i18n'
 import SearchBar from '@/components/popouts/SearchBar.svelte'
 
 let isSearchOpen = false
 </script>
 
-<a
-    href="https://glaad.org/tdov/"
-    target="_blank"
-    rel="noreferrer noopener">
-    <div
-        class="group bg-indigo-500 p-1.5 text-center text-white transition-all duration-150 hover:bg-indigo-400">
-        <div class="text-center">
-            <p class="font-bold">
-                🏳️‍⚧️ March 31st is TDOV - trans rights are human rights
-                <i
-                    class="fa-solid fa-arrow-right ml-2 translate-y-[1px] transition-transform group-hover:translate-x-1"
-                ></i>
-            </p>
-        </div>
-    </div>
-</a>
 <header
     class="sticky top-0 z-50 w-full border-b border-main-300 bg-main-500 bg-opacity-75 p-2 backdrop-blur-lg backdrop-filter transition-opacity">
     <div class="mx-auto flex flex-wrap items-center justify-between lg:px-20">

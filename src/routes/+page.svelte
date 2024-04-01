@@ -65,7 +65,8 @@ function handleImageChange(newImage) {
                 <div class="flex flex-col items-center text-center">
                     <h2 class="text-3xl font-bold text-white">wanderer.moe</h2>
                     <p class="text-lg font-semibold text-white">
-                        {$t('home.description')}
+                        <!-- {$t('home.description')} -->
+                        best free asset download website rated 2024
                     </p>
                 </div>
             </div>
