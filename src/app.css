@@ -8,18 +8,11 @@
         @apply bg-main-400;
     }
 
-    @font-face {
-        font-family: 'Comic Sans TTF';
-        src: url('/comic-sans-ms.ttf') format('truetype');
-    }
-
     body {
-        /* font-family:
+        font-family:
             'Sofia Sans',
             -apple-system,
-            BlinkMacSystemFont; */
-            /* font-family: 'Comic Sans MS', sans-serif; */
-            font-family: 'Comic Sans TTF', sans-serif;
+            BlinkMacSystemFont;
         @apply m-0 overflow-x-hidden text-sm leading-relaxed text-[#333];
     }
 
