@@ -1,6 +1,5 @@
 'use client'
 
-import { discordUser as ContributorItem } from '@/components/discord/discord-user'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
 import { Code, Heart, Star, Users, Home, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -40,48 +39,7 @@ export default function Page() {
                 <div className="flex flex-col items-center justify-center">
                     <div className="relative mt-2 grid gap-8 px-2 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
                         <div className="col-span-3 gap-4">
-                            {/* {Object.entries(categories).map(
-                                ([category, { description, roles, icon }]) => (
-                                    <div
-                                        key={category}
-                                        id={category}
-                                        className="mb-4 rounded-xl border bg-secondary-dark">
-                                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
-                                            <span className="inline-block">
-                                                {icon}
-                                            </span>
-                                            {category}
-                                        </h1>
-                                        <div className="m-2 flex items-center justify-center gap-4 text-xs text-muted-foreground/60">
-                                            {description}
-                                        </div>
-                                        <div className="grid grid-cols-2 gap-4 border-t p-4 md:grid-cols-3 lg:grid-cols-4">
-                                            {contributors
-                                                .filter(
-                                                    (contributor) =>
-                                                        roles.some((role) =>
-                                                            contributor.roles.includes(
-                                                                role,
-                                                            ),
-                                                        ) &&
-                                                        getTopmostCategory(
-                                                            contributor,
-                                                        ) === category,
-                                                )
-                                                .map(
-                                                    (
-                                                        contributor: Contributor,
-                                                    ) => (
-                                                        <ContributorItem
-                                                            key={contributor.id}
-                                                            {...contributor}
-                                                        />
-                                                    ),
-                                                )}
-                                        </div>
-                                    </div>
-                                ),
-                            )} */}
+                            
                         </div>
                     </div>
                 </div>
