@@ -42,9 +42,8 @@ export const APIClient = createApiClient((method, url, params) => {
     // xior because it actually has edge runtime support unlike axios & is lightweight
     // plus fetch was being a pain and complaining when path prameters existed in the URL
     // they follow a pretty similar API as-well
-    const xiorInstance = xior.create({
-        withCredentials: true,
-    })
+    const xiorInstance = xior.create()
+
     return xiorInstance
         .request({
             method,
@@ -65,7 +64,7 @@ export const APIClient = createApiClient((method, url, params) => {
             if (isUnimplementedCacheError) {
                 const newOptions = { ...options }
                 delete newOptions.cache
-                return xiorInstance.request(newOptions)
+                return xiorInstance.request(newOptions).then((res) => res.data)
             }
 
             console.log('fetch:', e instanceof TypeError, e)
