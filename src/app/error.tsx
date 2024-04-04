@@ -21,20 +21,19 @@ export default function Error({
             <Background>
                 <div className="flex min-h-screen flex-row items-center justify-center">
                     <div className="flex flex-col gap-y-10">
-                        <div className="z-20 flex flex-col items-center justify-center gap-y-2 text-center">
+                        <div className="flex flex-col gap-y-2">
                             <h1 className="text-2xl font-bold">
-                                <span className="rounded-lg bg-white px-2 text-[#09090B]">
+                                <span className="mr-1 rounded-lg bg-white px-2 text-background">
                                     500
                                 </span>{' '}
                                 Internal Server Error
                             </h1>
                             <p className="text-lg">
-                                Something went wrong. Please try again later.
+                                An error occurred while trying to process your
+                                request.
                             </p>
-                            <div className="flex flex-row gap-2">
-                                <GoBackButton />
-                                <TryAgainButton reset={reset} />
-                            </div>
+                            <GoBackButton />
+                            <TryAgainButton reset={reset} />
                         </div>
                     </div>
                 </div>

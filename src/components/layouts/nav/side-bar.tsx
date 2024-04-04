@@ -18,6 +18,7 @@ import {
 } from 'lucide-react'
 import { SessionSideBar } from '@/components/layouts/nav/session-sidebar'
 import { usePathname } from 'next/navigation'
+import { GHStar } from '@/components/github/star'
 
 export function SideBar() {
     const [open, setOpen] = useState(false)
@@ -62,6 +63,7 @@ export function SideBar() {
                             <div className="flex flex-col gap-2">
                                 <LocaleChanger />
                                 <DiscordStatus />
+                                <GHStar />
                                 <div className="mt-4">
                                     <QuickLinksList />
                                 </div>
@@ -94,18 +96,6 @@ function Links() {
                         <Search className="h-4 w-4" />
                         <p className="cursor-pointer text-white">
                             Search Assets
-                        </p>
-                    </Button>
-                </Link>
-                <Link
-                    href="/oc-generators"
-                    className="w-full transition-colors">
-                    <Button
-                        variant="ghost"
-                        className="flex w-full flex-row items-center justify-start gap-2">
-                        <Dices className="h-4 w-4" />
-                        <p className="cursor-pointer text-white">
-                            OC Generators
                         </p>
                     </Button>
                 </Link>

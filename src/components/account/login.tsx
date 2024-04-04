@@ -15,19 +15,17 @@ import { Separator } from '@/components/ui/separator'
 import { Loader2, Eye, EyeOff } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
-import { siteConfig } from '@/config/site'
 import { AlternateAuthProviders } from '@/components/account/alternate-auth-providers'
 import { useToast } from '@/components/ui/use-toast'
 import { z } from 'zod'
+import { APIClient } from '@/lib/api-client/client'
 
 const LoginSchema = z.object({
-    username: z
+    email: z
         .string({
-            required_error: 'Username is required',
-            invalid_type_error: 'Username must be a string',
+            required_error: 'Email is required',
         })
-        .min(3, 'Username must be at least 3 characters long')
-        .max(32, 'Username must be at most 32 characters long'),
+        .email(),
     password: z
         .string({
             required_error: 'Password is required',
@@ -73,16 +71,18 @@ export function Login() {
         }
 
         try {
-            const res = await fetch(`${siteConfig.urls.api}/auth/login`, {
-                method: 'POST',
-                credentials: 'include',
-                body: formData,
+            const res = await APIClient.post('/v2/auth/login', {
+                body: {
+                    email: data.data.email,
+                    password: data.data.password,
+                },
             })
 
-            if (res.ok && res.status === 200) {
+            if (res.success == 'true') {
                 window.location.href = '/'
             } else {
-                throw new Error('Response failed')
+                console.log(res)
+                throw new Error(`Response failed`)
             }
         } catch (error) {
             console.error(error)
@@ -111,12 +111,12 @@ export function Login() {
                     </CardHeader>
                     <CardContent className="grid gap-4">
                         <div className="grid gap-2">
-                            <Label htmlFor="username">Username</Label>
+                            <Label htmlFor="email">Email</Label>
                             <Input
                                 disabled={isLoading}
-                                id="username"
-                                name="username"
-                                type="username"
+                                id="email"
+                                name="email"
+                                type="email"
                             />
                         </div>
                         <div className="grid gap-2">

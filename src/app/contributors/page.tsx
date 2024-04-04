@@ -2,58 +2,26 @@
 
 import { discordUser as ContributorItem } from '@/components/discord/discord-user'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
-import { Contributor } from '@/interfaces/discord/contributor'
 import { Code, Heart, Star, Users, Home, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { APIClient } from '@/lib/api-client/client'
+import { z } from 'zod'
 
-async function getData(): Promise<Contributor[]> {
-    const res = await fetch('https://api.wanderer.moe/discord/contributors')
-    const { contributors } = await res.json()
-    return contributors
-}
+import type { get_V2contributorsall } from '@/lib/api-client/openapi'
 
 export default function Page() {
-    const [contributors, setContributors] = useState<Contributor[]>([])
+    type responseType = z.infer<get_V2contributorsall['response']>
+    const [contributors, setContributors] = useState<responseType>()
+
     const [loading, setLoading] = useState<boolean>(true)
 
     useEffect(() => {
-        getData().then((data) => setContributors(data))
+        APIClient.get('/v2/contributors/all').then((res) =>
+            setContributors(res),
+        )
         setTimeout(() => setLoading(false), 500)
     }, [])
-
-    const categories = {
-        Development: {
-            description: 'Managing and developing the project codebase',
-            roles: ['Project Lead', 'Developer'],
-            icon: <Code size={16} />,
-        },
-        Staff: {
-            description: 'Moderating and managing the community',
-            roles: ['Admin', 'Senior Moderator', 'Moderator'],
-            icon: <Users size={16} />,
-        },
-        Contributors: {
-            description: 'Contributing with assets and translations',
-            roles: ['Translator', 'Contributor'],
-            icon: <Star size={16} />,
-        },
-        Supporters: {
-            description: 'Really cool people',
-            roles: ['Server Booster'],
-            icon: <Heart size={16} />,
-        },
-    }
-
-    function getTopmostCategory(contributor: Contributor) {
-        for (const [category, { roles }] of Object.entries(categories)) {
-            if (roles.some((role) => contributor.roles.includes(role))) {
-                return category
-            }
-        }
-    }
-
-    // TODO(dromzeh): skeleton loading UX
 
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">
@@ -72,7 +40,7 @@ export default function Page() {
                 <div className="flex flex-col items-center justify-center">
                     <div className="relative mt-2 grid gap-8 px-2 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
                         <div className="col-span-3 gap-4">
-                            {Object.entries(categories).map(
+                            {/* {Object.entries(categories).map(
                                 ([category, { description, roles, icon }]) => (
                                     <div
                                         key={category}
@@ -113,7 +81,7 @@ export default function Page() {
                                         </div>
                                     </div>
                                 ),
-                            )}
+                            )} */}
                         </div>
                     </div>
                 </div>

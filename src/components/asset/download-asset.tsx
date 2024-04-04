@@ -3,12 +3,12 @@ import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 import { Download } from 'lucide-react'
 
-export function DownloadAsset({ assetId }: { assetId: number }) {
+export function DownloadAsset({ assetId }: { assetId: string }) {
     return (
         <Button
             onClick={() =>
                 window.open(
-                    `${siteConfig.urls.api}/asset/download/${assetId}`,
+                    `${siteConfig.urls.api}/v2/asset/${assetId}/download`,
                     '_blank',
                 )
             }

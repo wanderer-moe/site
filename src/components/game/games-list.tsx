@@ -4,40 +4,21 @@ import { Gamepad2 } from 'lucide-react'
 import { Suspense, useEffect, useState } from 'react'
 import { GameContainer } from '@/components/game/game-container'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
-import { siteConfig } from '@/config/site'
-import { arbitraryGameSort } from '@/lib/helpers/casing/mapping'
-import type { Game } from '@/interfaces/params'
+import { z } from 'zod'
 
-async function fetchGamesData() {
-    const res = await fetch(`${siteConfig.urls.api}/games/all`, {
-        next: {
-            revalidate: 5,
-        },
-    })
-    const data = await res.json()
-    return data.results
-}
+import { APIClient } from '@/lib/api-client/client'
+import type { get_V2gameall } from '@/lib/api-client/openapi'
 
 export function GamesList() {
-    const [games, setGames] = useState<Game[]>([])
+    const [games, setGames] = useState<z.infer<get_V2gameall['response']>>()
     const [loading, setLoading] = useState<boolean>(true)
 
-    const sortGames = (games: Game[]): Game[] => {
-        return [...games].sort((a, b) => {
-            const orderA = arbitraryGameSort[a.name] || Infinity
-            const orderB = arbitraryGameSort[b.name] || Infinity
-            return orderA - orderB
-        })
-    }
-
     useEffect(() => {
-        fetchGamesData().then((gamesResults) => {
-            setGames(gamesResults)
+        APIClient.get('/v2/game/all').then((res) => {
+            setGames(res)
             setLoading(false)
         })
     }, [])
-
-    const sortedGames = sortGames(games)
 
     return (
         <Suspense fallback={<SkeletonLoader />}>
@@ -54,7 +35,7 @@ export function GamesList() {
                         />
                     ) : (
                         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-                            {sortedGames.map((game) => (
+                            {games?.games.map((game) => (
                                 <GameContainer key={game.id} game={game} />
                             ))}
                         </div>

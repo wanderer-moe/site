@@ -1,10 +1,10 @@
 'use client'
-import { ForgotPassword } from '@/components/account/forgot-password'
+import { UpdateNewPaswsord } from '@/components/account/update-new-password'
 import Background from '@/components/background/background'
 import { useAuthContext } from '@/context/auth-context'
 import { redirect } from 'next/navigation'
 
-export default function MainSettingsPage() {
+export default function ForgotPasswordPage() {
     const { isLoadingSession, session } = useAuthContext()
 
     if (session) {
@@ -18,7 +18,7 @@ export default function MainSettingsPage() {
                     {isLoadingSession ? (
                         <div>Loading...</div>
                     ) : (
-                        <ForgotPassword />
+                        <UpdateNewPaswsord />
                     )}
                 </div>
             </Background>

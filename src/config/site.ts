@@ -2,7 +2,7 @@ export const siteConfig = {
     name: 'wanderer.moe',
     description: 'A centralized database of various game assets.',
     urls: {
-        api: 'https://v2-api-testing.wanderer.moe',
+        api: 'https://v2-staging-api.wanderer.moe',
         cdn: 'https://files.wanderer.moe',
         site: 'https://wanderer.moe',
         status: 'https://status.wanderer.moe',
