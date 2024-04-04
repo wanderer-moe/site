@@ -1202,7 +1202,7 @@ export class ApiClient {
 }
 
 export function createApiClient(fetcher: Fetcher, baseUrl?: string) {
-    return new ApiClient(fetcher).setBaseUrl('http://localhost:8787' ?? '')
+    return new ApiClient(fetcher).setBaseUrl('http://v2-staging-api.wanderer.moe' ?? '')
 }
 
 /**
