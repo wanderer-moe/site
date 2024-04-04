@@ -181,10 +181,9 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                     <TableRow>
                                         <TableHead>Uploaded Date</TableHead>
                                         <TableCell>
-                                            {/* {new Date(
-                                                response.asset.,
-                                            ).toLocaleString()} */}
-                                            aa
+                                            {new Date(
+                                                response.asset.uploadedDate,
+                                            ).toLocaleString()}
                                         </TableCell>
                                         <TableHead className="hidden sm:table-cell">
                                             File Size

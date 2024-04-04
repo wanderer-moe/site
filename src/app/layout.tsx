@@ -3,7 +3,7 @@ import { NavBar } from '@/components/layouts/nav/navigation-bar'
 import { ScrollToTop } from '@/components/layouts/nav/scroll-to-top'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/context/auth-context'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { DeviceWarning } from '@/components/device-warning'
 import './globals.css'
 import { Toaster } from '@/components/ui/toaster'
@@ -36,6 +36,9 @@ export const metadata: Metadata = {
         title: 'wanderer.moe',
         images: ['/og'],
     },
+}
+
+export const viewport: Viewport = {
     themeColor: '#BFB7D6',
 }
 
