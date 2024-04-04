@@ -51,21 +51,22 @@ export const APIClient = createApiClient((method, url, params) => {
             data: params,
             credentials: 'include', // because we're using cookies for auth
             headers,
+            cache: 'no-store', // temporary fix for cloudflare edge runtime
         })
         .then((res) => res.data)
         .catch((e) => {
             // NOTE(dromzeh): TEMPORARY FIX, DONT DEPLOY IN PRODUCTION PLZ
             // known issue - https://github.com/cloudflare/workerd/issues/698
             // this should, in retrospect, fix the issue by removing the cache option
-            const isUnimplementedCacheError =
-                e.message ===
-                "The 'cache' field on 'RequestInitializerDict' is not implemented."
+            // const isUnimplementedCacheError =
+            //     e.message ===
+            //     "The 'cache' field on 'RequestInitializerDict' is not implemented."
 
-            if (isUnimplementedCacheError) {
-                const newOptions = { ...options }
-                delete newOptions.cache
-                return xiorInstance.request(newOptions).then((res) => res.data)
-            }
+            // if (isUnimplementedCacheError) {
+            //     const newOptions = { ...options }
+            //     delete newOptions.cache
+            //     return xiorInstance.request(newOptions).then((res) => res.data)
+            // }
 
             console.log('fetch:', e instanceof TypeError, e)
         })
