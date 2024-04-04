@@ -55,6 +55,19 @@ export const APIClient = createApiClient((method, url, params) => {
         })
         .then((res) => res.data)
         .catch((e) => {
+            // NOTE(dromzeh): TEMPORARY FIX, DONT DEPLOY IN PRODUCTION PLZ
+            // known issue - https://github.com/cloudflare/workerd/issues/698
+            // this should, in retrospect, fix the issue by removing the cache option
+            const isUnimplementedCacheError =
+                e.message ===
+                "The 'cache' field on 'RequestInitializerDict' is not implemented."
+
+            if (isUnimplementedCacheError) {
+                const newOptions = { ...options }
+                delete newOptions.cache
+                return xiorInstance.request(newOptions)
+            }
+
             console.log('fetch:', e instanceof TypeError, e)
         })
 })
