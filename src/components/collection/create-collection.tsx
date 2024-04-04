@@ -1,5 +1,3 @@
-import { Asset } from '@/interfaces/asset/asset'
-
-export function CreateCollection(asset: Asset) {
+export function CreateCollection(asset: any) {
     return <></>
 }

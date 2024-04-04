@@ -1202,7 +1202,9 @@ export class ApiClient {
 }
 
 export function createApiClient(fetcher: Fetcher, baseUrl?: string) {
-    return new ApiClient(fetcher).setBaseUrl('http://v2-staging-api.wanderer.moe' ?? '')
+    return new ApiClient(fetcher).setBaseUrl(
+        'http://v2-staging-api.wanderer.moe' ?? '',
+    )
 }
 
 /**

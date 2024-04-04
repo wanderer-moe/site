@@ -1,7 +1,6 @@
-import { Asset } from '@/interfaces/asset/asset'
 import * as React from 'react'
 
-export function AddToCollection(asset: Asset) {
+export function AddToCollection(asset: any) {
     const [selected, setSelected] = React.useState<boolean>(false)
 
     return <></>
