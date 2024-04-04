@@ -38,9 +38,7 @@ export default function Page() {
             {!loading ? (
                 <div className="flex flex-col items-center justify-center">
                     <div className="relative mt-2 grid gap-8 px-2 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
-                        <div className="col-span-3 gap-4">
-                            
-                        </div>
+                        <div className="col-span-3 gap-4"></div>
                     </div>
                 </div>
             ) : (

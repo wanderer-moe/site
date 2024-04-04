@@ -4,25 +4,22 @@ import AssetContainer from '@/components/asset/assets-container'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
 import { APIClient } from '@/lib/api-client/client'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { siteConfig } from '@/config/site'
+import { Suspense, useEffect, useState } from 'react'
 import { AssetSearchHandler } from '@/components/search/assets/asset-search-sidebar'
 import Link from 'next/link'
 import { ChevronRight, Home } from 'lucide-react'
 import type { get_V2assetsearch } from '@/lib/api-client/openapi'
 import { z } from 'zod'
 
-// function getData(searchParams: SearchParams) {
-//     return fetch(
-//         `${siteConfig.urls.api}/search/assets?${new URLSearchParams(
-//             searchParams as any,
-//         )}`,
-//     )
-//         .then((res) => res.json())
-//         .then((data) => data.results)
-// }
-
 function SearchPage() {
+    return (
+        <Suspense>
+            <SearchPageContent />
+        </Suspense>
+    )
+}
+
+function SearchPageContent() {
     const searchParams = useSearchParams()!
 
     const [data, setData] = useState<z.infer<get_V2assetsearch['response']>>()

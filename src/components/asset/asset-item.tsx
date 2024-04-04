@@ -123,7 +123,7 @@ export default function AssetItem(asset: Asset) {
                                         className="h-6 rounded-md px-3 py-1 text-xs font-normal">
                                         <div className="flex flex-row items-center">
                                             <img
-                                                src={`${siteConfig.urls.cdn}/assets/${asset.gameId}/icon.png`}
+                                                src={`${siteConfig.urls.cdn}/game/${asset.gameId}/icon.png`}
                                                 className="mr-2 h-4 w-4"
                                                 alt={asset.gameId}
                                             />

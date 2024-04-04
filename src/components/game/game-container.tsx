@@ -108,7 +108,7 @@ export function GameLabel({ game, className }: GameContainerProps) {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
                 <img
-                    src={`${siteConfig.urls.cdn}/assets/${game.name}/icon.png`}
+                    src={`${siteConfig.urls.cdn}/game/${game.name}/icon.png`}
                     alt={game.name}
                     className="h-5 w-5 rounded-md"
                 />
