@@ -4,6 +4,8 @@
    - maybe also mention if an oc generator is available for said game
 */
 
+export const runtime = 'edge'
+ 
 export default async function GamePage() {
     return <></>
 }
