@@ -2,11 +2,15 @@
 
 import AssetItem from '@/components/asset/asset-item'
 import { Button } from '@/components/ui/button'
-import type { Asset } from '@/interfaces/asset/asset'
 import { assetVariants } from '@/lib/framer/variants'
 import { motion } from 'framer-motion'
 import * as React from 'react'
+import type { get_V2assetsearch } from '@/lib/api-client/openapi'
+import { z } from 'zod'
 
+type Assets = z.infer<get_V2assetsearch['response']>
+
+type Asset = Pick<Assets, 'assets'>['assets'][0]
 interface AssetContainerProps {
     assets: Asset[]
     displayCounter?: boolean
@@ -37,7 +41,7 @@ export default function AssetContainer({
     return (
         <div>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                {displayedAssets.map((item: Asset) => (
+                {displayedAssets.map((item) => (
                     <motion.div
                         variants={assetVariants}
                         key={item.id}

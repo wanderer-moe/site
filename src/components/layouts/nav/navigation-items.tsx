@@ -23,7 +23,7 @@ export function NavItems(): React.ReactElement {
                     <Command />
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    {!session ? (
+                    {!session?.session ? (
                         <div className="flex flex-row items-center gap-2">
                             <Link href="/login" passHref>
                                 <Button variant="outline">Login</Button>

@@ -12,7 +12,7 @@ export function SessionSideBar() {
     return (
         <div className="flex flex-col gap-2">
             {isLoadingSession && <SkeletonLoader />}
-            {!session ? (
+            {!session?.session ? (
                 <React.Fragment>
                     <Link href="/login" className="w-full transition-colors">
                         <Button

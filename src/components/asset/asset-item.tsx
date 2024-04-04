@@ -10,7 +10,6 @@ import {
     ContextMenuTrigger,
 } from '@/components/ui/context-menu'
 import { Dialog } from '@/components/ui/dialog'
-import { Asset } from '@/interfaces/asset/asset'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
 import { mapAssetType } from '@/lib/helpers/casing/mapping'
 import { timeAgo } from '@/lib/helpers/time'
@@ -36,6 +35,12 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { useRouter } from 'next/navigation'
+import { z } from 'zod'
+import type { get_V2assetsearch } from '@/lib/api-client/openapi'
+
+type Assets = z.infer<get_V2assetsearch['response']>
+
+type Asset = Pick<Assets, 'assets'>['assets'][0]
 
 function download(asset: Asset) {
     window.open(`${siteConfig.urls.api}/asset/download/${asset.id}`)
@@ -63,7 +68,7 @@ export default function AssetItem(asset: Asset) {
                                                     '.png',
                                                     '-128.png',
                                                 )}`}
-                                                className="max-w-24 h-24 max-h-24 w-24 object-contain object-left"
+                                                className="h-24 max-h-24 w-24 max-w-24 object-contain object-left"
                                                 alt={asset.name}
                                             />
                                             <ExternalLink className="absolute bottom-2 right-2 h-4 w-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -109,27 +114,27 @@ export default function AssetItem(asset: Asset) {
                                     {assetName}
                                 </p>
                                 <p className="line-clamp-1 text-xs font-normal">
-                                    Size: {bytesToFileSize(asset.file_size)}
+                                    Size: {bytesToFileSize(asset.fileSize)}
                                 </p>
                             </div>
                             <p className="line-clamp-1 text-xs font-normal">
-                                Uploaded {timeAgo(asset.uploaded_date)}
+                                Uploaded
                             </p>
                             <div className="mt-2 flex flex-row gap-1">
                                 <Link
-                                    href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
+                                    href={`/search?game=${asset.gameId}&asset=${asset.assetCategoryId}`}>
                                     <Button
                                         variant="outline"
                                         className="h-6 rounded-md px-3 py-1 text-xs font-normal">
                                         <div className="flex flex-row items-center">
                                             <img
-                                                src={`${siteConfig.urls.cdn}/assets/${asset.game}/icon.png`}
+                                                src={`${siteConfig.urls.cdn}/assets/${asset.gameId}/icon.png`}
                                                 className="mr-2 h-4 w-4"
-                                                alt={asset.game}
+                                                alt={asset.gameId}
                                             />
                                             <div className="line-clamp-1 font-normal">
                                                 {mapAssetType(
-                                                    asset.asset_category,
+                                                    asset.assetCategoryId,
                                                 )}
                                             </div>
                                         </div>

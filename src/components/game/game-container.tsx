@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { Game } from '@/interfaces/params'
 import { mapAssetType, mapGame } from '@/lib/helpers/casing/mapping'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -8,6 +7,11 @@ import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
 import { Label } from '@/components/ui/label'
+import { z } from 'zod'
+import { type get_V2gameId } from '@/lib/api-client/openapi'
+
+type GameResponse = z.infer<get_V2gameId['response']>
+type Game = Pick<GameResponse, 'game'>['game']
 
 interface GameContainerProps {
     game: Game
@@ -34,7 +38,7 @@ export function GameContainer({ game, className }: GameContainerProps) {
                     <motion.div
                         className="relative flex h-24 items-center justify-center rounded-md sm:h-28"
                         style={{
-                            backgroundImage: `url(${siteConfig.urls.cdn}/assets/${game.name}/cover.png)`,
+                            backgroundImage: `url(${siteConfig.urls.cdn}/game/${game.name}/cover.png)`,
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat',
                         }}
@@ -62,13 +66,13 @@ export function GameContainer({ game, className }: GameContainerProps) {
                                 <p className="line-clamp-2 text-center font-bold text-white">
                                     {mapGame(game.name)}
                                 </p>
-                                <p className="text-center text-xs font-normal text-white">
+                                {/* <p className="text-center text-xs font-normal text-white">
                                     {game.asset_count}{' '}
                                     {game.asset_count === 1
                                         ? 'asset'
                                         : 'assets'}{' '}
                                     available
-                                </p>
+                                </p> */}
                             </motion.div>
                             <motion.p
                                 className="text-center text-xs font-normal text-white"
@@ -77,7 +81,7 @@ export function GameContainer({ game, className }: GameContainerProps) {
                                     y: hovered ? 0 : 10,
                                 }}
                                 transition={{ duration: 0.15 }}>
-                                Updated {timeAgo(game.last_updated)}
+                                Updated {game.lastUpdated}
                             </motion.p>
                         </div>
                     </motion.div>

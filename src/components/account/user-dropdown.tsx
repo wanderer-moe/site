@@ -18,10 +18,9 @@ import {
     User as UserIcon,
 } from 'lucide-react'
 import Link from 'next/link'
-import { roleFlagsToArray } from '@/lib/helpers/roleFlags'
 import { logoutUser } from '@/context/auth-context'
 import { Badge } from '@/components/ui/badge'
-import { SessionData } from '@/interfaces/user/user'
+import { type Session as SessionData } from '@/context/auth-context'
 
 interface UserNavProps {
     session: SessionData
@@ -29,9 +28,7 @@ interface UserNavProps {
 
 export function UserNav(props: UserNavProps) {
     const { session } = props
-    const roles = roleFlagsToArray(session.user.roleFlags)
 
-    console.log(session)
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -62,19 +59,9 @@ export function UserNav(props: UserNavProps) {
                         </p>
                     </div>
                 </div>
-                {/* this is temp */}
-                {roles && (
-                    <div className="flex flex-row flex-wrap gap-1 p-2">
-                        {roles
-                            .slice()
-                            .reverse()
-                            .map((role) => (
-                                <Badge variant="secondary" key={role}>
-                                    {role}
-                                </Badge>
-                            ))}
-                    </div>
-                )}
+                <Badge variant="secondary" key={session.user.role}>
+                    {session.user.role}
+                </Badge>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <Link href="/account/profile" passHref>
@@ -95,8 +82,7 @@ export function UserNav(props: UserNavProps) {
                             Saved Assets
                         </DropdownMenuItem>
                     </Link>
-                    <DropdownMenuItem
-                        disabled={session.user.isContributor === 0}>
+                    <DropdownMenuItem disabled={session.user.isContributor}>
                         <Upload className="mr-2 h-4 w-4" />
                         Upload Assets
                     </DropdownMenuItem>

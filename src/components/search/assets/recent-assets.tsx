@@ -1,30 +1,29 @@
 'use client'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
-import type { Asset } from '@/interfaces/asset/asset'
+import { APIClient } from '@/lib/api-client/client'
+import { z } from 'zod'
+import type { get_V2assetsearch } from '@/lib/api-client/openapi'
 import * as React from 'react'
 import AssetContainer from '@/components/asset/assets-container'
-import { siteConfig } from '@/config/site'
 import { FilePlus2 } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
-async function fetchRecentData() {
-    const res = await fetch(`${siteConfig.urls.api}/search/assets/recent`, {
-        next: {
-            revalidate: 5,
-        },
-    })
-    const data = await res.json()
-    return data.results
-}
+type Assets = z.infer<get_V2assetsearch['response']>
+
+type Asset = Pick<Assets, 'assets'>['assets'][0]
 
 export function RecentAssets() {
     const [recentData, setRecentData] = React.useState<Asset[]>([])
     const [loading, setLoading] = React.useState<boolean>(true)
 
     React.useEffect(() => {
-        fetchRecentData().then((recentResults) => {
-            setRecentData(recentResults.slice(0, 4))
+        APIClient.get('/v2/asset/search', {
+            query: {
+                offset: '0',
+            },
+        }).then((res) => {
+            setRecentData(res.assets)
             setLoading(false)
         })
     }, [])

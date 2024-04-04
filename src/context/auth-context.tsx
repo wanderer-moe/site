@@ -1,24 +1,19 @@
 'use client'
 
-/*
-Authentication Context for Easy Session Data Sharing Between Components and Pages.
-Since our Backend is completely separate from the frontend, we need a way to share session data across different parts of our application.
-The <AuthProvider> is already included in Layout.tsx, which means we can access session data from any component effortlessly.
-*/
-
-// TODO(dromzeh): define types instead of any
-
 import * as React from 'react'
-import { siteConfig } from '@/config/site'
-import { SessionData } from '@/interfaces/user/user'
+import { APIClient } from '@/lib/api-client/client'
+import type { get_V2authvalidate } from '@/lib/api-client/openapi'
+import { z } from 'zod'
+
+export type Session = z.infer<get_V2authvalidate['response']>
 
 export type SessionState = {
-    session: SessionData | null
+    session: Session | null
     isLoadingSession: boolean
 }
 
 export type AuthContextType = {
-    refreshSessionData: () => Promise<SessionData | null>
+    refreshSessionData: () => Promise<Session | null>
 } & SessionState
 
 export const AuthContext = React.createContext<AuthContextType>({
@@ -50,13 +45,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
          * @return {Promise<void>} A promise that resolves once the session data has been fetched and the authentication state has been updated.
          */
         const fetchSessionData = async () => {
-            const sessionRequest = await fetchJson<any>(
-                `http://localhost:8787/v2/auth/validate`,
-            )
+            const sessionRequest = await APIClient.get(
+                '/v2/auth/validate',
+            ).then((res) => res)
             if (isMounted) {
                 setAuthState({
                     isLoadingSession: false,
-                    session: sessionRequest?.session || null,
+                    session: sessionRequest || null,
                 })
             }
         }
@@ -76,17 +71,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
          * @return {Promise<any>} The session data returned by the API endpoint.
          */
         refreshSessionData: async () => {
-            const sessionRequest = await fetchJson<any>(
-                `http://localhost:8787/v2/auth/validate`,
-            )
+            const sessionRequest = await APIClient.get(
+                '/v2/auth/validate',
+            ).then((res) => res)
             setAuthState({
                 isLoadingSession: false,
                 session:
-                    sessionRequest.success !== 'false'
-                        ? sessionRequest.session
-                        : null,
+                    sessionRequest.success === 'true' ? sessionRequest : null,
             })
-            return sessionRequest.session
+            return sessionRequest.user
         },
     }
 
@@ -111,9 +104,20 @@ export const useAuthContext = () => {
     return context
 }
 
-export const useCurrentSession = () => useAuthContext().session
+export function useCurrentUser() {
+    const authContext = useAuthContext()
+    return authContext?.session?.user
+}
 
-export const useCurrentUser = () => useCurrentSession()?.user ?? null
+export function useCurrentSession() {
+    const authContext = useAuthContext()
+    return authContext?.session?.session
+}
+
+export function useCurrentSessionAndUser() {
+    const authContext = useAuthContext()
+    return authContext?.session
+}
 
 /**
  * Logs out the user by sending a request to the server and redirecting to the homepage.
@@ -121,10 +125,7 @@ export const useCurrentUser = () => useCurrentSession()?.user ?? null
  * @return {Promise<void>} - A Promise that resolves when the user is successfully logged out.
  */
 export const logoutUser = async () => {
-    fetch(`http://localhost:8787/v2/auth/logout`, {
-        method: 'POST',
-        credentials: 'include',
-    })
+    await APIClient.get('/v2/auth/logout')
         .then(() => {
             window.location.href = '/'
             console.log('user logged out')
@@ -132,29 +133,4 @@ export const logoutUser = async () => {
         .catch((error) => {
             console.error(error)
         })
-}
-
-/**
- * Fetches JSON data from the specified path.
- *
- * @param {string} path - The path from which to fetch the JSON data.
- * @return {Promise<T | null>} A Promise that resolves to the fetched JSON data, or null if an error occurs.
- */
-export async function fetchJson<T>(path: string): Promise<T | null> {
-    try {
-        const res = await fetch(path, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-        })
-
-        if (!res.ok)
-            throw new Error(`Fetching failed with status: ${res.status}`)
-
-        const data = (await res.json()) as T
-        return data
-    } catch (error) {
-        return null
-    }
 }

@@ -6,7 +6,7 @@ function IndexPage() {
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">
             <div className="flex flex-col gap-y-10">
                 <GamesList />
-                <RecentAssets />
+                {/* <RecentAssets /> */}
             </div>
         </div>
     )

@@ -10,9 +10,7 @@ import {
     TableHead,
     TableRow,
 } from '@/components/ui/table'
-import { Asset, SimilarAsset } from '@/interfaces/asset/asset'
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
-import { mapAssetType, mapGame } from '@/lib/helpers/casing/mapping'
 import {
     Boxes,
     ChevronRightCircle,
@@ -28,15 +26,19 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 import { DownloadAsset } from '@/components/asset/download-asset'
+import { z } from 'zod'
+import { APIClient } from '@/lib/api-client/client'
+import type { get_V2assetId } from '@/lib/api-client/openapi'
 
 export const runtime = 'edge'
 
 async function getAsset(
     id: string,
-): Promise<{ asset: Asset; similarAssets: SimilarAsset[] }> {
-    const res = await fetch(`${siteConfig.urls.api}/asset/${id}`)
-    const { asset, similarAssets } = await res.json()
-    return { asset, similarAssets }
+): Promise<{ response: z.infer<get_V2assetId['response']> }> {
+    const response = await APIClient.get(`/v2/asset/{id}`, {
+        path: { id: id },
+    })
+    return { response }
 }
 
 type Props = {
@@ -45,30 +47,23 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { id } = params
-    const { asset } = await getAsset(id)
+    const { response } = await getAsset(id)
 
-    if (!asset) return notFound()
+    if (!response) return notFound()
 
     return {
-        title: `${asset.name} (${mapGame(asset.game)}: ${mapAssetType(
-            asset.asset_category,
-        )}) - wanderer.moe`,
-        description: `Information about ${asset.name} from ${mapGame(
-            asset.game,
-        )} - ${mapAssetType(asset.asset_category)}`,
+        title: `${response.asset.name} - ${response.asset.game.formattedName} ${response.asset.assetCategory.formattedName}  - wanderer.moe`,
+        description: `${response.asset.name} - ${response.asset.game.formattedName} ${response.asset.assetCategory.formattedName}.`,
     }
 }
 
 async function AssetPage({ params: { id } }: { params: { id: string } }) {
-    const { asset, similarAssets } = await getAsset(id)
-    if (!asset) return notFound()
-
-    const assetName = asset.name.split('.').shift()
-    const assetFormat = asset.name.split('.').pop()
+    const { response } = await getAsset(id)
+    if (!response) return notFound()
 
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl p-5">
-            {asset ? (
+            {response ? (
                 <>
                     <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
                         <div className="whitespace-nowrap transition-colors hover:text-foreground">
@@ -78,20 +73,21 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                         </div>
                         <ChevronRight size={16} />
                         <div className="whitespace-nowrap transition-colors hover:text-foreground">
-                            <Link href={`/search?game=${asset.game}`}>
-                                {mapGame(asset.game)}
+                            <Link
+                                href={`/search?game=${response.asset.game.id}`}>
+                                {response.asset.game.formattedName}
                             </Link>
                         </div>
                         <ChevronRight size={16} />
                         <div className="whitespace-nowrap font-medium text-muted-foreground hover:text-foreground">
                             <Link
-                                href={`/search?game=${asset.game}&asset=${asset.asset_category}`}>
-                                {mapAssetType(asset.asset_category)}
+                                href={`/search?game=${response.asset.game.id}&asset=${response.asset.assetCategory.id}`}>
+                                {response.asset.assetCategory.formattedName}
                             </Link>
                         </div>
                         <ChevronRight size={16} />
                         <div className="overflow-hidden text-ellipsis whitespace-nowrap text-foreground transition-colors">
-                            {assetName}.{assetFormat}
+                            {response.asset.name}.{response.asset.extension}
                         </div>
                     </div>
                     <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -101,8 +97,8 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                             </h1>
                             <div className="flex h-[425px] items-center justify-center p-4">
                                 <img
-                                    src={`${siteConfig.urls.cdn}/assets/${asset.url}`}
-                                    alt={assetName}
+                                    src={`${siteConfig.urls.cdn}${response.asset.url}`}
+                                    alt={response.asset.name}
                                     className="checkerboard max-h-full rounded-lg border object-contain object-left shadow-lg"
                                 />
                             </div>
@@ -116,7 +112,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                     <TableRow>
                                         <TableHead>Name</TableHead>
                                         <TableCell colSpan={3}>
-                                            {assetName}
+                                            {response.asset.name}
                                         </TableCell>
                                     </TableRow>
                                     <TableRow>
@@ -124,61 +120,79 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                         <TableCell colSpan={3}>
                                             <div className="flex items-center">
                                                 <img
-                                                    src={`${siteConfig.urls.cdn}/assets/${asset.game}/icon.png`}
+                                                    src={`${siteConfig.urls.cdn}/game/${response.asset.game.id}/icon.png`}
                                                     className="mr-2 h-4 w-4 rounded"
-                                                    alt={asset.game}
+                                                    alt={
+                                                        response.asset.game
+                                                            .formattedName
+                                                    }
                                                 />
-                                                {mapGame(asset.game)}
+                                                {
+                                                    response.asset.game
+                                                        .formattedName
+                                                }
                                             </div>
                                         </TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableHead>Asset Category</TableHead>
                                         <TableCell colSpan={3}>
-                                            {mapAssetType(asset.asset_category)}
+                                            {
+                                                response.asset.assetCategory
+                                                    .formattedName
+                                            }
                                         </TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableHead>Tags</TableHead>
                                         <TableCell colSpan={3}>
-                                            {asset.tags
-                                                .split(',')
-                                                .map((tag) => (
+                                            {response.asset.assetTagAsset.map(
+                                                (tagAsset, index) => (
                                                     <Badge
-                                                        key={tag}
-                                                        variant="outline">
-                                                        {tag}
+                                                        variant={'outline'}
+                                                        key={index}>
+                                                        {
+                                                            tagAsset.assetTag
+                                                                .formattedName
+                                                        }
                                                     </Badge>
-                                                ))}
+                                                ),
+                                            )}
                                         </TableCell>
                                     </TableRow>
                                     <TableRow>
-                                        <TableHead>Status</TableHead>
+                                        <TableHead>Likes</TableHead>
                                         <TableCell colSpan={3}>
                                             {/* TODO: Add semantic colors here */}
                                             <Badge variant="outline">
-                                                {asset.status}
+                                                {response.assetLikes}
                                             </Badge>
                                         </TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableHead>Uploaded By</TableHead>
                                         <TableCell colSpan={3}>
-                                            {asset.uploaded_by}
+                                            {
+                                                response.asset.authUser
+                                                    .displayName
+                                            }
                                         </TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableHead>Uploaded Date</TableHead>
                                         <TableCell>
-                                            {new Date(
-                                                asset.uploaded_date,
-                                            ).toLocaleString()}
+                                            {/* {new Date(
+                                                response.asset.,
+                                            ).toLocaleString()} */}
+                                            aa
                                         </TableCell>
                                         <TableHead className="hidden sm:table-cell">
                                             File Size
                                         </TableHead>
                                         <TableCell className="hidden sm:table-cell">
-                                            {bytesToFileSize(asset.file_size)}
+                                            {bytesToFileSize(
+                                                response.asset.fileSize,
+                                            )}
                                         </TableCell>
                                     </TableRow>
                                     <TableRow className="border-0">
@@ -186,31 +200,35 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                             Resolution
                                         </TableHead>
                                         <TableCell className="hidden sm:table-cell">
-                                            {asset.width}x{asset.height}
+                                            {response.asset.width}x
+                                            {response.asset.height}
                                         </TableCell>
                                         <TableHead className="hidden sm:table-cell">
                                             File Type
                                         </TableHead>
                                         <TableCell className="hidden uppercase sm:table-cell">
-                                            {assetFormat}
+                                            {response.asset.extension}
                                         </TableCell>
                                     </TableRow>
                                     <TableRow className="sm:hidden">
                                         <TableHead>File Size</TableHead>
                                         <TableCell>
-                                            {bytesToFileSize(asset.file_size)}
+                                            {bytesToFileSize(
+                                                response.asset.fileSize,
+                                            )}
                                         </TableCell>
                                     </TableRow>
                                     <TableRow className="sm:hidden">
                                         <TableHead>Resolution</TableHead>
                                         <TableCell>
-                                            {asset.width}x{asset.height}
+                                            {response.asset.width}x
+                                            {response.asset.height}
                                         </TableCell>
                                     </TableRow>
                                     <TableRow className="sm:hidden">
                                         <TableHead>File Type</TableHead>
                                         <TableCell className="uppercase">
-                                            {assetFormat}
+                                            {response.asset.extension}
                                         </TableCell>
                                     </TableRow>
                                 </TableBody>
@@ -219,7 +237,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                     </div>
                     <div className="mt-4 flex w-full flex-col gap-4 sm:flex-row">
                         {/* TODO: Implement */}
-                        <DownloadAsset assetId={asset.id} />
+                        <DownloadAsset assetId={response.asset.id} />
                         <Button
                             variant="secondary"
                             className="w-full"
@@ -233,7 +251,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                             <Boxes size={16} />
                         </Button>
                     </div>
-                    {similarAssets.length > 0 && (
+                    {/* {similarAssets.length > 0 && (
                         <>
                             <div className="mt-4 rounded-xl border bg-secondary-dark">
                                 <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
@@ -248,7 +266,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                 </div>
                             </div>
                         </>
-                    )}
+                    )} */}
                 </>
             ) : (
                 <div className="flex flex-col items-center justify-center">
