@@ -113,7 +113,7 @@ export default function AssetItem(asset: Asset) {
                                 </p>
                             </div>
                             <p className="line-clamp-1 text-xs font-normal">
-                                Uploaded
+                                Uploaded {timeAgo(asset.uploadedDate)}
                             </p>
                             <div className="mt-2 flex flex-row gap-1">
                                 <Link

@@ -50,7 +50,7 @@ export function SideBar() {
                                         height={30}
                                     />
                                     <Link href="/" passHref>
-                                        <p className="cursor-pointer text-xl font-semibold text-white">
+                                        <p className="cursor-pointer text-xl font-semibold text-primary">
                                             wanderer.moe
                                         </p>
                                     </Link>
