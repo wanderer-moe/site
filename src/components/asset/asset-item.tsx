@@ -62,12 +62,7 @@ export default function AssetItem(asset: Asset) {
                                     <Link href={`/asset/${asset.id}`}>
                                         <div className="relative">
                                             <img
-                                                src={`${
-                                                    siteConfig.urls.cdn
-                                                }/assets/${asset.url.replace(
-                                                    '.png',
-                                                    '-128.png',
-                                                )}`}
+                                                src={`${siteConfig.urls.cdn}${asset.url}`}
                                                 className="h-24 max-h-24 w-24 max-w-24 object-contain object-left"
                                                 alt={asset.name}
                                             />

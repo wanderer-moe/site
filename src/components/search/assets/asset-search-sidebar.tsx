@@ -11,20 +11,14 @@ import {
 import { Checkbox } from '@/components/ui/checkbox'
 import { useReducer, useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { siteConfig } from '@/config/site'
 import { useRouter, useSearchParams } from 'next/navigation'
-
-// using dummy data until new API types are finished
-const dummyData = {
-    games: [
-        'genshin-impact',
-        'honkai-star-rail',
-        'honkai-impact-3rd',
-        'dislyte',
-    ],
-    categories: ['splash-art', 'character-sheets'],
-    tags: ['official', 'fanmade'],
-}
+import { APIClient } from '@/lib/api-client/client'
+import type {
+    get_V2gameall,
+    get_V2categoryall,
+    get_V2tagsall,
+} from '@/lib/api-client/openapi'
+import { z } from 'zod'
 
 interface State {
     query: string
@@ -86,14 +80,6 @@ function reducer(state: State, action: Action): State {
     }
 }
 
-function getGames() {
-    return fetch(`${siteConfig.urls.api}/games/all`, {
-        next: {
-            revalidate: 5,
-        },
-    }).then((res) => res.json())
-}
-
 export function AssetSearchHandler() {
     const [state, dispatch] = useReducer(reducer, {
         query: '',
@@ -104,11 +90,22 @@ export function AssetSearchHandler() {
 
     const router = useRouter()
     const searchParams = useSearchParams()
-    const [games, setGames] = useState<any[]>([])
-    const [categories, setCategories] = useState<any[]>([])
+
+    const [games, setGames] = useState<z.infer<get_V2gameall['response']>>()
+    const [categories, setCategories] =
+        useState<z.infer<get_V2categoryall['response']>>()
+    const [tags, setTags] = useState<z.infer<get_V2tagsall['response']>>()
 
     useEffect(() => {
-        getGames().then((data) => setGames(data))
+        APIClient.get('/v2/game/all').then((res) => {
+            setGames(res)
+        })
+        APIClient.get('/v2/category/all').then((res) => {
+            setCategories(res)
+        })
+        APIClient.get('/v2/tags/all').then((res) => {
+            setTags(res)
+        })
     }, [])
 
     useEffect(() => {
@@ -140,13 +137,13 @@ export function AssetSearchHandler() {
     const handleSearch = () => {
         const searchParams = new URLSearchParams()
         if (state.query) {
-            searchParams.set('query', state.query)
+            searchParams.set('name', state.query)
         }
         if (state.games.length) {
             searchParams.set('game', state.games.join(','))
         }
         if (state.categories.length) {
-            searchParams.set('asset', state.categories.join(','))
+            searchParams.set('category', state.categories.join(','))
         }
         if (state.tags.length) {
             searchParams.set('tags', state.tags.join(','))
@@ -185,32 +182,34 @@ export function AssetSearchHandler() {
                                     Games
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    {dummyData.games.map((game: string) => (
+                                    {games?.games.map((game) => (
                                         <div
                                             onClick={() => {
                                                 if (
-                                                    state.games.includes(game)
+                                                    state.games.includes(
+                                                        game.id,
+                                                    )
                                                 ) {
                                                     dispatch({
                                                         type: 'REMOVE_GAME',
-                                                        payload: game,
+                                                        payload: game.id,
                                                     })
                                                 } else {
                                                     dispatch({
                                                         type: 'ADD_GAME',
-                                                        payload: game,
+                                                        payload: game.id,
                                                     })
                                                 }
                                             }}
-                                            key={game}
+                                            key={game.id}
                                             className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
                                             <Checkbox
                                                 className={'mr-2'}
                                                 checked={state.games.includes(
-                                                    game,
+                                                    game.id,
                                                 )}
                                             />{' '}
-                                            {game}
+                                            {game.formattedName}
                                         </div>
                                     ))}
                                 </AccordionContent>
@@ -222,38 +221,36 @@ export function AssetSearchHandler() {
                                     Categories
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    {dummyData.categories.map(
-                                        (category: string) => (
-                                            <div
-                                                onClick={() => {
-                                                    if (
-                                                        state.categories.includes(
-                                                            category,
-                                                        )
-                                                    ) {
-                                                        dispatch({
-                                                            type: 'REMOVE_ASSET_CATEGORY',
-                                                            payload: category,
-                                                        })
-                                                    } else {
-                                                        dispatch({
-                                                            type: 'ADD_ASSET_CATEGORY',
-                                                            payload: category,
-                                                        })
-                                                    }
-                                                }}
-                                                key={category}
-                                                className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
-                                                <Checkbox
-                                                    className={'mr-2'}
-                                                    checked={state.categories.includes(
-                                                        category,
-                                                    )}
-                                                />{' '}
-                                                {category}
-                                            </div>
-                                        ),
-                                    )}
+                                    {categories?.categories.map((category) => (
+                                        <div
+                                            onClick={() => {
+                                                if (
+                                                    state.categories.includes(
+                                                        category.id,
+                                                    )
+                                                ) {
+                                                    dispatch({
+                                                        type: 'REMOVE_ASSET_CATEGORY',
+                                                        payload: category.id,
+                                                    })
+                                                } else {
+                                                    dispatch({
+                                                        type: 'ADD_ASSET_CATEGORY',
+                                                        payload: category.id,
+                                                    })
+                                                }
+                                            }}
+                                            key={category.id}
+                                            className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
+                                            <Checkbox
+                                                className={'mr-2'}
+                                                checked={state.categories.includes(
+                                                    category.id,
+                                                )}
+                                            />{' '}
+                                            {category.formattedName}
+                                        </div>
+                                    ))}
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem
@@ -264,30 +261,32 @@ export function AssetSearchHandler() {
                                     Tags
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    {dummyData.tags.map((tag: string) => (
+                                    {tags?.tags.map((tag) => (
                                         <div
                                             onClick={() => {
-                                                if (state.tags.includes(tag)) {
+                                                if (
+                                                    state.tags.includes(tag.id)
+                                                ) {
                                                     dispatch({
                                                         type: 'REMOVE_TAG',
-                                                        payload: tag,
+                                                        payload: tag.id,
                                                     })
                                                 } else {
                                                     dispatch({
                                                         type: 'ADD_TAG',
-                                                        payload: tag,
+                                                        payload: tag.id,
                                                     })
                                                 }
                                             }}
-                                            key={tag}
+                                            key={tag.id}
                                             className="mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5">
                                             <Checkbox
                                                 className={'mr-2'}
                                                 checked={state.tags.includes(
-                                                    tag,
+                                                    tag.id,
                                                 )}
                                             />{' '}
-                                            {tag}
+                                            {tag.formattedName}
                                         </div>
                                     ))}
                                 </AccordionContent>

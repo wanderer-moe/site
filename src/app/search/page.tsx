@@ -2,39 +2,40 @@
 
 import AssetContainer from '@/components/asset/assets-container'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
-import { Asset } from '@/interfaces/asset/asset'
+import { APIClient } from '@/lib/api-client/client'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { siteConfig } from '@/config/site'
 import { AssetSearchHandler } from '@/components/search/assets/asset-search-sidebar'
 import Link from 'next/link'
 import { ChevronRight, Home } from 'lucide-react'
-interface SearchParams {
-    game?: string
-    query?: string
-    asset?: string
-}
+import type { get_V2assetsearch } from '@/lib/api-client/openapi'
+import { z } from 'zod'
 
-function getData(searchParams: SearchParams) {
-    return fetch(
-        `${siteConfig.urls.api}/search/assets?${new URLSearchParams(
-            searchParams as any,
-        )}`,
-    )
-        .then((res) => res.json())
-        .then((data) => data.results)
-}
+// function getData(searchParams: SearchParams) {
+//     return fetch(
+//         `${siteConfig.urls.api}/search/assets?${new URLSearchParams(
+//             searchParams as any,
+//         )}`,
+//     )
+//         .then((res) => res.json())
+//         .then((data) => data.results)
+// }
 
 function SearchPage() {
     const searchParams = useSearchParams()!
 
-    const [data, setData] = useState<Asset[]>([])
+    const [data, setData] = useState<z.infer<get_V2assetsearch['response']>>()
     const [loading, setLoading] = useState<boolean>(true)
 
     useEffect(() => {
         setLoading(true)
-        Promise.all([getData(searchParams as SearchParams)]).then(([data]) => {
-            setData(data)
+        APIClient.get('/v2/asset/search', {
+            query: {
+                ...Object.fromEntries(searchParams),
+            },
+        }).then((res) => {
+            setData(res)
             setLoading(false)
         })
     }, [searchParams])
@@ -59,13 +60,14 @@ function SearchPage() {
                         <SkeletonLoader
                             className="grid grid-cols-1 gap-4 lg:grid-cols-2"
                             skeletonClassName="rounded-xl"
+                            displayFakes={16}
                         />
                     </div>
                 ) : (
                     <>
-                        {data.length !== 0 ? (
+                        {data?.success !== 'true' ? (
                             <div className={'w-full'}>
-                                <AssetContainer assets={data} />
+                                <AssetContainer assets={data!.assets} />
                             </div>
                         ) : (
                             <div className="mt-10 w-full">
