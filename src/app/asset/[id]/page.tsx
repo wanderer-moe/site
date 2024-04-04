@@ -29,6 +29,7 @@ import { DownloadAsset } from '@/components/asset/download-asset'
 import { z } from 'zod'
 import { APIClient } from '@/lib/api-client/client'
 import type { get_V2assetId } from '@/lib/api-client/openapi'
+import { SimilarAssets } from '@/components/search/assets/similar-assets'
 
 export const runtime = 'edge'
 
@@ -250,22 +251,9 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                             <Boxes size={16} />
                         </Button>
                     </div>
-                    {/* {similarAssets.length > 0 && (
-                        <>
-                            <div className="mt-4 rounded-xl border bg-secondary-dark">
-                                <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base">
-                                    <ChevronRightCircle size={16} /> Similar
-                                    Assets
-                                </h1>
-                                <div className="p-4">
-                                    <AssetContainer
-                                        assets={similarAssets}
-                                        displayCounter={false}
-                                    />
-                                </div>
-                            </div>
-                        </>
-                    )} */}
+                    <div className="mt-4">
+                        <SimilarAssets selectedAsset={response} />
+                    </div>
                 </>
             ) : (
                 <div className="flex flex-col items-center justify-center">

@@ -114,6 +114,7 @@ export const get_V2assetsearch = {
             category: z.string().optional(),
             tags: z.string().optional(),
             offset: z.string().optional(),
+            limit: z.string().optional(),
         }),
     }),
     response: z.object({
