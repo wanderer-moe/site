@@ -19,6 +19,8 @@ import { useState } from 'react'
 import { AlternateAuthProviders } from '@/components/account/alternate-auth-providers'
 import { z } from 'zod'
 import { useToast } from '@/components/ui/use-toast'
+import { APIClient } from '@/lib/api-client/client'
+import type { post_V2authcreate } from '@/lib/api-client/openapi'
 
 const CreateAccountSchema = z
     .object({
@@ -75,13 +77,6 @@ const CreateAccountSchema = z
             )
             .min(8, 'Password must be at least 8 characters long')
             .max(128, 'Password must be at most 128 characters long'),
-        secretKey: z
-            .string({
-                required_error: 'Secret key is required',
-                invalid_type_error: 'Secret key must be a string',
-            })
-            .min(1, 'Secret key must be at least 1 characters long')
-            .max(128, 'Secret key must be at most 128 characters long'),
     })
     .refine((data) => data.password === data.passwordConfirm, {
         message: 'Passwords do not match',
@@ -118,13 +113,16 @@ export function CreateAccount() {
         }
 
         try {
-            const res = await fetch(`http://localhost:8787/v2/auth/signup`, {
-                method: 'POST',
-                credentials: 'include',
-                body: formData,
+            const res = await APIClient.post('/v2/auth/create', {
+                body: {
+                    username: data.data.username,
+                    email: data.data.email,
+                    password: data.data.password,
+                    passwordConfirmation: data.data.passwordConfirm,
+                },
             })
 
-            if (res.ok && res.status === 200) {
+            if (res.success === 'true') {
                 window.location.href = '/'
             } else {
                 throw new Error('Response failed')
@@ -223,20 +221,6 @@ export function CreateAccount() {
                                     )}
                                 </div>
                             </div>
-                        </div>
-                        <div className="grid gap-2">
-                            <Label htmlFor="secretKey">
-                                Secret Key{' '}
-                                <span className="text-muted-foreground">
-                                    (Temporary, required to create account)
-                                </span>
-                            </Label>
-                            <Input
-                                disabled={isLoading}
-                                id="secretKey"
-                                name="secretKey"
-                                type="password"
-                            />
                         </div>
                     </CardContent>
                     <CardFooter className="flex flex-col gap-2">

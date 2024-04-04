@@ -799,7 +799,6 @@ export const post_V2authlogin = {
         body: z.object({
             email: z.string(),
             password: z.string(),
-            passwordConfirmation: z.string(),
         }),
     }),
     response: z.object({
