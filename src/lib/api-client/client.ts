@@ -61,7 +61,7 @@ export const APIClient = createApiClient((method, url, params) => {
             // maybe when blocking is implemented that's a different story, we'll have to do 2 parallel requests or something?
 
             const isUnimplementedCredentialsError =
-                e.message ===
+                e ===
                 "Error: The 'credentials' field on 'RequestInitializerDict' is not implemented."
 
             if (isUnimplementedCredentialsError) {
