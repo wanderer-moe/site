@@ -53,28 +53,16 @@ export const APIClient = createApiClient((method, url, params) => {
             headers,
         })
         .then((res) => res.data)
-        .catch((e) => {
-            // known issue (related) - https://github.com/cloudflare/workerd/issues/698
-            // CF does not support the 'credentials' field on the RequestInitializerDict with the edge func atm
-            // so we can't use fetch with credentials: 'include' to send cookies
-            // however, no immediate edge API calls actually require credentials to be included so we can just rerun the request without credentials
-            // maybe when blocking is implemented that's a different story, we'll have to do 2 parallel requests or something?
+        .catch((err) => {
+            console.error(err)
 
-            const isUnimplementedCredentialsError =
-                e ===
-                "Error: The 'credentials' field on 'RequestInitializerDict' is not implemented."
-
-            if (isUnimplementedCredentialsError) {
-                return xiorInstance
-                    .request({
-                        method,
-                        url,
-                        data: params,
-                        headers,
-                    })
-                    .then((res) => res.data)
-            }
-
-            console.log('fetch:', e instanceof TypeError, e)
+            return xiorInstance
+                .request({
+                    method,
+                    url,
+                    data: params,
+                    headers,
+                })
+                .then((res) => res.data)
         })
 })
