@@ -8,9 +8,7 @@ import Background from '@/components/background/background'
 export default function CreateAccountPage() {
     const { isLoadingSession, session } = useAuthContext()
 
-    if (session) {
-        return redirect('/')
-    }
+    if (session) return redirect('/')
 
     return (
         <div className="mx-auto -mt-14 min-h-screen max-w-screen-xl px-5">

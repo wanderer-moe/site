@@ -16,6 +16,8 @@ import { Command } from './command'
 export function NavItems(): React.ReactElement {
     const { isLoadingSession, session } = useAuthContext()
 
+    console.log(isLoadingSession, session)
+
     return (
         <NavigationMenu>
             <NavigationMenuList className="flex">
