@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import AssetContainer from '@/components/asset/assets-container'
 import { SkeletonLoader } from '@/components/placeholders/skeleton-loader'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -13,10 +12,8 @@ import {
 import { bytesToFileSize } from '@/lib/helpers/asset/bytesToFileSize'
 import {
     Boxes,
-    ChevronRightCircle,
     ChevronRight,
     Copy,
-    Download,
     Image as ImageIcon,
     Info,
     Home,
@@ -25,7 +22,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
-import { DownloadAsset } from '@/components/asset/download-asset'
+import { DownloadAsset, CopyAsset } from '@/components/asset/asset-utils'
 import { z } from 'zod'
 import { APIClient } from '@/lib/api-client/client'
 import type { get_V2assetId } from '@/lib/api-client/openapi'
@@ -238,12 +235,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                     <div className="mt-4 flex w-full flex-col gap-4 sm:flex-row">
                         {/* TODO: Implement */}
                         <DownloadAsset assetId={response.asset.id} />
-                        <Button
-                            variant="secondary"
-                            className="w-full"
-                            title="Copy Image">
-                            <Copy size={16} />
-                        </Button>
+                        <CopyAsset assetUrl={response.asset.url} />
                         <Button
                             variant="secondary"
                             className="w-full"

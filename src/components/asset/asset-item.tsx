@@ -47,8 +47,6 @@ function download(asset: Asset) {
 }
 
 export default function AssetItem(asset: Asset) {
-    const assetName = asset.name.split('.').shift()
-    // const assetFormat = asset.name.split('.').pop()
     const { toast } = useToast()
 
     return (
@@ -62,7 +60,7 @@ export default function AssetItem(asset: Asset) {
                                     <Link href={`/asset/${asset.id}`}>
                                         <div className="relative">
                                             <img
-                                                src={`${siteConfig.urls.cdn}${asset.url}`}
+                                                src={`${siteConfig.urls.cdn}/cdn-cgi/image/width=192,height=192,quality=75${asset.url}`}
                                                 className="h-24 max-h-24 w-24 max-w-24 object-contain object-left"
                                                 alt={asset.name}
                                             />
@@ -106,7 +104,7 @@ export default function AssetItem(asset: Asset) {
                         <div className="mr-2">
                             <div>
                                 <p className="line-clamp-1 font-normal">
-                                    {assetName}
+                                    {asset.name}
                                 </p>
                                 <p className="line-clamp-1 text-xs font-normal">
                                     Size: {bytesToFileSize(asset.fileSize)}
