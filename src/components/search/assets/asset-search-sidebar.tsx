@@ -202,7 +202,7 @@ export function AssetSearchHandler() {
                                                 }
                                             }}
                                             key={game.id}
-                                            className={`mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5 ${game.possibleSuggestiveContent ? 'text-red-300' : ''}`}>
+                                            className={`mt-2 flex flex-row items-center rounded-md bg-primary/10 p-2 transition-colors hover:cursor-pointer hover:bg-primary/5 ${game.possibleSuggestiveContent ? 'text-destructive' : ''}`}>
                                             <Checkbox
                                                 className={'mr-2'}
                                                 checked={state.games.includes(

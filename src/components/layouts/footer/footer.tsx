@@ -17,11 +17,19 @@ export function SiteFooter(): React.ReactElement {
                             <Image
                                 src="/icon.svg"
                                 alt="wanderer.moe"
-                                width={30}
-                                height={30}
+                                className="hidden dark:block"
+                                width={35}
+                                height={35}
+                            />
+                            <Image
+                                src="/icon-t.svg"
+                                alt="wanderer.moe"
+                                className="dark:hidden"
+                                width={35}
+                                height={35}
                             />
                             <Link href="/" passHref>
-                                <p className="cursor-pointer text-xl font-semibold text-white">
+                                <p className="cursor-pointer text-xl font-semibold text-primary">
                                     wanderer.moe
                                 </p>
                             </Link>
@@ -34,75 +42,75 @@ export function SiteFooter(): React.ReactElement {
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
                         <div>
-                            <p className="mb-4 pt-1 font-semibold text-white">
+                            <p className="mb-4 pt-1 font-semibold text-primary">
                                 Socials
                             </p>
-                            <ul>
+                            <ul className="text-muted-foreground">
                                 <li className="mb-2">
                                     <Link
                                         href="https://git.wanderer.moe/"
-                                        className="transition-colors hover:text-white">
+                                        className="transition-colors hover:text-primary">
                                         GitHub
                                     </Link>
                                 </li>
                                 <li className="mb-2">
                                     <Link
                                         href="https://discord.wanderer.moe/"
-                                        className="transition-colors hover:text-white">
+                                        className="transition-colors hover:text-primary">
                                         Discord Server
                                     </Link>
                                 </li>
                             </ul>
                         </div>
                         <div>
-                            <p className="mb-4 pt-1 font-semibold text-white">
+                            <p className="mb-4 pt-1 font-semibold text-primary">
                                 Legal
                             </p>
                             <ul>
                                 <li className="mb-2">
                                     <Link
                                         href="/legal/privacy-policy"
-                                        className="transition-colors hover:text-white">
+                                        className="transition-colors hover:text-primary">
                                         Privacy Policy
                                     </Link>
                                 </li>
                                 <li className="mb-2">
                                     <Link
                                         href="/legal/terms-of-service"
-                                        className="transition-colors hover:text-white">
+                                        className="transition-colors hover:text-primary">
                                         Terms of Service
                                     </Link>
                                 </li>
                                 <li className="mb-2">
                                     <Link
                                         href="/legal/cookie-policy"
-                                        className="transition-colors hover:text-white">
+                                        className="transition-colors hover:text-primary">
                                         Cookie Policy
                                     </Link>
                                 </li>
                             </ul>
                         </div>
                         <div>
-                            <p className="mb-4 pt-1 font-semibold text-white">
+                            <p className="mb-4 pt-1 font-semibold text-primary">
                                 Other
                             </p>
                             <ul>
                                 <li className="mb-2">
                                     <Link
                                         href="https://wanderer.moe/asset-request-form"
-                                        className="transition-colors hover:text-white">
+                                        className="transition-colors hover:text-primary">
                                         Asset Request Form
                                     </Link>
                                 </li>
                                 <li className="mb-2">
                                     <Link
                                         href="/contributors"
-                                        className="transition-colors hover:text-white">
+                                        className="transition-colors hover:text-primary">
                                         Contributors
                                     </Link>
                                 </li>
                                 <li className="mb-2">
-                                    <p className="cursor-pointer transition-colors hover:text-white">
+                                    <p className="cursor-pointer transition-colors hover:text-primary">
                                         Contribute
                                     </p>
                                 </li>
@@ -112,7 +120,7 @@ export function SiteFooter(): React.ReactElement {
                 </div>
                 <hr className="border-main-300 my-6 sm:mx-auto lg:my-8" />
                 <div className="flex flex-col gap-1 text-center text-xs">
-                    <span className="text-white">
+                    <span className="text-primary">
                         wanderer.moe © 2022-{currentYear}
                     </span>
                     <span>
@@ -128,24 +136,24 @@ export function SiteFooter(): React.ReactElement {
                             />{' '}
                             using{' '}
                             <Link
-                                className="text-white"
+                                className="text-primary"
                                 href="https://nextjs.org/">
                                 Next.js
                             </Link>{' '}
                             &{' '}
                             <Link
-                                className="text-white"
+                                className="text-primary"
                                 href="https://cloudflare.com/">
                                 Cloudflare
                             </Link>{' '}
                             by{' '}
                             <Link
-                                className="text-white"
+                                className="text-primary"
                                 href="https://dromzeh.dev/?ref=wanderer.moe">
                                 dromzeh
                             </Link>{' '}
                             and our{' '}
-                            <Link className="text-white" href="/contributors">
+                            <Link className="text-primary" href="/contributors">
                                 contributors.
                             </Link>
                         </p>

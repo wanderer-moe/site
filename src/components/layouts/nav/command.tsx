@@ -1,84 +1,70 @@
 'use client'
 
-import * as React from 'react'
-import { Button } from '@/components/ui/button'
 import {
     CommandDialog,
     CommandEmpty,
-    CommandGroup,
-    CommandInput,
     CommandItem,
     CommandList,
+    CommandGroup,
+    CommandInput,
     CommandSeparator,
 } from '@/components/ui/command'
-import {
-    Dices,
-    Scroll,
-    Home,
-    Search,
-    Box,
-    Gamepad,
-    Tags,
-    SunIcon,
-    MoonIcon,
-} from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { Search } from 'lucide-react'
+import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
+
+import { ArrowUpDown, CornerDownLeft, Home, X as CloseIcon } from 'lucide-react'
+
+import { useState, useEffect, useCallback } from 'react'
+import { Button } from '@/components/ui/button'
+
 import { useTheme } from 'next-themes'
 
-export function Command() {
-    const [open, setOpen] = React.useState(false)
+export function CommandMenu() {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+
+    const { setTheme, theme } = useTheme()
+
     const router = useRouter()
 
-    const { theme, setTheme } = useTheme()
-
-    React.useEffect(() => {
+    useEffect(() => {
         const down = (e: KeyboardEvent) => {
-            if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+            if (e.key === 'k' && e.ctrlKey) {
                 e.preventDefault()
-                setOpen((open) => !open)
+                setIsOpen(!isOpen)
             }
         }
 
         document.addEventListener('keydown', down)
         return () => document.removeEventListener('keydown', down)
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const runCommand = React.useCallback((command: () => unknown) => {
-        setOpen(false)
+    const runCommand = useCallback((command: () => unknown) => {
+        setIsOpen(false)
         command()
     }, [])
 
-    // TODO(dromzeh): we can use the /v2/search/all endpoint to get results for assetcategories, tags, etc
     return (
         <>
-            <Button variant="outline" onClick={() => setOpen(true)}>
-                <Search size={16} />
+            <Button
+                variant={'outline'}
+                className=""
+                onClick={() => setIsOpen(!isOpen)}>
+                {' '}
+                <Search size={14} />{' '}
             </Button>
-            <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput placeholder="Search..." />
+            <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
+                <CommandInput placeholder="Search" />
                 <CommandList>
-                    <CommandEmpty>No results found.</CommandEmpty>
-                    <CommandGroup heading="Suggestions">
+                    <CommandEmpty>No results found</CommandEmpty>
+                    <CommandGroup heading="Pages">
                         <CommandItem
-                            onSelect={() =>
-                                runCommand(() => router.push('/search'))
-                            }>
-                            <Box size={16} className="mr-2" />
-                            <span>Assets</span>
-                        </CommandItem>
-                        <CommandItem
-                            onSelect={() =>
-                                runCommand(() => router.push('/game'))
-                            }>
-                            <Gamepad size={16} className="mr-2" />
-                            <span>Games</span>
-                        </CommandItem>
-                        <CommandItem
-                            onSelect={() =>
-                                runCommand(() => router.push('/tag'))
-                            }>
-                            <Tags size={16} className="mr-2" />
-                            <span>Tags</span>
+                            className="transition-all duration-100"
+                            onSelect={() => runCommand(() => router.push('/'))}>
+                            <Home size={16} />
+                            <span className="ml-2">Home</span>
                         </CommandItem>
                     </CommandGroup>
                     <CommandSeparator />
@@ -92,13 +78,35 @@ export function Command() {
                             <MoonIcon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                             <span className="ml-2">Toggle Theme</span>
                         </CommandItem>
-                        <CommandItem
-                            onSelect={() => runCommand(() => router.push('/'))}>
-                            <Home size={16} className="mr-2" />
-                            <span>Home</span>
-                        </CommandItem>
                     </CommandGroup>
                 </CommandList>
+                <CommandSeparator />
+                <div className="flex justify-end gap-4 p-3 text-sm text-muted-foreground">
+                    <div className="flex flex-row items-center gap-1">
+                        <ArrowUpDown
+                            size={20}
+                            color="white"
+                            className="rounded-sm border-neutral-700 bg-neutral-800 p-1"
+                        />
+                        Navigate
+                    </div>
+                    <div className="flex flex-row items-center gap-1">
+                        <CornerDownLeft
+                            size={20}
+                            color="white"
+                            className="rounded-sm border-neutral-700 bg-neutral-800 p-1"
+                        />
+                        Select
+                    </div>
+                    <div className="flex flex-row items-center gap-1">
+                        <CloseIcon
+                            size={20}
+                            color="white"
+                            className="rounded-sm border-neutral-700 bg-neutral-800 p-1"
+                        />
+                        Close
+                    </div>
+                </div>
             </CommandDialog>
         </>
     )

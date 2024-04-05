@@ -97,7 +97,7 @@ async function AssetPage({ params: { id } }: { params: { id: string } }) {
                                 <img
                                     src={`${siteConfig.urls.cdn}${response.asset.url}`}
                                     alt={response.asset.name}
-                                    className="checkerboard max-h-full rounded-lg border object-contain object-left shadow-lg"
+                                    className="dark:checkerboard light-checkerboard max-h-full rounded-lg border object-contain object-left shadow-lg"
                                 />
                             </div>
                         </div>

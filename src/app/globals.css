@@ -20,25 +20,25 @@
     }
 
     :root {
-        --background: 0 0% 98%;
-        --foreground: 228 8% 24%;
-        --muted: 0 12% 90%;
-        --muted-foreground: 0 12% 30%;
-        --popover: 0 0% 95%;
-        --popover-foreground: 228 8% 14%;
-        --card: 0 0% 96%;
-        --card-foreground: 228 8% 19%;
-        --border: 0 0% 93%;
-        --input: 0 0% 90%;
-        --primary: 216 12% 8%;
-        --primary-foreground: 216 12% 68%;
-        --secondary: 216 2% 75%;
-        --secondary-foreground: 216 2% 15%;
-        --accent: 0 0% 83%;
-        --accent-foreground: 0 0% 23%;
-        --destructive: 2 95% 44%;
+        --background: 53 22% 93%;
+        --foreground: 70 5% 22%;
+        --muted: 53 12% 89%;
+        --muted-foreground: 53 12% 29%;
+        --popover: 52 22% 90%;
+        --popover-foreground: 70 5% 12%;
+        --card: 52 22% 91%;
+        --card-foreground: 70 5% 17%;
+        --border: 52 12% 88%;
+        --input: 52 12% 85%;
+        --primary: 70 5% 22%;
+        --primary-foreground: 70 5% 82%;
+        --secondary: 0 0% 75%;
+        --secondary-foreground: 0 0% 15%;
+        --accent: 53 22% 78%;
+        --accent-foreground: 53 22% 18%;
+        --destructive: 10 88% 40%;
         --destructive-foreground: 0 0% 100%;
-        --ring: 216 12% 8%;
+        --ring: 70 5% 22%;
         --radius: 0.5rem;
     }
 
@@ -70,8 +70,8 @@
         --accent: 240 3.7% 15.9%;
         --accent-foreground: 0 0% 98%;
 
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 85.7% 97.3%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 84.2% 60.2%;
 
         --ring: 255 100% 100%;
         --radius: 0.5rem;
@@ -85,8 +85,21 @@
     body {
         @apply bg-background text-foreground;
     }
+
+    ::-moz-selection {
+        @apply bg-primary text-primary-foreground;
+    }
+    ::selection {
+        @apply bg-primary text-primary-foreground;
+    }
+
     .checkerboard {
         background: repeating-conic-gradient(#09090b 0% 25%, transparent 0% 50%)
+            50% / 20px 20px;
+    }
+
+    .light-checkerboard {
+        background: repeating-conic-gradient(#b0b0b0 0% 25%, transparent 0% 50%)
             50% / 20px 20px;
     }
 }

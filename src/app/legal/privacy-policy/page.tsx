@@ -97,7 +97,7 @@ export default function PrivacyPolicy() {
                         .
                     </p>
                     <div className="mb-4 rounded-xl border bg-background">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <SquareSlash size={16} /> Summary
                         </h1>
                         <div className="m-4 flex items-center justify-center gap-4 text-xs text-muted-foreground/60">

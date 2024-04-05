@@ -123,7 +123,7 @@ export function Login() {
                             <div className="flex items-center justify-between">
                                 <Label htmlFor="password">Password</Label>
                                 <Link
-                                    className="select-none text-muted-foreground transition-colors hover:text-white hover:underline"
+                                    className="select-none text-muted-foreground transition-colors hover:text-primary hover:underline"
                                     href="/account/forgot-password">
                                     Forgot password?
                                 </Link>

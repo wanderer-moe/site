@@ -11,7 +11,7 @@ import {
 import { SideBar } from './side-bar'
 import { useAuthContext } from '@/context/auth-context'
 import { Search } from 'lucide-react'
-import { Command } from './command'
+import { CommandMenu } from './command'
 
 export function NavItems(): React.ReactElement {
     const { isLoadingSession, session } = useAuthContext()
@@ -22,7 +22,7 @@ export function NavItems(): React.ReactElement {
         <NavigationMenu>
             <NavigationMenuList className="flex">
                 <NavigationMenuItem>
-                    <Command />
+                    <CommandMenu />
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     {!session?.session ? (

@@ -79,7 +79,7 @@ function SearchPageContent() {
                                     on the site yet, fill out our{' '}
                                     <Link
                                         href="/asset-request-form"
-                                        className="text-white">
+                                        className="text-primary">
                                         Asset Request Form
                                     </Link>{' '}
                                     and we&apos;ll get to it as soon as

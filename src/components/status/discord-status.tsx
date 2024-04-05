@@ -32,8 +32,8 @@ export function DiscordStatus() {
                     <DiscordLogoIcon
                         className={`${
                             members === 'unknown'
-                                ? 'text-red-200'
-                                : 'text-green-200'
+                                ? 'dark:text-red-200'
+                                : 'dark:text-green-200'
                         } absolute stroke-2 opacity-100 
                             duration-300 group-hover:rotate-[360deg] 
                             group-hover:scale-[1.5]
@@ -43,8 +43,8 @@ export function DiscordStatus() {
                     <DiscordLogoIcon
                         className={`${
                             members === 'unknown'
-                                ? 'text-red-200'
-                                : 'text-green-200'
+                                ? 'dark:text-red-200'
+                                : 'dark:text-green-200'
                         } mr-2 stroke-2 duration-300 
                         group-hover:rotate-[360deg]`}
                         fill="currentColor"

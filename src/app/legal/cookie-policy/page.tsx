@@ -70,7 +70,7 @@ export default function PrivacyPolicy() {
                         combine it with other information.
                     </p>
                     <div className="mb-4 rounded-xl border bg-background">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             What are cookies?
                         </h1>
                         <div className="p-4">
@@ -108,7 +108,7 @@ export default function PrivacyPolicy() {
                         </div>
                     </div>
                     <div className="mb-4 rounded-xl border bg-background">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             Why do we use cookies?
                         </h1>
                         <div className="p-4">
@@ -134,7 +134,7 @@ export default function PrivacyPolicy() {
                         </div>
                     </div>
                     <div className="mb-4 rounded-xl border bg-background">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             How can I control cookies?
                         </h1>
                         <div className="p-4">
@@ -168,7 +168,7 @@ export default function PrivacyPolicy() {
                         </div>
                     </div>
                     <div className="mb-4 rounded-xl border bg-secondary-dark">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-secondary-dark py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-secondary-dark py-2 text-base text-primary">
                             Cookies List
                         </h1>
                         <div className="px-4">
@@ -552,7 +552,7 @@ export default function PrivacyPolicy() {
                         </div>
                     </div>
                     <div className="mb-4 rounded-xl border bg-background">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             How can I control cookies on my browser?
                         </h1>
                         <div className="p-4">
@@ -641,7 +641,7 @@ export default function PrivacyPolicy() {
                         </div>
                     </div>
                     <div className="mb-4 rounded-xl border bg-background">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             What about other tracking technologies, like web
                             beacons?
                         </h1>
@@ -671,7 +671,7 @@ export default function PrivacyPolicy() {
                         </div>
                     </div>
                     <div className="mb-4 rounded-xl border bg-background">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             How often will you update this Cookie Policy?
                         </h1>
                         <div className="p-4">
@@ -687,7 +687,7 @@ export default function PrivacyPolicy() {
                         </div>
                     </div>
                     <div className="mb-4 rounded-xl border bg-background">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             Where can I get further information?
                         </h1>
                         <div className="p-4">

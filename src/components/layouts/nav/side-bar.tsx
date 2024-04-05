@@ -46,8 +46,16 @@ export function SideBar() {
                                     <Image
                                         src="/icon.svg"
                                         alt="wanderer.moe"
-                                        width={30}
-                                        height={30}
+                                        className="hidden dark:block"
+                                        width={35}
+                                        height={35}
+                                    />
+                                    <Image
+                                        src="/icon-t.svg"
+                                        alt="wanderer.moe"
+                                        className="dark:hidden"
+                                        width={35}
+                                        height={35}
                                     />
                                     <Link href="/" passHref>
                                         <p className="cursor-pointer text-xl font-semibold text-primary">
@@ -86,7 +94,7 @@ function Links() {
                         variant="ghost"
                         className="flex w-full flex-row items-center justify-start gap-2">
                         <Home className="h-4 w-4" />
-                        <p className="cursor-pointer text-white">Home</p>
+                        <p className="cursor-pointer text-primary">Home</p>
                     </Button>
                 </Link>
                 <Link href="/search" className="w-full transition-colors">
@@ -94,7 +102,7 @@ function Links() {
                         variant="ghost"
                         className="flex w-full flex-row items-center justify-start gap-2">
                         <Search className="h-4 w-4" />
-                        <p className="cursor-pointer text-white">
+                        <p className="cursor-pointer text-primary">
                             Search Assets
                         </p>
                     </Button>
@@ -104,7 +112,7 @@ function Links() {
                         variant="ghost"
                         className="flex w-full flex-row items-center justify-start gap-2">
                         <Scroll className="h-4 w-4" />
-                        <p className="cursor-pointer text-white">Changelog</p>
+                        <p className="cursor-pointer text-primary">Changelog</p>
                     </Button>
                 </Link>
                 <Link
@@ -114,7 +122,7 @@ function Links() {
                         variant="ghost"
                         className="flex w-full flex-row items-center justify-start gap-2">
                         <HardDriveUpload className="h-4 w-4" />
-                        <p className="cursor-pointer text-white">
+                        <p className="cursor-pointer text-primary">
                             Asset Request Form
                         </p>
                     </Button>

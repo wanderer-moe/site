@@ -38,19 +38,19 @@ export function GHStar() {
                     <Sparkles
                         className="absolute
                          h-5 w-5 scale-50
-                        stroke-yellow-200
-                        stroke-2 opacity-0
-                        duration-300
+                        stroke-2
+                        opacity-0 duration-300
                         group-hover:rotate-[360deg]
                         group-hover:scale-100
-                        group-hover:opacity-100"
+                        group-hover:opacity-100
+                        dark:stroke-yellow-200"
                     />
                     <Sparkle
                         className="mr-2 h-5 w-5
-                        stroke-yellow-200 stroke-2
-                        duration-300 group-hover:rotate-[360deg]
-                        group-hover:scale-[1.5]
-                        group-hover:opacity-0"
+                        stroke-2 duration-300
+                        group-hover:rotate-[360deg] group-hover:scale-[1.5]
+                        group-hover:opacity-0
+                        dark:stroke-yellow-200"
                     />{' '}
                     GitHub: {totalStars} stars
                 </span>

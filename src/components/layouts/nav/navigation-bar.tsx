@@ -11,6 +11,14 @@ export function NavBar(): React.ReactElement {
                         <Image
                             src="/icon.svg"
                             alt="wanderer.moe"
+                            className="hidden dark:block"
+                            width={35}
+                            height={35}
+                        />
+                        <Image
+                            src="/icon-t.svg"
+                            alt="wanderer.moe"
+                            className="dark:hidden"
                             width={35}
                             height={35}
                         />

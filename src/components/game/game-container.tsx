@@ -47,13 +47,13 @@ export function GameContainer({ game, className }: GameContainerProps) {
                         }}
                         transition={{ duration: 0.15 }}>
                         <div
-                            className={`absolute h-full w-full rounded-md bg-black bg-opacity-25 transition-all `}
+                            className={`absolute h-full w-full rounded-md bg-black bg-opacity-30 transition-all dark:bg-opacity-25 `}
                         />
                         <div
                             className={`absolute h-full w-full rounded-md transition-all ${
                                 hovered
-                                    ? 'bg-black bg-opacity-25 ring-2 ring-ring'
-                                    : 'bg-black bg-opacity-50'
+                                    ? 'bg-black bg-opacity-30 ring-2 ring-white dark:bg-opacity-25'
+                                    : 'bg-black bg-opacity-40 dark:bg-opacity-50'
                             }`}
                         />
                         <div className="align-center absolute w-5/6">

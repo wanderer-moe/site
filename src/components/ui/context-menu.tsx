@@ -1,12 +1,12 @@
 'use client'
 
+import * as React from 'react'
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu'
 import {
     CheckIcon,
     ChevronRightIcon,
     DotFilledIcon,
 } from '@radix-ui/react-icons'
-import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -184,18 +184,18 @@ ContextMenuShortcut.displayName = 'ContextMenuShortcut'
 
 export {
     ContextMenu,
-    ContextMenuCheckboxItem,
+    ContextMenuTrigger,
     ContextMenuContent,
-    ContextMenuGroup,
     ContextMenuItem,
-    ContextMenuLabel,
-    ContextMenuPortal,
-    ContextMenuRadioGroup,
+    ContextMenuCheckboxItem,
     ContextMenuRadioItem,
+    ContextMenuLabel,
     ContextMenuSeparator,
     ContextMenuShortcut,
+    ContextMenuGroup,
+    ContextMenuPortal,
     ContextMenuSub,
     ContextMenuSubContent,
     ContextMenuSubTrigger,
-    ContextMenuTrigger,
+    ContextMenuRadioGroup,
 }

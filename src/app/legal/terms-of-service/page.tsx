@@ -106,7 +106,7 @@ export default function TermsOfService() {
                         use of the Services. You agree that by accessing the
                         Services, you have read, understood, and agreed to be
                         bound by all of these Legal Terms.{' '}
-                        <span className="font-bold text-white">
+                        <span className="font-bold text-primary">
                             If you do not agree with all of these legal terms,
                             then you are expressly prohibited from using the
                             services and you must discontinue use immediately.
@@ -140,7 +140,7 @@ export default function TermsOfService() {
                         you using the Services.
                     </p>
                     <div className="mb-4 rounded-xl border bg-secondary-dark">
-                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-secondary-dark py-2 text-base text-white">
+                        <h1 className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-secondary-dark py-2 text-base text-primary">
                             <Info size={16} /> Table of Contents
                         </h1>
                         <div className="p-4">
@@ -326,7 +326,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="our-services"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <Settings size={16} /> 1. Our Services
                         </h1>
                         <div className="p-4">
@@ -360,7 +360,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="intellectual-property-rights"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <FileText size={16} /> 2. Intellectual Property
                             Rights
                         </h1>
@@ -463,7 +463,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="user-representations"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <UserCheck size={16} /> 3. User Representations
                         </h1>
                         <div className="p-4">
@@ -518,7 +518,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="user-registration"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <UserPlus size={16} /> 4. User Registration
                         </h1>
                         <div className="p-4">
@@ -537,7 +537,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="prohibited-activities"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <Ban size={16} /> 5. Prohibited Activities
                         </h1>
                         <div className="p-4">
@@ -692,7 +692,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="user-generated-contributions"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <FileEdit size={16} /> 6. User Generated
                             Contributions
                         </h1>
@@ -812,7 +812,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="contribution-licence"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <FileBadge2 size={16} /> 7. Contribution Licence
                         </h1>
                         <div className="p-4">
@@ -889,7 +889,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="social-media"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <Share2 size={16} /> 8. Social Media
                         </h1>
                         <div className="p-4">
@@ -968,7 +968,7 @@ export default function TermsOfService() {
                                 You will have the ability to disable the
                                 connection between your account on the Services
                                 and your Third-Party Accounts at any time.{' '}
-                                <span className="font-bold text-white">
+                                <span className="font-bold text-primary">
                                     Please note that your relationship with the
                                     third-party service providers associated
                                     with your third-party accounts is governed
@@ -1003,7 +1003,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="third-party-websites-and-content"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <LinkIcon size={16} /> 9. Third-Party Websites and
                             Content
                         </h1>
@@ -1071,7 +1071,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="services-management"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <SlidersHorizontal size={16} /> 10. Services
                             Management
                         </h1>
@@ -1118,7 +1118,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="privacy-policy"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <FileKey2 size={16} /> 11. Privacy Policy
                         </h1>
                         <div className="p-4">
@@ -1161,7 +1161,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="copyright-infringements"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <AlertCircle size={16} /> 12. Copyright
                             Infringements
                         </h1>
@@ -1192,14 +1192,14 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="term-and-termination"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <CalendarDays size={16} /> 13. Term and Termination
                         </h1>
                         <div className="p-4">
                             <p className="mb-4">
                                 These Legal Terms shall remain in full force and
                                 effect while you use the Services.{' '}
-                                <span className="font-bold text-white">
+                                <span className="font-bold text-primary">
                                     Without limiting any other provision of
                                     these legal terms, we reserve the right to,
                                     in our sole discretion and without notice or
@@ -1234,7 +1234,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="modifications-and-interruptions"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <RefreshCw size={16} /> 14. Modifications and
                             Interruptions
                         </h1>
@@ -1275,7 +1275,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="governing-law"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <Gavel size={16} /> 15. Governing Law
                         </h1>
                         <div className="p-4">
@@ -1302,12 +1302,12 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="dispute-resolution"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <LifeBuoy size={16} /> 16. Dispute Resolution
                         </h1>
                         <div className="p-4">
                             <p className="mb-4">
-                                <span className="font-bold text-white">
+                                <span className="font-bold text-primary">
                                     Informal Negotiations
                                 </span>
                             </p>
@@ -1340,7 +1340,7 @@ export default function TermsOfService() {
                                 Party.
                             </p>
                             <p className="mb-4">
-                                <span className="font-bold text-white">
+                                <span className="font-bold text-primary">
                                     Binding Arbitration
                                 </span>
                             </p>
@@ -1361,7 +1361,7 @@ export default function TermsOfService() {
                                 England.
                             </p>
                             <p className="mb-4">
-                                <span className="font-bold text-white">
+                                <span className="font-bold text-primary">
                                     Restrictions
                                 </span>
                             </p>
@@ -1379,7 +1379,7 @@ export default function TermsOfService() {
                                 the general public or any other persons.
                             </p>
                             <p className="mb-4">
-                                <span className="font-bold text-white">
+                                <span className="font-bold text-primary">
                                     Exceptions to Informal Negotiations and
                                     Arbitration
                                 </span>
@@ -1419,7 +1419,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="corrections"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <ClipboardEdit size={16} /> 17. Corrections
                         </h1>
                         <div className="p-4">
@@ -1439,7 +1439,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-destructive/25">
                         <h1
                             id="disclaimer"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-destructive/25 py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-destructive/25 py-2 text-base text-primary">
                             <AlertTriangle size={16} /> 18. Disclaimer
                         </h1>
                         <div className="p-4">
@@ -1512,7 +1512,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-destructive/25">
                         <h1
                             id="limitations-of-liability"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-destructive/25 py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-destructive/25 py-2 text-base text-primary">
                             <ShieldAlert size={16} /> 19. Limitations of
                             Liability
                         </h1>
@@ -1533,7 +1533,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="indemnification"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <Umbrella size={16} /> 20. Indemnification
                         </h1>
                         <div className="p-4">
@@ -1582,7 +1582,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="user-data"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <Database size={16} /> 21. User Data
                         </h1>
                         <div className="p-4">
@@ -1606,7 +1606,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="electronic-communications"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <Mail size={16} /> 21. Electronic Communications
                         </h1>
                         <div className="p-4">
@@ -1620,7 +1620,7 @@ export default function TermsOfService() {
                                 via email and on the Services, satisfy any legal
                                 requirement that such communication be in
                                 writing.{' '}
-                                <b className="font-bold text-white">
+                                <b className="font-bold text-primary">
                                     You hereby agree to the use of electronic
                                     signatures, contracts, orders, and other
                                     records, and to electronic delivery of
@@ -1641,7 +1641,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="california-users-and-residents"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <MapPin size={16} /> 23. California Users and
                             Residents
                         </h1>
@@ -1661,7 +1661,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="miscellaneous"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <MoreHorizontal size={16} /> 24. Miscellaneous
                         </h1>
                         <div className="p-4">
@@ -1701,7 +1701,7 @@ export default function TermsOfService() {
                     <div className="mb-4 rounded-xl border bg-background">
                         <h1
                             id="contact-us"
-                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-white">
+                            className="flex items-center justify-center gap-2 rounded-t-xl border-b bg-background py-2 text-base text-primary">
                             <PhoneCall size={16} /> 25. Contact Us
                         </h1>
                         <div className="p-4">

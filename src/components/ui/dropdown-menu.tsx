@@ -1,12 +1,12 @@
 'use client'
 
+import * as React from 'react'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import {
     CheckIcon,
     ChevronRightIcon,
     DotFilledIcon,
 } from '@radix-ui/react-icons'
-import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -188,18 +188,18 @@ DropdownMenuShortcut.displayName = 'DropdownMenuShortcut'
 
 export {
     DropdownMenu,
-    DropdownMenuCheckboxItem,
+    DropdownMenuTrigger,
     DropdownMenuContent,
-    DropdownMenuGroup,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuPortal,
-    DropdownMenuRadioGroup,
+    DropdownMenuCheckboxItem,
     DropdownMenuRadioItem,
+    DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuShortcut,
+    DropdownMenuGroup,
+    DropdownMenuPortal,
     DropdownMenuSub,
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
-    DropdownMenuTrigger,
+    DropdownMenuRadioGroup,
 }

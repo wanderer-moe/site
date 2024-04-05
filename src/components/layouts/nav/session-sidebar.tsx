@@ -18,7 +18,7 @@ export function SessionSideBar() {
                             variant="ghost"
                             className="flex w-full flex-row items-center justify-start gap-2">
                             <LogIn className="h-4 w-4" />
-                            <p className="cursor-pointer text-white">Login</p>
+                            <p className="cursor-pointer text-primary">Login</p>
                         </Button>
                     </Link>
                     <Link href="/signup" className="w-full transition-colors">
@@ -26,7 +26,7 @@ export function SessionSideBar() {
                             variant="ghost"
                             className="flex w-full flex-row items-center justify-start gap-2">
                             <LogIn className="h-4 w-4" />
-                            <p className="cursor-pointer text-white">
+                            <p className="cursor-pointer text-primary">
                                 Create Account
                             </p>
                         </Button>
@@ -48,7 +48,7 @@ export function SessionSideBar() {
                         variant="ghost"
                         className="flex w-full flex-row items-center justify-start gap-2">
                         <LogOut className="h-4 w-4" />
-                        <p className="cursor-pointer text-white">Logout</p>
+                        <p className="cursor-pointer text-primary">Logout</p>
                     </Button>
                 </>
             )}
