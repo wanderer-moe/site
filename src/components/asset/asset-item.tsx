@@ -57,7 +57,9 @@ export default function AssetItem(asset: Asset) {
                         <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-muted/20 p-1">
                             <ContextMenu>
                                 <ContextMenuTrigger>
-                                    <Link href={`/asset/${asset.id}`}>
+                                    <Link
+                                        prefetch={false}
+                                        href={`/asset/${asset.id}`}>
                                         <div className="relative">
                                             <img
                                                 src={`${siteConfig.urls.cdn}/cdn-cgi/image/width=192,height=192,quality=75${asset.url}`}
