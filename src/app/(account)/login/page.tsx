@@ -15,11 +15,7 @@ export default function LoginPage() {
         <div className="mx-auto -mt-14 min-h-screen max-w-screen-xl px-5">
             <Background>
                 <div className="flex min-h-screen flex-row items-center justify-center">
-                    {!session || isLoadingSession ? (
-                        <div>Loading...</div>
-                    ) : (
-                        <Login />
-                    )}
+                    {isLoadingSession ? <div>Loading...</div> : <Login />}
                 </div>
             </Background>
         </div>

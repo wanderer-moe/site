@@ -57,6 +57,7 @@ export const APIClient = createApiClient((method, url, params) => {
         })
 })
 
+// LMAO
 export const AuthAPIClient = createApiClient((method, url, params) => {
     const headers = {
         Accept: 'application/json',
