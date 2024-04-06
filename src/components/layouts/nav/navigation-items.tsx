@@ -8,7 +8,6 @@ import {
     NavigationMenuItem,
     NavigationMenuList,
 } from '@/components/ui/navigation-menu'
-import { SideBar } from './side-bar'
 import { useAuthContext } from '@/context/auth-context'
 import { Search } from 'lucide-react'
 import { CommandMenu } from './command'
@@ -37,9 +36,6 @@ export function NavItems(): React.ReactElement {
                     ) : (
                         <UserNav session={session} />
                     )}
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <SideBar />
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
