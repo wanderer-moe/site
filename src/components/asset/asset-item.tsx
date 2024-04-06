@@ -51,7 +51,7 @@ export default function AssetItem(asset: Asset) {
 
     return (
         <>
-            <Card className="group h-32 p-2 transition-all hover:border-foreground/50">
+            <Card className="group h-32 p-2 shadow-none transition-all dark:hover:border-foreground/50">
                 <div className="flex h-full items-center justify-between">
                     <div className="flex items-center">
                         <div className="mr-4 flex-shrink-0 justify-center rounded-lg bg-muted/20 p-1">
@@ -139,14 +139,14 @@ export default function AssetItem(asset: Asset) {
                         </div>
                     </div>
                     <div className="flex flex-col justify-center gap-2">
-                        <MoreOptions asset={asset} />
+                        {/* <MoreOptions asset={asset} />
                         <Button
-                            variant="secondary"
+                            variant={'secondary'}
                             title="Download Asset"
                             className="h-12 rounded-md px-3 text-xs"
                             onClick={() => download(asset)}>
                             <HardDriveDownload className="h-4 w-4" />
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </Card>
