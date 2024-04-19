@@ -22,6 +22,7 @@ export async function load({ params }) {
 
         return data
     } else {
-        throw error(res.status, 'API Error')
+        console.error('error' + res)
+        throw error(res.status, 'Error while fetching data')
     }
 }
