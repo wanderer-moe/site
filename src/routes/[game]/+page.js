@@ -11,6 +11,7 @@ export async function load({ params }) {
         if (response.error && response.error.includes('404')) {
             throw error(404, 'Route Not Found')
         } else if (response.status === 'error') {
+            console.error('api error' + response)
             throw error(500, 'API Error')
         }
 
@@ -23,6 +24,6 @@ export async function load({ params }) {
         return data
     } else {
         console.error('error' + res)
-        throw error(res.status, 'Error while fetching data')
+        throw error(res.status, 'Error parsing API response')
     }
 }
