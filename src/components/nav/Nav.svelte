@@ -4,6 +4,13 @@ import SearchBar from '@/components/popouts/SearchBar.svelte'
 let isSearchOpen = false
 </script>
 
+<a href="https://crowdfund.dromzeh.dev/" target="_blank">
+    <div
+        class="flex w-full items-center justify-center bg-red-500 p-1 text-center text-white hover:bg-red-400">
+        wanderer.moe needs financial support to continue, please read <i
+            class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+    </div>
+</a>
 <header
     class="sticky top-0 z-50 w-full border-b border-main-300 bg-main-500 bg-opacity-75 p-2 backdrop-blur-lg backdrop-filter transition-opacity">
     <div class="mx-auto flex flex-wrap items-center justify-between lg:px-20">
