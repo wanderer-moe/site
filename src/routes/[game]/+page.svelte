@@ -39,7 +39,8 @@ const { subFolders, game, lastUploaded } = data
         <div class="relative z-10 px-2 md:px-12 lg:px-24">
             <div id="games">
                 {#if game == 'wuthering-waves'}
-                    <div class="text-lg font-semibold text-red-200">
+                    <div
+                        class="rounded-md bg-red-500 p-2 text-center text-lg font-semibold text-white">
                         In preparation for release, Wuthering Waves assets will
                         be updated in full by the end of this week (as of
                         22/05/2024)
