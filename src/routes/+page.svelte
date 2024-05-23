@@ -71,22 +71,21 @@ function handleImageChange(newImage) {
             </div>
         </div>
         <div class="mt-8 px-2 md:px-12 lg:px-24">
-            <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-3 lg:px-0">
-                <div class="col-span-2 gap-4">
-                    <div id="games" class="mb-8">
-                        <p class="mb-4 text-3xl font-bold text-white">Games</p>
-                        <div class="grid grid-cols-1 gap-7 md:grid-cols-2">
-                            {#each allGames as game}
-                                <GameContainer
-                                    {game}
-                                    bind:focusedImage
-                                    {handleImageChange} />
-                            {/each}
-                        </div>
+            <div class="gap-4">
+                <div id="games" class="mb-8">
+                    <p class="mb-4 text-3xl font-bold text-white">Games</p>
+                    <div
+                        class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {#each allGames as game}
+                            <GameContainer
+                                {game}
+                                bind:focusedImage
+                                {handleImageChange} />
+                        {/each}
                     </div>
                 </div>
-                <HomeSidebar {OCGeneratorsLocations} />
             </div>
+            <HomeSidebar {OCGeneratorsLocations} />
         </div>
     </div>
 </div>

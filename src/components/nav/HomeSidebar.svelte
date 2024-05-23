@@ -28,13 +28,17 @@ const sideBarEntries = [
         }),
     },
     {
-        name: 'Discord',
-        iconClass: 'fa-brands fa-discord',
-        desc: $t('home.discord.desc'),
+        name: 'Socials',
+        iconClass: 'fa-solid fa-share-from-square',
+        desc: 'Join the Discord server and follow us on Twitter to get site updates and interact with the community.',
         buttons: [
             {
-                name: $t('home.discord.btn'),
+                name: 'Join Discord',
                 link: 'https://discord.wanderer.moe',
+            },
+            {
+                name: 'Follow Twitter',
+                link: 'https://twitter.com/wanderermoe',
             },
         ],
     },
@@ -56,44 +60,46 @@ const sideBarEntries = [
     },
 ]
 
-$: discordShortDesc = $t('home.discord.shortDesc', {
-    values: { onlineCount: $onlineusers },
-})
+$: discordShortDesc = $onlineusers + ' online on Discord'
 </script>
 
-<div class="col-span-2 gap-4 sm:col-span-1">
+<div class="flex flex-col gap-4">
     <div id="other">
         <p class="mb-4 text-3xl font-bold text-white" id="other">Other</p>
     </div>
-    <div class="grid gap-7">
+    <div class="flex flex-col gap-6 md:flex-row">
         {#each sideBarEntries as entry}
             <div
-                class="rounded-md bg-main-500 p-3 text-white transition ease-in-out hover:scale-105">
-                <p class="font-white text-xl font-bold uppercase">
-                    <i class="{entry.iconClass}"></i>
-                    {entry.name}
-                </p>
-                {#if entry.shortDesc}
-                    <p class="text-left text-gray-400">
-                        {entry.shortDesc}
-                    </p>
-                {:else}
-                    <p class="text-left text-gray-400">
-                        {discordShortDesc}
-                    </p>
-                {/if}
-                <p class="text-left text-gray-200">
-                    {entry.desc}
-                </p>
-
-                <div class="mt-2 grid gap-2">
-                    {#each entry.buttons as button}
-                        <a href="{button.link}" target="_blank">
-                            <button class="btn w-full rounded-md font-semibold">
-                                {button.name}
-                            </button>
-                        </a>
-                    {/each}
+                class="rounded-md border-2 border-transparent bg-main-500 p-3 text-white transition ease-in-out hover:cursor-pointer hover:border-main-300 md:w-1/3">
+                <div class="flex h-full flex-col justify-between">
+                    <div>
+                        <p class="font-white text-xl font-bold uppercase">
+                            <i class="{entry.iconClass}"></i>
+                            {entry.name}
+                        </p>
+                        {#if entry.shortDesc}
+                            <p class="text-left text-gray-400">
+                                {entry.shortDesc}
+                            </p>
+                        {:else}
+                            <p class="text-left text-gray-400">
+                                {discordShortDesc}
+                            </p>
+                        {/if}
+                        <p class="text-left text-gray-200">
+                            {entry.desc}
+                        </p>
+                    </div>
+                    <div class="mt-4 grid grid-cols-1 gap-2">
+                        {#each entry.buttons as button}
+                            <a href="{button.link}" target="_blank">
+                                <button
+                                    class="{`btn w-full rounded-md font-semibold`}">
+                                    {button.name}
+                                </button>
+                            </a>
+                        {/each}
+                    </div>
                 </div>
             </div>
         {/each}

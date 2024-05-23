@@ -10,7 +10,7 @@
 
     body {
         font-family:
-            'Sofia Sans',
+            'Plus Jakarta Sans',
             -apple-system,
             BlinkMacSystemFont;
         @apply m-0 overflow-x-hidden text-sm leading-relaxed text-[#333];
