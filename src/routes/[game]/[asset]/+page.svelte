@@ -141,8 +141,14 @@ onMount(() => {
                         </div>
                     </div>
                 </div>
-                <div class="text-center text-lg font-semibold text-white">
-                    {filteredImages.length} / {images.length} assets shown
+                <div
+                    class="mb-2 flex justify-between rounded-md bg-main-500 p-4 text-center font-semibold text-white">
+                    <p>
+                        {images.length} assets total
+                    </p>
+                    <p>
+                        {filteredImages.length} assets displayed
+                    </p>
                 </div>
             </div>
 
