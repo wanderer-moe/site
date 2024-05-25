@@ -8,8 +8,8 @@ let isSearchOpen = false
     <a href="https://crowdfund.dromzeh.dev/" target="_blank">
         <div
             class="flex w-full items-center justify-center bg-red-500 p-1 py-2 text-center text-white transition hover:bg-red-400">
-            wanderer.moe needs financial support to continue operating
-            <i class="fas fa-arrow-right ml-2"></i>
+            wanderer.moe needs financial support to keep running
+            <i class="fas fa-arrow-right ml-2 text-xs"></i>
         </div>
     </a>
     <header
@@ -18,9 +18,10 @@ let isSearchOpen = false
             class="mx-auto flex flex-wrap items-center justify-between lg:px-20">
             <div>
                 <a href="/" class="flex items-center gap-1" rel="external">
-                    <img src="/logo.png" alt="logo" class="h-12 w-12" />
+                    <img src="/logo.png" alt="logo" class="h-8 w-8" />
                     <div class="flex flex-col">
-                        <span class="text text-xl font-semibold text-white"
+                        <span
+                            class="text translate-y-[-2px] text-lg font-semibold text-white"
                             >wanderer.moe</span>
                     </div>
                 </a>
