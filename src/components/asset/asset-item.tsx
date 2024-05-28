@@ -1,0 +1,90 @@
+"use client";
+
+import type { Asset } from "~/lib/types";
+import Image from "next/image";
+import { Card } from "../ui/card";
+import { timeAgo } from "~/lib/time";
+import { bytesToFileSize } from "~/lib/format";
+import { Button } from "../ui/button";
+import { DownloadIcon } from "lucide-react";
+import Link from "next/link";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "~/components/ui/dialog";
+
+export function AssetItem({
+    asset,
+    game,
+    category,
+}: {
+    asset: Asset;
+    game: string;
+    category: string;
+}) {
+    return (
+        <Dialog>
+            <DialogTrigger asChild>
+                <Card className="group p-2 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
+                    <div className="flex items-center justify-center">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                            src={`https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/${game}/${category}/${asset.name}.png`}
+                            alt={asset.name}
+                            className="h-36 max-h-36 w-36 max-w-36 object-contain p-1"
+                        />
+                    </div>
+                    <div className="flex flex-col mt-2">
+                        <p className="overflow-x-clip font-semibold text-ellipsis">
+                            {asset.name}
+                        </p>
+                        <div className="text-muted-foreground flex text-sm justify-between items-center">
+                            <p>{timeAgo(asset.uploaded)}</p>
+                            <p>{bytesToFileSize(asset.size)}</p>
+                        </div>
+                        <Link href={asset.path} target="_blank" download>
+                            <Button
+                                variant={"secondary"}
+                                size={"sm"}
+                                className="mt-2 flex flex-row gap-2 w-full items-center"
+                            >
+                                <DownloadIcon size={16} />
+                                Download
+                            </Button>
+                        </Link>
+                    </div>
+                </Card>
+            </DialogTrigger>
+            <DialogContent>
+                <DialogHeader>
+                    <DialogTitle>{asset.name}</DialogTitle>
+                </DialogHeader>
+                <DialogDescription>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                        src={`https://cdn.wanderer.moe/${game}/${category}/${asset.name}.png`}
+                        alt={asset.name}
+                        className="rounded-md"
+                    />
+                    <p className="text-muted-foreground text-sm mt-2">hi</p>
+                </DialogDescription>
+                <DialogFooter>
+                    <Button
+                        variant={"secondary"}
+                        size={"sm"}
+                        onClick={() => {
+                            window.open(asset.path, "_blank");
+                        }}
+                    >
+                        Download
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+    );
+}

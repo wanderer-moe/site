@@ -1,17 +1,4 @@
 {
-    "bracketSameLine": true,
-    "endOfLine": "lf",
-    "htmlWhitespaceSensitivity": "css",
-    "singleQuote": true,
-    "semi": false,
-    "svelteAllowShorthand": true,
-    "svelteIndentScriptAndStyle": false,
-    "svelteSortOrder": "options-styles-scripts-markup",
-    "svelteStrictMode": true,
-    "trailingComma": "es5",
     "tabWidth": 4,
-    "plugins": [
-        "prettier-plugin-svelte",
-        "prettier-plugin-tailwindcss"
-    ]
+    "useTabs": false
 }

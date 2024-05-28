@@ -33,7 +33,7 @@ jobs:
               run: pnpm install
 
             - name: Prettier check
-              run: pnpm run prettier:check
+              run: pnpm run prettier:c
 
     # lint:
     #     name: ESLint
