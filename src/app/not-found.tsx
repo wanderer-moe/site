@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "~/components/ui/button";
 
 export const metadata: Metadata = {
-    title: "page not found // wanderer.moe",
+    title: "page not found • wanderer.moe",
     description:
         "Centralized game assets database (previously wtf.dromzeh.dev)",
 };

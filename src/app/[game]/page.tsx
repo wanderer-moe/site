@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!response || !response.game) return notFound();
 
     return {
-        title: `${FormatGameName(response.game)} Assets // wanderer.moe`,
+        title: `${FormatGameName(response.game)} Assets • wanderer.moe`,
         description: `Available assets for ${FormatGameName(response.game)} on wanderer.moe`,
     };
 }

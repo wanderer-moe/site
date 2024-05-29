@@ -4,7 +4,7 @@ import { GamesGrid } from "~/components/games/games-grid";
 import { InfoGrid } from "~/components/info/info-grid";
 
 export const metadata: Metadata = {
-    title: "home // wanderer.moe",
+    title: "home • wanderer.moe",
     description:
         "Centralized game assets database (previously wtf.dromzeh.dev)",
 };

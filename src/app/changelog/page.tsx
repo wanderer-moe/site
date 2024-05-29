@@ -11,7 +11,7 @@ import {
 import { HomeIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "changelog // wanderer.moe",
+    title: "changelog • wanderer.moe",
     description:
         "Centralized game assets database (previously wtf.dromzeh.dev)",
 };

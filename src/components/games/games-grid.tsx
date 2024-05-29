@@ -62,7 +62,7 @@ interface GameEntryProps {
 export function GameEntry({ game }: GameEntryProps) {
     return (
         <div>
-            <Link href={`/game/${game.name}`}>
+            <Link href={`/${game.name}`}>
                 <div className="relative rounded-lg group ease-linear transiton-all duration-150 ring-2 ring-transparent hover:ring-primary">
                     <div className="bg-black/50 absolute w-full h-full rounded-lg group-hover:bg-black/40" />
                     <div className="absolute bottom-0 left-0 right-0 p-2  rounded-b-lg">

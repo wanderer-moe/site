@@ -40,8 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!response || !response.game) return notFound();
 
     return {
-        title: `${FormatGameName(response.game)} ${FormatCategoryName(response.asset)}  // wanderer.moe`,
-        description: `${FormatCategoryName(response.asset)} ${FormatGameName(response.game)} on wanderer.moe`,
+        title: `${FormatGameName(response.game)} - ${FormatCategoryName(response.asset)}  • wanderer.moe`,
+        description: `${FormatGameName(response.game)} ${FormatCategoryName(response.asset)} on wanderer.moe`,
     };
 }
 
@@ -64,7 +64,7 @@ export default async function GameCategoryPage({ params }: Props) {
                             </BreadcrumbItem>
                             <BreadcrumbSeparator />
                             <BreadcrumbItem>
-                                <BreadcrumbLink href={`/game/${game}`}>
+                                <BreadcrumbLink href={`/${game}`}>
                                     <div className="flex flex-row gap-2 items-center">
                                         {/* <Image
                                             src={`https://cdn.wanderer.moe/cdn-cgi/image/width=64,height=64,quality=75/${response.game}/icon.png`}
@@ -103,7 +103,8 @@ export default async function GameCategoryPage({ params }: Props) {
                             <div className="flex flex-col">
                                 <AlertTitle>Heads up!</AlertTitle>
                                 <AlertDescription className="text-muted-foreground">
-                                    Single tap or click on assets to view info & download them.
+                                    Single tap or click on assets to view info &
+                                    download them.
                                 </AlertDescription>
                             </div>
                         </div>

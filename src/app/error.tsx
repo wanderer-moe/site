@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "~/components/ui/button";
 
 export const metadata: Metadata = {
-    title: "internal server error // wanderer.moe",
+    title: "internal server error • wanderer.moe",
     description:
         "Centralized game assets database (previously wtf.dromzeh.dev)",
 };
