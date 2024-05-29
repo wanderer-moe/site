@@ -74,6 +74,22 @@ export function SiteFooter(): React.ReactElement {
                                         Privacy Policy
                                     </Link>
                                 </li>
+                                <li className="mb-2">
+                                    <Link
+                                        href="mailto:legal@wanderer.moe"
+                                        className="transition-colors hover:text-primary"
+                                    >
+                                        Legal Inquiries
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link
+                                        href="mailto:dmca@wanderer.moe"
+                                        className="transition-colors hover:text-primary"
+                                    >
+                                        DMCA Requests
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                     </div>

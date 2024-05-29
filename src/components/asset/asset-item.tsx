@@ -59,7 +59,11 @@ export function AssetItem({
                             <p>{timeAgo(asset.uploaded)}</p>
                             <p>{bytesToFileSize(asset.size)}</p>
                         </div>
-                        <Link href={asset.path} download={asset.name}>
+                        <Link
+                            prefetch={false}
+                            href={asset.path}
+                            download={asset.name}
+                        >
                             <Button
                                 variant={"secondary"}
                                 size={"sm"}
@@ -94,6 +98,7 @@ export function AssetItem({
                             On mobile? Press and hold on the asset to save.
                         </p>
                         <Link
+                            prefetch={false}
                             href={asset.path}
                             target="_blank"
                             className="w-full"

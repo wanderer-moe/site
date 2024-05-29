@@ -44,20 +44,18 @@ export function NavSidebar() {
                     </SheetTitle>
                 </SheetHeader>
                 <div className="mt-8 text-muted-foreground flex flex-col gap-2">
-                    <Link href="/">
+                    <Link href="/" className="text-left">
                         <Button className="w-full" variant="ghost">
                             <Home className="h-5 w-5 mr-2 inline" />
                             Home
                         </Button>
                     </Link>
-                    <Separator />
                     <Link href="/legal/privacy-policy">
                         <Button className="w-full" variant="ghost">
                             <Scale className="h-5 w-5 mr-2 inline" />
                             Privacy Policy
                         </Button>
                     </Link>
-                    <Separator />
                     <Link href="https://discord.wanderer.moe/">
                         <Button className="w-full" variant="ghost">
                             <DiscordLogoIcon className="h-5 w-5 mr-2 inline" />
