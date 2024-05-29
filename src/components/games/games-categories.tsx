@@ -29,7 +29,7 @@ function CategoryEntry({
 }: Readonly<{ category: GameRoute["locations"][0] }>) {
     const pathname = usePathname();
     return (
-        <Link href={`${pathname}/${category.name}`} prefetch={false}>
+        <Link href={`${pathname}/${category.name}`}>
             <Card className="group p-4 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
                 <div className="flex flex-row items-center gap-1">
                     <h2 className="text-lg font-semibold">
