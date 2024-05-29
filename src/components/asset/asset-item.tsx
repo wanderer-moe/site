@@ -59,23 +59,15 @@ export function AssetItem({
                             <p>{timeAgo(asset.uploaded)}</p>
                             <p>{bytesToFileSize(asset.size)}</p>
                         </div>
-                        <Link
-                            prefetch={false}
-                            href={asset.path}
-                            download={asset.name}
+
+                        <Button
+                            variant={"secondary"}
+                            size={"sm"}
+                            className="mt-2 flex flex-row gap-2 w-full items-center"
                         >
-                            <Button
-                                variant={"secondary"}
-                                size={"sm"}
-                                className="mt-2 flex flex-row gap-2 w-full items-center"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                }}
-                            >
-                                <DownloadIcon size={16} />
-                                Download
-                            </Button>
-                        </Link>
+                            <DownloadIcon size={16} />
+                            Download
+                        </Button>
                     </div>
                 </Card>
             </DialogTrigger>
