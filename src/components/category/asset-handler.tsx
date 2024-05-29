@@ -65,7 +65,7 @@ function filterAssets(
     }
 
     return filteredAssets.filter((asset) =>
-        asset.name.toLowerCase().includes(search.toLowerCase()),
+        asset.name.toLowerCase().includes(search.toLowerCase().replace(" ", "-")),
     );
 }
 
