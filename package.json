@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@hookform/resolvers": "^3.4.2",
+        "@million/lint": "1.0.0-rc.13",
         "@radix-ui/react-accordion": "^1.1.2",
         "@radix-ui/react-alert-dialog": "^1.0.5",
         "@radix-ui/react-aspect-ratio": "^1.0.3",
@@ -53,6 +54,7 @@
         "input-otp": "^1.2.4",
         "lodash": "^4.17.21",
         "lucide-react": "^0.379.0",
+        "million": "^3.1.6",
         "next": "14.2.3",
         "next-themes": "^0.3.0",
         "prettier": "^3.2.5",
