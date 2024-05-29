@@ -16,23 +16,12 @@ function GamesSkeleton() {
     );
 }
 
+interface GamesGridProps {
+    games: GamesRoute["games"];
+}
+
 // million-ignore
-export function GamesGrid() {
-    const [games, setGames] = React.useState<GamesRoute["games"]>([]);
-
-    React.useEffect(() => {
-        fetch("https://api.wanderer.moe/games")
-            .then((res) => res.json())
-            .then((data: GamesRoute) => {
-                let sortedGames = data.games.sort(
-                    (a, b) =>
-                        new Date(b.lastUploaded).getTime() -
-                        new Date(a.lastUploaded).getTime(),
-                );
-                setGames(sortedGames);
-            });
-    }, []);
-
+export function GamesGrid({ games }: GamesGridProps) {
     return (
         <div>
             <div className="flex flex-col mb-4">
