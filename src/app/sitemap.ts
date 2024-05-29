@@ -12,6 +12,7 @@ const defaults: {
         | "never";
     lastModified?: Date;
 } = {
+    changeFrequency: "daily",
     lastModified: new Date(),
 };
 
