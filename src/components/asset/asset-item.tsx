@@ -59,14 +59,14 @@ export function AssetItem({
                             <p>{timeAgo(asset.uploaded)}</p>
                             <p>{bytesToFileSize(asset.size)}</p>
                         </div>
-                        <Link href={asset.path} target="_blank" download>
+                        <Link href={asset.path} download={asset.name}>
                             <Button
                                 variant={"secondary"}
                                 size={"sm"}
+                                className="mt-2 flex flex-row gap-2 w-full items-center"
                                 onClick={(e) => {
                                     e.preventDefault();
                                 }}
-                                className="mt-2 flex flex-row gap-2 w-full items-center"
                             >
                                 <DownloadIcon size={16} />
                                 Download
@@ -93,15 +93,20 @@ export function AssetItem({
                         <p className="text-muted-foreground text-sm">
                             On mobile? Press and hold on the asset to save.
                         </p>
-                        <Button
-                            variant={"secondary"}
-                            size={"sm"}
-                            onClick={() => {
-                                window.open(asset.path, "_blank");
-                            }}
+                        <Link
+                            href={asset.path}
+                            target="_blank"
+                            className="w-full"
+                            download={asset.name}
                         >
-                            Download
-                        </Button>
+                            <Button
+                                variant={"secondary"}
+                                size={"sm"}
+                                className="w-full"
+                            >
+                                Download
+                            </Button>
+                        </Link>
                     </div>
                 </DialogFooter>
             </DialogContent>
