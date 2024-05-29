@@ -1,105 +1,36 @@
-<div align="center">
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![Banner]
+## Getting Started
 
-[![Discord Badge]](https://discord.wanderer.moe/)
-![Release Badge]
-![Svelte Badge]
+First, run the development server:
 
-[**wanderer.moe**](https://wanderer.moe) is a **centralized database** of various game assets — built using [**SvelteKit**](https://kit.svelte.dev/), [**TailwindCSS**](https://tailwindcss.com/), and [**Node.js**](https://nodejs.org/en) (powered with [**Cloudflare**](https://www.cloudflare.com/) Pages, Workers, R2 & D1).
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-</div>
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
----
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Local Development & Build
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-To run the website locally, follow these steps:
+## Learn More
 
-1. Read [API & CDN](#api--cdn) first.
+To learn more about Next.js, take a look at the following resources:
 
-2. Clone the repository (either `main` or `development` branch, dependant on your use case), and run either:
+-   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-   ```bash
-   git clone https://github.com/wanderer-moe/site
-   # OR
-   git clone https://github.com/wanderer-moe/site -b development
-   ```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-    You also want to initialize the (i18n) submodules:
+## Deploy on Vercel
 
-   ```bash
-   git submodule update --init --recursive
-   ```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-3. Install dependencies & run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use).
-
-4. To build the website, run `pnpm run build`. After the build process is complete, run `pnpm run preview` to preview the site at `http://localhost:4173`.
-
-## API & CDN
-
-> **Note**: There are currently CORS rules setup if you are using wanderer.moe's CDN — you may need to create your own R2 instance and change the `cdn` subdomain to your own R2. Make sure to also clone/modify the API and update the URLs.
-
-The API and CDN have their own respective subdomains — `api` and `cdn`. The API is powered by Cloudflare Workers and the CDN is powered by Cloudflare R2. The API's code is available at the [api repository][api.wanderer.moe]. More details on setting up the API are available [on api/#usage][api.wanderer.moe Usage].
-
-## Production Deployment & Configuration
-
-### Redirects
-
-View `src/hooks.server.ts` for the current redirects.
-
-### Cloudflare Configuration
-
-- **Build Command**:
-
-    ```bash
-    npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build
-    ```
-
-- **Build Output Directory**:
-
-    ```bash
-    /.svelte-kit/cloudflare
-    ```
-
-All pushes to the `development` branch is deployed to the `beta` subdomain @ [beta.wanderer.moe](https://beta.wanderer.moe).
-
-## Contributing
-
-- **Development**: All contributions are welcome. Please make all pull requests to the `development` branch!
-- **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent on Discord (@dromzeh) or email: [marcel@dromzeh.dev][mail].
-
-A more detailed guide on contributing can be found in [CONTRIBUTING.md][Contributing].
-
-## Contributors
-
-#### Developers
-
-- [@dromzeh][Dromzeh] - Project Lead & Developer (Website, API & CDN)
-
-#### Asset Contributors and Translators
-
-A full list can be found [here][Contributors].
-
-## Translations
-
-Translations are managed on [Crowdin][Crowdin]. All translations can be found on the [i18n repository][i18n].
-
-## License
-
-[wanderer.moe][wanderer.moe] is licensed under [GNU Affero General Public License v3.0][License] — **You must state all significant changes made to the original software, make the source code available to the public with credit to the original author, original source, and use the same license.**
-
-[Banner]: https://files.catbox.moe/qoyuka.svg
-[Discord Badge]: https://img.shields.io/discord/982385887000272956?color=323379&label=discord&logo=discord&logoColor=fff&style=for-the-badge
-[Release Badge]: https://img.shields.io/github/v/release/wanderer-moe/site?color=%233b3d91&label=latest%20release&logo=github&logoColor=fff&style=for-the-badge
-[Svelte Badge]: https://img.shields.io/github/package-json/dependency-version/wanderer-moe/site/dev/svelte?color=4547a9&logo=svelte&logoColor=fff&style=for-the-badge
-[api.wanderer.moe]: https://git.wanderer.moe/api
-[api.wanderer.moe Usage]: https://git.wanderer.moe/api#usage
-[Mail]: mailto:marcel@dromzeh.dev
-[Contributing]: CONTRIBUTING.md
-[Dromzeh]: https://github.com/dromzeh
-[Contributors]: https://wanderer.moe/contributors
-[Crowdin]: https://crowdin.com/project/wanderermoe
-[i18n]: https://github.com/wanderer-moe/i18n/tree/main/site
-[wanderer.moe]: https://wanderer.moe
-[License]: LICENSE
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

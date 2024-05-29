@@ -4,7 +4,6 @@ about: Suggest an idea for wanderer.moe
 title: "[REQUEST]"
 labels: enhancement
 assignees: dromzeh
-
 ---
 
 **Is your feature request related to a problem? Please describe:**
