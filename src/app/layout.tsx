@@ -11,6 +11,8 @@ import { Toaster } from "sonner";
 const font = Plus_Jakarta_Sans({
     style: "normal",
     subsets: ["latin"],
+    // 400 lowkey hurts my eyes
+    weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {

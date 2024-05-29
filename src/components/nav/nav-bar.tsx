@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-// import Image from "next/image";
+
 import { NavSidebar } from "./nav-sidebar";
 
 export default function NavBar() {

@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FormatCategoryName, FormatGameName } from "~/lib/format";
 import { CategoryRoute } from "~/lib/types";
-// import Image from "next/image";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -13,9 +12,10 @@ import {
 } from "~/components/ui/breadcrumb";
 import { DescriptionImage } from "~/components/desc-image";
 import { timeAgo } from "~/lib/time";
-import { AlertTriangleIcon, HomeIcon } from "lucide-react";
+import { HomeIcon } from "lucide-react";
 import { AssetHandler } from "~/components/category/asset-handler";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
+
 async function getCategory(
     game: string,
     category: string,
@@ -45,11 +45,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function GameCategoryPage({ params }: Props) {
+export default async function GameCategoryPage({ params }: Readonly<Props>) {
     const { game, category } = params;
     const { response } = await getCategory(game, category);
 
-    if (!response || !response.game) return notFound();
+    if (!response?.game) return notFound();
 
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">

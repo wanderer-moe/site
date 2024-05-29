@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { GamesCategories } from "~/components/games/games-categories";
 import { FormatGameName } from "~/lib/format";
 import { GameRoute } from "~/lib/types";
-// import Image from "next/image";
+
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -40,11 +40,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function GamePage({ params }: Props) {
+export default async function GamePage({ params }: Readonly<Props>) {
     const { game } = params;
     const { response } = await getGame(game);
 
-    if (!response || !response.game) return notFound();
+    if (!response?.game) return notFound();
 
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">

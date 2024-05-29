@@ -22,15 +22,14 @@ export function GamesGrid() {
     React.useEffect(() => {
         fetch("https://api.wanderer.moe/games")
             .then((res) => res.json())
-            .then((data: GamesRoute) =>
-                setGames(
-                    data.games.sort(
-                        (a, b) =>
-                            new Date(b.lastUploaded).getTime() -
-                            new Date(a.lastUploaded).getTime(),
-                    ),
-                ),
-            );
+            .then((data: GamesRoute) => {
+                let sortedGames = data.games.sort(
+                    (a, b) =>
+                        new Date(b.lastUploaded).getTime() -
+                        new Date(a.lastUploaded).getTime(),
+                );
+                setGames(sortedGames);
+            });
     }, []);
 
     return (
@@ -44,7 +43,7 @@ export function GamesGrid() {
             {games.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {games.map((game, i) => (
-                        <GameEntry key={i} game={game} />
+                        <GameEntry key={game.name + i} game={game} />
                     ))}
                 </div>
             ) : (

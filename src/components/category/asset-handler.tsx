@@ -65,11 +65,17 @@ function filterAssets(
     }
 
     return filteredAssets.filter((asset) =>
-        asset.name.toLowerCase().includes(search.toLowerCase().replace(" ", "-")),
+        asset.name
+            .toLowerCase()
+            .includes(search.toLowerCase().replace(" ", "-")),
     );
 }
 
-export function AssetHandler({ assets, game, category }: AssetHandlerProps) {
+export function AssetHandler({
+    assets,
+    game,
+    category,
+}: Readonly<AssetHandlerProps>) {
     const [search, setSearch] = React.useState<string>("");
     const [filter, setFilter] =
         React.useState<(typeof filterList)[number]>("Newest");
@@ -99,7 +105,7 @@ export function AssetHandler({ assets, game, category }: AssetHandlerProps) {
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 {filteredAssets.map((asset, i) => (
                     <AssetItem
-                        key={i}
+                        key={asset.name + i}
                         asset={asset}
                         game={game}
                         category={category}

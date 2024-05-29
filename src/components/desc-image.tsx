@@ -10,7 +10,7 @@ export function DescriptionImage({
     alt,
     title,
     description,
-}: DescriptionImageProps) {
+}: Readonly<DescriptionImageProps>) {
     return (
         <div className="relative flex flex-col gap-2">
             <div className="relative w-full h-48">

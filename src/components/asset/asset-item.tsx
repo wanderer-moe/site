@@ -21,25 +21,11 @@ export function AssetItem({
     asset,
     game,
     category,
-}: {
+}: Readonly<{
     asset: Asset;
     game: string;
     category: string;
-}) {
-    // function getImageResolution(imagePath: string) {
-    //     if (typeof window !== "undefined") {
-    //         const img = new Image();
-    //         const canvas = document.createElement("canvas");
-    //         const ctx = canvas.getContext("2d");
-    //         img.src = imagePath;
-    //         canvas.width = img.width;
-    //         canvas.height = img.height;
-    //         return `${canvas.width}x${canvas.height}`;
-    //     } else {
-    //         return "Unknown Resolution";
-    //     }
-    // }
-
+}>) {
     return (
         <Dialog>
             <DialogTrigger asChild>

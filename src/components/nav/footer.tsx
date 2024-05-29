@@ -1,4 +1,5 @@
 import { DiscordStatus } from "~/components/discord-status";
+import { GitHubStar } from "../github-star";
 import { Heart } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -74,6 +75,7 @@ export function SiteFooter(): React.ReactElement {
                         </div>
                         <div className="mt-4 grid gap-2">
                             <DiscordStatus />
+                            <GitHubStar />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">

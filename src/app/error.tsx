@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         "Centralized game assets database (previously wtf.dromzeh.dev)",
 };
 
-export default function Error() {
+export default function ErrorPage() {
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5 flex items-center justify-center">
             <div className="flex flex-col items-center gap-4">
@@ -21,8 +21,8 @@ export default function Error() {
                     </p>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                    This wasn&apos;t supposed to happen. Refresh the page & try
-                    again later.
+                    This wasn&apos;t supposed to happen. Try refreshing the page
+                    or try again later.
                 </p>
                 <Link href="/">
                     <Button variant="outline">Go Home</Button>
