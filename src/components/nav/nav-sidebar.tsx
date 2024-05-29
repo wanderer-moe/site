@@ -1,4 +1,4 @@
-import { Home, Menu, Scale } from "lucide-react";
+import { Home, Menu, Scale, Scroll } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
@@ -45,31 +45,55 @@ export function NavSidebar() {
                 </SheetHeader>
                 <div className="mt-8 text-muted-foreground flex flex-col gap-2">
                     <Link href="/" className="text-left">
-                        <Button className="w-full" variant="ghost">
+                        <Button
+                            className="w-full justify-start "
+                            variant="ghost"
+                        >
                             <Home className="h-5 w-5 mr-2 inline" />
                             Home
                         </Button>
                     </Link>
-                    <Link href="/legal/privacy-policy">
-                        <Button className="w-full" variant="ghost">
+                    <Link href="/privacy-policy">
+                        <Button
+                            className="w-full justify-start "
+                            variant="ghost"
+                        >
                             <Scale className="h-5 w-5 mr-2 inline" />
                             Privacy Policy
                         </Button>
                     </Link>
+                    <Link href="/changelog">
+                        <Button
+                            className="w-full justify-start "
+                            variant="ghost"
+                        >
+                            <Scroll className="h-5 w-5 mr-2 inline" />
+                            Changelog
+                        </Button>
+                    </Link>
                     <Link href="https://discord.wanderer.moe/">
-                        <Button className="w-full" variant="ghost">
+                        <Button
+                            className="w-full justify-start "
+                            variant="ghost"
+                        >
                             <DiscordLogoIcon className="h-5 w-5 mr-2 inline" />
                             Discord
                         </Button>
                     </Link>
                     <Link href="https://x.com/wanderermoe">
-                        <Button className="w-full" variant="ghost">
+                        <Button
+                            className="w-full justify-start "
+                            variant="ghost"
+                        >
                             <TwitterLogoIcon className="h-5 w-5 mr-2 inline" />
                             Twitter (X)
                         </Button>
                     </Link>
                     <Link href="https://git.wanderer.moe/">
-                        <Button className="w-full" variant="ghost">
+                        <Button
+                            className="w-full justify-start "
+                            variant="ghost"
+                        >
                             <GitHubLogoIcon className="h-5 w-5 mr-2 inline" />
                             GitHub
                         </Button>

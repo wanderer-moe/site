@@ -51,29 +51,20 @@ export function AssetItem({
                             className="h-36 max-h-36 w-36 max-w-36 object-contain p-1"
                         />
                     </div>
-                    <div className="flex flex-col mt-2">
-                        <p className="overflow-x-clip font-semibold line-clamp-1 text-ellipsis">
+                    <div className="flex flex-col mt-2 p-2">
+                        <p className="font-semibold line-clamp-1 text-ellipsis">
                             {asset.name}
                         </p>
                         <div className="text-muted-foreground flex text-sm justify-between items-center">
                             <p>{timeAgo(asset.uploaded)}</p>
                             <p>{bytesToFileSize(asset.size)}</p>
                         </div>
-
-                        <Button
-                            variant={"secondary"}
-                            size={"sm"}
-                            className="mt-2 flex flex-row gap-2 w-full items-center"
-                        >
-                            <DownloadIcon size={16} />
-                            Download
-                        </Button>
                     </div>
                 </Card>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>{asset.name}</DialogTitle>
+                    <DialogTitle className="text-xs">{asset.name}</DialogTitle>
                 </DialogHeader>
                 <DialogDescription>
                     <div className="flex items-center justify-center">
@@ -86,20 +77,22 @@ export function AssetItem({
                 </DialogDescription>
                 <DialogFooter>
                     <div className="flex flex-col w-full gap-2">
-                        <p className="text-muted-foreground text-sm">
-                            On mobile? Press and hold on the asset to save.
+                        <p className="text-muted-foreground text-center text-sm">
+                            On mobile? Press and hold on the asset above to
+                            save.
                         </p>
                         <Link
                             prefetch={false}
                             href={asset.path}
                             target="_blank"
                             className="w-full"
-                            download={asset.name}
+                            download
                         >
-                            <Button
-                                variant={"secondary"}
-                                className="w-full"
-                            >
+                            <Button variant={"secondary"} className="w-full">
+                                <DownloadIcon
+                                    size={16}
+                                    className="inline mr-2"
+                                />
                                 Download
                             </Button>
                         </Link>

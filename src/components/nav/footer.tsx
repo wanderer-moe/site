@@ -63,12 +63,43 @@ export function SiteFooter(): React.ReactElement {
                         </div>
                         <div>
                             <p className="mb-4 pt-1 font-semibold text-primary">
+                                Other
+                            </p>
+                            <ul>
+                                <li className="mb-2">
+                                    <Link
+                                        href="/changelog"
+                                        className="transition-colors hover:text-primary"
+                                    >
+                                        Changelog
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link
+                                        href="https://status.wanderer.moe/"
+                                        className="transition-colors hover:text-primary"
+                                    >
+                                        Status Page
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link
+                                        href="mailto:marcel@wanderer.moe"
+                                        className="transition-colors hover:text-primary"
+                                    >
+                                        Contact
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p className="mb-4 pt-1 font-semibold text-primary">
                                 Legal
                             </p>
                             <ul>
                                 <li className="mb-2">
                                     <Link
-                                        href="/legal/privacy-policy"
+                                        href="/privacy-policy"
                                         className="transition-colors hover:text-primary"
                                     >
                                         Privacy Policy

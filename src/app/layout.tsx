@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "~/components/theme/theme-provider";
@@ -15,9 +15,14 @@ const font = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://wanderer.moe"),
     title: "wanderer.moe",
     description:
         "Centralized game assets database (previously wtf.dromzeh.dev)",
+};
+
+export const viewport: Viewport = {
+    themeColor: "#BFB7D6",
 };
 
 export default function RootLayout({

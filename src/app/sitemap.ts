@@ -65,6 +65,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/privacy-policy`,
             priority: 0.5,
         },
+        {
+            ...defaults,
+            url: `${baseUrl}/changelog`,
+            priority: 0.5,
+        },
         ...gameRoutes,
     ];
 }

@@ -13,9 +13,9 @@ import {
 } from "~/components/ui/breadcrumb";
 import { DescriptionImage } from "~/components/desc-image";
 import { timeAgo } from "~/lib/time";
-import { HomeIcon } from "lucide-react";
+import { AlertTriangleIcon, HomeIcon } from "lucide-react";
 import { AssetHandler } from "~/components/category/asset-handler";
-
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 async function getCategory(
     game: string,
     category: string,
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function GamePage({ params }: Props) {
+export default async function GameCategoryPage({ params }: Props) {
     const { game, category } = params;
     const { response } = await getCategory(game, category);
 
@@ -92,6 +92,23 @@ export default async function GamePage({ params }: Props) {
                     title={`${FormatGameName(response.game)} ${FormatCategoryName(response.asset)}`}
                     description={`Last updated ${timeAgo(response.lastUploaded.uploaded)}`}
                 />
+                <div>
+                    <Alert>
+                        <div className="flex flex-row items-center gap-2">
+                            <img
+                                src="https://cdn.wanderer.moe/cdn-cgi/image/width=64,height=64,quality=75/wuthering-waves/emotes/T_ChatEmo_C_01.png"
+                                alt="ww emote"
+                                className="w-8 h-8"
+                            />
+                            <div className="flex flex-col">
+                                <AlertTitle>Heads up!</AlertTitle>
+                                <AlertDescription className="text-muted-foreground">
+                                    Single tap or click on assets to view info & download them.
+                                </AlertDescription>
+                            </div>
+                        </div>
+                    </Alert>
+                </div>
                 <AssetHandler
                     assets={response.images}
                     game={response.game}
