@@ -66,6 +66,7 @@ export function AssetHandler({ assets, game, category }: AssetHandlerProps) {
             <div className="flex flex-row gap-2">
                 <Input
                     type="search"
+                    className="bg-background"
                     placeholder="Search assets"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
@@ -106,7 +107,7 @@ function FilterOptions({
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button className="w-[150px]" variant={"secondary"}>
+                <Button className="w-[150px]" variant={"outline"}>
                     <div className="flex flex-row gap-2 items-center">
                         <FilterIcon size={16} className="translate-y-[1px]" />
                         {filter}

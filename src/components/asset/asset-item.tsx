@@ -98,7 +98,6 @@ export function AssetItem({
                         >
                             <Button
                                 variant={"secondary"}
-                                size={"sm"}
                                 className="w-full"
                             >
                                 Download
