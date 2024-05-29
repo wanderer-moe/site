@@ -1,78 +1,31 @@
 import { DiscordLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import { Card } from "../ui/card";
-import { ArrowRight, TwitterIcon } from "lucide-react";
-import { GithubIcon } from "lucide-react";
+import { ArrowRight, GithubIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
 
-export function DiscordInfo() {
-    return (
-        <Link href="https://discord.gg/659KAFfNd6">
-            <Card className="group p-4 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
-                <div className="flex flex-col gap-2">
-                    <DiscordLogoIcon className="h-5 w-5" />
-                    <h2 className="font-semibold flex flex-row gap-1 items-center">
-                        Discord
-                        <ArrowRight
-                            size={16}
-                            className="text-primary group-hover:translate-x-1 transition-all ease-linear"
-                        />
-                    </h2>
-                </div>
-                <div className="flex text-sm justify-between items-center gap-2">
-                    <p className="text-muted-foreground">
-                        Join the Discord to keep up-to-date with development &
-                        updates.
-                    </p>
-                </div>
-            </Card>
-        </Link>
-    );
+interface InfoCardProps {
+    href: string;
+    icon: React.ReactNode;
+    title: string;
+    description: string;
 }
 
-export function GithubInfo() {
+function InfoCard({ href, icon, title, description }: InfoCardProps) {
     return (
-        <Link href="https://git.wanderer.moe">
-            <Card className="p-4 group rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
+        <Link href={href}>
+            <Card className="group flex flex-col gap-1 p-4 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
                 <div className="flex flex-col gap-2">
-                    <GithubIcon size={20} />
+                    {icon}
                     <h2 className="font-semibold flex flex-row gap-1 items-center">
-                        GitHub
+                        {title}
                         <ArrowRight
                             size={16}
                             className="text-primary group-hover:translate-x-1 transition-all ease-linear"
                         />
                     </h2>
                 </div>
-                <div className="flex text-sm justify-between items-center gap-2">
-                    <p className="text-muted-foreground">
-                        wanderer.moe and all retrospective microservices are
-                        open-source.
-                    </p>
-                </div>
-            </Card>
-        </Link>
-    );
-}
-
-export function TwitterInfo() {
-    return (
-        <Link href="https://x.com/wanderermoe">
-            <Card className="p-4 group rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
-                <div className="flex flex-col gap-2">
-                    <TwitterLogoIcon className="h-5 w-5" />
-                    <h2 className="font-semibold flex flex-row gap-1 items-center">
-                        Twitter
-                        <ArrowRight
-                            size={16}
-                            className="text-primary group-hover:translate-x-1 transition-all ease-linear"
-                        />
-                    </h2>
-                </div>
-                <div className="flex text-sm justify-between items-center gap-2">
-                    <p className="text-muted-foreground">
-                        Follow the official Twitter (X) account for updates and
-                        announcements.
-                    </p>
+                <div className="flex text-xs justify-between items-center gap-2">
+                    <p className="text-muted-foreground">{description}</p>
                 </div>
             </Card>
         </Link>
@@ -89,9 +42,24 @@ export function InfoGrid() {
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <DiscordInfo />
-                <TwitterInfo />
-                <GithubInfo />
+                <InfoCard
+                    href="https://discord.gg/659KAFfNd6"
+                    icon={<DiscordLogoIcon className="h-5 w-5" />}
+                    title="Discord"
+                    description="Join the Discord to keep up-to-date with development & updates."
+                />
+                <InfoCard
+                    href="https://x.com/wanderermoe"
+                    icon={<TwitterLogoIcon className="h-5 w-5" />}
+                    title="Twitter"
+                    description="Follow the official Twitter (X) account for updates and announcements."
+                />
+                <InfoCard
+                    href="https://git.wanderer.moe"
+                    icon={<GithubIcon size={20} />}
+                    title="GitHub"
+                    description="wanderer.moe and all retrospective microservices are open-source."
+                />
             </div>
         </div>
     );

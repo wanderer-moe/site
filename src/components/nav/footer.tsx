@@ -1,7 +1,54 @@
 import { DiscordStatus } from "~/components/discord-status";
 import { Heart } from "lucide-react";
-// import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+
+interface FooterLinkProps {
+    href: string;
+    children: React.ReactNode;
+}
+
+const FooterLink = ({ href, children }: FooterLinkProps) => (
+    <Link href={href} className="transition-colors hover:text-primary">
+        {children}
+    </Link>
+);
+
+interface FooterSectionProps {
+    title: string;
+    links: { href: string; label: string }[];
+}
+
+const FooterSection = ({ title, links }: FooterSectionProps) => (
+    <div>
+        <p className="mb-4 pt-1 font-semibold text-primary">{title}</p>
+        <ul className="text-muted-foreground text-xs">
+            {links.map((link, index) => (
+                <li key={index} className="mb-2">
+                    <FooterLink href={link.href}>{link.label}</FooterLink>
+                </li>
+            ))}
+        </ul>
+    </div>
+);
+
+const footerLinks = {
+    socials: [
+        { href: "https://discord.wanderer.moe/", label: "Discord" },
+        { href: "https://x.com/wanderermoe", label: "Twitter (X)" },
+        { href: "https://git.wanderer.moe/", label: "GitHub" },
+    ],
+    other: [
+        { href: "/changelog", label: "Changelog" },
+        { href: "https://status.wanderer.moe/", label: "Status Page" },
+        { href: "mailto:marcel@wanderer.moe", label: "Contact" },
+    ],
+    legal: [
+        { href: "/privacy-policy", label: "Privacy Policy" },
+        { href: "mailto:legal@wanderer.moe", label: "Legal Inquiries" },
+        { href: "mailto:dmca@wanderer.moe", label: "DMCA Requests" },
+    ],
+};
 
 export function SiteFooter(): React.ReactElement {
     const currentYear = new Date().getFullYear();
@@ -30,99 +77,18 @@ export function SiteFooter(): React.ReactElement {
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
-                        <div>
-                            <p className="mb-4 pt-1 font-semibold text-primary">
-                                Socials
-                            </p>
-                            <ul className="text-muted-foreground">
-                                <li className="mb-2">
-                                    <Link
-                                        href="https://discord.wanderer.moe/"
-                                        className="transition-colors hover:text-primary"
-                                    >
-                                        Discord
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link
-                                        href="https://x.com/wanderermoe"
-                                        className="transition-colors hover:text-primary"
-                                    >
-                                        Twitter (X)
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link
-                                        href="https://git.wanderer.moe/"
-                                        className="transition-colors hover:text-primary"
-                                    >
-                                        GitHub
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p className="mb-4 pt-1 font-semibold text-primary">
-                                Other
-                            </p>
-                            <ul>
-                                <li className="mb-2">
-                                    <Link
-                                        href="/changelog"
-                                        className="transition-colors hover:text-primary"
-                                    >
-                                        Changelog
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link
-                                        href="https://status.wanderer.moe/"
-                                        className="transition-colors hover:text-primary"
-                                    >
-                                        Status Page
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link
-                                        href="mailto:marcel@wanderer.moe"
-                                        className="transition-colors hover:text-primary"
-                                    >
-                                        Contact
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p className="mb-4 pt-1 font-semibold text-primary">
-                                Legal
-                            </p>
-                            <ul>
-                                <li className="mb-2">
-                                    <Link
-                                        href="/privacy-policy"
-                                        className="transition-colors hover:text-primary"
-                                    >
-                                        Privacy Policy
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link
-                                        href="mailto:legal@wanderer.moe"
-                                        className="transition-colors hover:text-primary"
-                                    >
-                                        Legal Inquiries
-                                    </Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link
-                                        href="mailto:dmca@wanderer.moe"
-                                        className="transition-colors hover:text-primary"
-                                    >
-                                        DMCA Requests
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
+                        <FooterSection
+                            title="Socials"
+                            links={footerLinks.socials}
+                        />
+                        <FooterSection
+                            title="Other"
+                            links={footerLinks.other}
+                        />
+                        <FooterSection
+                            title="Legal"
+                            links={footerLinks.legal}
+                        />
                     </div>
                 </div>
                 <hr className="border-main-300 my-6 sm:mx-auto lg:my-8" />

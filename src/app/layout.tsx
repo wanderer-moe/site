@@ -9,7 +9,6 @@ import { ScrollToTop } from "~/components/nav/scroll-to-top";
 import { Toaster } from "sonner";
 
 const font = Plus_Jakarta_Sans({
-    weight: ["600", "700", "800"],
     style: "normal",
     subsets: ["latin"],
 });

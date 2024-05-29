@@ -94,14 +94,14 @@ export default async function GameCategoryPage({ params }: Props) {
                 />
                 <div>
                     <Alert>
-                        <div className="flex flex-row items-center gap-2">
+                        <div className="flex flex-row items-center gap-2 p-1">
                             <img
                                 src="https://cdn.wanderer.moe/cdn-cgi/image/width=64,height=64,quality=75/wuthering-waves/emotes/T_ChatEmo_C_01.png"
                                 alt="ww emote"
                                 className="w-8 h-8"
                             />
                             <div className="flex flex-col">
-                                <AlertTitle>Heads up!</AlertTitle>
+                                <AlertTitle className="text-base">Heads up!</AlertTitle>
                                 <AlertDescription className="text-muted-foreground">
                                     Single tap or click on assets to view info &
                                     download them.

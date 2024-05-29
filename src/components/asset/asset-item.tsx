@@ -55,7 +55,7 @@ export function AssetItem({
                         <p className="font-semibold line-clamp-1 text-ellipsis">
                             {asset.name}
                         </p>
-                        <div className="text-muted-foreground flex text-sm justify-between items-center">
+                        <div className="text-muted-foreground flex text-xs justify-between items-center">
                             <p>{timeAgo(asset.uploaded)}</p>
                             <p>{bytesToFileSize(asset.size)}</p>
                         </div>

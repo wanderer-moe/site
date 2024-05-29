@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 import { GamesRoute } from "~/lib/types";
-import Image from "next/image";
 import Link from "next/link";
 import { FormatGameName } from "~/lib/format";
 import { timeAgo } from "~/lib/time";
@@ -10,7 +9,7 @@ import { Skeleton } from "../ui/skeleton";
 function GamesSkeleton() {
     return (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[...Array(12)].map((i) => (
+            {[...Array(12)].map((_, i) => (
                 <Skeleton key={i} className="h-[150px]" />
             ))}
         </div>
@@ -63,26 +62,21 @@ export function GameEntry({ game }: GameEntryProps) {
     return (
         <div>
             <Link href={`/${game.name}`}>
-                <div className="relative rounded-lg group ease-linear transiton-all duration-150 ring-2 ring-transparent hover:ring-primary">
-                    <div className="bg-black/50 absolute w-full h-full rounded-lg group-hover:bg-black/40" />
-                    <div className="absolute bottom-0 left-0 right-0 p-2  rounded-b-lg">
+                <div className="relative rounded-lg group ease-linear transition-all duration-150 ring-2 ring-transparent hover:ring-primary">
+                    <div className="absolute bottom-1 left-1 right-0 p-2 rounded-b-lg z-10">
                         <div className="flex items-center space-x-2">
                             <div className="flex flex-col">
                                 <h2 className="text-white font-semibold">
                                     {FormatGameName(game.name)}
                                 </h2>
-                                <p className="text-xs">
+                                <p className="text-xs text-muted-foreground font-semibold">
                                     Updated {timeAgo(game.lastUploaded)}
                                 </p>
                             </div>
                         </div>
                     </div>
                     <img
-                        className="rounded-lg h-[150px]"
-                        style={{
-                            objectFit: "cover",
-                            objectPosition: "50% 20%",
-                        }}
+                        className="rounded-lg object-cover object-offset-center h-[150px] opacity-40"
                         src={`https://cdn.wanderer.moe/cdn-cgi/image/width=500,height=240,quality=75/${game.name}/cover.png`}
                         width={500}
                         height={240}

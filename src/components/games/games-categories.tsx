@@ -28,14 +28,14 @@ function CategoryEntry({ category }: { category: GameRoute["locations"][0] }) {
     const pathname = usePathname();
     return (
         <Link href={`${pathname}/${category.name}`}>
-            <Card className="group p-2 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
+            <Card className="group p-4 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
                 {/* <Folders size={16} className="text-primary" /> */}
                 <div className="flex flex-row items-center gap-1">
                     <h2 className="text-lg font-semibold">
                         {FormatCategoryName(category.name)}
                     </h2>
                 </div>
-                <div className="flex text-sm justify-between items-center gap-2">
+                <div className="flex text-xs justify-between items-center gap-2">
                     <div className="flex flex-col">
                         <p className="text-muted-foreground">
                             Updated {timeAgo(category.lastUploaded)}
