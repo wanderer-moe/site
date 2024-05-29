@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { GamesCategories } from "~/components/games/games-categories";
 import { FormatGameName } from "~/lib/format";
 import { GameRoute } from "~/lib/types";
-import Image from "next/image";
+// import Image from "next/image";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -21,6 +21,8 @@ async function getGame(game: string): Promise<{ response: GameRoute }> {
     const data = await response.json();
     return { response: data };
 }
+
+export const runtime = "edge";
 
 type Props = {
     params: { game: string };
@@ -59,13 +61,13 @@ export default async function GamePage({ params }: Props) {
                             <BreadcrumbItem>
                                 <BreadcrumbPage>
                                     <div className="flex flex-row gap-2 items-center">
-                                        <Image
+                                        {/* <Image
                                             src={`https://cdn.wanderer.moe/cdn-cgi/image/width=64,height=64,quality=75/${response.game}/icon.png`}
                                             width={18}
                                             height={18}
                                             alt={response.game}
                                             className="rounded-md"
-                                        />
+                                        /> */}
                                         {FormatGameName(response.game)}
                                     </div>
                                 </BreadcrumbPage>

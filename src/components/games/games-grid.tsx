@@ -37,7 +37,7 @@ export function GamesGrid() {
     return (
         <div>
             <div className="flex flex-col mb-4">
-                <h2 className="text-xl font-bold">Games</h2>
+                <h2 className="text-xl font-semibold">Games</h2>
                 <p className="text-sm text-muted-foreground">
                     All games currently available on wanderer.moe
                 </p>
@@ -68,7 +68,7 @@ export function GameEntry({ game }: GameEntryProps) {
                     <div className="absolute bottom-0 left-0 right-0 p-2  rounded-b-lg">
                         <div className="flex items-center space-x-2">
                             <div className="flex flex-col">
-                                <h2 className="text-white font-bold">
+                                <h2 className="text-white font-semibold">
                                     {FormatGameName(game.name)}
                                 </h2>
                                 <p className="text-xs">
@@ -77,7 +77,7 @@ export function GameEntry({ game }: GameEntryProps) {
                             </div>
                         </div>
                     </div>
-                    <Image
+                    <img
                         className="rounded-lg h-[150px]"
                         style={{
                             objectFit: "cover",

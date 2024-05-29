@@ -17,7 +17,7 @@ export default function Home() {
                     url="https://cdn.wanderer.moe/wuthering-waves/cover.png"
                     alt="wanderer.moe"
                     title="wanderer.moe"
-                    description="Centralized game assets database (previously wtf.dromzeh.dev)"
+                    description="Centralized game assets database"
                 />
                 <GamesGrid />
                 <InfoGrid />

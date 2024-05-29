@@ -106,7 +106,7 @@ function FilterOptions({
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button className="w-24" variant={"secondary"}>
+                <Button className="w-[150px]" variant={"secondary"}>
                     <div className="flex flex-row gap-2 items-center">
                         <FilterIcon size={16} className="translate-y-[1px]" />
                         {filter}

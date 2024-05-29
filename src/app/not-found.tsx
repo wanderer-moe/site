@@ -13,7 +13,7 @@ export default function NotFound() {
         <main className="mx-auto min-h-screen max-w-screen-xl p-5 flex items-center justify-center">
             <div className="flex flex-col items-center gap-4">
                 <div className="flex flex-row items-end gap-2">
-                    <h1 className="text-4xl font-bold">404</h1>
+                    <h1 className="text-4xl font-semibold">404</h1>
                     <p className="text-lg text-muted-foreground">
                         Page not found
                     </p>

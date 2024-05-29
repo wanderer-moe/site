@@ -1,6 +1,6 @@
 import { DiscordStatus } from "~/components/discord-status";
 import { Heart } from "lucide-react";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 
 export function SiteFooter(): React.ReactElement {
@@ -12,7 +12,7 @@ export function SiteFooter(): React.ReactElement {
                 <div className="w-full md:flex md:justify-between">
                     <div className="mb-4 flex w-full flex-col md:mb-0 md:w-72">
                         <div className="flex items-center justify-center gap-1 md:justify-start">
-                            <Image
+                            <img
                                 src="/logo.png"
                                 alt="wanderer.moe"
                                 className=""

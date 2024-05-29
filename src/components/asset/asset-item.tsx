@@ -1,7 +1,6 @@
 "use client";
 
 import type { Asset } from "~/lib/types";
-import Image from "next/image";
 import { Card } from "../ui/card";
 import { timeAgo } from "~/lib/time";
 import { bytesToFileSize } from "~/lib/format";
@@ -27,12 +26,25 @@ export function AssetItem({
     game: string;
     category: string;
 }) {
+    // function getImageResolution(imagePath: string) {
+    //     if (typeof window !== "undefined") {
+    //         const img = new Image();
+    //         const canvas = document.createElement("canvas");
+    //         const ctx = canvas.getContext("2d");
+    //         img.src = imagePath;
+    //         canvas.width = img.width;
+    //         canvas.height = img.height;
+    //         return `${canvas.width}x${canvas.height}`;
+    //     } else {
+    //         return "Unknown Resolution";
+    //     }
+    // }
+
     return (
         <Dialog>
             <DialogTrigger asChild>
                 <Card className="group p-2 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
                     <div className="flex items-center justify-center">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src={`https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/${game}/${category}/${asset.name}.png`}
                             alt={asset.name}
@@ -40,7 +52,7 @@ export function AssetItem({
                         />
                     </div>
                     <div className="flex flex-col mt-2">
-                        <p className="overflow-x-clip font-semibold text-ellipsis">
+                        <p className="overflow-x-clip font-semibold line-clamp-1 text-ellipsis">
                             {asset.name}
                         </p>
                         <div className="text-muted-foreground flex text-sm justify-between items-center">
@@ -51,6 +63,9 @@ export function AssetItem({
                             <Button
                                 variant={"secondary"}
                                 size={"sm"}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                }}
                                 className="mt-2 flex flex-row gap-2 w-full items-center"
                             >
                                 <DownloadIcon size={16} />
@@ -65,24 +80,29 @@ export function AssetItem({
                     <DialogTitle>{asset.name}</DialogTitle>
                 </DialogHeader>
                 <DialogDescription>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                        src={`https://cdn.wanderer.moe/${game}/${category}/${asset.name}.png`}
-                        alt={asset.name}
-                        className="rounded-md"
-                    />
-                    <p className="text-muted-foreground text-sm mt-2">hi</p>
+                    <div className="flex items-center justify-center">
+                        <img
+                            src={`https://cdn.wanderer.moe/${game}/${category}/${asset.name}.png`}
+                            alt={asset.name}
+                            className="rounded-md h-[40vh] object-contain"
+                        />
+                    </div>
                 </DialogDescription>
                 <DialogFooter>
-                    <Button
-                        variant={"secondary"}
-                        size={"sm"}
-                        onClick={() => {
-                            window.open(asset.path, "_blank");
-                        }}
-                    >
-                        Download
-                    </Button>
+                    <div className="flex flex-col w-full gap-2">
+                        <p className="text-muted-foreground text-sm">
+                            On mobile? Press and hold on the asset to save.
+                        </p>
+                        <Button
+                            variant={"secondary"}
+                            size={"sm"}
+                            onClick={() => {
+                                window.open(asset.path, "_blank");
+                            }}
+                        >
+                            Download
+                        </Button>
+                    </div>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

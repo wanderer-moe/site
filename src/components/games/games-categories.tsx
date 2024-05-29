@@ -29,8 +29,8 @@ function CategoryEntry({ category }: { category: GameRoute["locations"][0] }) {
     return (
         <Link href={`${pathname}/${category.name}`}>
             <Card className="group p-2 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
+                {/* <Folders size={16} className="text-primary" /> */}
                 <div className="flex flex-row items-center gap-1">
-                    <Folders size={16} className="text-primary" />
                     <h2 className="text-lg font-semibold">
                         {FormatCategoryName(category.name)}
                     </h2>

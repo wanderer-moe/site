@@ -16,19 +16,19 @@ export function DescriptionImage({
     return (
         <div className="relative flex flex-col gap-2">
             <div className="relative w-full h-48">
-                <Image
+                <img
                     style={{
                         objectFit: "cover",
                         objectPosition: "50% 20%",
                     }}
                     src={url}
                     alt={alt}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
+                    className="rounded-lg object-fit w-full h-full"
                 />
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black rounded-lg bg-opacity-50">
-                    <h1 className="text-4xl font-bold text-primary">{title}</h1>
+                    <h1 className="text-4xl font-semibold text-primary">
+                        {title}
+                    </h1>
                     <p className="text-primary">{description}</p>
                 </div>
             </div>
