@@ -73,8 +73,8 @@ const config = {
                 "accordion-up": "accordion-up 0.2s ease-out",
             },
             objectPosition: {
-                'offset-center': '50% 20%',
-            }
+                "offset-center": "50% 20%",
+            },
         },
     },
     plugins: [require("tailwindcss-animate")],

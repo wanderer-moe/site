@@ -101,7 +101,9 @@ export default async function GameCategoryPage({ params }: Props) {
                                 className="w-8 h-8"
                             />
                             <div className="flex flex-col">
-                                <AlertTitle className="text-base">Heads up!</AlertTitle>
+                                <AlertTitle className="text-base">
+                                    Heads up!
+                                </AlertTitle>
                                 <AlertDescription className="text-muted-foreground">
                                     Single tap or click on assets to view info &
                                     download them.
