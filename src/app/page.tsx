@@ -14,7 +14,7 @@ export default function Home() {
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">
             <div className="flex flex-col gap-6">
                 <DescriptionImage
-                    url="https://cdn.wanderer.moe/wuthering-waves/cover.png"
+                    url="https://cdn.wanderer.moe/cdn-cgi/image/width=700,height=500,quality=75/wuthering-waves/cover.png"
                     alt="wanderer.moe"
                     title="wanderer.moe"
                     description="Centralized game assets database"

@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
                     </Breadcrumb>
                 </div>
                 <DescriptionImage
-                    url="https://cdn.wanderer.moe/wuthering-waves/cover.png"
+                    url="https://cdn.wanderer.moe/cdn-cgi/image/width=700,height=500,quality=75/wuthering-waves/cover.png"
                     alt="Privacy Policy"
                     title="Privacy Policy"
                     description="Last Updated 29th May 2024"

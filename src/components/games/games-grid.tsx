@@ -16,6 +16,7 @@ function GamesSkeleton() {
     );
 }
 
+// million-ignore
 export function GamesGrid() {
     const [games, setGames] = React.useState<GamesRoute["games"]>([]);
 

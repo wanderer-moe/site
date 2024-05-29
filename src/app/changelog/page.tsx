@@ -202,7 +202,7 @@ export default function ChangelogPage() {
                     </Breadcrumb>
                 </div>
                 <DescriptionImage
-                    url="https://cdn.wanderer.moe/wuthering-waves/cover.png"
+                    url="https://cdn.wanderer.moe/cdn-cgi/image/width=700,height=500,quality=75/wuthering-waves/cover.png"
                     alt="Wuthering Waves Cover"
                     title="Changelog"
                     description="Simplified list of changes made to the site."
