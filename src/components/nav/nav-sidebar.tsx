@@ -37,7 +37,7 @@ export function NavSidebar() {
                     </SheetTitle>
                 </SheetHeader>
                 <div className="mt-8 text-muted-foreground flex flex-col gap-2">
-                    <Link href="/" className="text-left">
+                    <Link href="/" className="text-left" prefetch={false}>
                         <Button
                             className="w-full justify-start "
                             variant="ghost"
@@ -64,7 +64,7 @@ export function NavSidebar() {
                             Changelog
                         </Button>
                     </Link>
-                    <Link href="https://discord.wanderer.moe/">
+                    <Link href="https://discord.wanderer.moe/" prefetch={false}>
                         <Button
                             className="w-full justify-start "
                             variant="ghost"

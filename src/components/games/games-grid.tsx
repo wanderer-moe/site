@@ -60,7 +60,7 @@ interface GameEntryProps {
 export function GameEntry({ game }: GameEntryProps) {
     return (
         <div>
-            <Link href={`/${game.name}`}>
+            <Link href={`/${game.name}`} prefetch={false}>
                 <div className="relative rounded-lg group ease-linear transition-all duration-150 ring-2 ring-transparent hover:ring-primary">
                     <div className="absolute bottom-1 left-1 right-0 p-2 rounded-b-lg z-10">
                         <div className="flex items-center space-x-2">
