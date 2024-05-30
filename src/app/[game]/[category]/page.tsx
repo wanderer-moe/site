@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { game, category } = params;
     const { response } = await getCategory(game, category);
 
-    if (!response || !response.game) return notFound();
+    if (!response?.game) return notFound();
 
     return {
         title: `${FormatGameName(response.game)} - ${FormatCategoryName(response.asset)}  • wanderer.moe`,

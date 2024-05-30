@@ -16,7 +16,15 @@ async function fetchGameData(): Promise<GamesRoute> {
 }
 
 export default async function Home() {
-    const games = await fetchGameData();
+    const games = await fetchGameData().then((data) => {
+        data.games.sort((a, b) => {
+            return (
+                new Date(b.lastUploaded).getTime() -
+                new Date(a.lastUploaded).getTime()
+            );
+        });
+        return data;
+    });
 
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">

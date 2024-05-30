@@ -53,7 +53,7 @@ export function AssetItem({
                     <DialogTitle className="text-xs">{asset.name}</DialogTitle>
                 </DialogHeader>
                 <DialogDescription>
-                    <div className="flex items-center justify-center">
+                    <div className="relative flex items-center justify-center">
                         <img
                             src={`https://cdn.wanderer.moe/${game}/${category}/${asset.name}.png`}
                             alt={asset.name}

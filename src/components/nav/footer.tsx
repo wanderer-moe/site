@@ -111,7 +111,7 @@ export function SiteFooter(): React.ReactElement {
                             />{" "}
                             by{" "}
                             <Link
-                                className="text-primary"
+                                className="text-primary hover:text-muted-foreground transition-all duration-150"
                                 href="https://dromzeh.dev/?ref=wanderer.moe"
                             >
                                 dromzeh

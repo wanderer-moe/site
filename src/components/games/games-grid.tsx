@@ -21,7 +21,7 @@ interface GamesGridProps {
 }
 
 // million-ignore
-export function GamesGrid({ games }: GamesGridProps) {
+export function GamesGrid({ games }: Readonly<GamesGridProps>) {
     return (
         <div>
             <div className="flex flex-col mb-4">
@@ -32,8 +32,8 @@ export function GamesGrid({ games }: GamesGridProps) {
             </div>
             {games.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {games.map((game, i) => (
-                        <GameEntry key={game.name + i} game={game} />
+                    {games.map((game) => (
+                        <GameEntry key={game.name} game={game} />
                     ))}
                 </div>
             ) : (
@@ -47,7 +47,7 @@ interface GameEntryProps {
     game: GamesRoute["games"][0];
 }
 
-export function GameEntry({ game }: GameEntryProps) {
+export function GameEntry({ game }: Readonly<GameEntryProps>) {
     return (
         <div>
             <Link href={`/${game.name}`}>

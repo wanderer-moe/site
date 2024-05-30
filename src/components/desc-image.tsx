@@ -12,7 +12,7 @@ export function DescriptionImage({
     description,
 }: Readonly<DescriptionImageProps>) {
     return (
-        <div className="relative flex flex-col gap-2">
+        <div className="relative flex flex-col gap-2 shadow">
             <div className="relative w-full h-48">
                 <img
                     src={url}

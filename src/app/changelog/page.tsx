@@ -207,8 +207,8 @@ export default function ChangelogPage() {
                     title="Changelog"
                     description="Simplified list of changes made to the site."
                 />
-                {changes.map((change, i) => (
-                    <div key={change.title + i}>
+                {changes.map((change) => (
+                    <div key={change.title}>
                         <div className="flex flex-col">
                             <div className="flex justify-between items-center">
                                 <h2 className="text-lg font-semibold">

@@ -17,8 +17,8 @@ export function GamesCategories({
 }: Readonly<GamesCategoriesProps>) {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {categories.map((category, i) => (
-                <CategoryEntry key={category.name + i} category={category} />
+            {categories.map((category) => (
+                <CategoryEntry key={category.name} category={category} />
             ))}
         </div>
     );

@@ -1,6 +1,6 @@
 import { DiscordLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import { Card } from "../ui/card";
-import { ArrowRight, GithubIcon, TwitterIcon } from "lucide-react";
+import { ArrowRight, GithubIcon } from "lucide-react";
 import Link from "next/link";
 
 interface InfoCardProps {
@@ -10,7 +10,7 @@ interface InfoCardProps {
     description: string;
 }
 
-function InfoCard({ href, icon, title, description }: InfoCardProps) {
+function InfoCard({ href, icon, title, description }: Readonly<InfoCardProps>) {
     return (
         <Link href={href}>
             <Card className="group flex flex-col gap-1 p-4 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">

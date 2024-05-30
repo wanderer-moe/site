@@ -103,9 +103,9 @@ export function AssetHandler({
                 />
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-                {filteredAssets.map((asset, i) => (
+                {filteredAssets.map((asset) => (
                     <AssetItem
-                        key={asset.name + i}
+                        key={asset.name}
                         asset={asset}
                         game={game}
                         category={category}
@@ -133,11 +133,11 @@ function FilterOptions({
     filter,
     setFilter,
     filterList,
-}: {
+}: Readonly<{
     filter: string;
     setFilter: (filter: string) => void;
     filterList: string[];
-}) {
+}>) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -155,8 +155,8 @@ function FilterOptions({
                     value={filter}
                     onValueChange={setFilter}
                 >
-                    {filterList.map((filter, i) => (
-                        <DropdownMenuRadioItem key={i} value={filter}>
+                    {filterList.map((filter) => (
+                        <DropdownMenuRadioItem key={filter} value={filter}>
                             {filter}
                         </DropdownMenuRadioItem>
                     ))}
