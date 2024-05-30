@@ -87,7 +87,7 @@ export default async function GameCategoryPage({ params }: Readonly<Props>) {
                     </Breadcrumb>
                 </div>
                 <DescriptionImage
-                    url={`https://cdn.wanderer.moe/${response.game}/cover.png`}
+                    url={`https://cdn.wanderer.moe/cdn-cgi/image/width=1500,height=1000,quality=75/${response.game}/cover.png`}
                     alt={response.game}
                     title={`${FormatGameName(response.game)} ${FormatCategoryName(response.asset)}`}
                     description={`Last updated ${timeAgo(response.lastUploaded.uploaded)}`}
