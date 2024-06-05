@@ -1,5 +1,6 @@
 import MillionLint from "@million/lint";
 import million from "million/compiler";
+import { withAxiom } from "next-axiom";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,12 +15,14 @@ const nextConfig = {
     },
 };
 
-export default million.next(
-    MillionLint.next({
-        rsc: true,
-    })(nextConfig),
-    {
-        auto: true,
-        rsc: true,
-    },
+export default withAxiom(
+    million.next(
+        MillionLint.next({
+            rsc: true,
+        })(nextConfig),
+        {
+            auto: true,
+            rsc: true,
+        },
+    ),
 );
