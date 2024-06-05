@@ -15,12 +15,7 @@ import {
 import { DescriptionImage } from "~/components/desc-image";
 import { timeAgo } from "~/lib/time";
 import { HomeIcon } from "lucide-react";
-
-async function getGame(game: string): Promise<{ response: GameRoute }> {
-    const response = await fetch(`https://api.wanderer.moe/game/${game}`);
-    const data = await response.json();
-    return { response: data };
-}
+import { getGame } from "~/lib/api/client";
 
 export const runtime = "edge";
 

@@ -15,18 +15,7 @@ import { timeAgo } from "~/lib/time";
 import { HomeIcon } from "lucide-react";
 import { AssetHandler } from "~/components/category/asset-handler";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
-
-async function getCategory(
-    game: string,
-    category: string,
-): Promise<{ response: CategoryRoute }> {
-    const response = await fetch(
-        `https://api.wanderer.moe/game/${game}/${category}`,
-    );
-    const data = await response.json();
-    return { response: data };
-}
-
+import { getGameCategory } from "~/lib/api/client";
 export const runtime = "edge";
 
 type Props = {
@@ -35,7 +24,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { game, category } = params;
-    const { response } = await getCategory(game, category);
+    const { response } = await getGameCategory(game, category);
 
     if (!response?.game) return notFound();
 
@@ -47,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function GameCategoryPage({ params }: Readonly<Props>) {
     const { game, category } = params;
-    const { response } = await getCategory(game, category);
+    const { response } = await getGameCategory(game, category);
 
     if (!response?.game) return notFound();
 

@@ -3,21 +3,16 @@ import { DescriptionImage } from "~/components/desc-image";
 import { GamesGrid } from "~/components/games/games-grid";
 import { InfoGrid } from "~/components/info/info-grid";
 import { GamesRoute } from "~/lib/types";
+import { getGames } from "~/lib/api/client";
 
 export const metadata: Metadata = {
     title: "home • wanderer.moe",
     description:
         "Centralized game assets database (previously wtf.dromzeh.dev)",
 };
-
-async function fetchGameData(): Promise<GamesRoute> {
-    const res = await fetch("https://api.wanderer.moe/games");
-    return res.json();
-}
-
 export default async function Home() {
-    const games = await fetchGameData().then((data) => {
-        data.games.sort((a, b) => {
+    const games = await getGames().then((data) => {
+        data.response.games.sort((a, b) => {
             return (
                 new Date(b.lastUploaded).getTime() -
                 new Date(a.lastUploaded).getTime()
@@ -35,7 +30,7 @@ export default async function Home() {
                     title="wanderer.moe"
                     description="Centralized game assets database"
                 />
-                <GamesGrid games={games.games} />
+                <GamesGrid games={games.response.games} />
                 <InfoGrid />
             </div>
         </main>

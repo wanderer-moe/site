@@ -4,22 +4,15 @@ import { Button } from "~/components/ui/button";
 import { DiscordLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { getDiscordUsers } from "~/lib/api/client";
 
 export function DiscordStatus() {
-    const [members, setMembers] = useState<number | string>("Unknown");
+    const [currentMembers, setCurrentMembers] = useState<number>(0);
+
     useEffect(() => {
-        fetch(`https://discord.com/api/guilds/982385887000272956/widget.json`)
-            .then((res) => res.json())
-            .then((data) => {
-                setMembers(
-                    data.id === "982385887000272956"
-                        ? data.presence_count
-                        : "unknown",
-                );
-            })
-            .catch((err) => {
-                console.error(err);
-            });
+        getDiscordUsers().then((data) => {
+            setCurrentMembers(data.response.guild.memberCount);
+        });
     }, []);
 
     return (
@@ -28,7 +21,7 @@ export function DiscordStatus() {
                 <span className="relative flex items-center">
                     <DiscordLogoIcon
                         className={`${
-                            members === "unknown"
+                            currentMembers == 0
                                 ? "text-red-200"
                                 : "text-green-200"
                         } absolute stroke-2 opacity-100 
@@ -39,14 +32,15 @@ export function DiscordStatus() {
                     />
                     <DiscordLogoIcon
                         className={`${
-                            members === "unknown"
+                            currentMembers == 0
                                 ? "text-red-200"
                                 : "text-green-200"
                         } mr-2 stroke-2 duration-300 
                         group-hover:rotate-[360deg]`}
                         fill="currentColor"
                     />{" "}
-                    Discord: {members} online
+                    Discord: {currentMembers == 0 ? "Unknown" : currentMembers}{" "}
+                    members
                 </span>
             </Button>
         </Link>

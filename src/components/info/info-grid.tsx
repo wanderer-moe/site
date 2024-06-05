@@ -1,7 +1,11 @@
+"use client";
+
 import { DiscordLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import { Card } from "../ui/card";
 import { ArrowRight, GithubIcon } from "lucide-react";
 import Link from "next/link";
+import { getDiscordUsers } from "~/lib/api/client";
+import { useState } from "react";
 
 interface InfoCardProps {
     href: string;
@@ -32,7 +36,14 @@ function InfoCard({ href, icon, title, description }: Readonly<InfoCardProps>) {
     );
 }
 
+// probably fine
 export function InfoGrid() {
+    const [discordMembers, setDiscordMembers] = useState<number>(0);
+
+    getDiscordUsers().then((data) => {
+        setDiscordMembers(data.response.guild.memberCount);
+    });
+
     return (
         <div>
             <div className="flex flex-col mb-4">
@@ -46,7 +57,7 @@ export function InfoGrid() {
                     href="https://discord.gg/659KAFfNd6"
                     icon={<DiscordLogoIcon className="h-5 w-5" />}
                     title="Discord"
-                    description="Join the Discord to keep up-to-date with development & updates."
+                    description={`Join the Discord alongside ${discordMembers == 0 ? "" : discordMembers} others to keep up-to-date with development & updates.`}
                 />
                 <InfoCard
                     href="https://x.com/wanderermoe"

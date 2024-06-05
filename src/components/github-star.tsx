@@ -15,7 +15,11 @@ export function GitHubStar() {
     useEffect(() => {
         let total = 0;
         repositories.forEach((repo) => {
-            fetch(`${GitHubApi}${org}/${repo}`)
+            fetch(`${GitHubApi}${org}/${repo}`, {
+                next: {
+                    revalidate: 1800,
+                },
+            })
                 .then((res) => res.json())
                 .then((data) => {
                     total += data.stargazers_count;

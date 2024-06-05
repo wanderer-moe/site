@@ -42,6 +42,16 @@ export type CategoryRoute = {
     images: Asset[];
 };
 
+export type DiscordMembersRoute = {
+    success: boolean;
+    status: string;
+    path: string;
+    guild: {
+        memberCount: number; // this defaults to 2600 if discord api doesnt return
+        onlineCount: number; // this defaults to 350 if discord api doesnt return
+    };
+};
+
 export type Asset = {
     name: string;
     nameWithExtension: string;
