@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "~/components/theme/theme-provider";
-import { DeviceWarning } from "~/components/device-warning";
+// import { DeviceWarning } from "~/components/device-warning";
 import NavBar from "~/components/nav/nav-bar";
 import { SiteFooter } from "~/components/nav/footer";
 import { ScrollToTop } from "~/components/nav/scroll-to-top";
@@ -39,7 +39,7 @@ export default function RootLayout({
                     <AxiomWebVitals />
                     <ScrollToTop />
                     <NavBar />
-                    <DeviceWarning />
+                    {/* <DeviceWarning /> */}
                     {children}
                     <SiteFooter />
                     <Toaster />
