@@ -3,6 +3,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
+import { useLogger } from "next-axiom";
+import { usePathname } from "next/navigation";
+import { LogLevel } from "next-axiom/dist/logger";
 
 export const metadata: Metadata = {
     title: "internal server error • wanderer.moe",
@@ -10,7 +13,31 @@ export const metadata: Metadata = {
         "Centralized game assets database (previously wtf.dromzeh.dev)",
 };
 
-export default function ErrorPage() {
+export default function ErrorPage({
+    error,
+}: {
+    error: Error & { digest?: string };
+}) {
+    const pathname = usePathname();
+    const log = useLogger({ source: "error.tsx" });
+    let status = error.message == "Invalid URL" ? 404 : 500;
+
+    log.logHttpRequest(
+        LogLevel.error,
+        error.message,
+        {
+            host: window.location.href,
+            path: pathname,
+            statusCode: status,
+        },
+        {
+            error: error.name,
+            cause: error.cause,
+            stack: error.stack,
+            digest: error.digest,
+        },
+    );
+
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5 flex items-center justify-center">
             <div className="flex flex-col items-center gap-4">

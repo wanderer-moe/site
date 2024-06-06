@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FormatCategoryName, FormatGameName } from "~/lib/format";
-import { CategoryRoute } from "~/lib/types";
+import { Logger } from "next-axiom";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -35,10 +35,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function GameCategoryPage({ params }: Readonly<Props>) {
+    const log = new Logger();
     const { game, category } = params;
+    log.info("Fetching game category data", { game: game, category: category });
     const { response } = await getGameCategory(game, category);
 
-    if (!response?.game) return notFound();
+    if (!response?.game) {
+        log.warn("Game category not found", { game: game, category: category });
+        log.flush();
+        return notFound();
+    }
+
+    log.info("Rendering game category page", {
+        game: game,
+        category: category,
+    });
+    log.flush();
 
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">

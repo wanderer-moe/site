@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GamesCategories } from "~/components/games/games-categories";
 import { FormatGameName } from "~/lib/format";
-import { GameRoute } from "~/lib/types";
+import { Logger } from "next-axiom";
 
 import {
     Breadcrumb,
@@ -36,10 +36,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function GamePage({ params }: Readonly<Props>) {
+    const log = new Logger();
     const { game } = params;
+    log.info("Fetching game data", { game: game });
     const { response } = await getGame(game);
 
-    if (!response?.game) return notFound();
+    if (!response?.game) {
+        log.warn("Game not found", { game: game });
+        log.flush();
+        return notFound();
+    }
+
+    log.info("Rendering game page", { game: game });
+    log.flush();
 
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5">
