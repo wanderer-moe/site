@@ -37,6 +37,7 @@ function InfoCard({ href, icon, title, description }: Readonly<InfoCardProps>) {
 }
 
 // probably fine
+// million-ignore
 export function InfoGrid() {
     const [discordMembers, setDiscordMembers] = useState<number>(0);
 

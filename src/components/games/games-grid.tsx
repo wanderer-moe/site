@@ -1,4 +1,5 @@
 "use client";
+
 import * as React from "react";
 import { GamesRoute } from "~/lib/types";
 import Link from "next/link";
