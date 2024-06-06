@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "~/components/theme/theme-provider";
+// import { ThemeProvider } from "~/components/theme/theme-provider";
 // import { DeviceWarning } from "~/components/device-warning";
 import NavBar from "~/components/nav/nav-bar";
 import { SiteFooter } from "~/components/nav/footer";
@@ -35,15 +35,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={font.className}>
-                <ThemeProvider>
-                    <AxiomWebVitals />
-                    <ScrollToTop />
-                    <NavBar />
-                    {/* <DeviceWarning /> */}
-                    {children}
-                    <SiteFooter />
-                    <Toaster />
-                </ThemeProvider>
+                <AxiomWebVitals />
+                <ScrollToTop />
+                <NavBar />
+                {/* <DeviceWarning /> */}
+                {children}
+                <SiteFooter />
+                <Toaster />
             </body>
         </html>
     );
