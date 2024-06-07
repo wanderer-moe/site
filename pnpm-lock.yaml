@@ -130,9 +130,6 @@ importers:
             input-otp:
                 specifier: ^1.2.4
                 version: 1.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-            localforage:
-                specifier: ^1.10.0
-                version: 1.10.0
             lodash:
                 specifier: ^4.17.21
                 version: 4.17.21
@@ -3378,12 +3375,6 @@ packages:
             }
         engines: { node: ">= 4" }
 
-    immediate@3.0.6:
-        resolution:
-            {
-                integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==,
-            }
-
     immer@10.1.1:
         resolution:
             {
@@ -3789,12 +3780,6 @@ packages:
             }
         engines: { node: ">= 0.8.0" }
 
-    lie@3.1.1:
-        resolution:
-            {
-                integrity: sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw==,
-            }
-
     lilconfig@2.1.0:
         resolution:
             {
@@ -3821,12 +3806,6 @@ packages:
                 integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==,
             }
         engines: { node: ">=14" }
-
-    localforage@1.10.0:
-        resolution:
-            {
-                integrity: sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg==,
-            }
 
     locate-path@6.0.0:
         resolution:
@@ -7863,8 +7842,6 @@ snapshots:
 
     ignore@5.3.1: {}
 
-    immediate@3.0.6: {}
-
     immer@10.1.1: {}
 
     import-fresh@3.3.0:
@@ -8077,10 +8054,6 @@ snapshots:
             prelude-ls: 1.2.1
             type-check: 0.4.0
 
-    lie@3.1.1:
-        dependencies:
-            immediate: 3.0.6
-
     lilconfig@2.1.0: {}
 
     lilconfig@3.1.1: {}
@@ -8091,10 +8064,6 @@ snapshots:
         dependencies:
             mlly: 1.7.1
             pkg-types: 1.1.1
-
-    localforage@1.10.0:
-        dependencies:
-            lie: 3.1.1
 
     locate-path@6.0.0:
         dependencies:

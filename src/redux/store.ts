@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import * as PersistCases from "redux-persist";
 import { persistedReducer } from "./reducer";
 import {
     createStateSyncMiddleware,
@@ -12,9 +11,9 @@ import {
     useStore,
 } from "react-redux";
 import logger from "redux-logger";
-import persistStore from "redux-persist/es/persistStore";
+import { persistStore } from "redux-persist";
 
-const blacklist = [...Object.keys(PersistCases)];
+const blacklist = ["persist/PERSIST", "persist/REHYDRATE"];
 
 export const store = configureStore({
     reducer: persistedReducer,
@@ -37,9 +36,9 @@ export const store = configureStore({
         ) as any,
 });
 
-initMessageListener(store);
-
 export const persistor = persistStore(store);
+
+initMessageListener(store);
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
