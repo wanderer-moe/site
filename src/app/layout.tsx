@@ -7,9 +7,14 @@ import { SiteFooter } from "~/components/nav/footer";
 import { ScrollToTop } from "~/components/nav/scroll-to-top";
 import { Toaster } from "sonner";
 import { AxiomWebVitals } from "next-axiom";
+
 import dynamic from "next/dynamic";
 
-const ReduxProvider = dynamic(() => import("~/store/redux-provider"), {
+const PersisterProvider = dynamic(() => import("~/store/persistor-provider"), {
+    ssr: false,
+});
+
+const StoreProvider = dynamic(() => import("~/store/store-provider"), {
     ssr: false,
 });
 
@@ -39,14 +44,16 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={font.className}>
-                <ReduxProvider>
-                    <AxiomWebVitals />
-                    <ScrollToTop />
-                    <NavBar />
-                    {children}
-                    <SiteFooter />
-                    <Toaster />
-                </ReduxProvider>
+                <StoreProvider>
+                    <PersisterProvider>
+                        <AxiomWebVitals />
+                        <ScrollToTop />
+                        <NavBar />
+                        {children}
+                        <SiteFooter />
+                        <Toaster />
+                    </PersisterProvider>
+                </StoreProvider>
             </body>
         </html>
     );

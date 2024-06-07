@@ -42,17 +42,18 @@ export const assetSlice = createSlice({
     },
 });
 
-export const {
-    setSelectedAssets,
-    setIsMassDownloading,
-    setIsMassDownloadingDialogOpen,
-    toggleAssetSelection,
-} = assetSlice.actions;
-export const assetReducer = assetSlice.reducer;
-
 export const isAssetSelected = (state: IAssetState, asset: Asset) =>
     state.selectedAssets.some(
         (selectedAsset) => selectedAsset.path === asset.path,
     );
 
 export const getSelectedAssets = (state: IAssetState) => state.selectedAssets;
+
+export const {
+    setSelectedAssets,
+    setIsMassDownloading,
+    setIsMassDownloadingDialogOpen,
+    toggleAssetSelection,
+} = assetSlice.actions;
+
+export default assetSlice.reducer;
