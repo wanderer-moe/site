@@ -14,20 +14,20 @@ const initialState: IAssetState = {
 };
 
 export const assetSlice = createSlice({
-    name: "asset",
+    name: "assets",
     initialState,
     reducers: {
         setSelectedAssets: (state, action: PayloadAction<Asset[]>) => {
-            state.selectedAssets = action.payload || []; // Ensure payload is not undefined
+            state.selectedAssets = action.payload || [];
         },
         setIsMassDownloading: (state, action: PayloadAction<boolean>) => {
-            state.isMassDownloading = action.payload;
+            state.isMassDownloading = action.payload || false;
         },
         setIsMassDownloadingDialogOpen: (
             state,
             action: PayloadAction<boolean>,
         ) => {
-            state.isMassDownloadingDialogOpen = action.payload;
+            state.isMassDownloadingDialogOpen = action.payload || false;
         },
         toggleAssetSelection: (state, action: PayloadAction<Asset>) => {
             const index = state.selectedAssets.findIndex(

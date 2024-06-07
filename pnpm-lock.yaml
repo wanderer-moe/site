@@ -130,6 +130,9 @@ importers:
             input-otp:
                 specifier: ^1.2.4
                 version: 1.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+            localforage:
+                specifier: ^1.10.0
+                version: 1.10.0
             lodash:
                 specifier: ^4.17.21
                 version: 4.17.21
@@ -169,12 +172,18 @@ importers:
             react-resizable-panels:
                 specifier: ^2.0.19
                 version: 2.0.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+            redux-logger:
+                specifier: ^3.0.6
+                version: 3.0.6
             redux-persist:
                 specifier: ^6.0.0
                 version: 6.0.0(react@18.3.1)(redux@5.0.1)
             redux-state-sync:
                 specifier: ^3.1.4
                 version: 3.1.4
+            redux-thunk:
+                specifier: ^3.1.0
+                version: 3.1.0(redux@5.0.1)
             sonner:
                 specifier: ^1.4.41
                 version: 1.4.41(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -200,6 +209,9 @@ importers:
             "@types/react-dom":
                 specifier: ^18.3.0
                 version: 18.3.0
+            "@types/redux-logger":
+                specifier: ^3.0.13
+                version: 3.0.13
             "@types/redux-state-sync":
                 specifier: ^3.1.10
                 version: 3.1.10
@@ -1914,6 +1926,12 @@ packages:
                 integrity: sha512-hti/R0pS0q1/xx+TsI73XIqk26eBsISZ2R0wUijXIngRK9R/e7Xw/cXVxQK7R5JjW+SV4zGcn5hXjudkN/pLIw==,
             }
 
+    "@types/redux-logger@3.0.13":
+        resolution:
+            {
+                integrity: sha512-jylqZXQfMxahkuPcO8J12AKSSCQngdEWQrw7UiLUJzMBcv1r4Qg77P6mjGLjM27e5gFQDPD8vwUMJ9AyVxFSsg==,
+            }
+
     "@types/redux-state-sync@3.1.10":
         resolution:
             {
@@ -2564,6 +2582,12 @@ packages:
         peerDependenciesMeta:
             supports-color:
                 optional: true
+
+    deep-diff@0.3.8:
+        resolution:
+            {
+                integrity: sha512-yVn6RZmHiGnxRKR9sJb3iVV2XTF1Ghh2DiWRZ3dMnGc43yUdWWF/kX6lQyk3+P84iprfWKU/8zFTrlkvtFm1ug==,
+            }
 
     deep-eql@4.1.4:
         resolution:
@@ -3354,6 +3378,12 @@ packages:
             }
         engines: { node: ">= 4" }
 
+    immediate@3.0.6:
+        resolution:
+            {
+                integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==,
+            }
+
     immer@10.1.1:
         resolution:
             {
@@ -3759,6 +3789,12 @@ packages:
             }
         engines: { node: ">= 0.8.0" }
 
+    lie@3.1.1:
+        resolution:
+            {
+                integrity: sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw==,
+            }
+
     lilconfig@2.1.0:
         resolution:
             {
@@ -3785,6 +3821,12 @@ packages:
                 integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==,
             }
         engines: { node: ">=14" }
+
+    localforage@1.10.0:
+        resolution:
+            {
+                integrity: sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg==,
+            }
 
     locate-path@6.0.0:
         resolution:
@@ -4577,6 +4619,12 @@ packages:
                 integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==,
             }
         engines: { node: ">=8.10.0" }
+
+    redux-logger@3.0.6:
+        resolution:
+            {
+                integrity: sha512-JoCIok7bg/XpqA1JqCqXFypuqBbQzGQySrhFzewB7ThcnysTO30l4VCst86AuB9T9tuT03MAA56Jw2PNhRSNCg==,
+            }
 
     redux-persist@6.0.0:
         resolution:
@@ -6756,6 +6804,10 @@ snapshots:
             "@types/prop-types": 15.7.12
             csstype: 3.1.3
 
+    "@types/redux-logger@3.0.13":
+        dependencies:
+            redux: 5.0.1
+
     "@types/redux-state-sync@3.1.10":
         dependencies:
             broadcast-channel: 2.3.4
@@ -7193,6 +7245,8 @@ snapshots:
     debug@4.3.4:
         dependencies:
             ms: 2.1.2
+
+    deep-diff@0.3.8: {}
 
     deep-eql@4.1.4:
         dependencies:
@@ -7809,6 +7863,8 @@ snapshots:
 
     ignore@5.3.1: {}
 
+    immediate@3.0.6: {}
+
     immer@10.1.1: {}
 
     import-fresh@3.3.0:
@@ -8021,6 +8077,10 @@ snapshots:
             prelude-ls: 1.2.1
             type-check: 0.4.0
 
+    lie@3.1.1:
+        dependencies:
+            immediate: 3.0.6
+
     lilconfig@2.1.0: {}
 
     lilconfig@3.1.1: {}
@@ -8031,6 +8091,10 @@ snapshots:
         dependencies:
             mlly: 1.7.1
             pkg-types: 1.1.1
+
+    localforage@1.10.0:
+        dependencies:
+            lie: 3.1.1
 
     locate-path@6.0.0:
         dependencies:
@@ -8492,6 +8556,10 @@ snapshots:
     readdirp@3.6.0:
         dependencies:
             picomatch: 2.3.1
+
+    redux-logger@3.0.6:
+        dependencies:
+            deep-diff: 0.3.8
 
     redux-persist@6.0.0(react@18.3.1)(redux@5.0.1):
         dependencies:

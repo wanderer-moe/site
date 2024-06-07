@@ -14,16 +14,13 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-    DialogTrigger,
 } from "~/components/ui/dialog";
-import { useMemo, useState } from "react";
-import { useAppDispatch, useAppSelector } from "~/store";
-
+import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "~/redux/store";
 import {
     toggleAssetSelection,
     isAssetSelected,
-    IAssetState,
-} from "~/store/slice/asset-slice";
+} from "~/redux/slice/asset-slice";
 
 export function AssetItem({
     asset,
@@ -39,7 +36,7 @@ export function AssetItem({
     const dispatch = useAppDispatch();
 
     const isSelected = isAssetSelected(
-        useAppSelector((state) => state.asset),
+        useAppSelector((state) => state.assets),
         asset,
     );
 

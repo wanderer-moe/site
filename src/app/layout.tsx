@@ -10,11 +10,7 @@ import { AxiomWebVitals } from "next-axiom";
 
 import dynamic from "next/dynamic";
 
-const PersisterProvider = dynamic(() => import("~/store/persistor-provider"), {
-    ssr: false,
-});
-
-const StoreProvider = dynamic(() => import("~/store/store-provider"), {
+const ReduxProvider = dynamic(() => import("~/redux/redux-provider"), {
     ssr: false,
 });
 
@@ -44,16 +40,14 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={font.className}>
-                <StoreProvider>
-                    <PersisterProvider>
-                        <AxiomWebVitals />
-                        <ScrollToTop />
-                        <NavBar />
-                        {children}
-                        <SiteFooter />
-                        <Toaster />
-                    </PersisterProvider>
-                </StoreProvider>
+                <ReduxProvider>
+                    <AxiomWebVitals />
+                    <ScrollToTop />
+                    <NavBar />
+                    {children}
+                    <SiteFooter />
+                    <Toaster />
+                </ReduxProvider>
             </body>
         </html>
     );
