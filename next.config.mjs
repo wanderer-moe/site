@@ -15,14 +15,16 @@ const nextConfig = {
     },
 };
 
-export default withAxiom(
-    million.next(
-        MillionLint.next({
-            rsc: true,
-        })(nextConfig),
-        {
-            auto: true,
-            rsc: true,
-        },
-    ),
-);
+// export default withAxiom(
+//     million.next(
+//         MillionLint.next({
+//             rsc: true,
+//         })(nextConfig),
+//         {
+//             auto: true,
+//             rsc: true,
+//         },
+//     ),
+// );
+
+export default nextConfig;

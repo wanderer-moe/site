@@ -30,41 +30,35 @@ function filterAssets(
     filter: string,
     search: string,
 ): Asset[] {
-    let filteredAssets: Asset[];
-
     switch (filter) {
         case "A-Z":
-            filteredAssets = [...assets].sort((a, b) =>
-                a.name.localeCompare(b.name),
-            );
+            assets.sort((a, b) => a.name.localeCompare(b.name));
             break;
         case "Z-A":
-            filteredAssets = [...assets].sort((a, b) =>
-                b.name.localeCompare(a.name),
-            );
+            assets.sort((a, b) => b.name.localeCompare(a.name));
             break;
         case "Newest":
-            filteredAssets = [...assets].sort(
+            assets.sort(
                 (a, b) =>
                     new Date(b.uploaded).getTime() -
                     new Date(a.uploaded).getTime(),
             );
             break;
         case "Oldest":
-            filteredAssets = [...assets].sort(
+            assets.sort(
                 (a, b) =>
                     new Date(a.uploaded).getTime() -
                     new Date(b.uploaded).getTime(),
             );
             break;
         case "File Size":
-            filteredAssets = [...assets].sort((a, b) => b.size - a.size);
+            assets.sort((a, b) => b.size - a.size);
             break;
         default:
-            filteredAssets = assets;
+            break;
     }
 
-    return filteredAssets.filter((asset) =>
+    return assets.filter((asset) =>
         asset.name
             .toLowerCase()
             .includes(search.toLowerCase().replace(" ", "-")),

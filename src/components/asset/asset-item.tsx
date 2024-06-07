@@ -16,6 +16,14 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "~/components/ui/dialog";
+import { useMemo, useState } from "react";
+import { useAppDispatch, useAppSelector } from "~/store";
+
+import {
+    toggleAssetSelection,
+    isAssetSelected,
+    IAssetState,
+} from "~/store/slice/asset-slice";
 
 export function AssetItem({
     asset,
@@ -26,28 +34,39 @@ export function AssetItem({
     game: string;
     category: string;
 }>) {
+    const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+
+    const dispatch = useAppDispatch();
+
+    const isSelected = isAssetSelected(
+        useAppSelector((state) => state.asset),
+        asset,
+    );
+
     return (
-        <Dialog>
-            <DialogTrigger asChild>
-                <Card className="group p-2 rounded-lg ring-transparent ring-2 hover:ring-primary ease-linear transition-all cursor-pointer">
-                    <div className="flex items-center justify-center">
-                        <img
-                            src={`https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/${game}/${category}/${asset.name}.png`}
-                            alt={asset.name}
-                            className="h-36 max-h-36 w-36 max-w-36 object-contain p-1"
-                        />
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+            <Card
+                className={`group p-2 rounded-lg ring-2 ease-linear transition-all cursor-pointer ${isSelected ? "ring-primary" : "ring-transparent"} hover:ring-primary`}
+                onDoubleClick={() => setDialogOpen(true)}
+                onClick={() => dispatch(toggleAssetSelection(asset))}
+            >
+                <div className="flex items-center justify-center">
+                    <img
+                        src={`https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/${game}/${category}/${asset.name}.png`}
+                        alt={asset.name}
+                        className="h-36 max-h-36 w-36 max-w-36 object-contain p-1"
+                    />
+                </div>
+                <div className="flex flex-col mt-2 p-2">
+                    <p className="font-semibold line-clamp-1 text-ellipsis">
+                        {asset.name}
+                    </p>
+                    <div className="text-muted-foreground flex text-xs justify-between items-center">
+                        <p>{timeAgo(asset.uploaded)}</p>
+                        <p>{bytesToFileSize(asset.size)}</p>
                     </div>
-                    <div className="flex flex-col mt-2 p-2">
-                        <p className="font-semibold line-clamp-1 text-ellipsis">
-                            {asset.name}
-                        </p>
-                        <div className="text-muted-foreground flex text-xs justify-between items-center">
-                            <p>{timeAgo(asset.uploaded)}</p>
-                            <p>{bytesToFileSize(asset.size)}</p>
-                        </div>
-                    </div>
-                </Card>
-            </DialogTrigger>
+                </div>
+            </Card>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle className="text-xs">{asset.name}</DialogTitle>
