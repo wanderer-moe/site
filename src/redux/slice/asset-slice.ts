@@ -30,6 +30,8 @@ export const assetSlice = createSlice({
             state.isMassDownloadingDialogOpen = action.payload || false;
         },
         toggleAssetSelection: (state, action: PayloadAction<Asset>) => {
+            if (state.isMassDownloading) return;
+
             const index = state.selectedAssets.findIndex(
                 (asset) => asset.path === action.payload.path,
             );
@@ -38,6 +40,9 @@ export const assetSlice = createSlice({
             } else {
                 state.selectedAssets.push(action.payload);
             }
+        },
+        clearSelectedAssets: (state) => {
+            state.selectedAssets = [];
         },
     },
 });
@@ -54,6 +59,7 @@ export const {
     setIsMassDownloading,
     setIsMassDownloadingDialogOpen,
     toggleAssetSelection,
+    clearSelectedAssets,
 } = assetSlice.actions;
 
 export default assetSlice.reducer;

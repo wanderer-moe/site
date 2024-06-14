@@ -56,4 +56,11 @@
     body {
         @apply bg-[#0F0F11] text-foreground;
     }
+    /* select */
+    ::-moz-selection {
+        @apply bg-primary text-background;
+    }
+    ::selection {
+        @apply bg-primary text-background;
+    }
 }
