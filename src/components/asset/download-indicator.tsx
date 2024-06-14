@@ -2,17 +2,14 @@
 
 import { useAppDispatch, useAppSelector } from "~/redux/store";
 import {
-    toggleAssetSelection,
-    isAssetSelected,
     setIsMassDownloading,
     clearSelectedAssets,
 } from "~/redux/slice/asset-slice";
 import { Card } from "~/components/ui/card";
 import { FormatGameName, FormatCategoryName } from "~/lib/format";
 import { ScrollArea } from "~/components/ui/scroll-area";
-import { Separator } from "~/components/ui/separator";
 import { Asset } from "~/lib/types";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, createContext, useContext } from "react";
 import {
     CircleCheck,
     LoaderCircle,
@@ -24,38 +21,59 @@ import JSZip from "jszip";
 import { Button } from "~/components/ui/button";
 import { toast } from "sonner";
 
-export function AssetDownloadIndicator() {
+// redux state is shared across multiple tabs - invoking it will initiate multiple downloads across tabs
+// instead, establish context api state to manage this scenario and prevent multiple downloads occurring
+export const AssetDownloadIndicatorContext = createContext<{
+    isUnsharedMassDownloading: boolean;
+    setIsUnsharedMassDownloading: (isUnsharedMassDownloading: boolean) => void;
+}>({
+    isUnsharedMassDownloading: false,
+    setIsUnsharedMassDownloading: () => {},
+});
+
+function AssetDownloadIndicatorProvider({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
     const [isUnsharedMassDownloading, setIsUnsharedMassDownloading] =
-        useState(false);
+        useState<boolean>(false);
+
+    return (
+        <AssetDownloadIndicatorContext.Provider
+            value={{ isUnsharedMassDownloading, setIsUnsharedMassDownloading }}
+        >
+            {children}
+        </AssetDownloadIndicatorContext.Provider>
+    );
+}
+
+export function AssetDownloadIndicator() {
+    return (
+        <AssetDownloadIndicatorProvider>
+            <AssetDownloadIndicatorContent />
+        </AssetDownloadIndicatorProvider>
+    );
+}
+
+function AssetDownloadIndicatorContent() {
+    const { isUnsharedMassDownloading } = useContext(
+        AssetDownloadIndicatorContext,
+    );
 
     const isMassDownloading = useAppSelector(
         (state) => state.assets.isMassDownloading,
     );
 
-    // not calling `state.assets.isMassDownloading` here.
-    // cuz state context is shared across multiple tabs, calling it will inadvertently trigger multiple downloads across these tabs (which is bad)
-    // if the state.assets.isMassDownloading is true and isUnsharedMassDownloading is false, we'll tell the user the download is in progress on another tab (or they can cancel it and start a new one)
-
-    switch (isUnsharedMassDownloading) {
-        case false:
-            if (isMassDownloading) {
-                return <MassDownloadInProgress />;
-            }
-
-            return (
-                <ShowSelectedAssets
-                    setIsUnsharedMassDownloading={setIsUnsharedMassDownloading}
-                    isUnsharedMassDownloading={isUnsharedMassDownloading}
-                />
-            );
-        case true:
-            return (
-                <ShowMassDownloadProgress
-                    setIsUnsharedMassDownloading={setIsUnsharedMassDownloading}
-                    isUnsharedMassDownloading={isUnsharedMassDownloading}
-                />
-            );
+    if (isUnsharedMassDownloading) {
+        return <ShowMassDownloadProgress />;
     }
+
+    if (isMassDownloading) {
+        return <MassDownloadInProgress />;
+    }
+
+    return <ShowSelectedAssets />;
 }
 
 function AnimatedSpinner() {
@@ -94,21 +112,17 @@ function MassDownloadInProgress() {
     );
 }
 
-interface ShowMassDownloadProgressProps {
-    setIsUnsharedMassDownloading: (isUnsharedMassDownloading: boolean) => void;
-    isUnsharedMassDownloading: boolean;
-}
-
 type DownloadProgress = "fetching" | "zipping" | "sending" | "error" | "done";
 
-function ShowMassDownloadProgress({
-    setIsUnsharedMassDownloading,
-    isUnsharedMassDownloading,
-}: ShowMassDownloadProgressProps) {
+function ShowMassDownloadProgress() {
     const [fetchedAssets, setFetchedAssets] = useState(0);
     const [totalAssets, setTotalAssets] = useState(0);
     const [downloadProgress, setDownloadProgress] =
         useState<DownloadProgress>("fetching");
+
+    const { setIsUnsharedMassDownloading } = useContext(
+        AssetDownloadIndicatorContext,
+    );
 
     const dispatch = useAppDispatch();
     const selectedAssets = useAppSelector(
@@ -208,6 +222,9 @@ function ShowMassDownloadProgress({
                     <p className="font-semibold">
                         Downloading {selectedAssets.length} assets
                     </p>
+                    <p className="text-destructive-foreground">
+                        Do not close this tab!
+                    </p>
                     <div className="text-muted-foreground">
                         <div className="flex flex-row gap-2 items-center">
                             {getIcon("fetching")} Fetching {fetchedAssets} of{" "}
@@ -226,15 +243,9 @@ function ShowMassDownloadProgress({
     );
 }
 
-interface ShowSelectedAssetsProps {
-    setIsUnsharedMassDownloading: (isUnsharedMassDownloading: boolean) => void;
-    isUnsharedMassDownloading: boolean;
-}
-
-function ShowSelectedAssets({
-    setIsUnsharedMassDownloading,
-    isUnsharedMassDownloading,
-}: ShowSelectedAssetsProps) {
+function ShowSelectedAssets() {
+    const { isUnsharedMassDownloading, setIsUnsharedMassDownloading } =
+        useContext(AssetDownloadIndicatorContext);
     const dispatch = useAppDispatch();
 
     const selectedAssets = useAppSelector(
