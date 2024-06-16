@@ -23,12 +23,6 @@ export const assetSlice = createSlice({
         setIsMassDownloading: (state, action: PayloadAction<boolean>) => {
             state.isMassDownloading = action.payload || false;
         },
-        setIsMassDownloadingDialogOpen: (
-            state,
-            action: PayloadAction<boolean>,
-        ) => {
-            state.isMassDownloadingDialogOpen = action.payload || false;
-        },
         toggleAssetSelection: (state, action: PayloadAction<Asset>) => {
             if (state.isMassDownloading) return;
 
@@ -57,7 +51,6 @@ export const getSelectedAssets = (state: IAssetState) => state.selectedAssets;
 export const {
     setSelectedAssets,
     setIsMassDownloading,
-    setIsMassDownloadingDialogOpen,
     toggleAssetSelection,
     clearSelectedAssets,
 } = assetSlice.actions;

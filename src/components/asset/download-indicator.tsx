@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "~/redux/store";
 import {
     setIsMassDownloading,
     clearSelectedAssets,
+    toggleAssetSelection,
 } from "~/redux/slice/asset-slice";
 import { Card } from "~/components/ui/card";
 import { FormatGameName, FormatCategoryName } from "~/lib/format";
@@ -57,13 +58,21 @@ export function AssetDownloadIndicator() {
 }
 
 function AssetDownloadIndicatorContent() {
-    const { isUnsharedMassDownloading } = useContext(
-        AssetDownloadIndicatorContext,
-    );
+    const { isUnsharedMassDownloading, setIsUnsharedMassDownloading } =
+        useContext(AssetDownloadIndicatorContext);
 
     const isMassDownloading = useAppSelector(
         (state) => state.assets.isMassDownloading,
     );
+
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        if (!isMassDownloading && isUnsharedMassDownloading) {
+            setIsUnsharedMassDownloading(false);
+            dispatch(setIsMassDownloading(false));
+        }
+    }, [isMassDownloading]);
 
     if (isUnsharedMassDownloading) {
         return <ShowMassDownloadProgress />;
@@ -86,8 +95,6 @@ function AnimatedSpinner() {
 }
 
 function MassDownloadInProgress() {
-    const dispatch = useAppDispatch();
-
     return (
         <Card className="z-50 fixed bottom-0 left-0 m-4 p-4">
             <div className="flex items-center gap-4">
@@ -98,14 +105,6 @@ function MassDownloadInProgress() {
                     <p className="text-muted-foreground">
                         Another tab is currently downloading assets.
                     </p>
-                    <Button
-                        className="transition-all duration-150 flex flex-row gap-2"
-                        onClick={() => {
-                            dispatch(setIsMassDownloading(false));
-                        }}
-                    >
-                        Cancel Download
-                    </Button>
                 </div>
             </div>
         </Card>
@@ -120,13 +119,16 @@ function ShowMassDownloadProgress() {
     const [downloadProgress, setDownloadProgress] =
         useState<DownloadProgress>("fetching");
 
-    const { setIsUnsharedMassDownloading } = useContext(
-        AssetDownloadIndicatorContext,
-    );
+    const { isUnsharedMassDownloading, setIsUnsharedMassDownloading } =
+        useContext(AssetDownloadIndicatorContext);
 
     const dispatch = useAppDispatch();
     const selectedAssets = useAppSelector(
         (state) => state.assets.selectedAssets,
+    );
+
+    const isMassDownloading = useAppSelector(
+        (state) => state.assets.isMassDownloading,
     );
 
     const statusOrder = ["fetching", "zipping", "sending", "done", "error"];
@@ -146,38 +148,47 @@ function ShowMassDownloadProgress() {
         return <CircleMinus size={16} />;
     };
 
+    const validateAssetPath = (path: string): boolean => {
+        return /^https:\/\/cdn\.wanderer\.moe\/[a-z0-9-]+\/[a-z0-9-]+\/[a-z0-9-]+\.png$/i.test(
+            path,
+        );
+    };
+
+    const fetchAsset = async (asset: Asset, zip: JSZip): Promise<void> => {
+        const [, , , game, category] = asset.path.split("/");
+
+        if (!validateAssetPath(asset.path)) {
+            console.error("Invalid asset path:", asset.path);
+            return;
+        }
+
+        const response = await axios.get(asset.path, {
+            responseType: "arraybuffer",
+        });
+
+        zip.file(`${game}/${category}/${asset.name}.png`, response.data);
+        setFetchedAssets((prev) => prev + 1);
+    };
+
     const downloadAndZipAssets = async () => {
         const zip = new JSZip();
         setTotalAssets(selectedAssets.length);
         setFetchedAssets(0);
 
-        setDownloadProgress("fetching");
-        for (const asset of selectedAssets) {
-            const [, , , game, category] = asset.path.split("/");
-
-            try {
-                const response = await axios.get(asset.path, {
-                    responseType: "arraybuffer",
-                });
-                zip.file(
-                    `${game}/${category}/${asset.name}.png`,
-                    response.data,
-                );
-                setFetchedAssets((prev) => prev + 1);
-            } catch (error) {
-                console.error(`Failed to fetch: ${asset.path}:`, error);
-                setDownloadProgress("error");
-                return;
-            }
-        }
-
         try {
+            setDownloadProgress("fetching");
+            let assetIndex = 0;
+
+            while (isMassDownloading && assetIndex < selectedAssets.length) {
+                await fetchAsset(selectedAssets[assetIndex], zip);
+                assetIndex++;
+            }
+
             setDownloadProgress("zipping");
             const zipFile = await zip.generateAsync({ type: "blob" });
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
             setDownloadProgress("sending");
-
             const url = URL.createObjectURL(zipFile);
             const a = document.createElement("a");
             a.href = url;
@@ -186,21 +197,16 @@ function ShowMassDownloadProgress() {
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
             URL.revokeObjectURL(url);
-
             setDownloadProgress("done");
-            dispatch(clearSelectedAssets());
-            dispatch(setIsMassDownloading(false));
-            setIsUnsharedMassDownloading(false);
-
             toast.success(
                 `${selectedAssets.length} assets downloaded successfully`,
             );
         } catch (error) {
-            console.error("Failed to ZIP:", error);
-
+            console.error("Failed to fetch or ZIP:", error);
             setDownloadProgress("error");
-            toast.error("Failed to ZIP assets");
-
+            toast.error("Failed to fetch or ZIP assets");
+        } finally {
+            dispatch(clearSelectedAssets());
             dispatch(setIsMassDownloading(false));
             setIsUnsharedMassDownloading(false);
         }
@@ -300,7 +306,14 @@ function ShowSelectedAssets() {
                                                     {assets.map((asset) => (
                                                         <div
                                                             key={asset.path}
-                                                            className="flex items-justify-between text-sm space-x-2"
+                                                            className="flex items-justify-between text-sm space-x-2 hover:cursor-pointer"
+                                                            onDoubleClick={() =>
+                                                                dispatch(
+                                                                    toggleAssetSelection(
+                                                                        asset,
+                                                                    ),
+                                                                )
+                                                            }
                                                         >
                                                             <p className="text-sm text-muted-foreground">
                                                                 {asset.name}
