@@ -16,9 +16,22 @@ import {
     LoaderCircle,
     CircleMinus,
     DownloadIcon,
+    Trash,
+    ChevronUp,
+    ChevronDown,
 } from "lucide-react";
 import axios from "axios";
 import JSZip from "jszip";
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
 import { toast } from "sonner";
 
@@ -27,9 +40,13 @@ import { toast } from "sonner";
 export const AssetDownloadIndicatorContext = createContext<{
     isUnsharedMassDownloading: boolean;
     setIsUnsharedMassDownloading: (isUnsharedMassDownloading: boolean) => void;
+    isIndicatorOpen: boolean;
+    setIsIndicatorOpen: (isIndicatorOpen: boolean) => void;
 }>({
     isUnsharedMassDownloading: false,
     setIsUnsharedMassDownloading: () => {},
+    isIndicatorOpen: false,
+    setIsIndicatorOpen: () => {},
 });
 
 function AssetDownloadIndicatorProvider({
@@ -40,9 +57,16 @@ function AssetDownloadIndicatorProvider({
     const [isUnsharedMassDownloading, setIsUnsharedMassDownloading] =
         useState<boolean>(false);
 
+    const [isIndicatorOpen, setIsIndicatorOpen] = useState<boolean>(false);
+
     return (
         <AssetDownloadIndicatorContext.Provider
-            value={{ isUnsharedMassDownloading, setIsUnsharedMassDownloading }}
+            value={{
+                isUnsharedMassDownloading,
+                setIsUnsharedMassDownloading,
+                isIndicatorOpen,
+                setIsIndicatorOpen,
+            }}
         >
             {children}
         </AssetDownloadIndicatorContext.Provider>
@@ -58,8 +82,11 @@ export function AssetDownloadIndicator() {
 }
 
 function AssetDownloadIndicatorContent() {
-    const { isUnsharedMassDownloading, setIsUnsharedMassDownloading } =
-        useContext(AssetDownloadIndicatorContext);
+    const {
+        isUnsharedMassDownloading,
+        setIsUnsharedMassDownloading,
+        isIndicatorOpen,
+    } = useContext(AssetDownloadIndicatorContext);
 
     const isMassDownloading = useAppSelector(
         (state) => state.assets.isMassDownloading,
@@ -74,6 +101,10 @@ function AssetDownloadIndicatorContent() {
         }
     }, [isMassDownloading]);
 
+    if (!isIndicatorOpen) {
+        return <ToggleAssetDownloadIndicator />;
+    }
+
     if (isUnsharedMassDownloading) {
         return <ShowMassDownloadProgress />;
     }
@@ -83,6 +114,30 @@ function AssetDownloadIndicatorContent() {
     }
 
     return <ShowSelectedAssets />;
+}
+
+function ToggleAssetDownloadIndicator() {
+    const { setIsIndicatorOpen } = useContext(AssetDownloadIndicatorContext);
+
+    const selectedAssets = useAppSelector(
+        (state) => state.assets.selectedAssets,
+    );
+
+    return (
+        <Card className="z-50 fixed bottom-4 left-4 p-4 w-96">
+            <div className="flex items-center gap-4">
+                <div className="flex flex-col gap-2 w-full">
+                    <div className="flex justify-between w-full items-center gap-2">
+                        <p>{selectedAssets.length} assets selected</p>
+                        <ChevronUp
+                            size={24}
+                            onClick={() => setIsIndicatorOpen(true)}
+                        />
+                    </div>
+                </div>
+            </div>
+        </Card>
+    );
 }
 
 function AnimatedSpinner() {
@@ -96,7 +151,7 @@ function AnimatedSpinner() {
 
 function MassDownloadInProgress() {
     return (
-        <Card className="z-50 fixed bottom-0 left-0 m-4 p-4">
+        <Card className="z-50 fixed bottom-4 left-4 p-4 w-96">
             <div className="flex items-center gap-4">
                 <div className="flex flex-col gap-2">
                     <p className="font-semibold">
@@ -222,7 +277,7 @@ function ShowMassDownloadProgress() {
     }, [selectedAssets]);
 
     return (
-        <Card className="z-50 fixed bottom-0 left-0 m-4 p-4">
+        <Card className="z-50 fixed bottom-4 left-4 p-4 w-96">
             <div className="flex items-center gap-4">
                 <div className="flex flex-col gap-2">
                     <p className="font-semibold">
@@ -250,8 +305,11 @@ function ShowMassDownloadProgress() {
 }
 
 function ShowSelectedAssets() {
-    const { isUnsharedMassDownloading, setIsUnsharedMassDownloading } =
-        useContext(AssetDownloadIndicatorContext);
+    const {
+        isUnsharedMassDownloading,
+        setIsUnsharedMassDownloading,
+        setIsIndicatorOpen,
+    } = useContext(AssetDownloadIndicatorContext);
     const dispatch = useAppDispatch();
 
     const selectedAssets = useAppSelector(
@@ -271,20 +329,24 @@ function ShowSelectedAssets() {
     });
 
     const handleDownloadClick = () => {
-        if (selectedAssets.length === 0) return;
-        if (isUnsharedMassDownloading) return;
+        if (selectedAssets.length === 0 || isUnsharedMassDownloading) return;
 
         setIsUnsharedMassDownloading(true);
         dispatch(setIsMassDownloading(true));
     };
 
     return (
-        <Card className="z-50 fixed bottom-0 left-0 m-4 p-4">
-            <div className="flex items-center gap-4">
-                <div className="flex flex-col gap-2">
-                    <p>{selectedAssets.length} assets selected</p>
-                    <div className="w-full border-b"></div>
-                    <ScrollArea className="h-64 w-96 rounded-md">
+        <Card className="z-50 fixed bottom-4 left-4 p-4 w-96">
+            <div className="flex items-center gap-4 w-full">
+                <div className="flex flex-col w-full gap-2">
+                    <div className="flex justify-between items-center gap-2">
+                        <p>{selectedAssets.length} assets selected</p>
+                        <ChevronDown
+                            size={24}
+                            onClick={() => setIsIndicatorOpen(false)}
+                        />
+                    </div>
+                    <ScrollArea className="h-64 w-full rounded-md">
                         <div className="flex flex-col gap-2">
                             {[...gameCategoryAssetMap.entries()].map(
                                 ([game, categoryMap]) => (
@@ -303,23 +365,28 @@ function ShowSelectedAssets() {
                                                             category,
                                                         )}
                                                     </h3>
-                                                    {assets.map((asset) => (
-                                                        <div
-                                                            key={asset.path}
-                                                            className="flex items-justify-between text-sm space-x-2 hover:cursor-pointer"
-                                                            onDoubleClick={() =>
-                                                                dispatch(
-                                                                    toggleAssetSelection(
-                                                                        asset,
-                                                                    ),
-                                                                )
-                                                            }
-                                                        >
-                                                            <p className="text-sm text-muted-foreground">
-                                                                {asset.name}
-                                                            </p>
-                                                        </div>
-                                                    ))}
+                                                    <div className="flex flex-col gap-1">
+                                                        {assets.map((asset) => (
+                                                            <div
+                                                                key={asset.path}
+                                                                onClick={() =>
+                                                                    dispatch(
+                                                                        toggleAssetSelection(
+                                                                            asset,
+                                                                        ),
+                                                                    )
+                                                                }
+                                                                className="flex items-center text-sm text-muted-foreground space-x-2 hover:text-destructive group hover:cursor-pointer transition duration-150"
+                                                            >
+                                                                <Trash
+                                                                    size={16}
+                                                                />
+                                                                <p>
+                                                                    {asset.name}
+                                                                </p>
+                                                            </div>
+                                                        ))}
+                                                    </div>
                                                 </div>
                                             ),
                                         )}
@@ -328,16 +395,62 @@ function ShowSelectedAssets() {
                             )}
                         </div>
                     </ScrollArea>
-                    <Button
-                        className="transition-all duration-150 flex flex-row gap-2"
-                        disabled={
-                            isUnsharedMassDownloading ||
-                            selectedAssets.length === 0
-                        }
-                        onClick={() => handleDownloadClick()}
-                    >
-                        <DownloadIcon size={16} /> Download Assets
-                    </Button>
+                    <div className="flex flex-row gap-2 items-center">
+                        <Button
+                            className="transition-all duration-150 w-full flex flex-row gap-2"
+                            disabled={
+                                isUnsharedMassDownloading ||
+                                selectedAssets.length === 0
+                            }
+                            onClick={() => handleDownloadClick()}
+                        >
+                            <DownloadIcon size={16} /> Download Assets
+                        </Button>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button
+                                    className="transition-all duration-150 flex flex-row gap-2"
+                                    disabled={
+                                        isUnsharedMassDownloading ||
+                                        selectedAssets.length === 0
+                                    }
+                                    variant={"destructive"}
+                                    size={"icon"}
+                                    // onClick={() => dispatch(clearSelectedAssets())}
+                                >
+                                    <Trash size={16} />
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>
+                                        Clear Selected Assets
+                                    </DialogTitle>
+                                </DialogHeader>
+                                <DialogDescription>
+                                    Are you sure you want to clear all selected
+                                    assets?
+                                </DialogDescription>
+                                <DialogFooter className="flex gap-2">
+                                    <DialogClose asChild>
+                                        <Button variant={"secondary"}>
+                                            Cancel
+                                        </Button>
+                                    </DialogClose>
+                                    <DialogClose asChild>
+                                        <Button
+                                            onClick={() =>
+                                                dispatch(clearSelectedAssets())
+                                            }
+                                            variant={"destructive"}
+                                        >
+                                            Clear
+                                        </Button>
+                                    </DialogClose>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
+                    </div>
                 </div>
             </div>
         </Card>

@@ -52,6 +52,7 @@ export function AssetItem({
                         src={`https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/${game}/${category}/${asset.name}.png`}
                         alt={asset.name}
                         className="h-36 max-h-36 w-36 max-w-36 object-contain p-1"
+                        fetchPriority="high"
                     />
                 </div>
                 <div className="flex flex-col mt-2 p-2">
