@@ -232,9 +232,13 @@ function ShowMassDownloadProgress() {
     };
 
     const downloadAndZipAssets = async () => {
+        const logId = "massdl-" + Math.random().toString(36).substring(2); // lgtm ship it
+
         logger.debug("Initiating mass download process", {
-            assetCount: selectedAssets.map((asset) => asset.name),
+            assetList: selectedAssets.map((asset) => asset.path),
+            id: logId,
         });
+
         const zip = new JSZip();
         setTotalAssets(selectedAssets.length);
         setFetchedAssets(0);
@@ -252,12 +256,18 @@ function ShowMassDownloadProgress() {
             const zipFile = await zip.generateAsync({ type: "blob" });
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
+            logger.debug("Sending ZIP file to client", {
+                assetList: selectedAssets.map((asset) => asset.path),
+                id: logId,
+            });
+
             setDownloadProgress("sending");
             const url = URL.createObjectURL(zipFile);
             const a = document.createElement("a");
             a.href = url;
             a.download = `assets-${new Date().toISOString()}.zip`;
             a.click();
+
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
             URL.revokeObjectURL(url);
@@ -266,15 +276,20 @@ function ShowMassDownloadProgress() {
         } catch (error) {
             console.error("Failed to fetch or ZIP:", error);
             setDownloadProgress("error");
+
             logger.error("Failed to fetch or ZIP assets", {
                 error,
-                assetCount: selectedAssets.map((asset) => asset.name),
+                assetList: selectedAssets.map((asset) => asset.path),
+                id: logId,
             });
+
             toast.error("Failed to fetch or ZIP assets");
         } finally {
             logger.debug("Mass download process succeeded", {
-                assetCount: selectedAssets.map((asset) => asset.name),
+                assetList: selectedAssets.map((asset) => asset.path),
+                id: logId,
             });
+
             dispatch(clearSelectedAssets());
             dispatch(setIsMassDownloading(false));
             setIsUnsharedMassDownloading(false);
