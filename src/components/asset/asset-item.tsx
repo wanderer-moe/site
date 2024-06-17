@@ -67,7 +67,12 @@ export function AssetItem({
             </Card>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle className="text-xs">{asset.name}</DialogTitle>
+                    <DialogTitle className="text-sm">
+                        {asset.name}
+                        <p className="text-muted-foreground text-xs">
+                            On mobile? Press and hold on the asset to download.
+                        </p>
+                    </DialogTitle>
                 </DialogHeader>
                 <DialogDescription>
                     <div className="relative flex items-center justify-center">
@@ -80,10 +85,6 @@ export function AssetItem({
                 </DialogDescription>
                 <DialogFooter>
                     <div className="flex flex-col w-full gap-2">
-                        <p className="text-muted-foreground text-center text-sm">
-                            On mobile? Press and hold on the asset above to
-                            save.
-                        </p>
                         <Link
                             prefetch={false}
                             href={asset.path}

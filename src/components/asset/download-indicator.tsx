@@ -31,6 +31,7 @@ import {
     DownloadIcon,
     Trash,
     Download,
+    Info,
 } from "lucide-react";
 import axios from "axios";
 import JSZip from "jszip";
@@ -46,6 +47,7 @@ import {
 } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
 import { toast } from "sonner";
+import Link from "next/link";
 
 // redux state is shared across multiple tabs - invoking it will initiate multiple downloads across tabs
 // instead, establish context api state to manage this scenario and prevent multiple downloads occurring
@@ -153,7 +155,7 @@ function MassDownloadInProgress() {
     return (
         <div className="p-4 w-96 ">
             <div className="flex items-center gap-4">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col">
                     <p className="font-semibold">
                         Download is in progress on another tab
                     </p>
@@ -253,9 +255,7 @@ function ShowMassDownloadProgress() {
 
             URL.revokeObjectURL(url);
             setDownloadProgress("done");
-            toast.success(
-                `${selectedAssets.length} assets downloaded successfully`,
-            );
+            toast.success(`Sent ${selectedAssets.length} assets to client`);
         } catch (error) {
             console.error("Failed to fetch or ZIP:", error);
             setDownloadProgress("error");
@@ -279,14 +279,14 @@ function ShowMassDownloadProgress() {
     return (
         <div className="p-4 w-96 ">
             <div className="flex items-center gap-4">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col">
                     <p className="font-semibold">
                         Downloading {selectedAssets.length} assets
                     </p>
-                    <p className="text-destructive-foreground">
+                    <p className="text-destructive mb-2">
                         Do not close this tab!
                     </p>
-                    <div className="text-muted-foreground">
+                    <div className="text-muted-foreground flex flex-col">
                         <div className="flex flex-row gap-2 items-center">
                             {getIcon("fetching")} Fetching {fetchedAssets} of{" "}
                             {totalAssets} assets
@@ -307,23 +307,24 @@ function ShowMassDownloadProgress() {
 function ShowSelectedAssets() {
     const { isUnsharedMassDownloading, setIsUnsharedMassDownloading } =
         useContext(AssetDownloadIndicatorContext);
+
     const dispatch = useAppDispatch();
 
     const selectedAssets = useAppSelector(
         (state) => state.assets.selectedAssets,
     );
 
-    const gameCategoryAssetMap = new Map();
+    // const gameCategoryAssetMap = new Map();
 
-    selectedAssets.forEach((asset) => {
-        const [, , , game, category] = asset.path.split("/");
+    // selectedAssets.forEach((asset) => {
+    //     const [, , , game, category] = asset.path.split("/");
 
-        const categoryMap = gameCategoryAssetMap.get(game) || new Map();
-        gameCategoryAssetMap.set(game, categoryMap);
+    //     const categoryMap = gameCategoryAssetMap.get(game) || new Map();
+    //     gameCategoryAssetMap.set(game, categoryMap);
 
-        const assets = categoryMap.get(category) || [];
-        categoryMap.set(category, [...assets, asset]);
-    });
+    //     const assets = categoryMap.get(category) || [];
+    //     categoryMap.set(category, [...assets, asset]);
+    // });
 
     const handleDownloadClick = () => {
         if (selectedAssets.length === 0 || isUnsharedMassDownloading) return;
@@ -336,56 +337,101 @@ function ShowSelectedAssets() {
         <div className="p-4 w-96 ">
             <div className="flex items-center gap-4 w-full">
                 <div className="flex flex-col w-full gap-2">
-                    <div className="flex justify-between items-center gap-2">
+                    <div className="flex flex-row justify-between items-center">
                         <p>{selectedAssets.length} assets selected</p>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button variant={"ghost"} size="icon">
+                                    <Info size={16} />
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>
+                                        Mass Download Information
+                                    </DialogTitle>
+                                </DialogHeader>
+                                <DialogDescription className="flex flex-col gap-2">
+                                    <p>
+                                        The mass download feature is VERY
+                                        EXPERIMENTAL and may undergo changes.
+                                    </p>
+                                    <p>
+                                        Select assets by single tapping on them,
+                                        you can deselect them by tapping again
+                                        or tapping on the asset image in the
+                                        selected assets list.
+                                    </p>
+                                    <p>
+                                        Selected assets are synced across
+                                        browser tabs and not forgotten when you
+                                        close the tab or navigate elsewhere.
+                                    </p>
+                                    <p>
+                                        While there's no limit to the number of
+                                        assets you can select, be aware that it
+                                        might affect performance.
+                                    </p>
+                                    <p>
+                                        The functionality of this feature may
+                                        vary depending on the browser you use.
+                                        For mobile users, we recommend using the
+                                        default browser of your device.
+                                    </p>
+                                    <p>
+                                        If you come across any issues, please
+                                        report them in the{" "}
+                                        <Link
+                                            href="https://discord.wanderer.moe"
+                                            target="_blank"
+                                            className="text-primary hover:text-muted-foreground transition-all duration-150"
+                                        >
+                                            #site-discussion channel on Discord!
+                                        </Link>
+                                    </p>
+                                </DialogDescription>
+                            </DialogContent>
+                        </Dialog>
                     </div>
                     {selectedAssets.length > 0 ? (
                         <ScrollArea className="h-48 w-full rounded-md my-2">
-                            {[...gameCategoryAssetMap.entries()].map(
-                                ([game, categoryMap]) => (
-                                    <div key={game}>
-                                        <h2 className="font-semibold">
-                                            {FormatGameName(game)}
-                                        </h2>
-                                        {[...categoryMap.entries()].map(
-                                            ([category, assets]: [
-                                                string,
-                                                Asset[],
-                                            ]) => (
-                                                <div key={category}>
-                                                    <h3 className="text-sm">
-                                                        {FormatCategoryName(
-                                                            category,
-                                                        )}
-                                                    </h3>
-                                                    <div className="flex flex-col gap-1 mt-2">
-                                                        {assets.map((asset) => (
-                                                            <div
-                                                                key={asset.path}
-                                                                onClick={() =>
-                                                                    dispatch(
-                                                                        toggleAssetSelection(
-                                                                            asset,
-                                                                        ),
-                                                                    )
-                                                                }
-                                                                className="flex items-center text-sm text-muted-foreground space-x-2 hover:text-destructive group hover:cursor-pointer transition duration-150"
-                                                            >
-                                                                <Trash
-                                                                    size={16}
-                                                                />
-                                                                <p>
-                                                                    {asset.name}
-                                                                </p>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            ),
-                                        )}
+                            {selectedAssets.map((asset) => (
+                                <div
+                                    key={asset.name}
+                                    className="flex flex-row items-center gap-2 p-2 rounded-md bg-muted-background"
+                                >
+                                    <div className="group hover:cursor-pointer relative">
+                                        <img
+                                            src={`https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/${asset.path.split("/")[3]}/${asset.path.split("/")[4]}/${asset.name}.png`}
+                                            alt={asset.name}
+                                            className="rounded-md min-h-12 min-w-12 h-12 w-12 object-contain p-1"
+                                        />
+                                        <div
+                                            className="rounded-md absolute inset-0 flex items-center transition duration-150 justify-center bg-opacity-0 group-hover:bg-opacity-75 bg-black"
+                                            onClick={() =>
+                                                dispatch(
+                                                    toggleAssetSelection(asset),
+                                                )
+                                            }
+                                        >
+                                            <Trash className="h-6 w-6 text-white opacity-0 group-hover:opacity-100" />
+                                        </div>
                                     </div>
-                                ),
-                            )}
+                                    <div className="flex flex-col">
+                                        <p className="font-semibold overflow-ellipsis">
+                                            {asset.name}
+                                        </p>
+                                        <p className="text-muted-foreground text-xs">
+                                            {FormatGameName(
+                                                asset.path.split("/")[3],
+                                            )}{" "}
+                                            {FormatCategoryName(
+                                                asset.path.split("/")[4],
+                                            )}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
                         </ScrollArea>
                     ) : (
                         <div className="w-full h-48 flex items-center justify-center">
@@ -396,9 +442,7 @@ function ShowSelectedAssets() {
                                     className="w-12 h-12"
                                 />
                                 <div className="flex flex-col">
-                                    <p className="text-muted-foreground">
-                                        No assets selected
-                                    </p>
+                                    <p className="">No assets selected</p>
                                     <p className="text-muted-foreground text-xs">
                                         Select multiple assets to mass download
                                     </p>
@@ -413,6 +457,7 @@ function ShowSelectedAssets() {
                                 isUnsharedMassDownloading ||
                                 selectedAssets.length === 0
                             }
+                            variant={"secondary"}
                             onClick={() => handleDownloadClick()}
                         >
                             <DownloadIcon size={16} /> Download Assets
@@ -450,9 +495,12 @@ function ShowSelectedAssets() {
                                     </DialogClose>
                                     <DialogClose asChild>
                                         <Button
-                                            onClick={() =>
-                                                dispatch(clearSelectedAssets())
-                                            }
+                                            onClick={() => {
+                                                dispatch(clearSelectedAssets());
+                                                toast.success(
+                                                    `Cleared ${selectedAssets.length} assets`,
+                                                );
+                                            }}
                                             variant={"destructive"}
                                         >
                                             Clear
