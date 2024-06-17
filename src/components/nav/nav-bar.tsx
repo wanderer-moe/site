@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import { NavSidebar } from "./nav-sidebar";
 import { ArrowRightIcon } from "lucide-react";
+import { AssetDownloadIndicator } from "../asset/download-indicator";
+import { CommandSearch } from "./command";
 
 export default function NavBar() {
     return (
@@ -33,7 +35,11 @@ export default function NavBar() {
                         />
                     </div>
                 </Link>
-                <NavSidebar />
+                <div className="flex flex-row gap-2 items-center">
+                    <AssetDownloadIndicator />
+                    <CommandSearch />
+                    <NavSidebar />
+                </div>
             </nav>
         </header>
     );

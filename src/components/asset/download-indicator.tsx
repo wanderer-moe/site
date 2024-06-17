@@ -6,7 +6,20 @@ import {
     clearSelectedAssets,
     toggleAssetSelection,
 } from "~/redux/slice/asset-slice";
-import { Card } from "~/components/ui/card";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    // DropdownMenuGroup,
+    // DropdownMenuItem,
+    // DropdownMenuLabel,
+    // DropdownMenuPortal,
+    // DropdownMenuSeparator,
+    // DropdownMenuShortcut,
+    // DropdownMenuSub,
+    // DropdownMenuSubContent,
+    // DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+} from "~/components/ui/dropdown-menu";
 import { FormatGameName, FormatCategoryName } from "~/lib/format";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import { Asset } from "~/lib/types";
@@ -17,8 +30,7 @@ import {
     CircleMinus,
     DownloadIcon,
     Trash,
-    ChevronUp,
-    ChevronDown,
+    Download,
 } from "lucide-react";
 import axios from "axios";
 import JSZip from "jszip";
@@ -94,6 +106,10 @@ function AssetDownloadIndicatorContent() {
 
     const dispatch = useAppDispatch();
 
+    const selectedAssets = useAppSelector(
+        (state) => state.assets.selectedAssets,
+    );
+
     useEffect(() => {
         if (!isMassDownloading && isUnsharedMassDownloading) {
             setIsUnsharedMassDownloading(false);
@@ -101,42 +117,26 @@ function AssetDownloadIndicatorContent() {
         }
     }, [isMassDownloading]);
 
-    if (!isIndicatorOpen) {
-        return <ToggleAssetDownloadIndicator />;
-    }
-
-    if (isUnsharedMassDownloading) {
-        return <ShowMassDownloadProgress />;
-    }
-
-    if (isMassDownloading) {
-        return <MassDownloadInProgress />;
-    }
-
-    return <ShowSelectedAssets />;
-}
-
-function ToggleAssetDownloadIndicator() {
-    const { setIsIndicatorOpen } = useContext(AssetDownloadIndicatorContext);
-
-    const selectedAssets = useAppSelector(
-        (state) => state.assets.selectedAssets,
-    );
-
     return (
-        <Card className="z-50 fixed bottom-4 left-4 p-4 w-96">
-            <div className="flex items-center gap-4">
-                <div className="flex flex-col gap-2 w-full">
-                    <div className="flex justify-between w-full items-center gap-2">
-                        <p>{selectedAssets.length} assets selected</p>
-                        <ChevronUp
-                            size={24}
-                            onClick={() => setIsIndicatorOpen(true)}
-                        />
-                    </div>
-                </div>
-            </div>
-        </Card>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button
+                    variant="outline"
+                    className="flex flex-row gap-2 items-cente"
+                >
+                    <Download size={16} /> {selectedAssets.length}
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-96 ">
+                {isUnsharedMassDownloading && <ShowMassDownloadProgress />}
+                {isMassDownloading && !isUnsharedMassDownloading && (
+                    <MassDownloadInProgress />
+                )}
+                {!isUnsharedMassDownloading &&
+                    !isMassDownloading &&
+                    !isIndicatorOpen && <ShowSelectedAssets />}
+            </DropdownMenuContent>
+        </DropdownMenu>
     );
 }
 
@@ -151,7 +151,7 @@ function AnimatedSpinner() {
 
 function MassDownloadInProgress() {
     return (
-        <Card className="z-50 fixed bottom-4 left-4 p-4 w-96">
+        <div className="p-4 w-96 ">
             <div className="flex items-center gap-4">
                 <div className="flex flex-col gap-2">
                     <p className="font-semibold">
@@ -162,7 +162,7 @@ function MassDownloadInProgress() {
                     </p>
                 </div>
             </div>
-        </Card>
+        </div>
     );
 }
 
@@ -277,7 +277,7 @@ function ShowMassDownloadProgress() {
     }, [selectedAssets]);
 
     return (
-        <Card className="z-50 fixed bottom-4 left-4 p-4 w-96">
+        <div className="p-4 w-96 ">
             <div className="flex items-center gap-4">
                 <div className="flex flex-col gap-2">
                     <p className="font-semibold">
@@ -300,16 +300,13 @@ function ShowMassDownloadProgress() {
                     </div>
                 </div>
             </div>
-        </Card>
+        </div>
     );
 }
 
 function ShowSelectedAssets() {
-    const {
-        isUnsharedMassDownloading,
-        setIsUnsharedMassDownloading,
-        setIsIndicatorOpen,
-    } = useContext(AssetDownloadIndicatorContext);
+    const { isUnsharedMassDownloading, setIsUnsharedMassDownloading } =
+        useContext(AssetDownloadIndicatorContext);
     const dispatch = useAppDispatch();
 
     const selectedAssets = useAppSelector(
@@ -336,18 +333,14 @@ function ShowSelectedAssets() {
     };
 
     return (
-        <Card className="z-50 fixed bottom-4 left-4 p-4 w-96">
+        <div className="p-4 w-96 ">
             <div className="flex items-center gap-4 w-full">
                 <div className="flex flex-col w-full gap-2">
                     <div className="flex justify-between items-center gap-2">
                         <p>{selectedAssets.length} assets selected</p>
-                        <ChevronDown
-                            size={24}
-                            onClick={() => setIsIndicatorOpen(false)}
-                        />
                     </div>
-                    <ScrollArea className="h-64 w-full rounded-md">
-                        <div className="flex flex-col gap-2">
+                    {selectedAssets.length > 0 ? (
+                        <ScrollArea className="h-48 w-full rounded-md my-2">
                             {[...gameCategoryAssetMap.entries()].map(
                                 ([game, categoryMap]) => (
                                     <div key={game}>
@@ -360,12 +353,12 @@ function ShowSelectedAssets() {
                                                 Asset[],
                                             ]) => (
                                                 <div key={category}>
-                                                    <h3>
+                                                    <h3 className="text-sm">
                                                         {FormatCategoryName(
                                                             category,
                                                         )}
                                                     </h3>
-                                                    <div className="flex flex-col gap-1">
+                                                    <div className="flex flex-col gap-1 mt-2">
                                                         {assets.map((asset) => (
                                                             <div
                                                                 key={asset.path}
@@ -393,8 +386,26 @@ function ShowSelectedAssets() {
                                     </div>
                                 ),
                             )}
+                        </ScrollArea>
+                    ) : (
+                        <div className="w-full h-48 flex items-center justify-center">
+                            <div className="flex flex-row gap-2 items-center">
+                                <img
+                                    src="https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/genshin-impact/emotes/paimon-s-paintings-set-33-12.png"
+                                    alt="emote"
+                                    className="w-12 h-12"
+                                />
+                                <div className="flex flex-col">
+                                    <p className="text-muted-foreground">
+                                        No assets selected
+                                    </p>
+                                    <p className="text-muted-foreground text-xs">
+                                        Select multiple assets to mass download
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </ScrollArea>
+                    )}
                     <div className="flex flex-row gap-2 items-center">
                         <Button
                             className="transition-all duration-150 w-full flex flex-row gap-2"
@@ -453,6 +464,6 @@ function ShowSelectedAssets() {
                     </div>
                 </div>
             </div>
-        </Card>
+        </div>
     );
 }
