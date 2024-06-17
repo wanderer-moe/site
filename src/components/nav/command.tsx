@@ -20,10 +20,13 @@ import {
 import { Button } from "../ui/button";
 import { GamesRoute } from "~/lib/types";
 import { FormatCategoryName, FormatGameName } from "~/lib/format";
+import { useRouter } from "next/navigation";
 
 export function CommandSearch() {
     const [games, setGames] = React.useState<GamesRoute["games"]>([]);
     const [open, setOpen] = React.useState(false);
+
+    const router = useRouter();
 
     React.useEffect(() => {
         const down = (e: KeyboardEvent) => {
@@ -41,6 +44,11 @@ export function CommandSearch() {
         getGames().then((res) => setGames(res.response.games));
     }, []);
 
+    const runCommand = React.useCallback((command: () => unknown) => {
+        setOpen(false);
+        command();
+    }, []);
+
     return (
         <>
             <Button onClick={() => setOpen(true)} variant={"outline"}>
@@ -52,7 +60,15 @@ export function CommandSearch() {
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="Games">
                         {games.map((game) => (
-                            <CommandItem key={game.name}>
+                            <CommandItem
+                                key={game.name}
+                                onSelect={() =>
+                                    runCommand(() =>
+                                        router.push(`/${game.name}`),
+                                    )
+                                }
+                                className="transition-150 transition-all"
+                            >
                                 <img
                                     src={`https://cdn.wanderer.moe/cdn-cgi/image/width=64,height=64,quality=75/${game.name}/icon.png`}
                                     alt={game.name}
@@ -65,7 +81,17 @@ export function CommandSearch() {
                     <CommandGroup heading="Categories">
                         {games.map((game) =>
                             game.subfolders.map((subfolder) => (
-                                <CommandItem key={game.name + subfolder.name}>
+                                <CommandItem
+                                    className="transition-150 transition-all"
+                                    key={game.name + subfolder.name}
+                                    onSelect={() =>
+                                        runCommand(() =>
+                                            router.push(
+                                                `/${game.name}/${subfolder.name}`,
+                                            ),
+                                        )
+                                    }
+                                >
                                     <img
                                         src={`https://cdn.wanderer.moe/cdn-cgi/image/width=64,height=64,quality=75/${game.name}/icon.png`}
                                         alt={game.name}
