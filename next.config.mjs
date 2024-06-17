@@ -27,4 +27,4 @@ const nextConfig = {
 //     ),
 // );
 
-export default nextConfig;
+export default withAxiom(nextConfig);
