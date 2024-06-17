@@ -48,6 +48,7 @@ import {
 import { Button } from "~/components/ui/button";
 import { toast } from "sonner";
 import Link from "next/link";
+import { useLogger } from "next-axiom";
 
 // redux state is shared across multiple tabs - invoking it will initiate multiple downloads across tabs
 // instead, establish context api state to manage this scenario and prevent multiple downloads occurring
@@ -180,6 +181,9 @@ function ShowMassDownloadProgress() {
         useContext(AssetDownloadIndicatorContext);
 
     const dispatch = useAppDispatch();
+
+    const logger = useLogger();
+
     const selectedAssets = useAppSelector(
         (state) => state.assets.selectedAssets,
     );
@@ -228,6 +232,9 @@ function ShowMassDownloadProgress() {
     };
 
     const downloadAndZipAssets = async () => {
+        logger.debug("Initiating mass download process", {
+            assetCount: selectedAssets.map((asset) => asset.name),
+        });
         const zip = new JSZip();
         setTotalAssets(selectedAssets.length);
         setFetchedAssets(0);
@@ -259,8 +266,15 @@ function ShowMassDownloadProgress() {
         } catch (error) {
             console.error("Failed to fetch or ZIP:", error);
             setDownloadProgress("error");
+            logger.error("Failed to fetch or ZIP assets", {
+                error,
+                assetCount: selectedAssets.map((asset) => asset.name),
+            });
             toast.error("Failed to fetch or ZIP assets");
         } finally {
+            logger.debug("Mass download process succeeded", {
+                assetCount: selectedAssets.map((asset) => asset.name),
+            });
             dispatch(clearSelectedAssets());
             dispatch(setIsMassDownloading(false));
             setIsUnsharedMassDownloading(false);
