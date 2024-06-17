@@ -106,8 +106,8 @@ export default async function GameCategoryPage({ params }: Readonly<Props>) {
                                     Heads up!
                                 </AlertTitle>
                                 <AlertDescription className="text-muted-foreground">
-                                    Single tap or click on assets to view info &
-                                    download them.
+                                    Double tap to view & single tap to select
+                                    assets.
                                 </AlertDescription>
                             </div>
                         </div>

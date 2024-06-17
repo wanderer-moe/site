@@ -18,7 +18,7 @@ export function NavSidebar() {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="ghost">
+                <Button variant="outline">
                     <Menu size={16} />
                 </Button>
             </SheetTrigger>

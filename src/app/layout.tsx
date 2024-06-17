@@ -1,13 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "~/components/theme/theme-provider";
-// import { DeviceWarning } from "~/components/device-warning";
+// import { ThemeProvider } from "~/components/theme/theme-provider";
 import NavBar from "~/components/nav/nav-bar";
 import { SiteFooter } from "~/components/nav/footer";
 import { ScrollToTop } from "~/components/nav/scroll-to-top";
-import { Toaster } from "sonner";
+import { Toaster } from "~/components/ui/sonner";
 import { AxiomWebVitals } from "next-axiom";
+
+import dynamic from "next/dynamic";
+// import { AssetDownloadIndicator } from "~/components/asset/download-indicator";
+
+const ReduxProvider = dynamic(() => import("~/redux/redux-provider"), {
+    ssr: false,
+});
 
 const font = Plus_Jakarta_Sans({
     style: "normal",
@@ -35,15 +41,14 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={font.className}>
-                <ThemeProvider>
+                <ReduxProvider>
                     <AxiomWebVitals />
                     <ScrollToTop />
                     <NavBar />
-                    {/* <DeviceWarning /> */}
                     {children}
                     <SiteFooter />
                     <Toaster />
-                </ThemeProvider>
+                </ReduxProvider>
             </body>
         </html>
     );
