@@ -33,7 +33,7 @@ import {
     Download,
     Info,
 } from "lucide-react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import JSZip from "jszip";
 import {
     Dialog,
@@ -273,8 +273,29 @@ function ShowMassDownloadProgress() {
             URL.revokeObjectURL(url);
             setDownloadProgress("done");
             toast.success(`Sent ${selectedAssets.length} assets to client`);
-        } catch (error) {
-            console.error("Failed to fetch or ZIP:", error);
+
+            logger.debug("Mass download process succeeded", {
+                assetList: selectedAssets.map((asset) => asset.path),
+                id: logId,
+            });
+
+            dispatch(clearSelectedAssets());
+        } catch (error: AxiosError | Error | unknown) {
+            console.error("Mass Downloading Error: " + error);
+
+            let userErrorMessage = "Failed to download assets";
+
+            if (
+                error instanceof AxiosError &&
+                error.message === "Network Error"
+            ) {
+                // TODO: this is either CORS or a user network issue
+                // fetching assets on 0.1% of all downloads sometimes causes a CORS error and i don't know why ??
+                userErrorMessage =
+                    "Failed to fetch assets, check your network connection";
+            }
+
+            toast.error(userErrorMessage);
             setDownloadProgress("error");
 
             logger.error("Failed to fetch or ZIP assets", {
@@ -282,15 +303,7 @@ function ShowMassDownloadProgress() {
                 assetList: selectedAssets.map((asset) => asset.path),
                 id: logId,
             });
-
-            toast.error("Failed to fetch or ZIP assets");
         } finally {
-            logger.debug("Mass download process succeeded", {
-                assetList: selectedAssets.map((asset) => asset.path),
-                id: logId,
-            });
-
-            dispatch(clearSelectedAssets());
             dispatch(setIsMassDownloading(false));
             setIsUnsharedMassDownloading(false);
         }
