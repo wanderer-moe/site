@@ -209,26 +209,36 @@ function ShowMassDownloadProgress() {
         return <CircleMinus size={16} />;
     };
 
-    const validateAssetPath = (path: string): boolean => {
-        return /^https:\/\/cdn\.wanderer\.moe\/[a-z0-9-]+\/[a-z0-9-]+\/[a-z0-9-]+\.png$/i.test(
-            path,
-        );
-    };
+    // const validateAssetPath = (path: string): boolean => {
+    //     return /^https:\/\/cdn\.wanderer\.moe\/[a-z0-9-]+\/[a-z0-9-]+\/[a-z0-9-]+\.png$/i.test(
+    //         path,
+    //     );
+    // };
 
     const fetchAsset = async (asset: Asset, zip: JSZip): Promise<void> => {
-        const [, , , game, category] = asset.path.split("/");
+        console.log("[Mass Downloading] Fetching asset", asset.path);
+        try {
+            const [, , , game, category] = asset.path.split("/");
 
-        if (!validateAssetPath(asset.path)) {
-            console.error("Invalid asset path:", asset.path);
-            return;
+            // if (!validateAssetPath(asset.path)) {
+            //     console.error("Invalid asset path:", asset.path);
+            //     return;
+            // }
+
+            const response = await axios.get(asset.path, {
+                responseType: "arraybuffer",
+            });
+
+            zip.file(`${game}/${category}/${asset.name}.png`, response.data);
+            setFetchedAssets((prev) => prev + 1);
+        } catch (error) {
+            console.error(
+                "[Mass Downloading] Failed to fetch asset",
+                asset.path,
+                error,
+            );
+            throw error;
         }
-
-        const response = await axios.get(asset.path, {
-            responseType: "arraybuffer",
-        });
-
-        zip.file(`${game}/${category}/${asset.name}.png`, response.data);
-        setFetchedAssets((prev) => prev + 1);
     };
 
     const downloadAndZipAssets = async () => {
