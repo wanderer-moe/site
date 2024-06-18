@@ -209,24 +209,14 @@ function ShowMassDownloadProgress() {
         return <CircleMinus size={16} />;
     };
 
-    // const validateAssetPath = (path: string): boolean => {
-    //     return /^https:\/\/cdn\.wanderer\.moe\/[a-z0-9-]+\/[a-z0-9-]+\/[a-z0-9-]+\.png$/i.test(
-    //         path,
-    //     );
-    // };
-
     const fetchAsset = async (asset: Asset, zip: JSZip): Promise<void> => {
         console.log("[Mass Downloading] Fetching asset", asset.path);
         try {
             const [, , , game, category] = asset.path.split("/");
 
-            // if (!validateAssetPath(asset.path)) {
-            //     console.error("Invalid asset path:", asset.path);
-            //     return;
-            // }
-
             const response = await axios.get(asset.path, {
                 responseType: "arraybuffer",
+                withCredentials: false,
             });
 
             zip.file(`${game}/${category}/${asset.name}.png`, response.data);
@@ -301,8 +291,7 @@ function ShowMassDownloadProgress() {
             ) {
                 // TODO: this is either CORS or a user network issue
                 // fetching assets on 0.1% of all downloads sometimes causes a CORS error and i don't know why ??
-                userErrorMessage =
-                    "Failed to fetch assets, check your network connection";
+                userErrorMessage = "Failed to fetch assets, try again later";
             }
 
             toast.error(userErrorMessage);
