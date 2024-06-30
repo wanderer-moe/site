@@ -12,7 +12,7 @@ import {
 import { HomeIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "privacy policy • wanderer.moe",
+    title: "Privacy Policy • wanderer.moe",
     description:
         "Centralized game assets database (previously wtf.dromzeh.dev)",
 };

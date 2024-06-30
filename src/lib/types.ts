@@ -59,3 +59,18 @@ export type Asset = {
     uploaded: string;
     size: number;
 };
+
+export type Contributor = {
+    id: string;
+    username: string;
+    globalname: string;
+    avatar: string;
+    roles: string[];
+};
+
+export type ContributorsRoute = {
+    success: boolean;
+    status: string;
+    path: string;
+    contributors: Contributor[];
+};

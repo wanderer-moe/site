@@ -3,13 +3,11 @@ import type { Asset } from "~/lib/types";
 
 export interface IAssetState {
     isMassDownloading: boolean;
-    isMassDownloadingDialogOpen: boolean;
     selectedAssets: Asset[];
 }
 
 const initialState: IAssetState = {
     isMassDownloading: false,
-    isMassDownloadingDialogOpen: false,
     selectedAssets: [],
 };
 

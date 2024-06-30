@@ -70,6 +70,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/changelog`,
             priority: 0.5,
         },
+        {
+            ...defaults,
+            url: `${baseUrl}/contributors`,
+            priority: 0.5,
+        },
         ...gameRoutes,
     ];
 }
