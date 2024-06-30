@@ -13,6 +13,8 @@ import { HomeIcon } from "lucide-react";
 import { getContributors } from "~/lib/api/client";
 import { ContributorsGrid } from "~/components/contributors/contributors-grid";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
     title: "Contributors • wanderer.moe",
     description:
