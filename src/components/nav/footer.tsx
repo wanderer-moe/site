@@ -40,6 +40,7 @@ const footerLinks = {
         { href: "https://git.wanderer.moe/", label: "GitHub" },
     ],
     other: [
+        { href: "/contributors", label: "Contributors" },
         { href: "/changelog", label: "Changelog" },
         { href: "https://status.wanderer.moe/", label: "Status Page" },
         { href: "mailto:marcel@wanderer.moe", label: "Contact" },

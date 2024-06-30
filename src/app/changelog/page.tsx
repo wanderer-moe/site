@@ -24,6 +24,12 @@ type ChangelogEntry = {
 
 const changes: ChangelogEntry[] = [
     {
+        title: "Mass Downloading Reintroduced",
+        date: "17th June 2024",
+        description:
+            "Mass downloading has been reintroduced to the site in an experimental state.",
+    },
+    {
         title: "Site Rewrite",
         date: "29th May 2024",
         description:
