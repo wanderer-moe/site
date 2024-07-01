@@ -9,6 +9,7 @@ import { Toaster } from "~/components/ui/sonner";
 import { AxiomWebVitals } from "next-axiom";
 
 import dynamic from "next/dynamic";
+import { NoticeDialog } from "~/components/notice-dialog";
 // import { AssetDownloadIndicator } from "~/components/asset/download-indicator";
 
 const ReduxProvider = dynamic(() => import("~/redux/redux-provider"), {
@@ -45,6 +46,7 @@ export default function RootLayout({
                     <AxiomWebVitals />
                     <ScrollToTop />
                     <NavBar />
+                    <NoticeDialog />
                     {children}
                     <SiteFooter />
                     <Toaster />
