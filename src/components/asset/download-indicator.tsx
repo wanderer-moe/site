@@ -177,8 +177,9 @@ function ShowMassDownloadProgress() {
     const [downloadProgress, setDownloadProgress] =
         useState<DownloadProgress>("fetching");
 
-    const { isUnsharedMassDownloading, setIsUnsharedMassDownloading } =
-        useContext(AssetDownloadIndicatorContext);
+    const { setIsUnsharedMassDownloading } = useContext(
+        AssetDownloadIndicatorContext,
+    );
 
     const dispatch = useAppDispatch();
 
@@ -284,6 +285,7 @@ function ShowMassDownloadProgress() {
             console.error("Mass Downloading Error: " + error);
 
             let userErrorMessage = "Failed to download assets";
+            let isCorsError = false;
 
             if (
                 error instanceof AxiosError &&
@@ -292,6 +294,7 @@ function ShowMassDownloadProgress() {
                 // TODO: this is either CORS or a user network issue
                 // fetching assets on 0.1% of all downloads sometimes causes a CORS error and i don't know why ??
                 userErrorMessage = "Failed to fetch assets, try again later";
+                isCorsError = true;
             }
 
             toast.error(userErrorMessage);
@@ -301,6 +304,7 @@ function ShowMassDownloadProgress() {
                 error,
                 assetList: selectedAssets.map((asset) => asset.path),
                 id: logId,
+                isCorsError,
             });
         } finally {
             dispatch(setIsMassDownloading(false));
