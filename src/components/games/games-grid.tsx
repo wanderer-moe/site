@@ -6,6 +6,7 @@ import Link from "next/link";
 import { FormatGameName } from "~/lib/format";
 import { timeAgo } from "~/lib/time";
 import { Skeleton } from "../ui/skeleton";
+import { getGames } from "~/lib/api/client";
 
 function GamesSkeleton() {
     return (
@@ -17,12 +18,22 @@ function GamesSkeleton() {
     );
 }
 
-interface GamesGridProps {
-    games: GamesRoute["games"];
-}
-
 // million-ignore
-export function GamesGrid({ games }: Readonly<GamesGridProps>) {
+export function GamesGrid() {
+    const [games, setGames] = React.useState<GamesRoute["games"]>([]);
+
+    React.useEffect(() => {
+        getGames().then((data) => {
+            data.response.games.sort((a, b) => {
+                return (
+                    new Date(b.lastUploaded).getTime() -
+                    new Date(a.lastUploaded).getTime()
+                );
+            });
+            setGames(data.response.games);
+        });
+    }, []);
+
     return (
         <div>
             <div className="flex flex-col mb-4">

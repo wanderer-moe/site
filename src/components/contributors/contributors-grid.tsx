@@ -4,6 +4,7 @@ import * as React from "react";
 import { ContributorsRoute } from "~/lib/types";
 import { Skeleton } from "../ui/skeleton";
 import { Card } from "../ui/card";
+import { getContributors } from "~/lib/api/client";
 
 // this is an absolute hellspawn of code
 // im so sorry
@@ -41,17 +42,22 @@ function ContributorsSkeleton() {
     );
 }
 
-interface ContributorsGridProps {
-    contributors: ContributorsRoute["contributors"];
-}
+export function ContributorsGrid() {
+    const [contributors, setContributors] = React.useState<
+        ContributorsRoute["contributors"]
+    >([]);
 
-export function ContributorsGrid({
-    contributors,
-}: Readonly<ContributorsGridProps>) {
+    React.useEffect(() => {
+        getContributors().then((data) => {
+            setContributors(data.response.contributors);
+        });
+    }, []);
+
     const categoryMap = new Map<
         string,
         ContributorsRoute["contributors"][0][]
     >();
+
     contributors.forEach((contributor) => {
         const categoryPriority = getCategoryPriorityForContributor(
             contributor.roles,
