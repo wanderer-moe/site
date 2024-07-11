@@ -3,6 +3,7 @@ import { GitHubStar } from "../github-star";
 import { Heart } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { CopyDebugInfo } from "./debug-info";
 
 interface FooterLinkProps {
     href: string;
@@ -119,6 +120,7 @@ export function SiteFooter(): React.ReactElement {
                             </Link>
                         </p>
                     </span>
+                    <CopyDebugInfo />
                 </div>
             </div>
         </footer>
