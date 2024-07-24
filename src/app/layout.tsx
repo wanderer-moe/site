@@ -6,6 +6,9 @@ import { SiteFooter } from "~/components/nav/footer";
 import { ScrollToTop } from "~/components/nav/scroll-to-top";
 import { Toaster } from "~/components/ui/sonner";
 import { AxiomWebVitals } from "next-axiom";
+import * as seline from "@seline-analytics/web";
+
+seline.init();
 
 import dynamic from "next/dynamic";
 

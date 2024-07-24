@@ -100,6 +100,9 @@ importers:
             "@reduxjs/toolkit":
                 specifier: ^2.2.5
                 version: 2.2.5(react-redux@9.1.2(@types/react@18.3.3)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
+            "@seline-analytics/web":
+                specifier: ^0.0.12
+                version: 0.0.12
             "@types/lodash":
                 specifier: ^4.17.4
                 version: 4.17.4
@@ -788,10 +791,10 @@ packages:
                 integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==,
             }
 
-    "@million/install@0.0.16":
+    "@million/install@0.0.18":
         resolution:
             {
-                integrity: sha512-v281XJsOjhBBuF0X2ajmYxevgQET2r2BVSuj1BJa/RToP6lvA5zSnXe1ZNyR2ifDL9uujkUltGu55p6VRSz4/Q==,
+                integrity: sha512-1x/3Uz0TJHbQWsPCe9Na+MbE2GrJtz+1LDvDILh/1+O0SRbWZBEvlDjCRexEj0m44ff2TJRPk4BGob9Ly5thvQ==,
             }
         hasBin: true
 
@@ -1855,6 +1858,12 @@ packages:
         resolution:
             {
                 integrity: sha512-qC/xYId4NMebE6w/V33Fh9gWxLgURiNYgVNObbJl2LZv0GUUItCcCqC5axQSwRaAgaxl2mELq1rMzlswaQ0Zxg==,
+            }
+
+    "@seline-analytics/web@0.0.12":
+        resolution:
+            {
+                integrity: sha512-LkYNCIBQ2qbad95D+dHyR0eIfTsk07uCHBh9SPN3MJsmemt7J8sF2NJ60NjKG2cP4BmmDs8H2qoNdibnHMXpFg==,
             }
 
     "@sinclair/typebox@0.27.8":
@@ -5946,7 +5955,7 @@ snapshots:
             "@jridgewell/resolve-uri": 3.1.2
             "@jridgewell/sourcemap-codec": 1.4.15
 
-    "@million/install@0.0.16":
+    "@million/install@0.0.18":
         dependencies:
             "@antfu/ni": 0.21.12
             "@axiomhq/js": 1.0.0-rc.3
@@ -5966,7 +5975,7 @@ snapshots:
             "@babel/core": 7.24.6
             "@babel/types": 7.24.6
             "@hono/node-server": 1.11.1
-            "@million/install": 0.0.16
+            "@million/install": 0.0.18
             "@rollup/pluginutils": 5.1.0(rollup@4.18.0)
             babel-plugin-syntax-hermes-parser: 0.21.1
             esbuild: 0.20.2
@@ -6820,6 +6829,8 @@ snapshots:
         optional: true
 
     "@rushstack/eslint-patch@1.10.3": {}
+
+    "@seline-analytics/web@0.0.12": {}
 
     "@sinclair/typebox@0.27.8": {}
 
