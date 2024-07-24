@@ -16,6 +16,7 @@ import { HomeIcon } from "lucide-react";
 import { AssetHandler } from "~/components/category/asset-handler";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { getGameCategory } from "~/lib/api/client";
+import { advisoryGames } from "~/lib/advisory-games";
 
 export const runtime = "edge";
 
@@ -94,6 +95,24 @@ export default async function GameCategoryPage({ params }: Readonly<Props>) {
                     title={`${FormatGameName(response.game)} ${FormatCategoryName(response.asset)}`}
                     description={`Last updated ${timeAgo(response.lastUploaded.uploaded)}`}
                 />
+                {advisoryGames.includes(response.game) && (
+                    <div>
+                        <Alert>
+                            <div className="flex flex-row items-center gap-2 p-1">
+                                <div className="flex flex-col">
+                                    <AlertTitle className="text-destructive">
+                                        Sensitive Content Warning
+                                    </AlertTitle>
+                                    <AlertDescription className="text-muted-foreground">
+                                        This game contains content that some
+                                        users may find disturbing. Recommended
+                                        for audiences aged 16 and older.
+                                    </AlertDescription>
+                                </div>
+                            </div>
+                        </Alert>
+                    </div>
+                )}
                 <div>
                     <Alert>
                         <div className="flex flex-row items-center gap-2 p-1">
@@ -103,9 +122,7 @@ export default async function GameCategoryPage({ params }: Readonly<Props>) {
                                 className="w-8 h-8"
                             />
                             <div className="flex flex-col">
-                                <AlertTitle className="text-base">
-                                    Heads up!
-                                </AlertTitle>
+                                <AlertTitle>Heads up!</AlertTitle>
                                 <AlertDescription className="text-muted-foreground">
                                     Double tap to view & single tap to select
                                     assets.

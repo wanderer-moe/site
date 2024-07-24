@@ -16,6 +16,8 @@ import { DescriptionImage } from "~/components/desc-image";
 import { timeAgo } from "~/lib/time";
 import { HomeIcon } from "lucide-react";
 import { getGame } from "~/lib/api/client";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
+import { advisoryGames } from "~/lib/advisory-games";
 
 export const runtime = "edge";
 
@@ -85,6 +87,24 @@ export default async function GamePage({ params }: Readonly<Props>) {
                     title={FormatGameName(response.game)}
                     description={`Last updated ${timeAgo(response.lastUploaded)}`}
                 />
+                {advisoryGames.includes(response.game) && (
+                    <div>
+                        <Alert>
+                            <div className="flex flex-row items-center gap-2 p-1">
+                                <div className="flex flex-col">
+                                    <AlertTitle className="text-destructive">
+                                        Sensitive Content Warning
+                                    </AlertTitle>
+                                    <AlertDescription className="text-muted-foreground">
+                                        This game contains content that some
+                                        users may find disturbing. Recommended
+                                        for audiences aged 16 and older.
+                                    </AlertDescription>
+                                </div>
+                            </div>
+                        </Alert>
+                    </div>
+                )}
                 <GamesCategories categories={response.locations} />
             </div>
         </main>
