@@ -6,11 +6,8 @@ import { SiteFooter } from "~/components/nav/footer";
 import { ScrollToTop } from "~/components/nav/scroll-to-top";
 import { Toaster } from "~/components/ui/sonner";
 import { AxiomWebVitals } from "next-axiom";
-import * as seline from "@seline-analytics/web";
-
-seline.init();
-
 import dynamic from "next/dynamic";
+import Script from "next/script";
 
 const ReduxProvider = dynamic(() => import("~/redux/redux-provider"), {
     ssr: false,
@@ -41,6 +38,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={font.className}>
+                <Script
+                    async
+                    src="https://cdn.seline.so/seline.js"
+                    strategy="afterInteractive"
+                />
                 <ReduxProvider>
                     <AxiomWebVitals />
                     <ScrollToTop />

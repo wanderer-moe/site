@@ -43,7 +43,6 @@
         "@radix-ui/react-toggle-group": "^1.0.4",
         "@radix-ui/react-tooltip": "^1.0.7",
         "@reduxjs/toolkit": "^2.2.5",
-        "@seline-analytics/web": "^0.0.12",
         "@types/lodash": "^4.17.4",
         "axios": "^1.7.2",
         "class-variance-authority": "^0.7.0",
