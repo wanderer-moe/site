@@ -16,6 +16,7 @@ import { HomeIcon } from "lucide-react";
 import { AssetHandler } from "~/components/category/asset-handler";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { getGameCategory } from "~/lib/api/client";
+
 export const runtime = "edge";
 
 type Props = {

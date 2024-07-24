@@ -15,7 +15,14 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
-import { FilterIcon } from "lucide-react";
+import { BoxSelect, FilterIcon } from "lucide-react";
+
+import { useAppDispatch, useAppSelector } from "~/redux/store";
+
+import {
+    toggleAssetSelection,
+    isAssetSelected,
+} from "~/redux/slice/asset-slice";
 
 type Checked = DropdownMenuCheckboxItemProps["checked"];
 
@@ -95,6 +102,7 @@ export function AssetHandler({
                     setFilter={setFilter}
                     filterList={filterList}
                 />
+                <SelectAllAssets assets={filteredAssets} />
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 {filteredAssets.map((asset) => (
@@ -120,6 +128,42 @@ export function AssetHandler({
                 </div>
             )}
         </div>
+    );
+}
+
+function SelectAllAssets({
+    assets,
+}: Readonly<{
+    assets: Asset[];
+}>) {
+    const [checked, setChecked] = React.useState<Checked>(false);
+
+    const dispatch = useAppDispatch();
+    const selectedAssets = useAppSelector((state) => state.assets);
+
+    const handleSelectAll = () => {
+        if (checked) {
+            assets.forEach((asset) => {
+                if (isAssetSelected(selectedAssets, asset)) {
+                    dispatch(toggleAssetSelection(asset));
+                }
+            });
+        } else {
+            assets.forEach((asset) => {
+                if (!isAssetSelected(selectedAssets, asset)) {
+                    dispatch(toggleAssetSelection(asset));
+                }
+            });
+        }
+        setChecked(!checked);
+    };
+
+    return (
+        <Button variant={"outline"} onClick={handleSelectAll}>
+            <div className="flex flex-row gap-2 items-center transition-all duration-150">
+                <BoxSelect size={16} className="translate-y-[1px]" />
+            </div>
+        </Button>
     );
 }
 
