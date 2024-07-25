@@ -5,7 +5,6 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import * as React from "react";
 import { Asset } from "~/lib/types";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import {
     DropdownMenu,
     DropdownMenuRadioGroup,
@@ -14,8 +13,10 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
+    DropdownMenuItem,
 } from "~/components/ui/dropdown-menu";
-import { BoxSelect, FilterIcon } from "lucide-react";
+import { Ellipsis, FilterIcon, LinkIcon, ToggleRight } from "lucide-react";
+import { toast } from "sonner";
 
 import { useAppDispatch, useAppSelector } from "~/redux/store";
 
@@ -23,8 +24,7 @@ import {
     toggleAssetSelection,
     isAssetSelected,
 } from "~/redux/slice/asset-slice";
-
-type Checked = DropdownMenuCheckboxItemProps["checked"];
+import { FormatCategoryName, FormatGameName } from "~/lib/format";
 
 interface AssetHandlerProps {
     assets: Asset[];
@@ -102,7 +102,7 @@ export function AssetHandler({
                     setFilter={setFilter}
                     filterList={filterList}
                 />
-                <SelectAllAssets assets={filteredAssets} />
+                <MoreOptions assets={assets} game={game} category={category} />
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 {filteredAssets.map((asset) => (
@@ -131,39 +131,103 @@ export function AssetHandler({
     );
 }
 
+function MoreOptions({ assets, game, category }: Readonly<AssetHandlerProps>) {
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button size="icon" variant={"outline"}>
+                    <div className="flex flex-row gap-2 items-center">
+                        <Ellipsis size={16} className="translate-y-[1px]" />
+                    </div>
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+                <SelectAllAssets
+                    assets={assets}
+                    game={game}
+                    category={category}
+                />
+                <CopyLink game={game} category={category} />
+            </DropdownMenuContent>
+        </DropdownMenu>
+    );
+}
+
+function CopyLink({
+    game,
+    category,
+}: Readonly<{
+    game: string;
+    category: string;
+}>) {
+    const copyLink = () => {
+        try {
+            navigator.clipboard.writeText(
+                `https://wanderer.moe/${game}/${category}`,
+            );
+            toast.success("Copied link to clipboard!");
+        } catch (error) {
+            console.error("Failed to copy link to clipboard", error);
+            toast.error("Failed to copy link to clipboard");
+        }
+    };
+
+    return (
+        <DropdownMenuItem onClick={copyLink}>
+            <div className="flex flex-row gap-2 items-center transition-all duration-150">
+                <LinkIcon size={16} className="translate-y-[1px]" />
+                Copy Link
+            </div>
+        </DropdownMenuItem>
+    );
+}
+
 function SelectAllAssets({
     assets,
+    game,
+    category,
 }: Readonly<{
     assets: Asset[];
+    game: string;
+    category: string;
 }>) {
-    const [checked, setChecked] = React.useState<Checked>(false);
-
     const dispatch = useAppDispatch();
     const selectedAssets = useAppSelector((state) => state.assets);
 
+    // Derive the checked state
+    const allSelected = assets.every((asset) =>
+        isAssetSelected(selectedAssets, asset),
+    );
+
     const handleSelectAll = () => {
-        if (checked) {
+        if (allSelected) {
             assets.forEach((asset) => {
                 if (isAssetSelected(selectedAssets, asset)) {
                     dispatch(toggleAssetSelection(asset));
                 }
             });
+            toast.success(
+                `Deselected all ${FormatGameName(game)} ${FormatCategoryName(category)}`,
+            );
         } else {
             assets.forEach((asset) => {
                 if (!isAssetSelected(selectedAssets, asset)) {
                     dispatch(toggleAssetSelection(asset));
                 }
             });
+            toast.success(
+                `Selected all ${FormatGameName(game)} ${FormatCategoryName(category)}`,
+            );
         }
-        setChecked(!checked);
     };
 
     return (
-        <Button variant={"outline"} onClick={handleSelectAll}>
+        <DropdownMenuItem onClick={handleSelectAll}>
             <div className="flex flex-row gap-2 items-center transition-all duration-150">
-                <BoxSelect size={16} className="translate-y-[1px]" />
+                <ToggleRight size={16} className="translate-y-[1px]" />
+                Toggle Selection
             </div>
-        </Button>
+        </DropdownMenuItem>
     );
 }
 
