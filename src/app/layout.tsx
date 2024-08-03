@@ -8,6 +8,7 @@ import { Toaster } from "~/components/ui/sonner";
 import { AxiomWebVitals } from "next-axiom";
 import dynamic from "next/dynamic";
 import Script from "next/script";
+import { AdsenseProvider } from "~/components/ads/adsense-provider";
 
 const ReduxProvider = dynamic(() => import("~/redux/redux-provider"), {
     ssr: false,
@@ -37,6 +38,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <AdsenseProvider pId="pub-7772886196789799" />
+            </head>
             <body className={font.className}>
                 <Script
                     async
