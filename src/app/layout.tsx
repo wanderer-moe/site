@@ -38,10 +38,8 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <head>
-                <AdsenseProvider pId="pub-7772886196789799" />
-            </head>
             <body className={font.className}>
+                <AdsenseProvider pId="pub-7772886196789799" />
                 <Script
                     async
                     src="https://cdn.seline.so/seline.js"
