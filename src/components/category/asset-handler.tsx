@@ -135,7 +135,7 @@ function MoreOptions({ assets, game, category }: Readonly<AssetHandlerProps>) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button size="icon" variant={"outline"}>
+                <Button variant={"outline"}>
                     <div className="flex flex-row gap-2 items-center">
                         <Ellipsis size={16} className="translate-y-[1px]" />
                     </div>

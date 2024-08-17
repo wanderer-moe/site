@@ -122,10 +122,9 @@ export default async function GameCategoryPage({ params }: Readonly<Props>) {
                                 className="w-8 h-8"
                             />
                             <div className="flex flex-col">
-                                <AlertTitle>Heads up!</AlertTitle>
                                 <AlertDescription className="text-muted-foreground">
-                                    Double tap to view & single tap to select
-                                    assets.
+                                    Double tap (do not hold) on an asset to
+                                    download it, or single tap to select assets.
                                 </AlertDescription>
                             </div>
                         </div>
