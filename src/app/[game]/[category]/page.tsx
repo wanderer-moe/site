@@ -123,8 +123,9 @@ export default async function GameCategoryPage({ params }: Readonly<Props>) {
                             />
                             <div className="flex flex-col">
                                 <AlertDescription className="text-muted-foreground">
-                                    Double tap (do not hold) on an asset to
-                                    download it, or single tap to select assets.
+                                    Please use the designated download buttons
+                                    to download assets, or the quality of the
+                                    assets may be affected.
                                 </AlertDescription>
                             </div>
                         </div>
