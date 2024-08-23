@@ -40,6 +40,7 @@ import { Button } from "~/components/ui/button";
 import { toast } from "sonner";
 import Link from "next/link";
 import { useLogger } from "next-axiom";
+import ResetDownloadStatus from "../nav/reset-dl-status";
 
 // redux state is shared across multiple tabs - invoking it will initiate multiple downloads across tabs
 // instead, establish context api state to manage this scenario and prevent multiple downloads occurring
@@ -154,6 +155,7 @@ function MassDownloadInProgress() {
                     <p className="text-muted-foreground">
                         Another tab is currently downloading assets.
                     </p>
+                    <ResetDownloadStatus />
                 </div>
             </div>
         </div>

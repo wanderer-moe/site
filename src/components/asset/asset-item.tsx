@@ -56,12 +56,23 @@ export function AssetItem({
                     />
                 </div>
                 <div className="flex flex-col mt-2 p-2">
-                    <p className="font-semibold line-clamp-1 text-ellipsis">
-                        {asset.name}
-                    </p>
-                    <div className="text-muted-foreground flex text-xs justify-between items-center">
-                        <p>{timeAgo(asset.uploaded)}</p>
-                        <p>{bytesToFileSize(asset.size)}</p>
+                    <div className="flex flex-row justify-between items-center">
+                        <div className="flex flex-col">
+                            <p className="font-semibold line-clamp-1 text-ellipsis">
+                                {asset.name}
+                            </p>
+                            <p className="text-muted-foreground flex text-xs">
+                                {timeAgo(asset.uploaded)}
+                            </p>
+                        </div>
+
+                        <Button
+                            variant={"secondary"}
+                            size="sm"
+                            onClick={() => setDialogOpen(true)}
+                        >
+                            <DownloadIcon size={16} />
+                        </Button>
                     </div>
                 </div>
             </Card>
