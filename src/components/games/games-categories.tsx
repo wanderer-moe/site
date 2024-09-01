@@ -36,14 +36,14 @@ function CategoryEntry({
                         {FormatCategoryName(category.name)}
                     </h2>
                 </div>
-                <div className="flex text-xs justify-between items-center gap-2">
+                {/* <div className="flex text-xs justify-between items-center gap-2">
                     <div className="flex flex-col">
                         <p className="text-muted-foreground">
-                            Updated {timeAgo(category.lastUploaded)}
+                        {category.fileCount} files
                         </p>
                     </div>
-                    <p>{category.fileCount} files</p>
-                </div>
+                    <p>{category.fileCount} files</p> 
+                </div> */}
             </Card>
         </Link>
     );

@@ -23,7 +23,9 @@ export function DescriptionImage({
                     <h1 className="text-4xl font-semibold text-primary tracking-tight">
                         {title}
                     </h1>
-                    <p className="text-muted-foreground">{description}</p>
+                    {description ? (
+                        <p className="text-muted-foreground">{description}</p>
+                    ) : null}
                 </div>
             </div>
         </div>

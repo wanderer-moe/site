@@ -24,12 +24,6 @@ export function GamesGrid() {
 
     React.useEffect(() => {
         getGames().then((data) => {
-            data.response.games.sort((a, b) => {
-                return (
-                    new Date(b.lastUploaded).getTime() -
-                    new Date(a.lastUploaded).getTime()
-                );
-            });
             setGames(data.response.games);
         });
     }, []);
@@ -70,9 +64,6 @@ export function GameEntry({ game }: Readonly<GameEntryProps>) {
                                 <h2 className="text-white font-semibold">
                                     {FormatGameName(game.name)}
                                 </h2>
-                                <p className="text-xs text-muted-foreground font-semibold">
-                                    Updated {timeAgo(game.lastUploaded)}
-                                </p>
                             </div>
                         </div>
                     </div>

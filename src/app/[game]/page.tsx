@@ -85,7 +85,6 @@ export default async function GamePage({ params }: Readonly<Props>) {
                     url={`https://cdn.wanderer.moe/${response.game}/cover.png`}
                     alt={response.game}
                     title={FormatGameName(response.game)}
-                    description={`Last updated ${timeAgo(response.lastUploaded)}`}
                 />
                 {advisoryGames.includes(response.game) && (
                     <div>
