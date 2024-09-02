@@ -395,10 +395,10 @@ function ShowSelectedAssets() {
                                         EXPERIMENTAL and may undergo changes.
                                     </p>
                                     <p>
-                                        Select assets by single tapping on them,
-                                        you can deselect them by tapping again
-                                        or tapping on the asset image in the
-                                        selected assets list.
+                                        Select assets by double tapping on them,
+                                        you can deselect them by double tapping
+                                        again or tapping on the asset image in
+                                        the selected assets list.
                                     </p>
                                     <p>
                                         Selected assets are synced across

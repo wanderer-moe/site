@@ -56,6 +56,25 @@
     body {
         @apply bg-[#0F0F11] text-foreground;
     }
+    :root {
+        color-scheme: dark;
+    }
+    .asset-masonry-grid {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-left: -16px;
+        width: auto;
+    }
+    .asset-masonry-grid_column {
+        padding-left: 16px;
+        background-clip: padding-box;
+    }
+
+    .asset-masonry-grid_column > div {
+        margin-bottom: 16px;
+    }
+
     /* select */
     ::-moz-selection {
         @apply bg-primary text-background;

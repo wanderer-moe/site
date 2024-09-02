@@ -32,6 +32,9 @@ export function AssetItem({
     category: string;
 }>) {
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+    const [clickTimeout, setClickTimeout] = useState<NodeJS.Timeout | null>(
+        null,
+    );
 
     const dispatch = useAppDispatch();
 
@@ -40,33 +43,39 @@ export function AssetItem({
         asset,
     );
 
+    const handleClick = () => {
+        if (clickTimeout) {
+            clearTimeout(clickTimeout);
+            setClickTimeout(null);
+            dispatch(toggleAssetSelection(asset));
+        } else {
+            const timeout = setTimeout(() => {
+                setDialogOpen(true);
+                setClickTimeout(null);
+            }, 250);
+            setClickTimeout(timeout);
+        }
+    };
+
     return (
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-            <Card
-                className={`group p-2 rounded-lg ring-2 ease-linear transition-all cursor-pointer ${isSelected ? "ring-primary" : "ring-transparent"} hover:ring-primary`}
-                onDoubleClick={() => setDialogOpen(true)}
-                onClick={() => dispatch(toggleAssetSelection(asset))}
-            >
-                <div className="flex items-center justify-center">
-                    <img
-                        src={`https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/${game}/${category}/${asset.name}.png`}
-                        alt={asset.name}
-                        className="h-36 max-h-36 w-36 max-w-36 object-contain p-1"
-                        fetchPriority="high"
-                    />
-                </div>
-                <div className="flex flex-col mt-2 p-2">
-                    <div className="flex flex-col gap-2">
-                        <Button
-                            variant={"secondary"}
-                            className="w-full"
-                            onClick={() => setDialogOpen(true)}
-                        >
-                            <DownloadIcon size={16} />
-                        </Button>
+            <div className="flex flex-col gap-2">
+                <Card
+                    className={`group p-2 rounded-lg ring-2 ease-linear transition-all cursor-pointer ${isSelected ? "ring-primary" : "ring-transparent"} hover:ring-primary`}
+                    onClick={handleClick}
+                >
+                    <div className="flex items-center justify-center relative">
+                        <img
+                            src={`https://cdn.wanderer.moe/cdn-cgi/image/quality=30/${game}/${category}/${asset.name}.png`}
+                            alt={asset.name}
+                            className="object-contain p-1"
+                            fetchPriority="high"
+                        />
+                        <div className="absolute inset-0" />
                     </div>
-                </div>
-            </Card>
+                </Card>
+                <p className="line-clamp-1 text-ellipsis">{asset.name}</p>
+            </div>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>{asset.name}</DialogTitle>

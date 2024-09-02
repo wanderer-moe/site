@@ -4,6 +4,7 @@ import {
     GamesRoute,
     DiscordMembersRoute,
     ContributorsRoute,
+    ChangeLogRoute,
 } from "../types";
 
 export async function getGames(): Promise<{ response: GamesRoute }> {
@@ -47,6 +48,14 @@ export async function getDiscordUsers(): Promise<{
             revalidate: 1800,
         },
     });
+    const data = await response.json();
+    return { response: data };
+}
+
+export async function getChangeLog(): Promise<{
+    response: ChangeLogRoute;
+}> {
+    const response = await fetch("https://api.wanderer.moe/discord/changelog");
     const data = await response.json();
     return { response: data };
 }

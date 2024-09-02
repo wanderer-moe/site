@@ -11,6 +11,11 @@ const nextConfig = {
                 hostname: "cdn.wanderer.moe",
                 port: "",
             },
+            {
+                protocol: "https",
+                hostname: "cdn.discordapp.com",
+                port: "",
+            },
         ],
     },
 };

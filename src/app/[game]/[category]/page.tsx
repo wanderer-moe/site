@@ -119,13 +119,22 @@ export default async function GameCategoryPage({ params }: Readonly<Props>) {
                             <img
                                 src="https://cdn.wanderer.moe/cdn-cgi/image/width=64,height=64,quality=75/wuthering-waves/emotes/T_ChatEmo_C_01.png"
                                 alt="ww emote"
-                                className="w-8 h-8"
+                                className="w-12 h-12"
                             />
                             <div className="flex flex-col">
-                                <AlertDescription className="text-muted-foreground">
-                                    Please use the designated download buttons
-                                    to download assets, or the quality of the
-                                    assets may be affected.
+                                <AlertDescription className="text-muted-foreground flex flex-col">
+                                    <p>
+                                        <span className="text-primary">
+                                            Single Click:
+                                        </span>{" "}
+                                        View/Download Asset
+                                    </p>
+                                    <p>
+                                        <span className="text-primary">
+                                            Double Click:
+                                        </span>{" "}
+                                        Select Asset
+                                    </p>
                                 </AlertDescription>
                             </div>
                         </div>

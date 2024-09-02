@@ -17,7 +17,7 @@ import {
 } from "~/components/ui/dropdown-menu";
 import { Ellipsis, FilterIcon, LinkIcon, ToggleRight } from "lucide-react";
 import { toast } from "sonner";
-
+import Masonry from "react-masonry-css";
 import { useAppDispatch, useAppSelector } from "~/redux/store";
 
 import {
@@ -87,6 +87,12 @@ export function AssetHandler({
         [assets, filter, search],
     );
 
+    const breakpointColumnsObj = {
+        default: 5,
+        1100: 4,
+        700: 2,
+    };
+
     return (
         <div className="flex flex-col gap-4">
             <div className="flex flex-row gap-2">
@@ -104,7 +110,11 @@ export function AssetHandler({
                 />
                 <MoreOptions assets={assets} game={game} category={category} />
             </div>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <Masonry
+                breakpointCols={breakpointColumnsObj}
+                className="asset-masonry-grid"
+                columnClassName="asset-masonry-grid_column"
+            >
                 {filteredAssets.map((asset) => (
                     <AssetItem
                         key={asset.name}
@@ -113,7 +123,7 @@ export function AssetHandler({
                         category={category}
                     />
                 ))}
-            </div>
+            </Masonry>
             {filteredAssets.length === 0 && (
                 <div className="w-full justify-center items-center flex flex-col">
                     <p>No assets matched your search.</p>
