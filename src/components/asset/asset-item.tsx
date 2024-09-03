@@ -53,7 +53,7 @@ export function AssetItem({
                 >
                     <div className="flex items-center justify-center relative">
                         <img
-                            src={`https://cdn.wanderer.moe/cdn-cgi/image/quality=30/${game}/${category}/${asset.name}.png`}
+                            src={`https://cdn.wanderer.moe/cdn-cgi/image/width=128,quality=50/${game}/${category}/${asset.name}.png`}
                             alt={asset.name}
                             className="object-contain p-1"
                             fetchPriority="high"
