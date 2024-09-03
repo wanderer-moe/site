@@ -4,21 +4,31 @@ import { useEffect, useState } from "react";
 import { getChangeLog } from "~/lib/api/client";
 import { Skeleton } from "~/components/ui/skeleton";
 import { Card } from "~/components/ui/card";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "~/components/ui/tooltip";
 import { ChangeLogRoute, DiscordUser } from "~/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 
-function ChangelogSkeleton() {
+function ChangelogSkeleton({ toShow }: { toShow: number }) {
     return (
         <div className="flex flex-col gap-4">
-            {[...Array(12)].map((_, i) => (
-                <Skeleton key={i} className="h-[150px]" />
+            {[...Array(toShow)].map((_, i) => (
+                <Skeleton key={i} className="h-[90px]" />
             ))}
         </div>
     );
 }
 
-export function ChangelogHandler() {
+interface ChangelogHandlerProps {
+    toShow?: number;
+}
+
+export function ChangelogHandler({ toShow }: ChangelogHandlerProps) {
     const [changelog, setChangelog] = useState<ChangeLogRoute["messages"]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -35,7 +45,7 @@ export function ChangelogHandler() {
     }, []);
 
     if (isLoading) {
-        return <ChangelogSkeleton />;
+        return <ChangelogSkeleton toShow={toShow ?? 12} />;
     }
 
     const removeFromContent = [
@@ -52,7 +62,10 @@ export function ChangelogHandler() {
         const channelRegex = /<#\d+>/g;
 
         let formattedContent = content.replace(emoteRegex, "");
-        formattedContent = formattedContent.replace(channelRegex, "[channel]");
+        formattedContent = formattedContent.replace(
+            channelRegex,
+            "[server channel]",
+        );
 
         formattedContent = formattedContent.replace(urlRegex, (match, url) => {
             return `<URL>${url}</URL>`;
@@ -72,7 +85,7 @@ export function ChangelogHandler() {
                     (user) => user.id === userId,
                 );
                 return mentionedUser
-                    ? `<MENTION>${userId}:${mentionedUser.username}</MENTION>`
+                    ? `<MENTION>${userId}:${mentionedUser.username}:${mentionedUser.global_name}</MENTION>`
                     : match;
             },
         );
@@ -107,16 +120,25 @@ export function ChangelogHandler() {
                     part.startsWith("<MENTION>") &&
                     part.endsWith("</MENTION>")
                 ) {
-                    const [userId, username] = part.slice(9, -10).split(":");
+                    const [userId, username, global_name] = part
+                        .slice(9, -10)
+                        .split(":");
                     return (
-                        <Link
-                            key={index}
-                            href={`https://discord.com/users/${userId}`}
-                            className="text-primary transition-150 transition-all ease-linear hover:text-muted-foreground"
-                            prefetch={false}
-                        >
-                            @{username}
-                        </Link>
+                        <TooltipProvider delayDuration={100}>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <Link
+                                        key={index}
+                                        href={`https://discord.com/users/${userId}`}
+                                        className="text-primary transition-150 transition-all ease-linear hover:text-muted-foreground"
+                                        prefetch={false}
+                                    >
+                                        @{global_name}
+                                    </Link>
+                                </TooltipTrigger>
+                                <TooltipContent>@{username}</TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                     );
                 }
                 return <span key={index}>{part}</span>;
@@ -126,7 +148,7 @@ export function ChangelogHandler() {
     return (
         <div className="flex flex-col gap-4">
             {changelog.length > 0 ? (
-                changelog.map((message) => (
+                changelog.slice(0, toShow).map((message) => (
                     <Card
                         className="p-4 text-muted-foreground"
                         key={message.id}
@@ -137,40 +159,59 @@ export function ChangelogHandler() {
                                     <Image
                                         src={`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`}
                                         alt={message.author.username}
-                                        width={24}
+                                        width={20}
                                         className="rounded-full"
-                                        height={24}
+                                        height={20}
                                     />
-                                    <p className="text-primary">
+                                    <p className="text-sm text-primary">
                                         {message.author.username}
                                     </p>
                                 </div>
-                                <p className="text-muted-foreground">
+                                <p className="text-muted-foreground text-sm">
                                     {new Date(
                                         message.timestamp,
                                     ).toLocaleDateString()}
                                 </p>
                             </div>
-                            {message.content
-                                .replace(
-                                    new RegExp(
-                                        removeFromContent.join("|"),
-                                        "g",
-                                    ),
-                                    "",
-                                )
-                                .split("\n")
-                                .map((line, index) => (
-                                    <p key={index}>
-                                        {formatContent(line, message.mentions)}
-                                    </p>
-                                ))}
+                            <div className="text-xs">
+                                {message.content
+                                    .replace(
+                                        new RegExp(
+                                            removeFromContent.join("|"),
+                                            "g",
+                                        ),
+                                        "",
+                                    )
+                                    .split("\n")
+                                    .map((line, index) => (
+                                        <p key={index}>
+                                            {formatContent(
+                                                line,
+                                                message.mentions,
+                                            )}
+                                        </p>
+                                    ))}
+                            </div>
                         </div>
                     </Card>
                 ))
             ) : (
                 <p>No changelog entries available.</p>
             )}
+        </div>
+    );
+}
+
+export function HomeChangelogHandler() {
+    return (
+        <div className="flex flex-col gap-4">
+            <div className="flex flex-col">
+                <h2 className="text-lg font-semibold">Changelog</h2>
+                <p className="text-muted-foreground text-sm">
+                    wanderer.moe's most recent changes, fetched from Discord
+                </p>
+            </div>
+            <ChangelogHandler toShow={2} />
         </div>
     );
 }

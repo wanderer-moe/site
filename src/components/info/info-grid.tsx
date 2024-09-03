@@ -48,7 +48,7 @@ export function InfoGrid() {
     return (
         <div>
             <div className="flex flex-col mb-4">
-                <h2 className="text-xl font-semibold">Other</h2>
+                <h2 className="text-xl font-semibold">Socials</h2>
                 <p className="text-sm text-muted-foreground">
                     Socials and other information regarding wanderer.moe
                 </p>

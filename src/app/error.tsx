@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { LogLevel } from "next-axiom/dist/logger";
 
 export const metadata: Metadata = {
-    title: "internal server error • wanderer.moe",
+    title: "Internal Server Error • wanderer.moe",
     description:
         "Centralized game assets database (previously wtf.dromzeh.dev)",
 };
