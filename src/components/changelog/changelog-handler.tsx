@@ -10,7 +10,7 @@ import Link from "next/link";
 
 function ChangelogSkeleton() {
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="flex flex-col gap-4">
             {[...Array(12)].map((_, i) => (
                 <Skeleton key={i} className="h-[150px]" />
             ))}

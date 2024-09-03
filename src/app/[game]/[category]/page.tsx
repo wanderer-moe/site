@@ -52,6 +52,7 @@ export default async function GameCategoryPage({ params }: Readonly<Props>) {
         game: game,
         category: category,
     });
+
     log.flush();
 
     return (
@@ -127,13 +128,13 @@ export default async function GameCategoryPage({ params }: Readonly<Props>) {
                                         <span className="text-primary">
                                             Single Click:
                                         </span>{" "}
-                                        View/Download Asset
+                                        Select Asset
                                     </p>
                                     <p>
                                         <span className="text-primary">
                                             Double Click:
                                         </span>{" "}
-                                        Select Asset
+                                        View Asset
                                     </p>
                                 </AlertDescription>
                             </div>

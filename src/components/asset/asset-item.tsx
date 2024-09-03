@@ -32,9 +32,6 @@ export function AssetItem({
     category: string;
 }>) {
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
-    const [clickTimeout, setClickTimeout] = useState<NodeJS.Timeout | null>(
-        null,
-    );
 
     const dispatch = useAppDispatch();
 
@@ -43,26 +40,16 @@ export function AssetItem({
         asset,
     );
 
-    const handleClick = () => {
-        if (clickTimeout) {
-            clearTimeout(clickTimeout);
-            setClickTimeout(null);
-            dispatch(toggleAssetSelection(asset));
-        } else {
-            const timeout = setTimeout(() => {
-                setDialogOpen(true);
-                setClickTimeout(null);
-            }, 250);
-            setClickTimeout(timeout);
-        }
-    };
-
     return (
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <div className="flex flex-col gap-2">
                 <Card
                     className={`group p-2 rounded-lg ring-2 ease-linear transition-all cursor-pointer ${isSelected ? "ring-primary" : "ring-transparent"} hover:ring-primary`}
-                    onClick={handleClick}
+                    onDoubleClick={() => setDialogOpen(true)}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        dispatch(toggleAssetSelection(asset));
+                    }}
                 >
                     <div className="flex items-center justify-center relative">
                         <img
@@ -72,6 +59,16 @@ export function AssetItem({
                             fetchPriority="high"
                         />
                         <div className="absolute inset-0" />
+                        <Button
+                            size="icon"
+                            className="rounded-full absolute bottom-1 right-1 transition-opacity opacity-100 md:opacity-0 md:group-hover:opacity-100"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setDialogOpen(true);
+                            }}
+                        >
+                            <DownloadIcon size={16} />
+                        </Button>
                     </div>
                 </Card>
                 <p className="line-clamp-1 text-ellipsis">{asset.name}</p>
@@ -98,7 +95,7 @@ export function AssetItem({
                             className="w-full"
                             download
                         >
-                            <Button variant={"secondary"} className="w-full">
+                            <Button className="w-full">
                                 <DownloadIcon
                                     size={16}
                                     className="inline mr-2"
