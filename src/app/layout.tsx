@@ -9,6 +9,7 @@ import { AxiomWebVitals } from "next-axiom";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { AdsenseProvider } from "~/components/ads/adsense-provider";
+import { MobileBottomNav } from "~/components/nav/mobile-bottom-nav";
 
 const ReduxProvider = dynamic(() => import("~/redux/redux-provider"), {
     ssr: false,
@@ -52,6 +53,7 @@ export default function RootLayout({
                     {children}
                     <SiteFooter />
                     <Toaster />
+                    <MobileBottomNav />
                 </ReduxProvider>
             </body>
         </html>
