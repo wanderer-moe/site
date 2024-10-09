@@ -7,6 +7,7 @@ export function TestUnit() {
             publisherId="pub-7772886196789799"
             slotId="3016588414"
             layout="display"
+            style={{ width: 300, height: 250 }}
         />
     );
 }

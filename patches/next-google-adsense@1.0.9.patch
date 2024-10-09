@@ -1,0 +1,117 @@
+diff --git a/dist/AdLayout.d.ts b/dist/AdLayout.d.ts
+index 8c3c5d963c0f5827c489e48403b3f7690e797b78..51e8104166b231feb62aec5b5cd95fa9822f4fda 100644
+--- a/dist/AdLayout.d.ts
++++ b/dist/AdLayout.d.ts
+@@ -3,6 +3,7 @@ export type Layout = "display" | "in-article" | "custom";
+ type AdLayoutProps = {
+     dataAdClient: string;
+     dataAdSlot: string;
++    style?: React.CSSProperties;
+ };
+ interface DisplayProps extends AdLayoutProps {
+     responsive?: boolean;
+diff --git a/dist/AdLayout.js b/dist/AdLayout.js
+index 6f4c45ecf95c6e953b41e3156b9906394e030995..2d844ce46f174de2bb7f914e03c21fc750f6136c 100644
+--- a/dist/AdLayout.js
++++ b/dist/AdLayout.js
+@@ -5,10 +5,10 @@ const tslib_1 = require("tslib");
+ const react_1 = tslib_1.__importDefault(require("react"));
+ const Display = (props) => {
+     var _a;
+-    return (react_1.default.createElement("ins", { className: "adsbygoogle", style: { display: "block" }, "data-ad-format": "auto", "data-full-width-responsive": (_a = props.responsive) !== null && _a !== void 0 ? _a : true, "data-ad-client": props.dataAdClient, "data-ad-slot": props.dataAdSlot }));
++    return (react_1.default.createElement("ins", { className: "adsbygoogle", style: Object.assign({ display: "block", textAlign: "center" }, props.style), "data-ad-format": "auto", "data-full-width-responsive": (_a = props.responsive) !== null && _a !== void 0 ? _a : true, "data-ad-client": props.dataAdClient, "data-ad-slot": props.dataAdSlot }));
+ };
+ exports.Display = Display;
+ const InArticle = (props) => {
+-    return (react_1.default.createElement("ins", { className: "adsbygoogle", style: { display: "block", textAlign: "center" }, "data-ad-layout": "in-article", "data-ad-format": "fluid", "data-ad-client": props.dataAdClient, "data-ad-slot": props.dataAdSlot }));
++    return (react_1.default.createElement("ins", { className: "adsbygoogle", style: Object.assign({ display: "block", textAlign: "center" }, props.style), "data-ad-layout": "in-article", "data-ad-format": "fluid", "data-ad-client": props.dataAdClient, "data-ad-slot": props.dataAdSlot }));
+ };
+ exports.InArticle = InArticle;
+diff --git a/dist/AdUnit.d.ts b/dist/AdUnit.d.ts
+index 4a45bc037fefa530aeadf0e0e085e151b61f19e8..9297b3e589d978b82604b32585c8d5399b6482b4 100644
+--- a/dist/AdUnit.d.ts
++++ b/dist/AdUnit.d.ts
+@@ -1,4 +1,4 @@
+-/// <reference types="react" />
++import React from "react";
+ import { type Layout as AdLayout } from "./AdLayout";
+ type AdUnitProps = {
+     publisherId?: string;
+@@ -6,6 +6,7 @@ type AdUnitProps = {
+     layout: AdLayout;
+     customLayout?: JSX.Element;
+     comment?: string;
++    style: React.CSSProperties;
+ };
+-export declare const AdUnit: ({ publisherId, slotId, layout, customLayout, comment, }: AdUnitProps) => JSX.Element | null;
++export declare const AdUnit: ({ publisherId, slotId, layout, customLayout, comment, style, }: AdUnitProps) => JSX.Element | null;
+ export {};
+diff --git a/dist/AdUnit.js b/dist/AdUnit.js
+index b7ea7d41086acc7768e2ecab89c0caf42d82e291..a1e2eca96b6034cfd4c3ea1e86c7a14b31e8e0c6 100644
+--- a/dist/AdUnit.js
++++ b/dist/AdUnit.js
+@@ -8,7 +8,7 @@ const navigation_1 = require("next/navigation");
+ const script_1 = tslib_1.__importDefault(require("next/script"));
+ const utils_1 = require("./utils");
+ const AdLayout_1 = require("./AdLayout");
+-const AdUnit = ({ publisherId, slotId, layout = "display", customLayout, comment = "regular", }) => {
++const AdUnit = ({ publisherId, slotId, layout = "display", customLayout, comment = "regular", style, }) => {
+     var _a;
+     const pathname = (0, navigation_1.usePathname)();
+     const _publisherId = (_a = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID) !== null && _a !== void 0 ? _a : publisherId;
+@@ -20,10 +20,10 @@ const AdUnit = ({ publisherId, slotId, layout = "display", customLayout, comment
+     let Ad;
+     switch (layout) {
+         case "display":
+-            Ad = react_1.default.createElement(AdLayout_1.Display, { dataAdClient: clientId, dataAdSlot: slotId });
++            Ad = react_1.default.createElement(AdLayout_1.Display, { dataAdClient: clientId, dataAdSlot: slotId, style: style });
+             break;
+         case "in-article":
+-            Ad = react_1.default.createElement(AdLayout_1.InArticle, { dataAdClient: clientId, dataAdSlot: slotId });
++            Ad = react_1.default.createElement(AdLayout_1.InArticle, { dataAdClient: clientId, dataAdSlot: slotId, style: style });
+             break;
+         case "custom":
+             if (!customLayout) {
+@@ -33,7 +33,7 @@ const AdUnit = ({ publisherId, slotId, layout = "display", customLayout, comment
+             Ad = customLayout;
+             break;
+         default:
+-            Ad = react_1.default.createElement(AdLayout_1.Display, { dataAdClient: clientId, dataAdSlot: slotId });
++            Ad = react_1.default.createElement(AdLayout_1.Display, { dataAdClient: clientId, dataAdSlot: slotId, style: style });
+             break;
+     }
+     if (!pathname) {
+diff --git a/dist/GoogleAdSense.d.ts b/dist/GoogleAdSense.d.ts
+index 73a2a206bb963cda1b8c36f745aca92f6827c79d..7371cf73d59058d81576f5a37bdfe83a8d6a5a16 100644
+--- a/dist/GoogleAdSense.d.ts
++++ b/dist/GoogleAdSense.d.ts
+@@ -1,4 +1,3 @@
+-/// <reference types="react" />
+ type GoogleAdSenseProps = {
+     publisherId?: string;
+     debug?: boolean;
+diff --git a/dist/utils.js b/dist/utils.js
+index 5e7f6cf22766d5c9c85999ec5a56a0a7ab1a3c10..c81c80a47ba67208d60cd719f4e09bf2453de7e1 100644
+--- a/dist/utils.js
++++ b/dist/utils.js
+@@ -1,6 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+-exports.isSlotId = exports.isPublisherId = void 0;
++exports.isPublisherId = isPublisherId;
++exports.isSlotId = isSlotId;
+ const PUBLISHER_ID_REGEX = /^pub-\d{16}$/;
+ const SLOT_ID_REGEX = /^\d{10}$/;
+ function isPublisherId(id) {
+@@ -9,11 +10,9 @@ function isPublisherId(id) {
+     }
+     return PUBLISHER_ID_REGEX.test(id);
+ }
+-exports.isPublisherId = isPublisherId;
+ function isSlotId(id) {
+     if (typeof id !== "string") {
+         return false;
+     }
+     return SLOT_ID_REGEX.test(id);
+ }
+-exports.isSlotId = isSlotId;
