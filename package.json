@@ -60,6 +60,7 @@
         "million": "^3.1.11",
         "next": "14.2.3",
         "next-axiom": "^1.3.0",
+        "next-google-adsense": "^1.0.9",
         "next-themes": "^0.3.0",
         "prettier": "^3.3.1",
         "react": "^18.3.1",

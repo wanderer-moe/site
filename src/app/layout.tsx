@@ -8,7 +8,7 @@ import { Toaster } from "~/components/ui/sonner";
 import { AxiomWebVitals } from "next-axiom";
 import dynamic from "next/dynamic";
 import Script from "next/script";
-import { AdsenseProvider } from "~/components/ads/adsense-provider";
+import { GoogleAdSense } from "next-google-adsense";
 import { MobileBottomNav } from "~/components/nav/mobile-bottom-nav";
 
 const ReduxProvider = dynamic(() => import("~/redux/redux-provider"), {
@@ -40,7 +40,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={font.className}>
-                <AdsenseProvider pId="pub-7772886196789799" />
+                <GoogleAdSense publisherId="pub-7772886196789799" />
                 <Script
                     async
                     src="https://cdn.seline.so/seline.js"

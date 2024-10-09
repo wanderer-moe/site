@@ -11,9 +11,8 @@ import { usePathname } from "next/navigation";
 import { DiscordLogoIcon } from "@radix-ui/react-icons";
 
 const navItems = [
-    { name: "Support", href: "/support", icon: HeartIcon, highlight: true },
-    { name: "Changelog", href: "/changelog", icon: GalleryVertical },
     { name: "Home", href: "/", icon: HomeIcon },
+    { name: "Changelog", href: "/changelog", icon: GalleryVertical },
     {
         name: "Twitter",
         href: "https://x.com/wanderermoe",
@@ -42,12 +41,8 @@ export function MobileBottomNav() {
                         target={item.offsite ? "_blank" : undefined}
                         className={`flex flex-col items-center justify-between flex-1 py-1 ${
                             pathname === item.href
-                                ? item.highlight
-                                    ? "text-red-300"
-                                    : "text-primary"
-                                : item.highlight
-                                  ? "text-red-400"
-                                  : "text-muted-foreground"
+                                ? "text-primary"
+                                : "text-muted-foreground"
                         }`}
                     >
                         {item.icon === DiscordLogoIcon ? (
