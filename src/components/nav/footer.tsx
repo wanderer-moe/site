@@ -58,7 +58,7 @@ export function SiteFooter(): React.ReactElement {
 
     return (
         <footer className="border-t border-border bg-background p-3 text-muted-foreground">
-            <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+            <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 pb-16">
                 <div className="w-full md:flex md:justify-between">
                     <div className="mb-4 flex w-full flex-col md:mb-0 md:w-72">
                         <div className="flex items-center justify-center gap-1 md:justify-start">
@@ -102,8 +102,10 @@ export function SiteFooter(): React.ReactElement {
                     </span>
                     <span>
                         <p>
-                            Not affiliated with any of the games or companies
-                            listed on this site unless otherwise stated.
+                            wanderer.moe is a free to use service provided by
+                            Originoid LTD. Not affiliated with any of the games
+                            or companies listed on this site unless otherwise
+                            stated.
                         </p>
                         <p>
                             Built with{" "}

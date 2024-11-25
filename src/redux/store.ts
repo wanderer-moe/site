@@ -19,8 +19,15 @@ export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
-            // serializableCheck: false,
-            // immutableCheck: false,
+            serializableCheck: {
+                ignoredActions: [
+                    "persist/PERSIST",
+                    "persist/REHYDRATE",
+                    "register",
+                ],
+                ignoredActionPaths: ["register"],
+                ignoredPaths: ["register"],
+            },
         }).prepend(
             logger,
             createStateSyncMiddleware({

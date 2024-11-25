@@ -22,10 +22,11 @@ import { advisoryGames } from "~/lib/advisory-games";
 export const runtime = "edge";
 
 type Props = {
-    params: { game: string };
+    params: Promise<{ game: string }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+    const params = await props.params;
     const { game } = params;
     const { response } = await getGame(game);
 
@@ -37,7 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function GamePage({ params }: Readonly<Props>) {
+export default async function GamePage(props: Readonly<Props>) {
+    const params = await props.params;
     const log = new Logger();
     const { game } = params;
     log.info("Fetching game data", { game: game });
