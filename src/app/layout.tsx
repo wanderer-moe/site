@@ -9,6 +9,7 @@ import { AxiomWebVitals } from "next-axiom";
 import Script from "next/script";
 import { MobileBottomNav } from "~/components/nav/mobile-bottom-nav";
 import { ReduxProvider } from "~/redux/redux-provider-csr";
+import { OriginoidPromoDialog } from "~/components/ui/originoid-promo-dialog";
 
 const font = Plus_Jakarta_Sans({
     style: "normal",
@@ -44,6 +45,7 @@ export default function RootLayout({
                     <AxiomWebVitals />
                     <ScrollToTop />
                     <NavBar />
+                    <OriginoidPromoDialog />
                     {children}
                     <SiteFooter />
                     <Toaster />
