@@ -42,9 +42,9 @@ export function OriginoidPromoDialog() {
                             <span className="text-foreground font-semibold">
                                 50% off on all yearly plans
                             </span>{" "}
-                            before our official release. This one-time
-                            opportunity directly supports continued development
-                            & asset updates for wanderer.moe.
+                            before our official release in 2 weeks. This
+                            one-time opportunity directly supports continued
+                            development & asset updates for wanderer.moe.
                         </p>
                         <div className="flex justify-center pt-2">
                             <Button
