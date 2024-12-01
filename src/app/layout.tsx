@@ -45,7 +45,6 @@ export default function RootLayout({
                     <AxiomWebVitals />
                     <ScrollToTop />
                     <NavBar />
-                    <OriginoidPromoDialog />
                     {children}
                     <SiteFooter />
                     <Toaster />
