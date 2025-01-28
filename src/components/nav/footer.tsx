@@ -103,9 +103,12 @@ export function SiteFooter(): React.ReactElement {
                     <span>
                         <p>
                             wanderer.moe is a free to use service provided by
-                            Originoid LTD. Not affiliated with any of the games
-                            or companies listed on this site unless otherwise
-                            stated.
+                            Originoid LTD. Company no. 15988228. ICO
+                            Registration no. ZB857511.
+                        </p>
+                        <p>
+                            Not affiliated with any of the games or companies
+                            listed on this site unless otherwise stated.
                         </p>
                         <p>
                             Built with{" "}

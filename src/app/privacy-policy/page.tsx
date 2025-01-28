@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
                     url="https://cdn.wanderer.moe/cdn-cgi/image/width=1500,height=1000,quality=75/wuthering-waves/cover.png"
                     alt="Privacy Policy"
                     title="Privacy Policy"
-                    description="Last Updated 3rd August 2024"
+                    description="Last Updated 28th January 2025"
                 />
                 <div>
                     <div className="flex flex-col">
@@ -61,9 +61,9 @@ export default function PrivacyPolicy() {
                         </h2>
                         <p className="text-sm text-muted-foreground">
                             Your IP address may be logged by Cloudflare for
-                            security purposes. We use seline.so as our analytics
-                            platform, which is GDPR compliant. There is no way
-                            for others to identify you based on what we collect,
+                            security purposes. We also track what pages you
+                            visit and basic visitor information. There is no way
+                            for us to identify you based on what we collect,
                             unless you provide us with identifiable information.
                         </p>
                     </div>
@@ -85,8 +85,8 @@ export default function PrivacyPolicy() {
                     <div className="flex flex-col">
                         <h2 className="text-xl font-semibold">Advertising</h2>
                         <p className="text-sm text-muted-foreground">
-                            We use Google AdSense to display advertisements on
-                            our site. Google AdSense is fully compliant with
+                            We may use Google AdSense to display advertisements
+                            on our site. Google AdSense is fully compliant with
                             GDPR and other privacy regulations. For more
                             information on how Google uses data when you use our
                             site, please visit{" "}
@@ -125,12 +125,35 @@ export default function PrivacyPolicy() {
                         <p className="text-sm text-muted-foreground">
                             Contact{" "}
                             <Link
-                                href="mailto:security@wanderer.moe"
+                                href="mailto:support@originoid.co"
                                 className="text-primary hover:text-muted-foreground transition-all duration-150"
                             >
-                                security@wanderer.moe
+                                support@originoid.co
                             </Link>{" "}
                             for any privacy concerns.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div className="flex flex-col">
+                        <h2 className="text-xl font-semibold">
+                            Company Information
+                        </h2>
+                        <p className="text-sm text-muted-foreground">
+                            wanderer.moe is operated by{" "}
+                            <strong>Originoid LTD</strong>, a private limited
+                            company registered in England.
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            <strong>Company number:</strong> 15988228
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            <strong>Registered office address:</strong> 124 City
+                            Road, London, England, EC1V 2NX
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            <strong>ICO Registration Reference:</strong>{" "}
+                            ZB857511
                         </p>
                     </div>
                 </div>
