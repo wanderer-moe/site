@@ -145,6 +145,10 @@ export function ChangelogHandler({ toShow }: ChangelogHandlerProps) {
             });
     };
 
+    if (!changelog) {
+        return <p className="text-destructive text-xs">Unable to load changelog, try again later</p>;
+    }
+
     return (
         <div className="flex flex-col gap-4">
             {changelog.length > 0 ? (
