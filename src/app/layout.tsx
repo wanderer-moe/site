@@ -36,11 +36,6 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={font.className}>
-                <Script
-                    async
-                    src="https://cdn.seline.so/seline.js"
-                    strategy="afterInteractive"
-                />
                 <ReduxProvider>
                     <AxiomWebVitals />
                     <ScrollToTop />

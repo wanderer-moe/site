@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
                     url="https://cdn.wanderer.moe/cdn-cgi/image/width=1500,height=1000,quality=75/wuthering-waves/cover.png"
                     alt="Privacy Policy"
                     title="Privacy Policy"
-                    description="Last Updated 28th January 2025"
+                    description="Last Updated 4th February 2025"
                 />
                 <div>
                     <div className="flex flex-col">
@@ -75,9 +75,7 @@ export default function PrivacyPolicy() {
                         </h2>
                         <p className="text-sm text-muted-foreground">
                             The data is unidentifiable and is only used for
-                            analytics and debugging purposes. We use seline.so
-                            for our analytics, which helps us improve our
-                            service while respecting your privacy.
+                            analytics and debugging purposes.
                         </p>
                     </div>
                 </div>
