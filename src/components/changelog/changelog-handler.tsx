@@ -146,7 +146,11 @@ export function ChangelogHandler({ toShow }: ChangelogHandlerProps) {
     };
 
     if (!changelog) {
-        return <p className="text-destructive text-xs">Unable to load changelog, try again later</p>;
+        return (
+            <p className="text-destructive text-xs">
+                Unable to load changelog, try again later
+            </p>
+        );
     }
 
     return (

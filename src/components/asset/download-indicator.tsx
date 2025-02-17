@@ -208,10 +208,13 @@ function ShowMassDownloadProgress() {
         try {
             const [, , , game, category] = asset.path.split("/");
 
-            const response = await axios.get(asset.path, {
-                responseType: "arraybuffer",
-                withCredentials: false,
-            });
+            const response = await axios.get(
+                "https://bridge.wanderer.moe/?url=" + asset.path,
+                {
+                    responseType: "arraybuffer",
+                    withCredentials: false,
+                },
+            );
 
             zip.file(`${game}/${category}/${asset.name}.png`, response.data);
             setFetchedAssets((prev) => prev + 1);
