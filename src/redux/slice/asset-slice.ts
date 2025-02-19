@@ -4,11 +4,13 @@ import type { Asset } from "~/lib/types";
 export interface IAssetState {
     isMassDownloading: boolean;
     selectedAssets: Asset[];
+    selectMode: boolean;
 }
 
 const initialState: IAssetState = {
     isMassDownloading: false,
     selectedAssets: [],
+    selectMode: false,
 };
 
 export const assetSlice = createSlice({
@@ -36,6 +38,9 @@ export const assetSlice = createSlice({
         clearSelectedAssets: (state) => {
             state.selectedAssets = [];
         },
+        toggleSelectMode: (state) => {
+            state.selectMode = !state.selectMode;
+        },
     },
 });
 
@@ -45,12 +50,14 @@ export const isAssetSelected = (state: IAssetState, asset: Asset) =>
     );
 
 export const getSelectedAssets = (state: IAssetState) => state.selectedAssets;
+export const getSelectMode = (state: IAssetState) => state.selectMode;
 
 export const {
     setSelectedAssets,
     setIsMassDownloading,
     toggleAssetSelection,
     clearSelectedAssets,
+    toggleSelectMode,
 } = assetSlice.actions;
 
 export default assetSlice.reducer;

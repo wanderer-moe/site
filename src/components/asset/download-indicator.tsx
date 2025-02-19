@@ -287,8 +287,6 @@ function ShowMassDownloadProgress() {
                 error instanceof AxiosError &&
                 error.message === "Network Error"
             ) {
-                // TODO: this is either CORS or a user network issue
-                // fetching assets on 0.1% of all downloads sometimes causes a CORS error and i don't know why ??
                 userErrorMessage = "Failed to fetch assets, try again later";
                 isCorsError = true;
             }

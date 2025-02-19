@@ -20,6 +20,7 @@ import { useAppDispatch, useAppSelector } from "~/redux/store";
 import {
     toggleAssetSelection,
     isAssetSelected,
+    getSelectMode,
 } from "~/redux/slice/asset-slice";
 
 export function AssetItem({
@@ -35,21 +36,26 @@ export function AssetItem({
 
     const dispatch = useAppDispatch();
 
-    const isSelected = isAssetSelected(
-        useAppSelector((state) => state.assets),
-        asset,
+    const isSelected = useAppSelector((state) =>
+        isAssetSelected(state.assets, asset),
     );
+    const selectMode = useAppSelector((state) => getSelectMode(state.assets));
+
+    const handleClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (selectMode) {
+            dispatch(toggleAssetSelection(asset));
+        } else {
+            setDialogOpen(true);
+        }
+    };
 
     return (
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <div className="flex flex-col gap-2">
                 <Card
                     className={`group p-2 rounded-lg ring-2 ease-linear transition-all cursor-pointer ${isSelected ? "ring-primary" : "ring-transparent"} hover:ring-primary`}
-                    onDoubleClick={() => setDialogOpen(true)}
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        dispatch(toggleAssetSelection(asset));
-                    }}
+                    onClick={handleClick}
                 >
                     <div className="flex items-center justify-center relative">
                         <img
@@ -61,7 +67,7 @@ export function AssetItem({
                         <div className="absolute inset-0" />
                         <Button
                             size="icon"
-                            className="rounded-full absolute bottom-1 right-1 transition-opacity opacity-100 md:opacity-0 md:group-hover:opacity-100"
+                            className="rounded-full absolute bottom-1 right-1 transition-opacity opacity-0 md:group-hover:opacity-100"
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setDialogOpen(true);

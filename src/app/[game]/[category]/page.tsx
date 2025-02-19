@@ -33,7 +33,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
     return {
         title: `${FormatGameName(response.game)} ${FormatCategoryName(response.asset)} • wanderer.moe`,
-        description: `${FormatGameName(response.game)} ${FormatCategoryName(response.asset)} assets on wanderer.moe`,
+        description: `Current ${FormatCategoryName(response.asset)} assets for ${FormatGameName(response.game)} available on wanderer.moe`,
     };
 }
 
@@ -119,24 +119,12 @@ export default async function GameCategoryPage(props: Readonly<Props>) {
                 <div>
                     <Alert>
                         <div className="flex flex-row items-center gap-2 p-1">
-                            <img
-                                src="https://cdn.wanderer.moe/cdn-cgi/image/width=64,height=64,quality=75/wuthering-waves/emotes/T_ChatEmo_C_01.png"
-                                alt="ww emote"
-                                className="w-12 h-12"
-                            />
                             <div className="flex flex-col">
                                 <AlertDescription className="text-muted-foreground flex flex-col">
                                     <p>
-                                        <span className="text-primary">
-                                            Single Click:
-                                        </span>{" "}
-                                        Select Asset
-                                    </p>
-                                    <p>
-                                        <span className="text-primary">
-                                            Double Click:
-                                        </span>{" "}
-                                        View Asset
+                                        Toggle between view and multi-select
+                                        mode from the Mode button. Tap or click
+                                        on an asset to view/select.
                                     </p>
                                 </AlertDescription>
                             </div>

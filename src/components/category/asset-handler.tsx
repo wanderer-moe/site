@@ -15,7 +15,14 @@ import {
     DropdownMenuTrigger,
     DropdownMenuItem,
 } from "~/components/ui/dropdown-menu";
-import { Ellipsis, FilterIcon, LinkIcon, ToggleRight } from "lucide-react";
+import {
+    Ellipsis,
+    FilterIcon,
+    LinkIcon,
+    ToggleRight,
+    SquareMousePointer,
+    Eye,
+} from "lucide-react";
 import { toast } from "sonner";
 import Masonry from "react-masonry-css";
 import { useAppDispatch, useAppSelector } from "~/redux/store";
@@ -23,6 +30,8 @@ import { useAppDispatch, useAppSelector } from "~/redux/store";
 import {
     toggleAssetSelection,
     isAssetSelected,
+    toggleSelectMode,
+    getSelectMode,
 } from "~/redux/slice/asset-slice";
 import { FormatCategoryName, FormatGameName } from "~/lib/format";
 
@@ -93,22 +102,52 @@ export function AssetHandler({
         700: 2,
     };
 
+    const dispatch = useAppDispatch();
+
     return (
         <div className="flex flex-col gap-4">
-            <div className="flex flex-row gap-2">
-                <Input
-                    type="search"
-                    className="bg-background"
-                    placeholder="Search assets"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                />
-                <FilterOptions
-                    filter={filter}
-                    setFilter={setFilter}
-                    filterList={filterList}
-                />
-                <MoreOptions assets={assets} game={game} category={category} />
+            <div className="flex sm:flex-row flex-col gap-2">
+                <div className="flex-1">
+                    <Input
+                        type="search"
+                        className="bg-background w-full"
+                        placeholder="Search assets..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                </div>
+                <div className="flex flex-row gap-2 max-sm:w-full">
+                    <Button
+                        variant={"secondary"}
+                        onClick={() => dispatch(toggleSelectMode())}
+                        className="relative group max-sm:w-full min-w-[120px] flex items-center"
+                    >
+                        {useAppSelector((state) =>
+                            getSelectMode(state.assets),
+                        ) ? (
+                            <SquareMousePointer
+                                className={`w-4 h-4 mr-2 transition-transform`}
+                            />
+                        ) : (
+                            <Eye
+                                className={`w-4 h-4 mr-2 transition-transform`}
+                            />
+                        )}
+                        {useAppSelector((state) => getSelectMode(state.assets))
+                            ? "Mode: Multi-Select"
+                            : "Mode: View"}
+                    </Button>
+                    <FilterOptions
+                        filter={filter}
+                        setFilter={setFilter}
+                        filterList={filterList}
+                    />
+                    <MoreOptions
+                        assets={filteredAssets}
+                        game={game}
+                        category={category}
+                    />
+                </div>
             </div>
             <Masonry
                 breakpointCols={breakpointColumnsObj}
@@ -235,7 +274,7 @@ function SelectAllAssets({
         <DropdownMenuItem onClick={handleSelectAll}>
             <div className="flex flex-row gap-2 items-center transition-all duration-150">
                 <ToggleRight size={16} className="translate-y-[1px]" />
-                Toggle Selection
+                {allSelected ? "Deselect All" : "Select All"}
             </div>
         </DropdownMenuItem>
     );
