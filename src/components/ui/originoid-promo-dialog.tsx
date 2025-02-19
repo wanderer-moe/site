@@ -15,11 +15,16 @@ export function OriginoidPromoDialog() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsOpen(true);
-        }, 200);
+        const shouldShow =
+            localStorage.getItem("showOriginoidPromo") !== "false";
 
-        return () => clearTimeout(timer);
+        if (shouldShow) {
+            const timer = setTimeout(() => {
+                setIsOpen(true);
+            }, 2000);
+
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     return (
@@ -46,7 +51,20 @@ export function OriginoidPromoDialog() {
                             opportunity directly supports continued development
                             & asset updates for wanderer.moe.
                         </p>
-                        <div className="flex justify-center pt-2">
+                        <div className="flex justify-center pt-2 w-full gap-2">
+                            <Button
+                                onClick={() => {
+                                    localStorage.setItem(
+                                        "showOriginoidPromo",
+                                        "false",
+                                    );
+                                    setIsOpen(false);
+                                }}
+                                variant="secondary"
+                                className="w-full"
+                            >
+                                Don't Show Again
+                            </Button>
                             <Button
                                 onClick={() => {
                                     window.open(
@@ -55,7 +73,7 @@ export function OriginoidPromoDialog() {
                                     );
                                     setIsOpen(false);
                                 }}
-                                className="w-full sm:w-auto"
+                                className="w-full"
                             >
                                 Pre-register Now
                             </Button>
