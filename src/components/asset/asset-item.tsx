@@ -79,19 +79,17 @@ export function AssetItem({
                 </Card>
                 <p className="line-clamp-1 text-ellipsis">{asset.name}</p>
             </div>
-            <DialogContent>
+            <DialogContent aria-describedby={undefined}>
                 <DialogHeader>
                     <DialogTitle>{asset.name}</DialogTitle>
                 </DialogHeader>
-                <DialogDescription>
-                    <div className="relative flex items-center justify-center">
-                        <img
-                            src={`https://cdn.wanderer.moe/${game}/${category}/${asset.name}.png`}
-                            alt={asset.name}
-                            className="rounded-md h-[40vh] object-contain"
-                        />
-                    </div>
-                </DialogDescription>
+                <div className="relative flex items-center justify-center">
+                    <img
+                        src={`https://cdn.wanderer.moe/${game}/${category}/${asset.name}.png`}
+                        alt={asset.name}
+                        className="rounded-md h-[40vh] object-contain"
+                    />
+                </div>
                 <DialogFooter>
                     <div className="flex flex-col w-full gap-2">
                         <Link
