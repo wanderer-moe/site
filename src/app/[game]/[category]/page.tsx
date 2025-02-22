@@ -17,6 +17,7 @@ import { AssetHandler } from "~/components/category/asset-handler";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { getGameCategory } from "~/lib/api/client";
 import { advisoryGames } from "~/lib/advisory-games";
+import Link from "next/link";
 
 export const runtime = "edge";
 
@@ -64,24 +65,25 @@ export default async function GameCategoryPage(props: Readonly<Props>) {
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="/">
+                                <Link
+                                    prefetch={false}
+                                    className="transition-colors hover:text-foreground"
+                                    href="/"
+                                >
                                     <HomeIcon size={16}></HomeIcon>
-                                </BreadcrumbLink>
+                                </Link>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator />
                             <BreadcrumbItem>
-                                <BreadcrumbLink href={`/${game}`}>
+                                <Link
+                                    prefetch={false}
+                                    className="transition-colors hover:text-foreground"
+                                    href={`/${game}`}
+                                >
                                     <div className="flex flex-row gap-2 items-center">
-                                        {/* <Image
-                                            src={`https://cdn.wanderer.moe/cdn-cgi/image/width=64,height=64,quality=75/${response.game}/icon.png`}
-                                            width={18}
-                                            height={18}
-                                            alt={response.game}
-                                            className="rounded-md"
-                                        /> */}
                                         {FormatGameName(response.game)}
                                     </div>
-                                </BreadcrumbLink>
+                                </Link>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator />
                             <BreadcrumbItem>
@@ -121,11 +123,9 @@ export default async function GameCategoryPage(props: Readonly<Props>) {
                         <div className="flex flex-row items-center gap-2 p-1">
                             <div className="flex flex-col">
                                 <AlertDescription className="text-muted-foreground flex flex-col">
-                                    <p>
-                                        Toggle between view and multi-select
-                                        mode from the Mode button. Tap or click
-                                        on an asset to view/select.
-                                    </p>
+                                    Toggle between view and multi-select mode
+                                    from the Mode button. Tap or click on an
+                                    asset to view/select.
                                 </AlertDescription>
                             </div>
                         </div>

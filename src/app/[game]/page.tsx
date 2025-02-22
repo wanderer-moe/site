@@ -18,6 +18,7 @@ import { HomeIcon } from "lucide-react";
 import { getGame } from "~/lib/api/client";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { advisoryGames } from "~/lib/advisory-games";
+import Link from "next/link";
 
 export const runtime = "edge";
 
@@ -61,9 +62,13 @@ export default async function GamePage(props: Readonly<Props>) {
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="/">
+                                <Link
+                                    prefetch={false}
+                                    className="transition-colors hover:text-foreground"
+                                    href="/"
+                                >
                                     <HomeIcon size={16}></HomeIcon>
-                                </BreadcrumbLink>
+                                </Link>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator />
                             <BreadcrumbItem>
