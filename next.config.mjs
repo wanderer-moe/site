@@ -1,5 +1,5 @@
-import MillionLint from "@million/lint";
-import million from "million/compiler";
+// import MillionLint from "@million/lint";
+// import million from "million/compiler";
 import { withAxiom } from "next-axiom";
 
 /** @type {import('next').NextConfig} */

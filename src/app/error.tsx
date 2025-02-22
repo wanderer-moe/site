@@ -6,6 +6,7 @@ import { Button } from "~/components/ui/button";
 import { useLogger } from "next-axiom";
 import { usePathname } from "next/navigation";
 import { LogLevel } from "next-axiom/dist/logger";
+import { useEffect } from "react";
 
 export const metadata: Metadata = {
     title: "Internal Server Error • wanderer.moe",
@@ -38,6 +39,10 @@ export default function ErrorPage({
         },
     );
 
+    useEffect(() => {
+        console.error("Page Error:", error);
+    }, [error]);
+
     return (
         <main className="mx-auto min-h-screen max-w-screen-xl p-5 flex items-center justify-center">
             <div className="flex flex-col items-center gap-4">
@@ -51,9 +56,27 @@ export default function ErrorPage({
                     This wasn&apos;t supposed to happen. Try refreshing the page
                     or try again later.
                 </p>
-                <Link href="/">
-                    <Button variant="outline">Go Home</Button>
-                </Link>
+                <div className="flex gap-4">
+                    <Button
+                        onClick={() => {
+                            if (typeof window !== "undefined") {
+                                window.sessionStorage.clear();
+                            }
+                            window.location.reload();
+                        }}
+                    >
+                        Try again
+                    </Button>
+                    <Link href="/">
+                        <Button variant="outline">Go Home</Button>
+                    </Link>
+                    <Button
+                        variant="outline"
+                        onClick={() => window.location.reload()}
+                    >
+                        Reload page
+                    </Button>
+                </div>
             </div>
         </main>
     );
