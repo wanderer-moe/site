@@ -31,7 +31,11 @@ export async function getGame(game: string): Promise<{ response: GameRoute }> {
     try {
         const response = await fetch(`https://api.wanderer.moe/game/${game}`, {
             next: {
-                revalidate: 1800,
+                revalidate: 0,
+            },
+            headers: {
+                "Cache-Control": "no-store, must-revalidate",
+                Pragma: "no-cache",
             },
         });
 
@@ -56,7 +60,11 @@ export async function getGameCategory(
             `https://api.wanderer.moe/game/${game}/${category}`,
             {
                 next: {
-                    revalidate: 1800,
+                    revalidate: 0,
+                },
+                headers: {
+                    "Cache-Control": "no-store, must-revalidate",
+                    Pragma: "no-cache",
                 },
             },
         );
