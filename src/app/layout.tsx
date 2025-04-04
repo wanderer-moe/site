@@ -11,16 +11,10 @@ import { ReduxProvider } from "~/redux/redux-provider-csr";
 
 import localFont from "next/font/local";
 
-// const font = Plus_Jakarta_Sans({
-//     style: "normal",
-//     subsets: ["latin"],
-//     weight: ["500", "600", "700", "800"],
-// });
-
-const font = localFont({
-    src: "../../public/comic-sans.woff2",
-    display: "swap",
-    variable: "--font-comic-sans",
+const font = Plus_Jakarta_Sans({
+    style: "normal",
+    subsets: ["latin"],
+    weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
