@@ -5,7 +5,7 @@ import { Card } from "../ui/card";
 import { timeAgo } from "~/lib/time";
 import { bytesToFileSize } from "~/lib/format";
 import { Button } from "../ui/button";
-import { DownloadIcon } from "lucide-react";
+import { DownloadIcon, BookmarkIcon, BookmarkCheckIcon } from "lucide-react";
 import Link from "next/link";
 import {
     Dialog,
@@ -22,7 +22,13 @@ import {
     isAssetSelected,
     getSelectMode,
 } from "~/redux/slice/asset-slice";
+import {
+    toggleSavedAsset,
+    isAssetSaved,
+} from "~/redux/slice/saved-assets-slice";
 import { Badge } from "../ui/badge";
+import { toast } from "sonner";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export function AssetItem({
     asset,
@@ -40,6 +46,9 @@ export function AssetItem({
     const isSelected = useAppSelector((state) =>
         isAssetSelected(state.assets, asset),
     );
+    const isSaved = useAppSelector((state) =>
+        isAssetSaved(state.savedAssets, asset),
+    );
     const selectMode = useAppSelector((state) => getSelectMode(state.assets));
 
     const handleClick = (e: React.MouseEvent) => {
@@ -49,6 +58,16 @@ export function AssetItem({
         } else {
             setDialogOpen(true);
         }
+    };
+
+    const handleSaveClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        dispatch(toggleSavedAsset(asset));
+        toast.success(
+            isSaved
+                ? "Asset removed from saved items"
+                : "Asset added to saved items",
+        );
     };
 
     return (
@@ -66,16 +85,29 @@ export function AssetItem({
                             fetchPriority="high"
                         />
                         <div className="absolute inset-0" />
-                        <Button
-                            size="icon"
-                            className="rounded-full absolute bottom-1 right-1 transition-opacity opacity-0 md:group-hover:opacity-100"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                setDialogOpen(true);
-                            }}
-                        >
-                            <DownloadIcon size={16} />
-                        </Button>
+                        <div className="absolute bottom-1 right-1 flex flex-row gap-1">
+                            <Button
+                                size="icon"
+                                className="rounded-full transition-opacity opacity-0 md:group-hover:opacity-100"
+                                onClick={handleSaveClick}
+                            >
+                                {isSaved ? (
+                                    <BookmarkCheckIcon size={16} />
+                                ) : (
+                                    <BookmarkIcon size={16} />
+                                )}
+                            </Button>
+                            <Button
+                                size="icon"
+                                className="rounded-full transition-opacity opacity-0 md:group-hover:opacity-100"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setDialogOpen(true);
+                                }}
+                            >
+                                <DownloadIcon size={16} />
+                            </Button>
+                        </div>
                     </div>
                 </Card>
                 <div className="flex items-center gap-2">
@@ -99,7 +131,9 @@ export function AssetItem({
             </div>
             <DialogContent aria-describedby={undefined}>
                 <DialogHeader>
-                    <DialogTitle></DialogTitle>
+                    <VisuallyHidden>
+                        <DialogTitle></DialogTitle>
+                    </VisuallyHidden>
                     <div className="flex items-center gap-2">
                         {asset.name.includes("fanmade") && (
                             <Badge
@@ -118,7 +152,7 @@ export function AssetItem({
                                 : asset.name}
                         </p>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground text-left">
                         {asset.size && bytesToFileSize(asset.size)}
                     </p>
                 </DialogHeader>
@@ -131,6 +165,26 @@ export function AssetItem({
                 </div>
                 <DialogFooter>
                     <div className="flex flex-col w-full gap-2">
+                        <Button
+                            variant="secondary"
+                            className="w-full"
+                            onClick={handleSaveClick}
+                        >
+                            {isSaved ? (
+                                <>
+                                    <BookmarkCheckIcon
+                                        size={16}
+                                        className="mr-2"
+                                    />
+                                    Unsave Asset
+                                </>
+                            ) : (
+                                <>
+                                    <BookmarkIcon size={16} className="mr-2" />
+                                    Save Asset
+                                </>
+                            )}
+                        </Button>
                         <Link
                             prefetch={false}
                             href={asset.path}

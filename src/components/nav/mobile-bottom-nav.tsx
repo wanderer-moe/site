@@ -3,22 +3,19 @@
 import Link from "next/link";
 import {
     HomeIcon,
-    HeartIcon,
-    TwitterIcon,
     GalleryVertical,
+    BookmarkIcon,
+    HistoryIcon,
+    DownloadIcon,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { DiscordLogoIcon } from "@radix-ui/react-icons";
 
 const navItems = [
     { name: "Home", href: "/", icon: HomeIcon },
+    { name: "Saved", href: "/saved", icon: BookmarkIcon },
+    { name: "Downloads", href: "/download-history", icon: DownloadIcon },
     { name: "Changelog", href: "/changelog", icon: GalleryVertical },
-    {
-        name: "Twitter",
-        href: "https://x.com/wanderermoe",
-        icon: TwitterIcon,
-        offsite: true,
-    },
     {
         name: "Discord",
         href: "https://discord.gg/659KAFfNd6",

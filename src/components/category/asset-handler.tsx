@@ -50,6 +50,8 @@ function filterAssets(
 
     if (filter === "Fanmade") {
         filtered = assets.filter((asset) => asset.name.includes("fanmade"));
+    } else if (filter === "Official") {
+        filtered = assets.filter((asset) => !asset.name.includes("fanmade"));
     } else {
         switch (filter) {
             case "A-Z":
@@ -106,6 +108,7 @@ export function AssetHandler({
         "Oldest",
         "File Size",
         "Fanmade",
+        "Official",
     ];
 
     const filteredAssets = React.useMemo(

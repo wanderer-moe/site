@@ -6,6 +6,7 @@ import {
     clearSelectedAssets,
     toggleAssetSelection,
 } from "~/redux/slice/asset-slice";
+import { addToHistory } from "~/redux/slice/download-history-slice";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -229,7 +230,7 @@ function ShowMassDownloadProgress() {
     };
 
     const downloadAndZipAssets = async () => {
-        const logId = "massdl-" + Math.random().toString(36).substring(2); // lgtm ship it
+        const logId = "massdl-" + Math.random().toString(36).substring(2);
 
         logger.debug("Initiating mass download process", {
             assetList: selectedAssets.map((asset) => asset.path),
@@ -270,6 +271,8 @@ function ShowMassDownloadProgress() {
             URL.revokeObjectURL(url);
             setDownloadProgress("done");
             toast.success(`Sent ${selectedAssets.length} assets to client`);
+
+            dispatch(addToHistory({ assets: [...selectedAssets] }));
 
             logger.debug("Mass download process succeeded", {
                 assetList: selectedAssets.map((asset) => asset.path),

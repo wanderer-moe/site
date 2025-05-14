@@ -7,6 +7,9 @@ import {
     CornerDownLeft,
     ArrowUpDown,
     Search,
+    BookmarkIcon,
+    HomeIcon,
+    HistoryIcon,
 } from "lucide-react";
 import {
     CommandDialog,
@@ -58,6 +61,28 @@ export function CommandSearch() {
                 <CommandInput placeholder="Search for games or asset categories..." />
                 <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
+                    <CommandGroup heading="Quick Links">
+                        <CommandItem
+                            onSelect={() =>
+                                runCommand(() => router.push("/saved"))
+                            }
+                            className="transition-150 transition-all"
+                        >
+                            <BookmarkIcon size={20} className="mr-2" />
+                            <span>Saved Assets</span>
+                        </CommandItem>
+                        <CommandItem
+                            onSelect={() =>
+                                runCommand(() =>
+                                    router.push("/download-history"),
+                                )
+                            }
+                            className="transition-150 transition-all"
+                        >
+                            <HistoryIcon size={20} className="mr-2" />
+                            <span>Download History</span>
+                        </CommandItem>
+                    </CommandGroup>
                     <CommandGroup heading="Games">
                         {games.map((game) => (
                             <CommandItem
