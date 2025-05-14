@@ -22,6 +22,7 @@ import {
     ToggleRight,
     SquareMousePointer,
     Eye,
+    ArrowUpDown,
 } from "lucide-react";
 import { toast } from "sonner";
 import Masonry from "react-masonry-css";
@@ -41,56 +42,60 @@ interface AssetHandlerProps {
     category: string;
 }
 
-function filterAssets(
+function filterAndSortAssets(
     assets: Asset[],
     filter: string,
+    sort: string,
     search: string,
 ): Asset[] {
     let filtered = assets;
 
-    if (filter === "Fanmade") {
-        filtered = assets.filter((asset) => asset.name.includes("fanmade"));
-    } else if (filter === "Official") {
-        filtered = assets.filter((asset) => !asset.name.includes("fanmade"));
-    } else {
-        switch (filter) {
-            case "A-Z":
-                filtered = [...assets].sort((a, b) =>
-                    a.name.localeCompare(b.name),
-                );
-                break;
-            case "Z-A":
-                filtered = [...assets].sort((a, b) =>
-                    b.name.localeCompare(a.name),
-                );
-                break;
-            case "Newest":
-                filtered = [...assets].sort(
-                    (a, b) =>
-                        new Date(b.uploaded).getTime() -
-                        new Date(a.uploaded).getTime(),
-                );
-                break;
-            case "Oldest":
-                filtered = [...assets].sort(
-                    (a, b) =>
-                        new Date(a.uploaded).getTime() -
-                        new Date(b.uploaded).getTime(),
-                );
-                break;
-            case "File Size":
-                filtered = [...assets].sort((a, b) => b.size - a.size);
-                break;
-            default:
-                break;
-        }
+    // Filtering
+    if (filter === "Official") {
+        filtered = filtered.filter((asset) => !asset.name.includes("fanmade"));
+    } else if (filter === "Fanmade") {
+        filtered = filtered.filter((asset) => asset.name.includes("fanmade"));
     }
 
-    return filtered.filter((asset) =>
+    filtered = filtered.filter((asset) =>
         asset.name
             .toLowerCase()
             .includes(search.toLowerCase().replace(" ", "-")),
     );
+
+    switch (sort) {
+        case "A-Z":
+            filtered = [...filtered].sort((a, b) =>
+                a.name.localeCompare(b.name),
+            );
+            break;
+        case "Z-A":
+            filtered = [...filtered].sort((a, b) =>
+                b.name.localeCompare(a.name),
+            );
+            break;
+        case "Newest":
+            filtered = [...filtered].sort(
+                (a, b) =>
+                    new Date(b.uploaded).getTime() -
+                    new Date(a.uploaded).getTime(),
+            );
+            break;
+        case "Oldest":
+            filtered = [...filtered].sort(
+                (a, b) =>
+                    new Date(a.uploaded).getTime() -
+                    new Date(b.uploaded).getTime(),
+            );
+            break;
+        case "File Size":
+            filtered = [...filtered].sort((a, b) => b.size - a.size);
+            break;
+        default:
+            break;
+    }
+
+    return filtered;
 }
 
 export function AssetHandler({
@@ -99,21 +104,14 @@ export function AssetHandler({
     category,
 }: Readonly<AssetHandlerProps>) {
     const [search, setSearch] = React.useState<string>("");
-    const [filter, setFilter] =
-        React.useState<(typeof filterList)[number]>("Newest");
-    const filterList = [
-        "A-Z",
-        "Z-A",
-        "Newest",
-        "Oldest",
-        "File Size",
-        "Fanmade",
-        "Official",
-    ];
+    const [sort, setSort] = React.useState<string>("Newest");
+    const [filter, setFilter] = React.useState<string>("All");
+    const sortList = ["Newest", "Oldest", "A-Z", "Z-A", "File Size"];
+    const filterList = ["All", "Official", "Fanmade"];
 
     const filteredAssets = React.useMemo(
-        () => filterAssets(assets, filter, search),
-        [assets, filter, search],
+        () => filterAndSortAssets(assets, filter, sort, search),
+        [assets, filter, sort, search],
     );
 
     const breakpointColumnsObj = {
@@ -157,6 +155,11 @@ export function AssetHandler({
                             ? "Mode: Multi-Select"
                             : "Mode: View"}
                     </Button>
+                    <SortOptions
+                        sort={sort}
+                        setSort={setSort}
+                        sortList={sortList}
+                    />
                     <FilterOptions
                         filter={filter}
                         setFilter={setFilter}
@@ -300,35 +303,73 @@ function SelectAllAssets({
     );
 }
 
-function FilterOptions({
-    filter,
-    setFilter,
-    filterList,
-}: Readonly<{
-    filter: string;
-    setFilter: (filter: string) => void;
-    filterList: string[];
-}>) {
+function SortOptions({
+    sort,
+    setSort,
+    sortList,
+}: {
+    sort: string;
+    setSort: (s: string) => void;
+    sortList: string[];
+}) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button className="w-[150px]" variant={"outline"}>
+                <Button className="" variant={"outline"}>
                     <div className="flex flex-row gap-2 items-center">
-                        <FilterIcon size={16} className="translate-y-[1px]" />
-                        {filter}
+                        <ArrowUpDown size={16} className="translate-y-[1px]" />
                     </div>
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-                <DropdownMenuLabel>Filter By</DropdownMenuLabel>
+                <DropdownMenuLabel>Sort By</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuRadioGroup value={sort} onValueChange={setSort}>
+                    {sortList.map((sortOption) => (
+                        <DropdownMenuRadioItem
+                            key={sortOption}
+                            value={sortOption}
+                        >
+                            {sortOption}
+                        </DropdownMenuRadioItem>
+                    ))}
+                </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+        </DropdownMenu>
+    );
+}
+
+function FilterOptions({
+    filter,
+    setFilter,
+    filterList,
+}: {
+    filter: string;
+    setFilter: (f: string) => void;
+    filterList: string[];
+}) {
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button className="" variant={"outline"}>
+                    <div className="flex flex-row gap-2 items-center">
+                        <FilterIcon size={16} className="translate-y-[1px]" />
+                    </div>
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+                <DropdownMenuLabel>Filter</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuRadioGroup
                     value={filter}
                     onValueChange={setFilter}
                 >
-                    {filterList.map((filter) => (
-                        <DropdownMenuRadioItem key={filter} value={filter}>
-                            {filter}
+                    {filterList.map((filterOption) => (
+                        <DropdownMenuRadioItem
+                            key={filterOption}
+                            value={filterOption}
+                        >
+                            {filterOption}
                         </DropdownMenuRadioItem>
                     ))}
                 </DropdownMenuRadioGroup>
