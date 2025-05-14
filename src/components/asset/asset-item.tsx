@@ -22,6 +22,7 @@ import {
     isAssetSelected,
     getSelectMode,
 } from "~/redux/slice/asset-slice";
+import { Badge } from "../ui/badge";
 
 export function AssetItem({
     asset,
@@ -77,11 +78,49 @@ export function AssetItem({
                         </Button>
                     </div>
                 </Card>
-                <p className="line-clamp-1 text-ellipsis">{asset.name}</p>
+                <div className="flex items-center gap-2">
+                    {asset.name.includes("fanmade") && (
+                        <Badge
+                            variant="outline"
+                            className="w-fit text-md bg-[#BFB7D6]/20 border-[#BFB7D6]/40"
+                        >
+                            Fanmade
+                        </Badge>
+                    )}
+                    <p className="line-clamp-1 text-ellipsis">
+                        {asset.name.includes("fanmade")
+                            ? asset.name
+                                  .replace("fanmade", "")
+                                  .replace(/--+/g, "-")
+                                  .replace(/^-+|-+$/g, "")
+                            : asset.name}
+                    </p>
+                </div>
             </div>
             <DialogContent aria-describedby={undefined}>
                 <DialogHeader>
-                    <DialogTitle>{asset.name}</DialogTitle>
+                    <DialogTitle></DialogTitle>
+                    <div className="flex items-center gap-2">
+                        {asset.name.includes("fanmade") && (
+                            <Badge
+                                variant="outline"
+                                className="w-fit text-md bg-[#BFB7D6]/20 border-[#BFB7D6]/40"
+                            >
+                                Fanmade
+                            </Badge>
+                        )}
+                        <p className="line-clamp-1 text-ellipsis">
+                            {asset.name.includes("fanmade")
+                                ? asset.name
+                                      .replace("fanmade", "")
+                                      .replace(/--+/g, "-")
+                                      .replace(/^-+|-+$/g, "")
+                                : asset.name}
+                        </p>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                        {asset.size && bytesToFileSize(asset.size)}
+                    </p>
                 </DialogHeader>
                 <div className="relative flex items-center justify-center">
                     <img

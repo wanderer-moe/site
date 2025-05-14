@@ -46,35 +46,45 @@ function filterAssets(
     filter: string,
     search: string,
 ): Asset[] {
-    switch (filter) {
-        case "A-Z":
-            assets.sort((a, b) => a.name.localeCompare(b.name));
-            break;
-        case "Z-A":
-            assets.sort((a, b) => b.name.localeCompare(a.name));
-            break;
-        case "Newest":
-            assets.sort(
-                (a, b) =>
-                    new Date(b.uploaded).getTime() -
-                    new Date(a.uploaded).getTime(),
-            );
-            break;
-        case "Oldest":
-            assets.sort(
-                (a, b) =>
-                    new Date(a.uploaded).getTime() -
-                    new Date(b.uploaded).getTime(),
-            );
-            break;
-        case "File Size":
-            assets.sort((a, b) => b.size - a.size);
-            break;
-        default:
-            break;
+    let filtered = assets;
+
+    if (filter === "Fanmade") {
+        filtered = assets.filter((asset) => asset.name.includes("fanmade"));
+    } else {
+        switch (filter) {
+            case "A-Z":
+                filtered = [...assets].sort((a, b) =>
+                    a.name.localeCompare(b.name),
+                );
+                break;
+            case "Z-A":
+                filtered = [...assets].sort((a, b) =>
+                    b.name.localeCompare(a.name),
+                );
+                break;
+            case "Newest":
+                filtered = [...assets].sort(
+                    (a, b) =>
+                        new Date(b.uploaded).getTime() -
+                        new Date(a.uploaded).getTime(),
+                );
+                break;
+            case "Oldest":
+                filtered = [...assets].sort(
+                    (a, b) =>
+                        new Date(a.uploaded).getTime() -
+                        new Date(b.uploaded).getTime(),
+                );
+                break;
+            case "File Size":
+                filtered = [...assets].sort((a, b) => b.size - a.size);
+                break;
+            default:
+                break;
+        }
     }
 
-    return assets.filter((asset) =>
+    return filtered.filter((asset) =>
         asset.name
             .toLowerCase()
             .includes(search.toLowerCase().replace(" ", "-")),
@@ -89,7 +99,14 @@ export function AssetHandler({
     const [search, setSearch] = React.useState<string>("");
     const [filter, setFilter] =
         React.useState<(typeof filterList)[number]>("Newest");
-    const filterList = ["A-Z", "Z-A", "Newest", "Oldest", "File Size"];
+    const filterList = [
+        "A-Z",
+        "Z-A",
+        "Newest",
+        "Oldest",
+        "File Size",
+        "Fanmade",
+    ];
 
     const filteredAssets = React.useMemo(
         () => filterAssets(assets, filter, search),
